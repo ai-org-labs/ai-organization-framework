@@ -1,0 +1,655 @@
+{
+  "qifVersion": "0.2.1",
+  "packageId": "QIFPKG-AOF-V5-001",
+  "title": "AOF v5 Quality Intent Package",
+  "missions": [
+    {
+      "id": "MIS-AOF-QUALITY",
+      "statement": "AOF quality means repeatedly choosing the right problem, assigning the right actors, making runtime-backed decisions, exposing state to humans, governing release truth, and learning from outcomes without replacing evidence with activity volume.",
+      "stakeholderRefs": ["STK-OPERATOR", "STK-PROJECT", "STK-ACTOR", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "status": "active"
+    }
+  ],
+  "stakeholders": [
+    {
+      "id": "STK-OPERATOR",
+      "name": "Operator or project owner",
+      "category": "human",
+      "needs": ["Understand what AOF is doing, why it is doing it, and what should happen next."],
+      "harmsToAvoid": ["AI appears busy while working on the wrong problem or hiding weak evidence."]
+    },
+    {
+      "id": "STK-PROJECT",
+      "name": "Managed-project user",
+      "category": "organization",
+      "needs": ["Bring AOF into a project safely with clear topology, validation, and release boundaries."],
+      "harmsToAvoid": ["AOF automation bypasses project governance or writes unsafe changes into product main."]
+    },
+    {
+      "id": "STK-ACTOR",
+      "name": "AI actor or Codex worker",
+      "category": "agent",
+      "needs": ["Receive scoped, skillful, evidence-backed assignments with resources, policies, and review criteria."],
+      "harmsToAvoid": ["Generic roleplay without capability fit, resource context, or policy constraints."]
+    },
+    {
+      "id": "STK-GOVERNANCE",
+      "name": "Governance owner",
+      "category": "council",
+      "needs": ["Review decisions, release claims, and quality verdicts through traceable artifacts."],
+      "harmsToAvoid": ["Release or quality claims drift from runtime artifacts."]
+    }
+  ],
+  "contexts": [
+    {
+      "id": "CTX-AOF-V5",
+      "scope": "AOF v5.0.0 self-hosting and managed-project runtime quality baseline.",
+      "domain": "AI organization operating system",
+      "constraints": [
+        "Do not treat activity counts as quality.",
+        "Do not treat number of agents, roles, artifacts, tests, releases, or documentation volume as quality itself.",
+        "Do not treat dashboard existence or viewer visual appeal as quality itself.",
+        "Do not convert raw needs directly into projects.",
+        "Do not claim runtime-backed quality without command or artifact evidence.",
+        "Do not claim actor skillfulness without skill, capability, resource, policy, and review evidence.",
+        "Do not call an iteration a loop unless it has goal, execution, verification, and stop condition.",
+        "Do not automate a flow before a manual run has proven its artifact chain, review path, and stop boundary."
+      ],
+      "assumptions": [
+        "AOF v5.0.0 release artifacts are current.",
+        "QIF v0.2.1 package validation proves structural integrity but not semantic truth.",
+        "Human governance remains required for high-impact quality claims."
+      ],
+      "timeHorizon": "post-v5.0 baseline"
+    }
+  ],
+  "risks": [
+    {
+      "id": "RSK-WRONG-PROBLEM",
+      "statement": "AOF may execute well on a need that should have been reframed, rejected, deferred, or tested first.",
+      "stakeholderRefs": ["STK-OPERATOR", "STK-PROJECT"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "severity": "critical",
+      "likelihood": "possible",
+      "detectability": "moderate",
+      "riskAppetite": "averse",
+      "lossBoundary": "No project should be created from a raw need without Need Validation or an explicit experiment requirement."
+    },
+    {
+      "id": "RSK-UNBACKED-AI",
+      "statement": "The orchestrator may answer, review, or self-review without actually using the AOF runtime.",
+      "stakeholderRefs": ["STK-OPERATOR", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "severity": "high",
+      "likelihood": "possible",
+      "detectability": "easy",
+      "riskAppetite": "minimal",
+      "lossBoundary": "Direction, review, self-review, and retrospective answers must include runtime command or artifact references."
+    },
+    {
+      "id": "RSK-UNSKILLFUL-ACTOR",
+      "statement": "AOF may assign a generic actor without enough skill, capability, resource, policy, or review evidence.",
+      "stakeholderRefs": ["STK-ACTOR", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "severity": "high",
+      "likelihood": "possible",
+      "detectability": "moderate",
+      "riskAppetite": "cautious",
+      "lossBoundary": "Governed actor execution must be backed by actor skill packet, assignment evaluation, and execution gate evidence."
+    },
+    {
+      "id": "RSK-INVISIBLE-RUNTIME",
+      "statement": "AOF runtime state may be technically present but not recognizable to the human operator.",
+      "stakeholderRefs": ["STK-OPERATOR"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "severity": "high",
+      "likelihood": "likely",
+      "detectability": "moderate",
+      "riskAppetite": "cautious",
+      "lossBoundary": "The operator must be able to identify current mission, release, frontier, blockers, next action, and runtime-backed status without reading raw JSON."
+    },
+    {
+      "id": "RSK-RELEASE-DRIFT",
+      "statement": "AOF release claims may drift from package metadata, active release manifest, docs, tasks, or GitHub tags.",
+      "stakeholderRefs": ["STK-PROJECT", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "severity": "high",
+      "likelihood": "possible",
+      "detectability": "easy",
+      "riskAppetite": "minimal",
+      "lossBoundary": "Release-state audit must pass before a release is considered closed."
+    },
+    {
+      "id": "RSK-ACTIVITY-SUBSTITUTION",
+      "statement": "AOF quality may be confused with counts of agents, roles, artifacts, tests, releases, documentation, dashboards, viewers, or reviews.",
+      "stakeholderRefs": ["STK-OPERATOR", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "severity": "medium",
+      "likelihood": "likely",
+      "detectability": "moderate",
+      "riskAppetite": "averse",
+      "lossBoundary": "Activity-count and presentation indicators must be evidence-only and linked to a Quality Intent, risk, and loss boundary."
+    },
+    {
+      "id": "RSK-UNBOUNDED-LOOP",
+      "statement": "AOF may treat repeated AI output as a loop even when no independent verification, stop condition, or accepted-change evidence exists.",
+      "stakeholderRefs": ["STK-OPERATOR", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "severity": "high",
+      "likelihood": "possible",
+      "detectability": "moderate",
+      "riskAppetite": "minimal",
+      "lossBoundary": "AOF loop claims must include goal, execution, verification, stop condition, and budget or human-review boundary."
+    }
+  ],
+  "knowledgeSources": [
+    {
+      "id": "SRC-QIF-V021",
+      "sourceType": "external-standard",
+      "title": "Quality Intent Framework v0.2.1",
+      "owner": "ai-org-labs/QualityIntentFramework",
+      "reliability": 0.82,
+      "accessMode": "direct",
+      "extractionMethod": "schema and operational framework review"
+    },
+    {
+      "id": "SRC-AOF-CORE",
+      "sourceType": "document",
+      "title": "AOF core model",
+      "owner": "AOF project",
+      "reliability": 0.84,
+      "accessMode": "direct",
+      "extractionMethod": "quality intent extraction from core boundaries"
+    },
+    {
+      "id": "SRC-AOF-V5",
+      "sourceType": "document",
+      "title": "AOF v5.0 release definition and checklist",
+      "owner": "AOF project",
+      "reliability": 0.86,
+      "accessMode": "direct",
+      "extractionMethod": "release gate extraction"
+    },
+    {
+      "id": "SRC-AOF-RUNTIME",
+      "sourceType": "operation",
+      "title": "AOF runtime active release and situation assessment artifacts",
+      "owner": "AOF runtime",
+      "reliability": 0.84,
+      "accessMode": "direct",
+      "extractionMethod": "runtime command output and artifact review"
+    }
+  ],
+  "qualityIntents": [
+    {
+      "id": "QIN-AOF-NEED",
+      "statement": "AOF must validate or reframe an incoming need before creating a project.",
+      "purpose": "Prevent high-quality execution on the wrong problem.",
+      "stakeholderRefs": ["STK-OPERATOR", "STK-PROJECT"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "riskRefs": ["RSK-WRONG-PROBLEM"],
+      "sourceRefs": ["SRC-AOF-CORE", "SRC-QIF-V021"],
+      "governanceOwner": "Product Council",
+      "status": "active",
+      "acceptanceCriteria": [
+        "Raw needs are not directly converted into project work.",
+        "Need Validation can reject, defer, request evidence, or require an experiment.",
+        "Project Charter is based on a Validated Need."
+      ]
+    },
+    {
+      "id": "QIN-AOF-RUNTIME",
+      "statement": "AOF direction, review, self-review, and retrospective answers must be runtime-backed.",
+      "purpose": "Prevent orchestrator answers from drifting into ungrounded analysis.",
+      "stakeholderRefs": ["STK-OPERATOR", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "riskRefs": ["RSK-UNBACKED-AI"],
+      "sourceRefs": ["SRC-AOF-RUNTIME", "SRC-AOF-V5"],
+      "governanceOwner": "Operations Council",
+      "status": "active",
+      "acceptanceCriteria": [
+        "At least one runtime command is executed for direction, review, self-review, or retrospective claims.",
+        "The answer includes command or artifact references.",
+        "Stale or missing runtime state weakens the answer instead of being hidden.",
+        "Loop evidence includes goal, execution, verification, and stop condition."
+      ]
+    },
+    {
+      "id": "QIN-AOF-SKILLFUL",
+      "statement": "AOF actor assignment must be skillful rather than generic.",
+      "purpose": "Ensure actors work from explicit skill, capability, resource, policy, output, and review evidence.",
+      "stakeholderRefs": ["STK-ACTOR", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "riskRefs": ["RSK-UNSKILLFUL-ACTOR"],
+      "sourceRefs": ["SRC-AOF-V5", "SRC-AOF-RUNTIME"],
+      "governanceOwner": "Architecture Council",
+      "status": "active",
+      "acceptanceCriteria": [
+        "Actor skill packet exists before governed actor execution.",
+        "Capability fit is explicit.",
+        "Maker and Checker responsibilities are separated in evidence.",
+        "Resource and policy gates are evaluated.",
+        "Weak or missing skill evidence can block, degrade, or request evidence."
+      ]
+    },
+    {
+      "id": "QIN-AOF-RECOGNITION",
+      "statement": "AOF runtime state must be recognizable to a human operator.",
+      "purpose": "Make organizational state understandable without raw JSON reconstruction.",
+      "stakeholderRefs": ["STK-OPERATOR"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "riskRefs": ["RSK-INVISIBLE-RUNTIME"],
+      "sourceRefs": ["SRC-AOF-V5", "SRC-AOF-RUNTIME"],
+      "governanceOwner": "Product Council",
+      "status": "active",
+      "acceptanceCriteria": [
+        "Current mission, release, frontier, next action, blockers, and runtime-backed status are visible.",
+        "Human Recognition Interface does not become a second source of truth.",
+        "Visible actor state is derived from canonical runtime artifacts."
+      ]
+    },
+    {
+      "id": "QIN-AOF-RELEASE",
+      "statement": "AOF release state must stay truthful and auditable.",
+      "purpose": "Prevent release claims from drifting from package, runtime, docs, task, and GitHub evidence.",
+      "stakeholderRefs": ["STK-PROJECT", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "riskRefs": ["RSK-RELEASE-DRIFT"],
+      "sourceRefs": ["SRC-AOF-V5", "SRC-AOF-RUNTIME"],
+      "governanceOwner": "Operations Council",
+      "status": "active",
+      "acceptanceCriteria": [
+        "Package metadata, bootstrap version, active release manifest, release definition, checklist, and notes align.",
+        "Shipped-release tasks are not left open.",
+        "Release-state audit passes.",
+        "GitHub tag and release claims match local release artifacts."
+      ]
+    },
+    {
+      "id": "QIN-AOF-LEARNING",
+      "statement": "AOF must preserve learning and governance loops.",
+      "purpose": "Keep post-release and low-confidence situations from turning into automatic implementation momentum.",
+      "stakeholderRefs": ["STK-OPERATOR", "STK-GOVERNANCE"],
+      "contextRefs": ["CTX-AOF-V5"],
+      "riskRefs": ["RSK-ACTIVITY-SUBSTITUTION", "RSK-UNBOUNDED-LOOP"],
+      "sourceRefs": ["SRC-QIF-V021", "SRC-AOF-RUNTIME"],
+      "governanceOwner": "Operations Council",
+      "status": "active",
+      "acceptanceCriteria": [
+        "Outcome, self-audit, alignment pulse, or review evidence can update the next value slice.",
+        "Low-confidence, conflicting, or context-mismatched results trigger governance review.",
+        "Next implementation work is not opened by inertia after release closure.",
+        "Loops define max iterations, token or cost budget, confidence threshold, human review threshold, or stop/defer/reopen rule.",
+        "Accepted-change economics can be used as evidence only when tied to a Quality Intent and loss boundary."
+      ]
+    }
+  ],
+  "evidenceItems": [
+    {
+      "id": "EVD-AOF-NEED",
+      "sourceRef": "SRC-AOF-CORE",
+      "intentRefs": ["QIN-AOF-NEED"],
+      "method": "document analysis",
+      "finding": "AOF core and README define Need Validation as a mandatory pre-project gate and allow reject, defer, request evidence, or require experiment outcomes.",
+      "polarity": "supports",
+      "confidenceInputs": {
+        "sourceReliability": 0.84,
+        "relevance": 0.92,
+        "coverage": 0.84,
+        "recency": 0.82,
+        "independence": 0.68,
+        "contradictionPenalty": 0.03
+      },
+      "confidence": 0.8,
+      "collectedAt": "2026-06-22"
+    },
+    {
+      "id": "EVD-AOF-RUNTIME",
+      "sourceRef": "SRC-AOF-RUNTIME",
+      "intentRefs": ["QIN-AOF-RUNTIME"],
+      "method": "runtime command review",
+      "finding": "situation-assess reports active release 5.0.0, no truth conflicts, no primary frontier task, and runtime-backed next action for direction review.",
+      "polarity": "supports",
+      "confidenceInputs": {
+        "sourceReliability": 0.84,
+        "relevance": 0.94,
+        "coverage": 0.86,
+        "recency": 0.95,
+        "independence": 0.62,
+        "contradictionPenalty": 0.02
+      },
+      "confidence": 0.83,
+      "collectedAt": "2026-06-22"
+    },
+    {
+      "id": "EVD-AOF-SKILLFUL",
+      "sourceRef": "SRC-AOF-V5",
+      "intentRefs": ["QIN-AOF-SKILLFUL"],
+      "method": "release artifact analysis",
+      "finding": "v5.0 release artifacts define actor skill packet, assignment evaluation, execution gate, negative benchmark, and HRI projection as release gates.",
+      "polarity": "supports",
+      "confidenceInputs": {
+        "sourceReliability": 0.86,
+        "relevance": 0.94,
+        "coverage": 0.9,
+        "recency": 0.95,
+        "independence": 0.62,
+        "contradictionPenalty": 0.02
+      },
+      "confidence": 0.85,
+      "collectedAt": "2026-06-22"
+    },
+    {
+      "id": "EVD-AOF-RECOGNITION",
+      "sourceRef": "SRC-AOF-RUNTIME",
+      "intentRefs": ["QIN-AOF-RECOGNITION"],
+      "method": "visibility artifact review",
+      "finding": "Current visibility artifacts include operator brief, mission control, runtime execution, timeline, tree position, and Skillful Actor HRI projection evidence.",
+      "polarity": "supports",
+      "confidenceInputs": {
+        "sourceReliability": 0.84,
+        "relevance": 0.88,
+        "coverage": 0.78,
+        "recency": 0.95,
+        "independence": 0.58,
+        "contradictionPenalty": 0.07
+      },
+      "confidence": 0.75,
+      "collectedAt": "2026-06-22"
+    },
+    {
+      "id": "EVD-AOF-RELEASE",
+      "sourceRef": "SRC-AOF-RUNTIME",
+      "intentRefs": ["QIN-AOF-RELEASE"],
+      "method": "release-state audit review",
+      "finding": "v5.0.0 active release manifest, bootstrap version, governance release contract, release definition, checklist, notes, local tag, and GitHub release were aligned at release closure.",
+      "polarity": "supports",
+      "confidenceInputs": {
+        "sourceReliability": 0.84,
+        "relevance": 0.95,
+        "coverage": 0.9,
+        "recency": 0.95,
+        "independence": 0.66,
+        "contradictionPenalty": 0.01
+      },
+      "confidence": 0.86,
+      "collectedAt": "2026-06-22"
+    },
+    {
+      "id": "EVD-AOF-LEARNING",
+      "sourceRef": "SRC-QIF-V021",
+      "intentRefs": ["QIN-AOF-LEARNING"],
+      "method": "framework alignment analysis",
+      "finding": "QIF requires quality intents, evidence, verdicts, and governance; AOF post-v5.0 state intentionally defers next implementation work to runtime-backed direction review and now treats loop claims as bounded goal/execution/verification/stop-condition claims.",
+      "polarity": "supports",
+      "confidenceInputs": {
+        "sourceReliability": 0.82,
+        "relevance": 0.86,
+        "coverage": 0.74,
+        "recency": 0.9,
+        "independence": 0.68,
+        "contradictionPenalty": 0.04
+      },
+      "confidence": 0.76,
+      "collectedAt": "2026-06-22"
+    }
+  ],
+  "indicators": [
+    {
+      "id": "IND-AOF-TESTS",
+      "name": "Full test pass count",
+      "metricKind": "activity-count",
+      "value": 194,
+      "unit": "tests",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-RUNTIME",
+      "linkedRiskRef": "RSK-ACTIVITY-SUBSTITUTION"
+    },
+    {
+      "id": "IND-AOF-AGENTS",
+      "name": "Agent count",
+      "metricKind": "activity-count",
+      "value": "not quality itself",
+      "unit": "agents",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-SKILLFUL",
+      "linkedRiskRef": "RSK-ACTIVITY-SUBSTITUTION"
+    },
+    {
+      "id": "IND-AOF-ROLES",
+      "name": "Role count",
+      "metricKind": "activity-count",
+      "value": "not quality itself",
+      "unit": "roles",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-SKILLFUL",
+      "linkedRiskRef": "RSK-ACTIVITY-SUBSTITUTION"
+    },
+    {
+      "id": "IND-AOF-ARTIFACTS",
+      "name": "Artifact count",
+      "metricKind": "activity-count",
+      "value": "not quality itself",
+      "unit": "artifacts",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-RUNTIME",
+      "linkedRiskRef": "RSK-ACTIVITY-SUBSTITUTION"
+    },
+    {
+      "id": "IND-AOF-RELEASES",
+      "name": "Release count",
+      "metricKind": "activity-count",
+      "value": "not quality itself",
+      "unit": "releases",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-RELEASE",
+      "linkedRiskRef": "RSK-ACTIVITY-SUBSTITUTION"
+    },
+    {
+      "id": "IND-AOF-DOCS",
+      "name": "Documentation volume",
+      "metricKind": "activity-count",
+      "value": "not quality itself",
+      "unit": "documents",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-LEARNING",
+      "linkedRiskRef": "RSK-ACTIVITY-SUBSTITUTION"
+    },
+    {
+      "id": "IND-AOF-DASHBOARD",
+      "name": "Dashboard or viewer presence",
+      "metricKind": "experience-signal",
+      "value": "not quality itself",
+      "unit": "surface",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-RECOGNITION",
+      "linkedRiskRef": "RSK-ACTIVITY-SUBSTITUTION"
+    },
+    {
+      "id": "IND-AOF-COST-PER-ACCEPTED-CHANGE",
+      "name": "Cost per accepted change",
+      "metricKind": "accepted-change-economics",
+      "value": "candidate evidence",
+      "unit": "cost/change",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-LEARNING",
+      "linkedRiskRef": "RSK-UNBOUNDED-LOOP"
+    },
+    {
+      "id": "IND-AOF-ACCEPTED-CHANGE-RATE",
+      "name": "Accepted change rate",
+      "metricKind": "accepted-change-economics",
+      "value": "candidate evidence",
+      "unit": "ratio",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-LEARNING",
+      "linkedRiskRef": "RSK-UNBOUNDED-LOOP"
+    },
+    {
+      "id": "IND-AOF-DISCARDED-OUTPUT-RATE",
+      "name": "Discarded output rate",
+      "metricKind": "accepted-change-economics",
+      "value": "candidate evidence",
+      "unit": "ratio",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-LEARNING",
+      "linkedRiskRef": "RSK-UNBOUNDED-LOOP"
+    },
+    {
+      "id": "IND-AOF-VERIFY",
+      "name": "Organization verification pass count",
+      "metricKind": "activity-count",
+      "value": 148,
+      "unit": "checks",
+      "interpretation": "evidence-only",
+      "linkedIntentRef": "QIN-AOF-RELEASE",
+      "linkedRiskRef": "RSK-ACTIVITY-SUBSTITUTION"
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "EVL-AOF-V5",
+      "scope": "AOF v5.0.0 baseline quality definition using QIF v0.2.1.",
+      "evaluatedIntentRefs": ["QIN-AOF-NEED", "QIN-AOF-RUNTIME", "QIN-AOF-SKILLFUL", "QIN-AOF-RECOGNITION", "QIN-AOF-RELEASE", "QIN-AOF-LEARNING"],
+      "evidenceRefs": ["EVD-AOF-NEED", "EVD-AOF-RUNTIME", "EVD-AOF-SKILLFUL", "EVD-AOF-RECOGNITION", "EVD-AOF-RELEASE", "EVD-AOF-LEARNING"],
+      "confidencePolicy": {
+        "partialThreshold": 0.6,
+        "achievedThreshold": 0.75
+      },
+      "verdicts": [
+        {
+          "intentRef": "QIN-AOF-NEED",
+          "decision": "partially-achieved",
+          "confidence": 0.8,
+          "evidenceRefs": ["EVD-AOF-NEED"],
+          "rationale": "structurally_achieved=yes; runtime_achieved=partial; operator_validated=not-yet; externally_validated=not-yet. Need Validation is explicit in AOF core boundaries and remains a project-creation gate.",
+          "residualRisk": "Semantic need quality still depends on real user evidence, human review, and operational feedback."
+        },
+        {
+          "intentRef": "QIN-AOF-RUNTIME",
+          "decision": "partially-achieved",
+          "confidence": 0.83,
+          "evidenceRefs": ["EVD-AOF-RUNTIME"],
+          "rationale": "structurally_achieved=yes; runtime_achieved=yes; operator_validated=partial; externally_validated=not-yet. Current runtime state is inspectable and direction claims are tied to runtime commands and artifacts.",
+          "residualRisk": "Future operators can still bypass runtime unless enforcement and visibility remain active."
+        },
+        {
+          "intentRef": "QIN-AOF-SKILLFUL",
+          "decision": "partially-achieved",
+          "confidence": 0.85,
+          "evidenceRefs": ["EVD-AOF-SKILLFUL"],
+          "rationale": "structurally_achieved=yes; runtime_achieved=yes; operator_validated=not-yet; externally_validated=not-yet. v5 release gates and artifacts make actor skillfulness explicit and falsifiable.",
+          "residualRisk": "Skill evidence quality will need real-world actor performance feedback and reproduction across projects."
+        },
+        {
+          "intentRef": "QIN-AOF-RECOGNITION",
+          "decision": "partially-achieved",
+          "confidence": 0.75,
+          "evidenceRefs": ["EVD-AOF-RECOGNITION"],
+          "rationale": "structurally_achieved=yes; runtime_achieved=yes; operator_validated=partial; externally_validated=not-yet. Operator-facing artifacts expose current state and Skillful Actor projection from canonical runtime artifacts.",
+          "residualRisk": "Visual comprehension and operator UX remain future Quality Intent candidates, such as QIN-AOF-HUMAN-UX or QIN-AOF-VISUAL-COMPREHENSION."
+        },
+        {
+          "intentRef": "QIN-AOF-RELEASE",
+          "decision": "partially-achieved",
+          "confidence": 0.86,
+          "evidenceRefs": ["EVD-AOF-RELEASE"],
+          "rationale": "structurally_achieved=yes; runtime_achieved=yes; operator_validated=partial; externally_validated=not-yet. Release state was aligned across package, bootstrap, active manifest, docs, task state, tag, and GitHub release.",
+          "residualRisk": "Future releases must rerun release-state audit and avoid open shipped-release tasks; current package does not prove market or semantic value."
+        },
+        {
+          "intentRef": "QIN-AOF-LEARNING",
+          "decision": "partially-achieved",
+          "confidence": 0.76,
+          "evidenceRefs": ["EVD-AOF-LEARNING"],
+          "rationale": "structurally_achieved=yes; runtime_achieved=partial; operator_validated=not-yet; externally_validated=not-yet. QIF governance concepts align with AOF's post-release direction-review boundary and bounded loop definition.",
+          "residualRisk": "Learning loop strength depends on future outcome evidence, reproduction tests, operational feedback, and governance decisions."
+        }
+      ],
+      "evaluatorRefs": ["Visionary", "Builder", "Guardian"]
+    }
+  ],
+  "governanceEvents": [
+    {
+      "id": "GOV-AOF-QIF",
+      "eventType": "introduce-intent",
+      "targetRef": "QIN-AOF-RUNTIME",
+      "reason": "AOF must prevent non-runtime-backed orchestrator answers from being treated as quality decisions.",
+      "decision": "Approved as baseline AOF quality intent.",
+      "approverRefs": ["Visionary", "Builder", "Guardian"],
+      "evidenceRefs": ["EVD-AOF-RUNTIME"]
+    },
+    {
+      "id": "GOV-AOF-SKILL",
+      "eventType": "introduce-intent",
+      "targetRef": "QIN-AOF-SKILLFUL",
+      "reason": "v5.0 makes actor skillfulness a first-class release quality boundary.",
+      "decision": "Approved as baseline AOF quality intent.",
+      "approverRefs": ["Visionary", "Builder", "Guardian"],
+      "evidenceRefs": ["EVD-AOF-SKILLFUL"]
+    },
+    {
+      "id": "GOV-AOF-RECOGNITION",
+      "eventType": "introduce-intent",
+      "targetRef": "QIN-AOF-RECOGNITION",
+      "reason": "Human Recognition should remain part of the current baseline while visual comprehension and operator UX remain future Quality Intent candidates.",
+      "decision": "Approved as baseline intent with residual UX validation risk.",
+      "approverRefs": ["Visionary", "Builder", "Guardian"],
+      "evidenceRefs": ["EVD-AOF-RECOGNITION"]
+    }
+  ],
+  "acceptanceGates": [
+    {
+      "id": "GAT-AOF-QIF",
+      "name": "AOF QIF quality baseline gate",
+      "requiredArtifactRefs": [
+        "docs/aof-qif-quality-definition.md",
+        ".aof/quality/QIFPKG-AOF-V5-001.json",
+        "docs/v5.0-release-definition.md",
+        "docs/v5.0-release-checklist.md",
+        "docs/v5.0.0-release-notes.md",
+        "README.md",
+        "package.json"
+      ],
+      "criteria": [
+        {
+          "statement": "Quality is defined by Quality Intents, risks, evidence, verdicts, and acceptance gates rather than activity volume.",
+          "status": "pass"
+        },
+        {
+          "statement": "Each Quality Intent links to stakeholder value and a loss boundary risk.",
+          "status": "pass"
+        },
+        {
+          "statement": "Activity-count indicators are evidence-only.",
+          "status": "pass"
+        },
+        {
+          "statement": "Verdicts are traceable to evidence and reproducible confidence inputs.",
+          "status": "pass"
+        },
+        {
+          "statement": "Current verdicts distinguish structural and runtime achievement from operator and external validation.",
+          "status": "pass"
+        },
+        {
+          "statement": "Validator pass is not treated as semantic truth.",
+          "status": "pass"
+        },
+        {
+          "statement": "Low-confidence, conflicting, or context-mismatched results require governance review instead of hidden acceptance.",
+          "status": "pass"
+        },
+        {
+          "statement": "Loop claims require goal, execution, verification, stop condition, and budget or human-review boundary.",
+          "status": "pass"
+        },
+        {
+          "statement": "Accepted-change economics are candidate evidence only, not standalone quality proof.",
+          "status": "pass"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "view_type": "operator_brief",
+  "generated_at": "2026-06-22T14:32:56.024Z",
+  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Select the next frontier after v5.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
+  "current_state": {
+    "release_version": "5.0.0",
+    "active_release_track": "v5.0",
+    "release_definition_ref": "docs/v5.0-release-definition.md",
+    "current_runtime_stage": "frontier-definition-needed",
+    "operating_goal": "Select the next AOF frontier after the v5.0.0 Skillful Actor Runtime release through a runtime-backed direction review before opening new implementation work.",
+    "next_value_slice": "Select the next frontier after v5.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
+    "primary_frontier_task": null,
+    "skillful_actor_projection": {
+      "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
+      "projection_id": "SAHRI-TASK-054-PROOF",
+      "actor": {
+        "actor_ref": "codex",
+        "role_ref": "builder",
+        "team_ref": "runtime-team",
+        "character_label": "Builder",
+        "execution_mode": "single-actor"
+      },
+      "visible_state": {
+        "assignment_state": "selected",
+        "execution_gate_state": "requires-council-review",
+        "confidence_label": "medium",
+        "benchmark_status": "pass",
+        "council_review_needed": true,
+        "speech_bubble": "I need council review before I should execute.",
+        "current_action": "Implement actor skill packet writer",
+        "visible_blockers": [
+          "policy outcome requires-review: policy-runtime-backed-answer-discipline"
+        ],
+        "next_action": "Submit the gate packet to council review before actor execution."
+      },
+      "proof_chain": [
+        {
+          "step": "actor-skill-packet",
+          "artifact_ref": ".aof/artifacts/benchmarks/fixtures/ASP-TASK-050-BUILDER.json",
+          "state": "draft"
+        },
+        {
+          "step": "actor-assignment-evaluation",
+          "artifact_ref": ".aof/artifacts/benchmarks/fixtures/AAE-TASK-051-SELECTED.json",
+          "state": "selected"
+        },
+        {
+          "step": "resource-and-policy-gate",
+          "artifact_ref": ".aof/artifacts/benchmarks/fixtures/AEG-TASK-052-REQUIRES-REVIEW.json",
+          "state": "allowed/requires-council-review"
+        },
+        {
+          "step": "actor-execution-gate",
+          "artifact_ref": ".aof/artifacts/benchmarks/fixtures/AEG-TASK-052-REQUIRES-REVIEW.json",
+          "state": "requires-council-review"
+        },
+        {
+          "step": "skillful-actor-benchmark",
+          "artifact_ref": ".aof/artifacts/benchmarks/fixtures/SAB-TASK-053-GREEN.json",
+          "state": "pass"
+        }
+      ]
+    }
+  },
+  "why_now": {
+    "summary": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
+    "reasons": [
+      "The active release baseline is 5.0.0 and the runtime is now targeting the next track.",
+      "The current operating goal and next value slice both point at skillful actor assignment: skills, capabilities, resources, policies, and review evidence should shape who does the work."
+    ],
+    "evidence_refs": [
+      "docs/v5.0-release-definition.md",
+      ".aof/goals/operating-goal.json",
+      ".aof/goals/next-value-slice.json",
+      ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
+    ]
+  },
+  "blockers": [],
+  "next_action": {
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Select the next frontier after v5.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
+    "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
+    "artifact_ref": ".aof/goals/next-value-slice.json"
+  },
+  "operator_answers": {
+    "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
+    "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
+    "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
+    "what_should_happen_next": "Run a runtime-backed direction review before opening the next implementation task: Select the next frontier after v5.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task."
+  }
+}

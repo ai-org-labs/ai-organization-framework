@@ -1,0 +1,29 @@
+{
+  "view_type": "tree_position",
+  "generated_at": "2026-06-22T14:32:56.057Z",
+  "trunk": {
+    "label": "AOF release evolution",
+    "active_release_version": "5.0.0",
+    "active_release_track": "v5.0",
+    "release_definition_ref": "docs/v5.0-release-definition.md"
+  },
+  "branch": {
+    "frontier_track": null,
+    "frontier_task_id": null,
+    "frontier_task_title": null,
+    "artifact_ref": null,
+    "branch_summary": "Select the next frontier after v5.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task."
+  },
+  "roadmap_path": [
+    {
+      "kind": "shipped-release",
+      "label": "v5.0",
+      "state": "done"
+    }
+  ],
+  "tree_answer": {
+    "where_are_we": "The runtime is between v5.0 and the next concrete branch.",
+    "why_this_branch": "Select the next AOF frontier after the v5.0.0 Skillful Actor Runtime release through a runtime-backed direction review before opening new implementation work.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Select the next frontier after v5.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task."
+  }
+}

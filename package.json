@@ -1,0 +1,20 @@
+{
+  "name": "ai-organization-framework",
+  "version": "5.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "aof": "./src/cli.js"
+  },
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "aof": "node ./src/cli.js",
+    "smoke": "node ./scripts/smoke.js",
+    "test": "node ./scripts/test-runner.js"
+  },
+  "dependencies": {
+    "yaml": "^2.8.1"
+  }
+}
