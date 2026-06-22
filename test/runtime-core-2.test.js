@@ -2450,4 +2450,10 @@ test("visibility view loader and HTML shell align with the v1.4 visibility contr
   assert.match(html, /Role Workload/);
   assert.match(html, /Evidence \/ Proof Coverage/);
   assert.match(html, /dashboard-root/);
+  assert.match(html, /grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)/);
+  assert.match(html, /grid-template-columns: repeat\(7, minmax\(230px, 1fr\)\)/);
+  assert.match(html, /lastMissionDashboardHtml/);
+  assert.match(html, /html === lastMissionDashboardHtml/);
+  assert.match(html, /renderCount/);
+  assert.match(html, /__aofRefreshForTest/);
 });

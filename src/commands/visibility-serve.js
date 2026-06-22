@@ -862,21 +862,27 @@ export function buildVisibilityPageHtml(title) {
           radial-gradient(circle at top right, rgba(143,95,7,0.08), transparent 24%),
           linear-gradient(180deg, #f8f3eb 0%, var(--bg) 100%);
         color: var(--ink);
-        overflow: auto;
+        overflow: hidden;
       }
       #fit-stage {
         width: 100%;
-        min-height: 100vh;
-        padding: 12px;
+        height: 100vh;
+        padding: clamp(8px, 1vw, 14px);
+        overflow: hidden;
       }
       #app-shell {
-        width: min(1380px, calc(100vw - 24px));
-        min-height: calc(100vh - 24px);
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        min-height: 0;
         margin: 0 auto;
         transform-origin: top center;
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        overflow: hidden;
       }
       header {
-        padding: 20px 22px 14px;
+        padding: clamp(12px, 1.2vw, 18px) clamp(14px, 1.5vw, 22px) clamp(10px, 1vw, 14px);
         border-bottom: 1px solid rgba(216,199,179,0.9);
         background: rgba(255,253,247,0.88);
         backdrop-filter: blur(12px);
@@ -884,13 +890,14 @@ export function buildVisibilityPageHtml(title) {
       }
       header h1 {
         margin: 0 0 6px;
-        font-size: 30px;
+        font-size: clamp(24px, 2.15vw, 34px);
         letter-spacing: -0.02em;
       }
       header p {
         margin: 0;
         color: var(--muted);
-        font-size: 15px;
+        font-size: clamp(13px, 1vw, 16px);
+        line-height: 1.35;
       }
       .dashboard {
         height: calc(100% - 70px);
@@ -1950,18 +1957,23 @@ export function buildVisibilityPageHtml(title) {
       }
       .mission-dashboard {
         display: grid;
-        grid-template-rows: auto minmax(460px, 1fr) auto;
-        gap: 14px;
-        padding: 14px;
+        grid-template-rows: auto minmax(0, 1fr) minmax(150px, 0.38fr);
+        gap: clamp(10px, 1vw, 14px);
+        padding: clamp(10px, 1vw, 14px);
+        min-height: 0;
+        height: 100%;
+        overflow: hidden;
       }
       .mission-top {
         display: grid;
-        grid-template-columns: minmax(260px, 1.4fr) minmax(190px, 0.8fr) minmax(160px, 0.65fr) minmax(160px, 0.65fr) minmax(260px, 1.2fr);
-        gap: 12px;
+        grid-template-columns: 1.35fr 0.9fr 0.8fr 0.75fr 1.15fr;
+        gap: clamp(8px, 0.8vw, 12px);
+        min-width: 0;
       }
       .mission-tile {
-        min-height: 118px;
-        padding: 15px 16px;
+        min-width: 0;
+        min-height: clamp(100px, 10vh, 132px);
+        padding: clamp(11px, 1vw, 16px);
         border-radius: 20px;
         border: 1px solid var(--line);
         background: var(--panel);
@@ -1969,6 +1981,7 @@ export function buildVisibilityPageHtml(title) {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        overflow: hidden;
       }
       .mission-tile.primary {
         background: linear-gradient(135deg, #123b4a 0%, #29616f 72%, #9ab4b2 130%);
@@ -1993,16 +2006,26 @@ export function buildVisibilityPageHtml(title) {
       }
       .mission-value {
         margin-top: 8px;
-        font-size: 22px;
+        font-size: clamp(16px, 1.45vw, 23px);
         line-height: 1.08;
         font-weight: 800;
         letter-spacing: -0.02em;
+        overflow-wrap: anywhere;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
       }
       .mission-detail {
         margin-top: 8px;
         color: var(--muted);
-        font-size: 12px;
+        font-size: clamp(11px, 0.85vw, 13px);
         line-height: 1.35;
+        overflow-wrap: anywhere;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
       }
       .mission-tile.primary .mission-detail {
         color: rgba(255,253,248,0.82);
@@ -2010,8 +2033,8 @@ export function buildVisibilityPageHtml(title) {
       .mission-main {
         min-height: 0;
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 360px;
-        gap: 14px;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.28fr);
+        gap: clamp(10px, 1vw, 14px);
       }
       .kanban-shell, .summary-shell, .lower-panel {
         min-height: 0;
@@ -2021,32 +2044,42 @@ export function buildVisibilityPageHtml(title) {
         box-shadow: var(--shadow);
         overflow: hidden;
       }
+      .kanban-shell, .lower-panel {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+      }
       .section-head {
-        padding: 16px 18px 12px;
+        padding: clamp(12px, 1vw, 16px) clamp(14px, 1.2vw, 18px) 10px;
         border-bottom: 1px solid rgba(216,199,179,0.72);
       }
       .section-head h2 {
         margin: 0;
         padding: 0;
-        font-size: 21px;
+        font-size: clamp(17px, 1.25vw, 22px);
       }
       .section-head p {
         margin: 6px 0 0;
         color: var(--muted);
-        font-size: 13px;
+        font-size: clamp(11px, 0.85vw, 13px);
         line-height: 1.35;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
       }
       .kanban-board {
         min-height: 0;
         height: 100%;
-        padding: 14px;
+        padding: clamp(10px, 1vw, 14px);
         display: grid;
-        grid-template-columns: repeat(7, minmax(138px, 1fr));
+        grid-template-columns: repeat(7, minmax(150px, 1fr));
         gap: 10px;
-        overflow-x: auto;
+        overflow: auto;
+        scrollbar-width: thin;
       }
       .kanban-column {
-        min-height: 360px;
+        min-height: 0;
+        min-width: 0;
         display: flex;
         flex-direction: column;
         border-radius: 18px;
@@ -2090,12 +2123,16 @@ export function buildVisibilityPageHtml(title) {
         display: grid;
         gap: 9px;
         align-content: start;
+        min-height: 0;
+        overflow: auto;
+        scrollbar-width: thin;
       }
       .task-card {
         padding: 11px 12px;
         border-radius: 15px;
         border: 1px solid rgba(216,199,179,0.9);
         background: #fffdf8;
+        min-width: 0;
       }
       .task-card.current {
         border-color: var(--accent-2);
@@ -2110,32 +2147,45 @@ export function buildVisibilityPageHtml(title) {
       }
       .task-title {
         margin-top: 6px;
-        font-size: 14px;
+        font-size: clamp(12px, 0.95vw, 15px);
         font-weight: 800;
         line-height: 1.18;
+        overflow-wrap: anywhere;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
       }
       .task-detail {
         margin-top: 7px;
         color: var(--muted);
-        font-size: 12px;
+        font-size: clamp(11px, 0.78vw, 12px);
         line-height: 1.32;
+        overflow-wrap: anywhere;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
       }
       .summary-shell {
         display: grid;
         grid-template-rows: auto 1fr;
       }
       .summary-body {
-        padding: 14px;
+        padding: clamp(10px, 1vw, 14px);
         overflow: auto;
         display: grid;
         gap: 10px;
         align-content: start;
+        min-height: 0;
+        scrollbar-width: thin;
       }
       .summary-card {
         padding: 13px 14px;
         border-radius: 16px;
         border: 1px solid var(--line);
         background: #fcfaf6;
+        min-width: 0;
       }
       .summary-card.warn {
         background: #fff8e8;
@@ -2147,36 +2197,50 @@ export function buildVisibilityPageHtml(title) {
       }
       .summary-card .value {
         margin-top: 6px;
-        font-size: 16px;
+        font-size: clamp(13px, 1vw, 16px);
         font-weight: 800;
         line-height: 1.25;
+        overflow-wrap: anywhere;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
       }
       .summary-card .detail {
         margin-top: 6px;
         color: var(--muted);
-        font-size: 12px;
+        font-size: clamp(11px, 0.78vw, 12px);
         line-height: 1.36;
+        overflow-wrap: anywhere;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
       }
       .mission-lower {
         display: grid;
         grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) minmax(0, 0.95fr) minmax(0, 1fr);
-        gap: 14px;
+        gap: clamp(10px, 1vw, 14px);
+        min-height: 0;
       }
       .lower-panel {
-        min-height: 220px;
+        min-height: 0;
       }
       .lower-body {
-        padding: 14px;
-        max-height: 280px;
+        padding: clamp(10px, 1vw, 14px);
+        min-height: 0;
         overflow: auto;
         display: grid;
         gap: 9px;
+        align-content: start;
+        scrollbar-width: thin;
       }
       .mini-row {
         padding: 10px 11px;
         border-radius: 14px;
         border: 1px solid var(--line);
         background: #fcfaf6;
+        min-width: 0;
       }
       .mini-row strong {
         display: block;
@@ -2189,15 +2253,50 @@ export function buildVisibilityPageHtml(title) {
         color: var(--muted);
         font-size: 12px;
         line-height: 1.32;
+        overflow-wrap: anywhere;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
       }
-      @media (max-width: 1100px) {
+      @media (max-width: 1280px) {
+        .mission-top {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .mission-main {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .summary-body {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .mission-lower {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 820px) {
+        body {
+          overflow: auto;
+        }
+        #fit-stage,
+        #app-shell,
+        .mission-dashboard {
+          height: auto;
+          min-height: 100vh;
+          overflow: visible;
+        }
+        .mission-dashboard {
+          grid-template-rows: auto auto auto;
+        }
         .mission-top,
-        .mission-main,
         .mission-lower {
           grid-template-columns: 1fr;
         }
+        .summary-body {
+          grid-template-columns: 1fr;
+        }
         .kanban-board {
-          grid-template-columns: repeat(7, minmax(220px, 1fr));
+          grid-template-columns: repeat(7, minmax(230px, 1fr));
+          max-height: 68vh;
         }
       }
       .pulse-dot {
@@ -2334,8 +2433,22 @@ export function buildVisibilityPageHtml(title) {
         }));
       }
 
+      let lastMissionDashboardHtml = "";
+
       function renderMissionControlDashboard(payload) {
         const root = document.getElementById("dashboard-root");
+        const html = buildMissionControlDashboardHtml(payload);
+        if (root.dataset.rendered === "true" && html === lastMissionDashboardHtml) {
+          return false;
+        }
+        root.innerHTML = html;
+        root.dataset.rendered = "true";
+        root.dataset.renderCount = String((Number(root.dataset.renderCount ?? "0") || 0) + 1);
+        lastMissionDashboardHtml = html;
+        return true;
+      }
+
+      function buildMissionControlDashboardHtml(payload) {
         const status = payload.status_card ?? {};
         const timeline = payload.timeline_feed ?? {};
         const derived = payload.derived ?? {};
@@ -2362,7 +2475,7 @@ export function buildVisibilityPageHtml(title) {
         ];
         const activeLoops = taskBoard.counts?.active_loops ?? (Array.isArray(loop.council_runs) ? loop.council_runs.length : 0);
 
-        root.innerHTML =
+        return (
           '<section class="mission-top">' +
             '<div class="mission-tile primary"><div><div class="mission-label">Current Mission</div><div class="mission-value">' + escapeHtml(firstText(mission.mission_overview?.mission, status.current_goal)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(mission.mission_overview?.operating_goal, mission.mission_overview?.next_value_slice)) + '</div></div>' +
             '<div class="mission-tile"><div><div class="mission-label">Current Release / Frontier</div><div class="mission-value">' + escapeHtml(firstText(tree.trunk?.active_release_track, tree.trunk?.active_release_version, mission.mission_overview?.release_version)) + ' → ' + escapeHtml(firstText(tree.branch?.frontier_track, "next")) + '</div></div><div class="mission-detail">Frontier: ' + escapeHtml(firstText(tree.branch?.frontier_task_id, "not selected")) + '</div></div>' +
@@ -2399,7 +2512,8 @@ export function buildVisibilityPageHtml(title) {
             '<div class="lower-panel"><div class="section-head"><h2>Evidence / Proof Coverage</h2><p>Refs behind headline, next action, and runtime-backed claim.</p></div><div class="lower-body">' +
               (evidenceRefs.length > 0 ? Array.from(new Set(evidenceRefs)).slice(0, 8).map((ref, index) => '<div class="mini-row"><strong>' + escapeHtml(String(index + 1) + ". evidence") + '</strong><span>' + escapeHtml(ref) + '</span></div>').join("") : '<div class="mini-row"><strong>No evidence refs</strong><span>The current packet did not expose evidence references.</span></div>') +
             '</div></div>' +
-          '</section>';
+          '</section>'
+        );
       }
 
       function renderPacket(status, derived) {
@@ -2747,11 +2861,23 @@ export function buildVisibilityPageHtml(title) {
         return;
       }
 
+      let refreshInFlight = false;
       async function refresh() {
-        const response = await fetch("/api/views", { cache: "no-store" });
-        const payload = await response.json();
-        renderMissionControlDashboard(payload);
-        fitDashboardToViewport();
+        if (refreshInFlight) {
+          return false;
+        }
+        refreshInFlight = true;
+        try {
+          const response = await fetch("/api/views", { cache: "no-store" });
+          const payload = await response.json();
+          const changed = renderMissionControlDashboard(payload);
+          if (changed) {
+            fitDashboardToViewport();
+          }
+          return changed;
+        } finally {
+          refreshInFlight = false;
+        }
       }
 
       refresh().catch((error) => {
@@ -2760,8 +2886,14 @@ export function buildVisibilityPageHtml(title) {
         fitDashboardToViewport();
       });
       window.addEventListener("resize", fitDashboardToViewport);
+      window.__aofRefreshForTest = refresh;
+      if (typeof globalThis !== "undefined") {
+        globalThis.__aofRefreshForTest = refresh;
+      }
       setInterval(() => {
-        refresh().catch(() => {});
+        if (!document.hidden) {
+          refresh().catch(() => {});
+        }
       }, 30000);
     </script>
   </body>
