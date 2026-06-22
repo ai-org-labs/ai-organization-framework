@@ -1,6 +1,6 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-06-22T15:23:37.891Z",
+  "generated_at": "2026-06-22T15:44:58.149Z",
   "mission_overview": {
     "mission": "Maintain v6.0.0 as the public runtime readiness baseline and keep the post-release runtime in direction-review state before opening the next frontier.",
     "release_version": "6.0.0",

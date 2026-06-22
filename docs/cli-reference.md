@@ -1220,9 +1220,11 @@ node ./src/cli.js visibility-serve \
   --timeline-input /tmp/aof-visibility/timeline-feed.json \
   --flow-input /tmp/aof-visibility/flow-snapshot.json \
   --mission-input /tmp/aof-visibility/mission-control.json \
+  --brief-input /tmp/aof-visibility/operator-brief.json \
   --progress-input /tmp/aof-visibility/operator-progress.json \
   --tree-input /tmp/aof-visibility/tree-position.json \
   --evidence-input /tmp/aof-visibility/evidence-drill-down.json \
+  --runtime-execution-input /tmp/aof-visibility/runtime-execution.json \
   --port 4174
 ```
 
@@ -1232,9 +1234,11 @@ node ./src/cli.js visibility-serve \
 - `--timeline-input <path>`
 - `--flow-input <path>`
 - `--mission-input <path>`: optional. pass `mission-control.json` to enable Mission Control lineage / blocker / next-action view
+- `--brief-input <path>`: optional. pass `operator-brief.json` to enable the headline/operator-summary surface
 - `--progress-input <path>`: optional. pass `operator-progress.json` to enable `What Changed`
 - `--tree-input <path>`: optional. pass `tree-position.json` to enable `Where In The Tree`
 - `--evidence-input <path>`: optional. pass `evidence-drill-down.json` to enable bounded proof view
+- `--runtime-execution-input <path>`: optional. pass `runtime-execution.json` to show whether the answer is actually runtime-backed
 - `--host <host>`: default `127.0.0.1`
 - `--port <port>`: default `4174`
 - `--title "<text>"`: viewer page title

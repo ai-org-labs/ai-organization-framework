@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-06-22T15:23:37.891Z",
+  "as_of": "2026-06-22T15:44:58.149Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",

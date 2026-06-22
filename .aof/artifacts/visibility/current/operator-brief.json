@@ -1,6 +1,6 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-06-22T15:23:37.978Z",
+  "generated_at": "2026-06-22T15:44:58.185Z",
   "headline": "The next frontier is defined, but no aligned implementation task is open yet: Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
   "current_state": {
     "release_version": "6.0.0",

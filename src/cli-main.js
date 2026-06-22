@@ -118,7 +118,7 @@ Usage:
   aof verify-dashboard-log --input <path> [--input <path>] --artifact-dir <path>
   aof verify-dashboard-index --log-input <path> --artifact-dir <path>
   aof visibility-export [--project <path>] [--artifact-dir <path>]
-  aof visibility-serve --status-input <path> --timeline-input <path> --flow-input <path> [--mission-input <path>] [--progress-input <path>] [--tree-input <path>] [--evidence-input <path>] [--host <host>] [--port <port>] [--title <text>]
+  aof visibility-serve --status-input <path> --timeline-input <path> --flow-input <path> [--mission-input <path>] [--brief-input <path>] [--progress-input <path>] [--tree-input <path>] [--evidence-input <path>] [--runtime-execution-input <path>] [--host <host>] [--port <port>] [--title <text>]
   aof visibility-session [--project <path>] [--artifact-dir <path>] [--host <host>] [--port <port>] [--title <text>] [--open-browser]
   aof packet --session <path> --stage <stage> [--project <path>] [--role <role>]
   aof council --session <path> --stage <stage> [--project <path>] [--role <role>] [--include-optional]
@@ -537,12 +537,14 @@ function parseArgs(argv) {
             timelineInput: "",
             flowInput: "",
             missionInput: "",
+            briefInput: "",
             progressInput: "",
             treeInput: "",
             evidenceInput: "",
+            runtimeExecutionInput: "",
             host: "127.0.0.1",
             port: 4174,
-            title: "AOF Human Recognition Interface"
+            title: "AOF Mission Control Dashboard"
           }
       : command === "visibility-session"
         ? {
@@ -1447,6 +1449,15 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--brief-input") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --brief-input.");
+      }
+      options.briefInput = value;
+      i += 1;
+      continue;
+    }
     if (part === "--progress-input") {
       const value = rest[i + 1];
       if (!value) {
@@ -1471,6 +1482,15 @@ function parseArgs(argv) {
         throw new Error("Missing value after --evidence-input.");
       }
       options.evidenceInput = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--runtime-execution-input") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --runtime-execution-input.");
+      }
+      options.runtimeExecutionInput = value;
       i += 1;
       continue;
     }

@@ -116,9 +116,9 @@ node ./src/cli.js live-verify \
 
 これで `provider-check.json`、`planning-exec.json`、`approval-exec.json`、`verification-bundle.json`、`verification-report.md` が `/tmp/aof-quickstart` に出る。
 
-## Human Recognition Interface
+## Mission Control Dashboard / Human Recognition Interface
 
-Human Recognition Interface の current viewer を local で見たい場合は、まず runtime から visibility packet を生成し、その JSON を `visibility-serve` に渡す。
+Mission Control Dashboard と Human Recognition Interface の current viewer を local で見たい場合は、まず runtime から visibility packet を生成し、その JSON を `visibility-serve` に渡す。
 
 ```bash
 node ./src/cli.js visibility-export --project .
@@ -134,6 +134,7 @@ default では次に生成される:
 - `.aof/artifacts/visibility/current/operator-progress.json`
 - `.aof/artifacts/visibility/current/tree-position.json`
 - `.aof/artifacts/visibility/current/evidence-drill-down.json`
+- `.aof/artifacts/visibility/current/runtime-execution.json`
 
 viewer を開く前に、まず runtime の current answer を読みたい場合は `operator-brief` を使う。
 
@@ -156,13 +157,12 @@ node ./src/cli.js visibility-session --project . --port 4174 --open-browser
 - viewer session を起動する
 - browser を自動で開く
 
-viewer では `Now` に加えて、
+viewer では次を 1 画面にまとめて表示する。
 
-- `What Changed`
-- `Where In The Tree`
-- `Evidence Drill-Down`
-
-が同じ packet から読める。
+- top mission tiles: Current Mission / Current Release or Frontier / Runtime-backed status / Risk or Blocker count / Next recommended action
+- central AOF Kanban Board: Backlog / Discovery / Need Validation / Planning / Role Work / Council Review / Approved or Done
+- right summary: active loops / open tasks / top blockers / current frontier branch / key risks
+- bottom panels: ticket flow / blocked tasks / role workload / evidence and proof coverage
 
 manual に繋ぎたい場合だけ `visibility-serve` を使う。
 
@@ -172,17 +172,21 @@ node ./src/cli.js visibility-serve \
   --timeline-input ./.aof/artifacts/visibility/current/timeline-feed.json \
   --flow-input ./.aof/artifacts/visibility/current/flow-snapshot.json \
   --mission-input ./.aof/artifacts/visibility/current/mission-control.json \
+  --brief-input ./.aof/artifacts/visibility/current/operator-brief.json \
   --progress-input ./.aof/artifacts/visibility/current/operator-progress.json \
   --tree-input ./.aof/artifacts/visibility/current/tree-position.json \
   --evidence-input ./.aof/artifacts/visibility/current/evidence-drill-down.json \
+  --runtime-execution-input ./.aof/artifacts/visibility/current/runtime-execution.json \
   --port 4174
 ```
 
-起動後は返ってきた `url` を browser で開けばよい。  
-viewer 自体は read-only で、`status / timeline / flow` に加えて Mission Control, progress, tree-position, evidence drill-down surface を表示する。  
-`mission-control.json` がない場合でも viewer は fallback で開けるが、artifact lineage / blocker / next-action / progress / tree position を正しく見たい場合は packet 一式を渡す。
+起動後は返ってきた `url` を browser で開けばよい。
 
-重要: current viewer は runtime-backed visibility surface であり、完成した Human Recognition UX ではない。  
+viewer 自体は read-only で、`status / timeline / flow` に加えて Mission Control, operator brief, progress, tree-position, evidence drill-down, runtime execution surface を表示する。
+`mission-control.json` がない場合でも viewer は fallback で開けるが、artifact lineage / blocker / next-action / progress / tree position / runtime-backed status を正しく見たい場合は packet 一式を渡す。
+
+重要: current viewer は runtime-backed Mission Control Dashboard であり、完成した full Human Recognition UX ではない。
+
 `何が起きているか` を確認するには `operator-brief` / `operator-progress` / `tree-position` / `evidence-drill-down` を一次情報として扱い、viewer はその表示面として使う。
 
 ## Non-AIDLC Example

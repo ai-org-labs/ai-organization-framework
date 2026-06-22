@@ -335,6 +335,123 @@ async function loadRuntimeLoopContext(projectRoot, treePosition, operatorBrief) 
   };
 }
 
+async function listTaskArtifacts(projectRoot) {
+  const taskRoot = path.join(projectRoot, ".aof", "tasks");
+  const lifecycleStates = ["open", "assigned", "done", "retired", "archived"];
+  const entries = [];
+
+  await Promise.all(lifecycleStates.map(async (state) => {
+    const filePaths = await listJsonFiles(path.join(taskRoot, state));
+    const tasks = await Promise.all(filePaths.map(async (filePath) => ({
+      filePath,
+      payload: await readJsonFile(filePath, `task ${path.basename(filePath)}`)
+    })));
+    for (const task of tasks) {
+      entries.push({
+        ...task.payload,
+        lifecycle_state: state,
+        artifact_ref: toArtifactRef(projectRoot, task.filePath)
+      });
+    }
+  }));
+
+  return entries.sort((left, right) => String(right.updated_at ?? right.created_at ?? "").localeCompare(String(left.updated_at ?? left.created_at ?? "")));
+}
+
+async function loadRoleWorkload(projectRoot) {
+  const filePaths = await listJsonFiles(path.join(projectRoot, ".aof", "artifacts", "execution", "role-results"));
+  const entries = await Promise.all(filePaths.map(async (filePath) => ({
+    filePath,
+    payload: await readJsonFile(filePath, `role result ${path.basename(filePath)}`)
+  })));
+  const byRole = new Map();
+
+  for (const entry of entries) {
+    const role = entry.payload.role ?? "unknown";
+    const current = byRole.get(role) ?? {
+      role,
+      total_results: 0,
+      latest_status: null,
+      latest_recommendation: null,
+      latest_artifact_ref: null,
+      latest_recorded_at: null
+    };
+    current.total_results += 1;
+    const recordedAt = String(entry.payload.recorded_at ?? "");
+    if (!current.latest_recorded_at || recordedAt >= String(current.latest_recorded_at)) {
+      current.latest_status = entry.payload.status ?? null;
+      current.latest_recommendation = entry.payload.recommendation ?? entry.payload.rationale ?? null;
+      current.latest_artifact_ref = toArtifactRef(projectRoot, entry.filePath);
+      current.latest_recorded_at = entry.payload.recorded_at ?? null;
+    }
+    byRole.set(role, current);
+  }
+
+  return Array.from(byRole.values()).sort((left, right) => right.total_results - left.total_results);
+}
+
+function isTaskBlocked(task = {}) {
+  const text = [
+    task.title,
+    task.description,
+    task.triage_notes,
+    task.status,
+    task.lifecycle_state
+  ].filter(Boolean).join(" ").toLowerCase();
+  return Boolean(task.stale_candidate_at || task.retire_candidate_at || /block|blocked|ブロック|停止|保留/.test(text));
+}
+
+async function loadTaskBoard(projectRoot, runtimeLoop = {}) {
+  const tasks = await listTaskArtifacts(projectRoot);
+  const byState = {
+    backlog: [],
+    open: [],
+    assigned: [],
+    done: [],
+    retired: [],
+    archived: []
+  };
+
+  for (const task of tasks) {
+    const state = task.lifecycle_state ?? task.status ?? "backlog";
+    if (!byState[state]) {
+      byState[state] = [];
+    }
+    byState[state].push(task);
+  }
+
+  const roleWorkload = await loadRoleWorkload(projectRoot);
+  const openTasks = [...(byState.open ?? []), ...(byState.assigned ?? [])];
+  const blockedTasks = tasks.filter(isTaskBlocked).slice(0, 8);
+  const doneTasks = (byState.done ?? []).slice(0, 8);
+
+  return {
+    generated_at: new Date().toISOString(),
+    counts: {
+      all: tasks.length,
+      open: byState.open.length,
+      assigned: byState.assigned.length,
+      done: byState.done.length,
+      retired: byState.retired.length,
+      archived: byState.archived.length,
+      blocked: blockedTasks.length,
+      role_workload_roles: roleWorkload.length,
+      active_loops: Array.isArray(runtimeLoop.council_runs) ? runtimeLoop.council_runs.length : 0
+    },
+    tasks_by_state: {
+      open: byState.open.slice(0, 12),
+      assigned: byState.assigned.slice(0, 12),
+      done: doneTasks,
+      retired: byState.retired.slice(0, 6),
+      archived: byState.archived.slice(0, 6)
+    },
+    open_tasks: openTasks.slice(0, 12),
+    top_blocked_tasks: blockedTasks,
+    done_tasks: doneTasks,
+    role_workload: roleWorkload
+  };
+}
+
 function deriveMissionControlFallback(statusCard = {}, timelineFeed = {}, flowSnapshot = {}, derived = {}) {
   const latestEntry = Array.isArray(timelineFeed.entries) ? timelineFeed.entries[0] ?? null : null;
   const blockers = Array.isArray(statusCard.open_signals)
@@ -1831,6 +1948,258 @@ export function buildVisibilityPageHtml(title) {
         font-size: 12px;
         color: var(--muted);
       }
+      .mission-dashboard {
+        display: grid;
+        grid-template-rows: auto minmax(460px, 1fr) auto;
+        gap: 14px;
+        padding: 14px;
+      }
+      .mission-top {
+        display: grid;
+        grid-template-columns: minmax(260px, 1.4fr) minmax(190px, 0.8fr) minmax(160px, 0.65fr) minmax(160px, 0.65fr) minmax(260px, 1.2fr);
+        gap: 12px;
+      }
+      .mission-tile {
+        min-height: 118px;
+        padding: 15px 16px;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .mission-tile.primary {
+        background: linear-gradient(135deg, #123b4a 0%, #29616f 72%, #9ab4b2 130%);
+        color: #fffdf8;
+        border-color: rgba(18,59,74,0.25);
+      }
+      .mission-tile.attention {
+        background: linear-gradient(180deg, #fff8e8 0%, #fff2d6 100%);
+      }
+      .mission-tile.good {
+        background: linear-gradient(180deg, #eef7f1 0%, #e8f3ec 100%);
+      }
+      .mission-label {
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 700;
+      }
+      .mission-tile.primary .mission-label {
+        color: rgba(255,253,248,0.74);
+      }
+      .mission-value {
+        margin-top: 8px;
+        font-size: 22px;
+        line-height: 1.08;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .mission-detail {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+      .mission-tile.primary .mission-detail {
+        color: rgba(255,253,248,0.82);
+      }
+      .mission-main {
+        min-height: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: 14px;
+      }
+      .kanban-shell, .summary-shell, .lower-panel {
+        min-height: 0;
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        background: rgba(255,253,248,0.94);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .section-head {
+        padding: 16px 18px 12px;
+        border-bottom: 1px solid rgba(216,199,179,0.72);
+      }
+      .section-head h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 21px;
+      }
+      .section-head p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.35;
+      }
+      .kanban-board {
+        min-height: 0;
+        height: 100%;
+        padding: 14px;
+        display: grid;
+        grid-template-columns: repeat(7, minmax(138px, 1fr));
+        gap: 10px;
+        overflow-x: auto;
+      }
+      .kanban-column {
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: #f8f2e9;
+      }
+      .kanban-column.active {
+        background: #eaf5f7;
+        border-color: #b9d4dd;
+      }
+      .kanban-column.done {
+        background: #eef7f1;
+        border-color: #b7d5c4;
+      }
+      .kanban-title {
+        padding: 12px 12px 8px;
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: center;
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 800;
+      }
+      .kanban-count {
+        min-width: 24px;
+        height: 24px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #fffdf8;
+        border: 1px solid var(--line);
+        color: var(--ink);
+        letter-spacing: 0;
+      }
+      .kanban-cards {
+        padding: 0 10px 12px;
+        display: grid;
+        gap: 9px;
+        align-content: start;
+      }
+      .task-card {
+        padding: 11px 12px;
+        border-radius: 15px;
+        border: 1px solid rgba(216,199,179,0.9);
+        background: #fffdf8;
+      }
+      .task-card.current {
+        border-color: var(--accent-2);
+        box-shadow: 0 0 0 3px rgba(41,97,111,0.1);
+      }
+      .task-id {
+        color: var(--muted);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 800;
+      }
+      .task-title {
+        margin-top: 6px;
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 1.18;
+      }
+      .task-detail {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.32;
+      }
+      .summary-shell {
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+      .summary-body {
+        padding: 14px;
+        overflow: auto;
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+      .summary-card {
+        padding: 13px 14px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: #fcfaf6;
+      }
+      .summary-card.warn {
+        background: #fff8e8;
+        border-color: #e3cc92;
+      }
+      .summary-card.good {
+        background: #eef7f1;
+        border-color: #b7d5c4;
+      }
+      .summary-card .value {
+        margin-top: 6px;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+      .summary-card .detail {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.36;
+      }
+      .mission-lower {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) minmax(0, 0.95fr) minmax(0, 1fr);
+        gap: 14px;
+      }
+      .lower-panel {
+        min-height: 220px;
+      }
+      .lower-body {
+        padding: 14px;
+        max-height: 280px;
+        overflow: auto;
+        display: grid;
+        gap: 9px;
+      }
+      .mini-row {
+        padding: 10px 11px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: #fcfaf6;
+      }
+      .mini-row strong {
+        display: block;
+        font-size: 13px;
+        line-height: 1.2;
+      }
+      .mini-row span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.32;
+      }
+      @media (max-width: 1100px) {
+        .mission-top,
+        .mission-main,
+        .mission-lower {
+          grid-template-columns: 1fr;
+        }
+        .kanban-board {
+          grid-template-columns: repeat(7, minmax(220px, 1fr));
+        }
+      }
       .pulse-dot {
         animation: pulse 1.8s ease-in-out infinite;
         transform-origin: center;
@@ -1845,74 +2214,10 @@ export function buildVisibilityPageHtml(title) {
     <div id="fit-stage">
     <div id="app-shell">
     <header>
-      <h1>AOF Human Recognition Interface</h1>
-      <p>See in one glance who is in the organization, what they are doing, what changed, what is blocked, what happens next, and whether the answer is genuinely runtime-backed.</p>
+      <h1>AOF Mission Control Dashboard</h1>
+      <p>Runtime-backed command center for mission, release/frontier, kanban flow, blockers, workload, and proof coverage.</p>
     </header>
-    <div class="dashboard">
-    <section class="hero">
-      <div class="hero-focus" id="hero-root"></div>
-      <div class="packet-grid">
-        <div class="packet-card primary">
-          <div class="label">Runtime Truth</div>
-          <div class="value" id="metric-pressure">-</div>
-          <div class="detail" id="metric-pressure-detail">-</div>
-        </div>
-        <div class="packet-card">
-          <div class="label">Where In The Tree</div>
-          <div class="value" id="metric-branch">-</div>
-          <div class="detail" id="metric-branch-detail">-</div>
-        </div>
-        <div class="packet-card">
-          <div class="label">Current Stage</div>
-          <div class="value" id="metric-stage">-</div>
-          <div class="detail" id="metric-stage-detail">-</div>
-        </div>
-        <div class="packet-card good">
-          <div class="label">Active Frontier</div>
-          <div class="value" id="metric-frontier">-</div>
-          <div class="detail" id="metric-frontier-detail">-</div>
-        </div>
-      </div>
-    </section>
-    <main>
-      <section class="panel">
-        <h2>Human Recognition Interface</h2>
-        <div class="card-body tight-stack">
-          <div id="packet-root"></div>
-        </div>
-      </section>
-      <div class="side-stack">
-      <section class="panel panel-map">
-        <h2>Live Organization Map</h2>
-        <div class="flow-body tight-stack">
-          <div id="tree-root"></div>
-        </div>
-      </section>
-      <section class="panel">
-        <h2>Live Runtime Loop</h2>
-        <div class="flow-body" id="actor-root"></div>
-      </section>
-      </div>
-    </main>
-    <section class="bottom-grid">
-      <section class="panel">
-        <h2>What Changed Since The Last Step</h2>
-        <div class="flow-body tight-stack">
-          <div id="delta-root"></div>
-        </div>
-      </section>
-      <section class="panel">
-        <h2>Why This Is The Right Move</h2>
-        <div class="flow-body tight-stack">
-          <div id="proof-root"></div>
-        </div>
-      </section>
-      <section class="panel">
-        <h2>What Just Happened</h2>
-        <div class="timeline-body" id="timeline-root"></div>
-      </section>
-    </section>
-    </div>
+    <div id="dashboard-root" class="mission-dashboard"></div>
     </div>
     </div>
     <script>
@@ -1940,6 +2245,161 @@ export function buildVisibilityPageHtml(title) {
         if (state === "current" || state === "active" || state === "in_progress") return "current";
         if (state === "pending" || state === "queued") return "pending";
         return "unknown";
+      }
+
+      function firstText() {
+        for (const value of arguments) {
+          if (value !== undefined && value !== null && String(value).trim() !== "") {
+            return value;
+          }
+        }
+        return "-";
+      }
+
+      function taskCard(card, currentId) {
+        const isCurrent = card.id && currentId && card.id === currentId;
+        return '<div class="task-card ' + (isCurrent ? "current" : "") + '">' +
+          '<div class="task-id">' + escapeHtml(card.id ?? card.kind ?? "runtime") + '</div>' +
+          '<div class="task-title">' + escapeHtml(card.title ?? "-") + '</div>' +
+          '<div class="task-detail">' + escapeHtml(card.detail ?? card.description ?? card.artifact_ref ?? "-") + '</div>' +
+        '</div>';
+      }
+
+      function summarizeTask(task) {
+        return {
+          id: task.task_id ?? task.id ?? task.status ?? "task",
+          title: task.title ?? task.summary ?? "-",
+          detail: task.description ?? task.triage_notes ?? task.artifact_ref ?? "-",
+          artifact_ref: task.artifact_ref ?? null
+        };
+      }
+
+      function buildKanbanColumns(payload) {
+        const derived = payload.derived ?? {};
+        const taskBoard = derived.task_board ?? payload.task_board ?? {};
+        const mission = derived.mission_control ?? {};
+        const tree = derived.tree_position ?? {};
+        const evidence = derived.evidence_drill_down ?? {};
+        const loop = derived.runtime_loop ?? {};
+        const progress = derived.operator_progress ?? {};
+        const currentId = tree.branch?.frontier_task_id ?? progress.current_checkpoint?.frontier_task_id ?? null;
+        const openTasks = Array.isArray(taskBoard.open_tasks) ? taskBoard.open_tasks.map(summarizeTask) : [];
+        const doneTasks = Array.isArray(taskBoard.done_tasks) ? taskBoard.done_tasks.slice(0, 4).map(summarizeTask) : [];
+        const roleCards = Array.isArray(loop.organization_assembly?.role_results)
+          ? loop.organization_assembly.role_results.map((role) => ({
+              id: role.role ?? "role",
+              title: firstText(role.status, role.recommendation, "Role result"),
+              detail: firstText(role.recommendation, role.rationale, role.artifact_ref)
+            }))
+          : [];
+        const councilCards = [];
+        if (loop.council_run) {
+          councilCards.push({
+            id: loop.council_run.execution_id ?? "council-run",
+            title: firstText(loop.council_run.stage, "Council run"),
+            detail: firstText(loop.council_run.approval_outcome?.status, loop.council_run.summary)
+          });
+        }
+        if (loop.council_review) {
+          councilCards.push({
+            id: loop.council_review.council_id ?? "council-review",
+            title: firstText(loop.council_review.review_status, "Council review"),
+            detail: firstText(loop.council_review.decision_summary, loop.council_review.recommendation, loop.council_review.artifact_ref)
+          });
+        }
+        const frontierCard = {
+          id: currentId ?? "frontier",
+          title: firstText(tree.branch?.frontier_task_title, mission.next_action?.recommended_action, "Next frontier"),
+          detail: firstText(tree.branch?.branch_summary, mission.next_action?.rationale, progress.current_checkpoint?.artifact_ref)
+        };
+        const backlogCards = openTasks.filter((task) => task.id !== currentId);
+        if (backlogCards.length === 0) {
+          backlogCards.push({
+            id: "next-frontier",
+            title: firstText(mission.next_action?.recommended_action, "Select next frontier"),
+            detail: "No open task is currently queued; the runtime is asking for frontier selection."
+          });
+        }
+        return [
+          { id: "backlog", title: "Backlog", cards: backlogCards },
+          { id: "discovery", title: "Discovery", cards: evidence.current_state?.discovery_handoff_ref ? [{ id: "discovery", title: "Discovery handoff available", detail: evidence.current_state.discovery_handoff_ref }] : [] },
+          { id: "need-validation", title: "Need Validation", cards: evidence.current_state?.release_definition_ref ? [{ id: "need-validation", title: firstText(evidence.current_state.current_runtime_stage, "Need validation context"), detail: firstText(evidence.answer_to_proof?.headline?.claim, evidence.current_state.release_definition_ref) }] : [] },
+          { id: "planning", title: "Planning", cards: [frontierCard] },
+          { id: "role-work", title: "Role Work", cards: roleCards },
+          { id: "council-review", title: "Council Review", cards: councilCards },
+          { id: "done", title: "Approved / Done", cards: doneTasks }
+        ].map((column) => ({
+          ...column,
+          state: column.id === "planning" ? "active" : (column.id === "done" ? "done" : "")
+        }));
+      }
+
+      function renderMissionControlDashboard(payload) {
+        const root = document.getElementById("dashboard-root");
+        const status = payload.status_card ?? {};
+        const timeline = payload.timeline_feed ?? {};
+        const derived = payload.derived ?? {};
+        const mission = derived.mission_control ?? {};
+        const tree = derived.tree_position ?? {};
+        const evidence = derived.evidence_drill_down ?? {};
+        const runtimeExecution = derived.runtime_execution ?? {};
+        const taskBoard = derived.task_board ?? payload.task_board ?? {};
+        const loop = derived.runtime_loop ?? {};
+        const progress = derived.operator_progress ?? {};
+        const lastExecution = runtimeExecution.last_execution ?? {};
+        const blockers = Array.isArray(mission.blockers)
+          ? mission.blockers
+          : (Array.isArray(evidence.answer_to_proof?.blockers?.entries) ? evidence.answer_to_proof.blockers.entries : []);
+        const riskCount = (taskBoard.counts?.blocked ?? 0) + blockers.length + (Array.isArray(status.open_signals) ? status.open_signals.length : 0);
+        const kanbanColumns = buildKanbanColumns(payload);
+        const timelineEntries = Array.isArray(timeline.entries) ? timeline.entries.slice(0, 6) : [];
+        const blockedTasks = Array.isArray(taskBoard.top_blocked_tasks) ? taskBoard.top_blocked_tasks : [];
+        const workload = Array.isArray(taskBoard.role_workload) ? taskBoard.role_workload : [];
+        const evidenceRefs = [
+          ...(Array.isArray(evidence.answer_to_proof?.headline?.evidence_refs) ? evidence.answer_to_proof.headline.evidence_refs : []),
+          ...(Array.isArray(evidence.answer_to_proof?.next_action?.evidence_refs) ? evidence.answer_to_proof.next_action.evidence_refs : []),
+          ...(Array.isArray(lastExecution.refreshed_artifact_refs) ? lastExecution.refreshed_artifact_refs : [])
+        ];
+        const activeLoops = taskBoard.counts?.active_loops ?? (Array.isArray(loop.council_runs) ? loop.council_runs.length : 0);
+
+        root.innerHTML =
+          '<section class="mission-top">' +
+            '<div class="mission-tile primary"><div><div class="mission-label">Current Mission</div><div class="mission-value">' + escapeHtml(firstText(mission.mission_overview?.mission, status.current_goal)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(mission.mission_overview?.operating_goal, mission.mission_overview?.next_value_slice)) + '</div></div>' +
+            '<div class="mission-tile"><div><div class="mission-label">Current Release / Frontier</div><div class="mission-value">' + escapeHtml(firstText(tree.trunk?.active_release_track, tree.trunk?.active_release_version, mission.mission_overview?.release_version)) + ' → ' + escapeHtml(firstText(tree.branch?.frontier_track, "next")) + '</div></div><div class="mission-detail">Frontier: ' + escapeHtml(firstText(tree.branch?.frontier_task_id, "not selected")) + '</div></div>' +
+            '<div class="mission-tile good"><div><div class="mission-label">Runtime-backed status</div><div class="mission-value">' + escapeHtml(lastExecution.status === "pass" ? "Backed" : "Incomplete") + '</div></div><div class="mission-detail">' + escapeHtml(firstText(lastExecution.primary_command, status.usage_level, "no command")) + '</div></div>' +
+            '<div class="mission-tile ' + (riskCount > 0 ? "attention" : "good") + '"><div><div class="mission-label">Risk / Blocker count</div><div class="mission-value">' + escapeHtml(String(riskCount)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.claim, "No active blocker claim")) + '</div></div>' +
+            '<div class="mission-tile attention"><div><div class="mission-label">Next recommended action</div><div class="mission-value">' + escapeHtml(firstText(mission.next_action?.recommended_action, status.next_checkpoint)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(mission.next_action?.rationale, progress.progress_answer?.next_checkpoint)) + '</div></div>' +
+          '</section>' +
+          '<section class="mission-main">' +
+            '<div class="kanban-shell"><div class="section-head"><h2>AOF Kanban Board</h2><p>Backlog → Discovery → Need Validation → Planning → Role Work → Council Review → Approved / Done. Cards are derived from runtime tasks, evidence, loop, and council artifacts.</p></div><div class="kanban-board">' +
+              kanbanColumns.map((column) =>
+                '<div class="kanban-column ' + escapeHtml(column.state) + '"><div class="kanban-title"><span>' + escapeHtml(column.title) + '</span><span class="kanban-count">' + escapeHtml(String(column.cards.length)) + '</span></div><div class="kanban-cards">' +
+                  (column.cards.length > 0 ? column.cards.map((card) => taskCard(card, tree.branch?.frontier_task_id)).join("") : '<div class="task-card"><div class="task-id">empty</div><div class="task-title">No artifact here</div><div class="task-detail">The runtime currently has no card for this lane.</div></div>') +
+                '</div></div>'
+              ).join("") +
+            '</div></div>' +
+            '<aside class="summary-shell"><div class="section-head"><h2>Overall Summary</h2><p>Compact operator state from the same artifacts that power the board.</p></div><div class="summary-body">' +
+              '<div class="summary-card"><div class="mission-label">Active loops</div><div class="value">' + escapeHtml(String(activeLoops)) + '</div><div class="detail">Council execution runs visible for the selected runtime context.</div></div>' +
+              '<div class="summary-card"><div class="mission-label">Open tasks</div><div class="value">' + escapeHtml(String(taskBoard.counts?.open ?? 0)) + '</div><div class="detail">Assigned: ' + escapeHtml(String(taskBoard.counts?.assigned ?? 0)) + ' / Done: ' + escapeHtml(String(taskBoard.counts?.done ?? 0)) + '</div></div>' +
+              '<div class="summary-card ' + (riskCount > 0 ? "warn" : "good") + '"><div class="mission-label">Top blockers</div><div class="value">' + escapeHtml(riskCount > 0 ? firstText(blockers[0]?.summary, blockedTasks[0]?.title, "Review blocker list") : "No blocker") + '</div><div class="detail">' + escapeHtml(firstText(blockers[0]?.artifact_ref, blockedTasks[0]?.artifact_ref, "No blocking artifact surfaced")) + '</div></div>' +
+              '<div class="summary-card"><div class="mission-label">Current frontier branch</div><div class="value">' + escapeHtml(firstText(tree.branch?.frontier_track, "not selected")) + '</div><div class="detail">' + escapeHtml(firstText(tree.branch?.branch_summary, mission.mission_overview?.next_value_slice)) + '</div></div>' +
+              '<div class="summary-card"><div class="mission-label">Key risks</div><div class="value">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.claim, "No key risk claim")) + '</div><div class="detail">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.rationale, "Risk summary comes from evidence drill-down.")) + '</div></div>' +
+            '</div></aside>' +
+          '</section>' +
+          '<section class="mission-lower">' +
+            '<div class="lower-panel"><div class="section-head"><h2>Ticket / Task Flow</h2><p>Recent runtime and task changes.</p></div><div class="lower-body">' +
+              (timelineEntries.length > 0 ? timelineEntries.map((entry, index) => '<div class="mini-row"><strong>' + escapeHtml(String(index + 1) + ". " + firstText(entry.summary, entry.event_type)) + '</strong><span>' + escapeHtml(firstText(entry.actor, "-") + " / " + firstText(entry.at, "-") + " / " + firstText(entry.next, entry.rationale)) + '</span></div>').join("") : '<div class="mini-row"><strong>No timeline</strong><span>No timeline entries are currently available.</span></div>') +
+            '</div></div>' +
+            '<div class="lower-panel"><div class="section-head"><h2>Top Blocked Tasks</h2><p>Blocked or stale task signals.</p></div><div class="lower-body">' +
+              (blockedTasks.length > 0 ? blockedTasks.map((task) => '<div class="mini-row"><strong>' + escapeHtml(firstText(task.task_id, "task") + " " + firstText(task.title, "")) + '</strong><span>' + escapeHtml(firstText(task.triage_notes, task.description, task.artifact_ref)) + '</span></div>').join("") : '<div class="mini-row"><strong>No blocked tasks</strong><span>No blocked/stale task artifact was detected.</span></div>') +
+            '</div></div>' +
+            '<div class="lower-panel"><div class="section-head"><h2>Role Workload</h2><p>Role-result count and latest recommendation.</p></div><div class="lower-body">' +
+              (workload.length > 0 ? workload.map((role) => '<div class="mini-row"><strong>' + escapeHtml(role.role + " / " + role.total_results + " result(s)") + '</strong><span>' + escapeHtml(firstText(role.latest_status, "-") + " / " + firstText(role.latest_recommendation, role.latest_artifact_ref)) + '</span></div>').join("") : '<div class="mini-row"><strong>No role workload</strong><span>No execution role-result artifacts are visible.</span></div>') +
+            '</div></div>' +
+            '<div class="lower-panel"><div class="section-head"><h2>Evidence / Proof Coverage</h2><p>Refs behind headline, next action, and runtime-backed claim.</p></div><div class="lower-body">' +
+              (evidenceRefs.length > 0 ? Array.from(new Set(evidenceRefs)).slice(0, 8).map((ref, index) => '<div class="mini-row"><strong>' + escapeHtml(String(index + 1) + ". evidence") + '</strong><span>' + escapeHtml(ref) + '</span></div>').join("") : '<div class="mini-row"><strong>No evidence refs</strong><span>The current packet did not expose evidence references.</span></div>') +
+            '</div></div>' +
+          '</section>';
       }
 
       function renderPacket(status, derived) {
@@ -2290,26 +2750,13 @@ export function buildVisibilityPageHtml(title) {
       async function refresh() {
         const response = await fetch("/api/views", { cache: "no-store" });
         const payload = await response.json();
-        renderHero(payload.status_card ?? {}, payload.derived ?? {});
-        renderPacket(payload.status_card ?? {}, payload.derived ?? {});
-        renderProgress(payload.derived ?? {});
-        renderDelta(payload.derived ?? {});
-        renderTree(payload.derived ?? {});
-        renderProof(payload.derived ?? {});
-        renderActors(payload.derived ?? {});
-        renderTimeline(payload.timeline_feed ?? {}, payload.derived ?? {});
+        renderMissionControlDashboard(payload);
         fitDashboardToViewport();
       }
 
       refresh().catch((error) => {
         const text = '<p class="empty">Failed to load visibility payload: ' + escapeHtml(error.message) + '</p>';
-        document.getElementById("hero-root").innerHTML = text;
-        document.getElementById("packet-root").innerHTML = text;
-        document.getElementById("delta-root").innerHTML = text;
-        document.getElementById("tree-root").innerHTML = text;
-        document.getElementById("proof-root").innerHTML = text;
-        document.getElementById("actor-root").innerHTML = text;
-        document.getElementById("timeline-root").innerHTML = text;
+        document.getElementById("dashboard-root").innerHTML = text;
         fitDashboardToViewport();
       });
       window.addEventListener("resize", fitDashboardToViewport);
@@ -2383,6 +2830,7 @@ export async function loadVisibilityViews(options) {
       payload: null
       };
   const runtimeLoop = await loadRuntimeLoopContext(projectRoot, tree.payload, brief.payload);
+  const taskBoard = await loadTaskBoard(projectRoot, runtimeLoop);
 
   return {
     status_card: status.payload,
@@ -2395,6 +2843,7 @@ export async function loadVisibilityViews(options) {
     evidence_drill_down: evidence.payload,
     runtime_execution: runtimeExecution.payload,
     runtime_loop: runtimeLoop,
+    task_board: taskBoard,
     derived: {
       flow_metrics: flowMetrics,
       timeline_metrics: timelineMetrics,
@@ -2407,7 +2856,8 @@ export async function loadVisibilityViews(options) {
       tree_position: tree.payload,
       evidence_drill_down: evidence.payload,
       runtime_execution: runtimeExecution.payload,
-      runtime_loop: runtimeLoop
+      runtime_loop: runtimeLoop,
+      task_board: taskBoard
     },
     sources: {
       project_root: projectRoot,
