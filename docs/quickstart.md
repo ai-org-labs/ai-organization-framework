@@ -25,8 +25,8 @@ npm install
 bundled example ではなく別プロジェクトへ AOF を持ち込む場合、現在の canonical acquisition path は GitHub tag から local tool source を取得する方式である。
 
 ```bash
-git clone --branch v5.0.0 https://github.com/ai-org-labs/ai-organization-framework.git ~/.local/share/aof/v5.0.0
-cd ~/.local/share/aof/v5.0.0
+git clone --branch v6.0.0 https://github.com/ai-org-labs/ai-organization-framework.git ~/.local/share/aof/v6.0.0
+cd ~/.local/share/aof/v6.0.0
 npm install
 npm link
 ```
@@ -118,7 +118,7 @@ node ./src/cli.js live-verify \
 
 ## Human Recognition Interface
 
-`v2.6` 以降の Human Visibility Layer を local viewer で見たい場合は、まず runtime から visibility packet を生成し、その JSON を `visibility-serve` に渡す。
+Human Recognition Interface の current viewer を local で見たい場合は、まず runtime から visibility packet を生成し、その JSON を `visibility-serve` に渡す。
 
 ```bash
 node ./src/cli.js visibility-export --project .
@@ -142,9 +142,9 @@ node ./src/cli.js operator-brief --project .
 ```
 
 これは `何が起きているか / なぜそうなのか / 何が詰まっているか / 次に何をするか` を 1 packet で返す。  
-`v3.8` 以降の main operator path はこの brief で、viewer は補助面として扱う。
+current main operator path はこの brief で、viewer は補助面として扱う。
 
-`v3.9` 以降の最短 path は、runtime から viewer までを 1 command でつなぐ `visibility-session` である。
+runtime から viewer までを 1 command でつなぐ場合は `visibility-session` を使う。
 
 ```bash
 node ./src/cli.js visibility-session --project . --port 4174 --open-browser
@@ -182,6 +182,9 @@ node ./src/cli.js visibility-serve \
 viewer 自体は read-only で、`status / timeline / flow` に加えて Mission Control, progress, tree-position, evidence drill-down surface を表示する。  
 `mission-control.json` がない場合でも viewer は fallback で開けるが、artifact lineage / blocker / next-action / progress / tree position を正しく見たい場合は packet 一式を渡す。
 
+重要: current viewer は runtime-backed visibility surface であり、完成した Human Recognition UX ではない。  
+`何が起きているか` を確認するには `operator-brief` / `operator-progress` / `tree-position` / `evidence-drill-down` を一次情報として扱い、viewer はその表示面として使う。
+
 ## Non-AIDLC Example
 
 AIDLC 以外の最小例を見たい場合は generic template を使う。
@@ -215,4 +218,5 @@ Need / Intent / Context を整えることが目的で、planning / approval の
 - core model: [aof-core-model.md](./aof-core-model.md)
 - operations model: [aof-operations-model.md](./aof-operations-model.md)
 - project bootstrap model: [aof-project-bootstrap-model.md](./aof-project-bootstrap-model.md)
-- `v3.9` scope と gate: [v3.9-release-definition.md](./v3.9-release-definition.md)
+- public runtime readiness: [v6.0-public-runtime-readiness.md](./v6.0-public-runtime-readiness.md)
+- current release definition: [v6.0-release-definition.md](./v6.0-release-definition.md)

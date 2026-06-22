@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Select the next AOF frontier after the v5.0.0 Skillful Actor Runtime release through a runtime-backed direction review before opening new implementation work.",
-  "updated_at": "2026-06-21T06:14:51.260Z",
+  "content": "Select the next AOF frontier after the v6.0.0 Public Runtime Readiness release through a runtime-backed direction review before opening new implementation work.",
+  "updated_at": "2026-06-22T15:15:29.564Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-MQN-V50-CLOSURE",
-  "source_decision_record_id": null,
+  "source_session_id": "SESS-MQPCFZHQ-MV6A1U",
+  "source_decision_record_id": "DEC-MQPCKMKF-1M7FNW",
   "declared_complete_at": null
 }

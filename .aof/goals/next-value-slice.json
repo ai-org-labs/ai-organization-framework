@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Select the next frontier after v5.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
-  "updated_at": "2026-06-21T06:15:35.386Z",
+  "content": "Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
+  "updated_at": "2026-06-22T15:15:28.642Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-MQN-V50-CLOSURE",
-  "source_decision_record_id": null,
+  "source_session_id": "SESS-MQPCFZHQ-MV6A1U",
+  "source_decision_record_id": "DEC-MQPCKMKF-1M7FNW",
   "declared_complete_at": null
 }
