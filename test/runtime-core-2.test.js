@@ -2473,6 +2473,9 @@ test("visibility view loader and HTML shell align with the v1.4 visibility contr
   assert.match(html, /detail-modal/);
   assert.match(html, /detail-tooltip/);
   assert.match(html, /data-detail/);
+  assert.match(html, /max-height: clamp\(140px, 32vh, 420px\)/);
+  assert.match(html, /overscroll-behavior: contain/);
+  assert.match(html, /<pre tabindex="0">/);
   assert.ok(html.includes("/api/ref-content"));
   const scriptMatch = html.match(/<script>([\s\S]*)<\/script>/);
   assert.ok(scriptMatch);

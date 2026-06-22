@@ -2360,12 +2360,12 @@ export function buildVisibilityPageHtml(title) {
         z-index: 40;
         display: grid;
         place-items: center;
-        padding: clamp(14px, 2vw, 28px);
+        padding: clamp(8px, 2vw, 28px);
         background: rgba(32,24,17,0.38);
       }
       .detail-modal-panel {
         width: min(980px, 100%);
-        max-height: min(82vh, 860px);
+        max-height: min(90vh, 860px);
         display: grid;
         grid-template-rows: auto minmax(0, 1fr);
         border-radius: 24px;
@@ -2417,6 +2417,9 @@ export function buildVisibilityPageHtml(title) {
         border-radius: 18px;
         background: #fcfaf6;
         overflow: hidden;
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        max-height: min(54vh, 520px);
       }
       .detail-section h3 {
         margin: 0;
@@ -2435,6 +2438,14 @@ export function buildVisibilityPageHtml(title) {
         line-height: 1.5;
         white-space: pre-wrap;
         overflow-wrap: anywhere;
+        max-height: clamp(140px, 32vh, 420px);
+        overflow: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+      }
+      .detail-section pre:focus-visible {
+        outline: 3px solid rgba(41,97,111,0.18);
+        outline-offset: -3px;
       }
       @media (max-width: 1280px) {
         .mission-top {
@@ -2474,6 +2485,29 @@ export function buildVisibilityPageHtml(title) {
         .kanban-board {
           grid-template-columns: repeat(7, minmax(230px, 1fr));
           max-height: 68vh;
+        }
+        .detail-modal {
+          align-items: start;
+        }
+        .detail-modal-panel {
+          max-height: calc(100vh - 16px);
+        }
+        .detail-modal-head {
+          padding: 14px 14px 10px;
+        }
+        .detail-modal-title {
+          font-size: clamp(18px, 6vw, 30px);
+          max-height: 30vh;
+          overflow: auto;
+        }
+        .detail-modal-body {
+          padding: 12px 14px 14px;
+        }
+        .detail-section {
+          max-height: 58vh;
+        }
+        .detail-section pre {
+          max-height: 42vh;
         }
       }
       .pulse-dot {
@@ -3126,7 +3160,7 @@ export function buildVisibilityPageHtml(title) {
       }
 
       function detailSection(title, content) {
-        return '<section class="detail-section"><h3>' + escapeHtml(title) + '</h3><pre>' + escapeHtml(content ?? "-") + '</pre></section>';
+        return '<section class="detail-section"><h3>' + escapeHtml(title) + '</h3><pre tabindex="0">' + escapeHtml(content ?? "-") + '</pre></section>';
       }
 
       function parseDetailPayload(trigger) {
