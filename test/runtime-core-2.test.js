@@ -52,7 +52,7 @@ import { taskUpdateCommand } from "../src/commands/task-update.js";
 import { teamOutputRecordCommand } from "../src/commands/team-output-record.js";
 import { needValidationRecordCommand } from "../src/commands/need-validation-record.js";
 import { valueHypothesisRecordCommand } from "../src/commands/value-hypothesis-record.js";
-import { buildVisibilityPageHtml, loadVisibilityViews } from "../src/commands/visibility-serve.js";
+import { buildVisibilityPageHtml, loadVisibilityViews, readProjectTextRef } from "../src/commands/visibility-serve.js";
 import { visibilityExportCommand } from "../src/commands/visibility-export.js";
 import { deriveInitialClarification } from "../src/runtime/clarification.js";
 import { loadSession } from "../src/runtime/session.js";
@@ -2428,6 +2428,20 @@ test("visibility view loader and HTML shell align with the v1.4 visibility contr
   assert.equal(views.derived.task_board.counts.open, 1);
   assert.equal(views.derived.task_board.open_tasks[0].task_id, "TASK-200");
 
+  await fs.mkdir(path.join(tempRoot, "docs"), { recursive: true });
+  await fs.writeFile(
+    path.join(tempRoot, "docs", "v6.0-release-definition.md"),
+    "# v6.0 release definition\n\nThis file content should be visible from the Mission Control detail popup.\n",
+    "utf8"
+  );
+  const refContent = await readProjectTextRef(tempRoot, "docs/v6.0-release-definition.md");
+  assert.equal(refContent.path, "docs/v6.0-release-definition.md");
+  assert.match(refContent.content, /file content should be visible/);
+  await assert.rejects(
+    readProjectTextRef(tempRoot, "../outside.md"),
+    /escapes project root/
+  );
+
   const html = buildVisibilityPageHtml("Test Visibility");
   assert.match(html, /Test Visibility/);
   assert.match(html, /AOF Mission Control Dashboard/);
@@ -2456,4 +2470,11 @@ test("visibility view loader and HTML shell align with the v1.4 visibility contr
   assert.match(html, /html === lastMissionDashboardHtml/);
   assert.match(html, /renderCount/);
   assert.match(html, /__aofRefreshForTest/);
+  assert.match(html, /detail-modal/);
+  assert.match(html, /detail-tooltip/);
+  assert.match(html, /data-detail/);
+  assert.ok(html.includes("/api/ref-content"));
+  const scriptMatch = html.match(/<script>([\s\S]*)<\/script>/);
+  assert.ok(scriptMatch);
+  assert.doesNotThrow(() => new Function(scriptMatch[1]));
 });

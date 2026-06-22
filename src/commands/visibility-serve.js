@@ -2,6 +2,8 @@ import http from "node:http";
 import fs from "node:fs/promises";
 import path from "node:path";
 
+const MAX_REF_CONTENT_BYTES = 160_000;
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -67,6 +69,44 @@ function deriveProjectRootFromAofPath(filePath) {
   }
   const prefix = parts.slice(0, aofIndex).join(path.sep);
   return prefix || path.sep;
+}
+
+export async function readProjectTextRef(projectRoot, ref) {
+  if (!projectRoot) {
+    throw new Error("Missing project root.");
+  }
+  if (!ref || typeof ref !== "string") {
+    throw new Error("Missing ref.");
+  }
+
+  const cleanRef = ref.trim().replace(/^file:\/\//, "").split("#")[0];
+  const resolvedProjectRoot = path.resolve(projectRoot);
+  const resolvedPath = path.isAbsolute(cleanRef)
+    ? path.resolve(cleanRef)
+    : path.resolve(resolvedProjectRoot, cleanRef);
+  const relative = path.relative(resolvedProjectRoot, resolvedPath);
+  if (relative.startsWith("..") || path.isAbsolute(relative)) {
+    throw new Error(`Ref escapes project root: ${ref}`);
+  }
+
+  const stat = await fs.stat(resolvedPath);
+  if (!stat.isFile()) {
+    throw new Error(`Ref is not a file: ${ref}`);
+  }
+
+  const raw = await fs.readFile(resolvedPath, "utf8");
+  const truncated = Buffer.byteLength(raw, "utf8") > MAX_REF_CONTENT_BYTES;
+  const content = truncated
+    ? raw.slice(0, MAX_REF_CONTENT_BYTES) + "\n\n[truncated]"
+    : raw;
+  return {
+    ok: true,
+    ref,
+    path: relative.replaceAll("\\", "/"),
+    bytes: stat.size,
+    truncated,
+    content
+  };
 }
 
 function toArtifactRef(projectRoot, filePath) {
@@ -2134,6 +2174,27 @@ export function buildVisibilityPageHtml(title) {
         background: #fffdf8;
         min-width: 0;
       }
+      .detail-trigger {
+        cursor: zoom-in;
+        transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+      }
+      .detail-trigger:hover,
+      .detail-trigger:focus-visible {
+        border-color: var(--accent-2);
+        box-shadow: 0 0 0 3px rgba(41,97,111,0.12);
+        outline: none;
+      }
+      .detail-trigger:active {
+        transform: translateY(1px);
+      }
+      .detail-hint {
+        margin-top: 8px;
+        color: var(--accent-2);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
       .task-card.current {
         border-color: var(--accent-2);
         box-shadow: 0 0 0 3px rgba(41,97,111,0.1);
@@ -2259,6 +2320,122 @@ export function buildVisibilityPageHtml(title) {
         -webkit-line-clamp: 3;
         overflow: hidden;
       }
+      .detail-tooltip {
+        position: fixed;
+        z-index: 30;
+        width: min(420px, calc(100vw - 28px));
+        max-height: 260px;
+        overflow: hidden;
+        padding: 12px 14px;
+        border: 1px solid rgba(18,59,74,0.24);
+        border-radius: 16px;
+        background: rgba(255,253,248,0.97);
+        box-shadow: 0 18px 44px rgba(42, 26, 8, 0.2);
+        pointer-events: none;
+        opacity: 0;
+        transform: translate(10px, 10px);
+        transition: opacity 0.12s ease;
+      }
+      .detail-tooltip.visible {
+        opacity: 1;
+      }
+      .detail-tooltip .tooltip-title {
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 1.22;
+      }
+      .detail-tooltip .tooltip-body {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.4;
+        white-space: pre-wrap;
+      }
+      .detail-modal[hidden] {
+        display: none;
+      }
+      .detail-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: grid;
+        place-items: center;
+        padding: clamp(14px, 2vw, 28px);
+        background: rgba(32,24,17,0.38);
+      }
+      .detail-modal-panel {
+        width: min(980px, 100%);
+        max-height: min(82vh, 860px);
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        border-radius: 24px;
+        border: 1px solid rgba(216,199,179,0.9);
+        background: #fffdf8;
+        box-shadow: 0 26px 72px rgba(32,24,17,0.28);
+        overflow: hidden;
+      }
+      .detail-modal-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: start;
+        padding: 18px 20px 14px;
+        border-bottom: 1px solid rgba(216,199,179,0.85);
+      }
+      .detail-modal-title {
+        margin: 0;
+        font-size: clamp(20px, 2vw, 28px);
+        line-height: 1.1;
+      }
+      .detail-modal-meta {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+      }
+      .detail-modal-close {
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: #f8f2e9;
+        color: var(--ink);
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .detail-modal-body {
+        min-height: 0;
+        overflow: auto;
+        padding: 18px 20px 22px;
+        display: grid;
+        gap: 14px;
+      }
+      .detail-section {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #fcfaf6;
+        overflow: hidden;
+      }
+      .detail-section h3 {
+        margin: 0;
+        padding: 12px 14px 8px;
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .detail-section pre {
+        margin: 0;
+        padding: 0 14px 14px;
+        color: var(--ink);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+        line-height: 1.5;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
       @media (max-width: 1280px) {
         .mission-top {
           grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2319,6 +2496,19 @@ export function buildVisibilityPageHtml(title) {
     <div id="dashboard-root" class="mission-dashboard"></div>
     </div>
     </div>
+    <div id="detail-tooltip" class="detail-tooltip" hidden></div>
+    <div id="detail-modal" class="detail-modal" hidden>
+      <div class="detail-modal-panel" role="dialog" aria-modal="true" aria-labelledby="detail-modal-title">
+        <div class="detail-modal-head">
+          <div>
+            <h2 id="detail-modal-title" class="detail-modal-title">Detail</h2>
+            <div id="detail-modal-meta" class="detail-modal-meta"></div>
+          </div>
+          <button id="detail-modal-close" class="detail-modal-close" type="button" aria-label="Close detail">×</button>
+        </div>
+        <div id="detail-modal-body" class="detail-modal-body"></div>
+      </div>
+    </div>
     <script>
       function escapeHtml(value) {
         return String(value ?? "")
@@ -2355,13 +2545,71 @@ export function buildVisibilityPageHtml(title) {
         return "-";
       }
 
+      function stripRefToken(token) {
+        let cleaned = String(token ?? "").trim();
+        const leading = '"\\'(<[';
+        const trailing = '"\\')]>.,;:';
+        while (cleaned.length > 0 && leading.includes(cleaned[0])) {
+          cleaned = cleaned.slice(1);
+        }
+        while (cleaned.length > 0 && trailing.includes(cleaned[cleaned.length - 1])) {
+          cleaned = cleaned.slice(0, -1);
+        }
+        return cleaned;
+      }
+
+      function hasFileExtension(ref) {
+        return [".md", ".json", ".yaml", ".yml", ".txt"].some((extension) => ref.endsWith(extension));
+      }
+
+      function extractFileRef(value) {
+        const text = String(value ?? "").replaceAll("\\n", " ").replaceAll("\\t", " ");
+        for (const token of text.split(" ")) {
+          const cleaned = stripRefToken(token);
+          if ((cleaned.startsWith("docs/") || cleaned.startsWith(".aof/")) && hasFileExtension(cleaned)) {
+            return cleaned;
+          }
+        }
+        return null;
+      }
+
+      function isLikelyFileRef(value) {
+        return extractFileRef(value) !== null;
+      }
+
+      function detailPayloadAttributes(payload) {
+        const preview = firstText(payload.body, payload.ref, payload.title).slice(0, 520);
+        return ' role="button" tabindex="0" data-detail="' + escapeHtml(JSON.stringify(payload)) + '" data-preview="' + escapeHtml(preview) + '"';
+      }
+
       function taskCard(card, currentId) {
         const isCurrent = card.id && currentId && card.id === currentId;
-        return '<div class="task-card ' + (isCurrent ? "current" : "") + '">' +
+        const ref = card.artifact_ref ?? extractFileRef(card.detail);
+        const payload = {
+          title: firstText(card.title, card.id, "Task detail"),
+          subtitle: firstText(card.id, card.kind, "task"),
+          body: firstText(card.detail, card.description, card.artifact_ref),
+          ref,
+          metadata: card
+        };
+        return '<div class="task-card detail-trigger ' + (isCurrent ? "current" : "") + '"' + detailPayloadAttributes(payload) + '>' +
           '<div class="task-id">' + escapeHtml(card.id ?? card.kind ?? "runtime") + '</div>' +
           '<div class="task-title">' + escapeHtml(card.title ?? "-") + '</div>' +
           '<div class="task-detail">' + escapeHtml(card.detail ?? card.description ?? card.artifact_ref ?? "-") + '</div>' +
+          '<div class="detail-hint">Click for full detail</div>' +
         '</div>';
+      }
+
+      function detailRow(title, body, ref, metadata) {
+        const payload = {
+          title: firstText(title, "Detail"),
+          subtitle: ref ? "Ref: " + ref : "Runtime item",
+          body: firstText(body, ref, "-"),
+          ref: ref ?? extractFileRef(body),
+          metadata: metadata ?? null
+        };
+        return '<div class="mini-row detail-trigger"' + detailPayloadAttributes(payload) + '><strong>' +
+          escapeHtml(payload.title) + '</strong><span>' + escapeHtml(payload.body) + '</span><div class="detail-hint">Click for full detail</div></div>';
       }
 
       function summarizeTask(task) {
@@ -2501,16 +2749,36 @@ export function buildVisibilityPageHtml(title) {
           '</section>' +
           '<section class="mission-lower">' +
             '<div class="lower-panel"><div class="section-head"><h2>Ticket / Task Flow</h2><p>Recent runtime and task changes.</p></div><div class="lower-body">' +
-              (timelineEntries.length > 0 ? timelineEntries.map((entry, index) => '<div class="mini-row"><strong>' + escapeHtml(String(index + 1) + ". " + firstText(entry.summary, entry.event_type)) + '</strong><span>' + escapeHtml(firstText(entry.actor, "-") + " / " + firstText(entry.at, "-") + " / " + firstText(entry.next, entry.rationale)) + '</span></div>').join("") : '<div class="mini-row"><strong>No timeline</strong><span>No timeline entries are currently available.</span></div>') +
+              (timelineEntries.length > 0 ? timelineEntries.map((entry, index) => detailRow(
+                String(index + 1) + ". " + firstText(entry.summary, entry.event_type),
+                firstText(entry.actor, "-") + " / " + firstText(entry.at, "-") + " / " + firstText(entry.next, entry.rationale),
+                Array.isArray(entry.artifact_refs) ? entry.artifact_refs[0] : entry.artifact_ref,
+                entry
+              )).join("") : '<div class="mini-row"><strong>No timeline</strong><span>No timeline entries are currently available.</span></div>') +
             '</div></div>' +
             '<div class="lower-panel"><div class="section-head"><h2>Top Blocked Tasks</h2><p>Blocked or stale task signals.</p></div><div class="lower-body">' +
-              (blockedTasks.length > 0 ? blockedTasks.map((task) => '<div class="mini-row"><strong>' + escapeHtml(firstText(task.task_id, "task") + " " + firstText(task.title, "")) + '</strong><span>' + escapeHtml(firstText(task.triage_notes, task.description, task.artifact_ref)) + '</span></div>').join("") : '<div class="mini-row"><strong>No blocked tasks</strong><span>No blocked/stale task artifact was detected.</span></div>') +
+              (blockedTasks.length > 0 ? blockedTasks.map((task) => detailRow(
+                firstText(task.task_id, "task") + " " + firstText(task.title, ""),
+                firstText(task.triage_notes, task.description, task.artifact_ref),
+                task.artifact_ref,
+                task
+              )).join("") : '<div class="mini-row"><strong>No blocked tasks</strong><span>No blocked/stale task artifact was detected.</span></div>') +
             '</div></div>' +
             '<div class="lower-panel"><div class="section-head"><h2>Role Workload</h2><p>Role-result count and latest recommendation.</p></div><div class="lower-body">' +
-              (workload.length > 0 ? workload.map((role) => '<div class="mini-row"><strong>' + escapeHtml(role.role + " / " + role.total_results + " result(s)") + '</strong><span>' + escapeHtml(firstText(role.latest_status, "-") + " / " + firstText(role.latest_recommendation, role.latest_artifact_ref)) + '</span></div>').join("") : '<div class="mini-row"><strong>No role workload</strong><span>No execution role-result artifacts are visible.</span></div>') +
+              (workload.length > 0 ? workload.map((role) => detailRow(
+                role.role + " / " + role.total_results + " result(s)",
+                firstText(role.latest_status, "-") + " / " + firstText(role.latest_recommendation, role.latest_artifact_ref),
+                role.latest_artifact_ref,
+                role
+              )).join("") : '<div class="mini-row"><strong>No role workload</strong><span>No execution role-result artifacts are visible.</span></div>') +
             '</div></div>' +
             '<div class="lower-panel"><div class="section-head"><h2>Evidence / Proof Coverage</h2><p>Refs behind headline, next action, and runtime-backed claim.</p></div><div class="lower-body">' +
-              (evidenceRefs.length > 0 ? Array.from(new Set(evidenceRefs)).slice(0, 8).map((ref, index) => '<div class="mini-row"><strong>' + escapeHtml(String(index + 1) + ". evidence") + '</strong><span>' + escapeHtml(ref) + '</span></div>').join("") : '<div class="mini-row"><strong>No evidence refs</strong><span>The current packet did not expose evidence references.</span></div>') +
+              (evidenceRefs.length > 0 ? Array.from(new Set(evidenceRefs)).slice(0, 8).map((ref, index) => detailRow(
+                String(index + 1) + ". evidence",
+                ref,
+                ref,
+                { evidence_ref: ref }
+              )).join("") : '<div class="mini-row"><strong>No evidence refs</strong><span>The current packet did not expose evidence references.</span></div>') +
             '</div></div>' +
           '</section>'
         );
@@ -2857,6 +3125,139 @@ export function buildVisibilityPageHtml(title) {
         \`).join("") + '</div>';
       }
 
+      function detailSection(title, content) {
+        return '<section class="detail-section"><h3>' + escapeHtml(title) + '</h3><pre>' + escapeHtml(content ?? "-") + '</pre></section>';
+      }
+
+      function parseDetailPayload(trigger) {
+        try {
+          return JSON.parse(trigger.dataset.detail || "{}");
+        } catch {
+          return {
+            title: "Unreadable detail",
+            body: trigger.textContent || "-"
+          };
+        }
+      }
+
+      async function loadRefContent(ref) {
+        if (!ref) {
+          return null;
+        }
+        const response = await fetch("/api/ref-content?ref=" + encodeURIComponent(ref), { cache: "no-store" });
+        const payload = await response.json();
+        if (!response.ok || payload.ok === false) {
+          throw new Error(payload.error || "Failed to load ref content.");
+        }
+        return payload;
+      }
+
+      async function openDetailModal(payload) {
+        const modal = document.getElementById("detail-modal");
+        const title = document.getElementById("detail-modal-title");
+        const meta = document.getElementById("detail-modal-meta");
+        const body = document.getElementById("detail-modal-body");
+        title.textContent = payload.title || "Detail";
+        meta.textContent = payload.ref ? (payload.subtitle || "Ref") + " / " + payload.ref : (payload.subtitle || "Runtime detail");
+        body.innerHTML =
+          detailSection("Full item text", payload.body || "-") +
+          (payload.metadata ? detailSection("Runtime metadata", JSON.stringify(payload.metadata, null, 2)) : "") +
+          (payload.ref ? detailSection("File content", "Loading " + payload.ref + " ...") : "");
+        modal.hidden = false;
+        document.getElementById("detail-modal-close").focus();
+
+        if (payload.ref) {
+          try {
+            const refContent = await loadRefContent(payload.ref);
+            const sections = [
+              detailSection("Full item text", payload.body || "-"),
+              payload.metadata ? detailSection("Runtime metadata", JSON.stringify(payload.metadata, null, 2)) : "",
+              detailSection("File content: " + refContent.path, refContent.content + (refContent.truncated ? "\\n\\n[content truncated]" : ""))
+            ];
+            body.innerHTML = sections.join("");
+          } catch (error) {
+            const sections = [
+              detailSection("Full item text", payload.body || "-"),
+              payload.metadata ? detailSection("Runtime metadata", JSON.stringify(payload.metadata, null, 2)) : "",
+              detailSection("File content unavailable", error instanceof Error ? error.message : String(error))
+            ];
+            body.innerHTML = sections.join("");
+          }
+        }
+      }
+
+      function closeDetailModal() {
+        document.getElementById("detail-modal").hidden = true;
+      }
+
+      function showDetailTooltip(trigger, event) {
+        const tooltip = document.getElementById("detail-tooltip");
+        const payload = parseDetailPayload(trigger);
+        tooltip.innerHTML = '<div class="tooltip-title">' + escapeHtml(payload.title || "Detail") + '</div><div class="tooltip-body">' + escapeHtml(firstText(payload.body, payload.ref, "-")) + '</div>';
+        tooltip.hidden = false;
+        tooltip.classList.add("visible");
+        moveDetailTooltip(event);
+      }
+
+      function moveDetailTooltip(event) {
+        const tooltip = document.getElementById("detail-tooltip");
+        if (tooltip.hidden) {
+          return;
+        }
+        const x = Math.min(event.clientX + 16, window.innerWidth - tooltip.offsetWidth - 12);
+        const y = Math.min(event.clientY + 16, window.innerHeight - tooltip.offsetHeight - 12);
+        tooltip.style.left = Math.max(12, x) + "px";
+        tooltip.style.top = Math.max(12, y) + "px";
+      }
+
+      function hideDetailTooltip() {
+        const tooltip = document.getElementById("detail-tooltip");
+        tooltip.classList.remove("visible");
+        tooltip.hidden = true;
+      }
+
+      document.addEventListener("click", (event) => {
+        const closeTarget = event.target.closest("#detail-modal-close");
+        if (closeTarget || event.target.id === "detail-modal") {
+          closeDetailModal();
+          return;
+        }
+        const trigger = event.target.closest(".detail-trigger");
+        if (!trigger) {
+          return;
+        }
+        openDetailModal(parseDetailPayload(trigger)).catch((error) => {
+          openDetailModal({ title: "Detail error", body: error instanceof Error ? error.message : String(error) });
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeDetailModal();
+          hideDetailTooltip();
+          return;
+        }
+        if ((event.key === "Enter" || event.key === " ") && event.target?.classList?.contains("detail-trigger")) {
+          event.preventDefault();
+          openDetailModal(parseDetailPayload(event.target)).catch((error) => {
+            openDetailModal({ title: "Detail error", body: error instanceof Error ? error.message : String(error) });
+          });
+        }
+      });
+
+      document.addEventListener("pointerover", (event) => {
+        const trigger = event.target.closest(".detail-trigger");
+        if (trigger) {
+          showDetailTooltip(trigger, event);
+        }
+      });
+      document.addEventListener("pointermove", (event) => moveDetailTooltip(event));
+      document.addEventListener("pointerout", (event) => {
+        if (event.target.closest(".detail-trigger")) {
+          hideDetailTooltip();
+        }
+      });
+
       function fitDashboardToViewport() {
         return;
       }
@@ -3014,6 +3415,7 @@ export async function visibilityServeCommand(options, runtimeOptions = {}) {
   const host = options.host || "127.0.0.1";
   const requestedPort = options.port ?? 4174;
   const title = options.title || "AOF Human Recognition Interface";
+  const projectRoot = deriveProjectRootFromAofPath(options.statusInput);
   await loadVisibilityViews(options);
 
   const html = buildVisibilityPageHtml(title);
@@ -3032,6 +3434,20 @@ export async function visibilityServeCommand(options, runtimeOptions = {}) {
       if (url.pathname === "/api/views") {
         const views = await loadVisibilityViews(options);
         writeJson(res, 200, views);
+        return;
+      }
+
+      if (url.pathname === "/api/ref-content") {
+        try {
+          const ref = url.searchParams.get("ref");
+          const content = await readProjectTextRef(projectRoot, ref);
+          writeJson(res, 200, content);
+        } catch (error) {
+          writeJson(res, 404, {
+            ok: false,
+            error: error instanceof Error ? error.message : String(error)
+          });
+        }
         return;
       }
 
