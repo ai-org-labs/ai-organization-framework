@@ -1,0 +1,24 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-22T15:10:52.700Z",
+  "role": "Guardian",
+  "stage": "planning",
+  "session_id": "SESS-MQPCFZHQ-MV6A1U",
+  "status": "completed",
+  "recommendation": "Approve v6.0 only if the release checklist separates local readiness from GitHub credential-blocked remote publication.",
+  "rationale": "The main quality risk is false confidence: tests, tags, viewer existence, and artifact volume do not prove public readiness unless tied to explicit gates and evidence.",
+  "signals": [
+    "Remote GitHub release must remain blocked until ai-org-labs write access is available."
+  ],
+  "artifact_refs": [
+    "docs/v6.0-release-checklist.md",
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-056",
+  "source_decision_record_id": "DEC-MQPCKMKF-1M7FNW",
+  "source_parent_session_id": "SESS-MQPCFZHQ-MV6A1U",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

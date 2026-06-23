@@ -1,0 +1,34 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-06-23T12:12:08.332Z",
+  "team_output_id": "TOUT-MQQLTONE-D4PN58",
+  "team_id": "governance-team",
+  "stage": "planning",
+  "expected_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Council should approve TASK-057 as the v6.1 Work Governance planning frontier, then proceed to schema fixtures as the next implementation slice.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-057-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-057-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-057-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v6.1-work-governance-integration-plan.md"
+  ],
+  "decision_required": true,
+  "summary": "Visionary, Builder, and Guardian agree that Work Governance is the right v6.1 frontier, with guardrails around Mission Control authority, Need Validation, schema duplication, and phased implementation.",
+  "source_task_id": "TASK-057",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

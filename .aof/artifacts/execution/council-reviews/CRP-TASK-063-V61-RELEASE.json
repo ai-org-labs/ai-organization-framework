@@ -1,0 +1,36 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-06-23T13:24:45.059Z",
+  "review_packet_id": "CREV-MQQOF2BN-63KGIN",
+  "council_id": "operations-council",
+  "stage": "approval",
+  "review_status": "approved",
+  "decision_summary": "v6.1.0 Work Governance release closure is approved.",
+  "rationale": "The release state is aligned to 6.1.0, Work Governance artifacts are structurally defined, writable, benchmarked, projected, and documented across software and manufacturing examples. The shipped-release-task-open conflict is resolved by closing TASK-063.",
+  "recommendation": "Move TASK-063 to done and require a runtime-backed frontier review before opening v6.2 work.",
+  "target_audience": "AOF maintainer and public adopter",
+  "expected_user_reaction": "Treat v6.1.0 as the Work Governance Integration baseline, not as fully autonomous Work Governance.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-063-V61-RELEASE.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-063-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v6.1-release-definition.md",
+    "docs/v6.1-release-checklist.md",
+    "docs/v6.1.0-release-notes.md"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-063",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

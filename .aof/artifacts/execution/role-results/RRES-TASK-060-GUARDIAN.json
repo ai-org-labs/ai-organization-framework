@@ -1,0 +1,25 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T12:55:36.036Z",
+  "role": "Guardian",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Approve TASK-060 with benchmark and regression evidence.",
+  "rationale": "The benchmark has positive and negative tests, CLI artifact write coverage, command registry recognition, routing audit, organization verification, and full npm test evidence.",
+  "signals": [
+    "work-governance-benchmark green; command-routing-audit green; organization-verify green; npm test green"
+  ],
+  "artifact_refs": [
+    "/tmp/aof-work-governance-benchmark-v61.json",
+    "/tmp/aof-command-routing-audit-v61-task060.json",
+    "test/work-governance-schema.test.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-060",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.85
+}

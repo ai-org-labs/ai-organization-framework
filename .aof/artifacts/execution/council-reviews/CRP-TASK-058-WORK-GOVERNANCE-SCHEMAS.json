@@ -1,0 +1,45 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-06-23T12:30:49.010Z",
+  "review_packet_id": "CREV-MQQMHPDD-D0Y2MO",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve TASK-058 Work Governance schemas and fixtures.",
+  "rationale": "The implementation adds schema-valid cross-domain Work Governance artifacts and fixes runtime frontier selection so assigned work is treated as active current work.",
+  "recommendation": "Mark TASK-058 done and start TASK-059 narrow CLI writers.",
+  "target_audience": "AOF maintainer",
+  "expected_user_reaction": "See v6.1 progress as staged: contracts first, then writers, then audits.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Use these schemas as the command output contracts for TASK-059."
+  ],
+  "organization_change_recommendations": [
+    "Keep Work Governance staged; do not skip validator tasks."
+  ],
+  "diagnosis_category": "schema-contract-ready",
+  "diagnosis_confidence": 0.88,
+  "diagnosis_evidence_refs": [
+    "test/work-governance-schema.test.js"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-058-WORK-GOVERNANCE-SCHEMAS.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-058-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-058-GUARDIAN.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-058-VISIONARY.json"
+  ],
+  "evidence_refs": [
+    "schemas/aof-work-item-goal.schema.json",
+    ".aof/artifacts/work-governance/fixtures/software/work-item-goal.json"
+  ],
+  "follow_up_task_ids": [
+    "TASK-059"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

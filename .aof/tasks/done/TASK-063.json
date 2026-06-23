@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-063",
+  "title": "Close v6.1.0 Work Governance release",
+  "description": "Prepare v6.1 release definition, checklist, release notes, package/bootstrap/release-state alignment, verification evidence, tag, and GitHub release readiness.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "assigned_session_ids": [
+    "SESS-WORK-GOVERNANCE-V61"
+  ],
+  "related_decision_record_id": "CRP-TASK-063-V61-RELEASE",
+  "operating_goal_ref": "v6.1-work-governance",
+  "created_at": "2026-06-23T12:19:03.585Z",
+  "updated_at": "2026-06-23T13:24:45.059Z",
+  "assigned_at": "2026-06-23T13:14:25.363Z",
+  "done_at": "2026-06-23T13:24:45.059Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v6.1.0 release closure: release docs, release state, Work Governance verification, and council approval are recorded. A runtime-backed frontier review is required before v6.2 implementation work."
+}

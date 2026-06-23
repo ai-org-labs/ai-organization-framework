@@ -1,0 +1,30 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T13:24:09.387Z",
+  "role": "Guardian",
+  "stage": "approval",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Close TASK-063 after moving release state to v6.1.0 and resolving the shipped-release-task-open conflict by marking the release task done.",
+  "rationale": "Release-state audit, command routing audit, organization verification, decision verification, Work Governance benchmark, and smoke validation are green. The transient npm test failure was caused by TASK-063 remaining assigned after the active release was advanced to v6.1.0; closing TASK-063 is the correct runtime reconciliation.",
+  "signals": [
+    "release-state-audit: pass",
+    "command-routing-audit: pass",
+    "organization-verify: 219/219 pass",
+    "decision-verify: 35/35 pass",
+    "work-governance-benchmark: pass WG-001..WG-007",
+    "npm run smoke: pass"
+  ],
+  "artifact_refs": [
+    "docs/v6.1-release-definition.md",
+    "docs/v6.1-release-checklist.md",
+    "docs/v6.1.0-release-notes.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-063",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

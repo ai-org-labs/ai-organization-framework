@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-056",
+  "title": "Ship v6.0 Public Runtime Readiness",
+  "description": "Make the historyless public AOF snapshot usable by first-time human and AI operators: command readiness evidence, worked examples, viewer status, onboarding path, roadmap, and release/publish readiness.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-MQPCFZHQ-MV6A1U",
+  "assigned_session_ids": [],
+  "related_decision_record_id": "DEC-MQPCKMKF-1M7FNW",
+  "operating_goal_ref": ".aof/goals/operating-goal.json",
+  "created_at": "2026-06-22T15:03:00.300Z",
+  "updated_at": "2026-06-22T15:14:47.433Z",
+  "assigned_at": null,
+  "done_at": "2026-06-22T15:14:47.433Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v6.0 Public Runtime Readiness implementation, docs, release state, examples, and council approval completed; final validation and local tagging follow."
+}

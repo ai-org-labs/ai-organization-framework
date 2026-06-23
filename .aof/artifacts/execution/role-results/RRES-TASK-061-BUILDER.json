@@ -1,0 +1,25 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T13:05:45.752Z",
+  "role": "Builder",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Keep Work Governance projection in Mission Control as a runtime-derived section, not viewer-owned truth.",
+  "rationale": "visibility-export now builds mission_control.work_governance from canonical Work Governance artifacts, schema-validates it, and the viewer renders a Work Governance Chain panel from that payload.",
+  "signals": [
+    "visibility-export green; full npm test green"
+  ],
+  "artifact_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-061",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.85
+}

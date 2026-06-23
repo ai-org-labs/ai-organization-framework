@@ -1,0 +1,25 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T13:05:44.495Z",
+  "role": "Guardian",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Approve TASK-061 after schema, targeted visibility, visibility-export, and full regression evidence.",
+  "rationale": "The projection is canonical-artifact-derived, schema-covered, visible in the dashboard shell, and does not create independent Mission Control truth.",
+  "signals": [
+    "targeted visibility tests green; npm test green"
+  ],
+  "artifact_refs": [
+    "/tmp/aof-visibility-v61-task061/mission-control.json",
+    "test/runtime-situation.test.js",
+    "test/runtime-core-2.test.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-061",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

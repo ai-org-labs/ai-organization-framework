@@ -1,0 +1,24 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-22T15:10:53.095Z",
+  "role": "Builder",
+  "stage": "planning",
+  "session_id": "SESS-MQPCFZHQ-MV6A1U",
+  "status": "completed",
+  "recommendation": "Implement v6.0 as a bounded documentation, release-state, example-readiness, and validation-evidence slice.",
+  "rationale": "The needed implementation is not a new backend; it is alignment of README, quickstart, release docs, roadmap, active manifest, package version, examples, and verification commands.",
+  "signals": [
+    "Keep generated artifacts traceable and avoid introducing stale example output."
+  ],
+  "artifact_refs": [
+    "docs/v6.0-release-definition.md",
+    "docs/v6.0-release-checklist.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-056",
+  "source_decision_record_id": "DEC-MQPCKMKF-1M7FNW",
+  "source_parent_session_id": "SESS-MQPCFZHQ-MV6A1U",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

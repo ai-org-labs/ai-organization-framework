@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T12:11:50.171Z",
+  "role": "Guardian",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Approve the direction only if Mission Control remains projection-only, Work Governance does not weaken Need Validation, and PMO remains an alias rather than the core concept.",
+  "rationale": "The main risks are concept duplication, software-only framing, dashboard-owned truth, and excessive artifact families without validators.",
+  "signals": [
+    "Require schema and audit commands before broad dashboard expansion."
+  ],
+  "artifact_refs": [
+    "docs/v6.1-work-governance-integration-plan.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-057",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.82
+}

@@ -1,0 +1,24 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T13:13:20.621Z",
+  "role": "Builder",
+  "stage": "execution",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Submit TASK-062 cross-domain Work Governance examples for Guardian verification.",
+  "rationale": "Added adoption-facing documentation that maps software and manufacturing Work Governance examples to their canonical runtime artifact chains.",
+  "signals": [
+    "examples documented and benchmarked"
+  ],
+  "artifact_refs": [
+    "docs/v6.1-work-governance-examples.md",
+    "test/work-governance-schema.test.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-062",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.88
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-059",
+  "title": "Add narrow Work Governance CLI writers",
+  "description": "Add CLI writers for work-item-goal, actor-compose, council-ready-output, go-no-go-visualization, operational-map-change-log, and context-pack after schema contracts are stable.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "assigned_session_ids": [
+    "SESS-WORK-GOVERNANCE-V61"
+  ],
+  "related_decision_record_id": "CRP-TASK-059-WORK-GOVERNANCE-CLI",
+  "operating_goal_ref": "v6.1-work-governance",
+  "created_at": "2026-06-23T12:18:04.811Z",
+  "updated_at": "2026-06-23T12:44:57.941Z",
+  "assigned_at": "2026-06-23T12:31:21.924Z",
+  "done_at": "2026-06-23T12:44:57.941Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed narrow Work Governance CLI writer commands; schema writer tests, command registry refresh, command-routing-audit, organization-verify, and npm test are green."
+}

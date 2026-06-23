@@ -1,0 +1,30 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-06-23T13:24:26.289Z",
+  "team_output_id": "TOUT-MQQOENU9-2HFOCQ",
+  "team_id": "release-governance-team",
+  "stage": "approval",
+  "expected_roles": [
+    "Guardian"
+  ],
+  "received_roles": [
+    "Guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Mark TASK-063 done, set the next value slice to post-v6.1 frontier review, and rerun release validation.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-063-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v6.1-release-definition.md",
+    "docs/v6.1-release-checklist.md",
+    "docs/v6.1.0-release-notes.md"
+  ],
+  "decision_required": false,
+  "summary": "TASK-063 release closure is ready after v6.1 release docs, state refresh, runtime audits, Work Governance benchmark, and smoke validation; remaining npm test issue is the expected open-release-task conflict resolved by closing TASK-063.",
+  "source_task_id": "TASK-063",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

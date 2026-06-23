@@ -1,0 +1,25 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T12:30:09.245Z",
+  "role": "Guardian",
+  "stage": "review",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Approve TASK-058 with one important runtime fix: situation-assess now treats assigned tasks as current work and honors explicit TASK IDs in next_value_slice.",
+  "rationale": "The original full test failure exposed a real Work Governance bug: assigned active work was ignored, so the runtime chose a later release-closure task as frontier. The fix makes current frontier detection match actual work state.",
+  "signals": [
+    "npm test is green; schema fixtures validate; proceed to CLI writers."
+  ],
+  "artifact_refs": [
+    "src/commands/situation-assess.js",
+    "test/runtime-situation.test.js",
+    "test/work-governance-schema.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-058",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.87
+}

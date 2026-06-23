@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-057",
+  "title": "Define v6.1 Work Governance Integration plan",
+  "description": "Integrate the Work Governance direction as a phased, cross-industry Human + AI + Tool Work Governance OS plan before schema and CLI implementation.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "assigned_session_ids": [],
+  "related_decision_record_id": "CRP-TASK-057-WORK-GOVERNANCE",
+  "operating_goal_ref": "v6.1-work-governance",
+  "created_at": "2026-06-23T12:06:59.386Z",
+  "updated_at": "2026-06-23T12:17:38.612Z",
+  "assigned_at": null,
+  "done_at": "2026-06-23T12:17:38.612Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v6.1 Work Governance planning slice. Outputs: integration plan, task breakdown, core model update, roadmap update, release-plan update, role results, team output, council review."
+}

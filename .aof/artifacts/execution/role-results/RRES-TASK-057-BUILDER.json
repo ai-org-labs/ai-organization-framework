@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T12:11:49.633Z",
+  "role": "Builder",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Implement v6.1 as phased contracts: first docs and runtime trace, then schemas, then narrow CLI, then validators, then Mission Control projection.",
+  "rationale": "Existing task, actor skill packet, council review, and Mission Control schemas can be extended, while work-item-goal, context-pack, external-ref, and operational-map-change-log need new artifact families.",
+  "signals": [
+    "Avoid a giant PR; keep TASK-057 as the planning boundary."
+  ],
+  "artifact_refs": [
+    "docs/v6.1-work-governance-integration-plan.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-057",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

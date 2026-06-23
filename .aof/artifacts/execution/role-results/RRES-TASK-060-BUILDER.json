@@ -1,0 +1,25 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T12:55:36.436Z",
+  "role": "Builder",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Keep work-governance-benchmark as the narrow v6.1 audit surface.",
+  "rationale": "The command validates Work Governance chains across goals, actors, council-ready output, Go/No-Go visualization, Operational Map provenance, Context Pack compression, and external refs without expanding into broad scoring.",
+  "signals": [
+    "WG-001 through WG-007 pass on committed fixtures"
+  ],
+  "artifact_refs": [
+    "src/commands/work-governance-benchmark.js",
+    "schemas/aof-work-governance-benchmark.schema.json",
+    "test/work-governance-schema.test.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-060",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

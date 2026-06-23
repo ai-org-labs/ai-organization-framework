@@ -1,0 +1,35 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-06-23T12:30:30.068Z",
+  "team_output_id": "TOUT-MQQMHAR8-U5Q0S9",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve TASK-058 and move to TASK-059 CLI writers.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-058-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-058-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-058-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "test/work-governance-schema.test.js",
+    "src/commands/situation-assess.js"
+  ],
+  "decision_required": true,
+  "summary": "TASK-058 added Work Governance schemas, software/manufacturing fixtures, tests, and fixed assigned-task frontier recognition.",
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

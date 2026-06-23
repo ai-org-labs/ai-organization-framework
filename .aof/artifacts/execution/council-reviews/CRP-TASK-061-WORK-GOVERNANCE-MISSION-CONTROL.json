@@ -1,0 +1,40 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-06-23T13:06:24.329Z",
+  "review_packet_id": "CREV-MQQNRGZT-6EZR3X",
+  "council_id": "operations-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "TASK-061 is approved as the Mission Control Work Governance projection slice.",
+  "rationale": "Mission Control now displays Work Governance state derived from canonical runtime artifacts, with schema and viewer regression coverage. It remains a projection layer, not an authority layer.",
+  "recommendation": "Close TASK-061 and advance to TASK-062 cross-domain examples.",
+  "target_audience": null,
+  "expected_user_reaction": null,
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-061-WORK-GOVERNANCE-MISSION-CONTROL.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-061-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-061-GUARDIAN.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-061-VISIONARY.json"
+  ],
+  "evidence_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "/tmp/aof-visibility-v61-task061/mission-control.json"
+  ],
+  "follow_up_task_ids": [
+    "TASK-062"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-061",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

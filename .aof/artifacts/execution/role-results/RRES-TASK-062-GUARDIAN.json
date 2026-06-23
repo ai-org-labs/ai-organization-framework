@@ -1,0 +1,26 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T13:13:44.025Z",
+  "role": "Guardian",
+  "stage": "review",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Approve TASK-062 for council review and hand off to TASK-063 release closure.",
+  "rationale": "Work Governance tests pass, the benchmark passes WG-001 through WG-007, and the example guide references both software and manufacturing artifact chains.",
+  "signals": [
+    "node --test test/work-governance-schema.test.js: pass 10",
+    "work-governance-benchmark: pass WG-001..WG-007"
+  ],
+  "artifact_refs": [
+    "docs/v6.1-work-governance-examples.md",
+    ".aof/artifacts/work-governance/fixtures/software/work-item-goal.json",
+    ".aof/artifacts/work-governance/fixtures/manufacturing/work-item-goal.json"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-062",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.9
+}

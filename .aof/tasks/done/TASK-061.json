@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-061",
+  "title": "Project Work Governance into Mission Control",
+  "description": "Project Work Governance dashboard, work board, Go/No-Go panel, actor composition, approval queue, interrupt inbox, external refs, and operational map refs into Mission Control without viewer-owned truth.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "assigned_session_ids": [
+    "SESS-WORK-GOVERNANCE-V61"
+  ],
+  "related_decision_record_id": "CRP-TASK-061-WORK-GOVERNANCE-MISSION-CONTROL",
+  "operating_goal_ref": "v6.1-work-governance",
+  "created_at": "2026-06-23T12:18:37.837Z",
+  "updated_at": "2026-06-23T13:06:50.462Z",
+  "assigned_at": "2026-06-23T12:57:14.874Z",
+  "done_at": "2026-06-23T13:06:50.462Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed Work Governance Mission Control projection with schema coverage, viewer panel, visibility export evidence, and npm test green."
+}

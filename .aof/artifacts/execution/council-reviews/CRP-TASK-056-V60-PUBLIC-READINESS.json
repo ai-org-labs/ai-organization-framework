@@ -1,0 +1,45 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-06-22T15:11:30.545Z",
+  "review_packet_id": "CREV-MQPCSI5T-DZQJOH",
+  "council_id": "operations-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v6.0 Public Runtime Readiness for local release if all checklist gates pass; remote GitHub release remains conditional on ai-org-labs write access.",
+  "rationale": "The release is bounded, runtime-backed, and improves public adoption quality without weakening v5.0 actor runtime or overclaiming viewer/autonomy maturity.",
+  "recommendation": "Finish verification, close TASK-056, create local v6.0.0 tag, and push/release only after credentials are fixed.",
+  "target_audience": "first-time AOF adopters and maintainers",
+  "expected_user_reaction": "They can see what is proven, what is a starter template, what the viewer can show, and what remains blocked.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep docs and checklist explicit about command readiness tiers, viewer limitations, and GitHub credential blocker."
+  ],
+  "organization_change_recommendations": [
+    "Treat public readiness as a release gate before future autonomy expansion."
+  ],
+  "diagnosis_category": "public-adoption-readiness",
+  "diagnosis_confidence": 0.86,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-056-V60-PUBLIC-READINESS.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-056-V60-PUBLIC-READINESS.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-056-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-056-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-056-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v6.0-public-runtime-readiness.md",
+    "docs/v6.0-release-checklist.md"
+  ],
+  "follow_up_task_ids": [
+    "TASK-056"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-056",
+  "source_parent_session_id": "SESS-MQPCFZHQ-MV6A1U",
+  "source_decision_record_id": "DEC-MQPCKMKF-1M7FNW"
+}

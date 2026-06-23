@@ -1,0 +1,26 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T12:30:12.497Z",
+  "role": "Builder",
+  "stage": "execution",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Accept TASK-058 implementation: Work Governance schemas, software/manufacturing fixtures, validation tests, and frontier-selection bug fix are in place.",
+  "rationale": "The schema surface covers work item goals, actor composition, council-ready output, Go/No-Go visualization, operational-map change logs, context packs, and external refs without adding CLI writers prematurely.",
+  "signals": [
+    "Proceed to TASK-059 CLI writers."
+  ],
+  "artifact_refs": [
+    "schemas/aof-work-item-goal.schema.json",
+    "test/work-governance-schema.test.js",
+    ".aof/artifacts/work-governance/fixtures/software/work-item-goal.json",
+    ".aof/artifacts/work-governance/fixtures/manufacturing/work-item-goal.json"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-058",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.88
+}

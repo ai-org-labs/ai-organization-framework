@@ -1,0 +1,38 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-06-23T13:14:25.363Z",
+  "review_packet_id": "CREV-MQQO1S5V-Y54A5K",
+  "council_id": "operations-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "TASK-062 is approved as the cross-domain Work Governance example slice for v6.1.",
+  "rationale": "The examples are adoption-facing, cover software and manufacturing domains, preserve Mission Control as projection, and are backed by fixture validation plus Work Governance benchmark evidence.",
+  "recommendation": "Move TASK-062 to done and assign TASK-063 to close the v6.1.0 release.",
+  "target_audience": "AOF operator and adopter",
+  "expected_user_reaction": "Understand that Work Governance is cross-domain and can be verified from committed artifacts.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-062-WORK-GOVERNANCE-EXAMPLES.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-062-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-062-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v6.1-work-governance-examples.md",
+    "test/work-governance-schema.test.js"
+  ],
+  "follow_up_task_ids": [
+    "TASK-063"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-062",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

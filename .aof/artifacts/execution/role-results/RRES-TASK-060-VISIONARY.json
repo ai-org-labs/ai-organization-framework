@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T12:55:35.710Z",
+  "role": "Visionary",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Move to TASK-061 and project Work Governance status into Mission Control.",
+  "rationale": "Once the chain can be written and benchmarked, the next product value is making the current work governance state visible to operators without reading raw JSON.",
+  "signals": [
+    "advance to Mission Control projection"
+  ],
+  "artifact_refs": [
+    "docs/v6.1-task-breakdown.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-060",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.82
+}

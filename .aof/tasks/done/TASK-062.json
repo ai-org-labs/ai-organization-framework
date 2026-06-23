@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-062",
+  "title": "Add cross-domain Work Governance examples",
+  "description": "Add at least one software and one non-software Work Governance example with source-of-truth, sync policy, actor composition, Operational Map impact, Go/No-Go, and Council-ready output.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "assigned_session_ids": [
+    "SESS-WORK-GOVERNANCE-V61"
+  ],
+  "related_decision_record_id": "CRP-TASK-062-WORK-GOVERNANCE-EXAMPLES",
+  "operating_goal_ref": "v6.1-work-governance",
+  "created_at": "2026-06-23T12:18:50.588Z",
+  "updated_at": "2026-06-23T13:14:25.363Z",
+  "assigned_at": "2026-06-23T13:06:49.274Z",
+  "done_at": "2026-06-23T13:14:25.363Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v6.1 slice: adoption-facing cross-domain Work Governance examples are documented and verified by Work Governance tests and benchmark."
+}

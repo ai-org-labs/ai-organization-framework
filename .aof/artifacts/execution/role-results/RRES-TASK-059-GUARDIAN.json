@@ -1,0 +1,24 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T12:43:40.476Z",
+  "role": "Guardian",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Approve TASK-059 after preserving full-test, organization-verify, and command-routing-audit evidence.",
+  "rationale": "Schema fixtures, writer regression tests, command registry refresh, routing audit, organization verification, and npm test are green. The remaining semantic risk is limited to future operator ergonomics, not writer contract correctness.",
+  "signals": [
+    "npm test green; organization-verify green; command-routing-audit green"
+  ],
+  "artifact_refs": [
+    "/tmp/aof-command-routing-audit-v61.json",
+    "test/work-governance-schema.test.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-059",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

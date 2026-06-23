@@ -1,0 +1,36 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-06-23T12:56:33.786Z",
+  "team_output_id": "TOUT-MQQNETBU-X1UY4Z",
+  "team_id": "verification-team",
+  "stage": "planning",
+  "expected_roles": [
+    "Builder",
+    "Guardian",
+    "Visionary"
+  ],
+  "received_roles": [
+    "Builder",
+    "Guardian",
+    "Visionary"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve TASK-060 and advance to TASK-061 Work Governance Mission Control projection.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-060-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-060-GUARDIAN.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-060-VISIONARY.json"
+  ],
+  "artifact_refs": [
+    "src/commands/work-governance-benchmark.js",
+    "schemas/aof-work-governance-benchmark.schema.json",
+    "test/work-governance-schema.test.js"
+  ],
+  "decision_required": true,
+  "summary": "TASK-060 adds work-governance-benchmark with WG-001 through WG-007 checks, positive/negative tests, CLI artifact write coverage, and registry/routing integration.",
+  "source_task_id": "TASK-060",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

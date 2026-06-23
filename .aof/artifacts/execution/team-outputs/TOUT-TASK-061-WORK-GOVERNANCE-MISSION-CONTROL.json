@@ -1,0 +1,36 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-06-23T13:06:05.743Z",
+  "team_output_id": "TOUT-MQQNR2NJ-PJCGPZ",
+  "team_id": "runtime-team",
+  "stage": "planning",
+  "expected_roles": [
+    "Builder",
+    "Guardian",
+    "Visionary"
+  ],
+  "received_roles": [
+    "Builder",
+    "Guardian",
+    "Visionary"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve TASK-061 and advance to TASK-062 cross-domain Work Governance examples.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-061-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-061-GUARDIAN.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-061-VISIONARY.json"
+  ],
+  "artifact_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json"
+  ],
+  "decision_required": true,
+  "summary": "TASK-061 projects Work Governance into Mission Control through mission_control.work_governance and a viewer Work Governance Chain panel, while preserving Mission Control as a projection layer.",
+  "source_task_id": "TASK-061",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

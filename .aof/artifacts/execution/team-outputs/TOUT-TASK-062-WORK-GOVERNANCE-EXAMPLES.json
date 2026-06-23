@@ -1,0 +1,32 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-06-23T13:14:06.760Z",
+  "team_output_id": "TOUT-MQQO1DT4-WDKNLO",
+  "team_id": "work-governance-team",
+  "stage": "review",
+  "expected_roles": [
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Builder",
+    "Guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Close TASK-062 and start TASK-063 release closure for v6.1.0.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-062-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-062-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v6.1-work-governance-examples.md",
+    "test/work-governance-schema.test.js"
+  ],
+  "decision_required": false,
+  "summary": "TASK-062 produced adoption-facing software and manufacturing Work Governance examples, plus tests proving that both artifact chains are documented.",
+  "source_task_id": "TASK-062",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

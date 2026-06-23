@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T12:11:50.188Z",
+  "role": "Visionary",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Select Work Governance Integration as v6.1 because it expands AOF beyond software-task execution while preserving Need Validation, Skillful Actor, and runtime-backed governance.",
+  "rationale": "The instruction identifies a real product gap: AOF can run tasks, but each work item must carry goal, reason, actor composition, Go/No-Go evidence, Operational Map impact, and council-ready output to work across domains.",
+  "signals": [
+    "Proceed with planning-grade v6.1 before schema and CLI implementation."
+  ],
+  "artifact_refs": [
+    "docs/v6.1-work-governance-integration-plan.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-057",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

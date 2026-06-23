@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-06-23T13:05:47.745Z",
+  "role": "Visionary",
+  "stage": "planning",
+  "session_id": "SESS-WORK-GOVERNANCE-V61",
+  "status": "completed",
+  "recommendation": "Move to TASK-062 and make the cross-domain examples adoption-facing.",
+  "rationale": "The runtime can now write, benchmark, and show Work Governance chains; the next release value is showing non-software adoption examples clearly enough for external users.",
+  "signals": [
+    "advance to cross-domain examples"
+  ],
+  "artifact_refs": [
+    "docs/v6.1-task-breakdown.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-061",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.82
+}
