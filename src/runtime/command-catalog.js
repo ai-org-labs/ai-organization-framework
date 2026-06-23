@@ -23,6 +23,7 @@ const COMMAND_SPECS = [
   ["operational-map-change-log", "./commands/work-governance-records.js", "operationalMapChangeLogCommand"],
   ["context-pack", "./commands/work-governance-records.js", "contextPackCommand"],
   ["work-governance-benchmark", "./commands/work-governance-benchmark.js", "workGovernanceBenchmarkCommand"],
+  ["adoption-proof-benchmark", "./commands/adoption-proof-benchmark.js", "adoptionProofBenchmarkCommand"],
   ["skillful-actor-benchmark", "./commands/skillful-actor-benchmark.js", "skillfulActorBenchmarkCommand"],
   ["skillful-actor-hri-projection", "./commands/skillful-actor-hri-projection.js", "skillfulActorHriProjectionCommand"],
   ["task-open", "./commands/task-open.js", "taskOpenCommand"],

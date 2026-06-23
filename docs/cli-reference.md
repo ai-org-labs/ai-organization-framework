@@ -1360,6 +1360,23 @@ node ./src/cli.js mission-control-benchmark \
 - `--project <path>`
 - `--write-artifact <path>`: optional. benchmark summary を保存する
 
+### `adoption-proof-benchmark`
+
+fresh managed-project を temp に作成し、初回の governed work item まで到達できるかを検証する。v6.2 の Worked Adoption Proof 用の narrow benchmark であり、正しい JSON だけでなく、人間が初回作業を理解できる recognition summary も確認する。
+
+```bash
+node ./src/cli.js adoption-proof-benchmark \
+  --project . \
+  --write-artifact /tmp/aof-adoption-proof-benchmark.json
+```
+
+主な option:
+
+- `--project <path>`
+- `--work-dir <path>`: optional. fresh project を作る親ディレクトリ
+- `--keep-temp`: optional. temp project を削除せず確認用に残す
+- `--write-artifact <path>`: optional. benchmark summary を保存する
+
 ## Project-Local Archive
 
 ### `verify-archive`

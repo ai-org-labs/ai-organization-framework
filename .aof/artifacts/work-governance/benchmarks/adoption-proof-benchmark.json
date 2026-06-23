@@ -1,0 +1,59 @@
+{
+  "artifact_type": "adoption-proof-benchmark",
+  "generated_at": "2026-06-23T15:35:00.108Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "benchmark_project_root": "/var/folders/zw/w0v3jtfx17d507v6qttf9bqh0000gn/T/aof-adoption-proof-FWyRzr/project",
+  "first_work_item_id": "SW-WORK-001",
+  "recognition_summary_ref": ".aof/artifacts/work-governance/recognition-summaries/first-governed-work.md",
+  "work_governance_benchmark_status": "pass",
+  "artifacts_evaluated": 8,
+  "benchmarks": {
+    "AP-001": {
+      "status": "pass",
+      "detail": "Fresh managed-project init created bootstrap and orientation artifacts.",
+      "evidence": [
+        ".aof/project-bootstrap.json",
+        ".aof/context/active/project-orientation.json"
+      ]
+    },
+    "AP-002": {
+      "status": "pass",
+      "detail": "First governed work artifact chain exists in the fresh project.",
+      "evidence": [
+        ".aof/artifacts/work-governance/fixtures/adoption/work-item-goal.json",
+        ".aof/artifacts/work-governance/fixtures/adoption/actor-composition.json",
+        ".aof/artifacts/work-governance/fixtures/adoption/council-ready-output.json",
+        ".aof/artifacts/work-governance/fixtures/adoption/go-no-go-visualization.json",
+        ".aof/artifacts/work-governance/fixtures/adoption/operational-map-change-log.json",
+        ".aof/artifacts/work-governance/fixtures/adoption/context-pack.json",
+        ".aof/artifacts/work-governance/fixtures/adoption/external-ref.json"
+      ]
+    },
+    "AP-003": {
+      "status": "pass",
+      "detail": "Work Governance benchmark passes against the fresh-project proof chain.",
+      "evidence": [
+        "work-governance-benchmark"
+      ]
+    },
+    "AP-004": {
+      "status": "pass",
+      "detail": "Human-readable recognition summary explains the governed work in operator language.",
+      "evidence": [
+        ".aof/artifacts/work-governance/recognition-summaries/first-governed-work.md"
+      ]
+    },
+    "AP-005": {
+      "status": "pass",
+      "detail": "Fresh proof contains no .DS_Store files or legacy personal account references.",
+      "evidence": []
+    },
+    "AP-006": {
+      "status": "pass",
+      "detail": "Recognition summary gives a clear next action and decision path.",
+      "evidence": [
+        ".aof/artifacts/work-governance/recognition-summaries/first-governed-work.md"
+      ]
+    }
+  }
+}

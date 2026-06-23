@@ -56,6 +56,7 @@ const COMMAND_NAMES = [
   "operational-map-change-log",
   "context-pack",
   "work-governance-benchmark",
+  "adoption-proof-benchmark",
   "skillful-actor-benchmark",
   "skillful-actor-hri-projection",
   "task-open",
@@ -225,7 +226,8 @@ const PURPOSE_OVERRIDES = {
   "go-no-go-visualization": "Write a schema-valid Go / No-Go visualization artifact.",
   "operational-map-change-log": "Write a schema-valid operational map change log for a work item.",
   "context-pack": "Write a bounded context pack with summaries and refs instead of raw artifact bodies.",
-  "work-governance-benchmark": "Benchmark Work Governance artifact chains for goal, actor, council, Go/No-Go, operational map, context pack, and external source-of-truth coverage."
+  "work-governance-benchmark": "Benchmark Work Governance artifact chains for goal, actor, council, Go/No-Go, operational map, context pack, and external source-of-truth coverage.",
+  "adoption-proof-benchmark": "Benchmark whether a fresh managed project can initialize AOF, produce a first governed work chain, pass Work Governance checks, and explain the work in plain language."
 };
 
 const INPUT_HINTS = {
@@ -260,7 +262,8 @@ const INPUT_HINTS = {
   "go-no-go-visualization": ["project", "payload-json", "write-artifact?"],
   "operational-map-change-log": ["project", "payload-json", "write-artifact?"],
   "context-pack": ["project", "payload-json", "write-artifact?"],
-  "work-governance-benchmark": ["project", "write-artifact?"]
+  "work-governance-benchmark": ["project", "write-artifact?"],
+  "adoption-proof-benchmark": ["project", "write-artifact?"]
 };
 
 const OUTPUT_HINTS = {
@@ -295,7 +298,8 @@ const OUTPUT_HINTS = {
   "go-no-go-visualization": ["go/no-go visualization artifact"],
   "operational-map-change-log": ["operational map change log artifact"],
   "context-pack": ["context pack artifact"],
-  "work-governance-benchmark": ["benchmark report"]
+  "work-governance-benchmark": ["benchmark report"],
+  "adoption-proof-benchmark": ["benchmark report"]
 };
 
 function humanizeCommand(command) {

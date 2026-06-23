@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-06-23T13:27:04.081Z",
+  "generated_at": "2026-06-23T15:41:33.578Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-063 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-063.json"
+    "summary": "TASK-064 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-064.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-063 completed: Close v6.1.0 Work Governance release",
-      "artifact_ref": ".aof/tasks/done/TASK-063.json"
+      "summary": "TASK-064 completed: Ship v6.2 Worked Adoption Proof",
+      "artifact_ref": ".aof/tasks/done/TASK-064.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v6.1.0, run a runtime-backed frontier review before opening the next implementation task.",
+      "summary": "After v6.2.0, run a runtime-backed frontier review before opening the next implementation task.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-063 completed: Close v6.1.0 Work Governance release After v6.1.0, run a runtime-backed frontier review before opening the next implementation task.",
+    "what_changed": "TASK-064 completed: Ship v6.2 Worked Adoption Proof After v6.2.0, run a runtime-backed frontier review before opening the next implementation task.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: After v6.1.0, run a runtime-backed frontier review before opening the next implementation task."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: After v6.2.0, run a runtime-backed frontier review before opening the next implementation task."
   }
 }

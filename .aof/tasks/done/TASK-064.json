@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-064",
+  "title": "Ship v6.2 Worked Adoption Proof",
+  "description": "Complete v6.2 by proving a fresh managed project can initialize AOF, reach the first governed work item, pass Work Governance checks, and generate human-readable recognition output for a first-time operator.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V62-ADOPTION-PROOF",
+  "assigned_session_ids": [],
+  "related_decision_record_id": "CRP-TASK-064-V62-ADOPTION-PROOF",
+  "operating_goal_ref": "v6.2-worked-adoption-proof",
+  "created_at": "2026-06-23T15:21:21.002Z",
+  "updated_at": "2026-06-23T15:25:40.823Z",
+  "assigned_at": null,
+  "done_at": "2026-06-23T15:25:40.823Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v6.2.0 Worked Adoption Proof: adoption-proof-benchmark, schema, tests, release docs, command registry, and council approval are recorded."
+}

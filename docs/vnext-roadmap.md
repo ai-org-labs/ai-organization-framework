@@ -1,4 +1,4 @@
-# AOF Post-v6.1 Roadmap
+# AOF Post-v6.2 Roadmap
 
 ## North Star
 
@@ -41,6 +41,14 @@ AOF should become an AI Organization Operating System that can:
 - software and non-software applicability through committed examples
 - narrow CLI writers and `work-governance-benchmark`
 
+`v6.2.0` establishes Worked Adoption Proof:
+
+- fresh managed-project proof through `adoption-proof-benchmark`
+- first governed work item chain in a clean project
+- human-readable first-work recognition summary
+- explicit rule that correct JSON without human recognition is incomplete
+- release proof that adoption quality is bounded to one reproducible first governed work loop
+
 ## Completed Track
 
 ### `v5.0.0`: Skillful Actor Runtime
@@ -78,7 +86,7 @@ Required outcomes:
 
 ### `v6.1.0`: Work Governance Integration
 
-Current release task:
+Completed release task:
 
 - `TASK-063`: Close v6.1.0 Work Governance release
 
@@ -100,26 +108,21 @@ Required outcomes:
 - Mission Control projects Work Governance without owning truth
 - verification is reproducible through `work-governance-benchmark` and the normal runtime/test suite
 
+### `v6.2.0`: Worked Adoption Proof
+
+Completed release task:
+
+- `TASK-064`: Ship v6.2 Worked Adoption Proof
+
+Required outcomes:
+
+- a fresh managed project can initialize AOF
+- the first governed work item can be reproduced in a clean project
+- machine checks confirm the required Work Governance artifact chain
+- human-readable recognition explains what the work is, why it matters, who judges it, what evidence exists, what is blocked, and what should happen next
+- the release claim remains bounded to one first governed work loop
+
 ## Next Frontier Candidates
-
-### Candidate: Worked Adoption Proof
-
-Theme:
-
-- prove that a fresh external project can install AOF, initialize `.aof/`, run the quickstart path, and produce the expected first governed work artifacts
-
-Why it matters:
-
-- `v6.1` defines Work Governance, but public adoption still depends on a new project successfully reaching its first useful governed work item
-- this should verify install, init, command discovery, Work Governance writer use, Mission Control projection, and benchmark execution
-
-Likely gates:
-
-- fresh clone from `v6.1.0`
-- `aof init --topology managed-project`
-- first Work Governance artifact chain
-- `work-governance-benchmark` pass
-- Mission Control projection visible
 
 ### Candidate: Human Recognition Interface Redesign
 
@@ -160,6 +163,7 @@ Boundary:
 - Work item is broader than task; task remains the current runtime storage object.
 - Mission Control must not become a second source of truth.
 - Visibility derives from canonical artifacts and is not a source of authority.
+- Human-readable recognition output is part of the runtime contract, not after-the-fact documentation. AOF must translate canonical artifacts into plain language that explains what is happening, why it matters, what is blocked, and what should happen next.
 - Actor skillfulness must be falsifiable through artifacts and benchmarks.
 - Loop means `goal + execution + verification + stop condition`.
 - Maker and Checker roles must remain separated.
@@ -177,3 +181,7 @@ The strongest next candidates are:
 - Mission Control / Human Recognition redesign grounded in Work Governance artifacts
 - standalone context/external-ref/operational-map audits
 - governed multi-actor orchestration
+
+The preferred `v6.2` wording for humans is:
+
+> v6.2 proves that AOF can be introduced into a new project and guide a first-time operator from setup to the first governed work item: what the work is, why it matters, who judges it, what evidence exists, and what should happen next.

@@ -1,0 +1,36 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-06-23T15:25:05.596Z",
+  "team_output_id": "TOUT-MQQSPTQ4-MDYNWS",
+  "team_id": "governance-team",
+  "stage": "planning",
+  "expected_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve TASK-064 and release v6.2.0 after full verification passes.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-064-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-064-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-064-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
+    "docs/v6.2-release-definition.md",
+    "docs/v6.2-release-checklist.md"
+  ],
+  "decision_required": true,
+  "summary": "v6.2 is ready as a bounded Worked Adoption Proof if full verification remains green.",
+  "source_task_id": "TASK-064",
+  "source_parent_session_id": "SESS-V62-ADOPTION-PROOF",
+  "source_decision_record_id": null
+}

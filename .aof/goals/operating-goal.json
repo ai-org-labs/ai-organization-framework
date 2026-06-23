@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Maintain v6.1.0 as the Work Governance Integration baseline and choose the next AOF frontier through runtime-backed review before opening implementation.",
-  "updated_at": "2026-06-23T13:24:45.059Z",
+  "content": "Maintain v6.2.0 as the Worked Adoption Proof baseline and choose the next AOF frontier through runtime-backed review before opening implementation.",
+  "updated_at": "2026-06-23T15:27:51.946Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-WORK-GOVERNANCE-V61",
-  "source_decision_record_id": "CRP-TASK-063-V61-RELEASE",
+  "source_session_id": "SESS-V62-ADOPTION-PROOF",
+  "source_decision_record_id": "CRP-TASK-064-V62-ADOPTION-PROOF",
   "declared_complete_at": null
 }

@@ -31,6 +31,9 @@ node_modules/
 !.aof/artifacts/execution/role-results/RRES-TASK-062-BUILDER.json
 !.aof/artifacts/execution/role-results/RRES-TASK-062-GUARDIAN.json
 !.aof/artifacts/execution/role-results/RRES-TASK-063-GUARDIAN.json
+!.aof/artifacts/execution/role-results/RRES-TASK-064-VISIONARY.json
+!.aof/artifacts/execution/role-results/RRES-TASK-064-BUILDER.json
+!.aof/artifacts/execution/role-results/RRES-TASK-064-GUARDIAN.json
 !.aof/artifacts/execution/role-joins/RJOIN-TASK-047-V50-DIRECTION.json
 !.aof/artifacts/execution/team-outputs/TOUT-TASK-047-V50-DIRECTION.json
 !.aof/artifacts/execution/team-outputs/TOUT-TASK-056-V60-PUBLIC-READINESS.json
@@ -41,6 +44,7 @@ node_modules/
 !.aof/artifacts/execution/team-outputs/TOUT-TASK-061-WORK-GOVERNANCE-MISSION-CONTROL.json
 !.aof/artifacts/execution/team-outputs/TOUT-TASK-062-WORK-GOVERNANCE-EXAMPLES.json
 !.aof/artifacts/execution/team-outputs/TOUT-TASK-063-V61-RELEASE.json
+!.aof/artifacts/execution/team-outputs/TOUT-TASK-064-V62-ADOPTION-PROOF.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-047-V50-DIRECTION.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-056-V60-PUBLIC-READINESS.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-057-WORK-GOVERNANCE.json
@@ -50,6 +54,7 @@ node_modules/
 !.aof/artifacts/execution/council-reviews/CRP-TASK-061-WORK-GOVERNANCE-MISSION-CONTROL.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-062-WORK-GOVERNANCE-EXAMPLES.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-063-V61-RELEASE.json
+!.aof/artifacts/execution/council-reviews/CRP-TASK-064-V62-ADOPTION-PROOF.json
 .aof/artifacts/need-validation/**/*.json
 .aof/artifacts/discovery/**/*.json
 .aof/artifacts/allocation/**/*.json
@@ -78,6 +83,7 @@ node_modules/
 !.aof/tasks/done/TASK-061.json
 !.aof/tasks/done/TASK-062.json
 !.aof/tasks/done/TASK-063.json
+!.aof/tasks/done/TASK-064.json
 .aof/context/active/cadence-*.json
 .aof/context/active/execution-lineage.json
 .aof/context/active/framework-self-audit.json

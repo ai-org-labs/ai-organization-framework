@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-06-23T12:53:10.230Z",
+  "generated_at": "2026-06-23T15:24:14.627Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -72,6 +72,21 @@
       ],
       "outputs": [
         "actor skill packet artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "adoption-proof-benchmark",
+      "category": "verify",
+      "purpose": "Benchmark whether a fresh managed project can initialize AOF, produce a first governed work chain, pass Work Governance checks, and explain the work in plain language.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "benchmark report"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

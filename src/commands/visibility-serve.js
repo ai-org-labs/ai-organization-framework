@@ -2743,6 +2743,8 @@ export function buildVisibilityPageHtml(title) {
         const taskBoard = derived.task_board ?? payload.task_board ?? {};
         const loop = derived.runtime_loop ?? {};
         const progress = derived.operator_progress ?? {};
+        const workGovernance = mission.work_governance ?? {};
+        const workGovernanceItems = Array.isArray(workGovernance.work_items) ? workGovernance.work_items : [];
         const lastExecution = runtimeExecution.last_execution ?? {};
         const blockers = Array.isArray(mission.blockers)
           ? mission.blockers

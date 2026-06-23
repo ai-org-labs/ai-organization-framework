@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-adoption-proof-benchmark.schema.json",
+  "title": "AI Organization Framework Adoption Proof Benchmark",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "benchmark_project_root",
+    "first_work_item_id",
+    "recognition_summary_ref",
+    "work_governance_benchmark_status",
+    "artifacts_evaluated",
+    "benchmarks"
+  ],
+  "properties": {
+    "artifact_type": { "type": "string", "enum": ["adoption-proof-benchmark"] },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string" },
+    "benchmark_project_root": { "type": "string" },
+    "first_work_item_id": { "type": "string" },
+    "recognition_summary_ref": { "type": "string" },
+    "work_governance_benchmark_status": { "type": "string", "enum": ["pass", "fail"] },
+    "artifacts_evaluated": { "type": "integer" },
+    "benchmarks": {
+      "type": "object",
+      "required": ["AP-001", "AP-002", "AP-003", "AP-004", "AP-005", "AP-006"],
+      "properties": {
+        "AP-001": { "$ref": "#/$defs/benchmark_result" },
+        "AP-002": { "$ref": "#/$defs/benchmark_result" },
+        "AP-003": { "$ref": "#/$defs/benchmark_result" },
+        "AP-004": { "$ref": "#/$defs/benchmark_result" },
+        "AP-005": { "$ref": "#/$defs/benchmark_result" },
+        "AP-006": { "$ref": "#/$defs/benchmark_result" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "benchmark_result": {
+      "type": "object",
+      "required": ["status", "detail", "evidence"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "fail"] },
+        "detail": { "type": "string" },
+        "evidence": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

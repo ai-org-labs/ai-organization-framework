@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
+import { adoptionProofBenchmarkCommand } from "../src/commands/adoption-proof-benchmark.js";
 import { workGovernanceBenchmarkCommand } from "../src/commands/work-governance-benchmark.js";
 import { contextPackCommand, workItemGoalCommand } from "../src/commands/work-governance-records.js";
 import { validateWithBundledSchema } from "../src/runtime/validation.js";
@@ -214,6 +215,54 @@ test("CLI Work Governance benchmark writes a benchmark artifact", async () => {
     const written = JSON.parse(await fs.readFile(artifactPath, "utf8"));
     assert.equal(written.artifact_type, "work-governance-benchmark");
     assert.equal(written.benchmarks["WG-006"].status, "pass");
+  } finally {
+    await fs.rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("Adoption proof benchmark creates a fresh managed project and human-readable first work summary", async () => {
+  const result = await adoptionProofBenchmarkCommand({ project: repoRoot });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.summary.artifact_type, "adoption-proof-benchmark");
+  assert.equal(result.summary.first_work_item_id, "SW-WORK-001");
+  assert.equal(result.summary.work_governance_benchmark_status, "pass");
+  assert.equal(result.summary.benchmarks["AP-001"].status, "pass");
+  assert.equal(result.summary.benchmarks["AP-004"].status, "pass");
+  assert.match(result.summary.recognition_summary_ref, /first-governed-work\.md$/);
+  await validateWithBundledSchema(
+    result.summary,
+    "aof-adoption-proof-benchmark.schema.json",
+    "adoption proof benchmark"
+  );
+
+  const recognitionPath = path.join(result.summary.benchmark_project_root, result.summary.recognition_summary_ref);
+  const recognitionText = await fs.readFile(recognitionPath, "utf8");
+  assert.match(recognitionText, /What The Work Is/);
+  assert.match(recognitionText, /Why It Matters/);
+  assert.match(recognitionText, /Who Judges It/);
+  assert.match(recognitionText, /What Should Happen Next/);
+});
+
+test("CLI adoption proof benchmark writes a benchmark artifact", async () => {
+  const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "aof-adoption-proof-cli-"));
+  try {
+    const artifactPath = path.join(tempRoot, "adoption-proof-benchmark.json");
+    const ok = spawnSync(process.execPath, [
+      "./src/cli.js",
+      "adoption-proof-benchmark",
+      "--project", repoRoot,
+      "--write-artifact", artifactPath
+    ], {
+      cwd: repoRoot,
+      encoding: "utf8",
+      env: { ...process.env, AOF_SUPPRESS_NODE_WARNING: "1" }
+    });
+    assert.equal(ok.status, 0, ok.stderr);
+    const written = JSON.parse(await fs.readFile(artifactPath, "utf8"));
+    assert.equal(written.artifact_type, "adoption-proof-benchmark");
+    assert.equal(written.benchmarks["AP-003"].status, "pass");
+    assert.equal(written.benchmarks["AP-006"].status, "pass");
   } finally {
     await fs.rm(tempRoot, { recursive: true, force: true });
   }

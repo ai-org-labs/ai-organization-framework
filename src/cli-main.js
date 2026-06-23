@@ -65,6 +65,7 @@ Usage:
   aof operational-map-change-log --project <path> --payload-json '<json>' [--write-artifact <path>]
   aof context-pack --project <path> --payload-json '<json>' [--write-artifact <path>]
   aof work-governance-benchmark [--project <path>] [--write-artifact <path>]
+  aof adoption-proof-benchmark [--project <path>] [--write-artifact <path>]
   aof skillful-actor-benchmark [--project <path>] [--write-artifact <path>]
   aof skillful-actor-hri-projection --project <path> --actor-skill-packet-ref <path> --actor-assignment-evaluation-ref <path> --actor-execution-gate-ref <path> --skillful-actor-benchmark-ref <path> [--projection-id <id>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof task-open --project <path> --title "<text>" [--description "<text>"] [--origin <origin>] [--orchestrator-session-id <id>] [--assigned-session-id <id>] [--related-decision-record-id <id>] [--operating-goal-ref <ref>] [--triage-notes "<text>"]
@@ -727,6 +728,8 @@ function parseArgs(argv) {
           : command === "skillful-actor-benchmark"
             ? { project: ".", artifactPath: "" }
           : command === "work-governance-benchmark"
+            ? { project: ".", artifactPath: "" }
+          : command === "adoption-proof-benchmark"
             ? { project: ".", artifactPath: "" }
           : command === "skillful-actor-hri-projection"
             ? {
@@ -3975,6 +3978,12 @@ function parseArgs(argv) {
   if (command === "work-governance-benchmark") {
     if (!options.project) {
       throw new Error("Missing --project for `work-governance-benchmark`.");
+    }
+  }
+
+  if (command === "adoption-proof-benchmark") {
+    if (!options.project) {
+      throw new Error("Missing --project for `adoption-proof-benchmark`.");
     }
   }
 

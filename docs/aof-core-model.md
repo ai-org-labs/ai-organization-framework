@@ -19,6 +19,7 @@ AOF は次の立場を取る。
 - agent ではなく organization を中心に置く
 - `task` より広い `work item` を扱う
 - work item ごとに goal / skill / actor / evidence / Go-No-Go / downstream handoff を明示する
+- canonical artifact を人間が理解できる自然言語へ変換する
 - role と agent を分離する
 - 運用 state は `.aof/` に残す
 
@@ -96,9 +97,29 @@ Each governed work item should define:
 - success criteria
 - Go / No-Go criteria
 - required visualization
+- human-readable recognition summary
 - required skills
 - required actor roles
 - council review need
+
+### Human-Readable Recognition Output
+
+AOF の runtime output は、machine-readable artifact だけでは完了しない。
+
+各重要 checkpoint は、初見の人間が読んで理解できる自然言語の recognition output を持つべきである。
+
+最低限、次を説明する。
+
+- いま何の仕事をしているのか
+- なぜその仕事が重要なのか
+- 誰が実行し、誰が検証し、誰が判断するのか
+- どの evidence に基づいているのか
+- 何が blocked なのか
+- 次に何をするべきなのか
+
+この自然言語出力は、after-the-fact documentation ではない。canonical artifact から導出される runtime responsibility である。
+
+正しい JSON が存在しても、人間が状況を認識できない場合、AOF の Work Governance は incomplete とみなす。
 
 ### Request Framing
 
