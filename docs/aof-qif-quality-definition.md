@@ -6,7 +6,12 @@ This document defines the AOF quality baseline using the Quality Intent Framewor
 
 Source framework:
 
-- `https://github.com/ai-org-labs/QualityIntentFramework/tree/v0.2.1`
+- `https://github.com/ai-org-labs/quality-intent-framework/tree/v0.2.1`
+
+Active provider profile:
+
+- `.aof/quality/qif-provider-profile.json`
+- `docs/aof-qif-provider-integration.md`
 
 Machine-readable package:
 
@@ -25,6 +30,8 @@ The purpose is to establish a QIF-governed quality baseline where AOF quality cl
 - Verdict
 - Acceptance Gate
 - Governance escalation
+
+QIF is intentionally external to AOF. AOF must not vendor QIF as a fixed internal copy. AOF quality claims must instead reference the active QIF provider profile so QIF can evolve independently and AOF can upgrade through explicit compatibility review.
 
 ## QIF Position
 

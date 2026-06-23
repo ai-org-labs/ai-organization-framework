@@ -1,0 +1,63 @@
+{
+  "artifact_type": "aof-qif-provider-profile",
+  "profile_id": "QIFPROF-AOF-V0.2.1",
+  "status": "active",
+  "provider": "Quality Intent Framework",
+  "qif_version": "0.2.1",
+  "source": {
+    "repository": "ai-org-labs/quality-intent-framework",
+    "tag": "v0.2.1",
+    "release_url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.2.1",
+    "tree_url": "https://github.com/ai-org-labs/quality-intent-framework/tree/v0.2.1",
+    "tag_sha": "449b80b28750eca4946ef6a1c4a03a41cec93eb6"
+  },
+  "active_package_ref": ".aof/quality/QIFPKG-AOF-V5-001.json",
+  "compatibility": {
+    "mode": "external-versioned-profile",
+    "supported_surfaces": [
+      "quality intent package",
+      "benchmark explanation",
+      "release gate explanation",
+      "governance escalation trigger",
+      "confidence and uncertainty boundary"
+    ],
+    "semantic_truth_boundary": "QIF validator and profile compatibility checks can prove structure, traceability, reference resolution, confidence reproducibility, and rule compliance. They do not prove semantic truth, market truth, expert correctness, or operator comprehension."
+  },
+  "adapter_contract": {
+    "aof_inputs": [
+      "runtime command result",
+      "benchmark result",
+      "release checklist gate",
+      "artifact evidence ref",
+      "council decision",
+      "human/operator review signal"
+    ],
+    "qif_outputs": [
+      "quality_intent",
+      "risk",
+      "loss_boundary",
+      "evidence_refs",
+      "acceptance_gate",
+      "verdict",
+      "confidence",
+      "uncertainty",
+      "governance_trigger"
+    ],
+    "not_allowed": [
+      "Do not vendor QIF schemas or docs into AOF as the source of truth.",
+      "Do not claim QIF validator pass proves semantic quality truth.",
+      "Do not treat tests, artifact count, actor count, dashboard existence, or release tags as quality by themselves.",
+      "Do not upgrade QIF compatibility silently without recording the selected provider profile."
+    ]
+  },
+  "upgrade_policy": {
+    "qif_can_change_independently": true,
+    "aof_upgrade_requirement": "When QIF changes version, AOF must add or update a qif-provider-profile artifact, record compatibility boundaries, and run governance review before using the new profile for quality claims.",
+    "fallback": "If the selected QIF version cannot be validated or mapped, AOF may continue using the last active provider profile but must mark new quality claims as profile-stale or governance-review-required."
+  },
+  "governance": {
+    "owner": "Operations Council",
+    "review_trigger": "Trigger review when QIF version, source tag, adapter outputs, confidence policy, or semantic truth boundary changes.",
+    "acceptance_gate": "AOF quality claims must reference the active QIF provider profile and must explain which claims are structural, runtime-backed, operator-validated, externally validated, or not proven."
+  }
+}

@@ -124,6 +124,22 @@ Required outcomes:
 
 ## Next Frontier Candidates
 
+### Candidate: QIF-Governed Benchmark Explanation
+
+Theme:
+
+- make every AOF benchmark result explainable through the active QIF provider profile rather than through opaque `pass` labels
+
+Why it matters:
+
+- v6.2 proved one adoption path, but AP-001 through AP-006 were not human-readable enough about what was checked, what was expected, and what remained unproven
+- QIF evolves independently, so AOF needs a swappable provider profile and adapter contract instead of vendoring QIF as fixed internal truth
+
+Boundary:
+
+- QIF profile compatibility does not prove semantic truth
+- benchmark pass must be translated into Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict, confidence, uncertainty, and governance trigger
+
 ### Candidate: Human Recognition Interface Redesign
 
 Theme:
@@ -173,11 +189,13 @@ Boundary:
 
 ## Current Recommendation
 
-Close `v6.1.0` through `TASK-063`, then run a runtime-backed frontier review before opening v6.2 work.
+After `v6.2.0`, choose the next frontier through runtime-backed review before opening implementation work.
 
 The strongest next candidates are:
 
-- worked adoption proof
+- QIF-governed benchmark explanation
+- Human Recognition Interface redesign
+- governed multi-actor orchestration
 - Mission Control / Human Recognition redesign grounded in Work Governance artifacts
 - standalone context/external-ref/operational-map audits
 - governed multi-actor orchestration

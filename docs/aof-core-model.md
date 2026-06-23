@@ -236,6 +236,12 @@ Context Pack should include:
 
 Context Pack は raw artifact 本文を大量に含めてはならない。
 
+## QIF Provider Boundary
+
+QIF is treated as an external, versioned quality framework rather than vendored AOF truth.
+
+The active QIF provider profile is `.aof/quality/qif-provider-profile.json`. AOF quality claims should reference that profile so QIF can evolve independently. When the selected QIF version changes, AOF must record a new or updated provider profile, define compatibility boundaries, and route the change through governance review before using it for release-quality claims.
+
 ## Mission Control Authority Boundary
 
 Mission Control is a projection layer, not a source of truth.

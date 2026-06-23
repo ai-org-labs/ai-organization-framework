@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-065",
+  "title": "Add swappable QIF provider profile for AOF quality claims",
+  "description": "Track QIF as an external versioned quality framework instead of vendoring it into AOF. Add a swappable profile that pins QIF v0.2.1 source metadata, defines adapter responsibilities, and makes future QIF upgrades explicit.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V63-QIF-PROFILE",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "qif-provider-profile",
+  "created_at": "2026-06-23T16:21:28.299Z",
+  "updated_at": "2026-06-23T16:25:20.268Z",
+  "assigned_at": null,
+  "done_at": "2026-06-23T16:25:20.268Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Added swappable QIF provider profile pinned to ai-org-labs/quality-intent-framework v0.2.1, schema validation, integration docs, and roadmap direction for QIF-governed benchmark explanation."
+}

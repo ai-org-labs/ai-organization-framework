@@ -103,3 +103,11 @@ Deferred:
 Release `v6.2.0` only if a first-time adopter path is reproducible and the first governed work item is both machine-verifiable and human-recognizable.
 
 Do not claim that AOF is broadly adoption-proven merely because self-hosting artifacts pass. The claim must be bounded: a clean project can complete one first governed work loop with traceable artifacts, verification, and plain-language recognition output.
+
+## Post-v6.2 Direction Candidate
+
+The strongest immediate follow-up is QIF-governed benchmark explanation.
+
+The v6.2 adoption proof exposed a product gap: AP-001 through AP-006 can pass while a human still cannot immediately tell what was checked, what the expected standard was, what failure would mean, and what remains unproven.
+
+AOF should therefore use the active external QIF provider profile (`.aof/quality/qif-provider-profile.json`) to translate benchmark results into Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict, confidence, uncertainty, and governance trigger.

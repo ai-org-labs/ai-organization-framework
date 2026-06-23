@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-org-labs.github.io/ai-organization-framework/schemas/aof-qif-provider-profile.schema.json",
+  "title": "AOF QIF Provider Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "profile_id",
+    "status",
+    "provider",
+    "qif_version",
+    "source",
+    "active_package_ref",
+    "compatibility",
+    "adapter_contract",
+    "upgrade_policy",
+    "governance"
+  ],
+  "properties": {
+    "artifact_type": { "const": "aof-qif-provider-profile" },
+    "profile_id": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["active", "deprecated", "candidate"] },
+    "provider": { "type": "string", "minLength": 1 },
+    "qif_version": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "tag", "release_url", "tree_url", "tag_sha"],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "tag": { "type": "string", "minLength": 1 },
+        "release_url": { "type": "string", "minLength": 1 },
+        "tree_url": { "type": "string", "minLength": 1 },
+        "tag_sha": { "type": "string", "minLength": 7 }
+      }
+    },
+    "active_package_ref": { "type": "string", "minLength": 1 },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "supported_surfaces", "semantic_truth_boundary"],
+      "properties": {
+        "mode": { "enum": ["external-versioned-profile", "vendored-copy", "custom"] },
+        "supported_surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "semantic_truth_boundary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "adapter_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aof_inputs", "qif_outputs", "not_allowed"],
+      "properties": {
+        "aof_inputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "qif_outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "not_allowed": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "upgrade_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["qif_can_change_independently", "aof_upgrade_requirement", "fallback"],
+      "properties": {
+        "qif_can_change_independently": { "type": "boolean" },
+        "aof_upgrade_requirement": { "type": "string", "minLength": 1 },
+        "fallback": { "type": "string", "minLength": 1 }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "review_trigger", "acceptance_gate"],
+      "properties": {
+        "owner": { "type": "string", "minLength": 1 },
+        "review_trigger": { "type": "string", "minLength": 1 },
+        "acceptance_gate": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
