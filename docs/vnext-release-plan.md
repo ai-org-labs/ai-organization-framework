@@ -106,7 +106,33 @@ Do not claim that AOF is broadly adoption-proven merely because self-hosting art
 
 ## Post-v6.2 Direction Candidate
 
-The strongest immediate follow-up is QIF-governed benchmark explanation.
+The strongest immediate follow-up is AI Command Help Surface, followed by QIF-governed benchmark explanation.
+
+### v6.3 Candidate: AI Command Help Surface
+
+Purpose:
+
+- make CLI help an AI-oriented command discovery contract rather than a human manual
+
+Required direction:
+
+- `aof --help` returns a compact command index
+- `aof <command> --help` returns command-level purpose, category, usage, inputs, outputs, artifact refs, and failure meaning
+- `aof <command> --help --json` returns machine-readable structured help
+- command help references QIF mapping where applicable: Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict boundary, and governance trigger
+- a `cli-help-benchmark` or equivalent verification surface checks public command help coverage
+
+Why this comes before QIF benchmark explanation:
+
+- AI orchestrators must discover the right command cheaply before they can reliably request QIF explanations for benchmark results
+- structured help can become the place where QIF mapping and failure meaning are exposed without requiring the AI to read the full CLI reference
+
+Boundary:
+
+- this is for AI transmission efficiency, not human-facing writing quality
+- human communication remains the responsibility of Mission Control, recognition packets, release docs, and QIF explanation outputs
+
+### v6.4 Candidate: QIF-Governed Benchmark Explanation
 
 The v6.2 adoption proof exposed a product gap: AP-001 through AP-006 can pass while a human still cannot immediately tell what was checked, what the expected standard was, what failure would mean, and what remains unproven.
 

@@ -124,6 +124,24 @@ Required outcomes:
 
 ## Next Frontier Candidates
 
+### Candidate: AI Command Help Surface
+
+Theme:
+
+- make `aof --help` and `aof <command> --help --json` an AI-oriented command discovery surface, not a human manual
+
+Why it matters:
+
+- AOF now has many runtime commands; asking an AI orchestrator to read the full CLI reference is context-inefficient and error-prone
+- command help should let Codex, Claude, CI, and Mission Control quickly choose the right command, inputs, outputs, failure meaning, artifact refs, and QIF mapping
+- this supports the North Star by making AOF easier for AI actors to operate correctly without hiding runtime behavior behind prose
+
+Boundary:
+
+- help is optimized for AI command selection and structured runtime contracts
+- human-facing communication belongs in Mission Control, recognition packets, release docs, or QIF explanations
+- help coverage does not prove command semantics are correct; it proves discoverability and routing surface readiness
+
 ### Candidate: QIF-Governed Benchmark Explanation
 
 Theme:
@@ -191,15 +209,17 @@ Boundary:
 
 After `v6.2.0`, choose the next frontier through runtime-backed review before opening implementation work.
 
-The strongest next candidates are:
+Priority order:
 
-- QIF-governed benchmark explanation
-- Human Recognition Interface redesign
-- governed multi-actor orchestration
-- Mission Control / Human Recognition redesign grounded in Work Governance artifacts
-- standalone context/external-ref/operational-map audits
-- governed multi-actor orchestration
+1. `v6.3`: AI Command Help Surface
+2. `v6.4`: QIF-Governed Benchmark Explanation
+3. `v6.5`: Mission Control / Human Recognition redesign grounded in Work Governance artifacts
+4. `v6.x`: standalone context / external-ref / operational-map audits
+5. `v7.0`: governed multi-actor orchestration
 
-The preferred `v6.2` wording for humans is:
+Reasoning:
 
-> v6.2 proves that AOF can be introduced into a new project and guide a first-time operator from setup to the first governed work item: what the work is, why it matters, who judges it, what evidence exists, and what should happen next.
+- AI Command Help Surface should come first because it reduces AI context cost and makes future runtime/API use less brittle.
+- QIF-Governed Benchmark Explanation should follow because help can expose QIF mapping and failure meaning directly.
+- Mission Control redesign should use the structured help and QIF explanation surfaces rather than inventing its own truth.
+- Multi-actor orchestration should wait until command discovery, quality explanation, and visibility surfaces are stable enough to govern parallel actor work.
