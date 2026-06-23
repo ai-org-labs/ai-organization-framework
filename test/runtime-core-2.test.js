@@ -2462,6 +2462,7 @@ test("visibility view loader and HTML shell align with the v1.4 visibility contr
   assert.match(html, /Ticket \/ Task Flow/);
   assert.match(html, /Top Blocked Tasks/);
   assert.match(html, /Role Workload/);
+  assert.match(html, /Work Governance Chain/);
   assert.match(html, /Evidence \/ Proof Coverage/);
   assert.match(html, /dashboard-root/);
   assert.match(html, /grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)/);

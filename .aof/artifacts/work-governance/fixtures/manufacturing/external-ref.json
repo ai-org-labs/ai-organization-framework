@@ -1,0 +1,15 @@
+{
+  "artifact_type": "external-ref",
+  "recorded_at": "2026-06-23T12:21:00.000Z",
+  "external_ref_id": "EXT-MFG-WORK-001",
+  "system": "quality-management-system",
+  "site": "factory-qms.local",
+  "external_id": "NCR-2026-0042",
+  "url": "https://qms.example.invalid/nonconformance/NCR-2026-0042",
+  "relationship": "evidence_source",
+  "sync_policy": "read_only",
+  "source_of_truth": "external-operational-record",
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

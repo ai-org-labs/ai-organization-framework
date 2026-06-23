@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-external-ref.schema.json",
+  "title": "AI Organization Framework External Reference",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "recorded_at",
+    "external_ref_id",
+    "system",
+    "external_id",
+    "url",
+    "relationship",
+    "sync_policy",
+    "source_of_truth"
+  ],
+  "properties": {
+    "artifact_type": { "type": "string", "enum": ["external-ref"] },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "external_ref_id": { "type": "string" },
+    "system": {
+      "type": "string",
+      "enum": ["jira", "github", "linear", "slack", "google-docs", "google-drive", "salesforce", "hubspot", "erp", "crm", "quality-management-system", "ticketing-system", "knowledge-base", "other"]
+    },
+    "site": { "type": ["string", "null"] },
+    "external_id": { "type": "string" },
+    "url": { "type": "string" },
+    "relationship": {
+      "type": "string",
+      "enum": [
+        "source_work_item",
+        "mirror_work_item",
+        "related_work_item",
+        "blocker",
+        "evidence_source",
+        "decision_source",
+        "approval_source",
+        "notification_target",
+        "customer_record",
+        "document_source",
+        "operational_record"
+      ]
+    },
+    "sync_policy": {
+      "type": "string",
+      "enum": ["none", "read_only", "comment_back_only", "label_back_only", "status_back", "bidirectional_with_guardrails"]
+    },
+    "source_of_truth": {
+      "type": "string",
+      "enum": ["aof", "external-work-tracking", "external-document", "external-customer-record", "external-operational-record", "shared-with-explicit-fields"]
+    },
+    "source_task_id": { "type": ["string", "null"] },
+    "source_parent_session_id": { "type": ["string", "null"] },
+    "source_decision_record_id": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

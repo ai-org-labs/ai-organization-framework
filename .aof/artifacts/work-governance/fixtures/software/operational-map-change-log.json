@@ -1,0 +1,25 @@
+{
+  "artifact_type": "operational-map-change-log",
+  "recorded_at": "2026-06-23T12:20:00.000Z",
+  "work_item_ref": "SW-WORK-001",
+  "builder_ref": "codex",
+  "checked_at": "2026-06-23T12:20:00.000Z",
+  "operational_map_updates": [
+    {
+      "map": "decision-approval-flow-map",
+      "change_type": "updated",
+      "artifact_ref": ".aof/artifacts/operational-maps/maps/software-release-approval-flow.md",
+      "reason": "Added human approval before publication."
+    },
+    {
+      "map": "system-architecture-map",
+      "change_type": "no_change",
+      "artifact_ref": null,
+      "reason": "No component boundary changed."
+    }
+  ],
+  "human_readable_summary": "The release affects approval flow but does not change system architecture.",
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

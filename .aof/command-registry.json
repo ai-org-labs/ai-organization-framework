@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-06-21T05:38:48.269Z",
+  "generated_at": "2026-06-23T12:53:10.230Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -17,6 +17,22 @@
       ],
       "outputs": [
         "actor assignment evaluation artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "actor-compose",
+      "category": "execute",
+      "purpose": "Write a schema-valid actor composition artifact with selected actors and authority boundaries.",
+      "operator_path": "runtime-execution",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "payload-json",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "actor composition artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },
@@ -214,6 +230,22 @@
       "detail_ref": "docs/cli-reference.md"
     },
     {
+      "command": "context-pack",
+      "category": "execute",
+      "purpose": "Write a bounded context pack with summaries and refs instead of raw artifact bodies.",
+      "operator_path": "runtime-execution",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "payload-json",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "context pack artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
       "command": "contract-register",
       "category": "read",
       "purpose": "Read the current contract register surface.",
@@ -246,6 +278,22 @@
       ],
       "outputs": [
         "council execution packet"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "council-ready-output",
+      "category": "execute",
+      "purpose": "Write a schema-valid council-ready output artifact for Go / No-Go judgment.",
+      "operator_path": "runtime-execution",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "payload-json",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "council-ready output artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },
@@ -390,6 +438,22 @@
       "detail_ref": "docs/cli-reference.md"
     },
     {
+      "command": "go-no-go-visualization",
+      "category": "execute",
+      "purpose": "Write a schema-valid Go / No-Go visualization artifact.",
+      "operator_path": "runtime-execution",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "payload-json",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "go/no-go visualization artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
       "command": "goal-project",
       "category": "execute",
       "purpose": "Advance the runtime through goal project.",
@@ -492,6 +556,22 @@
       "top_command": false,
       "inputs": [],
       "outputs": [],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "operational-map-change-log",
+      "category": "execute",
+      "purpose": "Write a schema-valid operational map change log for a work item.",
+      "operator_path": "runtime-execution",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "payload-json",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "operational map change log artifact"
+      ],
       "detail_ref": "docs/cli-reference.md"
     },
     {
@@ -1010,6 +1090,37 @@
       ],
       "outputs": [
         "viewer session"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "work-governance-benchmark",
+      "category": "verify",
+      "purpose": "Benchmark Work Governance artifact chains for goal, actor, council, Go/No-Go, operational map, context pack, and external source-of-truth coverage.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "benchmark report"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "work-item-goal",
+      "category": "execute",
+      "purpose": "Write a schema-valid Work Governance work item goal artifact from a bounded payload.",
+      "operator_path": "runtime-execution",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "payload-json",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "work item goal artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     }

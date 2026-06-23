@@ -1,0 +1,87 @@
+{
+  "artifact_type": "actor-composition",
+  "recorded_at": "2026-06-23T12:21:00.000Z",
+  "work_item_id": "MFG-WORK-001",
+  "required_roles": [
+    "quality engineer",
+    "operations analyst",
+    "compliance reviewer"
+  ],
+  "required_skills": [
+    "quality engineering",
+    "operations analysis",
+    "compliance review"
+  ],
+  "actor_candidates": [
+    {
+      "actor_ref": "plant-quality-owner",
+      "actor_type": "human",
+      "candidate_role": "quality engineer",
+      "fit_reason": "Owns local defect evidence and corrective-action authority."
+    },
+    {
+      "actor_ref": "codex",
+      "actor_type": "ai-agent",
+      "candidate_role": "operations analyst",
+      "fit_reason": "Can structure evidence, alternatives, and flow impact for review."
+    },
+    {
+      "actor_ref": "qms-export",
+      "actor_type": "tool",
+      "candidate_role": "evidence source",
+      "fit_reason": "Provides defect history from the quality management system."
+    }
+  ],
+  "selected_actors": [
+    {
+      "actor_ref": "plant-quality-owner",
+      "actor_type": "human",
+      "assigned_role": "quality engineer",
+      "output_required": "Defect cause judgment and approval recommendation."
+    },
+    {
+      "actor_ref": "codex",
+      "actor_type": "ai-agent",
+      "assigned_role": "operations analyst",
+      "output_required": "Structured investigation packet and map impact summary."
+    },
+    {
+      "actor_ref": "qms-export",
+      "actor_type": "tool",
+      "assigned_role": "evidence source",
+      "output_required": "Defect occurrence evidence."
+    }
+  ],
+  "authority_boundaries": [
+    {
+      "actor_ref": "plant-quality-owner",
+      "authority_level": "approve",
+      "must_not_decide": [
+        "budget override"
+      ]
+    },
+    {
+      "actor_ref": "codex",
+      "authority_level": "propose",
+      "must_not_decide": [
+        "process approval",
+        "compliance acceptance"
+      ]
+    },
+    {
+      "actor_ref": "qms-export",
+      "authority_level": "execute",
+      "must_not_decide": [
+        "root cause",
+        "process change"
+      ]
+    }
+  ],
+  "selection_reason": "The work requires human quality authority, AI-assisted structuring, and tool-backed defect evidence.",
+  "missing_roles": [
+    "compliance reviewer"
+  ],
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

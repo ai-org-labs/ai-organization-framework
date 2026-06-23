@@ -1,0 +1,44 @@
+{
+  "artifact_type": "context-pack",
+  "recorded_at": "2026-06-23T12:20:00.000Z",
+  "pack_id": "CTX-SW-WORK-001",
+  "audience": "codex",
+  "current_mission": "Prepare a governed release candidate.",
+  "current_frontier": "SW-WORK-001",
+  "active_work_items": [
+    {
+      "work_item_id": "SW-WORK-001",
+      "summary": "API release candidate pending human approval.",
+      "state": "waiting_for_human"
+    }
+  ],
+  "open_blockers": [
+    "publication window missing"
+  ],
+  "pending_human_approvals": [
+    "release publication approval"
+  ],
+  "latest_decisions": [
+    "conditional_go pending owner approval"
+  ],
+  "applicable_quality_intents": [
+    "QIN-AOF-RELEASE"
+  ],
+  "priority_summary": "High release relevance, medium customer risk, low implementation uncertainty.",
+  "operational_map_refs": [
+    ".aof/artifacts/work-governance/fixtures/software/operational-map-change-log.json"
+  ],
+  "go_no_go_status_summary": "conditional_go; human approval required.",
+  "actor_composition_summary": "Codex builds, npm-test verifies, human owner approves.",
+  "next_recommended_action": "Request human publication approval.",
+  "evidence_refs": [
+    ".aof/artifacts/work-governance/fixtures/software/council-ready-output.json"
+  ],
+  "external_refs": [
+    ".aof/artifacts/work-governance/fixtures/software/external-ref.json"
+  ],
+  "raw_artifact_bodies_included": false,
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

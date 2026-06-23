@@ -1,0 +1,45 @@
+{
+  "artifact_type": "context-pack",
+  "recorded_at": "2026-06-23T12:21:00.000Z",
+  "pack_id": "CTX-MFG-WORK-001",
+  "audience": "codex",
+  "current_mission": "Investigate recurring packaging defect.",
+  "current_frontier": "MFG-WORK-001",
+  "active_work_items": [
+    {
+      "work_item_id": "MFG-WORK-001",
+      "summary": "Packaging defect investigation waiting for compliance evidence.",
+      "state": "waiting_for_role"
+    }
+  ],
+  "open_blockers": [
+    "compliance reviewer missing"
+  ],
+  "pending_human_approvals": [
+    "quality manager approval for pilot"
+  ],
+  "latest_decisions": [
+    "needs_more_evidence before process change"
+  ],
+  "applicable_quality_intents": [
+    "QIN-AOF-RUNTIME",
+    "QIN-AOF-RELEASE"
+  ],
+  "priority_summary": "High customer impact and medium operational cost; evidence confidence is mixed.",
+  "operational_map_refs": [
+    ".aof/artifacts/work-governance/fixtures/manufacturing/operational-map-change-log.json"
+  ],
+  "go_no_go_status_summary": "needs_more_evidence; compliance review missing.",
+  "actor_composition_summary": "Human quality owner approves, Codex structures, QMS export provides evidence; compliance reviewer missing.",
+  "next_recommended_action": "Assign compliance reviewer before process-change decision.",
+  "evidence_refs": [
+    ".aof/artifacts/work-governance/fixtures/manufacturing/council-ready-output.json"
+  ],
+  "external_refs": [
+    ".aof/artifacts/work-governance/fixtures/manufacturing/external-ref.json"
+  ],
+  "raw_artifact_bodies_included": false,
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

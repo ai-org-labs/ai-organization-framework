@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-06-22T15:44:58.149Z",
+      "at": "2026-06-23T13:27:04.012Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-06-22T15:44:58.141Z",
+      "at": "2026-06-23T13:27:04.000Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,10 +24,10 @@
       ]
     },
     {
-      "at": "2026-06-22T15:15:28.642Z",
+      "at": "2026-06-23T13:24:45.059Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
+      "summary": "After v6.1.0, run a runtime-backed frontier review before opening the next implementation task.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
@@ -35,36 +35,36 @@
       ]
     },
     {
-      "at": "2026-06-22T15:14:47.433Z",
+      "at": "2026-06-23T13:24:45.059Z",
       "actor": "AOF Runtime",
       "event_type": "task_completed",
-      "summary": "Ship v6.0 Public Runtime Readiness",
+      "summary": "Close v6.1.0 Work Governance release",
       "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
       "next": "Continue with the next open bridge-release task.",
       "refs": [
-        ".aof/tasks/done/TASK-056.json"
+        ".aof/tasks/done/TASK-063.json"
       ]
     },
     {
-      "at": "2026-06-21T06:14:32.136Z",
+      "at": "2026-06-23T13:14:25.363Z",
       "actor": "AOF Runtime",
       "event_type": "task_completed",
-      "summary": "Close v5.0.0 Skillful Actor Runtime release",
+      "summary": "Add cross-domain Work Governance examples",
       "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
       "next": "Continue with the next open bridge-release task.",
       "refs": [
-        ".aof/tasks/done/TASK-055.json"
+        ".aof/tasks/done/TASK-062.json"
       ]
     },
     {
-      "at": "2026-06-21T05:45:00.177Z",
+      "at": "2026-06-23T13:06:50.462Z",
       "actor": "AOF Runtime",
       "event_type": "task_completed",
-      "summary": "Implement v5.0 Skillful Actor Runtime",
+      "summary": "Project Work Governance into Mission Control",
       "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
       "next": "Continue with the next open bridge-release task.",
       "refs": [
-        ".aof/tasks/done/TASK-048.json"
+        ".aof/tasks/done/TASK-061.json"
       ]
     }
   ]

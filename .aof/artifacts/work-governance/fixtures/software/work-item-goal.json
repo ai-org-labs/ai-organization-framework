@@ -1,0 +1,57 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-06-23T12:20:00.000Z",
+  "work_item_id": "SW-WORK-001",
+  "work_item_type": "release",
+  "objective": "Prepare a governed release candidate for a web application API change.",
+  "reason_for_work": "The release changes customer-visible behavior and needs explicit evidence, approval, and rollback readiness.",
+  "expected_output": [
+    "release readiness checklist",
+    "API change summary",
+    "rollback plan"
+  ],
+  "consumer": [
+    "Release Manager",
+    "Operations Council"
+  ],
+  "downstream_dependency": [
+    "deployment approval",
+    "customer notification"
+  ],
+  "success_criteria": [
+    "Release evidence is complete",
+    "Rollback path is verified",
+    "Council can make a Go / No-Go decision"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "tests and smoke checks pass",
+      "rollback plan is documented"
+    ],
+    "no_go": [
+      "customer-impact evidence is missing",
+      "rollback owner is not assigned"
+    ]
+  },
+  "required_visualization": [
+    "readiness-checklist",
+    "dependency-map"
+  ],
+  "required_skills": [
+    "release management",
+    "risk review",
+    "implementation"
+  ],
+  "required_actor_roles": [
+    "builder",
+    "guardian",
+    "release manager"
+  ],
+  "council_review_need": "required",
+  "external_refs": [
+    ".aof/artifacts/work-governance/fixtures/software/external-ref.json"
+  ],
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

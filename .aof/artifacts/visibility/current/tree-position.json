@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-06-22T15:44:58.213Z",
+  "generated_at": "2026-06-23T13:27:04.095Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "6.0.0",
-    "active_release_track": "v6.0",
-    "release_definition_ref": "docs/v6.0-release-definition.md"
+    "active_release_version": "6.1.0",
+    "active_release_track": "v6.1",
+    "release_definition_ref": "docs/v6.1-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task."
+    "branch_summary": "After v6.1.0, run a runtime-backed frontier review before opening the next implementation task."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v6.0",
+      "label": "v6.1",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v6.0 and the next concrete branch.",
-    "why_this_branch": "Select the next AOF frontier after the v6.0.0 Public Runtime Readiness release through a runtime-backed direction review before opening new implementation work.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task."
+    "where_are_we": "The runtime is between v6.1 and the next concrete branch.",
+    "why_this_branch": "Maintain v6.1.0 as the Work Governance Integration baseline and choose the next AOF frontier through runtime-backed review before opening implementation.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: After v6.1.0, run a runtime-backed frontier review before opening the next implementation task."
   }
 }

@@ -1,0 +1,26 @@
+{
+  "artifact_type": "go-no-go-visualization",
+  "recorded_at": "2026-06-23T12:21:00.000Z",
+  "work_item_id": "MFG-WORK-001",
+  "visualization_type": "risk-heatmap",
+  "decision_state": "needs_more_evidence",
+  "decision_basis": [
+    "Defect recurrence evidence exists",
+    "Compliance reviewer is not yet assigned"
+  ],
+  "go_conditions": [
+    "Compliance reviewer clears the inspection change",
+    "Pilot cost is accepted by operations"
+  ],
+  "no_go_conditions": [
+    "Defect is not reproduced",
+    "SOP change is required but owner rejects update"
+  ],
+  "missing_evidence": [
+    "compliance impact review"
+  ],
+  "viewer_summary": "Investigation should not move to process change until compliance evidence is added.",
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

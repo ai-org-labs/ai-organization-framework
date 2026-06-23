@@ -2659,6 +2659,8 @@ export function buildVisibilityPageHtml(title) {
         const derived = payload.derived ?? {};
         const taskBoard = derived.task_board ?? payload.task_board ?? {};
         const mission = derived.mission_control ?? {};
+        const workGovernance = mission.work_governance ?? {};
+        const workGovernanceItems = Array.isArray(workGovernance.work_items) ? workGovernance.work_items : [];
         const tree = derived.tree_position ?? {};
         const evidence = derived.evidence_drill_down ?? {};
         const loop = derived.runtime_loop ?? {};
@@ -2805,6 +2807,14 @@ export function buildVisibilityPageHtml(title) {
                 role.latest_artifact_ref,
                 role
               )).join("") : '<div class="mini-row"><strong>No role workload</strong><span>No execution role-result artifacts are visible.</span></div>') +
+            '</div></div>' +
+            '<div class="lower-panel"><div class="section-head"><h2>Work Governance Chain</h2><p>Work item goal → actors → council output → Go/No-Go → Operational Map → Context Pack.</p></div><div class="lower-body">' +
+              (workGovernanceItems.length > 0 ? workGovernanceItems.map((item) => detailRow(
+                firstText(item.work_item_id, "work item") + " / " + firstText(item.go_no_go_state, item.council_status, "pending"),
+                firstText(item.objective, "-") + " / Actors: " + String((item.selected_actors ?? []).length) + " / Next: " + firstText(item.next_recommended_action, "-"),
+                item.refs?.work_item_goal,
+                item
+              )).join("") : '<div class="mini-row"><strong>No Work Governance chain</strong><span>No work-governance artifacts are visible.</span></div>') +
             '</div></div>' +
             '<div class="lower-panel"><div class="section-head"><h2>Evidence / Proof Coverage</h2><p>Refs behind headline, next action, and runtime-backed claim.</p></div><div class="lower-body">' +
               (evidenceRefs.length > 0 ? Array.from(new Set(evidenceRefs)).slice(0, 8).map((ref, index) => detailRow(

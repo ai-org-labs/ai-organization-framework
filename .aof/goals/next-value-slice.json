@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
-  "updated_at": "2026-06-22T15:15:28.642Z",
+  "content": "After v6.1.0, run a runtime-backed frontier review before opening the next implementation task.",
+  "updated_at": "2026-06-23T13:24:45.059Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-MQPCFZHQ-MV6A1U",
-  "source_decision_record_id": "DEC-MQPCKMKF-1M7FNW",
+  "source_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": "CRP-TASK-063-V61-RELEASE",
   "declared_complete_at": null
 }

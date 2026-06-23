@@ -1,0 +1,26 @@
+{
+  "artifact_type": "go-no-go-visualization",
+  "recorded_at": "2026-06-23T12:20:00.000Z",
+  "work_item_id": "SW-WORK-001",
+  "visualization_type": "readiness-checklist",
+  "decision_state": "conditional_go",
+  "decision_basis": [
+    "Release evidence is present",
+    "Human publication approval is still pending"
+  ],
+  "go_conditions": [
+    "Owner approves publication",
+    "Smoke validation remains green"
+  ],
+  "no_go_conditions": [
+    "Rollback owner not assigned",
+    "Customer impact unresolved"
+  ],
+  "missing_evidence": [
+    "final publication window"
+  ],
+  "viewer_summary": "Release is conditionally ready; human approval remains the gate.",
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

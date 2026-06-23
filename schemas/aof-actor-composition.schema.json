@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-actor-composition.schema.json",
+  "title": "AI Organization Framework Actor Composition",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "recorded_at",
+    "work_item_id",
+    "required_roles",
+    "required_skills",
+    "actor_candidates",
+    "selected_actors",
+    "authority_boundaries",
+    "selection_reason",
+    "missing_roles"
+  ],
+  "properties": {
+    "artifact_type": { "type": "string", "enum": ["actor-composition"] },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_id": { "type": "string" },
+    "required_roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "required_skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "actor_candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["actor_ref", "actor_type", "candidate_role", "fit_reason"],
+        "properties": {
+          "actor_ref": { "type": "string" },
+          "actor_type": {
+            "type": "string",
+            "enum": ["human", "ai-agent", "tool", "automation"]
+          },
+          "candidate_role": { "type": "string" },
+          "fit_reason": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "selected_actors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["actor_ref", "actor_type", "assigned_role", "output_required"],
+        "properties": {
+          "actor_ref": { "type": "string" },
+          "actor_type": {
+            "type": "string",
+            "enum": ["human", "ai-agent", "tool", "automation"]
+          },
+          "assigned_role": { "type": "string" },
+          "output_required": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "authority_boundaries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["actor_ref", "authority_level", "must_not_decide"],
+        "properties": {
+          "actor_ref": { "type": "string" },
+          "authority_level": {
+            "type": "string",
+            "enum": ["propose", "execute", "review", "approve", "override"]
+          },
+          "must_not_decide": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "selection_reason": { "type": "string", "minLength": 1 },
+    "missing_roles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source_task_id": { "type": ["string", "null"] },
+    "source_parent_session_id": { "type": ["string", "null"] },
+    "source_decision_record_id": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

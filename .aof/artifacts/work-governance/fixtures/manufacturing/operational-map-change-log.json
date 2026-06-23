@@ -1,0 +1,25 @@
+{
+  "artifact_type": "operational-map-change-log",
+  "recorded_at": "2026-06-23T12:21:00.000Z",
+  "work_item_ref": "MFG-WORK-001",
+  "builder_ref": "codex",
+  "checked_at": "2026-06-23T12:21:00.000Z",
+  "operational_map_updates": [
+    {
+      "map": "work-flow-map",
+      "change_type": "needs_review",
+      "artifact_ref": ".aof/artifacts/operational-maps/maps/manufacturing-inspection-flow.md",
+      "reason": "Inspection flow may change after compliance review."
+    },
+    {
+      "map": "evidence-flow-map",
+      "change_type": "updated",
+      "artifact_ref": ".aof/artifacts/operational-maps/maps/manufacturing-defect-evidence-flow.md",
+      "reason": "Added QMS export as defect evidence source."
+    }
+  ],
+  "human_readable_summary": "The defect investigation changes evidence flow now and may change inspection workflow after compliance review.",
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

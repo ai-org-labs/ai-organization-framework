@@ -105,6 +105,114 @@
       },
       "additionalProperties": false
     },
+    "work_governance": {
+      "type": "object",
+      "required": [
+        "present",
+        "artifact_root_ref",
+        "benchmark_ref",
+        "work_item_count",
+        "work_items"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "artifact_root_ref": { "type": "string" },
+        "benchmark_ref": { "type": ["string", "null"] },
+        "work_item_count": { "type": "integer" },
+        "work_items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "work_item_id",
+              "work_item_type",
+              "objective",
+              "reason_for_work",
+              "council_review_need",
+              "required_actor_roles",
+              "required_skills",
+              "selected_actors",
+              "authority_boundaries",
+              "council_status",
+              "council_summary",
+              "go_no_go_state",
+              "go_no_go_summary",
+              "operational_map_summary",
+              "context_summary",
+              "next_recommended_action",
+              "refs"
+            ],
+            "properties": {
+              "work_item_id": { "type": "string" },
+              "work_item_type": { "type": "string" },
+              "objective": { "type": "string" },
+              "reason_for_work": { "type": "string" },
+              "council_review_need": { "type": "string" },
+              "required_actor_roles": { "type": "array", "items": { "type": "string" } },
+              "required_skills": { "type": "array", "items": { "type": "string" } },
+              "selected_actors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["actor_ref", "actor_type", "assigned_role", "output_required"],
+                  "properties": {
+                    "actor_ref": { "type": "string" },
+                    "actor_type": { "type": "string" },
+                    "assigned_role": { "type": "string" },
+                    "output_required": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "authority_boundaries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["actor_ref", "authority_level", "must_not_decide"],
+                  "properties": {
+                    "actor_ref": { "type": "string" },
+                    "authority_level": { "type": "string" },
+                    "must_not_decide": { "type": "array", "items": { "type": "string" } }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "council_status": { "type": ["string", "null"] },
+              "council_summary": { "type": ["string", "null"] },
+              "go_no_go_state": { "type": ["string", "null"] },
+              "go_no_go_summary": { "type": ["string", "null"] },
+              "operational_map_summary": { "type": ["string", "null"] },
+              "context_summary": { "type": ["string", "null"] },
+              "next_recommended_action": { "type": ["string", "null"] },
+              "refs": {
+                "type": "object",
+                "required": [
+                  "work_item_goal",
+                  "actor_composition",
+                  "council_ready_output",
+                  "go_no_go_visualization",
+                  "operational_map_change_log",
+                  "context_pack",
+                  "external_refs"
+                ],
+                "properties": {
+                  "work_item_goal": { "type": ["string", "null"] },
+                  "actor_composition": { "type": ["string", "null"] },
+                  "council_ready_output": { "type": ["string", "null"] },
+                  "go_no_go_visualization": { "type": ["string", "null"] },
+                  "operational_map_change_log": { "type": ["string", "null"] },
+                  "context_pack": { "type": ["string", "null"] },
+                  "external_refs": { "type": "array", "items": { "type": "string" } }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "skillful_actor_projection": {
       "type": ["object", "null"],
       "required": ["projection_ref", "projection_id", "actor", "visible_state", "proof_chain"],

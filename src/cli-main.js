@@ -7,6 +7,14 @@ import { buildCommandHandlers } from "./runtime/command-catalog.js";
 const COMMAND_HANDLERS = buildCommandHandlers();
 
 const SUPPORTED_COMMANDS = new Set(Object.keys(COMMAND_HANDLERS));
+const WORK_GOVERNANCE_PAYLOAD_COMMANDS = new Set([
+  "work-item-goal",
+  "actor-compose",
+  "council-ready-output",
+  "go-no-go-visualization",
+  "operational-map-change-log",
+  "context-pack"
+]);
 const TRANSIENT_CLI_ERROR_PATTERNS = [
   /Unexpected end of input/,
   /Invalid or unexpected token/,
@@ -50,6 +58,13 @@ Usage:
   aof actor-skill-packet-record --project <path> --objective "<text>" [--actor-ref <ref>] --role-ref <ref> [--team-ref <ref>] --assignment-reason "<text>" --execution-mode <single-actor|council-seat|team-member|tool-backed> --skill-ref <ref> [--skill-ref <ref>] --capability-fit-json '<json>' [--resource-ref <ref>] [--policy-ref <ref>] --output-artifact-type <type> [--output-artifact-schema-ref <path>] --required-section <text> --acceptance-criterion <text> --review-criterion-json '<json>' [--blocker-json '<json>'] --character-label "<text>" --speech-bubble "<text>" --current-action "<text>" --confidence-label <high|medium|low|blocked> --next-action "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--status <draft|ready-for-assignment|blocked|completed>] [--write-artifact <path>]
   aof actor-assignment-evaluation-record --project <path> --actor-skill-packet-ref <path> [--evaluation-id <id>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof actor-execution-gate-record --project <path> --actor-assignment-evaluation-ref <path> [--gate-id <id>] [--resource-claim-ref <path>] [--resource-claim-ref <path>] [--policy-evaluation-ref <path>] [--policy-evaluation-ref <path>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof work-item-goal --project <path> --payload-json '<json>' [--write-artifact <path>]
+  aof actor-compose --project <path> --payload-json '<json>' [--write-artifact <path>]
+  aof council-ready-output --project <path> --payload-json '<json>' [--write-artifact <path>]
+  aof go-no-go-visualization --project <path> --payload-json '<json>' [--write-artifact <path>]
+  aof operational-map-change-log --project <path> --payload-json '<json>' [--write-artifact <path>]
+  aof context-pack --project <path> --payload-json '<json>' [--write-artifact <path>]
+  aof work-governance-benchmark [--project <path>] [--write-artifact <path>]
   aof skillful-actor-benchmark [--project <path>] [--write-artifact <path>]
   aof skillful-actor-hri-projection --project <path> --actor-skill-packet-ref <path> --actor-assignment-evaluation-ref <path> --actor-execution-gate-ref <path> --skillful-actor-benchmark-ref <path> [--projection-id <id>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof task-open --project <path> --title "<text>" [--description "<text>"] [--origin <origin>] [--orchestrator-session-id <id>] [--assigned-session-id <id>] [--related-decision-record-id <id>] [--operating-goal-ref <ref>] [--triage-notes "<text>"]
@@ -711,6 +726,8 @@ function parseArgs(argv) {
               }
           : command === "skillful-actor-benchmark"
             ? { project: ".", artifactPath: "" }
+          : command === "work-governance-benchmark"
+            ? { project: ".", artifactPath: "" }
           : command === "skillful-actor-hri-projection"
             ? {
                 project: ".",
@@ -1052,6 +1069,14 @@ function parseArgs(argv) {
                 artifactDir: ""
               }
           : { session: "", signal: "" };
+
+  if (WORK_GOVERNANCE_PAYLOAD_COMMANDS.has(command)) {
+    Object.assign(options, {
+      project: ".",
+      payload: null,
+      artifactPath: ""
+    });
+  }
 
   for (let i = command === "run" ? 1 : 0; i < rest.length; i += 1) {
     const part = rest[i];
@@ -3125,6 +3150,15 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--payload-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --payload-json.");
+      }
+      options.payload = JSON.parse(value);
+      i += 1;
+      continue;
+    }
     if (part === "--artifact-dir") {
       const value = rest[i + 1];
       if (!value) {
@@ -3527,6 +3561,15 @@ function parseArgs(argv) {
     }
   }
 
+  if (WORK_GOVERNANCE_PAYLOAD_COMMANDS.has(command)) {
+    if (!options.project) {
+      throw new Error(`Missing --project for \`${command}\`.`);
+    }
+    if (!options.payload) {
+      throw new Error(`Missing --payload-json for \`${command}\`.`);
+    }
+  }
+
   if (command === "allocation-plan-record") {
     if (!options.subjectRef) {
       throw new Error("Missing --subject-ref for `allocation-plan-record`.");
@@ -3926,6 +3969,12 @@ function parseArgs(argv) {
   if (command === "mission-control-benchmark") {
     if (!options.project) {
       throw new Error("Missing --project for `mission-control-benchmark`.");
+    }
+  }
+
+  if (command === "work-governance-benchmark") {
+    if (!options.project) {
+      throw new Error("Missing --project for `work-governance-benchmark`.");
     }
   }
 

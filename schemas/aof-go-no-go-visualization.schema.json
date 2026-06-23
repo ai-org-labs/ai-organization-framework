@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-go-no-go-visualization.schema.json",
+  "title": "AI Organization Framework Go / No-Go Visualization",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "recorded_at",
+    "work_item_id",
+    "visualization_type",
+    "decision_state",
+    "decision_basis",
+    "go_conditions",
+    "no_go_conditions",
+    "missing_evidence",
+    "viewer_summary"
+  ],
+  "properties": {
+    "artifact_type": { "type": "string", "enum": ["go-no-go-visualization"] },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_id": { "type": "string" },
+    "visualization_type": {
+      "type": "string",
+      "enum": [
+        "decision-matrix",
+        "dependency-map",
+        "risk-heatmap",
+        "operational-flow",
+        "actor-responsibility-map",
+        "architecture-system-map",
+        "information-flow-map",
+        "evidence-coverage-map",
+        "readiness-checklist"
+      ]
+    },
+    "decision_state": {
+      "type": "string",
+      "enum": ["go", "no_go", "conditional_go", "needs_human_approval", "needs_more_evidence", "needs_rework"]
+    },
+    "decision_basis": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "go_conditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "no_go_conditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "missing_evidence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "viewer_summary": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": ["string", "null"] },
+    "source_parent_session_id": { "type": ["string", "null"] },
+    "source_decision_record_id": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

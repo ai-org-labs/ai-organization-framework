@@ -405,7 +405,48 @@ export async function writeVisibilityFixture(rootDir) {
     },
     runtime_position: { current_phase: "planning-ready", current_step_label: "Project Charter", current_step_state: "current" },
     blockers: [{ summary: "verify publish artifact before 10:00 JST", severity: "attention", artifact_ref: "obs-2026-06-01-cave-01" }],
-    next_action: { recommended_action: "verify publish artifact before 10:00 JST", rationale: "candidate is selected but publication is still gated", artifact_ref: "obs-2026-06-01-cave-01" }
+    next_action: { recommended_action: "verify publish artifact before 10:00 JST", rationale: "candidate is selected but publication is still gated", artifact_ref: "obs-2026-06-01-cave-01" },
+    work_governance: {
+      present: true,
+      artifact_root_ref: ".aof/artifacts/work-governance",
+      benchmark_ref: ".aof/artifacts/work-governance/benchmarks/work-governance-benchmark.json",
+      work_item_count: 1,
+      work_items: [
+        {
+          work_item_id: "OBS-WORK-001",
+          work_item_type: "approval",
+          objective: "Publish today's featured observation.",
+          reason_for_work: "The selected observation needs verification and approval before publication.",
+          council_review_need: "required",
+          required_actor_roles: ["builder", "guardian"],
+          required_skills: ["publication", "review"],
+          selected_actors: [
+            { actor_ref: "codex", actor_type: "ai-agent", assigned_role: "builder", output_required: "publish packet" },
+            { actor_ref: "human-owner", actor_type: "human", assigned_role: "approver", output_required: "approval decision" }
+          ],
+          authority_boundaries: [
+            { actor_ref: "codex", authority_level: "execute", must_not_decide: ["publication approval"] },
+            { actor_ref: "human-owner", authority_level: "approve", must_not_decide: [] }
+          ],
+          council_status: "conditional_go",
+          council_summary: "Publish after verification and owner approval.",
+          go_no_go_state: "conditional_go",
+          go_no_go_summary: "Publication is conditionally ready.",
+          operational_map_summary: "Approval flow is active.",
+          context_summary: "Publication is the highest priority.",
+          next_recommended_action: "verify publish artifact before 10:00 JST",
+          refs: {
+            work_item_goal: ".aof/artifacts/work-governance/fixtures/observation/work-item-goal.json",
+            actor_composition: ".aof/artifacts/work-governance/fixtures/observation/actor-composition.json",
+            council_ready_output: ".aof/artifacts/work-governance/fixtures/observation/council-ready-output.json",
+            go_no_go_visualization: ".aof/artifacts/work-governance/fixtures/observation/go-no-go-visualization.json",
+            operational_map_change_log: ".aof/artifacts/work-governance/fixtures/observation/operational-map-change-log.json",
+            context_pack: ".aof/artifacts/work-governance/fixtures/observation/context-pack.json",
+            external_refs: [".aof/artifacts/work-governance/fixtures/observation/external-ref.json"]
+          }
+        }
+      ]
+    }
   };
   const progressPayload = {
     view_type: "operator_progress",

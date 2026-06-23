@@ -1,0 +1,33 @@
+{
+  "artifact_type": "council-ready-output",
+  "recorded_at": "2026-06-23T12:21:00.000Z",
+  "work_item_id": "MFG-WORK-001",
+  "summary": "The packaging defect appears process-related, but compliance review is still missing.",
+  "goal_achievement_status": "partially-met",
+  "key_decisions_needed": [
+    "Decide whether to pilot inspection change",
+    "Assign compliance reviewer"
+  ],
+  "evidence_refs": [
+    "qms-export:defect-history",
+    ".aof/artifacts/work-governance/fixtures/manufacturing/go-no-go-visualization.json"
+  ],
+  "risks": [
+    "Inspection change may slow throughput.",
+    "Compliance impact has not been reviewed."
+  ],
+  "unresolved_questions": [
+    "Does the proposed inspection step require SOP revision?"
+  ],
+  "go_no_go_recommendation": "needs_more_evidence",
+  "visualization_refs": [
+    ".aof/artifacts/work-governance/fixtures/manufacturing/go-no-go-visualization.json"
+  ],
+  "downstream_impact": [
+    "If approved, training and inspection procedure updates are required."
+  ],
+  "required_human_approval": true,
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

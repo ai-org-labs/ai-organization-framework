@@ -1,19 +1,19 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-06-22T15:44:58.149Z",
+  "generated_at": "2026-06-23T13:27:04.012Z",
   "mission_overview": {
-    "mission": "Maintain v6.0.0 as the public runtime readiness baseline and keep the post-release runtime in direction-review state before opening the next frontier.",
-    "release_version": "6.0.0",
-    "release_definition_ref": "docs/v6.0-release-definition.md",
-    "operating_goal": "Select the next AOF frontier after the v6.0.0 Public Runtime Readiness release through a runtime-backed direction review before opening new implementation work.",
-    "next_value_slice": "Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
+    "mission": "Maintain v6.1.0 as the Work Governance Integration baseline and use runtime review before opening the next frontier.",
+    "release_version": "6.1.0",
+    "release_definition_ref": "docs/v6.1-release-definition.md",
+    "operating_goal": "Maintain v6.1.0 as the Work Governance Integration baseline and choose the next AOF frontier through runtime-backed review before opening implementation.",
+    "next_value_slice": "After v6.1.0, run a runtime-backed frontier review before opening the next implementation task.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
   "artifact_graph": {
     "nodes": [],
     "edges": [],
-    "current_node_id": "project-charter"
+    "current_node_id": null
   },
   "runtime_position": {
     "current_phase": "frontier-definition-needed",
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: After v6.1.0, run a runtime-backed frontier review before opening the next implementation task.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -74,6 +74,171 @@
         "step": "skillful-actor-benchmark",
         "artifact_ref": ".aof/artifacts/benchmarks/fixtures/SAB-TASK-053-GREEN.json",
         "state": "pass"
+      }
+    ]
+  },
+  "work_governance": {
+    "present": true,
+    "artifact_root_ref": ".aof/artifacts/work-governance",
+    "benchmark_ref": ".aof/artifacts/work-governance/benchmarks/work-governance-benchmark.json",
+    "work_item_count": 2,
+    "work_items": [
+      {
+        "work_item_id": "MFG-WORK-001",
+        "work_item_type": "quality_work",
+        "objective": "Investigate a recurring packaging defect and decide whether to change the inspection process.",
+        "reason_for_work": "The defect creates customer returns and may indicate a process-control gap.",
+        "council_review_need": "required",
+        "required_actor_roles": [
+          "quality engineer",
+          "operations analyst",
+          "compliance reviewer"
+        ],
+        "required_skills": [
+          "quality engineering",
+          "operations analysis",
+          "compliance review"
+        ],
+        "selected_actors": [
+          {
+            "actor_ref": "plant-quality-owner",
+            "actor_type": "human",
+            "assigned_role": "quality engineer",
+            "output_required": "Defect cause judgment and approval recommendation."
+          },
+          {
+            "actor_ref": "codex",
+            "actor_type": "ai-agent",
+            "assigned_role": "operations analyst",
+            "output_required": "Structured investigation packet and map impact summary."
+          },
+          {
+            "actor_ref": "qms-export",
+            "actor_type": "tool",
+            "assigned_role": "evidence source",
+            "output_required": "Defect occurrence evidence."
+          }
+        ],
+        "authority_boundaries": [
+          {
+            "actor_ref": "plant-quality-owner",
+            "authority_level": "approve",
+            "must_not_decide": [
+              "budget override"
+            ]
+          },
+          {
+            "actor_ref": "codex",
+            "authority_level": "propose",
+            "must_not_decide": [
+              "process approval",
+              "compliance acceptance"
+            ]
+          },
+          {
+            "actor_ref": "qms-export",
+            "authority_level": "execute",
+            "must_not_decide": [
+              "root cause",
+              "process change"
+            ]
+          }
+        ],
+        "council_status": "needs_more_evidence",
+        "council_summary": "The packaging defect appears process-related, but compliance review is still missing.",
+        "go_no_go_state": "needs_more_evidence",
+        "go_no_go_summary": "Investigation should not move to process change until compliance evidence is added.",
+        "operational_map_summary": "The defect investigation changes evidence flow now and may change inspection workflow after compliance review.",
+        "context_summary": "High customer impact and medium operational cost; evidence confidence is mixed.",
+        "next_recommended_action": "Assign compliance reviewer before process-change decision.",
+        "refs": {
+          "work_item_goal": ".aof/artifacts/work-governance/fixtures/manufacturing/work-item-goal.json",
+          "actor_composition": ".aof/artifacts/work-governance/fixtures/manufacturing/actor-composition.json",
+          "council_ready_output": ".aof/artifacts/work-governance/fixtures/manufacturing/council-ready-output.json",
+          "go_no_go_visualization": ".aof/artifacts/work-governance/fixtures/manufacturing/go-no-go-visualization.json",
+          "operational_map_change_log": ".aof/artifacts/work-governance/fixtures/manufacturing/operational-map-change-log.json",
+          "context_pack": ".aof/artifacts/work-governance/fixtures/manufacturing/context-pack.json",
+          "external_refs": [
+            ".aof/artifacts/work-governance/fixtures/manufacturing/external-ref.json"
+          ]
+        }
+      },
+      {
+        "work_item_id": "SW-WORK-001",
+        "work_item_type": "release",
+        "objective": "Prepare a governed release candidate for a web application API change.",
+        "reason_for_work": "The release changes customer-visible behavior and needs explicit evidence, approval, and rollback readiness.",
+        "council_review_need": "required",
+        "required_actor_roles": [
+          "builder",
+          "guardian",
+          "release manager"
+        ],
+        "required_skills": [
+          "release management",
+          "risk review",
+          "implementation"
+        ],
+        "selected_actors": [
+          {
+            "actor_ref": "codex",
+            "actor_type": "ai-agent",
+            "assigned_role": "builder",
+            "output_required": "Release candidate artifacts and verification summary."
+          },
+          {
+            "actor_ref": "human-owner",
+            "actor_type": "human",
+            "assigned_role": "approver",
+            "output_required": "Publication approval or risk rejection."
+          },
+          {
+            "actor_ref": "npm-test",
+            "actor_type": "tool",
+            "assigned_role": "verification tool",
+            "output_required": "Test result evidence."
+          }
+        ],
+        "authority_boundaries": [
+          {
+            "actor_ref": "codex",
+            "authority_level": "execute",
+            "must_not_decide": [
+              "publication approval",
+              "budget acceptance"
+            ]
+          },
+          {
+            "actor_ref": "human-owner",
+            "authority_level": "approve",
+            "must_not_decide": []
+          },
+          {
+            "actor_ref": "npm-test",
+            "authority_level": "execute",
+            "must_not_decide": [
+              "release decision"
+            ]
+          }
+        ],
+        "council_status": "conditional_go",
+        "council_summary": "The API release candidate has evidence, rollback notes, and explicit approval needs.",
+        "go_no_go_state": "conditional_go",
+        "go_no_go_summary": "Release is conditionally ready; human approval remains the gate.",
+        "operational_map_summary": "The release affects approval flow but does not change system architecture.",
+        "context_summary": "High release relevance, medium customer risk, low implementation uncertainty.",
+        "next_recommended_action": "Request human publication approval.",
+        "refs": {
+          "work_item_goal": ".aof/artifacts/work-governance/fixtures/software/work-item-goal.json",
+          "actor_composition": ".aof/artifacts/work-governance/fixtures/software/actor-composition.json",
+          "council_ready_output": ".aof/artifacts/work-governance/fixtures/software/council-ready-output.json",
+          "go_no_go_visualization": ".aof/artifacts/work-governance/fixtures/software/go-no-go-visualization.json",
+          "operational_map_change_log": ".aof/artifacts/work-governance/fixtures/software/operational-map-change-log.json",
+          "context_pack": ".aof/artifacts/work-governance/fixtures/software/context-pack.json",
+          "external_refs": [
+            ".aof/artifacts/work-governance/fixtures/software/external-ref.json"
+          ]
+        }
       }
     ]
   }

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-operational-map-change-log.schema.json",
+  "title": "AI Organization Framework Operational Map Change Log",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "recorded_at",
+    "work_item_ref",
+    "builder_ref",
+    "checked_at",
+    "operational_map_updates",
+    "human_readable_summary"
+  ],
+  "properties": {
+    "artifact_type": { "type": "string", "enum": ["operational-map-change-log"] },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_ref": { "type": "string" },
+    "builder_ref": { "type": "string" },
+    "checked_at": { "type": "string", "format": "date-time" },
+    "operational_map_updates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["map", "change_type", "reason"],
+        "properties": {
+          "map": {
+            "type": "string",
+            "enum": [
+              "work-flow-map",
+              "information-flow-map",
+              "decision-approval-flow-map",
+              "evidence-flow-map",
+              "actor-role-tool-interaction-map",
+              "external-reference-map",
+              "system-architecture-map"
+            ]
+          },
+          "change_type": {
+            "type": "string",
+            "enum": ["created", "updated", "deprecated", "no_change", "needs_review"]
+          },
+          "artifact_ref": { "type": ["string", "null"] },
+          "reason": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "human_readable_summary": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": ["string", "null"] },
+    "source_parent_session_id": { "type": ["string", "null"] },
+    "source_decision_record_id": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

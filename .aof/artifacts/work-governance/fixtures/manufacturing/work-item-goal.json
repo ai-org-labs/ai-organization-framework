@@ -1,0 +1,57 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-06-23T12:21:00.000Z",
+  "work_item_id": "MFG-WORK-001",
+  "work_item_type": "quality_work",
+  "objective": "Investigate a recurring packaging defect and decide whether to change the inspection process.",
+  "reason_for_work": "The defect creates customer returns and may indicate a process-control gap.",
+  "expected_output": [
+    "defect investigation summary",
+    "inspection-flow change proposal",
+    "quality approval recommendation"
+  ],
+  "consumer": [
+    "Quality Manager",
+    "Operations Council"
+  ],
+  "downstream_dependency": [
+    "inspection procedure update",
+    "operator training"
+  ],
+  "success_criteria": [
+    "Likely defect cause is identified",
+    "Evidence supports or rejects inspection change",
+    "Council can make a Go / No-Go decision"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "defect evidence points to a repeatable process gap",
+      "inspection change has a low operational burden"
+    ],
+    "no_go": [
+      "defect cause is not reproducible",
+      "change increases compliance risk"
+    ]
+  },
+  "required_visualization": [
+    "risk-heatmap",
+    "operational-flow"
+  ],
+  "required_skills": [
+    "quality engineering",
+    "operations analysis",
+    "compliance review"
+  ],
+  "required_actor_roles": [
+    "quality engineer",
+    "operations analyst",
+    "compliance reviewer"
+  ],
+  "council_review_need": "required",
+  "external_refs": [
+    ".aof/artifacts/work-governance/fixtures/manufacturing/external-ref.json"
+  ],
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

@@ -25,6 +25,10 @@ export function extractTrackFromText(text) {
   return `v${match[1]}.${match[2]}`;
 }
 
+function extractTaskIdsFromText(text) {
+  return [...String(text ?? "").matchAll(/\bTASK-\d+\b/gi)].map((match) => match[0].toUpperCase());
+}
+
 function trackNumber(track) {
   const normalized = normalizeTrackLabel(track);
   if (!normalized) {
@@ -133,9 +137,21 @@ function pickFrontierTask(openTasks, activeReleaseTrack, nextValueSlice, operati
     return activeAlignmentEntries[0];
   }
 
+  const explicitTaskIds = [
+    ...extractTaskIdsFromText(nextValueSlice),
+    ...extractTaskIdsFromText(operatingGoal)
+  ];
+  for (const taskId of explicitTaskIds) {
+    const exactTask = openTasks.find((entry) => String(entry.payload.task_id).toUpperCase() === taskId);
+    if (exactTask) {
+      return exactTask;
+    }
+  }
+
   const targetTracks = [extractTrackFromText(nextValueSlice), extractTrackFromText(operatingGoal)].filter(Boolean);
   for (const targetTrack of targetTracks) {
-    const exact = openTasks.find((entry) => inferRoadmapTrack(entry.payload) === targetTrack);
+    const exact = openTasks.find((entry) => entry.status === "assigned" && inferRoadmapTrack(entry.payload) === targetTrack)
+      ?? openTasks.find((entry) => inferRoadmapTrack(entry.payload) === targetTrack);
     if (exact) {
       return exact;
     }
@@ -228,9 +244,12 @@ export async function loadSituationAssessmentSummary(projectRoot) {
     loadTaskSets(projectRoot)
   ]);
 
-  const openTasks = taskSets.groups.find((group) => group.status === "open")?.tasks ?? [];
+  const currentTasks = [
+    ...(taskSets.groups.find((group) => group.status === "assigned")?.tasks ?? []),
+    ...(taskSets.groups.find((group) => group.status === "open")?.tasks ?? [])
+  ];
   const activeReleaseTrack = normalizeTrackLabel(activeReleaseRecord?.manifest.release_version);
-  const staleReleaseTasks = openTasks.filter((entry) => inferRoadmapTrack(entry.payload) === activeReleaseTrack);
+  const staleReleaseTasks = currentTasks.filter((entry) => inferRoadmapTrack(entry.payload) === activeReleaseTrack);
 
   const alignmentIds = Array.isArray(alignmentPulse?.prioritized_task_ids) ? alignmentPulse.prioritized_task_ids : [];
   const activeAlignmentEntries = alignmentIds
@@ -238,7 +257,7 @@ export async function loadSituationAssessmentSummary(projectRoot) {
     .filter(Boolean)
     .filter((entry) => entry.status === "open" || entry.status === "assigned");
   const frontierTask = pickFrontierTask(
-    openTasks,
+    currentTasks,
     activeReleaseTrack,
     nextValueSlice?.content ?? "",
     operatingGoal?.content ?? "",
@@ -266,8 +285,11 @@ export async function loadSituationAssessmentSummary(projectRoot) {
     conflicts.push(staleAlignment);
   }
 
-  const targetTrack = extractTrackFromText(nextValueSlice?.content ?? "") ?? extractTrackFromText(operatingGoal?.content ?? "");
-  if (targetTrack && frontierTask && inferRoadmapTrack(frontierTask.payload) !== targetTrack) {
+  const hasExplicitTaskTarget = extractTaskIdsFromText(nextValueSlice?.content ?? "").length > 0
+    || extractTaskIdsFromText(operatingGoal?.content ?? "").length > 0;
+  const targetTrack = extractTrackFromText(nextValueSlice?.content ?? "")
+    ?? (hasExplicitTaskTarget ? null : extractTrackFromText(operatingGoal?.content ?? ""));
+  if (!hasExplicitTaskTarget && targetTrack && frontierTask && inferRoadmapTrack(frontierTask.payload) !== targetTrack) {
     conflicts.push({
       code: "frontier-task-mismatch",
       severity: "warning",

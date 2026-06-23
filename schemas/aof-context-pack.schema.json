@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-context-pack.schema.json",
+  "title": "AI Organization Framework Context Pack",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "recorded_at",
+    "pack_id",
+    "audience",
+    "current_mission",
+    "current_frontier",
+    "active_work_items",
+    "open_blockers",
+    "pending_human_approvals",
+    "latest_decisions",
+    "applicable_quality_intents",
+    "priority_summary",
+    "operational_map_refs",
+    "go_no_go_status_summary",
+    "actor_composition_summary",
+    "next_recommended_action",
+    "evidence_refs",
+    "external_refs"
+  ],
+  "properties": {
+    "artifact_type": { "type": "string", "enum": ["context-pack"] },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "pack_id": { "type": "string" },
+    "audience": { "type": "string", "enum": ["codex", "human", "council", "tool", "public-adopter"] },
+    "current_mission": { "type": "string" },
+    "current_frontier": { "type": "string" },
+    "active_work_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["work_item_id", "summary", "state"],
+        "properties": {
+          "work_item_id": { "type": "string" },
+          "summary": { "type": "string" },
+          "state": {
+            "type": "string",
+            "enum": ["candidate", "triaged", "validated", "planned", "in_progress", "waiting_for_role", "waiting_for_council", "waiting_for_human", "waiting_for_tool", "blocked", "approved", "done", "deferred", "retired"]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "open_blockers": { "type": "array", "items": { "type": "string" } },
+    "pending_human_approvals": { "type": "array", "items": { "type": "string" } },
+    "latest_decisions": { "type": "array", "items": { "type": "string" } },
+    "applicable_quality_intents": { "type": "array", "items": { "type": "string" } },
+    "priority_summary": { "type": "string" },
+    "operational_map_refs": { "type": "array", "items": { "type": "string" } },
+    "go_no_go_status_summary": { "type": "string" },
+    "actor_composition_summary": { "type": "string" },
+    "next_recommended_action": { "type": "string" },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "external_refs": { "type": "array", "items": { "type": "string" } },
+    "raw_artifact_bodies_included": { "type": "boolean", "enum": [false] },
+    "source_task_id": { "type": ["string", "null"] },
+    "source_parent_session_id": { "type": ["string", "null"] },
+    "source_decision_record_id": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

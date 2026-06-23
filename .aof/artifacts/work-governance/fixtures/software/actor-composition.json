@@ -1,0 +1,82 @@
+{
+  "artifact_type": "actor-composition",
+  "recorded_at": "2026-06-23T12:20:00.000Z",
+  "work_item_id": "SW-WORK-001",
+  "required_roles": [
+    "builder",
+    "guardian",
+    "release manager"
+  ],
+  "required_skills": [
+    "release management",
+    "risk review",
+    "implementation"
+  ],
+  "actor_candidates": [
+    {
+      "actor_ref": "codex",
+      "actor_type": "ai-agent",
+      "candidate_role": "builder",
+      "fit_reason": "Can update release artifacts and run local verification."
+    },
+    {
+      "actor_ref": "human-owner",
+      "actor_type": "human",
+      "candidate_role": "release approver",
+      "fit_reason": "Owns publication and customer-impact risk acceptance."
+    },
+    {
+      "actor_ref": "npm-test",
+      "actor_type": "tool",
+      "candidate_role": "verification tool",
+      "fit_reason": "Provides repeatable test evidence."
+    }
+  ],
+  "selected_actors": [
+    {
+      "actor_ref": "codex",
+      "actor_type": "ai-agent",
+      "assigned_role": "builder",
+      "output_required": "Release candidate artifacts and verification summary."
+    },
+    {
+      "actor_ref": "human-owner",
+      "actor_type": "human",
+      "assigned_role": "approver",
+      "output_required": "Publication approval or risk rejection."
+    },
+    {
+      "actor_ref": "npm-test",
+      "actor_type": "tool",
+      "assigned_role": "verification tool",
+      "output_required": "Test result evidence."
+    }
+  ],
+  "authority_boundaries": [
+    {
+      "actor_ref": "codex",
+      "authority_level": "execute",
+      "must_not_decide": [
+        "publication approval",
+        "budget acceptance"
+      ]
+    },
+    {
+      "actor_ref": "human-owner",
+      "authority_level": "approve",
+      "must_not_decide": []
+    },
+    {
+      "actor_ref": "npm-test",
+      "authority_level": "execute",
+      "must_not_decide": [
+        "release decision"
+      ]
+    }
+  ],
+  "selection_reason": "The work needs AI implementation, tool verification, and human publication authority.",
+  "missing_roles": [],
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

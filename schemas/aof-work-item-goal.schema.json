@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-work-item-goal.schema.json",
+  "title": "AI Organization Framework Work Item Goal",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "recorded_at",
+    "work_item_id",
+    "work_item_type",
+    "objective",
+    "reason_for_work",
+    "expected_output",
+    "consumer",
+    "downstream_dependency",
+    "success_criteria",
+    "go_no_go_criteria",
+    "required_visualization",
+    "required_skills",
+    "required_actor_roles",
+    "council_review_need"
+  ],
+  "properties": {
+    "artifact_type": { "type": "string", "enum": ["work-item-goal"] },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_id": { "type": "string" },
+    "work_item_type": {
+      "type": "string",
+      "enum": [
+        "feature",
+        "bug",
+        "research",
+        "review",
+        "release",
+        "decision",
+        "maintenance",
+        "interrupt",
+        "governance",
+        "approval",
+        "operation",
+        "investigation",
+        "improvement",
+        "customer_work",
+        "quality_work",
+        "compliance_work"
+      ]
+    },
+    "objective": { "type": "string", "minLength": 1 },
+    "reason_for_work": { "type": "string", "minLength": 1 },
+    "expected_output": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "consumer": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "downstream_dependency": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "success_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "go_no_go_criteria": {
+      "type": "object",
+      "required": ["go", "no_go"],
+      "properties": {
+        "go": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "no_go": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "required_visualization": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "decision-matrix",
+          "dependency-map",
+          "risk-heatmap",
+          "operational-flow",
+          "actor-responsibility-map",
+          "architecture-system-map",
+          "information-flow-map",
+          "evidence-coverage-map",
+          "readiness-checklist"
+        ]
+      }
+    },
+    "required_skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "required_actor_roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "council_review_need": {
+      "type": "string",
+      "enum": ["none", "optional", "required", "human-approval-required"]
+    },
+    "external_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source_task_id": { "type": ["string", "null"] },
+    "source_parent_session_id": { "type": ["string", "null"] },
+    "source_decision_record_id": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

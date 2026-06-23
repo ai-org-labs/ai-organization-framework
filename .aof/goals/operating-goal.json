@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Select the next AOF frontier after the v6.0.0 Public Runtime Readiness release through a runtime-backed direction review before opening new implementation work.",
-  "updated_at": "2026-06-22T15:15:29.564Z",
+  "content": "Maintain v6.1.0 as the Work Governance Integration baseline and choose the next AOF frontier through runtime-backed review before opening implementation.",
+  "updated_at": "2026-06-23T13:24:45.059Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-MQPCFZHQ-MV6A1U",
-  "source_decision_record_id": "DEC-MQPCKMKF-1M7FNW",
+  "source_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": "CRP-TASK-063-V61-RELEASE",
   "declared_complete_at": null
 }

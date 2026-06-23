@@ -37,6 +37,24 @@ async function listJsonFiles(dirPath) {
   }
 }
 
+async function listJsonFilesRecursive(dirPath) {
+  try {
+    const entries = await fs.readdir(dirPath, { withFileTypes: true });
+    const files = [];
+    for (const entry of entries) {
+      const entryPath = path.join(dirPath, entry.name);
+      if (entry.isDirectory()) {
+        files.push(...await listJsonFilesRecursive(entryPath));
+      } else if (entry.isFile() && entry.name.endsWith(".json")) {
+        files.push(entryPath);
+      }
+    }
+    return files.sort();
+  } catch {
+    return [];
+  }
+}
+
 async function listLatestDoneTasks(aofRoot, limit = 3) {
   const taskPaths = await listJsonFiles(path.join(aofRoot, "tasks", "done"));
   const tasks = await Promise.all(taskPaths.map((taskPath) => readJson(taskPath, `task ${path.basename(taskPath)}`)));
@@ -415,10 +433,12 @@ function buildArtifactGraph(chain) {
           ? "discovery-judgment"
           : null;
 
+  const currentNodeExists = nodes.some((node) => node.id === currentNodeId);
+
   return {
     nodes,
     edges,
-    current_node_id: currentNodeId
+    current_node_id: currentNodeExists ? currentNodeId : null
   };
 }
 
@@ -439,13 +459,113 @@ function summarizeSkillfulActorProjection(projection) {
   };
 }
 
+async function loadWorkGovernanceProjection(projectRoot, aofRoot) {
+  const root = path.join(aofRoot, "artifacts", "work-governance");
+  const files = await listJsonFilesRecursive(root);
+  const entries = [];
+  for (const filePath of files) {
+    const payload = await readJson(filePath, `work governance artifact ${path.basename(filePath)}`);
+    if (!payload.artifact_type) {
+      continue;
+    }
+    entries.push({
+      ref: path.relative(projectRoot, filePath).replaceAll("\\", "/"),
+      payload
+    });
+  }
+
+  const byType = new Map();
+  for (const entry of entries) {
+    if (!byType.has(entry.payload.artifact_type)) {
+      byType.set(entry.payload.artifact_type, []);
+    }
+    byType.get(entry.payload.artifact_type).push(entry);
+  }
+
+  const byWorkItem = (artifactType, field = "work_item_id") => {
+    const map = new Map();
+    for (const entry of byType.get(artifactType) ?? []) {
+      const key = entry.payload[field];
+      if (!key) {
+        continue;
+      }
+      if (!map.has(key)) {
+        map.set(key, []);
+      }
+      map.get(key).push(entry);
+    }
+    return map;
+  };
+
+  const actorsByWorkItem = byWorkItem("actor-composition");
+  const councilByWorkItem = byWorkItem("council-ready-output");
+  const goNoGoByWorkItem = byWorkItem("go-no-go-visualization");
+  const mapsByWorkItem = byWorkItem("operational-map-change-log", "work_item_ref");
+  const contextPacks = byType.get("context-pack") ?? [];
+  const externalRefs = byType.get("external-ref") ?? [];
+
+  const workItems = (byType.get("work-item-goal") ?? []).map((goalEntry) => {
+    const workItemId = goalEntry.payload.work_item_id;
+    const actorEntry = actorsByWorkItem.get(workItemId)?.[0] ?? null;
+    const councilEntry = councilByWorkItem.get(workItemId)?.[0] ?? null;
+    const goNoGoEntry = goNoGoByWorkItem.get(workItemId)?.[0] ?? null;
+    const mapEntry = mapsByWorkItem.get(workItemId)?.[0] ?? null;
+    const contextEntry = contextPacks.find((entry) =>
+      Array.isArray(entry.payload.active_work_items) &&
+      entry.payload.active_work_items.some((item) => item.work_item_id === workItemId)
+    ) ?? null;
+    const linkedExternalRefs = externalRefs.filter((entry) =>
+      (goalEntry.payload.external_refs ?? []).includes(entry.ref) ||
+      (contextEntry?.payload.external_refs ?? []).includes(entry.ref)
+    );
+
+    return {
+      work_item_id: workItemId,
+      work_item_type: goalEntry.payload.work_item_type,
+      objective: goalEntry.payload.objective,
+      reason_for_work: goalEntry.payload.reason_for_work,
+      council_review_need: goalEntry.payload.council_review_need,
+      required_actor_roles: goalEntry.payload.required_actor_roles ?? [],
+      required_skills: goalEntry.payload.required_skills ?? [],
+      selected_actors: actorEntry?.payload.selected_actors ?? [],
+      authority_boundaries: actorEntry?.payload.authority_boundaries ?? [],
+      council_status: councilEntry?.payload.go_no_go_recommendation ?? null,
+      council_summary: councilEntry?.payload.summary ?? null,
+      go_no_go_state: goNoGoEntry?.payload.decision_state ?? null,
+      go_no_go_summary: goNoGoEntry?.payload.viewer_summary ?? null,
+      operational_map_summary: mapEntry?.payload.human_readable_summary ?? null,
+      context_summary: contextEntry?.payload.priority_summary ?? null,
+      next_recommended_action: contextEntry?.payload.next_recommended_action ?? null,
+      refs: {
+        work_item_goal: goalEntry.ref,
+        actor_composition: actorEntry?.ref ?? null,
+        council_ready_output: councilEntry?.ref ?? null,
+        go_no_go_visualization: goNoGoEntry?.ref ?? null,
+        operational_map_change_log: mapEntry?.ref ?? null,
+        context_pack: contextEntry?.ref ?? null,
+        external_refs: linkedExternalRefs.map((entry) => entry.ref)
+      }
+    };
+  });
+
+  const benchmarkRef = ".aof/artifacts/work-governance/benchmarks/work-governance-benchmark.json";
+  return {
+    present: workItems.length > 0,
+    artifact_root_ref: ".aof/artifacts/work-governance",
+    benchmark_ref: benchmarkRef,
+    work_item_count: workItems.length,
+    work_items: workItems.sort((left, right) => left.work_item_id.localeCompare(right.work_item_id))
+  };
+}
+
 function buildMissionControl({
   organizationStatus,
   roadmapStatus,
   analytics,
   chain,
   situation,
-  skillfulActorProjection = null
+  skillfulActorProjection = null,
+  workGovernanceProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
   const skillfulActorSummary = summarizeSkillfulActorProjection(skillfulActorProjection);
@@ -528,7 +648,14 @@ function buildMissionControl({
     },
     blockers,
     next_action: nextAction,
-    skillful_actor_projection: skillfulActorSummary
+    skillful_actor_projection: skillfulActorSummary,
+    work_governance: workGovernanceProjection ?? {
+      present: false,
+      artifact_root_ref: ".aof/artifacts/work-governance",
+      benchmark_ref: null,
+      work_item_count: 0,
+      work_items: []
+    }
   };
 }
 
@@ -537,7 +664,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -546,7 +673,8 @@ export async function visibilityExportCommand(options) {
     listLatestDoneTasks(aofRoot),
     loadLatestNeedValidationChain(projectRoot, aofRoot),
     loadSituationAssessmentSummary(projectRoot),
-    loadLatestSkillfulActorHriProjection(projectRoot)
+    loadLatestSkillfulActorHriProjection(projectRoot),
+    loadWorkGovernanceProjection(projectRoot, aofRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -577,7 +705,8 @@ export async function visibilityExportCommand(options) {
     analytics: analyticsResult.payload,
     chain: latestChain,
     situation,
-    skillfulActorProjection
+    skillfulActorProjection,
+    workGovernanceProjection
   });
   const operatorBrief = buildOperatorBriefView({
     organizationStatus,

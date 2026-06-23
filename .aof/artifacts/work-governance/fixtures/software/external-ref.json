@@ -1,0 +1,15 @@
+{
+  "artifact_type": "external-ref",
+  "recorded_at": "2026-06-23T12:20:00.000Z",
+  "external_ref_id": "EXT-SW-WORK-001",
+  "system": "github",
+  "site": "github.com",
+  "external_id": "issue-123",
+  "url": "https://github.com/example/product/issues/123",
+  "relationship": "source_work_item",
+  "sync_policy": "comment_back_only",
+  "source_of_truth": "external-work-tracking",
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}

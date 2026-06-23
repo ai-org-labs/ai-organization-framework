@@ -49,6 +49,13 @@ const COMMAND_NAMES = [
   "actor-skill-packet-record",
   "actor-assignment-evaluation-record",
   "actor-execution-gate-record",
+  "work-item-goal",
+  "actor-compose",
+  "council-ready-output",
+  "go-no-go-visualization",
+  "operational-map-change-log",
+  "context-pack",
+  "work-governance-benchmark",
   "skillful-actor-benchmark",
   "skillful-actor-hri-projection",
   "task-open",
@@ -211,7 +218,14 @@ const PURPOSE_OVERRIDES = {
   "actor-assignment-evaluation-record": "Evaluate an actor skill packet into selected, degraded, blocked, or escalated assignment state.",
   "actor-execution-gate-record": "Gate a selected actor assignment against required resource claims and policy evaluation evidence.",
   "skillful-actor-benchmark": "Run negative Skillful Actor benchmark checks for missing skills, weak assignments, resource gaps, policy bypass, stale release state, and output contract mismatch.",
-  "skillful-actor-hri-projection": "Project Skillful Actor packet, assignment, gate, benchmark, council-review need, blockers, and next action into the Human Recognition Interface."
+  "skillful-actor-hri-projection": "Project Skillful Actor packet, assignment, gate, benchmark, council-review need, blockers, and next action into the Human Recognition Interface.",
+  "work-item-goal": "Write a schema-valid Work Governance work item goal artifact from a bounded payload.",
+  "actor-compose": "Write a schema-valid actor composition artifact with selected actors and authority boundaries.",
+  "council-ready-output": "Write a schema-valid council-ready output artifact for Go / No-Go judgment.",
+  "go-no-go-visualization": "Write a schema-valid Go / No-Go visualization artifact.",
+  "operational-map-change-log": "Write a schema-valid operational map change log for a work item.",
+  "context-pack": "Write a bounded context pack with summaries and refs instead of raw artifact bodies.",
+  "work-governance-benchmark": "Benchmark Work Governance artifact chains for goal, actor, council, Go/No-Go, operational map, context pack, and external source-of-truth coverage."
 };
 
 const INPUT_HINTS = {
@@ -239,7 +253,14 @@ const INPUT_HINTS = {
   "actor-assignment-evaluation-record": ["project", "actor-skill-packet-ref", "write-artifact?"],
   "actor-execution-gate-record": ["project", "actor-assignment-evaluation-ref", "resource-claim-ref", "policy-evaluation-ref", "write-artifact?"],
   "skillful-actor-benchmark": ["project", "write-artifact?"],
-  "skillful-actor-hri-projection": ["project", "actor-skill-packet-ref", "actor-assignment-evaluation-ref", "actor-execution-gate-ref", "skillful-actor-benchmark-ref", "write-artifact?"]
+  "skillful-actor-hri-projection": ["project", "actor-skill-packet-ref", "actor-assignment-evaluation-ref", "actor-execution-gate-ref", "skillful-actor-benchmark-ref", "write-artifact?"],
+  "work-item-goal": ["project", "payload-json", "write-artifact?"],
+  "actor-compose": ["project", "payload-json", "write-artifact?"],
+  "council-ready-output": ["project", "payload-json", "write-artifact?"],
+  "go-no-go-visualization": ["project", "payload-json", "write-artifact?"],
+  "operational-map-change-log": ["project", "payload-json", "write-artifact?"],
+  "context-pack": ["project", "payload-json", "write-artifact?"],
+  "work-governance-benchmark": ["project", "write-artifact?"]
 };
 
 const OUTPUT_HINTS = {
@@ -267,7 +288,14 @@ const OUTPUT_HINTS = {
   "actor-assignment-evaluation-record": ["actor assignment evaluation artifact"],
   "actor-execution-gate-record": ["actor execution gate artifact"],
   "skillful-actor-benchmark": ["skillful actor benchmark report"],
-  "skillful-actor-hri-projection": ["skillful actor HRI projection artifact"]
+  "skillful-actor-hri-projection": ["skillful actor HRI projection artifact"],
+  "work-item-goal": ["work item goal artifact"],
+  "actor-compose": ["actor composition artifact"],
+  "council-ready-output": ["council-ready output artifact"],
+  "go-no-go-visualization": ["go/no-go visualization artifact"],
+  "operational-map-change-log": ["operational map change log artifact"],
+  "context-pack": ["context pack artifact"],
+  "work-governance-benchmark": ["benchmark report"]
 };
 
 function humanizeCommand(command) {

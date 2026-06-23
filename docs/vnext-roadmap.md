@@ -1,4 +1,4 @@
-# AOF Post-v6.0 Roadmap
+# AOF Post-v6.1 Roadmap
 
 ## North Star
 
@@ -32,6 +32,15 @@ AOF should become an AI Organization Operating System that can:
 - v6 release definition, checklist, notes, and roadmap alignment
 - runtime-backed Need Validation before release execution
 
+`v6.1.0` establishes Work Governance Integration:
+
+- Work Governance as the core cross-domain concept
+- work item as the broader concept above task
+- work item goal, actor composition, Go / No-Go, Council-ready output, Operational Map, Context Pack, and External Reference contracts
+- Mission Control as a business dashboard projection, not a source of truth
+- software and non-software applicability through committed examples
+- narrow CLI writers and `work-governance-benchmark`
+
 ## Completed Track
 
 ### `v5.0.0`: Skillful Actor Runtime
@@ -48,7 +57,7 @@ Completed:
 
 ### `v6.0.0`: Public Runtime Readiness
 
-Current release task:
+Completed:
 
 - `TASK-056`: Ship v6.0 Public Runtime Readiness
 
@@ -67,28 +76,52 @@ Required outcomes:
 - quickstart, README, release definition, release checklist, and notes point at v6.0
 - release can be prepared locally even if GitHub push remains credential-blocked
 
+### `v6.1.0`: Work Governance Integration
+
+Current release task:
+
+- `TASK-063`: Close v6.1.0 Work Governance release
+
+Completed release slices:
+
+1. `TASK-057`: Work Governance integration plan
+2. `TASK-058`: schemas and fixtures
+3. `TASK-059`: CLI writers
+4. `TASK-060`: Work Governance benchmark
+5. `TASK-061`: Mission Control projection
+6. `TASK-062`: cross-domain examples
+7. `TASK-063`: release closure
+
+Required outcomes:
+
+- Work Governance is the core operating concept, with PMO as a view or alias
+- work items can carry goal, actor composition, Council-ready output, Go / No-Go, Operational Map impact, Context Pack, and External Reference refs
+- software and manufacturing examples are adoption-facing
+- Mission Control projects Work Governance without owning truth
+- verification is reproducible through `work-governance-benchmark` and the normal runtime/test suite
+
 ## Next Frontier Candidates
 
-### Candidate A: `v6.1` Worked Adoption Proof
+### Candidate: Worked Adoption Proof
 
 Theme:
 
-- prove that a fresh external project can install AOF, initialize `.aof/`, run the quickstart path, and produce the expected first artifacts
+- prove that a fresh external project can install AOF, initialize `.aof/`, run the quickstart path, and produce the expected first governed work artifacts
 
 Why it matters:
 
-- `v6.0` makes public readiness explicit
-- `v6.1` should prove adoption from outside the self-hosting repo
+- `v6.1` defines Work Governance, but public adoption still depends on a new project successfully reaching its first useful governed work item
+- this should verify install, init, command discovery, Work Governance writer use, Mission Control projection, and benchmark execution
 
 Likely gates:
 
-- clean temp repo install
+- fresh clone from `v6.1.0`
 - `aof init --topology managed-project`
-- first `run -> answer -> council-exec`
-- command readiness matrix for top commands
-- generated artifacts are human-readable
+- first Work Governance artifact chain
+- `work-governance-benchmark` pass
+- Mission Control projection visible
 
-### Candidate B: `v6.2` Human Recognition Interface Redesign
+### Candidate: Human Recognition Interface Redesign
 
 Theme:
 
@@ -104,7 +137,7 @@ Boundary:
 - all displayed state must derive from canonical runtime artifacts
 - decorative UI does not count as recognition quality
 
-### Candidate C: `v7.0` Governed Multi-Actor Orchestration
+### Later Candidate: `v7.0` Governed Multi-Actor Orchestration
 
 Theme:
 
@@ -122,6 +155,10 @@ Boundary:
 
 - Discovery does not directly authorize project creation.
 - Need Validation remains the mandatory pre-project gate.
+- Work Governance is the core operating layer for work intake, triage, priority, interrupt handling, approval, actor assignment, evidence, external references, Operational Maps, and Council-ready outputs.
+- PMO is a view or alias for project-oriented teams, not the core AOF concept.
+- Work item is broader than task; task remains the current runtime storage object.
+- Mission Control must not become a second source of truth.
 - Visibility derives from canonical artifacts and is not a source of authority.
 - Actor skillfulness must be falsifiable through artifacts and benchmarks.
 - Loop means `goal + execution + verification + stop condition`.
@@ -132,11 +169,11 @@ Boundary:
 
 ## Current Recommendation
 
-Finish `v6.0.0` as Public Runtime Readiness.
+Close `v6.1.0` through `TASK-063`, then run a runtime-backed frontier review before opening v6.2 work.
 
-After that, choose between:
+The strongest next candidates are:
 
-- `v6.1` if the next highest risk is public adoption from a clean external project
-- `v6.2` if the next highest risk is that humans still cannot visually understand the organization
-- `v7.0` only after v6 adoption and recognition surfaces are credible enough to support governed multi-actor orchestration
-
+- worked adoption proof
+- Mission Control / Human Recognition redesign grounded in Work Governance artifacts
+- standalone context/external-ref/operational-map audits
+- governed multi-actor orchestration

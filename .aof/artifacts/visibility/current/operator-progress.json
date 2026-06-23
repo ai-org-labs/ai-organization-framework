@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-06-22T15:44:58.201Z",
+  "generated_at": "2026-06-23T13:27:04.081Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-056 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-056.json"
+    "summary": "TASK-063 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-063.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-056 completed: Ship v6.0 Public Runtime Readiness",
-      "artifact_ref": ".aof/tasks/done/TASK-056.json"
+      "summary": "TASK-063 completed: Close v6.1.0 Work Governance release",
+      "artifact_ref": ".aof/tasks/done/TASK-063.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
+      "summary": "After v6.1.0, run a runtime-backed frontier review before opening the next implementation task.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-056 completed: Ship v6.0 Public Runtime Readiness Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task.",
+    "what_changed": "TASK-063 completed: Close v6.1.0 Work Governance release After v6.1.0, run a runtime-backed frontier review before opening the next implementation task.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Select the next frontier after v6.0.0; do not open implementation work until a runtime-backed direction review selects a bounded task."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: After v6.1.0, run a runtime-backed frontier review before opening the next implementation task."
   }
 }

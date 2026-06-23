@@ -1,0 +1,32 @@
+{
+  "artifact_type": "council-ready-output",
+  "recorded_at": "2026-06-23T12:20:00.000Z",
+  "work_item_id": "SW-WORK-001",
+  "summary": "The API release candidate has evidence, rollback notes, and explicit approval needs.",
+  "goal_achievement_status": "met",
+  "key_decisions_needed": [
+    "Approve release candidate",
+    "Confirm customer notification timing"
+  ],
+  "evidence_refs": [
+    "test-output:npm-test",
+    ".aof/artifacts/work-governance/fixtures/software/go-no-go-visualization.json"
+  ],
+  "risks": [
+    "Customer-visible API behavior may need announcement."
+  ],
+  "unresolved_questions": [
+    "Exact publication window still needs owner confirmation."
+  ],
+  "go_no_go_recommendation": "conditional_go",
+  "visualization_refs": [
+    ".aof/artifacts/work-governance/fixtures/software/go-no-go-visualization.json"
+  ],
+  "downstream_impact": [
+    "Deployment can proceed only after human approval."
+  ],
+  "required_human_approval": true,
+  "source_task_id": "TASK-058",
+  "source_parent_session_id": "SESS-WORK-GOVERNANCE-V61",
+  "source_decision_record_id": null
+}
