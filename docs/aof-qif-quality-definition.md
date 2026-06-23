@@ -1,12 +1,12 @@
-# AOF Quality Definition Using QIF v0.2.1
+# AOF Quality Definition Using QIF v0.3.0 Provider Profile
 
 Date: `2026-06-22`
 
-This document defines the AOF quality baseline using the Quality Intent Framework (QIF) v0.2.1.
+This document defines the AOF quality baseline using the active Quality Intent Framework (QIF) provider profile.
 
 Source framework:
 
-- `https://github.com/ai-org-labs/quality-intent-framework/tree/v0.2.1`
+- `https://github.com/ai-org-labs/quality-intent-framework/tree/v0.3.0`
 
 Active provider profile:
 
@@ -16,6 +16,10 @@ Active provider profile:
 Machine-readable package:
 
 - `.aof/quality/QIFPKG-AOF-V5-001.json`
+
+Compatibility note:
+
+QIF v0.3.0 adds the Discovery Layer design boundary for discovering candidate Quality Intents before package authoring. It does not yet publish replacement v0.3 schemas, example packages, or verifier rules. AOF therefore uses the v0.3.0 provider profile for layer alignment while keeping the active machine-readable package v0.2.1-compatible until QIF publishes executable v0.3 artifacts.
 
 ## Purpose
 
@@ -30,6 +34,12 @@ The purpose is to establish a QIF-governed quality baseline where AOF quality cl
 - Verdict
 - Acceptance Gate
 - Governance escalation
+
+QIF v0.3.0 strengthens the baseline by adding an upstream question:
+
+> Did AOF discover the right Quality Intent before judging evidence?
+
+AOF must therefore treat Quality Intent discovery as part of the quality workflow. It should not rush from work output to verdict if the intended harm, stakeholder concern, loss boundary, or acceptance gate is still unclear.
 
 QIF is intentionally external to AOF. AOF must not vendor QIF as a fixed internal copy. AOF quality claims must instead reference the active QIF provider profile so QIF can evolve independently and AOF can upgrade through explicit compatibility review.
 

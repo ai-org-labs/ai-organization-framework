@@ -1,0 +1,2481 @@
+{
+  "ok": true,
+  "artifact_type": "cli-help-benchmark",
+  "benchmark_family": "CH",
+  "generated_at": "2026-06-23T23:22:55.004Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "qif_provider_profile_ref": ".aof/quality/qif-provider-profile.json",
+  "checks": [
+    {
+      "name": "help index command coverage",
+      "status": "pass",
+      "detail": "96 help commands for 96 catalog commands"
+    },
+    {
+      "name": "help index top commands",
+      "status": "pass",
+      "detail": "15 top commands"
+    },
+    {
+      "name": "actor-assignment-evaluation-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "actor-assignment-evaluation-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "actor-assignment-evaluation-record purpose",
+      "status": "pass",
+      "detail": "Evaluate an actor skill packet into selected, degraded, blocked, or escalated assignment state."
+    },
+    {
+      "name": "actor-assignment-evaluation-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "actor-assignment-evaluation-record qif mapping",
+      "status": "pass",
+      "detail": "Use actor-assignment-evaluation-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "actor-compose help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "actor-compose category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "actor-compose purpose",
+      "status": "pass",
+      "detail": "Write a schema-valid actor composition artifact with selected actors and authority boundaries."
+    },
+    {
+      "name": "actor-compose failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "actor-compose qif mapping",
+      "status": "pass",
+      "detail": "Use actor-compose only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "actor-execution-gate-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "actor-execution-gate-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "actor-execution-gate-record purpose",
+      "status": "pass",
+      "detail": "Gate a selected actor assignment against required resource claims and policy evaluation evidence."
+    },
+    {
+      "name": "actor-execution-gate-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "actor-execution-gate-record qif mapping",
+      "status": "pass",
+      "detail": "Use actor-execution-gate-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "actor-skill-packet-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "actor-skill-packet-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "actor-skill-packet-record purpose",
+      "status": "pass",
+      "detail": "Write a schema-valid actor skill packet with assignment, skill, capability, resource, policy, review, blocker, HRI, and provenance evidence."
+    },
+    {
+      "name": "actor-skill-packet-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "actor-skill-packet-record qif mapping",
+      "status": "pass",
+      "detail": "Use actor-skill-packet-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "adoption-proof-benchmark help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "adoption-proof-benchmark category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "adoption-proof-benchmark purpose",
+      "status": "pass",
+      "detail": "Benchmark whether a fresh managed project can initialize AOF, produce a first governed work chain, pass Work Governance checks, and explain the work in plain language."
+    },
+    {
+      "name": "adoption-proof-benchmark failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "adoption-proof-benchmark qif mapping",
+      "status": "pass",
+      "detail": "A fresh project can reach first governed work without opaque setup magic."
+    },
+    {
+      "name": "alignment-pulse help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "alignment-pulse category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "alignment-pulse purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through alignment pulse."
+    },
+    {
+      "name": "alignment-pulse failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "alignment-pulse qif mapping",
+      "status": "pass",
+      "detail": "Use alignment-pulse only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "allocation-plan-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "allocation-plan-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "allocation-plan-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical allocation plan record artifact."
+    },
+    {
+      "name": "allocation-plan-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "allocation-plan-record qif mapping",
+      "status": "pass",
+      "detail": "Use allocation-plan-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "alternative-analysis-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "alternative-analysis-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "alternative-analysis-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical alternative analysis record artifact."
+    },
+    {
+      "name": "alternative-analysis-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "alternative-analysis-record qif mapping",
+      "status": "pass",
+      "detail": "Use alternative-analysis-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "anomaly-log-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "anomaly-log-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "anomaly-log-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical anomaly log record artifact."
+    },
+    {
+      "name": "anomaly-log-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "anomaly-log-record qif mapping",
+      "status": "pass",
+      "detail": "Use anomaly-log-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "answer help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "answer category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "answer purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through answer."
+    },
+    {
+      "name": "answer failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "answer qif mapping",
+      "status": "pass",
+      "detail": "Use answer only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "assumption-map-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "assumption-map-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "assumption-map-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical assumption map record artifact."
+    },
+    {
+      "name": "assumption-map-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "assumption-map-record qif mapping",
+      "status": "pass",
+      "detail": "Use assumption-map-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "breakthrough-library-register help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "breakthrough-library-register category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "breakthrough-library-register purpose",
+      "status": "pass",
+      "detail": "Read the current breakthrough library register surface."
+    },
+    {
+      "name": "breakthrough-library-register failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "breakthrough-library-register qif mapping",
+      "status": "pass",
+      "detail": "Use breakthrough-library-register only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "breakthrough-pattern-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "breakthrough-pattern-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "breakthrough-pattern-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical breakthrough pattern record artifact."
+    },
+    {
+      "name": "breakthrough-pattern-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "breakthrough-pattern-record qif mapping",
+      "status": "pass",
+      "detail": "Use breakthrough-pattern-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "cadence-follow-through help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "cadence-follow-through category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "cadence-follow-through purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through cadence follow through."
+    },
+    {
+      "name": "cadence-follow-through failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "cadence-follow-through qif mapping",
+      "status": "pass",
+      "detail": "Use cadence-follow-through only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "cadence-trigger-guide help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "cadence-trigger-guide category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "cadence-trigger-guide purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through cadence trigger guide."
+    },
+    {
+      "name": "cadence-trigger-guide failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "cadence-trigger-guide qif mapping",
+      "status": "pass",
+      "detail": "Use cadence-trigger-guide only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "cli-help-benchmark help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "cli-help-benchmark category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "cli-help-benchmark purpose",
+      "status": "pass",
+      "detail": "Benchmark whether every supported CLI command exposes compact AI-readable help with failure meaning and QIF boundaries."
+    },
+    {
+      "name": "cli-help-benchmark failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "cli-help-benchmark qif mapping",
+      "status": "pass",
+      "detail": "Every supported command has a compact AI-readable help surface."
+    },
+    {
+      "name": "command-register help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "command-register category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "command-register purpose",
+      "status": "pass",
+      "detail": "Read the command registry so operators and AI can route without loading the full CLI reference."
+    },
+    {
+      "name": "command-register failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "command-register qif mapping",
+      "status": "pass",
+      "detail": "Use command-register only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "command-registry-refresh help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "command-registry-refresh category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "command-registry-refresh purpose",
+      "status": "pass",
+      "detail": "Write the canonical command registry artifact from the CLI command catalog."
+    },
+    {
+      "name": "command-registry-refresh failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "command-registry-refresh qif mapping",
+      "status": "pass",
+      "detail": "Use command-registry-refresh only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "command-routing-audit help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "command-routing-audit category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "command-routing-audit purpose",
+      "status": "pass",
+      "detail": "Verify that bootstrap, orientation, and command registry routing surfaces remain aligned."
+    },
+    {
+      "name": "command-routing-audit failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "command-routing-audit qif mapping",
+      "status": "pass",
+      "detail": "AI and operators can choose commands without reading the full CLI reference."
+    },
+    {
+      "name": "confirmation-window-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "confirmation-window-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "confirmation-window-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical confirmation window record artifact."
+    },
+    {
+      "name": "confirmation-window-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "confirmation-window-record qif mapping",
+      "status": "pass",
+      "detail": "Use confirmation-window-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "context-pack help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "context-pack category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "context-pack purpose",
+      "status": "pass",
+      "detail": "Write a bounded context pack with summaries and refs instead of raw artifact bodies."
+    },
+    {
+      "name": "context-pack failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "context-pack qif mapping",
+      "status": "pass",
+      "detail": "Use context-pack only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "contract-register help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "contract-register category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "contract-register purpose",
+      "status": "pass",
+      "detail": "Read the current contract register surface."
+    },
+    {
+      "name": "contract-register failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "contract-register qif mapping",
+      "status": "pass",
+      "detail": "Use contract-register only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "council help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "council category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "council purpose",
+      "status": "pass",
+      "detail": "Read the current council surface."
+    },
+    {
+      "name": "council failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "council qif mapping",
+      "status": "pass",
+      "detail": "Use council only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "council-exec help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "council-exec category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "council-exec purpose",
+      "status": "pass",
+      "detail": "Execute a council stage and optionally invoke model-backed seats."
+    },
+    {
+      "name": "council-exec failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "council-exec qif mapping",
+      "status": "pass",
+      "detail": "Use council-exec only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "council-ready-output help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "council-ready-output category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "council-ready-output purpose",
+      "status": "pass",
+      "detail": "Write a schema-valid council-ready output artifact for Go / No-Go judgment."
+    },
+    {
+      "name": "council-ready-output failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "council-ready-output qif mapping",
+      "status": "pass",
+      "detail": "Use council-ready-output only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "council-review-packet help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "council-review-packet category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "council-review-packet purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through council review packet."
+    },
+    {
+      "name": "council-review-packet failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "council-review-packet qif mapping",
+      "status": "pass",
+      "detail": "Use council-review-packet only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "decision-register help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "decision-register category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "decision-register purpose",
+      "status": "pass",
+      "detail": "Read the current decision register surface."
+    },
+    {
+      "name": "decision-register failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "decision-register qif mapping",
+      "status": "pass",
+      "detail": "Use decision-register only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "decision-verify help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "decision-verify category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "decision-verify purpose",
+      "status": "pass",
+      "detail": "Verify decision verify integrity and governed correctness."
+    },
+    {
+      "name": "decision-verify failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "decision-verify qif mapping",
+      "status": "pass",
+      "detail": "Use decision-verify only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "dependency-graph help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "dependency-graph category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "dependency-graph purpose",
+      "status": "pass",
+      "detail": "Read the current dependency graph surface."
+    },
+    {
+      "name": "dependency-graph failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "dependency-graph qif mapping",
+      "status": "pass",
+      "detail": "Use dependency-graph only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "discovery-handoff-benchmark help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "discovery-handoff-benchmark category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "discovery-handoff-benchmark purpose",
+      "status": "pass",
+      "detail": "Verify discovery handoff benchmark integrity and governed correctness."
+    },
+    {
+      "name": "discovery-handoff-benchmark failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "discovery-handoff-benchmark qif mapping",
+      "status": "pass",
+      "detail": "Use discovery-handoff-benchmark only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "discovery-handoff-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "discovery-handoff-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "discovery-handoff-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical discovery handoff record artifact."
+    },
+    {
+      "name": "discovery-handoff-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "discovery-handoff-record qif mapping",
+      "status": "pass",
+      "detail": "Use discovery-handoff-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "discovery-judgment-packet help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "discovery-judgment-packet category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "discovery-judgment-packet purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through discovery judgment packet."
+    },
+    {
+      "name": "discovery-judgment-packet failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "discovery-judgment-packet qif mapping",
+      "status": "pass",
+      "detail": "Use discovery-judgment-packet only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "discovery-question-set-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "discovery-question-set-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "discovery-question-set-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical discovery question set record artifact."
+    },
+    {
+      "name": "discovery-question-set-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "discovery-question-set-record qif mapping",
+      "status": "pass",
+      "detail": "Use discovery-question-set-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "escalation-resolve help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "escalation-resolve category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "escalation-resolve purpose",
+      "status": "pass",
+      "detail": "Write the canonical escalation resolve artifact."
+    },
+    {
+      "name": "escalation-resolve failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "escalation-resolve qif mapping",
+      "status": "pass",
+      "detail": "Use escalation-resolve only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "evidence-drill-down help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "evidence-drill-down category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "evidence-drill-down purpose",
+      "status": "pass",
+      "detail": "Read the bounded answer-to-proof packet below the operator brief."
+    },
+    {
+      "name": "evidence-drill-down failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "evidence-drill-down qif mapping",
+      "status": "pass",
+      "detail": "Use evidence-drill-down only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "evidence-drill-down-benchmark help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "evidence-drill-down-benchmark category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "evidence-drill-down-benchmark purpose",
+      "status": "pass",
+      "detail": "Verify that the evidence drill-down packet stays aligned to the live operator brief."
+    },
+    {
+      "name": "evidence-drill-down-benchmark failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "evidence-drill-down-benchmark qif mapping",
+      "status": "pass",
+      "detail": "Use evidence-drill-down-benchmark only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "execution-lineage help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "execution-lineage category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "execution-lineage purpose",
+      "status": "pass",
+      "detail": "Export or inspect execution lineage evidence for operators."
+    },
+    {
+      "name": "execution-lineage failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "execution-lineage qif mapping",
+      "status": "pass",
+      "detail": "Use execution-lineage only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "experiment-proposal-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "experiment-proposal-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "experiment-proposal-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical experiment proposal record artifact."
+    },
+    {
+      "name": "experiment-proposal-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "experiment-proposal-record qif mapping",
+      "status": "pass",
+      "detail": "Use experiment-proposal-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "go-no-go-visualization help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "go-no-go-visualization category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "go-no-go-visualization purpose",
+      "status": "pass",
+      "detail": "Write a schema-valid Go / No-Go visualization artifact."
+    },
+    {
+      "name": "go-no-go-visualization failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "go-no-go-visualization qif mapping",
+      "status": "pass",
+      "detail": "Use go-no-go-visualization only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "goal-project help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "goal-project category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "goal-project purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through goal project."
+    },
+    {
+      "name": "goal-project failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "goal-project qif mapping",
+      "status": "pass",
+      "detail": "Use goal-project only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "init help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "init category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "init purpose",
+      "status": "pass",
+      "detail": "Seed a project with the canonical AOF runtime skeleton and recognition packet."
+    },
+    {
+      "name": "init failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "init qif mapping",
+      "status": "pass",
+      "detail": "Use init only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "learning-loop-snapshot help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "learning-loop-snapshot category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "learning-loop-snapshot purpose",
+      "status": "pass",
+      "detail": "Export or inspect learning loop snapshot evidence for operators."
+    },
+    {
+      "name": "learning-loop-snapshot failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "learning-loop-snapshot qif mapping",
+      "status": "pass",
+      "detail": "Use learning-loop-snapshot only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "live-verify help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "live-verify category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "live-verify purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through live verify."
+    },
+    {
+      "name": "live-verify failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "live-verify qif mapping",
+      "status": "pass",
+      "detail": "Use live-verify only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "metrics-snapshot help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "metrics-snapshot category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "metrics-snapshot purpose",
+      "status": "pass",
+      "detail": "Export or inspect metrics snapshot evidence for operators."
+    },
+    {
+      "name": "metrics-snapshot failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "metrics-snapshot qif mapping",
+      "status": "pass",
+      "detail": "Use metrics-snapshot only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "mission-control-benchmark help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "mission-control-benchmark category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "mission-control-benchmark purpose",
+      "status": "pass",
+      "detail": "Benchmark whether Mission Control truthfully advances through runtime stage transitions."
+    },
+    {
+      "name": "mission-control-benchmark failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "mission-control-benchmark qif mapping",
+      "status": "pass",
+      "detail": "Use mission-control-benchmark only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "need-validation-advance help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "need-validation-advance category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "need-validation-advance purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through need validation advance."
+    },
+    {
+      "name": "need-validation-advance failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "need-validation-advance qif mapping",
+      "status": "pass",
+      "detail": "Use need-validation-advance only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "need-validation-benchmark help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "need-validation-benchmark category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "need-validation-benchmark purpose",
+      "status": "pass",
+      "detail": "Benchmark whether Need Validation rejects, reframes, and gates project creation correctly."
+    },
+    {
+      "name": "need-validation-benchmark failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "need-validation-benchmark qif mapping",
+      "status": "pass",
+      "detail": "Raw needs are validated before project creation."
+    },
+    {
+      "name": "need-validation-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "need-validation-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "need-validation-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical need validation record artifact."
+    },
+    {
+      "name": "need-validation-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "need-validation-record qif mapping",
+      "status": "pass",
+      "detail": "Use need-validation-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "operational-map-change-log help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "operational-map-change-log category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "operational-map-change-log purpose",
+      "status": "pass",
+      "detail": "Write a schema-valid operational map change log for a work item."
+    },
+    {
+      "name": "operational-map-change-log failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "operational-map-change-log qif mapping",
+      "status": "pass",
+      "detail": "Use operational-map-change-log only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "operator-brief help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "operator-brief category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "operator-brief purpose",
+      "status": "pass",
+      "detail": "Read the compact operator-facing brief derived from current runtime situation assessment."
+    },
+    {
+      "name": "operator-brief failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "operator-brief qif mapping",
+      "status": "pass",
+      "detail": "Use operator-brief only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "operator-progress help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "operator-progress category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "operator-progress purpose",
+      "status": "pass",
+      "detail": "Read the bounded operator progress packet that explains what changed since the last checkpoint."
+    },
+    {
+      "name": "operator-progress failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "operator-progress qif mapping",
+      "status": "pass",
+      "detail": "Use operator-progress only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "organization-analytics-snapshot help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "organization-analytics-snapshot category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "organization-analytics-snapshot purpose",
+      "status": "pass",
+      "detail": "Export or inspect organization analytics snapshot evidence for operators."
+    },
+    {
+      "name": "organization-analytics-snapshot failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "organization-analytics-snapshot qif mapping",
+      "status": "pass",
+      "detail": "Use organization-analytics-snapshot only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "organization-audit help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "organization-audit category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "organization-audit purpose",
+      "status": "pass",
+      "detail": "Verify organization audit integrity and governed correctness."
+    },
+    {
+      "name": "organization-audit failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "organization-audit qif mapping",
+      "status": "pass",
+      "detail": "Use organization-audit only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "organization-status help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "organization-status category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "organization-status purpose",
+      "status": "pass",
+      "detail": "Read the operator-facing organization summary and active goals."
+    },
+    {
+      "name": "organization-status failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "organization-status qif mapping",
+      "status": "pass",
+      "detail": "Use organization-status only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "organization-verify help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "organization-verify category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "organization-verify purpose",
+      "status": "pass",
+      "detail": "Verify bootstrap, organization, capability, and command-routing integrity."
+    },
+    {
+      "name": "organization-verify failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "organization-verify qif mapping",
+      "status": "pass",
+      "detail": "Canonical organization artifacts remain internally consistent."
+    },
+    {
+      "name": "outcome-report help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "outcome-report category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "outcome-report purpose",
+      "status": "pass",
+      "detail": "Write the canonical outcome report artifact."
+    },
+    {
+      "name": "outcome-report failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "outcome-report qif mapping",
+      "status": "pass",
+      "detail": "Use outcome-report only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "packet help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "packet category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "packet purpose",
+      "status": "pass",
+      "detail": "Read the current packet surface."
+    },
+    {
+      "name": "packet failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "packet qif mapping",
+      "status": "pass",
+      "detail": "Use packet only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "policy-evaluation-report help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "policy-evaluation-report category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "policy-evaluation-report purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through policy evaluation report."
+    },
+    {
+      "name": "policy-evaluation-report failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "policy-evaluation-report qif mapping",
+      "status": "pass",
+      "detail": "Use policy-evaluation-report only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "problem-statement-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "problem-statement-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "problem-statement-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical problem statement record artifact."
+    },
+    {
+      "name": "problem-statement-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "problem-statement-record qif mapping",
+      "status": "pass",
+      "detail": "Use problem-statement-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "project-charter-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "project-charter-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "project-charter-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical project charter record artifact."
+    },
+    {
+      "name": "project-charter-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "project-charter-record qif mapping",
+      "status": "pass",
+      "detail": "Use project-charter-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "provider-check help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "provider-check category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "provider-check purpose",
+      "status": "pass",
+      "detail": "Read the current provider check surface."
+    },
+    {
+      "name": "provider-check failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "provider-check qif mapping",
+      "status": "pass",
+      "detail": "Use provider-check only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "release-state-audit help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "release-state-audit category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "release-state-audit purpose",
+      "status": "pass",
+      "detail": "Verify that active release refs and governed release surfaces remain aligned."
+    },
+    {
+      "name": "release-state-audit failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "release-state-audit qif mapping",
+      "status": "pass",
+      "detail": "Release claims point to the same version, docs, checklist, and notes."
+    },
+    {
+      "name": "release-state-refresh help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "release-state-refresh category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "release-state-refresh purpose",
+      "status": "pass",
+      "detail": "Repair the active release manifest and governed release refs."
+    },
+    {
+      "name": "release-state-refresh failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "release-state-refresh qif mapping",
+      "status": "pass",
+      "detail": "Use release-state-refresh only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "resource-claim-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "resource-claim-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "resource-claim-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical resource claim record artifact."
+    },
+    {
+      "name": "resource-claim-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "resource-claim-record qif mapping",
+      "status": "pass",
+      "detail": "Use resource-claim-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "retire-candidate-review help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "retire-candidate-review category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "retire-candidate-review purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through retire candidate review."
+    },
+    {
+      "name": "retire-candidate-review failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "retire-candidate-review qif mapping",
+      "status": "pass",
+      "detail": "Use retire-candidate-review only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "roadmap-status help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "roadmap-status category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "roadmap-status purpose",
+      "status": "pass",
+      "detail": "Read the current roadmap status surface."
+    },
+    {
+      "name": "roadmap-status failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "roadmap-status qif mapping",
+      "status": "pass",
+      "detail": "Use roadmap-status only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "role-join-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "role-join-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "role-join-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical role join record artifact."
+    },
+    {
+      "name": "role-join-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "role-join-record qif mapping",
+      "status": "pass",
+      "detail": "Use role-join-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "role-result-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "role-result-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "role-result-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical role result record artifact."
+    },
+    {
+      "name": "role-result-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "role-result-record qif mapping",
+      "status": "pass",
+      "detail": "Use role-result-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "run help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "run category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "run purpose",
+      "status": "pass",
+      "detail": "Start an AOF runtime session from a user request."
+    },
+    {
+      "name": "run failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "run qif mapping",
+      "status": "pass",
+      "detail": "Use run only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "runtime-discipline-benchmark help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "runtime-discipline-benchmark category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "runtime-discipline-benchmark purpose",
+      "status": "pass",
+      "detail": "Verify runtime discipline benchmark integrity and governed correctness."
+    },
+    {
+      "name": "runtime-discipline-benchmark failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "runtime-discipline-benchmark qif mapping",
+      "status": "pass",
+      "detail": "Use runtime-discipline-benchmark only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "runtime-loop-proof help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "runtime-loop-proof category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "runtime-loop-proof purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through runtime loop proof."
+    },
+    {
+      "name": "runtime-loop-proof failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "runtime-loop-proof qif mapping",
+      "status": "pass",
+      "detail": "Use runtime-loop-proof only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "self-audit-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "self-audit-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "self-audit-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical self audit record artifact."
+    },
+    {
+      "name": "self-audit-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "self-audit-record qif mapping",
+      "status": "pass",
+      "detail": "Use self-audit-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "signal help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "signal category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "signal purpose",
+      "status": "pass",
+      "detail": "Write the canonical signal artifact."
+    },
+    {
+      "name": "signal failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "signal qif mapping",
+      "status": "pass",
+      "detail": "Use signal only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "situation-assess help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "situation-assess category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "situation-assess purpose",
+      "status": "pass",
+      "detail": "Diagnose the current runtime situation, truth conflicts, and best next operating move."
+    },
+    {
+      "name": "situation-assess failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "situation-assess qif mapping",
+      "status": "pass",
+      "detail": "Use situation-assess only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "skillful-actor-benchmark help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "skillful-actor-benchmark category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "skillful-actor-benchmark purpose",
+      "status": "pass",
+      "detail": "Run negative Skillful Actor benchmark checks for missing skills, weak assignments, resource gaps, policy bypass, stale release state, and output contract mismatch."
+    },
+    {
+      "name": "skillful-actor-benchmark failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "skillful-actor-benchmark qif mapping",
+      "status": "pass",
+      "detail": "Use skillful-actor-benchmark only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "skillful-actor-hri-projection help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "skillful-actor-hri-projection category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "skillful-actor-hri-projection purpose",
+      "status": "pass",
+      "detail": "Project Skillful Actor packet, assignment, gate, benchmark, council-review need, blockers, and next action into the Human Recognition Interface."
+    },
+    {
+      "name": "skillful-actor-hri-projection failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "skillful-actor-hri-projection qif mapping",
+      "status": "pass",
+      "detail": "Use skillful-actor-hri-projection only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "task-open help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "task-open category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "task-open purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through task open."
+    },
+    {
+      "name": "task-open failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "task-open qif mapping",
+      "status": "pass",
+      "detail": "Use task-open only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "task-update help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "task-update category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "task-update purpose",
+      "status": "pass",
+      "detail": "Advance the runtime through task update."
+    },
+    {
+      "name": "task-update failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "task-update qif mapping",
+      "status": "pass",
+      "detail": "Use task-update only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "team-output-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "team-output-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "team-output-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical team output record artifact."
+    },
+    {
+      "name": "team-output-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "team-output-record qif mapping",
+      "status": "pass",
+      "detail": "Use team-output-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "tree-position help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "tree-position category",
+      "status": "pass",
+      "detail": "read"
+    },
+    {
+      "name": "tree-position purpose",
+      "status": "pass",
+      "detail": "Read the bounded trunk-and-branch position packet for the current frontier."
+    },
+    {
+      "name": "tree-position failure meaning",
+      "status": "pass",
+      "detail": "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding."
+    },
+    {
+      "name": "tree-position qif mapping",
+      "status": "pass",
+      "detail": "Use tree-position only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "upgrade help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "upgrade category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "upgrade purpose",
+      "status": "pass",
+      "detail": "Upgrade an existing AOF installation to the current bootstrap shape."
+    },
+    {
+      "name": "upgrade failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "upgrade qif mapping",
+      "status": "pass",
+      "detail": "Use upgrade only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "value-hypothesis-record help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "value-hypothesis-record category",
+      "status": "pass",
+      "detail": "write"
+    },
+    {
+      "name": "value-hypothesis-record purpose",
+      "status": "pass",
+      "detail": "Write the canonical value hypothesis record artifact."
+    },
+    {
+      "name": "value-hypothesis-record failure meaning",
+      "status": "pass",
+      "detail": "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it."
+    },
+    {
+      "name": "value-hypothesis-record qif mapping",
+      "status": "pass",
+      "detail": "Use value-hypothesis-record only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "verify-archive help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "verify-archive category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "verify-archive purpose",
+      "status": "pass",
+      "detail": "Export or inspect verify archive evidence for operators."
+    },
+    {
+      "name": "verify-archive failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "verify-archive qif mapping",
+      "status": "pass",
+      "detail": "Use verify-archive only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "verify-archive-dashboard help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "verify-archive-dashboard category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "verify-archive-dashboard purpose",
+      "status": "pass",
+      "detail": "Export or inspect verify archive dashboard evidence for operators."
+    },
+    {
+      "name": "verify-archive-dashboard failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "verify-archive-dashboard qif mapping",
+      "status": "pass",
+      "detail": "Use verify-archive-dashboard only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "verify-archive-log help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "verify-archive-log category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "verify-archive-log purpose",
+      "status": "pass",
+      "detail": "Export or inspect verify archive log evidence for operators."
+    },
+    {
+      "name": "verify-archive-log failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "verify-archive-log qif mapping",
+      "status": "pass",
+      "detail": "Use verify-archive-log only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "verify-dashboard help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "verify-dashboard category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "verify-dashboard purpose",
+      "status": "pass",
+      "detail": "Export or inspect verify dashboard evidence for operators."
+    },
+    {
+      "name": "verify-dashboard failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "verify-dashboard qif mapping",
+      "status": "pass",
+      "detail": "Use verify-dashboard only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "verify-dashboard-index help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "verify-dashboard-index category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "verify-dashboard-index purpose",
+      "status": "pass",
+      "detail": "Export or inspect verify dashboard index evidence for operators."
+    },
+    {
+      "name": "verify-dashboard-index failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "verify-dashboard-index qif mapping",
+      "status": "pass",
+      "detail": "Use verify-dashboard-index only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "verify-dashboard-log help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "verify-dashboard-log category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "verify-dashboard-log purpose",
+      "status": "pass",
+      "detail": "Export or inspect verify dashboard log evidence for operators."
+    },
+    {
+      "name": "verify-dashboard-log failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "verify-dashboard-log qif mapping",
+      "status": "pass",
+      "detail": "Use verify-dashboard-log only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "verify-history help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "verify-history category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "verify-history purpose",
+      "status": "pass",
+      "detail": "Export or inspect verify history evidence for operators."
+    },
+    {
+      "name": "verify-history failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "verify-history qif mapping",
+      "status": "pass",
+      "detail": "Use verify-history only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "verify-lineage help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "verify-lineage category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "verify-lineage purpose",
+      "status": "pass",
+      "detail": "Export or inspect verify lineage evidence for operators."
+    },
+    {
+      "name": "verify-lineage failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "verify-lineage qif mapping",
+      "status": "pass",
+      "detail": "Use verify-lineage only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "verify-log help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "verify-log category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "verify-log purpose",
+      "status": "pass",
+      "detail": "Export or inspect verify log evidence for operators."
+    },
+    {
+      "name": "verify-log failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "verify-log qif mapping",
+      "status": "pass",
+      "detail": "Use verify-log only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "visibility-export help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "visibility-export category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "visibility-export purpose",
+      "status": "pass",
+      "detail": "Export or inspect visibility export evidence for operators."
+    },
+    {
+      "name": "visibility-export failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "visibility-export qif mapping",
+      "status": "pass",
+      "detail": "Use visibility-export only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "visibility-serve help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "visibility-serve category",
+      "status": "pass",
+      "detail": "observe"
+    },
+    {
+      "name": "visibility-serve purpose",
+      "status": "pass",
+      "detail": "Export or inspect visibility serve evidence for operators."
+    },
+    {
+      "name": "visibility-serve failure meaning",
+      "status": "pass",
+      "detail": "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed."
+    },
+    {
+      "name": "visibility-serve qif mapping",
+      "status": "pass",
+      "detail": "Use visibility-serve only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "visibility-session help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "visibility-session category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "visibility-session purpose",
+      "status": "pass",
+      "detail": "Export the current visibility packet, start the viewer session, and optionally open the browser."
+    },
+    {
+      "name": "visibility-session failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "visibility-session qif mapping",
+      "status": "pass",
+      "detail": "Use visibility-session only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "work-governance-benchmark help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "work-governance-benchmark category",
+      "status": "pass",
+      "detail": "verify"
+    },
+    {
+      "name": "work-governance-benchmark purpose",
+      "status": "pass",
+      "detail": "Benchmark Work Governance artifact chains for goal, actor, council, Go/No-Go, operational map, context pack, and external source-of-truth coverage."
+    },
+    {
+      "name": "work-governance-benchmark failure meaning",
+      "status": "pass",
+      "detail": "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated."
+    },
+    {
+      "name": "work-governance-benchmark qif mapping",
+      "status": "pass",
+      "detail": "Use work-governance-benchmark only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "work-item-goal help exists",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "work-item-goal category",
+      "status": "pass",
+      "detail": "execute"
+    },
+    {
+      "name": "work-item-goal purpose",
+      "status": "pass",
+      "detail": "Write a schema-valid Work Governance work item goal artifact from a bounded payload."
+    },
+    {
+      "name": "work-item-goal failure meaning",
+      "status": "pass",
+      "detail": "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone."
+    },
+    {
+      "name": "work-item-goal qif mapping",
+      "status": "pass",
+      "detail": "Use work-item-goal only when it supports an explicit AOF Quality Intent or runtime operating goal."
+    },
+    {
+      "name": "adoption-proof-benchmark acceptance gate",
+      "status": "pass",
+      "detail": "AP checks pass and expose what was checked, expected, and still unproven."
+    },
+    {
+      "name": "adoption-proof-benchmark verdict boundary",
+      "status": "pass",
+      "detail": "Structural/runtime adoption proof only; not external market validation."
+    },
+    {
+      "name": "cli-help-benchmark acceptance gate",
+      "status": "pass",
+      "detail": "All supported commands produce structured help and benchmark checks pass."
+    },
+    {
+      "name": "cli-help-benchmark verdict boundary",
+      "status": "pass",
+      "detail": "Help surface completeness only; does not prove every command behavior is correct."
+    },
+    {
+      "name": "command-routing-audit acceptance gate",
+      "status": "pass",
+      "detail": "Registry, orientation, top commands, and runtime flow align."
+    },
+    {
+      "name": "command-routing-audit verdict boundary",
+      "status": "pass",
+      "detail": "Routing integrity only; does not prove the selected command solves the user's semantic need."
+    },
+    {
+      "name": "need-validation-benchmark acceptance gate",
+      "status": "pass",
+      "detail": "NV checks reject weak/false needs and require validated readiness before project creation."
+    },
+    {
+      "name": "need-validation-benchmark verdict boundary",
+      "status": "pass",
+      "detail": "Validation behavior proof only; semantic truth still requires human/expert/operator evidence."
+    },
+    {
+      "name": "organization-verify acceptance gate",
+      "status": "pass",
+      "detail": "Organization verification passes without unresolved team, council, contract, or artifact refs."
+    },
+    {
+      "name": "organization-verify verdict boundary",
+      "status": "pass",
+      "detail": "Structural integrity only; not proof of product value."
+    },
+    {
+      "name": "release-state-audit acceptance gate",
+      "status": "pass",
+      "detail": "Release state audit passes for the target version."
+    },
+    {
+      "name": "release-state-audit verdict boundary",
+      "status": "pass",
+      "detail": "Release-surface consistency only; not semantic quality proof."
+    }
+  ],
+  "errors": []
+}

@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-06-23T15:41:33.470Z",
+      "at": "2026-06-23T23:26:49.265Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-06-23T15:41:33.427Z",
+      "at": "2026-06-23T23:26:49.235Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,14 +24,36 @@
       ]
     },
     {
-      "at": "2026-06-23T15:27:40.425Z",
+      "at": "2026-06-23T23:24:51.950Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "After v6.2.0, run a runtime-backed frontier review before opening the next implementation task.",
+      "summary": "After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
         ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-06-23T23:24:25.527Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Ship v6.3 AI Command Help Surface with QIF v0.3 provider alignment",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-066.json"
+      ]
+    },
+    {
+      "at": "2026-06-23T16:25:20.268Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Add swappable QIF provider profile for AOF quality claims",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-065.json"
       ]
     },
     {
@@ -43,28 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-064.json"
-      ]
-    },
-    {
-      "at": "2026-06-23T13:24:45.059Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Close v6.1.0 Work Governance release",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-063.json"
-      ]
-    },
-    {
-      "at": "2026-06-23T13:14:25.363Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Add cross-domain Work Governance examples",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-062.json"
       ]
     }
   ]

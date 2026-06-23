@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-06-23T15:41:33.470Z",
+  "generated_at": "2026-06-23T23:26:49.265Z",
   "mission_overview": {
-    "mission": "Ship v6.2.0 as the Worked Adoption Proof baseline for first-time project adoption and human-readable first-work recognition.",
-    "release_version": "6.2.0",
-    "release_definition_ref": "docs/v6.2-release-definition.md",
-    "operating_goal": "Maintain v6.2.0 as the Worked Adoption Proof baseline and choose the next AOF frontier through runtime-backed review before opening implementation.",
-    "next_value_slice": "After v6.2.0, run a runtime-backed frontier review before opening the next implementation task.",
+    "mission": "Ship v6.3.0 as the AI Command Help Surface release with QIF v0.3.0 provider alignment.",
+    "release_version": "6.3.0",
+    "release_definition_ref": "docs/v6.3-release-definition.md",
+    "operating_goal": "Maintain v6.3.0 as the AI Command Help Surface baseline and choose the next AOF frontier through runtime-backed review, with QIF-Governed Benchmark Explanation as the leading candidate.",
+    "next_value_slice": "After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: After v6.2.0, run a runtime-backed frontier review before opening the next implementation task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },

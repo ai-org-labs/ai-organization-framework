@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-06-23T15:41:33.603Z",
+  "generated_at": "2026-06-23T23:26:49.390Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "6.2.0",
-    "active_release_track": "v6.2",
-    "release_definition_ref": "docs/v6.2-release-definition.md"
+    "active_release_version": "6.3.0",
+    "active_release_track": "v6.3",
+    "release_definition_ref": "docs/v6.3-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v6.2.0, run a runtime-backed frontier review before opening the next implementation task."
+    "branch_summary": "After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v6.2",
+      "label": "v6.3",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v6.2 and the next concrete branch.",
-    "why_this_branch": "Maintain v6.2.0 as the Worked Adoption Proof baseline and choose the next AOF frontier through runtime-backed review before opening implementation.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: After v6.2.0, run a runtime-backed frontier review before opening the next implementation task."
+    "where_are_we": "The runtime is between v6.3 and the next concrete branch.",
+    "why_this_branch": "Maintain v6.3.0 as the AI Command Help Surface baseline and choose the next AOF frontier through runtime-backed review, with QIF-Governed Benchmark Explanation as the leading candidate.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work."
   }
 }

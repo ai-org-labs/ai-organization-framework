@@ -1,21 +1,35 @@
 {
   "artifact_type": "aof-qif-provider-profile",
-  "profile_id": "QIFPROF-AOF-V0.2.1",
+  "profile_id": "QIFPROF-AOF-V0.3.0",
   "status": "active",
   "provider": "Quality Intent Framework",
-  "qif_version": "0.2.1",
+  "qif_version": "0.3.0",
   "source": {
     "repository": "ai-org-labs/quality-intent-framework",
-    "tag": "v0.2.1",
-    "release_url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.2.1",
-    "tree_url": "https://github.com/ai-org-labs/quality-intent-framework/tree/v0.2.1",
-    "tag_sha": "449b80b28750eca4946ef6a1c4a03a41cec93eb6"
+    "tag": "v0.3.0",
+    "release_url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.0",
+    "tree_url": "https://github.com/ai-org-labs/quality-intent-framework/tree/v0.3.0",
+    "tag_sha": "b581c8c1fd5988757415b6b5ba273933c94c1783"
   },
   "active_package_ref": ".aof/quality/QIFPKG-AOF-V5-001.json",
+  "layer_model": {
+    "supported_layers": [
+      "QIF Core",
+      "QIF Discovery Layer",
+      "AOF Integration"
+    ],
+    "active_layer_usage": {
+      "QIF Core": "Represent Quality Intent, risk, loss boundary, evidence, verdict, confidence, uncertainty, acceptance gates, and governance triggers.",
+      "QIF Discovery Layer": "Discover candidate Quality Intents before QIF artifacts are authored by using concern sources, loss-boundary exploration, and failure-oriented discovery patterns.",
+      "AOF Integration": "Map AOF runtime commands, benchmark results, release gates, work artifacts, and council evidence into QIF-governed quality claims."
+    },
+    "current_executable_baseline": "QIF v0.3.0 provides the Discovery Layer design boundary. AOF keeps the active package .aof/quality/QIFPKG-AOF-V5-001.json v0.2.1-compatible until QIF v0.3 schemas, examples, and verifier rules are published."
+  },
   "compatibility": {
     "mode": "external-versioned-profile",
     "supported_surfaces": [
       "quality intent package",
+      "quality intent discovery",
       "benchmark explanation",
       "release gate explanation",
       "governance escalation trigger",
@@ -26,6 +40,7 @@
   "adapter_contract": {
     "aof_inputs": [
       "runtime command result",
+      "candidate concern or quality intent",
       "benchmark result",
       "release checklist gate",
       "artifact evidence ref",
@@ -34,6 +49,7 @@
     ],
     "qif_outputs": [
       "quality_intent",
+      "candidate_quality_intent",
       "risk",
       "loss_boundary",
       "evidence_refs",
@@ -47,7 +63,8 @@
       "Do not vendor QIF schemas or docs into AOF as the source of truth.",
       "Do not claim QIF validator pass proves semantic quality truth.",
       "Do not treat tests, artifact count, actor count, dashboard existence, or release tags as quality by themselves.",
-      "Do not upgrade QIF compatibility silently without recording the selected provider profile."
+      "Do not upgrade QIF compatibility silently without recording the selected provider profile.",
+      "Do not treat QIF v0.3 Discovery Layer design as an executable verifier until QIF publishes the corresponding schemas and verifier rules."
     ]
   },
   "upgrade_policy": {
@@ -57,7 +74,7 @@
   },
   "governance": {
     "owner": "Operations Council",
-    "review_trigger": "Trigger review when QIF version, source tag, adapter outputs, confidence policy, or semantic truth boundary changes.",
+    "review_trigger": "Trigger review when QIF version, source tag, Discovery Layer boundary, adapter outputs, confidence policy, or semantic truth boundary changes.",
     "acceptance_gate": "AOF quality claims must reference the active QIF provider profile and must explain which claims are structural, runtime-backed, operator-validated, externally validated, or not proven."
   }
 }

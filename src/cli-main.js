@@ -3,6 +3,7 @@
 import { spawnSync } from "node:child_process";
 
 import { buildCommandHandlers } from "./runtime/command-catalog.js";
+import { buildCommandHelp, buildCommandHelpIndex, formatCommandHelpText } from "./runtime/command-help.js";
 
 const COMMAND_HANDLERS = buildCommandHandlers();
 
@@ -243,11 +244,15 @@ function parseArgs(argv) {
   const [, , command, ...rest] = argv;
 
   if (!command || command === "--help" || command === "-h") {
-    return { command: "help" };
+    return { command: "help", options: { json: rest.includes("--json") } };
   }
 
   if (!SUPPORTED_COMMANDS.has(command)) {
     throw new Error(`Unsupported command: ${command}`);
+  }
+
+  if (rest.includes("--help") || rest.includes("-h")) {
+    return { command: "help", options: { targetCommand: command, json: rest.includes("--json") } };
   }
 
   if (command === "run" && rest.length === 0) {
@@ -420,6 +425,11 @@ function parseArgs(argv) {
             project: "."
           }
       : command === "command-routing-audit"
+        ? {
+            project: ".",
+            artifactPath: ""
+          }
+      : command === "cli-help-benchmark"
         ? {
             project: ".",
             artifactPath: ""
@@ -3849,7 +3859,7 @@ function parseArgs(argv) {
     }
   }
 
-  if (command === "command-registry-refresh" || command === "command-register" || command === "command-routing-audit") {
+  if (command === "command-registry-refresh" || command === "command-register" || command === "command-routing-audit" || command === "cli-help-benchmark") {
     if (!options.project) {
       throw new Error(`Missing --project for \`${command}\`.`);
     }
@@ -4079,7 +4089,17 @@ async function main() {
     printUnsupportedNodeWarning();
     const parsed = parseArgs(process.argv);
     if (parsed.command === "help") {
-      printHelp();
+      const payload = parsed.options?.targetCommand
+        ? buildCommandHelp(parsed.options.targetCommand)
+        : buildCommandHelpIndex();
+      if (!payload) {
+        throw new Error(`Unsupported command: ${parsed.options.targetCommand}`);
+      }
+      if (parsed.options?.json) {
+        console.log(JSON.stringify(payload, null, 2));
+      } else {
+        console.log(formatCommandHelpText(payload));
+      }
       return;
     }
     const handler = COMMAND_HANDLERS[parsed.command];

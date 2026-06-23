@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-06-23T15:24:14.627Z",
+  "generated_at": "2026-06-23T23:20:35.183Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -188,6 +188,21 @@
       "top_command": false,
       "inputs": [],
       "outputs": [],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "cli-help-benchmark",
+      "category": "verify",
+      "purpose": "Benchmark whether every supported CLI command exposes compact AI-readable help with failure meaning and QIF boundaries.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "benchmark report"
+      ],
       "detail_ref": "docs/cli-reference.md"
     },
     {

@@ -2,138 +2,106 @@
 
 ## Version
 
-`v6.2.0`
+`v6.3.0`
 
 ## Release Theme
 
-Worked Adoption Proof.
+AI Command Help Surface with QIF v0.3 Provider Alignment.
 
-`v6.1.0` made Work Governance concrete: AOF can represent, write, verify, and project governed cross-domain work items rather than only software tasks.
-
-`v6.2` proves that a new project can adopt AOF from a fresh setup and reach its first useful governed work item. The proof is not only that artifacts exist. A first-time human operator must be able to understand, in plain language, what work is being governed, why it matters, who judges it, what evidence exists, what is blocked, and what should happen next.
+`v6.2.0` proved that a fresh managed project can reach a first governed work item. The next bottleneck is AI operation cost: an orchestrator should not need to read the full CLI reference or rely on memory to choose the correct runtime command.
 
 Human-facing wording:
 
-> v6.2 proves that AOF can be introduced into a new project and guide a first-time operator from setup to the first governed work item.
+> v6.3 makes AOF easier for AI to operate correctly by exposing compact, structured command help with failure meaning and QIF boundary.
 
 More explicit wording:
 
-> AOF should help a new project turn an initial request into a governed first work item: clear goal, actor assignment, evidence, Go / No-Go basis, council judgment, visible current state, and a plain-language explanation of the next action.
+> AOF should let an AI ask for the command map, inspect a specific command, understand what input/output is expected, and know what command failure means before it claims progress or quality.
 
 ## Runtime Evidence Basis
 
-- runtime command: `organization-status --project .`
-- roadmap command: `roadmap-status --project .`
-- situation assessment command: `situation-assess --project .`
-- release audit command: `release-state-audit --project .`
-- benchmark command: `work-governance-benchmark --project .`
-- direction evidence: post-v6.1 Visionary / Builder / Guardian / Council runtime review
-- baseline release definition: `docs/v6.1-release-definition.md`
-- core model: `docs/aof-core-model.md`
+- runtime command: `situation-assess --project .`
+- command registry command: `command-registry-refresh --project .`
+- release state command: `release-state-refresh --project .`
+- benchmark command: `cli-help-benchmark --project .`
+- QIF provider profile: `.aof/quality/qif-provider-profile.json`
+- baseline release definition: `docs/v6.2-release-definition.md`
+- release definition: `docs/v6.3-release-definition.md`
 - roadmap: `docs/vnext-roadmap.md`
 
 ## Required Outcomes
 
 Required:
 
-- fresh project setup path is reproducible from public instructions
-- `aof init --topology managed-project` creates the expected baseline without hidden self-hosting assumptions
-- the first governed work item can be created through documented commands or a guided proof script
-- the first work item includes goal, actor composition, council-ready output, Go / No-Go basis, operational map impact, context pack, and external reference handling where applicable
-- the runtime emits a human-readable recognition summary for the first governed work item
-- the summary explains what is happening, why it matters, who judges it, what evidence exists, what is blocked, and what should happen next
-- Mission Control projects the same state without becoming a source of truth
-- `work-governance-benchmark` passes against the adoption proof
-- the proof runs from a clean checkout without relying on local untracked artifacts
+- `aof --help` provides a compact AI-oriented index
+- `aof --help --json` provides machine-readable help index
+- `aof <command> --help` provides command-level help
+- `aof <command> --help --json` provides command-level structured help
+- command help includes purpose, category, inputs, outputs, failure meaning, and QIF boundary
+- `cli-help-benchmark` verifies command help coverage
+- active QIF provider profile points to QIF `v0.3.0`
+- QIF Core / Discovery Layer / AOF Integration boundaries are recorded
+- QIF v0.3 Discovery Layer is not overclaimed as executable verifier support
 
 Deferred:
 
-- full Jira bidirectional sync
-- full external tool adapters
-- autonomous Work Governance
-- replacing `.aof/tasks/` with a new work item store
-- standalone `context-audit`, `external-ref-audit`, and `operational-map-audit` commands
-- full Human Recognition Interface redesign beyond the adoption-proof surface
+- full QIF-governed benchmark explanation outputs
+- Mission Control UX redesign
+- standalone context / external-ref / operational-map audits
 - governed multi-actor orchestration
 
 ## Release Gates
 
 ### Gate 1: Runtime Direction
 
-- `situation-assess` reports `frontier-definition-needed` after `v6.1.0`
-- runtime-backed Visionary / Builder / Guardian outputs select the next bounded frontier
-- Council review approves `v6.2` as Worked Adoption Proof before implementation
+- runtime state supports v6.3 as the next bounded frontier
+- `TASK-066` records the implementation work
 
-### Gate 2: Fresh Adoption Path
+### Gate 2: Help Surface
 
-- fresh clone or fixture project starts from public install instructions
-- managed-project topology is used
-- no local-only artifacts are required
-- no personal account references or `.DS_Store` files appear in the proof
+- global help works in text and JSON forms
+- command help works in text and JSON forms
+- help is generated from command registry metadata
 
-### Gate 3: First Governed Work Item
+### Gate 3: QIF Provider Alignment
 
-- first work item goal exists
-- actor composition exists
-- council-ready output exists
-- Go / No-Go visualization exists
-- operational map change log exists
-- context pack exists
-- external refs are either valid or explicitly marked not applicable
+- provider profile validates against schema
+- provider points to QIF `v0.3.0`
+- docs preserve semantic truth and executable-verifier boundaries
 
-### Gate 4: Human Recognition Output
+### Gate 4: Verification
 
-- AOF generates plain-language wording for the first governed work item
-- the wording avoids internal-only terms unless it explains them
-- the operator can answer: what is this, why does it matter, who is responsible, what evidence exists, what is blocked, and what happens next
-
-### Gate 5: Verification
-
+- `cli-help-benchmark`
 - `command-routing-audit`
 - `organization-verify`
 - `decision-verify`
 - `release-state-audit`
-- `work-governance-benchmark`
-- adoption proof command or script
+- focused tests
 - `npm test`
 - `npm run smoke`
 
 ## Release Decision
 
-Release `v6.2.0` only if a first-time adopter path is reproducible and the first governed work item is both machine-verifiable and human-recognizable.
+Release `v6.3.0` only if AI command discovery is compact, structured, registry-backed, and QIF-boundary-aware.
 
-Do not claim that AOF is broadly adoption-proven merely because self-hosting artifacts pass. The claim must be bounded: a clean project can complete one first governed work loop with traceable artifacts, verification, and plain-language recognition output.
+Do not claim that help coverage proves runtime quality. It only proves that an AI can discover commands and understand the operational boundary before choosing one.
 
-## Post-v6.2 Direction Candidate
+## Post-v6.3 Direction Candidate
 
-The strongest immediate follow-up is AI Command Help Surface, followed by QIF-governed benchmark explanation.
-
-### v6.3 Candidate: AI Command Help Surface
-
-Purpose:
-
-- make CLI help an AI-oriented command discovery contract rather than a human manual
-
-Required direction:
-
-- `aof --help` returns a compact command index
-- `aof <command> --help` returns command-level purpose, category, usage, inputs, outputs, artifact refs, and failure meaning
-- `aof <command> --help --json` returns machine-readable structured help
-- command help references QIF mapping where applicable: Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict boundary, and governance trigger
-- a `cli-help-benchmark` or equivalent verification surface checks public command help coverage
-
-Why this comes before QIF benchmark explanation:
-
-- AI orchestrators must discover the right command cheaply before they can reliably request QIF explanations for benchmark results
-- structured help can become the place where QIF mapping and failure meaning are exposed without requiring the AI to read the full CLI reference
-
-Boundary:
-
-- this is for AI transmission efficiency, not human-facing writing quality
-- human communication remains the responsibility of Mission Control, recognition packets, release docs, and QIF explanation outputs
+The strongest immediate follow-up is QIF-Governed Benchmark Explanation.
 
 ### v6.4 Candidate: QIF-Governed Benchmark Explanation
 
-The v6.2 adoption proof exposed a product gap: AP-001 through AP-006 can pass while a human still cannot immediately tell what was checked, what the expected standard was, what failure would mean, and what remains unproven.
+Purpose:
 
-AOF should therefore use the active external QIF provider profile (`.aof/quality/qif-provider-profile.json`) to translate benchmark results into Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict, confidence, uncertainty, and governance trigger.
+- translate benchmark checks into Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict, confidence, uncertainty, and governance trigger
+
+Why this follows v6.3:
+
+- command help now exposes QIF boundary language
+- benchmark output still needs first-class explanation of what was checked, what the expected standard was, what failure means, and what remains unproven
+
+Boundary:
+
+- explanation improves human and AI comprehension
+- it must not claim semantic truth merely because a benchmark passed

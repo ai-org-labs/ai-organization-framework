@@ -11,10 +11,10 @@ The active provider profile is:
 The current pinned source is:
 
 - repository: `ai-org-labs/quality-intent-framework`
-- tag: `v0.2.1`
-- release: `https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.2.1`
-- tree: `https://github.com/ai-org-labs/quality-intent-framework/tree/v0.2.1`
-- tag SHA: `449b80b28750eca4946ef6a1c4a03a41cec93eb6`
+- tag: `v0.3.0`
+- release: `https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.0`
+- tree: `https://github.com/ai-org-labs/quality-intent-framework/tree/v0.3.0`
+- tag SHA: `b581c8c1fd5988757415b6b5ba273933c94c1783`
 
 ## Design Decision
 
@@ -28,6 +28,18 @@ AOF therefore stores only a provider profile and adapter contract:
 - which quality claims are allowed
 - which semantic truth boundaries remain unproven
 - when governance review is required
+
+## Layer Model
+
+QIF v0.3.0 introduces a Discovery Layer design boundary. AOF treats the selected provider as three connected layers:
+
+- QIF Core: Quality Intent, risk, loss boundary, evidence, verdict, confidence, uncertainty, acceptance gate, and governance trigger.
+- QIF Discovery Layer: discovery of candidate Quality Intents before a formal QIF package is authored.
+- AOF Integration: mapping AOF runtime commands, benchmark results, release gates, work artifacts, and council evidence into QIF-governed quality claims.
+
+Important boundary:
+
+QIF v0.3.0 does not yet replace the executable v0.2.1 package baseline. Until QIF publishes v0.3 schemas, example packages, and verifier rules, AOF keeps `.aof/quality/QIFPKG-AOF-V5-001.json` as the active machine-readable package and uses v0.3.0 for provider-level Discovery Layer alignment.
 
 ## Adapter Responsibility
 
@@ -58,6 +70,7 @@ Required upgrade steps:
 3. Mark compatibility as active, candidate, or deprecated.
 4. Run governance review before using the new QIF version for release-quality claims.
 5. Preserve the prior profile as fallback until the new profile is verified.
+6. If the new QIF version introduces a Discovery Layer without executable schemas, record that layer as a provider boundary and do not overclaim verifier support.
 
 ## Boundary
 

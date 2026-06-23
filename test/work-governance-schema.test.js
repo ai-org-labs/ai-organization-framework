@@ -42,9 +42,11 @@ test("QIF provider profile pins an external replaceable quality framework source
   const profile = JSON.parse(await fs.readFile(profilePath, "utf8"));
   await validateWithBundledSchema(profile, "aof-qif-provider-profile.schema.json", "qif provider profile");
   assert.equal(profile.compatibility.mode, "external-versioned-profile");
-  assert.equal(profile.qif_version, "0.2.1");
+  assert.equal(profile.qif_version, "0.3.0");
   assert.equal(profile.source.repository, "ai-org-labs/quality-intent-framework");
-  assert.equal(profile.source.tag, "v0.2.1");
+  assert.equal(profile.source.tag, "v0.3.0");
+  assert.ok(profile.layer_model.supported_layers.includes("QIF Discovery Layer"));
+  assert.match(profile.layer_model.current_executable_baseline, /v0\.2\.1-compatible/);
   assert.match(profile.compatibility.semantic_truth_boundary, /do not prove semantic truth/i);
   assert.match(profile.adapter_contract.not_allowed.join(" "), /Do not vendor QIF/);
 });

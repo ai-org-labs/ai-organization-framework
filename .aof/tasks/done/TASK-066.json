@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-066",
+  "title": "Ship v6.3 AI Command Help Surface with QIF v0.3 provider alignment",
+  "description": "Release v6.3.0 by adding registry-backed AI command help, cli-help-benchmark coverage, and QIF v0.3.0 provider profile alignment while preserving semantic truth boundaries.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V63-AI-HELP-QIF030",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v6.3-ai-command-help",
+  "created_at": "2026-06-23T23:20:23.851Z",
+  "updated_at": "2026-06-23T23:24:25.527Z",
+  "assigned_at": null,
+  "done_at": "2026-06-23T23:24:25.527Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v6.3.0 AI Command Help Surface: registry-backed help, cli-help-benchmark, QIF v0.3.0 provider profile, release docs, and verification evidence are recorded."
+}

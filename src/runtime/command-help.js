@@ -1,0 +1,160 @@
+import {
+  buildCommandRegistryPayload,
+  COMMAND_CATEGORY_SUMMARIES,
+  COMMAND_ROUTING_FLOW,
+  COMMAND_ROUTING_TOP_COMMANDS
+} from "./command-registry-payload.js";
+
+const QIF_MAPPING_BY_COMMAND = {
+  "adoption-proof-benchmark": {
+    quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
+    risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",
+    loss_boundary: "Do not claim adoption proof if initialized work, governance checks, and human-readable recognition are not all present.",
+    evidence_refs: ["benchmark output", "fresh managed-project fixture", "recognition summary"],
+    acceptance_gate: "AP checks pass and expose what was checked, expected, and still unproven.",
+    verdict_boundary: "Structural/runtime adoption proof only; not external market validation."
+  },
+  "command-routing-audit": {
+    quality_intent: "AI and operators can choose commands without reading the full CLI reference.",
+    risk: "Runtime answers drift into memory-based command selection and skip required verification.",
+    loss_boundary: "Do not claim command readiness if bootstrap, orientation, and registry routing are inconsistent.",
+    evidence_refs: [".aof/command-registry.json", ".aof/project-bootstrap.json", ".aof/context/active/project-orientation.json"],
+    acceptance_gate: "Registry, orientation, top commands, and runtime flow align.",
+    verdict_boundary: "Routing integrity only; does not prove the selected command solves the user's semantic need."
+  },
+  "cli-help-benchmark": {
+    quality_intent: "Every supported command has a compact AI-readable help surface.",
+    risk: "AI context cost rises because orchestration requires loading large docs or guessing command semantics.",
+    loss_boundary: "Do not claim AI command help readiness if a supported command lacks category, purpose, input, output, or failure meaning.",
+    evidence_refs: ["generated command help index", "generated per-command help"],
+    acceptance_gate: "All supported commands produce structured help and benchmark checks pass.",
+    verdict_boundary: "Help surface completeness only; does not prove every command behavior is correct."
+  },
+  "need-validation-benchmark": {
+    quality_intent: "Raw needs are validated before project creation.",
+    risk: "AOF organizes and executes the wrong problem.",
+    loss_boundary: "Do not create a project from a raw need without validation, reframing, rejection, deferral, or experiment gate.",
+    evidence_refs: ["Need Validation benchmark output", "Need Validation records"],
+    acceptance_gate: "NV checks reject weak/false needs and require validated readiness before project creation.",
+    verdict_boundary: "Validation behavior proof only; semantic truth still requires human/expert/operator evidence."
+  },
+  "organization-verify": {
+    quality_intent: "Canonical organization artifacts remain internally consistent.",
+    risk: "Runtime governance claims are based on unresolved refs, missing contracts, or invalid organization structure.",
+    loss_boundary: "Do not claim organization readiness when schema validation or cross-reference integrity fails.",
+    evidence_refs: [".aof/organization.json", "schemas/aof-organization.schema.json"],
+    acceptance_gate: "Organization verification passes without unresolved team, council, contract, or artifact refs.",
+    verdict_boundary: "Structural integrity only; not proof of product value."
+  },
+  "release-state-audit": {
+    quality_intent: "Release claims point to the same version, docs, checklist, and notes.",
+    risk: "AOF ships with stale or contradictory release surfaces.",
+    loss_boundary: "Do not sign off a release when package, bootstrap, active manifest, README, or release docs disagree.",
+    evidence_refs: ["active release manifest", "package metadata", "release definition", "release checklist"],
+    acceptance_gate: "Release state audit passes for the target version.",
+    verdict_boundary: "Release-surface consistency only; not semantic quality proof."
+  }
+};
+
+function findCommand(command) {
+  const registry = buildCommandRegistryPayload(new Date(0).toISOString());
+  return registry.commands.find((entry) => entry.command === command);
+}
+
+function fallbackFailureMeaning(entry) {
+  if (entry.category === "verify") {
+    return "A fail result means the governed claim must not be used until the reported checks are repaired or explicitly escalated.";
+  }
+  if (entry.category === "write") {
+    return "A failure means the canonical artifact was not safely written and downstream runtime steps should not depend on it.";
+  }
+  if (entry.category === "execute") {
+    return "A failure means the runtime did not advance; inspect the error and do not infer progress from intent alone.";
+  }
+  if (entry.category === "observe") {
+    return "A failure means the visibility or analytics surface is incomplete; do not use it as evidence until refreshed.";
+  }
+  return "A failure means the requested state surface could not be read; refresh or repair the source artifact before proceeding.";
+}
+
+export function buildCommandHelp(command) {
+  const entry = findCommand(command);
+  if (!entry) {
+    return null;
+  }
+
+  return {
+    artifact_type: "aof-command-help",
+    help_format_version: 1,
+    command: entry.command,
+    category: entry.category,
+    operator_path: entry.operator_path,
+    top_command: entry.top_command,
+    purpose: entry.purpose,
+    inputs: entry.inputs,
+    outputs: entry.outputs,
+    detail_ref: entry.detail_ref,
+    use_when: [
+      entry.purpose,
+      `Use this as a ${entry.category} command in the AOF runtime flow.`
+    ],
+    failure_meaning: fallbackFailureMeaning(entry),
+    qif_mapping: QIF_MAPPING_BY_COMMAND[entry.command] ?? {
+      quality_intent: `Use ${entry.command} only when it supports an explicit AOF Quality Intent or runtime operating goal.`,
+      risk: "Command output can be mistaken for quality if no intent, risk, loss boundary, evidence, and gate are attached.",
+      loss_boundary: "Do not cite this command as quality proof unless the relevant Quality Intent and acceptance gate are named.",
+      evidence_refs: entry.outputs,
+      acceptance_gate: "Command succeeds and its output is linked to the governing artifact, benchmark, release, or review claim.",
+      verdict_boundary: "Command success is operational evidence, not semantic truth by itself."
+    }
+  };
+}
+
+export function buildCommandHelpIndex() {
+  const registry = buildCommandRegistryPayload(new Date(0).toISOString());
+  return {
+    artifact_type: "aof-command-help-index",
+    help_format_version: 1,
+    generated_from: "command-registry",
+    command_count: registry.commands.length,
+    detail_ref: registry.detail_ref,
+    categories: COMMAND_CATEGORY_SUMMARIES,
+    top_commands: COMMAND_ROUTING_TOP_COMMANDS.map((command) => buildCommandHelp(command)).filter(Boolean),
+    runtime_flow: COMMAND_ROUTING_FLOW,
+    ai_usage: [
+      "Use `aof --help --json` to get this compact command index.",
+      "Use `aof <command> --help --json` to get command-specific purpose, inputs, outputs, failure meaning, and QIF boundary.",
+      "Use `aof command-register --project .` only when the full command list is needed.",
+      "Use `docs/cli-reference.md` only when implementation-level option detail is needed."
+    ]
+  };
+}
+
+export function formatCommandHelpText(payload) {
+  if (payload.artifact_type === "aof-command-help-index") {
+    const top = payload.top_commands
+      .map((entry) => `- ${entry.command} [${entry.category}]: ${entry.purpose}`)
+      .join("\n");
+    return [
+      "AOF AI Command Help",
+      `Commands: ${payload.command_count}`,
+      `Detail reference: ${payload.detail_ref}`,
+      "",
+      "Top commands:",
+      top,
+      "",
+      "For command-specific help: aof <command> --help --json"
+    ].join("\n");
+  }
+
+  return [
+    `AOF Command Help: ${payload.command}`,
+    `Category: ${payload.category}`,
+    `Purpose: ${payload.purpose}`,
+    `Inputs: ${payload.inputs.length ? payload.inputs.join(", ") : "(none declared)"}`,
+    `Outputs: ${payload.outputs.length ? payload.outputs.join(", ") : "(none declared)"}`,
+    `Failure: ${payload.failure_meaning}`,
+    `QIF intent: ${payload.qif_mapping.quality_intent}`,
+    `Detail reference: ${payload.detail_ref}`
+  ].join("\n");
+}

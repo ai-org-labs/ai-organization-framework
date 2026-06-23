@@ -1,4 +1,4 @@
-# AOF Post-v6.2 Roadmap
+# AOF Post-v6.3 Roadmap
 
 ## North Star
 
@@ -48,6 +48,15 @@ AOF should become an AI Organization Operating System that can:
 - human-readable first-work recognition summary
 - explicit rule that correct JSON without human recognition is incomplete
 - release proof that adoption quality is bounded to one reproducible first governed work loop
+
+`v6.3.0` establishes AI Command Help Surface:
+
+- compact `aof --help` command index for AI command discovery
+- structured `aof --help --json` and `aof <command> --help --json`
+- command help with purpose, category, inputs, outputs, failure meaning, and QIF boundary
+- `cli-help-benchmark` coverage for supported commands
+- active QIF provider profile upgraded to QIF `v0.3.0`
+- QIF Core / Discovery Layer / AOF Integration boundaries recorded without overclaiming executable v0.3 verifier support
 
 ## Completed Track
 
@@ -122,25 +131,21 @@ Required outcomes:
 - human-readable recognition explains what the work is, why it matters, who judges it, what evidence exists, what is blocked, and what should happen next
 - the release claim remains bounded to one first governed work loop
 
+### `v6.3.0`: AI Command Help Surface
+
+Completed release task:
+
+- `TASK-066`: Ship v6.3 AI Command Help Surface with QIF v0.3 provider alignment
+
+Required outcomes:
+
+- AI can get compact command routing help without reading the full CLI reference
+- command-level help exposes purpose, inputs, outputs, failure meaning, and QIF boundary
+- `cli-help-benchmark` verifies help coverage for supported commands
+- QIF v0.3.0 is recorded as the active external provider profile
+- QIF v0.3 Discovery Layer is treated as provider alignment, not as executable verifier replacement
+
 ## Next Frontier Candidates
-
-### Candidate: AI Command Help Surface
-
-Theme:
-
-- make `aof --help` and `aof <command> --help --json` an AI-oriented command discovery surface, not a human manual
-
-Why it matters:
-
-- AOF now has many runtime commands; asking an AI orchestrator to read the full CLI reference is context-inefficient and error-prone
-- command help should let Codex, Claude, CI, and Mission Control quickly choose the right command, inputs, outputs, failure meaning, artifact refs, and QIF mapping
-- this supports the North Star by making AOF easier for AI actors to operate correctly without hiding runtime behavior behind prose
-
-Boundary:
-
-- help is optimized for AI command selection and structured runtime contracts
-- human-facing communication belongs in Mission Control, recognition packets, release docs, or QIF explanations
-- help coverage does not prove command semantics are correct; it proves discoverability and routing surface readiness
 
 ### Candidate: QIF-Governed Benchmark Explanation
 
@@ -207,19 +212,18 @@ Boundary:
 
 ## Current Recommendation
 
-After `v6.2.0`, choose the next frontier through runtime-backed review before opening implementation work.
+After `v6.3.0`, choose the next frontier through runtime-backed review before opening implementation work.
 
 Priority order:
 
-1. `v6.3`: AI Command Help Surface
-2. `v6.4`: QIF-Governed Benchmark Explanation
-3. `v6.5`: Mission Control / Human Recognition redesign grounded in Work Governance artifacts
-4. `v6.x`: standalone context / external-ref / operational-map audits
-5. `v7.0`: governed multi-actor orchestration
+1. `v6.4`: QIF-Governed Benchmark Explanation
+2. `v6.5`: Mission Control / Human Recognition redesign grounded in Work Governance artifacts
+3. `v6.x`: standalone context / external-ref / operational-map audits
+4. `v7.0`: governed multi-actor orchestration
 
 Reasoning:
 
-- AI Command Help Surface should come first because it reduces AI context cost and makes future runtime/API use less brittle.
-- QIF-Governed Benchmark Explanation should follow because help can expose QIF mapping and failure meaning directly.
+- AI Command Help Surface is now complete enough to support command discovery.
+- QIF-Governed Benchmark Explanation should follow because help can expose QIF mapping and failure meaning, but benchmark outputs still need human-readable expectations and verdict boundaries.
 - Mission Control redesign should use the structured help and QIF explanation surfaces rather than inventing its own truth.
 - Multi-actor orchestration should wait until command discovery, quality explanation, and visibility surfaces are stable enough to govern parallel actor work.

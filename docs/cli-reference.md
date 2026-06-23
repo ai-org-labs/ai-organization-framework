@@ -1377,6 +1377,34 @@ node ./src/cli.js adoption-proof-benchmark \
 - `--keep-temp`: optional. temp project を削除せず確認用に残す
 - `--write-artifact <path>`: optional. benchmark summary を保存する
 
+### AI Command Help Surface
+
+v6.3 以降、CLI help は full reference ではなく AI-oriented command discovery surface として使う。
+
+```bash
+node ./src/cli.js --help
+node ./src/cli.js --help --json
+node ./src/cli.js organization-verify --help
+node ./src/cli.js organization-verify --help --json
+```
+
+`--help --json` は command registry 由来の compact JSON を返す。AI orchestrator はまずここを読み、必要な時だけこの full CLI reference を読む。
+
+### `cli-help-benchmark`
+
+supported command が AI-readable help を持つか検証する。検証対象は command category, purpose, failure meaning, QIF mapping boundary, acceptance gate, verdict boundary である。
+
+```bash
+node ./src/cli.js cli-help-benchmark \
+  --project . \
+  --write-artifact /tmp/aof-cli-help-benchmark.json
+```
+
+主な option:
+
+- `--project <path>`
+- `--write-artifact <path>`: optional. benchmark summary を保存する
+
 ## Project-Local Archive
 
 ### `verify-archive`

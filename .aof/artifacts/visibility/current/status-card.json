@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-06-23T15:41:33.470Z",
+  "as_of": "2026-06-23T23:26:49.265Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "After v6.2.0, run a runtime-backed frontier review before opening the next implementation task.",
+  "current_goal": "After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "After v6.2.0, run a runtime-backed frontier review before opening the next implementation task.",
+  "next_checkpoint": "After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }
