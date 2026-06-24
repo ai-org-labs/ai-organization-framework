@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-06-24T16:34:21.114Z",
+  "as_of": "2026-06-24T16:46:04.014Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work.",

@@ -212,6 +212,10 @@ Boundary:
 - Manual proof comes before automation.
 - Cost should be evaluated per accepted change, not only by token volume or artifact count.
 - Quality cannot be claimed from activity volume; it requires Quality Intent, risk, loss boundary, evidence, verdict, and acceptance gate.
+- Done claims require evidence appropriate to the claim; code reading and symmetry reasoning are low-independence evidence for user-visible or public-path behavior.
+- Guardian review must ask what adjacent path, downstream surface, or public/irreversible impact could break before done is declared.
+- Visual or browser-facing work requires rubric-based observation, not merely a screenshot or DOM presence check.
+- QIF must operate as a living ledger: bugs, corrected assumptions, and user corrections should update Quality Intent evidence, confidence, uncertainty, negative acceptance, or follow-up tasks.
 
 ## Current Recommendation
 

@@ -37,6 +37,10 @@ Required:
 - define negative acceptance as first-class release-quality evidence
 - define corrected-assumption recording for later user comments that overturn earlier work
 - define first-use scenario review for user-facing UI/product changes
+- define evidence independence grading so code reading and symmetry reasoning cannot substitute for user-visible E2E observation
+- define done-before Guardian fixed questions for adjacent/downstream/public path risk
+- define rubric-based visual/render/comprehension review when UI output is involved
+- define QIF as a living ledger updated by bugs, corrections, and contradicted assumptions
 - connect benchmark explanation to QIF Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict boundary, confidence, uncertainty, and governance trigger
 - require pre-implementation QIF review when work touches sample/new/template/seed/project loading/editor/projection/governance surfaces
 
@@ -76,7 +80,15 @@ Deferred:
 - overturned assumptions can be recorded without erasing history
 - corrected assumption links to original assumption, later evidence, affected tasks/releases, and new negative acceptance
 
-### Gate 5: QIF-Governed Explanation
+### Gate 5: Evidence And Guardian Forcing Functions
+
+- user-visible E2E evidence is required for user-visible claims
+- code reading and symmetry reasoning are graded as low-independence evidence for UI/public behavior claims
+- Guardian answers the fixed questions: other path, adjacent surface, public/irreversible risk
+- visual or browser output is scored against grounding, visibility, size/density, transparency/occlusion, and composition/responsibility
+- bug or correction intake updates the QIF ledger or records an explicit no-change rationale
+
+### Gate 6: QIF-Governed Explanation
 
 - benchmark results can explain what was checked
 - expected standard is visible
@@ -84,7 +96,7 @@ Deferred:
 - residual uncertainty is visible
 - governance trigger is visible
 
-### Gate 6: Verification
+### Gate 7: Verification
 
 - command routing audit
 - organization verification

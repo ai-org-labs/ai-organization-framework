@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-068",
+  "title": "Add evidence grading and done-before-forcing functions to v6.4 direction",
+  "description": "Incorporate additional feedback that AOF/QIF acted as records rather than done-before forcing functions. Add E2E observable evidence, evidence independence grading, rubric-based render review, Guardian fixed questions, and living QIF ledger requirements to v6.4.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V64-EVIDENCE-FORCING-FUNCTIONS",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v6.4-pre-implementation-quality-gate",
+  "created_at": "2026-06-24T16:37:28.735Z",
+  "updated_at": "2026-06-24T16:45:23.306Z",
+  "assigned_at": null,
+  "done_at": "2026-06-24T16:45:23.306Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed second feedback intake: v6.4 direction now includes evidence independence grading, user-visible E2E evidence, Guardian fixed questions, rubric-based visual review, and living QIF ledger requirements."
+}
