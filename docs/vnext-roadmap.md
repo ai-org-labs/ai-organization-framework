@@ -1,4 +1,4 @@
-# AOF Post-v6.3 Roadmap
+# AOF Post-v6.4 Roadmap
 
 ## North Star
 
@@ -57,6 +57,16 @@ AOF should become an AI Organization Operating System that can:
 - `cli-help-benchmark` coverage for supported commands
 - active QIF provider profile upgraded to QIF `v0.3.0`
 - QIF Core / Discovery Layer / AOF Integration boundaries recorded without overclaiming executable v0.3 verifier support
+
+`v6.4.0` establishes Pre-Implementation Quality Gate and QIF-Governed Explanation direction:
+
+- problem-before-solution and product assumption review become release-quality requirements
+- negative acceptance becomes first-class evidence
+- corrected assumptions become part of the learning loop instead of silent churn
+- evidence independence is explicit; code reading and symmetry reasoning are low-independence evidence for user-visible/public-path claims
+- Guardian done-before questions cover adjacent paths, shared assumptions, and public/irreversible risk
+- visual/browser work requires rubric-based observation
+- QIF is treated as a living ledger updated by bugs, corrections, contradicted assumptions, confidence changes, and residual risk
 
 ## Completed Track
 
@@ -145,26 +155,24 @@ Required outcomes:
 - QIF v0.3.0 is recorded as the active external provider profile
 - QIF v0.3 Discovery Layer is treated as provider alignment, not as executable verifier replacement
 
+### `v6.4.0`: Pre-Implementation Quality Gate and QIF-Governed Explanation
+
+Completed release tasks:
+
+- `TASK-067`: Refine v6.4 direction from external AOF/QIF retrospective
+- `TASK-068`: Add evidence grading and done-before-forcing functions to v6.4 direction
+- `TASK-069`: Release v6.4 Pre-Implementation Quality Gate
+
+Required outcomes:
+
+- AOF/QIF is framed as a done-before forcing function, not only a post-implementation archive
+- solution-shaped tasks must be challenged through problem-before-solution and product assumption review
+- negative acceptance and corrected assumption loops are explicitly required
+- user-visible claims require appropriately independent evidence
+- Guardian review includes adjacent/downstream/public-path risk questions
+- QIF living-ledger behavior is required when bugs or corrected assumptions appear
+
 ## Next Frontier Candidates
-
-### Candidate: Pre-Implementation Quality Gate and QIF-Governed Explanation
-
-Theme:
-
-- make AOF challenge product assumptions before implementation and make benchmark results explainable through the active QIF provider profile rather than through opaque `pass` labels
-
-Why it matters:
-
-- v6.2 proved one adoption path, but AP-001 through AP-006 were not human-readable enough about what was checked, what was expected, and what remained unproven
-- QIF evolves independently, so AOF needs a swappable provider profile and adapter contract instead of vendoring QIF as fixed internal truth
-- external AOF/QIF retrospective feedback showed a stronger failure mode: AOF/QIF can be used as post-implementation evidence while failing to stop a solution-shaped task whose product assumption is wrong
-- AOF needs problem-before-solution, product assumption review, negative acceptance, first-use scenario review, and corrected-assumption loops
-
-Boundary:
-
-- QIF profile compatibility does not prove semantic truth
-- benchmark pass must be translated into Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict, confidence, uncertainty, and governance trigger
-- pre-implementation gates do not prove the chosen solution is correct; they make wrong assumptions visible early enough to stop, defer, or reframe
 
 ### Candidate: Human Recognition Interface Redesign
 
@@ -219,18 +227,18 @@ Boundary:
 
 ## Current Recommendation
 
-After `v6.3.0`, choose the next frontier through runtime-backed review before opening implementation work.
+After `v6.4.0`, choose the next frontier through runtime-backed review before opening implementation work.
 
 Priority order:
 
-1. `v6.4`: Pre-Implementation Quality Gate and QIF-Governed Explanation
-2. `v6.5`: Mission Control / Human Recognition redesign grounded in Work Governance artifacts
+1. `v6.5`: Mission Control / Human Recognition redesign grounded in Work Governance artifacts
+2. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
 3. `v6.x`: standalone context / external-ref / operational-map audits
 4. `v7.0`: governed multi-actor orchestration
 
 Reasoning:
 
 - AI Command Help Surface is now complete enough to support command discovery.
-- Pre-Implementation Quality Gate should follow because help can expose QIF mapping and failure meaning, but AOF also needs to catch wrong assumptions before implementation rather than merely explain them after verification.
-- Mission Control redesign should use the structured help and QIF explanation surfaces rather than inventing its own truth.
+- Pre-Implementation Quality Gate is now the v6.4 baseline; the next product gap is making those gates visible and actionable to a human operator.
+- Mission Control redesign should show assumptions, negative acceptance, evidence independence, Guardian questions, and QIF ledger state without inventing its own truth.
 - Multi-actor orchestration should wait until command discovery, quality explanation, and visibility surfaces are stable enough to govern parallel actor work.

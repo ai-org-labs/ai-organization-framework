@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work.",
-  "updated_at": "2026-06-24T16:32:47.576Z",
+  "content": "After v6.4.0, run a runtime-backed frontier review for v6.5 Mission Control / Human Recognition redesign before opening implementation work.",
+  "updated_at": "2026-06-24T17:20:45.267Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V64-RETROSPECTIVE-INTAKE",
-  "source_decision_record_id": "TASK-067",
+  "source_session_id": "SESS-V64-RELEASE-CLOSURE",
+  "source_decision_record_id": "TASK-069",
   "declared_complete_at": null
 }

@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Maintain v6.3.0 as the AI Command Help Surface baseline and shape v6.4 around pre-implementation quality gates, negative acceptance, corrected assumptions, and QIF-governed explanations.",
-  "updated_at": "2026-06-24T16:33:02.058Z",
+  "content": "Maintain v6.4.0 as the Pre-Implementation Quality Gate baseline and choose the next AOF frontier through runtime-backed review, with Mission Control / Human Recognition redesign as the leading candidate.",
+  "updated_at": "2026-06-24T17:20:32.429Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V64-RETROSPECTIVE-INTAKE",
-  "source_decision_record_id": "TASK-067",
+  "source_session_id": "SESS-V64-RELEASE-CLOSURE",
+  "source_decision_record_id": "TASK-069",
   "declared_complete_at": null
 }

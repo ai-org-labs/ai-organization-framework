@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-06-24T16:46:04.174Z",
+  "generated_at": "2026-06-24T17:24:33.739Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-068 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-068.json"
+    "summary": "TASK-069 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-069.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-068 completed: Add evidence grading and done-before-forcing functions to v6.4 direction",
-      "artifact_ref": ".aof/tasks/done/TASK-068.json"
+      "summary": "TASK-069 completed: Release v6.4 Pre-Implementation Quality Gate",
+      "artifact_ref": ".aof/tasks/done/TASK-069.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work.",
+      "summary": "After v6.4.0, run a runtime-backed frontier review for v6.5 Mission Control / Human Recognition redesign before opening implementation work.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-068 completed: Add evidence grading and done-before-forcing functions to v6.4 direction After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work.",
+    "what_changed": "TASK-069 completed: Release v6.4 Pre-Implementation Quality Gate After v6.4.0, run a runtime-backed frontier review for v6.5 Mission Control / Human Recognition redesign before opening implementation work.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: After v6.4.0, run a runtime-backed frontier review for v6.5 Mission Control / Human Recognition redesign before opening implementation work."
   }
 }

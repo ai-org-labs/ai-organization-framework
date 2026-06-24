@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-06-24T16:46:04.206Z",
+  "generated_at": "2026-06-24T17:24:33.759Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "6.3.0",
-    "active_release_track": "v6.3",
-    "release_definition_ref": "docs/v6.3-release-definition.md"
+    "active_release_version": "6.4.0",
+    "active_release_track": "v6.4",
+    "release_definition_ref": "docs/v6.4-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work."
+    "branch_summary": "After v6.4.0, run a runtime-backed frontier review for v6.5 Mission Control / Human Recognition redesign before opening implementation work."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v6.3",
+      "label": "v6.4",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v6.3 and the next concrete branch.",
-    "why_this_branch": "Maintain v6.3.0 as the AI Command Help Surface baseline and shape v6.4 around pre-implementation quality gates, negative acceptance, corrected assumptions, and QIF-governed explanations.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work."
+    "where_are_we": "The runtime is between v6.4 and the next concrete branch.",
+    "why_this_branch": "Maintain v6.4.0 as the Pre-Implementation Quality Gate baseline and choose the next AOF frontier through runtime-backed review, with Mission Control / Human Recognition redesign as the leading candidate.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: After v6.4.0, run a runtime-backed frontier review for v6.5 Mission Control / Human Recognition redesign before opening implementation work."
   }
 }
