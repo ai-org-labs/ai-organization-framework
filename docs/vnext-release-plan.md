@@ -2,106 +2,104 @@
 
 ## Version
 
-`v6.3.0`
+`v6.4.0`
 
 ## Release Theme
 
-AI Command Help Surface with QIF v0.3 Provider Alignment.
+Pre-Implementation Quality Gate and QIF-Governed Explanation.
 
-`v6.2.0` proved that a fresh managed project can reach a first governed work item. The next bottleneck is AI operation cost: an orchestrator should not need to read the full CLI reference or rely on memory to choose the correct runtime command.
+`v6.3.0` made command discovery cheaper for AI orchestrators. The next bottleneck is earlier and more dangerous: AOF/QIF can pass structural gates after implementation while missing that the product assumption was wrong before implementation began.
 
 Human-facing wording:
 
-> v6.3 makes AOF easier for AI to operate correctly by exposing compact, structured command help with failure meaning and QIF boundary.
+> v6.4 should help AOF stop or reframe solution-shaped work before implementation when the user problem, product assumption, data boundary, UI responsibility, or negative acceptance is unclear.
 
 More explicit wording:
 
-> AOF should let an AI ask for the command map, inspect a specific command, understand what input/output is expected, and know what command failure means before it claims progress or quality.
+> AOF should not merely record that a task was completed and structurally verified. It should force the orchestrator to ask whether the task is solving the right problem, whether a UI solution is masking a data-model issue, what must not happen, and what evidence would prove the change is acceptable.
 
 ## Runtime Evidence Basis
 
 - runtime command: `situation-assess --project .`
-- command registry command: `command-registry-refresh --project .`
-- release state command: `release-state-refresh --project .`
-- benchmark command: `cli-help-benchmark --project .`
+- feedback intake task: `TASK-067`
+- source retrospective: external AOF/QIF retrospective dated `2026-06-25`
+- release direction doc: `docs/v6.4-pre-implementation-quality-gate.md`
 - QIF provider profile: `.aof/quality/qif-provider-profile.json`
-- baseline release definition: `docs/v6.2-release-definition.md`
-- release definition: `docs/v6.3-release-definition.md`
+- current baseline release definition: `docs/v6.3-release-definition.md`
 - roadmap: `docs/vnext-roadmap.md`
 
 ## Required Outcomes
 
 Required:
 
-- `aof --help` provides a compact AI-oriented index
-- `aof --help --json` provides machine-readable help index
-- `aof <command> --help` provides command-level help
-- `aof <command> --help --json` provides command-level structured help
-- command help includes purpose, category, inputs, outputs, failure meaning, and QIF boundary
-- `cli-help-benchmark` verifies command help coverage
-- active QIF provider profile points to QIF `v0.3.0`
-- QIF Core / Discovery Layer / AOF Integration boundaries are recorded
-- QIF v0.3 Discovery Layer is not overclaimed as executable verifier support
+- define a problem-before-solution gate
+- define a product-assumption-review surface
+- define negative acceptance as first-class release-quality evidence
+- define corrected-assumption recording for later user comments that overturn earlier work
+- define first-use scenario review for user-facing UI/product changes
+- connect benchmark explanation to QIF Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict boundary, confidence, uncertainty, and governance trigger
+- require pre-implementation QIF review when work touches sample/new/template/seed/project loading/editor/projection/governance surfaces
 
 Deferred:
 
-- full QIF-governed benchmark explanation outputs
-- Mission Control UX redesign
-- standalone context / external-ref / operational-map audits
+- full Mission Control UX redesign
+- automated semantic UI comprehension scoring
+- full QIF v0.3 executable verifier support
 - governed multi-actor orchestration
 
 ## Release Gates
 
 ### Gate 1: Runtime Direction
 
-- runtime state supports v6.3 as the next bounded frontier
-- `TASK-066` records the implementation work
+- `situation-assess` reports post-v6.3 frontier-definition-needed
+- `TASK-067` records feedback intake
+- release plan explains why v6.4 is broader than benchmark explanation alone
 
-### Gate 2: Help Surface
+### Gate 2: Pre-Implementation Quality Gate
 
-- global help works in text and JSON forms
-- command help works in text and JSON forms
-- help is generated from command registry metadata
+- user problem is recorded before solution
+- product assumption is recorded before implementation
+- data model impact is recorded
+- UI responsibility is recorded
+- sample/new/template/seed/project boundary impact is recorded when relevant
+- alternative approaches are recorded
+- stop/defer/experiment condition is recorded
 
-### Gate 3: QIF Provider Alignment
+### Gate 3: Negative Acceptance
 
-- provider profile validates against schema
-- provider points to QIF `v0.3.0`
-- docs preserve semantic truth and executable-verifier boundaries
+- acceptance includes states that must not happen
+- UI/product work cannot pass with only positive DOM existence checks
+- missing negative acceptance triggers governance review
 
-### Gate 4: Verification
+### Gate 4: Corrected Assumption Loop
 
-- `cli-help-benchmark`
-- `command-routing-audit`
-- `organization-verify`
-- `decision-verify`
-- `release-state-audit`
+- overturned assumptions can be recorded without erasing history
+- corrected assumption links to original assumption, later evidence, affected tasks/releases, and new negative acceptance
+
+### Gate 5: QIF-Governed Explanation
+
+- benchmark results can explain what was checked
+- expected standard is visible
+- failure meaning is visible
+- residual uncertainty is visible
+- governance trigger is visible
+
+### Gate 6: Verification
+
+- command routing audit
+- organization verification
+- decision verification
+- release-state audit
 - focused tests
 - `npm test`
 - `npm run smoke`
 
 ## Release Decision
 
-Release `v6.3.0` only if AI command discovery is compact, structured, registry-backed, and QIF-boundary-aware.
+Release `v6.4.0` only if AOF gains pre-implementation stopping power.
 
-Do not claim that help coverage proves runtime quality. It only proves that an AI can discover commands and understand the operational boundary before choosing one.
+Do not release merely because explanation docs exist. The release must make it harder for a solution-shaped task to pass without stating the problem, assumption, data boundary, negative acceptance, and QIF evidence plan.
 
-## Post-v6.3 Direction Candidate
+## Post-v6.4 Direction Candidate
 
-The strongest immediate follow-up is QIF-Governed Benchmark Explanation.
-
-### v6.4 Candidate: QIF-Governed Benchmark Explanation
-
-Purpose:
-
-- translate benchmark checks into Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict, confidence, uncertainty, and governance trigger
-
-Why this follows v6.3:
-
-- command help now exposes QIF boundary language
-- benchmark output still needs first-class explanation of what was checked, what the expected standard was, what failure means, and what remains unproven
-
-Boundary:
-
-- explanation improves human and AI comprehension
-- it must not claim semantic truth merely because a benchmark passed
+After v6.4, Mission Control / Human Recognition redesign becomes more realistic because the viewer can show not only what happened, but also which assumptions were challenged before implementation and which negative acceptances are guarding the work.

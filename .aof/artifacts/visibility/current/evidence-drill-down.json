@@ -1,6 +1,6 @@
 {
   "view_type": "evidence_drill_down",
-  "generated_at": "2026-06-23T23:26:49.271Z",
+  "generated_at": "2026-06-24T16:34:21.122Z",
   "brief_ref": ".aof/artifacts/visibility/current/operator-brief.json",
   "current_state": {
     "release_version": "6.3.0",
@@ -11,7 +11,7 @@
   },
   "answer_to_proof": {
     "headline": {
-      "claim": "The next frontier is defined, but no aligned implementation task is open yet: After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work.",
+      "claim": "The next frontier is defined, but no aligned implementation task is open yet: After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work.",
       "rationale": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
       "evidence_refs": [
         "docs/v6.3-release-definition.md",
@@ -63,7 +63,7 @@
       ]
     },
     "next_action": {
-      "claim": "Run a runtime-backed direction review before opening the next implementation task: After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work.",
+      "claim": "Run a runtime-backed direction review before opening the next implementation task: After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work.",
       "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
       "artifact_ref": ".aof/goals/next-value-slice.json",
       "evidence_refs": [

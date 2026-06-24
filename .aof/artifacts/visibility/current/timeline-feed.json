@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-06-23T23:26:49.265Z",
+      "at": "2026-06-24T16:34:21.114Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-06-23T23:26:49.235Z",
+      "at": "2026-06-24T16:34:21.083Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,10 +24,21 @@
       ]
     },
     {
-      "at": "2026-06-23T23:24:51.950Z",
+      "at": "2026-06-24T16:33:38.771Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Refine v6.4 direction from external AOF/QIF retrospective",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-067.json"
+      ]
+    },
+    {
+      "at": "2026-06-24T16:32:47.576Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work.",
+      "summary": "After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-065.json"
-      ]
-    },
-    {
-      "at": "2026-06-23T15:25:40.823Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Ship v6.2 Worked Adoption Proof",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-064.json"
       ]
     }
   ]

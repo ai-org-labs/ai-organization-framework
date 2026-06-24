@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Maintain v6.3.0 as the AI Command Help Surface baseline and choose the next AOF frontier through runtime-backed review, with QIF-Governed Benchmark Explanation as the leading candidate.",
-  "updated_at": "2026-06-23T23:24:40.235Z",
+  "content": "Maintain v6.3.0 as the AI Command Help Surface baseline and shape v6.4 around pre-implementation quality gates, negative acceptance, corrected assumptions, and QIF-governed explanations.",
+  "updated_at": "2026-06-24T16:33:02.058Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V63-AI-HELP-QIF030",
-  "source_decision_record_id": "TASK-066",
+  "source_session_id": "SESS-V64-RETROSPECTIVE-INTAKE",
+  "source_decision_record_id": "TASK-067",
   "declared_complete_at": null
 }

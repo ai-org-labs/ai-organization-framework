@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-067",
+  "title": "Refine v6.4 direction from external AOF/QIF retrospective",
+  "description": "Incorporate feedback that AOF/QIF was used too much as post-implementation evidence and structural validation. Define v6.4 around pre-implementation quality gates, negative acceptance, product assumption review, corrected assumptions, and QIF-governed benchmark explanation.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V64-RETROSPECTIVE-INTAKE",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v6.4-pre-implementation-quality-gate",
+  "created_at": "2026-06-24T16:30:49.274Z",
+  "updated_at": "2026-06-24T16:33:38.771Z",
+  "assigned_at": null,
+  "done_at": "2026-06-24T16:33:38.771Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed feedback intake: v6.4 direction now emphasizes pre-implementation quality gates, negative acceptance, product assumption review, corrected assumptions, and QIF-governed explanation."
+}

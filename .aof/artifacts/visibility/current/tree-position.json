@@ -1,6 +1,6 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-06-23T23:26:49.390Z",
+  "generated_at": "2026-06-24T16:34:21.316Z",
   "trunk": {
     "label": "AOF release evolution",
     "active_release_version": "6.3.0",
@@ -12,7 +12,7 @@
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work."
+    "branch_summary": "After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work."
   },
   "roadmap_path": [
     {
@@ -23,7 +23,7 @@
   ],
   "tree_answer": {
     "where_are_we": "The runtime is between v6.3 and the next concrete branch.",
-    "why_this_branch": "Maintain v6.3.0 as the AI Command Help Surface baseline and choose the next AOF frontier through runtime-backed review, with QIF-Governed Benchmark Explanation as the leading candidate.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: After v6.3.0, run a runtime-backed frontier review for v6.4 QIF-Governed Benchmark Explanation before opening implementation work."
+    "why_this_branch": "Maintain v6.3.0 as the AI Command Help Surface baseline and shape v6.4 around pre-implementation quality gates, negative acceptance, corrected assumptions, and QIF-governed explanations.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: After v6.3.0, define v6.4 as a Pre-Implementation Quality Gate and QIF-Governed Explanation release before opening implementation work."
   }
 }

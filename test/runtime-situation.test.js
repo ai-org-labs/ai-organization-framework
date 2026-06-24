@@ -84,7 +84,7 @@ test("organizationStatusCommand exposes the post-v6.0 direction goal and next va
 
   assert.equal(result.ok, true);
   assert.match(result.goals.operating_goal, /AI Command Help Surface baseline|runtime-backed review/i);
-  assert.match(result.goals.next_value_slice, /v6\.4 QIF-Governed Benchmark Explanation|runtime-backed frontier review/i);
+  assert.match(result.goals.next_value_slice, /v6\.4.*Pre-Implementation Quality Gate|QIF-Governed Explanation|runtime-backed frontier review/i);
 });
 
 test("operatorProgressCommand explains what changed since the last checkpoint", async () => {

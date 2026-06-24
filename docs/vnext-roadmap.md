@@ -147,21 +147,24 @@ Required outcomes:
 
 ## Next Frontier Candidates
 
-### Candidate: QIF-Governed Benchmark Explanation
+### Candidate: Pre-Implementation Quality Gate and QIF-Governed Explanation
 
 Theme:
 
-- make every AOF benchmark result explainable through the active QIF provider profile rather than through opaque `pass` labels
+- make AOF challenge product assumptions before implementation and make benchmark results explainable through the active QIF provider profile rather than through opaque `pass` labels
 
 Why it matters:
 
 - v6.2 proved one adoption path, but AP-001 through AP-006 were not human-readable enough about what was checked, what was expected, and what remained unproven
 - QIF evolves independently, so AOF needs a swappable provider profile and adapter contract instead of vendoring QIF as fixed internal truth
+- external AOF/QIF retrospective feedback showed a stronger failure mode: AOF/QIF can be used as post-implementation evidence while failing to stop a solution-shaped task whose product assumption is wrong
+- AOF needs problem-before-solution, product assumption review, negative acceptance, first-use scenario review, and corrected-assumption loops
 
 Boundary:
 
 - QIF profile compatibility does not prove semantic truth
 - benchmark pass must be translated into Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict, confidence, uncertainty, and governance trigger
+- pre-implementation gates do not prove the chosen solution is correct; they make wrong assumptions visible early enough to stop, defer, or reframe
 
 ### Candidate: Human Recognition Interface Redesign
 
@@ -216,7 +219,7 @@ After `v6.3.0`, choose the next frontier through runtime-backed review before op
 
 Priority order:
 
-1. `v6.4`: QIF-Governed Benchmark Explanation
+1. `v6.4`: Pre-Implementation Quality Gate and QIF-Governed Explanation
 2. `v6.5`: Mission Control / Human Recognition redesign grounded in Work Governance artifacts
 3. `v6.x`: standalone context / external-ref / operational-map audits
 4. `v7.0`: governed multi-actor orchestration
@@ -224,6 +227,6 @@ Priority order:
 Reasoning:
 
 - AI Command Help Surface is now complete enough to support command discovery.
-- QIF-Governed Benchmark Explanation should follow because help can expose QIF mapping and failure meaning, but benchmark outputs still need human-readable expectations and verdict boundaries.
+- Pre-Implementation Quality Gate should follow because help can expose QIF mapping and failure meaning, but AOF also needs to catch wrong assumptions before implementation rather than merely explain them after verification.
 - Mission Control redesign should use the structured help and QIF explanation surfaces rather than inventing its own truth.
 - Multi-actor orchestration should wait until command discovery, quality explanation, and visibility surfaces are stable enough to govern parallel actor work.
