@@ -10,6 +10,34 @@ export const COMMAND_CATEGORY_SUMMARIES = [
   { category: "observe", purpose: "Export or visualize evidence, metrics, lineage, and analytics." }
 ];
 
+export const COMMAND_SAFETY_LEVELS = [
+  {
+    safety_level: "safe_read",
+    purpose: "Read, verify, audit, brief, or inspect local runtime state without changing project source or external systems.",
+    default_run_permission: "preapproved"
+  },
+  {
+    safety_level: "safe_local_write",
+    purpose: "Write local AOF runtime artifacts, goals, logs, visibility packets, or benchmark evidence under the project.",
+    default_run_permission: "preapproved"
+  },
+  {
+    safety_level: "project_write",
+    purpose: "Modify project docs, schemas, source, tests, examples, or other product repository files.",
+    default_run_permission: "requires_approval"
+  },
+  {
+    safety_level: "external_write",
+    purpose: "Write to external services, invoke billable or credentialed external systems, or publish outside the local project.",
+    default_run_permission: "requires_approval"
+  },
+  {
+    safety_level: "dangerous",
+    purpose: "Delete, deploy, publish, mutate secrets, change billing, touch production, or perform irreversible operations.",
+    default_run_permission: "requires_approval"
+  }
+];
+
 export const COMMAND_ROUTING_TOP_COMMANDS = [
   "init",
   "upgrade",
@@ -365,12 +393,61 @@ function inferOperatorPath(command, category) {
   return "runtime-execution";
 }
 
+function inferSafetyLevel(command, category) {
+  if ([
+    "council-exec",
+    "live-verify",
+    "provider-check"
+  ].includes(command)) {
+    return "external_write";
+  }
+  if ([
+    "init",
+    "upgrade"
+  ].includes(command)) {
+    return "project_write";
+  }
+  if (command === "visibility-session") {
+    return "project_write";
+  }
+  if (category === "observe") {
+    return command === "visibility-serve" ? "safe_read" : "safe_local_write";
+  }
+  if (category === "read" || category === "verify") {
+    return "safe_read";
+  }
+  return "safe_local_write";
+}
+
+function buildApprovalPolicy(safetyLevel) {
+  const defaultRunPermission = ["safe_read", "safe_local_write"].includes(safetyLevel)
+    ? "preapproved"
+    : "requires_approval";
+  return {
+    default_run_permission: defaultRunPermission,
+    requires_per_run_approval_for: [
+      "git push",
+      "npm publish",
+      "deploy",
+      "external service write",
+      "secrets access",
+      "billing operation",
+      "destructive operation",
+      "production mutation",
+      "irreversible operation"
+    ]
+  };
+}
+
 export function getCommandCatalogMetadata() {
   return COMMAND_NAMES.map((command) => {
     const category = inferCategory(command);
+    const safetyLevel = inferSafetyLevel(command, category);
     return {
       command,
       category,
+      safety_level: safetyLevel,
+      approval_policy: buildApprovalPolicy(safetyLevel),
       purpose: inferPurpose(command, category),
       operator_path: inferOperatorPath(command, category),
       top_command: COMMAND_ROUTING_TOP_COMMANDS.includes(command),
@@ -390,6 +467,8 @@ export function buildCommandRegistryPayload(generatedAt) {
     commands: getCommandCatalogMetadata().map((entry) => ({
       command: entry.command,
       category: entry.category,
+      safety_level: entry.safety_level,
+      approval_policy: entry.approval_policy,
       purpose: entry.purpose,
       operator_path: entry.operator_path,
       top_command: entry.top_command,
@@ -410,6 +489,8 @@ export function buildCommandRoutingSummary() {
       .map((entry) => ({
         command: entry.command,
         category: entry.category,
+        safety_level: entry.safety_level,
+        approval_policy: entry.approval_policy,
         purpose: entry.purpose
       })),
     runtime_flow: COMMAND_ROUTING_FLOW

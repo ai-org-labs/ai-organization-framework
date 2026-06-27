@@ -2,7 +2,8 @@ import {
   buildCommandRegistryPayload,
   COMMAND_CATEGORY_SUMMARIES,
   COMMAND_ROUTING_FLOW,
-  COMMAND_ROUTING_TOP_COMMANDS
+  COMMAND_ROUTING_TOP_COMMANDS,
+  COMMAND_SAFETY_LEVELS
 } from "./command-registry-payload.js";
 
 const QIF_MAPPING_BY_COMMAND = {
@@ -88,6 +89,8 @@ export function buildCommandHelp(command) {
     help_format_version: 1,
     command: entry.command,
     category: entry.category,
+    safety_level: entry.safety_level,
+    approval_policy: entry.approval_policy,
     operator_path: entry.operator_path,
     top_command: entry.top_command,
     purpose: entry.purpose,
@@ -119,13 +122,15 @@ export function buildCommandHelpIndex() {
     command_count: registry.commands.length,
     detail_ref: registry.detail_ref,
     categories: COMMAND_CATEGORY_SUMMARIES,
+    safety_levels: COMMAND_SAFETY_LEVELS,
     top_commands: COMMAND_ROUTING_TOP_COMMANDS.map((command) => buildCommandHelp(command)).filter(Boolean),
     runtime_flow: COMMAND_ROUTING_FLOW,
     ai_usage: [
       "Use `aof --help --json` to get this compact command index.",
       "Use `aof <command> --help --json` to get command-specific purpose, inputs, outputs, failure meaning, and QIF boundary.",
       "Use `aof command-register --project .` only when the full command list is needed.",
-      "Use `docs/cli-reference.md` only when implementation-level option detail is needed."
+      "Use `docs/cli-reference.md` only when implementation-level option detail is needed.",
+      "Treat safety_level as the permission boundary: safe_read and safe_local_write are preapproved in normal local runs; project_write, external_write, and dangerous require per-run human approval."
     ]
   };
 }
@@ -150,6 +155,8 @@ export function formatCommandHelpText(payload) {
   return [
     `AOF Command Help: ${payload.command}`,
     `Category: ${payload.category}`,
+    `Safety: ${payload.safety_level}`,
+    `Default permission: ${payload.approval_policy?.default_run_permission ?? "unknown"}`,
     `Purpose: ${payload.purpose}`,
     `Inputs: ${payload.inputs.length ? payload.inputs.join(", ") : "(none declared)"}`,
     `Outputs: ${payload.outputs.length ? payload.outputs.join(", ") : "(none declared)"}`,

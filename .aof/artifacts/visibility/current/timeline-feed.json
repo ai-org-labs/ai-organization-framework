@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-06-24T17:24:33.633Z",
+      "at": "2026-06-27T18:10:11.786Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-06-24T17:24:33.612Z",
+      "at": "2026-06-27T18:10:11.781Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,10 +24,10 @@
       ]
     },
     {
-      "at": "2026-06-24T17:20:45.267Z",
+      "at": "2026-06-27T18:09:45.560Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "After v6.4.0, run a runtime-backed frontier review for v6.5 Mission Control / Human Recognition redesign before opening implementation work.",
+      "summary": "After v6.4.0, advance v6.5 as Execution Hygiene + Human Recognition: preserve the rule that CLI help is routing evidence, runtime claims need executed command proof, safe local reads/writes are preapproved by run contract, and project/external/dangerous operations require per-run approval.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [

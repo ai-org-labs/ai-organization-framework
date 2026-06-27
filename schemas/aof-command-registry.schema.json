@@ -14,10 +14,29 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["command", "category", "purpose", "operator_path", "top_command", "inputs", "outputs", "detail_ref"],
+        "required": ["command", "category", "safety_level", "approval_policy", "purpose", "operator_path", "top_command", "inputs", "outputs", "detail_ref"],
         "properties": {
           "command": { "type": "string" },
           "category": { "type": "string", "enum": ["read", "verify", "write", "execute", "observe"] },
+          "safety_level": {
+            "type": "string",
+            "enum": ["safe_read", "safe_local_write", "project_write", "external_write", "dangerous"]
+          },
+          "approval_policy": {
+            "type": "object",
+            "required": ["default_run_permission", "requires_per_run_approval_for"],
+            "properties": {
+              "default_run_permission": {
+                "type": "string",
+                "enum": ["preapproved", "requires_approval"]
+              },
+              "requires_per_run_approval_for": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "additionalProperties": false
+          },
           "purpose": { "type": "string" },
           "operator_path": { "type": "string" },
           "top_command": { "type": "boolean" },

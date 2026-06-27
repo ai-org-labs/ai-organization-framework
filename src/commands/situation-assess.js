@@ -25,6 +25,11 @@ export function extractTrackFromText(text) {
   return `v${match[1]}.${match[2]}`;
 }
 
+function extractTracksFromText(text) {
+  return [...String(text ?? "").matchAll(/\bv(\d+)\.(\d+)\b/gi)]
+    .map((match) => `v${match[1]}.${match[2]}`);
+}
+
 function extractTaskIdsFromText(text) {
   return [...String(text ?? "").matchAll(/\bTASK-\d+\b/gi)].map((match) => match[0].toUpperCase());
 }
@@ -287,8 +292,16 @@ export async function loadSituationAssessmentSummary(projectRoot) {
 
   const hasExplicitTaskTarget = extractTaskIdsFromText(nextValueSlice?.content ?? "").length > 0
     || extractTaskIdsFromText(operatingGoal?.content ?? "").length > 0;
-  const targetTrack = extractTrackFromText(nextValueSlice?.content ?? "")
-    ?? (hasExplicitTaskTarget ? null : extractTrackFromText(operatingGoal?.content ?? ""));
+  const candidateTargetTracks = [
+    ...extractTracksFromText(nextValueSlice?.content ?? ""),
+    ...(hasExplicitTaskTarget ? [] : extractTracksFromText(operatingGoal?.content ?? ""))
+  ];
+  const targetTrack = candidateTargetTracks
+    .map((track) => normalizeTrackLabel(track))
+    .filter(Boolean)
+    .filter((track) => trackNumber(track) > trackNumber(activeReleaseTrack))
+    .sort((left, right) => trackNumber(right) - trackNumber(left))[0]
+    ?? null;
   if (!hasExplicitTaskTarget && targetTrack && frontierTask && inferRoadmapTrack(frontierTask.payload) !== targetTrack) {
     conflicts.push({
       code: "frontier-task-mismatch",

@@ -42,6 +42,14 @@ export async function cliHelpBenchmarkCommand(options) {
       continue;
     }
     pushCheck(checks, errors, `${entry.command} category`, Boolean(help.category), help.category || "missing");
+    pushCheck(checks, errors, `${entry.command} safety level`, Boolean(help.safety_level), help.safety_level || "missing");
+    pushCheck(
+      checks,
+      errors,
+      `${entry.command} approval policy`,
+      Boolean(help.approval_policy?.default_run_permission),
+      help.approval_policy?.default_run_permission || "missing"
+    );
     pushCheck(checks, errors, `${entry.command} purpose`, Boolean(help.purpose), help.purpose || "missing");
     pushCheck(
       checks,

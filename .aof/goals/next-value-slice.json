@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "After v6.4.0, run a runtime-backed frontier review for v6.5 Mission Control / Human Recognition redesign before opening implementation work.",
-  "updated_at": "2026-06-24T17:20:45.267Z",
+  "content": "After v6.4.0, advance v6.5 as Execution Hygiene + Human Recognition: preserve the rule that CLI help is routing evidence, runtime claims need executed command proof, safe local reads/writes are preapproved by run contract, and project/external/dangerous operations require per-run approval.",
+  "updated_at": "2026-06-27T18:09:45.560Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V64-RELEASE-CLOSURE",
-  "source_decision_record_id": "TASK-069",
+  "source_session_id": null,
+  "source_decision_record_id": null,
   "declared_complete_at": null
 }

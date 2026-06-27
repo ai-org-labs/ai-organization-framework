@@ -15,6 +15,49 @@
 
 毎回この全文を読む代わりに、まず `command-register` を読む前提にする。
 
+## Help Boundary And Runtime Evidence Rule
+
+`v6.3` 以降の CLI help は、人間向けの完全 manual ではなく AI 向けの command routing surface である。
+
+- `node ./src/cli.js --help --json` は command taxonomy / top commands / runtime flow を読むために使う。
+- `node ./src/cli.js <command> --help --json` は command purpose / input-output shape / failure meaning / QIF boundary を読むために使う。
+- option-level detail が不足する場合は、この full CLI reference または既存 artifact format を参照する。
+- `--help` の存在は runtime proof ではない。
+- `command-registry.json` の存在は routing evidence であり、成果物品質や semantic truth の証明ではない。
+
+Direction / review / self-review / retrospective / release sign-off では、current artifact を読むだけでは不十分である。最低限、該当 claim に対応する runtime command を実行し、実行ログまたは artifact ref を残す。
+
+代表例:
+
+- verification claim: `organization-verify`, `decision-verify`, `release-state-audit`, benchmark command
+- audit claim: `organization-audit`, `command-routing-audit`
+- self-review claim: `self-audit-record`
+- situation claim: `situation-assess`, `operator-brief`, `operator-progress`
+
+Help は「どの command を使うべきか」を選ぶための入口であり、「実際に AOF runtime を使った」ことの証拠ではない。
+
+## Execution Hygiene And Command Safety
+
+`v6.5` 以降、command category と command safety は別軸で扱う。詳細は [v6.5 Execution Hygiene](./v6.5-execution-hygiene.md) を参照する。
+
+Command category:
+
+- `read`: 状態・register・status を読む
+- `verify`: 整合性・drift・benchmark を検証する
+- `write`: canonical artifact や governed state を書く
+- `execute`: runtime や orchestration を前に進める
+- `observe`: metrics・visibility・analytics を出力する
+
+Command safety level:
+
+- `safe_read`: 状態確認、brief 生成、context-pack 参照、audit / verify 表示
+- `safe_local_write`: `.aof/` 配下の artifact、goal、log、visibility、benchmark evidence 更新
+- `project_write`: repo 内の docs / schema / src / test / examples 更新
+- `external_write`: GitHub / Jira / Slack / API / model provider など外部・credentialed・billable 操作
+- `dangerous`: delete / deploy / publish / billing / secrets / production / irreversible 操作
+
+標準 local run では `safe_read` と `safe_local_write` を preapproved とし、`project_write` / `external_write` / `dangerous` は都度承認を要求する。
+
 ## Core Flow
 
 ### `init`

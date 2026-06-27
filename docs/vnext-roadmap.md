@@ -172,7 +172,45 @@ Required outcomes:
 - Guardian review includes adjacent/downstream/public-path risk questions
 - QIF living-ledger behavior is required when bugs or corrected assumptions appear
 
+### Post-v6.4 Operating Clarification
+
+Open runtime task:
+
+- `TASK-070`: Codify CLI help boundary and runtime-backed evidence rule
+
+Clarification:
+
+- CLI help is an AI-oriented command routing surface, not a complete human manual.
+- `command-registry.json` is routing evidence, not proof that runtime work happened.
+- If command help lacks option-level detail, use the existing artifact format and full CLI reference rather than blocking runtime usage.
+- Direction, review, self-review, retrospective, and release sign-off claims require at least one executed runtime command with an execution log or artifact ref.
+- Verification, audit, self-audit, and retrospective evidence should be produced by runtime commands whenever the claim depends on AOF having actually operated.
+
+Runtime hygiene extension:
+
+- canonical doc: `docs/v6.5-execution-hygiene.md`
+- command registry entries now expose `safety_level` and `approval_policy`
+- command help exposes safety metadata so an AI can distinguish routing from permission boundary
+- v6.5 should preserve minimal persistent context, on-demand skills/artifacts, work item session boundaries, small diffs, specialist actor composition, Council-ready handoff, approved run contracts, safe local command batching, and permission fatigue avoidance
+
 ## Next Frontier Candidates
+
+### Candidate: `v6.5` Execution Hygiene And Human Recognition
+
+Theme:
+
+- make AOF safer and lighter to operate by bounding context, sessions, command safety, approval boundaries, and handoff artifacts
+
+Why it matters:
+
+- this directly addresses giant `CLAUDE.md`, one-shot prompt overload, mid-run compaction loss, external tool sprawl, design dumping, review weakness, and conversation drag
+- Mission Control / Human Recognition should show not only what is happening, but whether the current run is hygienic: bounded work item, approved command scope, actor handoff, council-ready output, blockers, and runtime proof
+
+Boundary:
+
+- do not treat command help as proof of runtime execution
+- do not bypass tool or platform permissions
+- do not approve external writes, deploys, secrets, billing, destructive, production, or irreversible operations through generic local-run consent
 
 ### Candidate: Human Recognition Interface Redesign
 
@@ -224,6 +262,9 @@ Boundary:
 - Guardian review must ask what adjacent path, downstream surface, or public/irreversible impact could break before done is declared.
 - Visual or browser-facing work requires rubric-based observation, not merely a screenshot or DOM presence check.
 - QIF must operate as a living ledger: bugs, corrected assumptions, and user corrections should update Quality Intent evidence, confidence, uncertainty, negative acceptance, or follow-up tasks.
+- CLI help and command registry are command-discovery aids. They do not prove runtime execution, semantic quality, or release readiness without corresponding verification, audit, self-audit, or retrospective command evidence.
+- AOF run contracts should preapprove safe local reads/writes only; project writes, external writes, and dangerous operations require explicit per-run approval.
+- Work item boundaries and handoff artifacts should prevent long conversation context from becoming the hidden source of truth.
 
 ## Current Recommendation
 
@@ -231,14 +272,16 @@ After `v6.4.0`, choose the next frontier through runtime-backed review before op
 
 Priority order:
 
-1. `v6.5`: Mission Control / Human Recognition redesign grounded in Work Governance artifacts
-2. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
-3. `v6.x`: standalone context / external-ref / operational-map audits
-4. `v7.0`: governed multi-actor orchestration
+1. `v6.5`: Execution Hygiene + Human Recognition run contract
+2. `v6.5/v6.6`: Mission Control / Human Recognition redesign grounded in Work Governance artifacts
+3. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
+4. `v6.x`: standalone context / external-ref / operational-map audits
+5. `v7.0`: governed multi-actor orchestration
 
 Reasoning:
 
-- AI Command Help Surface is now complete enough to support command discovery.
+- AI Command Help Surface is now complete enough to support command discovery, but it must not be confused with runtime proof.
+- Execution Hygiene is now the highest-leverage next step because it prevents AOF itself from becoming a giant instruction blob, tool-sprawl driver, or permission-fatigue machine.
 - Pre-Implementation Quality Gate is now the v6.4 baseline; the next product gap is making those gates visible and actionable to a human operator.
 - Mission Control redesign should show assumptions, negative acceptance, evidence independence, Guardian questions, and QIF ledger state without inventing its own truth.
 - Multi-actor orchestration should wait until command discovery, quality explanation, and visibility surfaces are stable enough to govern parallel actor work.
