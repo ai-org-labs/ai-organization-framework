@@ -1,7 +1,7 @@
 {
   "goal_type": "operating-goal",
-  "content": "Advance v6.5 as Execution Hygiene + Human Recognition: keep AOF runs bounded by minimal persistent context, on-demand skills/artifacts, work item session boundaries, small diffs, specialist actor composition, Council-ready handoff, approved run contracts, safe local command batching, and explicit approval for project/external/dangerous operations.",
-  "updated_at": "2026-06-27T18:09:45.560Z",
+  "content": "Maintain v6.5.0 as the Execution Hygiene and Command Safety baseline, then choose the next AOF frontier through runtime-backed review with Mission Control / Human Recognition rendering of run contract, command safety, work item boundary, actor handoff, Council readiness, blockers, and runtime proof as the leading candidate.",
+  "updated_at": "2026-06-27T18:32:50.448Z",
   "agreed_with_human": true,
   "source_session_id": null,
   "source_decision_record_id": null,

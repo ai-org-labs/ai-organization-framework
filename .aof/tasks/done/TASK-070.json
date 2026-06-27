@@ -2,19 +2,19 @@
   "task_id": "TASK-070",
   "title": "v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule",
   "description": "Record the v6.5 bridge rule that AOF CLI help is an AI-oriented routing surface, not a full human manual or proof surface. When command help is incomplete, use existing artifact formats for manual evidence and execute runtime verification, audit, self-audit, and retrospective commands to leave proof.",
-  "status": "open",
+  "status": "done",
   "origin": "human",
   "orchestrator_session_id": null,
   "assigned_session_ids": [],
   "related_decision_record_id": null,
   "operating_goal_ref": "v6.5-frontier-bridge",
   "created_at": "2026-06-24T17:30:02.793Z",
-  "updated_at": "2026-06-24T17:30:02.793Z",
+  "updated_at": "2026-06-27T18:31:35.304Z",
   "assigned_at": null,
-  "done_at": null,
+  "done_at": "2026-06-27T18:31:35.304Z",
   "retired_at": null,
   "last_triaged_at": null,
   "stale_candidate_at": null,
   "retire_candidate_at": null,
-  "triage_notes": "User clarified that some commands do not expose sufficient --help detail; do not block runtime usage. Treat command registry/help as routing, and require runtime command evidence for claims. This is a v6.5 bridge task because Mission Control / Human Recognition must expose runtime-backed evidence without mistaking command discovery for proof."
+  "triage_notes": "Completed v6.5 Execution Hygiene bridge: command safety levels, approval policies, AI help safety metadata, situation-assess target-track fix, release docs, and runtime verification evidence are in place."
 }

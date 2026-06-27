@@ -572,7 +572,10 @@ function buildMissionControl({
   const activeTrack = normalizeTrackLabel(organizationStatus.active_release?.release_version ?? "");
   const goalTrack = extractTrackFromText(organizationStatus.goals.next_value_slice ?? organizationStatus.goals.operating_goal ?? "");
   const directionSelection = isDirectionSelectionSlice(organizationStatus.goals.next_value_slice);
-  const includeChainGaps = !directionSelection && (!goalTrack || !activeTrack || goalTrack === activeTrack);
+  const frontierSelectionPending = situation.current_runtime_stage === "frontier-definition-needed"
+    && !situation.primary_frontier_task
+    && /frontier review|frontier selection|next frontier/i.test(String(situation.recommended_action?.recommended_action ?? ""));
+  const includeChainGaps = !frontierSelectionPending && !directionSelection && (!goalTrack || !activeTrack || goalTrack === activeTrack);
   const useChainStageFallback = situation.current_runtime_stage === "frontier-definition-needed"
     && !situation.primary_frontier_task
     && (situation.current_truth_conflicts?.length ?? 0) === 0

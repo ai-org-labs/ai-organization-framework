@@ -2,116 +2,107 @@
 
 ## Version
 
-`v6.4.0`
+`v6.5.0`
 
 ## Release Theme
 
-Pre-Implementation Quality Gate and QIF-Governed Explanation.
+Execution Hygiene and Command Safety.
 
-`v6.3.0` made command discovery cheaper for AI orchestrators. The next bottleneck is earlier and more dangerous: AOF/QIF can pass structural gates after implementation while missing that the product assumption was wrong before implementation began.
+`v6.4.0` made AOF better at stopping wrong work before implementation. The next bottleneck is operational: AOF itself can become too heavy if every run carries too much persistent context, too many tools, too much stale conversation memory, or too many approval prompts.
 
 Human-facing wording:
 
-> v6.4 should help AOF stop or reframe solution-shaped work before implementation when the user problem, product assumption, data boundary, UI responsibility, or negative acceptance is unclear.
+> v6.5 should make AOF runs lighter, safer, and easier to approve by separating safe local runtime work from project, external, and dangerous operations.
 
 More explicit wording:
 
-> AOF should not merely record that a task was completed and structurally verified. It should force the orchestrator to ask whether the task is solving the right problem, whether a UI solution is masking a data-model issue, what must not happen, and what evidence would prove the change is acceptable.
+> AOF should not become a giant prompt, a giant `CLAUDE.md`, or a permission-fatigue machine. Each run should know its work item boundary, what context is persistent, what artifacts are loaded on demand, what local commands are preapproved, and what actions require explicit human approval.
 
 ## Runtime Evidence Basis
 
 - runtime command: `situation-assess --project .`
-- feedback intake task: `TASK-067`
-- source retrospective: external AOF/QIF retrospective dated `2026-06-25`
-- release direction doc: `docs/v6.4-pre-implementation-quality-gate.md`
-- QIF provider profile: `.aof/quality/qif-provider-profile.json`
-- current baseline release definition: `docs/v6.3-release-definition.md`
+- release task: `TASK-070`
+- execution hygiene doc: `docs/v6.5-execution-hygiene.md`
+- command registry: `.aof/command-registry.json`
+- CLI reference: `docs/cli-reference.md`
+- current baseline release definition: `docs/v6.4-release-definition.md`
 - roadmap: `docs/vnext-roadmap.md`
 
 ## Required Outcomes
 
 Required:
 
-- define a problem-before-solution gate
-- define a product-assumption-review surface
-- define negative acceptance as first-class release-quality evidence
-- define corrected-assumption recording for later user comments that overturn earlier work
-- define first-use scenario review for user-facing UI/product changes
-- define evidence independence grading so code reading and symmetry reasoning cannot substitute for user-visible E2E observation
-- define done-before Guardian fixed questions for adjacent/downstream/public path risk
-- define rubric-based visual/render/comprehension review when UI output is involved
-- define QIF as a living ledger updated by bugs, corrections, and contradicted assumptions
-- connect benchmark explanation to QIF Quality Intent, risk, loss boundary, evidence refs, acceptance gate, verdict boundary, confidence, uncertainty, and governance trigger
-- require pre-implementation QIF review when work touches sample/new/template/seed/project loading/editor/projection/governance surfaces
+- define minimal persistent context
+- define skills / artifacts on demand
+- define work item session boundary
+- define small diff / small work item rule
+- define specialist actor composition
+- define Council-ready handoff
+- define approved run contract
+- define batch safe local commands
+- define permission fatigue avoidance
+- classify commands by `safe_read`, `safe_local_write`, `project_write`, `external_write`, and `dangerous`
+- expose `safety_level` and `approval_policy` through command registry and AI help
+- verify safety metadata through `cli-help-benchmark`
+- prevent `situation-assess` from mistaking a shipped release mention for the target frontier
 
 Deferred:
 
 - full Mission Control UX redesign
-- automated semantic UI comprehension scoring
-- full QIF v0.3 executable verifier support
+- automatic enforcement of every safety class
+- external tool permission automation
 - governed multi-actor orchestration
 
 ## Release Gates
 
 ### Gate 1: Runtime Direction
 
-- `situation-assess` reports post-v6.3 frontier-definition-needed
-- `TASK-067` records feedback intake
-- release plan explains why v6.4 is broader than benchmark explanation alone
+- `situation-assess` reports `TASK-070` as the v6.5 frontier
+- `situation-assess` reports no truth conflicts
+- operating goal and next value slice point at Execution Hygiene + Human Recognition
 
-### Gate 2: Pre-Implementation Quality Gate
+### Gate 2: Execution Hygiene
 
-- user problem is recorded before solution
-- product assumption is recorded before implementation
-- data model impact is recorded
-- UI responsibility is recorded
-- sample/new/template/seed/project boundary impact is recorded when relevant
-- alternative approaches are recorded
-- stop/defer/experiment condition is recorded
+- Execution Hygiene doc exists
+- the nine hygiene principles are defined
+- failure modes are named
+- work item session boundary and handoff expectations are visible
 
-### Gate 3: Negative Acceptance
+### Gate 3: Command Safety
 
-- acceptance includes states that must not happen
-- UI/product work cannot pass with only positive DOM existence checks
-- missing negative acceptance triggers governance review
+- command registry schema includes safety fields
+- command registry artifact includes safety fields
+- command help includes safety fields
+- `cli-help-benchmark` checks safety metadata
 
-### Gate 4: Corrected Assumption Loop
+### Gate 4: Approval Boundary
 
-- overturned assumptions can be recorded without erasing history
-- corrected assumption links to original assumption, later evidence, affected tasks/releases, and new negative acceptance
+- safe local read/write actions are described as preapproved for normal local runs
+- project writes require care
+- external writes require explicit approval
+- dangerous operations require explicit approval
+- release docs do not claim permission bypass
 
-### Gate 5: Evidence And Guardian Forcing Functions
-
-- user-visible E2E evidence is required for user-visible claims
-- code reading and symmetry reasoning are graded as low-independence evidence for UI/public behavior claims
-- Guardian answers the fixed questions: other path, adjacent surface, public/irreversible risk
-- visual or browser output is scored against grounding, visibility, size/density, transparency/occlusion, and composition/responsibility
-- bug or correction intake updates the QIF ledger or records an explicit no-change rationale
-
-### Gate 6: QIF-Governed Explanation
-
-- benchmark results can explain what was checked
-- expected standard is visible
-- failure meaning is visible
-- residual uncertainty is visible
-- governance trigger is visible
-
-### Gate 7: Verification
+### Gate 5: Verification
 
 - command routing audit
 - organization verification
-- decision verification
 - release-state audit
-- focused tests
+- decision verification
+- focused runtime situation tests
 - `npm test`
 - `npm run smoke`
 
 ## Release Decision
 
-Release `v6.4.0` only if AOF gains pre-implementation stopping power.
+Release `v6.5.0` only if AOF now makes it harder to confuse:
 
-Do not release merely because explanation docs exist. The release must make it harder for a solution-shaped task to pass without stating the problem, assumption, data boundary, negative acceptance, and QIF evidence plan.
+- CLI help with runtime proof
+- `.aof` artifact writes with project source edits
+- project writes with external writes
+- safe local commands with deploy/publish/secrets/billing/destructive/production actions
+- long conversation state with canonical work item handoff artifacts
 
-## Post-v6.4 Direction Candidate
+## Post-v6.5 Direction Candidate
 
-After v6.4, Mission Control / Human Recognition redesign becomes more realistic because the viewer can show not only what happened, but also which assumptions were challenged before implementation and which negative acceptances are guarding the work.
+After v6.5, Mission Control / Human Recognition should render the Execution Hygiene state directly: active work item, run contract, command safety boundary, actor handoff, Council readiness, blockers, and runtime proof.

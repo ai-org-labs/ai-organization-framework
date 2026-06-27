@@ -1,4 +1,4 @@
-# AOF Post-v6.4 Roadmap
+# AOF Post-v6.5 Roadmap
 
 ## North Star
 
@@ -67,6 +67,15 @@ AOF should become an AI Organization Operating System that can:
 - Guardian done-before questions cover adjacent paths, shared assumptions, and public/irreversible risk
 - visual/browser work requires rubric-based observation
 - QIF is treated as a living ledger updated by bugs, corrections, contradicted assumptions, confidence changes, and residual risk
+
+`v6.5.0` establishes Execution Hygiene and Command Safety:
+
+- minimal persistent context and on-demand skill/artifact loading are defined as operating principles
+- work item session boundaries, small diffs, specialist actor composition, Council-ready handoff, approved run contracts, safe local command batching, and permission fatigue avoidance are documented
+- command registry and AI help expose `safety_level` and `approval_policy`
+- `safe_read`, `safe_local_write`, `project_write`, `external_write`, and `dangerous` are defined
+- `cli-help-benchmark` verifies safety metadata
+- `situation-assess` correctly targets the future track when a slice mentions the shipped release first
 
 ## Completed Track
 
@@ -174,7 +183,7 @@ Required outcomes:
 
 ### Post-v6.4 Operating Clarification
 
-Open runtime task:
+Completed runtime task:
 
 - `TASK-070`: Codify CLI help boundary and runtime-backed evidence rule
 
@@ -193,9 +202,23 @@ Runtime hygiene extension:
 - command help exposes safety metadata so an AI can distinguish routing from permission boundary
 - v6.5 should preserve minimal persistent context, on-demand skills/artifacts, work item session boundaries, small diffs, specialist actor composition, Council-ready handoff, approved run contracts, safe local command batching, and permission fatigue avoidance
 
+### `v6.5.0`: Execution Hygiene and Command Safety
+
+Completed release task:
+
+- `TASK-070`: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule
+
+Required outcomes:
+
+- AOF has a documented Execution Hygiene contract
+- command category and command safety are separate axes
+- command registry and help expose safety metadata
+- safe local reads/writes are distinguished from project, external, and dangerous operations
+- release docs preserve the boundary that AOF does not bypass platform or human permissions
+
 ## Next Frontier Candidates
 
-### Candidate: `v6.5` Execution Hygiene And Human Recognition
+### Completed: `v6.5` Execution Hygiene And Human Recognition
 
 Theme:
 
@@ -268,20 +291,19 @@ Boundary:
 
 ## Current Recommendation
 
-After `v6.4.0`, choose the next frontier through runtime-backed review before opening implementation work.
+After `v6.5.0`, choose the next frontier through runtime-backed review before opening implementation work.
 
 Priority order:
 
-1. `v6.5`: Execution Hygiene + Human Recognition run contract
-2. `v6.5/v6.6`: Mission Control / Human Recognition redesign grounded in Work Governance artifacts
-3. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
-4. `v6.x`: standalone context / external-ref / operational-map audits
-5. `v7.0`: governed multi-actor orchestration
+1. `v6.6`: Mission Control / Human Recognition redesign that renders Execution Hygiene state
+2. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
+3. `v6.x`: standalone context / external-ref / operational-map audits
+4. `v7.0`: governed multi-actor orchestration
 
 Reasoning:
 
 - AI Command Help Surface is now complete enough to support command discovery, but it must not be confused with runtime proof.
-- Execution Hygiene is now the highest-leverage next step because it prevents AOF itself from becoming a giant instruction blob, tool-sprawl driver, or permission-fatigue machine.
+- Execution Hygiene is now the v6.5 baseline; the next product gap is making the run contract and permission boundary visible in Mission Control.
 - Pre-Implementation Quality Gate is now the v6.4 baseline; the next product gap is making those gates visible and actionable to a human operator.
 - Mission Control redesign should show assumptions, negative acceptance, evidence independence, Guardian questions, and QIF ledger state without inventing its own truth.
 - Multi-actor orchestration should wait until command discovery, quality explanation, and visibility surfaces are stable enough to govern parallel actor work.

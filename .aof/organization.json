@@ -1,7 +1,7 @@
 {
   "organization_type": "aof-organization",
   "organization_format_version": 1,
-  "mission": "Ship v6.4.0 as the Pre-Implementation Quality Gate and QIF-Governed Explanation release.",
+  "mission": "Ship v6.5.0 as the Execution Hygiene and Command Safety release.",
   "project_ref": ".aof/context/active/project-orientation.json",
   "skills_ref": ".aof/skills.json",
   "capability_registry_ref": ".aof/capability-registry.json",
@@ -174,7 +174,7 @@
       "name": "Governance To Release Contract",
       "owner_team_ref": "governance-team",
       "contract_type": "release-definition",
-      "artifact_ref": "docs/v6.4-release-definition.md"
+      "artifact_ref": "docs/v6.5-release-definition.md"
     },
     {
       "contract_id": "contract-verification-to-runtime",
@@ -287,5 +287,5 @@
       "archive"
     ]
   },
-  "updated_at": "2026-06-24T17:20:06.033Z"
+  "updated_at": "2026-06-27T18:31:54.570Z"
 }

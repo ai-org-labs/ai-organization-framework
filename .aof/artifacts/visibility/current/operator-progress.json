@@ -1,36 +1,31 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-06-27T18:10:11.819Z",
+  "generated_at": "2026-06-27T18:38:39.844Z",
   "current_checkpoint": {
-    "stage": "implementation-ready",
-    "frontier_task_id": "TASK-070",
-    "summary": "TASK-070 is active and the runtime is implementation-ready.",
-    "artifact_ref": ".aof/tasks/open/TASK-070.json"
+    "stage": "frontier-definition-needed",
+    "frontier_task_id": null,
+    "summary": "The runtime is frontier-definition-needed.",
+    "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-069 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-069.json"
+    "summary": "TASK-070 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-070.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-069 completed: Release v6.4 Pre-Implementation Quality Gate",
-      "artifact_ref": ".aof/tasks/done/TASK-069.json"
-    },
-    {
-      "kind": "frontier-task",
-      "summary": "TASK-070 is now the active frontier: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule",
-      "artifact_ref": ".aof/tasks/open/TASK-070.json"
+      "summary": "TASK-070 completed: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule",
+      "artifact_ref": ".aof/tasks/done/TASK-070.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v6.4.0, advance v6.5 as Execution Hygiene + Human Recognition: preserve the rule that CLI help is routing evidence, runtime claims need executed command proof, safe local reads/writes are preapproved by run contract, and project/external/dangerous operations require per-run approval.",
+      "summary": "After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-069 completed: Release v6.4 Pre-Implementation Quality Gate TASK-070 is now the active frontier: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule After v6.4.0, advance v6.5 as Execution Hygiene + Human Recognition: preserve the rule that CLI help is routing evidence, runtime claims need executed command proof, safe local reads/writes are preapproved by run contract, and project/external/dangerous operations require per-run approval.",
-    "why_it_matters": "TASK-070 now defines the current operating move after the latest completed release step.",
-    "next_checkpoint": "Start TASK-070: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule"
+    "what_changed": "TASK-070 completed: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof.",
+    "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
+    "next_checkpoint": "Open an implementation task for the current frontier: After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof."
   }
 }
