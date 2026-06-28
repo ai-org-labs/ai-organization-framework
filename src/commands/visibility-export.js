@@ -10,7 +10,7 @@ import { buildOperatorProgressView } from "./operator-progress.js";
 import { buildTreePositionView } from "./tree-position.js";
 import { buildEvidenceDrillDownView } from "./evidence-drill-down.js";
 import { roadmapStatusCommand } from "./roadmap-status.js";
-import { extractTrackFromText, isDirectionSelectionSlice, loadSituationAssessmentSummary, normalizeTrackLabel } from "./situation-assess.js";
+import { isDirectionSelectionSlice, loadSituationAssessmentSummary, normalizeTrackLabel } from "./situation-assess.js";
 import { loadLatestSkillfulActorHriProjection } from "./skillful-actor-hri-projection.js";
 import { resolveAofRoot } from "../runtime/project-paths.js";
 import { validateWithBundledSchema } from "../runtime/validation.js";
@@ -459,6 +459,32 @@ function summarizeSkillfulActorProjection(projection) {
   };
 }
 
+function trackNumber(track) {
+  const normalized = normalizeTrackLabel(track);
+  if (!normalized) {
+    return -1;
+  }
+  const match = normalized.match(/^v(\d+)\.(\d+)$/i);
+  if (!match) {
+    return -1;
+  }
+  return Number.parseInt(match[1], 10) * 1000 + Number.parseInt(match[2], 10);
+}
+
+function extractTargetTrackFromText(text, activeTrack) {
+  const tracks = [...String(text ?? "").matchAll(/\bv(\d+)\.(\d+)\b/gi)]
+    .map((match) => `v${match[1]}.${match[2]}`);
+  if (tracks.length === 0) {
+    return null;
+  }
+  const activeNumber = trackNumber(activeTrack);
+  const futureTracks = tracks.filter((track) => trackNumber(track) > activeNumber);
+  if (futureTracks.length > 0) {
+    return futureTracks.sort((left, right) => trackNumber(right) - trackNumber(left))[0];
+  }
+  return tracks[0];
+}
+
 async function loadWorkGovernanceProjection(projectRoot, aofRoot) {
   const root = path.join(aofRoot, "artifacts", "work-governance");
   const files = await listJsonFilesRecursive(root);
@@ -558,6 +584,66 @@ async function loadWorkGovernanceProjection(projectRoot, aofRoot) {
   };
 }
 
+async function listArchmapFiles(dirPath) {
+  try {
+    const entries = await fs.readdir(dirPath, { withFileTypes: true });
+    const files = [];
+    for (const entry of entries) {
+      const entryPath = path.join(dirPath, entry.name);
+      if (entry.isDirectory()) {
+        files.push(...await listArchmapFiles(entryPath));
+      } else if (entry.isFile() && entry.name.endsWith(".archmap")) {
+        files.push(entryPath);
+      }
+    }
+    return files.sort();
+  } catch {
+    return [];
+  }
+}
+
+async function loadArchmapProjection(projectRoot, aofRoot) {
+  const sourceFiles = await listArchmapFiles(path.join(projectRoot, "docs", "archmaps"));
+  const impactFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "archmap", "impact"));
+  const impactRecords = [];
+  for (const impactFile of impactFiles) {
+    impactRecords.push({
+      ref: path.relative(projectRoot, impactFile).replaceAll("\\", "/"),
+      payload: await readJson(impactFile, `archmap impact ${path.basename(impactFile)}`)
+    });
+  }
+  impactRecords.sort((left, right) => String(right.payload.recorded_at ?? "").localeCompare(String(left.payload.recorded_at ?? "")));
+
+  const currentSourceRef = sourceFiles[0]
+    ? path.relative(projectRoot, sourceFiles[0]).replaceAll("\\", "/")
+    : null;
+  const latestImpact = impactRecords[0] ?? null;
+  const pendingImpacts = impactRecords.filter((entry) =>
+    /pending|deferred|required/i.test(String(entry.payload.council_review_status ?? entry.payload.status ?? ""))
+  );
+
+  return {
+    present: Boolean(currentSourceRef || impactRecords.length > 0),
+    current_source_ref: currentSourceRef,
+    impact_record_count: impactRecords.length,
+    latest_impact_ref: latestImpact?.ref ?? null,
+    latest_impact_status: latestImpact?.payload.status ?? null,
+    latest_work_item_id: latestImpact?.payload.work_item_id ?? null,
+    pending_impact_count: pendingImpacts.length,
+    pending_impacts: pendingImpacts.map((entry) => ({
+      work_item_id: entry.payload.work_item_id ?? null,
+      status: entry.payload.status ?? null,
+      council_review_status: entry.payload.council_review_status ?? null,
+      artifact_ref: entry.ref
+    })),
+    source_of_truth: [
+      currentSourceRef,
+      latestImpact?.ref ?? null
+    ].filter(Boolean),
+    external_refs: latestImpact?.payload.external_refs ?? []
+  };
+}
+
 function buildMissionControl({
   organizationStatus,
   roadmapStatus,
@@ -565,12 +651,16 @@ function buildMissionControl({
   chain,
   situation,
   skillfulActorProjection = null,
-  workGovernanceProjection = null
+  workGovernanceProjection = null,
+  archmapProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
   const skillfulActorSummary = summarizeSkillfulActorProjection(skillfulActorProjection);
   const activeTrack = normalizeTrackLabel(organizationStatus.active_release?.release_version ?? "");
-  const goalTrack = extractTrackFromText(organizationStatus.goals.next_value_slice ?? organizationStatus.goals.operating_goal ?? "");
+  const goalTrack = extractTargetTrackFromText(
+    organizationStatus.goals.next_value_slice ?? organizationStatus.goals.operating_goal ?? "",
+    activeTrack
+  );
   const directionSelection = isDirectionSelectionSlice(organizationStatus.goals.next_value_slice);
   const frontierSelectionPending = situation.current_runtime_stage === "frontier-definition-needed"
     && !situation.primary_frontier_task
@@ -658,6 +748,18 @@ function buildMissionControl({
       benchmark_ref: null,
       work_item_count: 0,
       work_items: []
+    },
+    archmap: archmapProjection ?? {
+      present: false,
+      current_source_ref: null,
+      impact_record_count: 0,
+      latest_impact_ref: null,
+      latest_impact_status: null,
+      latest_work_item_id: null,
+      pending_impact_count: 0,
+      pending_impacts: [],
+      source_of_truth: [],
+      external_refs: []
     }
   };
 }
@@ -667,7 +769,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -677,7 +779,8 @@ export async function visibilityExportCommand(options) {
     loadLatestNeedValidationChain(projectRoot, aofRoot),
     loadSituationAssessmentSummary(projectRoot),
     loadLatestSkillfulActorHriProjection(projectRoot),
-    loadWorkGovernanceProjection(projectRoot, aofRoot)
+    loadWorkGovernanceProjection(projectRoot, aofRoot),
+    loadArchmapProjection(projectRoot, aofRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -709,7 +812,8 @@ export async function visibilityExportCommand(options) {
     chain: latestChain,
     situation,
     skillfulActorProjection,
-    workGovernanceProjection
+    workGovernanceProjection,
+    archmapProjection
   });
   const operatorBrief = buildOperatorBriefView({
     organizationStatus,

@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-06-27T18:38:39.813Z",
+      "at": "2026-06-28T17:39:01.890Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-06-27T18:38:39.807Z",
+      "at": "2026-06-28T17:39:01.884Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,10 +24,10 @@
       ]
     },
     {
-      "at": "2026-06-27T18:32:50.809Z",
+      "at": "2026-06-28T17:30:00.000Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof.",
+      "summary": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [

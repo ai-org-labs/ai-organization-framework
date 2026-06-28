@@ -1,6 +1,6 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-06-27T18:38:39.852Z",
+  "generated_at": "2026-06-28T17:39:01.937Z",
   "trunk": {
     "label": "AOF release evolution",
     "active_release_version": "6.5.0",
@@ -8,22 +8,27 @@
     "release_definition_ref": "docs/v6.5-release-definition.md"
   },
   "branch": {
-    "frontier_track": null,
-    "frontier_task_id": null,
-    "frontier_task_title": null,
-    "artifact_ref": null,
-    "branch_summary": "After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof."
+    "frontier_track": "v6.6",
+    "frontier_task_id": "TASK-071",
+    "frontier_task_title": "v6.6 frontier: Integrate Archmap into AOF governed development flow",
+    "artifact_ref": ".aof/tasks/open/TASK-071.json",
+    "branch_summary": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
       "label": "v6.5",
       "state": "done"
+    },
+    {
+      "kind": "frontier-track",
+      "label": "v6.6",
+      "state": "current"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v6.5 and the next concrete branch.",
-    "why_this_branch": "Maintain v6.5.0 as the Execution Hygiene and Command Safety baseline, then choose the next AOF frontier through runtime-backed review with Mission Control / Human Recognition rendering of run contract, command safety, work item boundary, actor handoff, Council readiness, blockers, and runtime proof as the leading candidate.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof."
+    "where_are_we": "TASK-071 sits on v6.6 after shipped v6.5.",
+    "why_this_branch": "Maintain v6.5.0 as the Execution Hygiene and Command Safety baseline, then use v6.6 to make AOF development Archmap-aware: every implementation-grade work item should update, defer, or explicitly mark architecture map impact as unaffected, with Mission Control rendering the current map ref, map-impact state, blockers, and runtime proof.",
+    "what_branch_comes_next": "Start TASK-071: v6.6 frontier: Integrate Archmap into AOF governed development flow"
   }
 }

@@ -1,7 +1,7 @@
 {
   "goal_type": "operating-goal",
-  "content": "Maintain v6.5.0 as the Execution Hygiene and Command Safety baseline, then choose the next AOF frontier through runtime-backed review with Mission Control / Human Recognition rendering of run contract, command safety, work item boundary, actor handoff, Council readiness, blockers, and runtime proof as the leading candidate.",
-  "updated_at": "2026-06-27T18:32:50.448Z",
+  "content": "Maintain v6.5.0 as the Execution Hygiene and Command Safety baseline, then use v6.6 to make AOF development Archmap-aware: every implementation-grade work item should update, defer, or explicitly mark architecture map impact as unaffected, with Mission Control rendering the current map ref, map-impact state, blockers, and runtime proof.",
+  "updated_at": "2026-06-28T17:30:00.000Z",
   "agreed_with_human": true,
   "source_session_id": null,
   "source_decision_record_id": null,

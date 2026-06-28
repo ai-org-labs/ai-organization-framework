@@ -1,11 +1,11 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-06-27T18:38:39.844Z",
+  "generated_at": "2026-06-28T17:39:01.927Z",
   "current_checkpoint": {
-    "stage": "frontier-definition-needed",
-    "frontier_task_id": null,
-    "summary": "The runtime is frontier-definition-needed.",
-    "artifact_ref": ".aof/goals/next-value-slice.json"
+    "stage": "implementation-ready",
+    "frontier_task_id": "TASK-071",
+    "summary": "TASK-071 is active and the runtime is implementation-ready.",
+    "artifact_ref": ".aof/tasks/open/TASK-071.json"
   },
   "previous_checkpoint": {
     "summary": "TASK-070 was the latest completed checkpoint.",
@@ -18,14 +18,19 @@
       "artifact_ref": ".aof/tasks/done/TASK-070.json"
     },
     {
+      "kind": "frontier-task",
+      "summary": "TASK-071 is now the active frontier: v6.6 frontier: Integrate Archmap into AOF governed development flow",
+      "artifact_ref": ".aof/tasks/open/TASK-071.json"
+    },
+    {
       "kind": "goal-refresh",
-      "summary": "After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof.",
+      "summary": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-070 completed: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof.",
-    "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof."
+    "what_changed": "TASK-070 completed: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule TASK-071 is now the active frontier: v6.6 frontier: Integrate Archmap into AOF governed development flow After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
+    "why_it_matters": "TASK-071 now defines the current operating move after the latest completed release step.",
+    "next_checkpoint": "Start TASK-071: v6.6 frontier: Integrate Archmap into AOF governed development flow"
   }
 }

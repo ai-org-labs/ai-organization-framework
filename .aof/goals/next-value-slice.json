@@ -1,7 +1,7 @@
 {
   "goal_type": "next-value-slice",
-  "content": "After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof.",
-  "updated_at": "2026-06-27T18:32:50.809Z",
+  "content": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
+  "updated_at": "2026-06-28T17:30:00.000Z",
   "agreed_with_human": true,
   "source_session_id": null,
   "source_decision_record_id": null,

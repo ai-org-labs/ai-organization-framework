@@ -213,6 +213,47 @@
       },
       "additionalProperties": false
     },
+    "archmap": {
+      "type": "object",
+      "required": [
+        "present",
+        "current_source_ref",
+        "impact_record_count",
+        "latest_impact_ref",
+        "latest_impact_status",
+        "latest_work_item_id",
+        "pending_impact_count",
+        "pending_impacts",
+        "source_of_truth",
+        "external_refs"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "current_source_ref": { "type": ["string", "null"] },
+        "impact_record_count": { "type": "integer" },
+        "latest_impact_ref": { "type": ["string", "null"] },
+        "latest_impact_status": { "type": ["string", "null"] },
+        "latest_work_item_id": { "type": ["string", "null"] },
+        "pending_impact_count": { "type": "integer" },
+        "pending_impacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["work_item_id", "status", "council_review_status", "artifact_ref"],
+            "properties": {
+              "work_item_id": { "type": ["string", "null"] },
+              "status": { "type": ["string", "null"] },
+              "council_review_status": { "type": ["string", "null"] },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "source_of_truth": { "type": "array", "items": { "type": "string" } },
+        "external_refs": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
     "skillful_actor_projection": {
       "type": ["object", "null"],
       "required": ["projection_ref", "projection_id", "actor", "visible_state", "proof_chain"],

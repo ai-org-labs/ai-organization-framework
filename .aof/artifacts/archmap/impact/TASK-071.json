@@ -1,0 +1,42 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-071",
+  "work_item_ref": ".aof/tasks/open/TASK-071.json",
+  "work_item_id": "TASK-071",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "node",
+      "id": "Archmap",
+      "reason": "AOF runtime now treats architecture map source as a governed artifact."
+    },
+    {
+      "kind": "node",
+      "id": "Icons",
+      "reason": "archmap-icons is recorded as an optional recognition aid, not quality proof."
+    },
+    {
+      "kind": "edge",
+      "id": "Runtime->Archmap",
+      "reason": "Runtime work must update, defer, or mark architecture impact as unaffected."
+    },
+    {
+      "kind": "boundary",
+      "id": "source_of_truth",
+      "reason": "Mission Control may project maps but must not own truth."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "pending",
+  "evidence_refs": [
+    "docs/v6.6-archmap-integration.md",
+    "docs/archmaps/aof-runtime-current.archmap"
+  ],
+  "external_refs": [
+    "https://github.com/ai-org-labs/archmap/tree/v0.1.0",
+    "https://github.com/ai-org-labs/archmap-icons/tree/v0.1.1"
+  ],
+  "recorded_at": "2026-06-28T17:32:00.000Z"
+}

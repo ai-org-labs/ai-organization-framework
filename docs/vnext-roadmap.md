@@ -235,21 +235,36 @@ Boundary:
 - do not bypass tool or platform permissions
 - do not approve external writes, deploys, secrets, billing, destructive, production, or irreversible operations through generic local-run consent
 
-### Candidate: Human Recognition Interface Redesign
+### Candidate: `v6.6` Archmap-Aware Mission Control
 
 Theme:
 
-- rebuild viewer into a true one-screen organization recognition interface
+- make AOF construct and maintain an Archmap architecture map as governed work progresses
+- connect Mission Control / Human Recognition to architecture impact without making the viewer a source of truth
 
 Why it matters:
 
-- current viewer is truthful but not good enough as a product surface
-- the operator should see council, actors, active work, blockers, timeline, and next action without reading raw JSON
+- AOF should not only say what work is active; it should show how the work changes the organization/runtime architecture
+- Archmap can make components, dependencies, zones, boundaries, data flows, and external references recognizable at a glance
+- architecture impact should become part of Council-ready handoff instead of after-the-fact documentation
 
 Boundary:
 
-- all displayed state must derive from canonical runtime artifacts
-- decorative UI does not count as recognition quality
+- Archmap source and AOF artifacts are source of truth; Mission Control only projects them
+- icons improve recognition but do not prove architecture quality
+- every implementation-grade work item should declare `archmap_update_required`, `archmap_unaffected`, or `archmap_deferred_with_reason`
+- do not require full Archmap rendering integration before the map-impact contract is proven
+
+Initial task:
+
+- `TASK-071`: v6.6 frontier: Integrate Archmap into AOF governed development flow
+
+Canonical references:
+
+- `docs/v6.6-archmap-integration.md`
+- `docs/archmaps/aof-runtime-current.archmap`
+- Archmap `v0.1.0`: `https://github.com/ai-org-labs/archmap/tree/v0.1.0`
+- archmap-icons `v0.1.1`: `https://github.com/ai-org-labs/archmap-icons/tree/v0.1.1`
 
 ### Later Candidate: `v7.0` Governed Multi-Actor Orchestration
 
@@ -295,7 +310,7 @@ After `v6.5.0`, choose the next frontier through runtime-backed review before op
 
 Priority order:
 
-1. `v6.6`: Mission Control / Human Recognition redesign that renders Execution Hygiene state
+1. `v6.6`: Archmap-aware Mission Control that makes architecture impact visible as governed work progresses
 2. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
 3. `v6.x`: standalone context / external-ref / operational-map audits
 4. `v7.0`: governed multi-actor orchestration
@@ -303,7 +318,7 @@ Priority order:
 Reasoning:
 
 - AI Command Help Surface is now complete enough to support command discovery, but it must not be confused with runtime proof.
-- Execution Hygiene is now the v6.5 baseline; the next product gap is making the run contract and permission boundary visible in Mission Control.
+- Execution Hygiene is now the v6.5 baseline; the next product gap is making the run contract, permission boundary, and architecture impact visible in Mission Control.
 - Pre-Implementation Quality Gate is now the v6.4 baseline; the next product gap is making those gates visible and actionable to a human operator.
-- Mission Control redesign should show assumptions, negative acceptance, evidence independence, Guardian questions, and QIF ledger state without inventing its own truth.
+- Mission Control redesign should show assumptions, negative acceptance, evidence independence, Guardian questions, QIF ledger state, and Archmap impact without inventing its own truth.
 - Multi-actor orchestration should wait until command discovery, quality explanation, and visibility surfaces are stable enough to govern parallel actor work.

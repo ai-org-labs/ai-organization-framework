@@ -1,0 +1,66 @@
+graph LR
+  User[Human Operator] -->|request / correction| Orchestrator[AOF Orchestrator]
+  Orchestrator -->|runtime commands| Runtime[AOF Runtime CLI]
+  Runtime -->|reads / writes| Artifacts[(AOF Artifacts)]
+  Runtime -->|projects| MissionControl[Mission Control]
+  Runtime -->|quality intent| QIF[QIF Provider]
+  Runtime -->|architecture source| Archmap[Archmap Source]
+  Archmap -->|rendered view| MissionControl
+  Runtime -->|optional icons| Icons[Archmap Icons]
+  Builder[Builder Actor] -->|work result| Artifacts
+  Guardian[Guardian Actor] -->|verification| Artifacts
+  Council[Council] -->|approve / reject / defer| Artifacts
+  Orchestrator -->|assigns| Builder
+  Orchestrator -->|assigns| Guardian
+  Builder -->|handoff| Council
+  Guardian -->|review| Council
+---
+title: AOF Runtime Architecture Current Map
+description: Initial Archmap source for AOF runtime, work governance, Mission Control, QIF, and Archmap integration.
+nodes:
+  User: { zone: human, layer: operator, kind: user }
+  Orchestrator: { zone: aof_runtime, layer: orchestration, kind: orchestrator }
+  Runtime: { zone: aof_runtime, layer: runtime, kind: cli }
+  Artifacts: { zone: aof_artifacts, layer: evidence, kind: artifact_store }
+  MissionControl: { zone: recognition, layer: visibility, kind: dashboard }
+  QIF: { zone: external_frameworks, layer: quality, kind: quality_framework }
+  Archmap: { zone: architecture_map, layer: architecture, kind: diagram_source }
+  Icons: { zone: architecture_map, layer: recognition, kind: icon_pack }
+  Builder: { zone: organization, layer: actor, kind: builder }
+  Guardian: { zone: organization, layer: actor, kind: checker }
+  Council: { zone: organization, layer: governance, kind: council }
+edges:
+  User->Orchestrator: { flow: request_intake, protocol: conversation }
+  Orchestrator->Runtime: { flow: command_execution, protocol: local_cli }
+  Runtime->Artifacts: { flow: evidence_read_write }
+  Runtime->MissionControl: { flow: visibility_projection }
+  Runtime->QIF: { flow: quality_intent_alignment }
+  Runtime->Archmap: { flow: architecture_map_update }
+  Archmap->MissionControl: { flow: architecture_recognition_projection }
+  Runtime->Icons: { flow: optional_icon_lookup }
+  Orchestrator->Builder: { flow: actor_assignment }
+  Orchestrator->Guardian: { flow: checker_assignment }
+  Builder->Artifacts: { flow: work_output }
+  Guardian->Artifacts: { flow: verification_output }
+  Builder->Council: { flow: council_ready_handoff }
+  Guardian->Council: { flow: review_signal }
+  Council->Artifacts: { flow: governance_decision }
+zones:
+  human: { label: Human Context, kind: operator_boundary, contains: [User] }
+  aof_runtime: { label: AOF Runtime, kind: runtime_boundary, contains: [Orchestrator, Runtime] }
+  aof_artifacts: { label: Canonical Evidence, kind: artifact_boundary, contains: [Artifacts] }
+  recognition: { label: Human Recognition, kind: visibility_boundary, contains: [MissionControl] }
+  external_frameworks: { label: External Frameworks, kind: reference_boundary, contains: [QIF] }
+  architecture_map: { label: Architecture Map, kind: map_boundary, contains: [Archmap, Icons] }
+  organization: { label: AI Organization, kind: governance_boundary, contains: [Builder, Guardian, Council] }
+boundaries:
+  source_of_truth:
+    label: Source of Truth Boundary
+    kind: evidence_boundary
+    contains: [Artifacts, Archmap]
+    description: Mission Control may project these facts but must not become the source of truth.
+  external_dependency:
+    label: External Reference Boundary
+    kind: dependency_boundary
+    contains: [QIF, Icons]
+    description: External frameworks and icon packs are referenced explicitly and should remain replaceable.

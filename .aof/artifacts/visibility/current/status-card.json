@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-06-27T18:38:39.813Z",
+  "as_of": "2026-06-28T17:39:01.890Z",
   "usage_level": "runtime-backed",
-  "current_phase": "organization_operating",
-  "current_goal": "After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof.",
+  "current_phase": "v6.6 frontier: Integrate Archmap into AOF governed development flow",
+  "current_goal": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "After v6.5.0, run a runtime-backed frontier review for v6.6 Mission Control / Human Recognition redesign that makes Execution Hygiene visible: active work item, run contract, command safety boundary, handoff state, Council readiness, blockers, and proof.",
+  "next_checkpoint": "v6.6 frontier: Integrate Archmap into AOF governed development flow",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }
