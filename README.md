@@ -47,6 +47,7 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 
 ## Read First
 
+- AI authoring guide: [docs/AI_AUTHORING_GUIDE.md](docs/AI_AUTHORING_GUIDE.md)
 - core model: [docs/aof-core-model.md](docs/aof-core-model.md)
 - operations model: [docs/aof-operations-model.md](docs/aof-operations-model.md)
 - organization model: [docs/aof-organization-model.md](docs/aof-organization-model.md)
