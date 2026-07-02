@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-02T07:27:50.262Z",
+      "at": "2026-07-02T08:27:33.161Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-02T07:27:50.255Z",
+      "at": "2026-07-02T08:27:33.155Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,14 +24,25 @@
       ]
     },
     {
-      "at": "2026-06-28T17:30:00.000Z",
+      "at": "2026-07-02T08:25:00.000Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
+      "summary": "After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
         ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-07-02T08:21:18.681Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "v6.6 frontier: Integrate Archmap into AOF governed development flow",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-071.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-069.json"
-      ]
-    },
-    {
-      "at": "2026-06-24T16:45:23.306Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Add evidence grading and done-before-forcing functions to v6.4 direction",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-068.json"
       ]
     }
   ]

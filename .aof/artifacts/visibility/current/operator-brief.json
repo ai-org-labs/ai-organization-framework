@@ -1,22 +1,15 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-02T07:27:50.284Z",
-  "headline": "TASK-071 is the live v6.6 frontier after 6.5.0.",
+  "generated_at": "2026-07-02T08:27:33.179Z",
+  "headline": "The next frontier is defined, but no aligned implementation task is open yet: After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
   "current_state": {
-    "release_version": "6.5.0",
-    "active_release_track": "v6.5",
-    "release_definition_ref": "docs/v6.5-release-definition.md",
-    "current_runtime_stage": "implementation-ready",
-    "operating_goal": "Maintain v6.5.0 as the Execution Hygiene and Command Safety baseline, then use v6.6 to make AOF development Archmap-aware: every implementation-grade work item should update, defer, or explicitly mark architecture map impact as unaffected, with Mission Control rendering the current map ref, map-impact state, blockers, and runtime proof.",
-    "next_value_slice": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
-    "primary_frontier_task": {
-      "task_id": "TASK-071",
-      "title": "v6.6 frontier: Integrate Archmap into AOF governed development flow",
-      "status": "open",
-      "updated_at": "2026-06-28T17:30:00.000Z",
-      "track": "v6.6",
-      "artifact_ref": ".aof/tasks/open/TASK-071.json"
-    },
+    "release_version": "6.6.0",
+    "active_release_track": "v6.6",
+    "release_definition_ref": "docs/v6.6-release-definition.md",
+    "current_runtime_stage": "frontier-definition-needed",
+    "operating_goal": "Maintain v6.6.0 as the Archmap-Aware Mission Control baseline, then select the next frontier through runtime-backed review before opening implementation work.",
+    "next_value_slice": "After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
+    "primary_frontier_task": null,
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
       "projection_id": "SAHRI-TASK-054-PROOF",
@@ -70,29 +63,28 @@
     }
   },
   "why_now": {
-    "summary": "TASK-071 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+    "summary": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "reasons": [
-      "The active release baseline is 6.5.0 and the runtime is now targeting v6.6.",
-      "The current operating goal and next value slice both reinforce TASK-071 as the next bounded operating move."
+      "The active release baseline is 6.6.0 and the runtime is now targeting the next track.",
+      "The current operating goal and next value slice both reinforce the current frontier as the next bounded operating move."
     ],
     "evidence_refs": [
-      "docs/v6.5-release-definition.md",
+      "docs/v6.6-release-definition.md",
       ".aof/goals/operating-goal.json",
       ".aof/goals/next-value-slice.json",
-      ".aof/tasks/open/TASK-071.json",
       ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
     ]
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Start TASK-071: v6.6 frontier: Integrate Archmap into AOF governed development flow",
-    "rationale": "This is the best open task aligned with the current operating goal and next release frontier.",
-    "artifact_ref": ".aof/tasks/open/TASK-071.json"
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
+    "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
+    "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "operator_answers": {
-    "what_is_happening_now": "TASK-071 is the current frontier; Builder is requires-council-review and says: I need council review before I should execute.",
-    "why_this_state": "TASK-071 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+    "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
+    "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Start TASK-071: v6.6 frontier: Integrate Archmap into AOF governed development flow"
+    "what_should_happen_next": "Run a runtime-backed direction review before opening the next implementation task: After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary."
   }
 }

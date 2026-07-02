@@ -1,0 +1,41 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-02T08:20:59.537Z",
+  "review_packet_id": "CREV-MR38J3F5-TGVWFS",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Archmap impact for TASK-071 is approved as a bounded v6.6 release claim.",
+  "rationale": "The release defines architecture impact governance, commits an Archmap source, records work-item impact, keeps Mission Control as a projection, and does not overclaim renderer integration or diagram quality.",
+  "recommendation": "Release v6.6.0 after release-state, task closure, and verification gates pass.",
+  "target_audience": "AOF release operator deciding whether v6.6 Archmap-aware Mission Control can ship.",
+  "expected_user_reaction": "The operator should understand that v6.6 ships governed architecture-impact traceability, not full visual architecture comprehension.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep Mission Control projection tied to canonical Archmap and AOF artifact refs."
+  ],
+  "organization_change_recommendations": [
+    "Require architecture impact disposition for implementation-grade work before release sign-off."
+  ],
+  "diagnosis_category": "architecture-impact-governance",
+  "diagnosis_confidence": 0.82,
+  "diagnosis_evidence_refs": [
+    "docs/v6.6-archmap-integration.md",
+    "docs/archmaps/aof-runtime-current.archmap",
+    ".aof/artifacts/archmap/impact/TASK-071.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [],
+  "role_result_refs": [],
+  "evidence_refs": [
+    "docs/v6.6-release-definition.md",
+    "docs/v6.6-release-checklist.md",
+    "docs/v6.6-qif-release-readiness-review.md",
+    ".aof/artifacts/archmap/impact/TASK-071.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-071",
+  "source_parent_session_id": "SESS-V66-RELEASE-CLOSURE",
+  "source_decision_record_id": null
+}

@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
-  "updated_at": "2026-06-28T17:30:00.000Z",
+  "content": "After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
+  "updated_at": "2026-07-02T08:25:00.000Z",
   "agreed_with_human": true,
   "source_session_id": null,
   "source_decision_record_id": null,
-  "declared_complete_at": null
+  "declared_complete_at": "2026-07-02T08:25:00.000Z"
 }

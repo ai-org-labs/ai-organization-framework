@@ -18,12 +18,11 @@ test("situationAssessCommand diagnoses the current frontier from self-hosting ru
 
   assert.equal(result.ok, true);
   assert.equal(result.summary.artifact_type, "situation-assessment");
-  assert.equal(result.summary.active_release_version, "6.5.0");
-  assert.equal(result.summary.primary_frontier_task?.task_id, "TASK-071");
-  assert.equal(result.summary.primary_frontier_task?.track, "v6.6");
-  assert.equal(result.summary.current_runtime_stage, "implementation-ready");
-  assert.match(result.summary.recommended_action.recommended_action, /TASK-071|Archmap|v6\.6/i);
-  assert.deepEqual(result.summary.operator_alignment.prioritized_task_ids, ["TASK-071"]);
+  assert.equal(result.summary.active_release_version, "6.6.0");
+  assert.equal(result.summary.primary_frontier_task, null);
+  assert.equal(result.summary.current_runtime_stage, "frontier-definition-needed");
+  assert.match(result.summary.recommended_action.recommended_action, /runtime-backed direction review|next bounded frontier|v6\.6/i);
+  assert.deepEqual(result.summary.operator_alignment.prioritized_task_ids, []);
   assert.equal(result.summary.current_truth_conflicts.some((conflict) => conflict.code === "stale-alignment-pulse"), false);
   assert.equal(result.summary.current_truth_conflicts.some((conflict) => conflict.code === "frontier-task-mismatch"), false);
 });
@@ -33,8 +32,8 @@ test("roadmapStatusCommand keeps completed v5/v6 release work on the correct tra
   const result = await roadmapStatusCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.deepEqual(result.alignment.prioritized_task_ids, ["TASK-071"]);
-  assert.match(result.alignment.answer, /TASK-071|Archmap|v6\.6/i);
+  assert.deepEqual(result.alignment.prioritized_task_ids, []);
+  assert.match(result.alignment.answer, /runtime-backed direction review|next bounded frontier|v6\.6/i);
   assert.ok(Array.isArray(result.release_tracks["v5.0"]));
   assert.ok(result.release_tracks["v5.0"].some((task) => task.task_id === "TASK-048"));
   assert.ok(Array.isArray(result.release_tracks["v6.0"]));
@@ -59,20 +58,20 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   const result = await visibilityExportCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.payloads.mission_control.mission_overview.release_version, "6.5.0");
-  assert.equal(result.payloads.mission_control.mission_overview.current_runtime_stage, "implementation-ready");
-  assert.match(result.payloads.mission_control.next_action.recommended_action, /TASK-071|Archmap|v6\.6/i);
+  assert.equal(result.payloads.mission_control.mission_overview.release_version, "6.6.0");
+  assert.equal(result.payloads.mission_control.mission_overview.current_runtime_stage, "frontier-definition-needed");
+  assert.match(result.payloads.mission_control.next_action.recommended_action, /runtime-backed direction review|next bounded frontier|v6\.6/i);
   assert.doesNotMatch(result.payloads.mission_control.next_action.recommended_action, /Mission Control visibility slice/i);
   assert.equal(result.payloads.mission_control.blockers.some((blocker) => /alignment pulse/i.test(blocker.summary)), false);
   assert.equal(result.payloads.mission_control.blockers.some((blocker) => /frontier task/i.test(blocker.summary)), false);
-  assert.match(result.payloads.operator_brief.headline, /TASK-071|v6\.6/i);
-  assert.match(result.payloads.operator_brief.next_action.recommended_action, /TASK-071|Archmap|v6\.6/i);
+  assert.match(result.payloads.operator_brief.headline, /next frontier|implementation task|v6\.6/i);
+  assert.match(result.payloads.operator_brief.next_action.recommended_action, /runtime-backed direction review|next bounded frontier|v6\.6/i);
   assert.equal(result.payloads.mission_control.work_governance.present, true);
   assert.ok(result.payloads.mission_control.work_governance.work_items.length >= 2);
   assert.equal(result.payloads.mission_control.archmap.present, true);
   assert.equal(result.payloads.mission_control.archmap.current_source_ref, "docs/archmaps/aof-runtime-current.archmap");
   assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-071");
-  assert.equal(result.payloads.mission_control.archmap.pending_impact_count, 1);
+  assert.equal(result.payloads.mission_control.archmap.pending_impact_count, 0);
   assert.equal(result.payloads.operator_progress.view_type, "operator_progress");
   assert.equal(result.payloads.tree_position.view_type, "tree_position");
   assert.equal(result.payloads.evidence_drill_down.view_type, "evidence_drill_down");
@@ -84,11 +83,11 @@ test("operatorBriefCommand compresses runtime situation judgment into one operat
 
   assert.equal(result.ok, true);
   assert.equal(result.brief.view_type, "operator_brief");
-  assert.equal(result.brief.current_state.release_version, "6.5.0");
-  assert.equal(result.brief.current_state.current_runtime_stage, "implementation-ready");
-  assert.equal(result.brief.current_state.primary_frontier_task?.task_id, "TASK-071");
+  assert.equal(result.brief.current_state.release_version, "6.6.0");
+  assert.equal(result.brief.current_state.current_runtime_stage, "frontier-definition-needed");
+  assert.equal(result.brief.current_state.primary_frontier_task, null);
   assert.equal(result.brief.current_state.skillful_actor_projection?.projection_id, "SAHRI-TASK-054-PROOF");
-  assert.match(result.brief.operator_answers.what_should_happen_next, /TASK-071|Archmap|v6\.6/i);
+  assert.match(result.brief.operator_answers.what_should_happen_next, /runtime-backed direction review|next bounded frontier|v6\.6/i);
 });
 
 test("organizationStatusCommand exposes the post-v6.0 direction goal and next value slice", async () => {
@@ -96,8 +95,8 @@ test("organizationStatusCommand exposes the post-v6.0 direction goal and next va
   const result = await organizationStatusCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.match(result.goals.operating_goal, /v6\.5|Execution Hygiene|Human Recognition/i);
-  assert.match(result.goals.next_value_slice, /v6\.5|Execution Hygiene|runtime claims need executed command proof/i);
+  assert.match(result.goals.operating_goal, /v6\.6|Archmap-Aware Mission Control|next frontier/i);
+  assert.match(result.goals.next_value_slice, /v6\.6|runtime-backed direction review|QIF boundary/i);
 });
 
 test("operatorProgressCommand explains what changed since the last checkpoint", async () => {
@@ -106,7 +105,7 @@ test("operatorProgressCommand explains what changed since the last checkpoint", 
 
   assert.equal(result.ok, true);
   assert.equal(result.progress.view_type, "operator_progress");
-  assert.match(result.progress.progress_answer.what_changed, /TASK-070|Execution Hygiene|v6\.5/i);
+  assert.match(result.progress.progress_answer.what_changed, /TASK-071|Archmap|v6\.6/i);
 });
 
 test("treePositionCommand explains the current release trunk and frontier branch", async () => {
@@ -115,8 +114,10 @@ test("treePositionCommand explains the current release trunk and frontier branch
 
   assert.equal(result.ok, true);
   assert.equal(result.tree.view_type, "tree_position");
-  assert.equal(result.tree.branch.frontier_task_id, "TASK-071");
-  assert.equal(result.tree.branch.frontier_track, "v6.6");
+  assert.equal(result.tree.trunk.active_release_version, "6.6.0");
+  assert.equal(result.tree.branch.frontier_task_id, null);
+  assert.equal(result.tree.branch.frontier_track, null);
+  assert.match(result.tree.tree_answer.where_are_we, /between v6\.6 and the next concrete branch/i);
 });
 
 test("situationAssessCommand targets the future track when a slice mentions the shipped release first", async (t) => {

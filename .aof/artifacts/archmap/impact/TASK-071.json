@@ -1,7 +1,7 @@
 {
   "artifact_type": "archmap-impact-record",
   "record_id": "ARCHMAP-IMPACT-TASK-071",
-  "work_item_ref": ".aof/tasks/open/TASK-071.json",
+  "work_item_ref": ".aof/tasks/done/TASK-071.json",
   "work_item_id": "TASK-071",
   "status": "archmap_update_required",
   "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
@@ -29,10 +29,11 @@
   ],
   "owner_actor": "builder",
   "reviewer_role": "guardian",
-  "council_review_status": "pending",
+  "council_review_status": "approved",
   "evidence_refs": [
     "docs/v6.6-archmap-integration.md",
-    "docs/archmaps/aof-runtime-current.archmap"
+    "docs/archmaps/aof-runtime-current.archmap",
+    ".aof/artifacts/execution/council-reviews/CRP-TASK-071-V66-ARCHMAP.json"
   ],
   "external_refs": [
     "https://github.com/ai-org-labs/archmap/tree/v0.1.0",

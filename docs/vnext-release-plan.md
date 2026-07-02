@@ -2,88 +2,92 @@
 
 ## Version
 
-`v6.5.0`
+`v6.6.0`
 
 ## Release Theme
 
-Execution Hygiene and Command Safety.
+Archmap-Aware Mission Control.
 
-`v6.4.0` made AOF better at stopping wrong work before implementation. The next bottleneck is operational: AOF itself can become too heavy if every run carries too much persistent context, too many tools, too much stale conversation memory, or too many approval prompts.
+`v6.5.0` made AOF runs lighter and safer by separating safe local runtime work from project, external, and dangerous operations. The next bottleneck is architectural traceability: implementation work can change the organization/runtime shape without a governed map-impact decision.
 
 Human-facing wording:
 
-> v6.5 should make AOF runs lighter, safer, and easier to approve by separating safe local runtime work from project, external, and dangerous operations.
+> v6.6 should make architecture impact visible as governed work progresses by connecting work items, Archmap source, Council disposition, and Mission Control projection.
 
 More explicit wording:
 
-> AOF should not become a giant prompt, a giant `CLAUDE.md`, or a permission-fatigue machine. Each run should know its work item boundary, what context is persistent, what artifacts are loaded on demand, what local commands are preapproved, and what actions require explicit human approval.
+> AOF should not let architecture drift become hidden context. Each implementation-grade work item should either update the architecture map, mark the map as unaffected, or defer the map impact with an explicit reason and follow-up.
 
 ## Runtime Evidence Basis
 
 - runtime command: `situation-assess --project .`
-- release task: `TASK-070`
-- execution hygiene doc: `docs/v6.5-execution-hygiene.md`
-- command registry: `.aof/command-registry.json`
-- CLI reference: `docs/cli-reference.md`
-- current baseline release definition: `docs/v6.4-release-definition.md`
+- release task: `TASK-071`
+- Archmap integration doc: `docs/v6.6-archmap-integration.md`
+- Archmap source: `docs/archmaps/aof-runtime-current.archmap`
+- Archmap impact record: `.aof/artifacts/archmap/impact/TASK-071.json`
+- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-071-V66-ARCHMAP.json`
+- QIF readiness review: `docs/v6.6-qif-release-readiness-review.md`
 - roadmap: `docs/vnext-roadmap.md`
 
 ## Required Outcomes
 
 Required:
 
-- define minimal persistent context
-- define skills / artifacts on demand
-- define work item session boundary
-- define small diff / small work item rule
-- define specialist actor composition
-- define Council-ready handoff
-- define approved run contract
-- define batch safe local commands
-- define permission fatigue avoidance
-- classify commands by `safe_read`, `safe_local_write`, `project_write`, `external_write`, and `dangerous`
-- expose `safety_level` and `approval_policy` through command registry and AI help
-- verify safety metadata through `cli-help-benchmark`
-- prevent `situation-assess` from mistaking a shipped release mention for the target frontier
+- define Archmap architecture impact as governed work evidence
+- define `archmap_update_required`, `archmap_unaffected`, and `archmap_deferred_with_reason`
+- commit a current AOF runtime Archmap source
+- record the current work item impact for `TASK-071`
+- resolve the Archmap impact Council status
+- project Archmap source and map-impact state into Mission Control without making Mission Control source of truth
+- keep QIF v0.3.1 as provider guidance, not executable verifier replacement
+- add Node.js 24 to the CI runtime lane
+- preserve Node.js 25+ unsupported warning
 
 Deferred:
 
-- full Mission Control UX redesign
-- automatic enforcement of every safety class
-- external tool permission automation
-- governed multi-actor orchestration
+- full Archmap renderer integration into Mission Control
+- mandatory `@archmap/core` runtime dependency
+- mandatory `@archmap/icons` dependency
+- automatic architecture quality scoring from diagrams
+- full machine-verification of every implementation-grade work item map impact
 
 ## Release Gates
 
 ### Gate 1: Runtime Direction
 
-- `situation-assess` reports `TASK-070` as the v6.5 frontier
-- `situation-assess` reports no truth conflicts
-- operating goal and next value slice point at Execution Hygiene + Human Recognition
+- `situation-assess` reported `TASK-071` as the v6.6 frontier before release closure
+- `situation-assess` reported no truth conflicts
+- operating goal and next value slice point at Archmap-aware Mission Control
 
-### Gate 2: Execution Hygiene
+### Gate 2: Archmap Contract
 
-- Execution Hygiene doc exists
-- the nine hygiene principles are defined
-- failure modes are named
-- work item session boundary and handoff expectations are visible
+- Archmap integration doc exists
+- Archmap source exists
+- current work item impact record exists
+- contract distinguishes update, unaffected, and deferred outcomes
+- docs state that icons and diagrams are not quality evidence by themselves
 
-### Gate 3: Command Safety
+### Gate 3: Council Disposition
 
-- command registry schema includes safety fields
-- command registry artifact includes safety fields
-- command help includes safety fields
-- `cli-help-benchmark` checks safety metadata
+- Council review packet exists for `TASK-071`
+- Archmap impact status is no longer pending
+- release does not treat pending review as approval
 
-### Gate 4: Approval Boundary
+### Gate 4: Mission Control Boundary
 
-- safe local read/write actions are described as preapproved for normal local runs
-- project writes require care
-- external writes require explicit approval
-- dangerous operations require explicit approval
-- release docs do not claim permission bypass
+- Mission Control projects current map ref
+- Mission Control projects latest impact status
+- Mission Control does not become source of truth
 
-### Gate 5: Verification
+### Gate 5: Runtime Support
+
+- package engines allow Node.js `>=22 <25`
+- CI validates Node.js 22
+- CI validates Node.js 24
+- CLI warns for Node.js 25+
+- quickstart documents Node.js 22/24 support
+
+### Gate 6: Verification
 
 - command routing audit
 - organization verification
@@ -95,14 +99,14 @@ Deferred:
 
 ## Release Decision
 
-Release `v6.5.0` only if AOF now makes it harder to confuse:
+Release `v6.6.0` only if AOF now makes it harder to confuse:
 
-- CLI help with runtime proof
-- `.aof` artifact writes with project source edits
-- project writes with external writes
-- safe local commands with deploy/publish/secrets/billing/destructive/production actions
-- long conversation state with canonical work item handoff artifacts
+- architecture documentation with governed architecture impact
+- Mission Control projection with source of truth
+- visual icons with quality evidence
+- pending Council review with approval
+- permissive Node engine range with CI-validated runtime support
 
-## Post-v6.5 Direction Candidate
+## Post-v6.6 Direction Candidate
 
-After v6.5, Mission Control / Human Recognition should render the Execution Hygiene state directly: active work item, run contract, command safety boundary, actor handoff, Council readiness, blockers, and runtime proof.
+After v6.6, the next frontier should be selected through runtime-backed review. The strongest known candidate is first-class machine verification that every implementation-grade work item has an explicit architecture impact decision before release sign-off.

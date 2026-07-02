@@ -55,6 +55,7 @@ node_modules/
 !.aof/artifacts/execution/council-reviews/CRP-TASK-062-WORK-GOVERNANCE-EXAMPLES.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-063-V61-RELEASE.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-064-V62-ADOPTION-PROOF.json
+!.aof/artifacts/execution/council-reviews/CRP-TASK-071-V66-ARCHMAP.json
 .aof/artifacts/need-validation/**/*.json
 .aof/artifacts/discovery/**/*.json
 .aof/artifacts/allocation/**/*.json
@@ -85,6 +86,7 @@ node_modules/
 !.aof/tasks/done/TASK-063.json
 !.aof/tasks/done/TASK-064.json
 !.aof/tasks/done/TASK-065.json
+!.aof/tasks/done/TASK-071.json
 .aof/context/active/cadence-*.json
 .aof/context/active/execution-lineage.json
 .aof/context/active/framework-self-audit.json

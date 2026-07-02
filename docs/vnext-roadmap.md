@@ -1,4 +1,4 @@
-# AOF Post-v6.5 Roadmap
+# AOF Post-v6.6 Roadmap
 
 ## North Star
 
@@ -82,6 +82,16 @@ Post-v6.5 QIF provider alignment:
 - active QIF provider profile is updated to QIF `v0.3.1`
 - QIF v0.3.1 is treated as guidance alignment for pre-implementation review, negative acceptance, evidence independence, visual verification, Living QIF Ledger, and extended Discovery Layer taxonomy
 - active machine-readable QIF package remains v0.2.1-compatible until QIF publishes executable v0.3+ schemas, examples, and verifier rules
+
+`v6.6.0` establishes Archmap-Aware Mission Control:
+
+- architecture impact is now part of governed work item closure
+- implementation-grade work items can declare `archmap_update_required`, `archmap_unaffected`, or `archmap_deferred_with_reason`
+- a current AOF runtime Archmap source is committed
+- Mission Control projects map refs and map-impact state from canonical artifacts
+- Archmap source and AOF artifacts remain source of truth
+- diagrams and icons are not treated as quality evidence by themselves
+- Node.js 22 and Node.js 24 are CI-validated runtime lanes
 
 ## Completed Track
 
@@ -241,7 +251,7 @@ Boundary:
 - do not bypass tool or platform permissions
 - do not approve external writes, deploys, secrets, billing, destructive, production, or irreversible operations through generic local-run consent
 
-### Candidate: `v6.6` Archmap-Aware Mission Control
+### Completed: `v6.6` Archmap-Aware Mission Control
 
 Theme:
 
@@ -261,7 +271,7 @@ Boundary:
 - every implementation-grade work item should declare `archmap_update_required`, `archmap_unaffected`, or `archmap_deferred_with_reason`
 - do not require full Archmap rendering integration before the map-impact contract is proven
 
-Initial task:
+Completed task:
 
 - `TASK-071`: v6.6 frontier: Integrate Archmap into AOF governed development flow
 
@@ -269,6 +279,8 @@ Canonical references:
 
 - `docs/v6.6-archmap-integration.md`
 - `docs/archmaps/aof-runtime-current.archmap`
+- `.aof/artifacts/archmap/impact/TASK-071.json`
+- `.aof/artifacts/execution/council-reviews/CRP-TASK-071-V66-ARCHMAP.json`
 - Archmap `v0.1.0`: `https://github.com/ai-org-labs/archmap/tree/v0.1.0`
 - archmap-icons `v0.1.1`: `https://github.com/ai-org-labs/archmap-icons/tree/v0.1.1`
 
@@ -312,11 +324,11 @@ Boundary:
 
 ## Current Recommendation
 
-After `v6.5.0`, choose the next frontier through runtime-backed review before opening implementation work.
+After `v6.6.0`, choose the next frontier through runtime-backed review before opening implementation work.
 
 Priority order:
 
-1. `v6.6`: Archmap-aware Mission Control that makes architecture impact visible as governed work progresses
+1. `v6.x`: first-class machine verification that implementation-grade work items have map-impact decisions before release sign-off
 2. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
 3. `v6.x`: standalone context / external-ref / operational-map audits
 4. `v7.0`: governed multi-actor orchestration
@@ -324,7 +336,7 @@ Priority order:
 Reasoning:
 
 - AI Command Help Surface is now complete enough to support command discovery, but it must not be confused with runtime proof.
-- Execution Hygiene is now the v6.5 baseline; the next product gap is making the run contract, permission boundary, and architecture impact visible in Mission Control.
+- Execution Hygiene is now the v6.5 baseline; v6.6 extends the visibility surface to architecture impact.
 - Pre-Implementation Quality Gate is now the v6.4 baseline; the next product gap is making those gates visible and actionable to a human operator.
 - Mission Control redesign should show assumptions, negative acceptance, evidence independence, Guardian questions, QIF ledger state, and Archmap impact without inventing its own truth.
 - Multi-actor orchestration should wait until command discovery, quality explanation, and visibility surfaces are stable enough to govern parallel actor work.

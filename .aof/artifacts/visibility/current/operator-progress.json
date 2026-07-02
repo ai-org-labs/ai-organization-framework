@@ -1,36 +1,31 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-02T07:27:50.294Z",
+  "generated_at": "2026-07-02T08:27:33.190Z",
   "current_checkpoint": {
-    "stage": "implementation-ready",
-    "frontier_task_id": "TASK-071",
-    "summary": "TASK-071 is active and the runtime is implementation-ready.",
-    "artifact_ref": ".aof/tasks/open/TASK-071.json"
+    "stage": "frontier-definition-needed",
+    "frontier_task_id": null,
+    "summary": "The runtime is frontier-definition-needed.",
+    "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-070 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-070.json"
+    "summary": "TASK-071 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-071.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-070 completed: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule",
-      "artifact_ref": ".aof/tasks/done/TASK-070.json"
-    },
-    {
-      "kind": "frontier-task",
-      "summary": "TASK-071 is now the active frontier: v6.6 frontier: Integrate Archmap into AOF governed development flow",
-      "artifact_ref": ".aof/tasks/open/TASK-071.json"
+      "summary": "TASK-071 completed: v6.6 frontier: Integrate Archmap into AOF governed development flow",
+      "artifact_ref": ".aof/tasks/done/TASK-071.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
+      "summary": "After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-070 completed: v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule TASK-071 is now the active frontier: v6.6 frontier: Integrate Archmap into AOF governed development flow After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
-    "why_it_matters": "TASK-071 now defines the current operating move after the latest completed release step.",
-    "next_checkpoint": "Start TASK-071: v6.6 frontier: Integrate Archmap into AOF governed development flow"
+    "what_changed": "TASK-071 completed: v6.6 frontier: Integrate Archmap into AOF governed development flow After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
+    "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary."
   }
 }
