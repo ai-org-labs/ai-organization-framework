@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
-  "updated_at": "2026-07-02T08:25:00.000Z",
+  "content": "Implement TASK-072 archmap-impact-audit: a safe_read verifier that fails when an implementation-grade work item lacks a resolvable archmap impact record with a non-pending council status. Verification gate: negative fixture (missing disposition) must fail plus unit tests and release-state-audit integration follow-up. Stop condition: audit-only scope; no renderer work, no retroactive migration; tasks before TASK-071 are exempt via an explicit cutoff. QIF boundary: audit pass is structural/runtime evidence, not semantic architecture correctness.",
+  "updated_at": "2026-07-02T17:28:42.539Z",
   "agreed_with_human": true,
   "source_session_id": null,
   "source_decision_record_id": null,
-  "declared_complete_at": "2026-07-02T08:25:00.000Z"
+  "declared_complete_at": null
 }

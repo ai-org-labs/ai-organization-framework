@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Maintain v6.6.0 as the Archmap-Aware Mission Control baseline, then select the next frontier through runtime-backed review before opening implementation work.",
-  "updated_at": "2026-07-02T08:25:00.000Z",
+  "content": "Advance v6.7 Verifiable Governance: make missing archmap impact dispositions, self-attested review provenance, and low-independence evidence machine-detectable so release sign-off can fail on structural self-attestation instead of trusting maker claims.",
+  "updated_at": "2026-07-02T17:28:20.324Z",
   "agreed_with_human": true,
   "source_session_id": null,
   "source_decision_record_id": null,
-  "declared_complete_at": "2026-07-02T08:25:00.000Z"
+  "declared_complete_at": null
 }
