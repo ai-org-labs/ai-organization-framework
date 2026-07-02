@@ -39,8 +39,8 @@ function printUnsupportedNodeWarning() {
   }
   console.error(
     `[aof] Warning: Node.js ${process.versions.node} is outside the CI-validated runtime lane. ` +
-    "AOF is verified in CI on Node 22, and local parallel standalone CLI runs have shown intermittent read/import instability on Node 25. " +
-    "If you see transient `Unexpected end of input` or JSON truncation errors, rerun on Node 22 LTS."
+    "AOF is verified in CI on Node 22 and Node 24, and local parallel standalone CLI runs have shown intermittent read/import instability on Node 25+. " +
+    "If you see transient `Unexpected end of input` or JSON truncation errors, rerun on Node 22 or Node 24."
   );
 }
 
