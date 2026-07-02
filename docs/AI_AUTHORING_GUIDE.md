@@ -57,9 +57,9 @@ Read these refs when deeper context is needed:
 
 Current boundary:
 
-- QIF provider profile: `v0.3.0`
+- QIF provider profile: `v0.3.1`
 - active executable package baseline: v0.2.1-compatible
-- QIF v0.3 Discovery Layer is a provider-level design boundary, not yet a replacement executable verifier inside AOF
+- QIF v0.3.1 guidance is a provider-level authoring and review boundary, not yet a replacement executable verifier inside AOF
 
 ## Authoring Checklist
 

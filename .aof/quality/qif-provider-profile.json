@@ -1,15 +1,16 @@
 {
   "artifact_type": "aof-qif-provider-profile",
-  "profile_id": "QIFPROF-AOF-V0.3.0",
+  "profile_id": "QIFPROF-AOF-V0.3.1",
   "status": "active",
   "provider": "Quality Intent Framework",
-  "qif_version": "0.3.0",
+  "qif_version": "0.3.1",
   "source": {
     "repository": "ai-org-labs/quality-intent-framework",
-    "tag": "v0.3.0",
-    "release_url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.0",
-    "tree_url": "https://github.com/ai-org-labs/quality-intent-framework/tree/v0.3.0",
-    "tag_sha": "b581c8c1fd5988757415b6b5ba273933c94c1783"
+    "tag": "v0.3.1",
+    "release_url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.1",
+    "tree_url": "https://github.com/ai-org-labs/quality-intent-framework/tree/v0.3.1",
+    "tag_sha": "f175e583008c9490eb2fb35ea910854244dd8800",
+    "commit_sha": "1ba7c9c17216acaa24f20dbbae67172ef3a00dd2"
   },
   "active_package_ref": ".aof/quality/QIFPKG-AOF-V5-001.json",
   "layer_model": {
@@ -20,10 +21,10 @@
     ],
     "active_layer_usage": {
       "QIF Core": "Represent Quality Intent, risk, loss boundary, evidence, verdict, confidence, uncertainty, acceptance gates, and governance triggers.",
-      "QIF Discovery Layer": "Discover candidate Quality Intents before QIF artifacts are authored by using concern sources, loss-boundary exploration, and failure-oriented discovery patterns.",
+      "QIF Discovery Layer": "Discover candidate Quality Intents before QIF artifacts are authored by using concern sources, loss-boundary exploration, solution-bias discovery, boundary-confusion discovery, concept-comprehension discovery, and failure-oriented discovery patterns.",
       "AOF Integration": "Map AOF runtime commands, benchmark results, release gates, work artifacts, and council evidence into QIF-governed quality claims."
     },
-    "current_executable_baseline": "QIF v0.3.0 provides the Discovery Layer design boundary. AOF keeps the active package .aof/quality/QIFPKG-AOF-V5-001.json v0.2.1-compatible until QIF v0.3 schemas, examples, and verifier rules are published."
+    "current_executable_baseline": "QIF v0.3.1 provides pre-implementation review guidance, negative acceptance guidance, evidence independence guidance, visual verification guidance, Living QIF Ledger guidance, and extended Discovery Layer taxonomy. It does not publish replacement runtime schemas, example packages, or verifier rules. AOF keeps the active package .aof/quality/QIFPKG-AOF-V5-001.json v0.2.1-compatible until QIF publishes executable v0.3+ artifacts."
   },
   "compatibility": {
     "mode": "external-versioned-profile",
@@ -33,7 +34,12 @@
       "benchmark explanation",
       "release gate explanation",
       "governance escalation trigger",
-      "confidence and uncertainty boundary"
+      "confidence and uncertainty boundary",
+      "pre-implementation review guidance",
+      "negative acceptance guidance",
+      "evidence independence guidance",
+      "visual verification rubric guidance",
+      "living ledger guidance"
     ],
     "semantic_truth_boundary": "QIF validator and profile compatibility checks can prove structure, traceability, reference resolution, confidence reproducibility, and rule compliance. They do not prove semantic truth, market truth, expert correctness, or operator comprehension."
   },
@@ -64,7 +70,7 @@
       "Do not claim QIF validator pass proves semantic quality truth.",
       "Do not treat tests, artifact count, actor count, dashboard existence, or release tags as quality by themselves.",
       "Do not upgrade QIF compatibility silently without recording the selected provider profile.",
-      "Do not treat QIF v0.3 Discovery Layer design as an executable verifier until QIF publishes the corresponding schemas and verifier rules."
+      "Do not treat QIF v0.3.1 guidance as an executable verifier until QIF publishes the corresponding schemas and verifier rules."
     ]
   },
   "upgrade_policy": {

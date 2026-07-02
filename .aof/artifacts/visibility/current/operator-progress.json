@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-06-28T17:39:01.927Z",
+  "generated_at": "2026-07-02T07:27:50.294Z",
   "current_checkpoint": {
     "stage": "implementation-ready",
     "frontier_task_id": "TASK-071",

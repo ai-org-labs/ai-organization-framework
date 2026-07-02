@@ -77,6 +77,12 @@ AOF should become an AI Organization Operating System that can:
 - `cli-help-benchmark` verifies safety metadata
 - `situation-assess` correctly targets the future track when a slice mentions the shipped release first
 
+Post-v6.5 QIF provider alignment:
+
+- active QIF provider profile is updated to QIF `v0.3.1`
+- QIF v0.3.1 is treated as guidance alignment for pre-implementation review, negative acceptance, evidence independence, visual verification, Living QIF Ledger, and extended Discovery Layer taxonomy
+- active machine-readable QIF package remains v0.2.1-compatible until QIF publishes executable v0.3+ schemas, examples, and verifier rules
+
 ## Completed Track
 
 ### `v5.0.0`: Skillful Actor Runtime

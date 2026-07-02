@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-06-28T17:39:01.890Z",
+  "as_of": "2026-07-02T07:27:50.262Z",
   "usage_level": "runtime-backed",
   "current_phase": "v6.6 frontier: Integrate Archmap into AOF governed development flow",
   "current_goal": "After v6.5.0, advance v6.6 as Archmap-aware Mission Control: AOF should update or explicitly evaluate an Archmap architecture map as governed work progresses, while Mission Control projects map refs and map-impact state without becoming the source of truth.",
