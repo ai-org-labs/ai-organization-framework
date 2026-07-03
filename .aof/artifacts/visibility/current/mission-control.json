@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-03T18:59:37.901Z",
+  "generated_at": "2026-07-03T19:07:51.533Z",
   "mission_overview": {
     "mission": "Ship v6.6.0 as the Archmap-Aware Mission Control release.",
     "release_version": "6.6.0",
     "release_definition_ref": "docs/v6.6-release-definition.md",
     "operating_goal": "Advance v6.7 Verifiable Governance: make missing archmap impact dispositions, self-attested review provenance, and low-independence evidence machine-detectable so release sign-off can fail on structural self-attestation instead of trusting maker claims.",
-    "next_value_slice": "Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
+    "next_value_slice": "Implement TASK-074 evidence-independence-audit: a safe_read verifier that classifies evidence independence and fails when release-signoff evidence is only maker-authored or self-attested. Verification gate: low-independence fixture must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of evidence independence, not proof of semantic truth.",
     "current_runtime_stage": "implementation-ready",
     "chain_anchor_ref": null
   },
@@ -28,9 +28,9 @@
     }
   ],
   "next_action": {
-    "recommended_action": "Start TASK-073: v6.7 frontier: review provenance audit",
+    "recommended_action": "Start TASK-074: v6.7 frontier: evidence independence audit",
     "rationale": "This is the best open task aligned with the current operating goal and next release frontier.",
-    "artifact_ref": ".aof/tasks/open/TASK-073.json"
+    "artifact_ref": ".aof/tasks/open/TASK-074.json"
   },
   "skillful_actor_projection": {
     "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
@@ -251,7 +251,7 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 3,
+    "impact_record_count": 4,
     "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-072.json",
     "latest_impact_status": "archmap_update_required",
     "latest_work_item_id": "TASK-072",

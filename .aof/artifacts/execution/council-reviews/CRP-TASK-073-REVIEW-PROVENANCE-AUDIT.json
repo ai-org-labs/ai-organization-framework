@@ -1,0 +1,33 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-03T19:04:37.186Z",
+  "review_packet_id": "CREV-MR5AYNNM-1UJIVT",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "TASK-073 review-provenance-audit is approved as bounded structural review-provenance evidence.",
+  "rationale": "The command verifies done tasks have Council review packets with valid status, source task, parent session provenance, non-empty evidence, and resolvable refs; tests include pass and negative cases.",
+  "recommendation": "Proceed to TASK-074 evidence independence audit.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "Operator can see self-attested review claims now fail mechanically.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [],
+  "role_result_refs": [],
+  "evidence_refs": [
+    "src/commands/review-provenance-audit.js",
+    "schemas/aof-review-provenance-audit.schema.json",
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/archmap/impact/TASK-073.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-073",
+  "source_parent_session_id": "SESS-V67-VERIFIABLE-GOVERNANCE",
+  "source_decision_record_id": null
+}

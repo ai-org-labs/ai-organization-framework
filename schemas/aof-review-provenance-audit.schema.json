@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-review-provenance-audit.schema.json",
+  "title": "AOF Review Provenance Audit",
+  "type": "object",
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "cutoff_task_id",
+    "audited_status_dirs",
+    "valid_review_statuses",
+    "summary",
+    "tasks",
+    "review_records",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": {
+      "type": "string",
+      "enum": ["review-provenance-audit"]
+    },
+    "generated_at": { "type": "string" },
+    "project_root": { "type": "string" },
+    "cutoff_task_id": { "type": "string" },
+    "audited_status_dirs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "valid_review_statuses": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "scoped_task_count",
+        "review_record_count",
+        "missing_review_record_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "scoped_task_count": { "type": "integer" },
+        "review_record_count": { "type": "integer" },
+        "missing_review_record_count": { "type": "integer" },
+        "failing_check_count": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["task_id", "title", "artifact_ref"],
+        "properties": {
+          "task_id": { "type": "string" },
+          "title": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "review_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "task_id",
+          "review_ref",
+          "council_id",
+          "review_status",
+          "source_parent_session_id",
+          "role_result_ref_count",
+          "evidence_ref_count"
+        ],
+        "properties": {
+          "task_id": { "type": "string" },
+          "review_ref": { "type": "string" },
+          "council_id": { "type": ["string", "null"] },
+          "review_status": { "type": ["string", "null"] },
+          "source_parent_session_id": { "type": ["string", "null"] },
+          "role_result_ref_count": { "type": "integer" },
+          "evidence_ref_count": { "type": "integer" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

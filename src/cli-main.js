@@ -92,6 +92,7 @@ Usage:
   aof release-state-refresh --project <path> --release-version <version> --release-tag <tag> --release-definition-ref <path> --release-notes-ref <path> --release-checklist-ref <path> [--roadmap-ref <path>] [--release-plan-ref <path>] [--mission "<text>"] [--write-artifact <path>]
   aof release-state-audit [--project <path>] [--write-artifact <path>]
   aof archmap-impact-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof review-provenance-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof value-hypothesis-record --project <path> --expected-value-creation "<text>" --beneficiary "<text>" --supporting-evidence "<text>" [--supporting-evidence "<text>"] --success-criterion "<text>" [--success-criterion "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof alternative-analysis-record --project <path> --subject-need "<text>" --alternative-solution "<text>" [--alternative-solution "<text>"] [--non-solution-option "<text>"] [--defer-option "<text>"] --stop-option "<text>" [--stop-option "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -183,6 +184,7 @@ Examples:
   aof release-state-refresh --project . --release-version 5.0.0 --release-tag v5.0.0 --release-definition-ref docs/v5.0-release-definition.md --release-notes-ref docs/v5.0.0-release-notes.md --release-checklist-ref docs/v5.0-release-checklist.md --mission "Keep the self-hosting runtime truthful about the active release baseline after a real release."
   aof release-state-audit --project . --write-artifact /tmp/aof-release-state-audit.json
   aof archmap-impact-audit --project . --cutoff-task-id TASK-071 --write-artifact /tmp/aof-archmap-impact-audit.json
+  aof review-provenance-audit --project . --cutoff-task-id TASK-071 --write-artifact /tmp/aof-review-provenance-audit.json
   aof problem-statement-record --project . --affected-party "newly invited workspace admins" --actual-problem "activation fails during permission setup" --why-it-matters "high-intent admins fail before value is realized" --why-now "activation drop-off is blocking current growth" --evidence-ref docs/research/funnel-notes.md
   aof value-hypothesis-record --project . --expected-value-creation "higher activation completion and faster time to first value" --beneficiary "newly invited workspace admins and the owning workspace" --supporting-evidence "interviews and analytics both indicate permission-step confusion" --success-criterion "activation completion improves" --success-criterion "permission-step comprehension improves"
   aof alternative-analysis-record --project . --subject-need "Reduce activation failure for invited admins" --alternative-solution "clarify permission setup directly in product" --alternative-solution "human-assisted onboarding for high-value accounts" --non-solution-option "tighten qualification and do nothing in-product" --defer-option "wait until more interview evidence is collected" --stop-option "do not create a project if the problem is not reproducible"
@@ -899,6 +901,12 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "archmap-impact-audit"
+            ? {
+                project: ".",
+                cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "review-provenance-audit"
             ? {
                 project: ".",
                 cutoffTaskId: "",
@@ -3879,6 +3887,12 @@ function parseArgs(argv) {
   if (command === "archmap-impact-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `archmap-impact-audit`.");
+    }
+  }
+
+  if (command === "review-provenance-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `review-provenance-audit`.");
     }
   }
 

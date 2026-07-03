@@ -2,19 +2,19 @@
   "task_id": "TASK-073",
   "title": "v6.7 frontier: review provenance audit",
   "description": "Add review-provenance-audit as a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Acceptance: negative fixture with self-attested review provenance fails; unit tests pass; command is registered with help metadata. Stop condition: audit command + fixtures + tests only; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
-  "status": "open",
+  "status": "done",
   "origin": "human",
   "orchestrator_session_id": null,
   "assigned_session_ids": [],
   "related_decision_record_id": null,
   "operating_goal_ref": "v6.7-verifiable-governance",
   "created_at": "2026-07-03T18:57:23.153Z",
-  "updated_at": "2026-07-03T18:57:23.153Z",
+  "updated_at": "2026-07-03T19:04:49.723Z",
   "assigned_at": null,
-  "done_at": null,
+  "done_at": "2026-07-03T19:04:49.723Z",
   "retired_at": null,
   "last_triaged_at": null,
   "stale_candidate_at": null,
   "retire_candidate_at": null,
-  "triage_notes": "Opened from v6.7 completion roadmap after TASK-072 archmap-impact-audit was implemented and verified. This is roadmap priority 2: detect self-attested review provenance before release sign-off."
+  "triage_notes": "Implemented review-provenance-audit safe_read verifier with command registry/help metadata, CLI reference, schema, self-hosting Council review provenance, and pass/fail regression tests. Verification: review-provenance-audit pass, targeted runtime tests pass, command-registry-refresh pass."
 }

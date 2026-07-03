@@ -29,7 +29,8 @@
     "src/commands/archmap-impact-audit.js",
     "schemas/aof-archmap-impact-audit.schema.json",
     "docs/cli-reference.md",
-    "test/runtime-core-2.test.js"
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/execution/council-reviews/CRP-TASK-072-ARCHMAP-IMPACT-AUDIT.json"
   ],
   "external_refs": [
     "https://github.com/ai-org-labs/archmap/tree/v0.1.0",

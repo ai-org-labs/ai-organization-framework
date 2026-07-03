@@ -1,36 +1,36 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-03T18:59:38.016Z",
+  "generated_at": "2026-07-03T19:07:51.630Z",
   "current_checkpoint": {
     "stage": "implementation-ready",
-    "frontier_task_id": "TASK-073",
-    "summary": "TASK-073 is active and the runtime is implementation-ready.",
-    "artifact_ref": ".aof/tasks/open/TASK-073.json"
+    "frontier_task_id": "TASK-074",
+    "summary": "TASK-074 is active and the runtime is implementation-ready.",
+    "artifact_ref": ".aof/tasks/open/TASK-074.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-072 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-072.json"
+    "summary": "TASK-073 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-073.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-072 completed: v6.7 frontier: archmap-impact-audit machine verification",
-      "artifact_ref": ".aof/tasks/done/TASK-072.json"
+      "summary": "TASK-073 completed: v6.7 frontier: review provenance audit",
+      "artifact_ref": ".aof/tasks/done/TASK-073.json"
     },
     {
       "kind": "frontier-task",
-      "summary": "TASK-073 is now the active frontier: v6.7 frontier: review provenance audit",
-      "artifact_ref": ".aof/tasks/open/TASK-073.json"
+      "summary": "TASK-074 is now the active frontier: v6.7 frontier: evidence independence audit",
+      "artifact_ref": ".aof/tasks/open/TASK-074.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
+      "summary": "Implement TASK-074 evidence-independence-audit: a safe_read verifier that classifies evidence independence and fails when release-signoff evidence is only maker-authored or self-attested. Verification gate: low-independence fixture must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of evidence independence, not proof of semantic truth.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-072 completed: v6.7 frontier: archmap-impact-audit machine verification TASK-073 is now the active frontier: v6.7 frontier: review provenance audit Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
-    "why_it_matters": "TASK-073 now defines the current operating move after the latest completed release step.",
-    "next_checkpoint": "Start TASK-073: v6.7 frontier: review provenance audit"
+    "what_changed": "TASK-073 completed: v6.7 frontier: review provenance audit TASK-074 is now the active frontier: v6.7 frontier: evidence independence audit Implement TASK-074 evidence-independence-audit: a safe_read verifier that classifies evidence independence and fails when release-signoff evidence is only maker-authored or self-attested. Verification gate: low-independence fixture must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of evidence independence, not proof of semantic truth.",
+    "why_it_matters": "TASK-074 now defines the current operating move after the latest completed release step.",
+    "next_checkpoint": "Start TASK-074: v6.7 frontier: evidence independence audit"
   }
 }

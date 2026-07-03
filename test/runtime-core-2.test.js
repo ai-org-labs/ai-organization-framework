@@ -37,6 +37,7 @@ import { outcomeReportCommand } from "../src/commands/outcome-report.js";
 import { policyEvaluationReportCommand } from "../src/commands/policy-evaluation-report.js";
 import { problemStatementRecordCommand } from "../src/commands/problem-statement-record.js";
 import { releaseStateAuditCommand } from "../src/commands/release-state-audit.js";
+import { reviewProvenanceAuditCommand } from "../src/commands/review-provenance-audit.js";
 import { resourceClaimRecordCommand } from "../src/commands/resource-claim-record.js";
 import { releaseStateRefreshCommand } from "../src/commands/release-state-refresh.js";
 import { roleJoinRecordCommand } from "../src/commands/role-join-record.js";
@@ -1544,6 +1545,100 @@ test("archmapImpactAuditCommand fails when council disposition is pending", asyn
 
   assert.equal(result.ok, false);
   assert.ok(result.summary.errors.some((entry) => entry.includes("council impact disposition")));
+});
+
+async function writeReviewProvenanceFixture(projectRoot, {
+  taskId = "TASK-071",
+  writeReviewRecord = true,
+  sourceParentSessionId = "SESS-REVIEW-PROVENANCE",
+  reviewStatus = "approved"
+} = {}) {
+  const taskDir = path.join(projectRoot, ".aof", "tasks", "done");
+  const reviewDir = path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews");
+  await fs.mkdir(taskDir, { recursive: true });
+  await fs.mkdir(reviewDir, { recursive: true });
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+
+  await fs.writeFile(path.join(projectRoot, "docs", "review-evidence.md"), "Review evidence fixture.\n", "utf8");
+  await fs.writeFile(path.join(taskDir, `${taskId}.json`), `${JSON.stringify({
+    task_id: taskId,
+    title: `${taskId} reviewed implementation work`,
+    status: "done",
+    description: "Implementation-grade work item for review provenance audit coverage."
+  }, null, 2)}\n`, "utf8");
+
+  if (!writeReviewRecord) {
+    return;
+  }
+
+  await fs.writeFile(path.join(reviewDir, `CRP-${taskId}.json`), `${JSON.stringify({
+    packet_type: "council-review-packet",
+    recorded_at: "2026-07-04T00:00:00.000Z",
+    review_packet_id: `CRP-${taskId}`,
+    council_id: "architecture-council",
+    stage: "review",
+    review_status: reviewStatus,
+    decision_summary: "Review completed with traceable evidence.",
+    rationale: "The fixture proves review provenance is not self-attested.",
+    recommendation: "Proceed.",
+    target_audience: "operator",
+    expected_user_reaction: "review provenance is visible",
+    blocking_reasons: [],
+    artifact_change_recommendations: [],
+    organization_change_recommendations: [],
+    diagnosis_category: null,
+    diagnosis_confidence: null,
+    diagnosis_evidence_refs: [],
+    human_override_signal: null,
+    team_output_refs: [],
+    role_result_refs: [],
+    evidence_refs: ["docs/review-evidence.md"],
+    follow_up_task_ids: [],
+    escalation_required: false,
+    source_task_id: taskId,
+    source_parent_session_id: sourceParentSessionId,
+    source_decision_record_id: null
+  }, null, 2)}\n`, "utf8");
+}
+
+test("reviewProvenanceAuditCommand passes when done work has Council review provenance", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeReviewProvenanceFixture(projectRoot);
+
+  const result = await reviewProvenanceAuditCommand({
+    project: projectRoot,
+    cutoffTaskId: "TASK-071"
+  });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.summary.summary.scoped_task_count, 1);
+  assert.equal(result.summary.errors.length, 0);
+});
+
+test("reviewProvenanceAuditCommand fails when Council review is missing", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeReviewProvenanceFixture(projectRoot, { writeReviewRecord: false });
+
+  const result = await reviewProvenanceAuditCommand({
+    project: projectRoot,
+    cutoffTaskId: "TASK-071"
+  });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((entry) => entry.includes("council review presence")));
+});
+
+test("reviewProvenanceAuditCommand fails when review parent session provenance is missing", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeReviewProvenanceFixture(projectRoot, { sourceParentSessionId: "" });
+
+  const result = await reviewProvenanceAuditCommand({
+    project: projectRoot,
+    cutoffTaskId: "TASK-071"
+  });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((entry) => entry.includes("parent session provenance")));
 });
 
 test("organizationStatusCommand exposes active release manifest when present", async (t) => {

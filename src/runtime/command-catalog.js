@@ -49,6 +49,7 @@ const COMMAND_SPECS = [
   ["release-state-refresh", "./commands/release-state-refresh.js", "releaseStateRefreshCommand"],
   ["release-state-audit", "./commands/release-state-audit.js", "releaseStateAuditCommand"],
   ["archmap-impact-audit", "./commands/archmap-impact-audit.js", "archmapImpactAuditCommand"],
+  ["review-provenance-audit", "./commands/review-provenance-audit.js", "reviewProvenanceAuditCommand"],
   ["problem-statement-record", "./commands/problem-statement-record.js", "problemStatementRecordCommand"],
   ["value-hypothesis-record", "./commands/value-hypothesis-record.js", "valueHypothesisRecordCommand"],
   ["alternative-analysis-record", "./commands/alternative-analysis-record.js", "alternativeAnalysisRecordCommand"],

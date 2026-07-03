@@ -253,6 +253,27 @@ QIF boundary:
 - pass は structural/runtime evidence であり、Archmap の意味的完全性や視覚品質を証明しない
 - semantic architecture correctness は Guardian / Council / human review / operational feedback の対象として残る
 
+### `review-provenance-audit`
+
+`TASK-071` 以降の done work item が、Council review を自己申告だけで済ませていないかを narrow に検査する。v6.7 の Verifiable Governance 用 command であり、release sign-off 前に「レビューしたことにしているだけ」の状態を機械的に落とす。
+
+```bash
+node ./src/cli.js review-provenance-audit --project . --cutoff-task-id TASK-071
+```
+
+主な確認項目:
+
+- done task ごとに Council review packet が存在する
+- `review_status` が `approved` / `changes-requested` / `blocked` / `deferred` のいずれか
+- `source_task_id` が対象 task と一致する
+- `source_parent_session_id` が存在する
+- `role_result_refs` または `evidence_refs` が存在し、参照が解決できる
+
+QIF boundary:
+
+- pass は review provenance の structural/runtime evidence であり、レビュー判断の意味的正しさを証明しない
+- semantic review quality は Guardian / Council / human review / operational feedback の対象として残る
+
 ### `dependency-graph`
 
 current `.aof/organization.json` から dependency graph を返す。

@@ -7,6 +7,7 @@ graph LR
   Runtime -->|architecture source| Archmap[Archmap Source]
   Runtime -->|impact verification| ArchmapImpactAudit[Archmap Impact Audit]
   Runtime -->|review provenance verification| ReviewProvenanceAudit[Review Provenance Audit]
+  Runtime -->|evidence independence verification| EvidenceIndependenceAudit[Evidence Independence Audit]
   Archmap -->|rendered view| MissionControl
   Runtime -->|optional icons| Icons[Archmap Icons]
   Builder[Builder Actor] -->|work result| Artifacts
@@ -29,6 +30,7 @@ nodes:
   Archmap: { zone: architecture_map, layer: architecture, kind: diagram_source }
   ArchmapImpactAudit: { zone: governance, layer: verification, kind: audit_command }
   ReviewProvenanceAudit: { zone: governance, layer: verification, kind: audit_command }
+  EvidenceIndependenceAudit: { zone: governance, layer: verification, kind: audit_command }
   Icons: { zone: architecture_map, layer: recognition, kind: icon_pack }
   Builder: { zone: organization, layer: actor, kind: builder }
   Guardian: { zone: organization, layer: actor, kind: checker }
@@ -44,6 +46,8 @@ edges:
   ArchmapImpactAudit->Artifacts: { flow: governed_architecture_disposition }
   Runtime->ReviewProvenanceAudit: { flow: review_provenance_verification }
   ReviewProvenanceAudit->Artifacts: { flow: governed_review_provenance }
+  Runtime->EvidenceIndependenceAudit: { flow: evidence_independence_verification }
+  EvidenceIndependenceAudit->Artifacts: { flow: governed_evidence_independence }
   Archmap->MissionControl: { flow: architecture_recognition_projection }
   Runtime->Icons: { flow: optional_icon_lookup }
   Orchestrator->Builder: { flow: actor_assignment }
@@ -60,7 +64,7 @@ zones:
   recognition: { label: Human Recognition, kind: visibility_boundary, contains: [MissionControl] }
   external_frameworks: { label: External Frameworks, kind: reference_boundary, contains: [QIF] }
   architecture_map: { label: Architecture Map, kind: map_boundary, contains: [Archmap, Icons] }
-  governance: { label: Verifiable Governance, kind: audit_boundary, contains: [ArchmapImpactAudit, ReviewProvenanceAudit] }
+  governance: { label: Verifiable Governance, kind: audit_boundary, contains: [ArchmapImpactAudit, ReviewProvenanceAudit, EvidenceIndependenceAudit] }
   organization: { label: AI Organization, kind: governance_boundary, contains: [Builder, Guardian, Council] }
 boundaries:
   source_of_truth:

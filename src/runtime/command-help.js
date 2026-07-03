@@ -15,6 +15,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing impact records, invalid impact statuses, unresolved refs, or pending Council review at or after the cutoff task.",
     verdict_boundary: "Structural/runtime governance evidence only; not proof that the architecture map is semantically complete or visually optimal."
   },
+  "review-provenance-audit": {
+    quality_intent: "Review and approval claims are backed by resolvable maker/checker/council provenance.",
+    risk: "AOF claims Guardian or Council review occurred when the repository only contains self-attested or unresolved evidence.",
+    loss_boundary: "Do not claim release readiness when done implementation work lacks a resolvable Council review artifact with source task, parent session, and evidence refs.",
+    evidence_refs: ["done task records", "council review packets", "role result refs", "evidence refs"],
+    acceptance_gate: "Audit fails missing Council review records, invalid review statuses, missing parent session provenance, empty evidence, or unresolved review refs after the cutoff task.",
+    verdict_boundary: "Review provenance evidence only; not proof that the reviewer judgment was semantically correct."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

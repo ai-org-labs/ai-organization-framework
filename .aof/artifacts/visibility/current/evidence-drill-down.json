@@ -1,6 +1,6 @@
 {
   "view_type": "evidence_drill_down",
-  "generated_at": "2026-07-03T18:59:37.909Z",
+  "generated_at": "2026-07-03T19:07:51.542Z",
   "brief_ref": ".aof/artifacts/visibility/current/operator-brief.json",
   "current_state": {
     "release_version": "6.6.0",
@@ -8,24 +8,24 @@
     "release_definition_ref": "docs/v6.6-release-definition.md",
     "current_runtime_stage": "implementation-ready",
     "primary_frontier_task": {
-      "task_id": "TASK-073",
-      "title": "v6.7 frontier: review provenance audit",
+      "task_id": "TASK-074",
+      "title": "v6.7 frontier: evidence independence audit",
       "status": "open",
-      "updated_at": "2026-07-03T18:57:23.153Z",
+      "updated_at": "2026-07-03T19:05:21.295Z",
       "track": "v6.7",
-      "artifact_ref": ".aof/tasks/open/TASK-073.json"
+      "artifact_ref": ".aof/tasks/open/TASK-074.json"
     }
   },
   "answer_to_proof": {
     "headline": {
-      "claim": "TASK-073 is the live v6.7 frontier after 6.6.0.",
-      "rationale": "TASK-073 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+      "claim": "TASK-074 is the live v6.7 frontier after 6.6.0.",
+      "rationale": "TASK-074 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
       "evidence_refs": [
         "docs/v6.6-release-definition.md",
         ".aof/context/active/active-release-manifest.json",
         ".aof/goals/operating-goal.json",
         ".aof/goals/next-value-slice.json",
-        ".aof/tasks/open/TASK-073.json",
+        ".aof/tasks/open/TASK-074.json",
         ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
       ],
       "evidence_items": [
@@ -46,7 +46,7 @@
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         },
         {
-          "artifact_ref": ".aof/tasks/open/TASK-073.json",
+          "artifact_ref": ".aof/tasks/open/TASK-074.json",
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         },
         {
@@ -62,7 +62,7 @@
       "evidence_refs": [
         ".aof/context/active/organization-analytics.json",
         ".aof/context/active/alignment-pulse.json",
-        ".aof/tasks/open/TASK-073.json"
+        ".aof/tasks/open/TASK-074.json"
       ],
       "evidence_items": [
         {
@@ -74,24 +74,24 @@
           "why_it_matters": "Supports why the current blocker state is empty or populated."
         },
         {
-          "artifact_ref": ".aof/tasks/open/TASK-073.json",
+          "artifact_ref": ".aof/tasks/open/TASK-074.json",
           "why_it_matters": "Supports why the current blocker state is empty or populated."
         }
       ]
     },
     "next_action": {
-      "claim": "Start TASK-073: v6.7 frontier: review provenance audit",
+      "claim": "Start TASK-074: v6.7 frontier: evidence independence audit",
       "rationale": "This is the best open task aligned with the current operating goal and next release frontier.",
-      "artifact_ref": ".aof/tasks/open/TASK-073.json",
+      "artifact_ref": ".aof/tasks/open/TASK-074.json",
       "evidence_refs": [
-        ".aof/tasks/open/TASK-073.json",
+        ".aof/tasks/open/TASK-074.json",
         ".aof/goals/next-value-slice.json",
         ".aof/goals/operating-goal.json",
         "docs/v6.6-release-definition.md"
       ],
       "evidence_items": [
         {
-          "artifact_ref": ".aof/tasks/open/TASK-073.json",
+          "artifact_ref": ".aof/tasks/open/TASK-074.json",
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
         },
         {
@@ -117,8 +117,8 @@
     },
     {
       "step": "frontier_task",
-      "label": "v6.7 frontier: review provenance audit",
-      "artifact_ref": ".aof/tasks/open/TASK-073.json"
+      "label": "v6.7 frontier: evidence independence audit",
+      "artifact_ref": ".aof/tasks/open/TASK-074.json"
     },
     {
       "step": "goal_surface",
@@ -137,7 +137,7 @@
     }
   ],
   "operator_questions": {
-    "why_headline_true": "TASK-073 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+    "why_headline_true": "TASK-074 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
     "what_proves_blockers": "No blocker is currently strong enough to displace the live frontier.",
     "what_proves_next_action": "This is the best open task aligned with the current operating goal and next release frontier."
   }

@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-03T18:59:37.901Z",
+      "at": "2026-07-03T19:07:51.533Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-03T18:59:37.885Z",
+      "at": "2026-07-03T19:07:51.513Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -21,6 +21,17 @@
       "next": "Use the visibility packet to inspect operator-facing runtime health.",
       "refs": [
         ".aof/context/active/metrics-snapshot.json"
+      ]
+    },
+    {
+      "at": "2026-07-03T19:04:49.723Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "v6.7 frontier: review provenance audit",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-073.json"
       ]
     },
     {
@@ -38,7 +49,7 @@
       "at": "2026-07-02T17:28:42.539Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
+      "summary": "Implement TASK-074 evidence-independence-audit: a safe_read verifier that classifies evidence independence and fails when release-signoff evidence is only maker-authored or self-attested. Verification gate: low-independence fixture must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of evidence independence, not proof of semantic truth.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-071.json"
-      ]
-    },
-    {
-      "at": "2026-06-27T18:31:35.304Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "v6.5 bridge: Codify CLI help boundary and runtime-backed evidence rule",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-070.json"
       ]
     }
   ]
