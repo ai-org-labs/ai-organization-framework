@@ -4,6 +4,8 @@ graph LR
   Runtime -->|reads / writes| Artifacts[(AOF Artifacts)]
   Runtime -->|projects| MissionControl[Mission Control]
   Runtime -->|quality intent| QIF[QIF Provider]
+  QIF -->|quality evidence events| QualityLedger[Executable Quality Ledger]
+  QualityLedger -->|audit evidence history| Runtime
   Runtime -->|architecture source| Archmap[Archmap Source]
   Runtime -->|impact verification| ArchmapImpactAudit[Archmap Impact Audit]
   Runtime -->|review provenance verification| ReviewProvenanceAudit[Review Provenance Audit]
@@ -31,6 +33,7 @@ nodes:
   Artifacts: { zone: aof_artifacts, layer: evidence, kind: artifact_store }
   MissionControl: { zone: recognition, layer: visibility, kind: dashboard }
   QIF: { zone: external_frameworks, layer: quality, kind: quality_framework }
+  QualityLedger: { zone: quality_evidence, layer: ledger, kind: appendable_evidence_store }
   Archmap: { zone: architecture_map, layer: architecture, kind: diagram_source }
   ArchmapImpactAudit: { zone: governance, layer: verification, kind: audit_command }
   ReviewProvenanceAudit: { zone: governance, layer: verification, kind: audit_command }
@@ -49,6 +52,8 @@ edges:
   Runtime->Artifacts: { flow: evidence_read_write }
   Runtime->MissionControl: { flow: visibility_projection }
   Runtime->QIF: { flow: quality_intent_alignment }
+  QIF->QualityLedger: { flow: quality_evidence_event_model }
+  QualityLedger->Runtime: { flow: ledger_audit_evidence }
   Runtime->Archmap: { flow: architecture_map_update }
   Runtime->ArchmapImpactAudit: { flow: architecture_impact_verification }
   ArchmapImpactAudit->Artifacts: { flow: governed_architecture_disposition }
@@ -75,6 +80,7 @@ zones:
   aof_artifacts: { label: Canonical Evidence, kind: artifact_boundary, contains: [Artifacts] }
   recognition: { label: Human Recognition, kind: visibility_boundary, contains: [MissionControl] }
   external_frameworks: { label: External Frameworks, kind: reference_boundary, contains: [QIF] }
+  quality_evidence: { label: Quality Evidence Ledger, kind: evidence_boundary, contains: [QualityLedger] }
   architecture_map: { label: Architecture Map, kind: map_boundary, contains: [Archmap, Icons] }
   governance: { label: Verifiable Governance, kind: audit_boundary, contains: [ArchmapImpactAudit, ReviewProvenanceAudit, EvidenceIndependenceAudit, ReleaseStateAudit, GovernanceAudits, ReleaseSignOff] }
   organization: { label: AI Organization, kind: governance_boundary, contains: [Builder, Guardian, Council] }

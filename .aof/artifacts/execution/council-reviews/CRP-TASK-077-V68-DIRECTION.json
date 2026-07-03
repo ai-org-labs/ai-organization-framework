@@ -1,0 +1,32 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-03T19:52:35.398Z",
+  "review_packet_id": "CREV-MR5COCHY-R8JW51",
+  "council_id": "product-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "v6.8 should proceed as Executable Quality Ledger",
+  "rationale": "v6.7 closed structural self-attestation at release sign-off. The next highest-leverage gap is keeping corrected assumptions, contradicted claims, runtime evidence, and QIF-relevant evidence changes appendable and auditable before future decisions.",
+  "recommendation": "Close TASK-077 and open a bounded implementation task for the ledger foundation only.",
+  "target_audience": "operator",
+  "expected_user_reaction": "the next frontier is selected before implementation begins",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [],
+  "role_result_refs": [],
+  "evidence_refs": [
+    "docs/v6.8-direction-review.md",
+    "docs/v6.7-v8.0-completion-roadmap.md",
+    ".aof/artifacts/archmap/impact/TASK-077.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-077",
+  "source_parent_session_id": "SESS-V68-DIRECTION",
+  "source_decision_record_id": null
+}

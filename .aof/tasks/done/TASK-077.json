@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-077",
+  "title": "v6.8 direction selection: Executable Quality Ledger",
+  "description": "Run the post-v6.7 runtime-backed direction review and decide whether v6.8 should be Executable Quality Ledger. Acceptance: direction review artifact exists, release-state-audit is green, Council review approves or changes the frontier, and no implementation task is opened until the direction is approved. Stop condition: direction selection only; do not implement ledger commands in this task.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V68-DIRECTION",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v6.8-direction-selection",
+  "created_at": "2026-07-03T19:51:11.023Z",
+  "updated_at": "2026-07-03T19:52:54.759Z",
+  "assigned_at": null,
+  "done_at": "2026-07-03T19:52:54.759Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Opened because v6.7.0 shipped cleanly and situation-assess reports frontier-definition-needed."
+}

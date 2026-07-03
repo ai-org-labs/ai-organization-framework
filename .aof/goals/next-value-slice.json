@@ -1,7 +1,7 @@
 {
   "goal_type": "next-value-slice",
-  "content": "After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
-  "updated_at": "2026-07-03T19:40:00.000Z",
+  "content": "Implement TASK-078 v6.8 Executable Quality Ledger foundation: add the smallest canonical quality-ledger event schema, writer, audit, and negative fixtures that detect missing runtime evidence or contradicted claims. Stop condition: foundation only; do not auto-compute QIF verdicts and do not claim operator validation. QIF boundary: ledger presence is evidence traceability, not semantic truth.",
+  "updated_at": "2026-07-03T19:54:00.000Z",
   "agreed_with_human": true,
   "source_session_id": null,
   "source_decision_record_id": null,

@@ -1,0 +1,30 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-078",
+  "work_item_ref": ".aof/tasks/open/TASK-078.json",
+  "work_item_id": "TASK-078",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "node",
+      "id": "QualityLedger",
+      "reason": "TASK-078 will add the first executable ledger writer and audit surface."
+    },
+    {
+      "kind": "edge",
+      "id": "QualityLedger->Runtime",
+      "reason": "Ledger audit results become runtime evidence for future review and release claims."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    ".aof/tasks/open/TASK-078.json",
+    "docs/v6.8-direction-review.md",
+    "docs/archmaps/aof-runtime-current.archmap"
+  ],
+  "external_refs": [],
+  "recorded_at": "2026-07-03T19:54:00.000Z"
+}

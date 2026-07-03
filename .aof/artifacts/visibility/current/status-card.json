@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-03T19:41:51.079Z",
+  "as_of": "2026-07-03T19:57:46.986Z",
   "usage_level": "runtime-backed",
-  "current_phase": "organization_operating",
-  "current_goal": "After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
+  "current_phase": "v6.8 frontier: executable quality ledger foundation",
+  "current_goal": "Implement TASK-078 v6.8 Executable Quality Ledger foundation: add the smallest canonical quality-ledger event schema, writer, audit, and negative fixtures that detect missing runtime evidence or contradicted claims. Stop condition: foundation only; do not auto-compute QIF verdicts and do not claim operator validation. QIF boundary: ledger presence is evidence traceability, not semantic truth.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
+  "next_checkpoint": "v6.8 frontier: executable quality ledger foundation",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

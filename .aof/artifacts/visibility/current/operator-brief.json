@@ -1,15 +1,22 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-03T19:41:51.175Z",
-  "headline": "The next frontier is defined, but no aligned implementation task is open yet: After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
+  "generated_at": "2026-07-03T19:57:47.288Z",
+  "headline": "TASK-078 is the live v6.8 frontier after 6.7.0.",
   "current_state": {
     "release_version": "6.7.0",
     "active_release_track": "v6.7",
     "release_definition_ref": "docs/v6.7-release-definition.md",
-    "current_runtime_stage": "frontier-definition-needed",
-    "operating_goal": "Advance v6.7 Verifiable Governance: make missing archmap impact dispositions, self-attested review provenance, and low-independence evidence machine-detectable so release sign-off can fail on structural self-attestation instead of trusting maker claims.",
-    "next_value_slice": "After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
-    "primary_frontier_task": null,
+    "current_runtime_stage": "implementation-ready",
+    "operating_goal": "Advance v6.8 Executable Quality Ledger: make QIF-relevant evidence changes appendable and auditable, so corrected assumptions, contradicted claims, and missing runtime evidence are visible before future review or release decisions.",
+    "next_value_slice": "Implement TASK-078 v6.8 Executable Quality Ledger foundation: add the smallest canonical quality-ledger event schema, writer, audit, and negative fixtures that detect missing runtime evidence or contradicted claims. Stop condition: foundation only; do not auto-compute QIF verdicts and do not claim operator validation. QIF boundary: ledger presence is evidence traceability, not semantic truth.",
+    "primary_frontier_task": {
+      "task_id": "TASK-078",
+      "title": "v6.8 frontier: executable quality ledger foundation",
+      "status": "open",
+      "updated_at": "2026-07-03T19:53:18.487Z",
+      "track": "v6.8",
+      "artifact_ref": ".aof/tasks/open/TASK-078.json"
+    },
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
       "projection_id": "SAHRI-TASK-054-PROOF",
@@ -63,28 +70,29 @@
     }
   },
   "why_now": {
-    "summary": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
+    "summary": "TASK-078 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
     "reasons": [
-      "The active release baseline is 6.7.0 and the runtime is now targeting the next track.",
-      "The current operating goal and next value slice both reinforce the current frontier as the next bounded operating move."
+      "The active release baseline is 6.7.0 and the runtime is now targeting v6.8.",
+      "The current operating goal and next value slice both reinforce TASK-078 as the next bounded operating move."
     ],
     "evidence_refs": [
       "docs/v6.7-release-definition.md",
       ".aof/goals/operating-goal.json",
       ".aof/goals/next-value-slice.json",
+      ".aof/tasks/open/TASK-078.json",
       ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
     ]
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
-    "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
-    "artifact_ref": ".aof/goals/next-value-slice.json"
+    "recommended_action": "Start TASK-078: v6.8 frontier: executable quality ledger foundation",
+    "rationale": "This is the best open task aligned with the current operating goal and next release frontier.",
+    "artifact_ref": ".aof/tasks/open/TASK-078.json"
   },
   "operator_answers": {
-    "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
-    "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
+    "what_is_happening_now": "TASK-078 is the current frontier; Builder is requires-council-review and says: I need council review before I should execute.",
+    "why_this_state": "TASK-078 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Run a runtime-backed direction review before opening the next implementation task: After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal."
+    "what_should_happen_next": "Start TASK-078: v6.8 frontier: executable quality ledger foundation"
   }
 }
