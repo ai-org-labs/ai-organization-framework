@@ -1,7 +1,7 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Implement TASK-075 release-state-audit integration: make release-state-audit consume archmap-impact-audit, review-provenance-audit, and evidence-independence-audit, and fill empty command help inputs/outputs where still missing. Verification gate: release-state-audit fails when any v6.7 governance audit fails; command help benchmark remains green; unit tests pass. Stop condition: integration only; no new audit families. QIF boundary: integrated audit pass is structural/runtime release-readiness evidence, not proof of semantic product quality.",
-  "updated_at": "2026-07-02T17:28:42.539Z",
+  "content": "Close TASK-076 v6.7.0 release: refresh release docs/manifests to 6.7.0, run release-state-audit with integrated Archmap impact, review provenance, and evidence independence gates, run full tests/smoke/help/organization verification, and prepare tag/release notes. Stop condition: release closure only; no new governance audit families. QIF boundary: v6.7 release readiness is structural/runtime governance evidence, not proof of semantic product quality.",
+  "updated_at": "2026-07-03T19:27:00.000Z",
   "agreed_with_human": true,
   "source_session_id": null,
   "source_decision_record_id": null,

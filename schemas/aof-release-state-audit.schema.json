@@ -9,6 +9,8 @@
     "generated_at",
     "project_root",
     "active_release",
+    "governance_audit_cutoff_task_id",
+    "governance_audits",
     "checks",
     "errors"
   ],
@@ -28,6 +30,37 @@
     },
     "active_release": {
       "type": ["object", "null"]
+    },
+    "governance_audit_cutoff_task_id": {
+      "type": "string"
+    },
+    "governance_audits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "ok",
+          "artifact_type",
+          "scoped_task_count",
+          "failing_check_count",
+          "error_count",
+          "errors"
+        ],
+        "properties": {
+          "name": { "type": "string" },
+          "ok": { "type": "boolean" },
+          "artifact_type": { "type": ["string", "null"] },
+          "scoped_task_count": { "type": ["integer", "null"] },
+          "failing_check_count": { "type": "integer" },
+          "error_count": { "type": "integer" },
+          "errors": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "checks": {
       "type": "array",

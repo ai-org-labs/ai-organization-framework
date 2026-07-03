@@ -54,6 +54,20 @@ export async function cliHelpBenchmarkCommand(options) {
     pushCheck(
       checks,
       errors,
+      `${entry.command} inputs`,
+      Array.isArray(help.inputs) && help.inputs.length > 0,
+      Array.isArray(help.inputs) && help.inputs.length > 0 ? help.inputs.join(", ") : "missing"
+    );
+    pushCheck(
+      checks,
+      errors,
+      `${entry.command} outputs`,
+      Array.isArray(help.outputs) && help.outputs.length > 0,
+      Array.isArray(help.outputs) && help.outputs.length > 0 ? help.outputs.join(", ") : "missing"
+    );
+    pushCheck(
+      checks,
+      errors,
       `${entry.command} failure meaning`,
       Boolean(help.failure_meaning),
       help.failure_meaning || "missing"

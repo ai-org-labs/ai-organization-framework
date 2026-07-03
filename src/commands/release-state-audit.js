@@ -2,8 +2,13 @@ import path from "node:path";
 
 import { writeJsonArtifact } from "../runtime/utils.js";
 import { loadBundledSchema, validateAgainstSchema } from "../runtime/validation.js";
+import { archmapImpactAuditCommand } from "./archmap-impact-audit.js";
+import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
+import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
+
+const DEFAULT_GOVERNANCE_AUDIT_CUTOFF_TASK_ID = "TASK-071";
 
 function pushCheck(checks, errors, name, condition, detail) {
   const status = condition ? "pass" : "fail";
@@ -18,8 +23,31 @@ async function validatePayload(payload, schemaFileName, label) {
   validateAgainstSchema(payload, schema, label);
 }
 
+function summarizeGovernanceAudit(name, result) {
+  return {
+    name,
+    ok: Boolean(result.ok),
+    artifact_type: result.summary?.artifact_type ?? null,
+    scoped_task_count: result.summary?.summary?.scoped_task_count ?? null,
+    failing_check_count: result.summary?.summary?.failing_check_count ?? result.summary?.errors?.length ?? 0,
+    error_count: result.summary?.errors?.length ?? 0,
+    errors: result.summary?.errors ?? []
+  };
+}
+
+async function runGovernanceAudits(projectRoot, cutoffTaskId) {
+  const options = { project: projectRoot, cutoffTaskId };
+  const auditResults = [
+    summarizeGovernanceAudit("archmap-impact-audit", await archmapImpactAuditCommand(options)),
+    summarizeGovernanceAudit("review-provenance-audit", await reviewProvenanceAuditCommand(options)),
+    summarizeGovernanceAudit("evidence-independence-audit", await evidenceIndependenceAuditCommand(options))
+  ];
+  return auditResults;
+}
+
 export async function releaseStateAuditCommand(options) {
   const projectRoot = path.resolve(options.project || ".");
+  const governanceAuditCutoffTaskId = options.cutoffTaskId || DEFAULT_GOVERNANCE_AUDIT_CUTOFF_TASK_ID;
   const checks = [];
   const errors = [];
   const manifestRecord = await loadActiveReleaseManifest(projectRoot);
@@ -69,12 +97,27 @@ export async function releaseStateAuditCommand(options) {
     pushCheck(checks, errors, "governance release contract alignment", false, "cannot evaluate without an active release manifest");
   }
 
+  const governanceAudits = await runGovernanceAudits(projectRoot, governanceAuditCutoffTaskId);
+  for (const audit of governanceAudits) {
+    pushCheck(
+      checks,
+      errors,
+      `${audit.name} release gate`,
+      audit.ok,
+      audit.ok
+        ? `${audit.scoped_task_count ?? 0} scoped task(s), ${audit.failing_check_count} failing check(s)`
+        : `${audit.error_count} error(s): ${audit.errors.slice(0, 3).join("; ")}`
+    );
+  }
+
   const payload = {
     ok: errors.length === 0,
     artifact_type: "release-state-audit",
     generated_at: new Date().toISOString(),
     project_root: projectRoot,
     active_release: manifest,
+    governance_audit_cutoff_task_id: governanceAuditCutoffTaskId,
+    governance_audits: governanceAudits,
     checks,
     errors
   };

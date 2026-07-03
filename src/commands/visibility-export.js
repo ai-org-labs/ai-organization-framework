@@ -16,6 +16,11 @@ import { resolveAofRoot } from "../runtime/project-paths.js";
 import { validateWithBundledSchema } from "../runtime/validation.js";
 import { writeJsonArtifact } from "../runtime/utils.js";
 
+function taskNumber(taskId) {
+  const match = String(taskId ?? "").match(/TASK-(\d+)/i);
+  return match ? Number.parseInt(match[1], 10) : Number.NaN;
+}
+
 async function readJson(filePath, label) {
   const text = await fs.readFile(filePath, "utf8");
   try {
@@ -612,7 +617,14 @@ async function loadArchmapProjection(projectRoot, aofRoot) {
       payload: await readJson(impactFile, `archmap impact ${path.basename(impactFile)}`)
     });
   }
-  impactRecords.sort((left, right) => String(right.payload.recorded_at ?? "").localeCompare(String(left.payload.recorded_at ?? "")));
+  impactRecords.sort((left, right) => {
+    const leftTask = taskNumber(left.payload.work_item_id);
+    const rightTask = taskNumber(right.payload.work_item_id);
+    if (Number.isFinite(leftTask) && Number.isFinite(rightTask) && leftTask !== rightTask) {
+      return rightTask - leftTask;
+    }
+    return String(right.payload.recorded_at ?? "").localeCompare(String(left.payload.recorded_at ?? ""));
+  });
 
   const currentSourceRef = sourceFiles[0]
     ? path.relative(projectRoot, sourceFiles[0]).replaceAll("\\", "/")

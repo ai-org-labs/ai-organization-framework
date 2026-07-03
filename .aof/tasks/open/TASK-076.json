@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-076",
+  "title": "v6.7 release closure: ship Verifiable Governance",
+  "description": "Close v6.7.0 by refreshing release docs/manifests, running release-state-audit with integrated governance gates, full tests, smoke, command help benchmark, organization verification, and preparing tag/release notes. Acceptance: package/bootstrap/manifest/docs agree on 6.7.0; release-state-audit includes archmap-impact, review-provenance, and evidence-independence gates; npm test and smoke pass; release checklist records evidence. Stop condition: release closure only; do not add new governance audit families.",
+  "status": "open",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V67-VERIFIABLE-GOVERNANCE",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v6.7-verifiable-governance",
+  "created_at": "2026-07-03T19:26:23.444Z",
+  "updated_at": "2026-07-03T19:26:23.444Z",
+  "assigned_at": null,
+  "done_at": null,
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Opened after TASK-075 integrated governance audits into release-state-audit and closed the CLI help input/output gap."
+}

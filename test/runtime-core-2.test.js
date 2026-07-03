@@ -1412,6 +1412,8 @@ test("releaseStateAuditCommand reports aligned release-state surfaces as green",
   const projectRoot = await createInitializedProject(t);
   await ensureReleaseRefFixtures(projectRoot);
   await ensureReleaseContractFixture(projectRoot);
+  await writeArchmapAuditFixture(projectRoot);
+  await writeEvidenceIndependenceFixture(projectRoot);
 
   await releaseStateRefreshCommand({
     project: projectRoot,
@@ -1426,6 +1428,8 @@ test("releaseStateAuditCommand reports aligned release-state surfaces as green",
 
   assert.equal(result.ok, true);
   assert.equal(result.summary.active_release.release_tag, "v3.4.0");
+  assert.equal(result.summary.governance_audits.length, 3);
+  assert.equal(result.summary.governance_audits.every((audit) => audit.ok), true);
   assert.equal(result.summary.errors.length, 0);
 });
 
@@ -1433,6 +1437,8 @@ test("releaseStateAuditCommand detects bootstrap and contract drift", async (t) 
   const projectRoot = await createInitializedProject(t);
   await ensureReleaseRefFixtures(projectRoot);
   await ensureReleaseContractFixture(projectRoot);
+  await writeArchmapAuditFixture(projectRoot);
+  await writeEvidenceIndependenceFixture(projectRoot);
 
   await releaseStateRefreshCommand({
     project: projectRoot,
@@ -1459,6 +1465,30 @@ test("releaseStateAuditCommand detects bootstrap and contract drift", async (t) 
   assert.equal(result.ok, false);
   assert.ok(result.summary.errors.some((entry) => entry.includes("bootstrap version alignment")));
   assert.ok(result.summary.errors.some((entry) => entry.includes("governance release contract alignment")));
+});
+
+test("releaseStateAuditCommand fails when a v6.7 governance audit fails", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await ensureReleaseRefFixtures(projectRoot);
+  await ensureReleaseContractFixture(projectRoot);
+  await writeArchmapAuditFixture(projectRoot, { writeImpactRecord: false });
+  await writeEvidenceIndependenceFixture(projectRoot);
+
+  await releaseStateRefreshCommand({
+    project: projectRoot,
+    releaseVersion: "3.4.0",
+    releaseTag: "v3.4.0",
+    releaseDefinitionRef: "docs/v3.4-release-definition.md",
+    releaseNotesRef: "docs/v3.4.0-release-notes.md",
+    releaseChecklistRef: "docs/v3.4-release-checklist.md"
+  });
+
+  const result = await releaseStateAuditCommand({ project: projectRoot });
+
+  assert.equal(result.ok, false);
+  const archmapAudit = result.summary.governance_audits.find((audit) => audit.name === "archmap-impact-audit");
+  assert.equal(archmapAudit.ok, false);
+  assert.ok(result.summary.errors.some((entry) => entry.includes("archmap-impact-audit release gate")));
 });
 
 async function writeArchmapAuditFixture(projectRoot, {

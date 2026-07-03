@@ -1,7 +1,7 @@
 {
   "artifact_type": "archmap-impact-record",
   "record_id": "ARCHMAP-IMPACT-TASK-075",
-  "work_item_ref": ".aof/tasks/open/TASK-075.json",
+  "work_item_ref": ".aof/tasks/done/TASK-075.json",
   "work_item_id": "TASK-075",
   "status": "archmap_update_required",
   "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
@@ -16,8 +16,11 @@
   "reviewer_role": "guardian",
   "council_review_status": "approved",
   "evidence_refs": [
-    ".aof/tasks/open/TASK-075.json",
-    "docs/v6.7-v8.0-completion-roadmap.md"
+    ".aof/tasks/done/TASK-075.json",
+    ".aof/artifacts/execution/council-reviews/CRP-TASK-075-RELEASE-GOVERNANCE-GATES.json",
+    "src/commands/release-state-audit.js",
+    "src/commands/cli-help-benchmark.js",
+    "test/runtime-core-2.test.js"
   ],
   "external_refs": [],
   "recorded_at": "2026-07-04T00:00:00.000Z"

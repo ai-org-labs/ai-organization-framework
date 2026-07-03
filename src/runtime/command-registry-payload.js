@@ -408,6 +408,42 @@ function inferOperatorPath(command, category) {
   return "runtime-execution";
 }
 
+function inferInputHints(command, category) {
+  if (INPUT_HINTS[command]) {
+    return INPUT_HINTS[command];
+  }
+  if (category === "write") {
+    return ["project", "payload/options", "write-artifact?"];
+  }
+  if (category === "execute") {
+    return ["project", "runtime context/options"];
+  }
+  if (category === "observe") {
+    return ["project", "write-artifact?"];
+  }
+  return ["project"];
+}
+
+function inferOutputHints(command, category) {
+  if (OUTPUT_HINTS[command]) {
+    return OUTPUT_HINTS[command];
+  }
+  const label = humanizeCommand(command);
+  if (category === "write") {
+    return [`${label} artifact`];
+  }
+  if (category === "execute") {
+    return [`${label} runtime result`];
+  }
+  if (category === "observe") {
+    return [`${label} operator surface`];
+  }
+  if (category === "verify") {
+    return [`${label} verification result`];
+  }
+  return [`${label} summary`];
+}
+
 function inferSafetyLevel(command, category) {
   if ([
     "council-exec",
@@ -466,8 +502,8 @@ export function getCommandCatalogMetadata() {
       purpose: inferPurpose(command, category),
       operator_path: inferOperatorPath(command, category),
       top_command: COMMAND_ROUTING_TOP_COMMANDS.includes(command),
-      inputs: INPUT_HINTS[command] ?? [],
-      outputs: OUTPUT_HINTS[command] ?? [],
+      inputs: inferInputHints(command, category),
+      outputs: inferOutputHints(command, category),
       detail_ref: COMMAND_REGISTRY_DETAIL_REF
     };
   }).sort((left, right) => left.command.localeCompare(right.command));

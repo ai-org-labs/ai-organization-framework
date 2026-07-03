@@ -1,36 +1,36 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-03T19:16:50.672Z",
+  "generated_at": "2026-07-03T19:31:34.434Z",
   "current_checkpoint": {
     "stage": "implementation-ready",
-    "frontier_task_id": "TASK-075",
-    "summary": "TASK-075 is active and the runtime is implementation-ready.",
-    "artifact_ref": ".aof/tasks/open/TASK-075.json"
+    "frontier_task_id": "TASK-076",
+    "summary": "TASK-076 is active and the runtime is implementation-ready.",
+    "artifact_ref": ".aof/tasks/open/TASK-076.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-074 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-074.json"
+    "summary": "TASK-075 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-075.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-074 completed: v6.7 frontier: evidence independence audit",
-      "artifact_ref": ".aof/tasks/done/TASK-074.json"
+      "summary": "TASK-075 completed: v6.7 frontier: integrate governance audits into release sign-off",
+      "artifact_ref": ".aof/tasks/done/TASK-075.json"
     },
     {
       "kind": "frontier-task",
-      "summary": "TASK-075 is now the active frontier: v6.7 frontier: integrate governance audits into release sign-off",
-      "artifact_ref": ".aof/tasks/open/TASK-075.json"
+      "summary": "TASK-076 is now the active frontier: v6.7 release closure: ship Verifiable Governance",
+      "artifact_ref": ".aof/tasks/open/TASK-076.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Implement TASK-075 release-state-audit integration: make release-state-audit consume archmap-impact-audit, review-provenance-audit, and evidence-independence-audit, and fill empty command help inputs/outputs where still missing. Verification gate: release-state-audit fails when any v6.7 governance audit fails; command help benchmark remains green; unit tests pass. Stop condition: integration only; no new audit families. QIF boundary: integrated audit pass is structural/runtime release-readiness evidence, not proof of semantic product quality.",
+      "summary": "Close TASK-076 v6.7.0 release: refresh release docs/manifests to 6.7.0, run release-state-audit with integrated Archmap impact, review provenance, and evidence independence gates, run full tests/smoke/help/organization verification, and prepare tag/release notes. Stop condition: release closure only; no new governance audit families. QIF boundary: v6.7 release readiness is structural/runtime governance evidence, not proof of semantic product quality.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-074 completed: v6.7 frontier: evidence independence audit TASK-075 is now the active frontier: v6.7 frontier: integrate governance audits into release sign-off Implement TASK-075 release-state-audit integration: make release-state-audit consume archmap-impact-audit, review-provenance-audit, and evidence-independence-audit, and fill empty command help inputs/outputs where still missing. Verification gate: release-state-audit fails when any v6.7 governance audit fails; command help benchmark remains green; unit tests pass. Stop condition: integration only; no new audit families. QIF boundary: integrated audit pass is structural/runtime release-readiness evidence, not proof of semantic product quality.",
-    "why_it_matters": "TASK-075 now defines the current operating move after the latest completed release step.",
-    "next_checkpoint": "Start TASK-075: v6.7 frontier: integrate governance audits into release sign-off"
+    "what_changed": "TASK-075 completed: v6.7 frontier: integrate governance audits into release sign-off TASK-076 is now the active frontier: v6.7 release closure: ship Verifiable Governance Close TASK-076 v6.7.0 release: refresh release docs/manifests to 6.7.0, run release-state-audit with integrated Archmap impact, review provenance, and evidence independence gates, run full tests/smoke/help/organization verification, and prepare tag/release notes. Stop condition: release closure only; no new governance audit families. QIF boundary: v6.7 release readiness is structural/runtime governance evidence, not proof of semantic product quality.",
+    "why_it_matters": "TASK-076 now defines the current operating move after the latest completed release step.",
+    "next_checkpoint": "Start TASK-076: v6.7 release closure: ship Verifiable Governance"
   }
 }

@@ -1,0 +1,33 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-03T19:25:10.428Z",
+  "review_packet_id": "CREV-MR5BP38C-QQKH9A",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "release-state-audit now gates v6.7 governance audits and command help completeness is machine-checked",
+  "rationale": "The release audit invokes archmap-impact-audit, review-provenance-audit, and evidence-independence-audit; cli-help-benchmark now fails empty inputs or outputs.",
+  "recommendation": "Close TASK-075 and proceed to v6.7 release closure.",
+  "target_audience": "release operator",
+  "expected_user_reaction": "release sign-off now depends on verifiable governance gates",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [],
+  "role_result_refs": [],
+  "evidence_refs": [
+    "src/commands/release-state-audit.js",
+    "schemas/aof-release-state-audit.schema.json",
+    "src/commands/cli-help-benchmark.js",
+    "test/runtime-core-2.test.js"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-075",
+  "source_parent_session_id": "SESS-V67-VERIFIABLE-GOVERNANCE",
+  "source_decision_record_id": null
+}

@@ -220,7 +220,7 @@ node ./src/cli.js release-state-refresh \
 
 ### `release-state-audit`
 
-active release baseline の drift を narrow に検査する。
+active release baseline の drift と、v6.7 governance audit gate を narrow に検査する。
 
 ```bash
 node ./src/cli.js release-state-audit --project .
@@ -232,6 +232,11 @@ node ./src/cli.js release-state-audit --project .
 - active release refs の存在
 - bootstrap version alignment
 - governance release contract alignment
+- `archmap-impact-audit` release gate
+- `review-provenance-audit` release gate
+- `evidence-independence-audit` release gate
+
+このコマンドが green でない場合、release sign-off は incomplete と扱う。Validator pass は構造・参照・証拠独立性のruntime境界を確認するものであり、semantic truth や market truth の証明ではない。
 
 ### `archmap-impact-audit`
 

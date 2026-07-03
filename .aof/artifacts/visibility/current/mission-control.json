@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-03T19:16:50.572Z",
+  "generated_at": "2026-07-03T19:31:34.299Z",
   "mission_overview": {
     "mission": "Ship v6.6.0 as the Archmap-Aware Mission Control release.",
     "release_version": "6.6.0",
     "release_definition_ref": "docs/v6.6-release-definition.md",
     "operating_goal": "Advance v6.7 Verifiable Governance: make missing archmap impact dispositions, self-attested review provenance, and low-independence evidence machine-detectable so release sign-off can fail on structural self-attestation instead of trusting maker claims.",
-    "next_value_slice": "Implement TASK-075 release-state-audit integration: make release-state-audit consume archmap-impact-audit, review-provenance-audit, and evidence-independence-audit, and fill empty command help inputs/outputs where still missing. Verification gate: release-state-audit fails when any v6.7 governance audit fails; command help benchmark remains green; unit tests pass. Stop condition: integration only; no new audit families. QIF boundary: integrated audit pass is structural/runtime release-readiness evidence, not proof of semantic product quality.",
+    "next_value_slice": "Close TASK-076 v6.7.0 release: refresh release docs/manifests to 6.7.0, run release-state-audit with integrated Archmap impact, review provenance, and evidence independence gates, run full tests/smoke/help/organization verification, and prepare tag/release notes. Stop condition: release closure only; no new governance audit families. QIF boundary: v6.7 release readiness is structural/runtime governance evidence, not proof of semantic product quality.",
     "current_runtime_stage": "implementation-ready",
     "chain_anchor_ref": null
   },
@@ -22,9 +22,9 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Start TASK-075: v6.7 frontier: integrate governance audits into release sign-off",
+    "recommended_action": "Start TASK-076: v6.7 release closure: ship Verifiable Governance",
     "rationale": "This is the best open task aligned with the current operating goal and next release frontier.",
-    "artifact_ref": ".aof/tasks/open/TASK-075.json"
+    "artifact_ref": ".aof/tasks/open/TASK-076.json"
   },
   "skillful_actor_projection": {
     "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
@@ -245,19 +245,16 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 5,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-072.json",
+    "impact_record_count": 6,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-076.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-072",
+    "latest_work_item_id": "TASK-076",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-072.json"
+      ".aof/artifacts/archmap/impact/TASK-076.json"
     ],
-    "external_refs": [
-      "https://github.com/ai-org-labs/archmap/tree/v0.1.0",
-      "https://github.com/ai-org-labs/archmap-icons/tree/v0.1.1"
-    ]
+    "external_refs": []
   }
 }
