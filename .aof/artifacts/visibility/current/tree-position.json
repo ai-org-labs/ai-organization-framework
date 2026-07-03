@@ -1,6 +1,6 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-03T19:07:51.657Z",
+  "generated_at": "2026-07-03T19:16:50.696Z",
   "trunk": {
     "label": "AOF release evolution",
     "active_release_version": "6.6.0",
@@ -9,10 +9,10 @@
   },
   "branch": {
     "frontier_track": "v6.7",
-    "frontier_task_id": "TASK-074",
-    "frontier_task_title": "v6.7 frontier: evidence independence audit",
-    "artifact_ref": ".aof/tasks/open/TASK-074.json",
-    "branch_summary": "Implement TASK-074 evidence-independence-audit: a safe_read verifier that classifies evidence independence and fails when release-signoff evidence is only maker-authored or self-attested. Verification gate: low-independence fixture must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of evidence independence, not proof of semantic truth."
+    "frontier_task_id": "TASK-075",
+    "frontier_task_title": "v6.7 frontier: integrate governance audits into release sign-off",
+    "artifact_ref": ".aof/tasks/open/TASK-075.json",
+    "branch_summary": "Implement TASK-075 release-state-audit integration: make release-state-audit consume archmap-impact-audit, review-provenance-audit, and evidence-independence-audit, and fill empty command help inputs/outputs where still missing. Verification gate: release-state-audit fails when any v6.7 governance audit fails; command help benchmark remains green; unit tests pass. Stop condition: integration only; no new audit families. QIF boundary: integrated audit pass is structural/runtime release-readiness evidence, not proof of semantic product quality."
   },
   "roadmap_path": [
     {
@@ -27,8 +27,8 @@
     }
   ],
   "tree_answer": {
-    "where_are_we": "TASK-074 sits on v6.7 after shipped v6.6.",
+    "where_are_we": "TASK-075 sits on v6.7 after shipped v6.6.",
     "why_this_branch": "Advance v6.7 Verifiable Governance: make missing archmap impact dispositions, self-attested review provenance, and low-independence evidence machine-detectable so release sign-off can fail on structural self-attestation instead of trusting maker claims.",
-    "what_branch_comes_next": "Start TASK-074: v6.7 frontier: evidence independence audit"
+    "what_branch_comes_next": "Start TASK-075: v6.7 frontier: integrate governance audits into release sign-off"
   }
 }

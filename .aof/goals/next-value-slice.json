@@ -1,6 +1,6 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Implement TASK-074 evidence-independence-audit: a safe_read verifier that classifies evidence independence and fails when release-signoff evidence is only maker-authored or self-attested. Verification gate: low-independence fixture must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of evidence independence, not proof of semantic truth.",
+  "content": "Implement TASK-075 release-state-audit integration: make release-state-audit consume archmap-impact-audit, review-provenance-audit, and evidence-independence-audit, and fill empty command help inputs/outputs where still missing. Verification gate: release-state-audit fails when any v6.7 governance audit fails; command help benchmark remains green; unit tests pass. Stop condition: integration only; no new audit families. QIF boundary: integrated audit pass is structural/runtime release-readiness evidence, not proof of semantic product quality.",
   "updated_at": "2026-07-02T17:28:42.539Z",
   "agreed_with_human": true,
   "source_session_id": null,

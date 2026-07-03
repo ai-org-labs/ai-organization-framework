@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-075",
+  "title": "v6.7 frontier: integrate governance audits into release sign-off",
+  "description": "Integrate archmap-impact-audit, review-provenance-audit, and evidence-independence-audit into release-state-audit and fill empty command help inputs/outputs where still missing. Acceptance: release-state-audit fails when any v6.7 governance audit fails; command help benchmark remains green; unit tests pass. Stop condition: integration only; do not add new governance audit families in this task. QIF boundary: integrated audit pass is structural/runtime release-readiness evidence, not proof of semantic product quality.",
+  "status": "open",
+  "origin": "human",
+  "orchestrator_session_id": null,
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v6.7-verifiable-governance",
+  "created_at": "2026-07-03T19:12:46.269Z",
+  "updated_at": "2026-07-03T19:12:46.269Z",
+  "assigned_at": null,
+  "done_at": null,
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Opened from v6.7 completion roadmap after TASK-074 evidence-independence-audit was implemented and verified. This is roadmap priority 4: make release-state-audit consume the three v6.7 governance audits."
+}

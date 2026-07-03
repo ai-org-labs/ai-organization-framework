@@ -22,6 +22,7 @@ import { discoveryHandoffBenchmarkCommand } from "../src/commands/discovery-hand
 import { discoveryJudgmentPacketCommand } from "../src/commands/discovery-judgment-packet.js";
 import { discoveryHandoffRecordCommand } from "../src/commands/discovery-handoff-record.js";
 import { discoveryQuestionSetRecordCommand } from "../src/commands/discovery-question-set-record.js";
+import { evidenceIndependenceAuditCommand } from "../src/commands/evidence-independence-audit.js";
 import { executionLineageCommand } from "../src/commands/execution-lineage.js";
 import { initProjectCommand } from "../src/commands/init-project.js";
 import { learningLoopSnapshotCommand } from "../src/commands/learning-loop-snapshot.js";
@@ -1639,6 +1640,50 @@ test("reviewProvenanceAuditCommand fails when review parent session provenance i
 
   assert.equal(result.ok, false);
   assert.ok(result.summary.errors.some((entry) => entry.includes("parent session provenance")));
+});
+
+async function writeEvidenceIndependenceFixture(projectRoot, {
+  taskId = "TASK-071",
+  evidenceRefs = ["test/runtime-core-2.test.js", "src/commands/example.js"]
+} = {}) {
+  await writeReviewProvenanceFixture(projectRoot, { taskId });
+  const reviewPath = path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews", `CRP-${taskId}.json`);
+  const review = JSON.parse(await fs.readFile(reviewPath, "utf8"));
+  review.evidence_refs = evidenceRefs;
+  await fs.writeFile(reviewPath, `${JSON.stringify(review, null, 2)}\n`, "utf8");
+  await fs.mkdir(path.join(projectRoot, "src", "commands"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, "test"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "src", "commands", "example.js"), "export {};\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "test", "runtime-core-2.test.js"), "export {};\n", "utf8");
+}
+
+test("evidenceIndependenceAuditCommand passes when review evidence includes independent categories", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeEvidenceIndependenceFixture(projectRoot);
+
+  const result = await evidenceIndependenceAuditCommand({
+    project: projectRoot,
+    cutoffTaskId: "TASK-071"
+  });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.summary.summary.low_independence_task_count, 0);
+});
+
+test("evidenceIndependenceAuditCommand fails when evidence is only maker-authored or self-attested", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeEvidenceIndependenceFixture(projectRoot, {
+    evidenceRefs: ["src/commands/example.js", ".aof/tasks/done/TASK-071.json"]
+  });
+
+  const result = await evidenceIndependenceAuditCommand({
+    project: projectRoot,
+    cutoffTaskId: "TASK-071"
+  });
+
+  assert.equal(result.ok, false);
+  assert.equal(result.summary.summary.low_independence_task_count, 1);
+  assert.ok(result.summary.errors.some((entry) => entry.includes("independent evidence presence")));
 });
 
 test("organizationStatusCommand exposes active release manifest when present", async (t) => {

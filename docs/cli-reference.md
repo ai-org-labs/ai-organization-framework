@@ -274,6 +274,26 @@ QIF boundary:
 - pass は review provenance の structural/runtime evidence であり、レビュー判断の意味的正しさを証明しない
 - semantic review quality は Guardian / Council / human review / operational feedback の対象として残る
 
+### `evidence-independence-audit`
+
+`TASK-071` 以降の done work item が、release sign-off の証拠を maker-authored / self-attested なものだけに依存していないかを narrow に検査する。v6.7 の Verifiable Governance 用 command であり、「ソースを書いた」「task を閉じた」「impact record を作った」だけで品質主張しないためのもの。
+
+```bash
+node ./src/cli.js evidence-independence-audit --project . --cutoff-task-id TASK-071
+```
+
+主な確認項目:
+
+- done task の Council review evidence が存在する
+- evidence が `src/` や `.aof/tasks/` などの maker/self-attested refs だけではない
+- `test/` / `schemas/` / Council review / Guardian result / governance review / release check のいずれかの independent category が存在する
+- evidence ref が解決できる
+
+QIF boundary:
+
+- pass は evidence independence の structural/runtime evidence であり、証拠が semantic truth を証明するとは限らない
+- semantic validity は human review / expert review / reproduction test / operational feedback / governance の対象として残る
+
 ### `dependency-graph`
 
 current `.aof/organization.json` から dependency graph を返す。

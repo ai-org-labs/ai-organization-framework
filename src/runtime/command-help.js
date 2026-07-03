@@ -23,6 +23,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing Council review records, invalid review statuses, missing parent session provenance, empty evidence, or unresolved review refs after the cutoff task.",
     verdict_boundary: "Review provenance evidence only; not proof that the reviewer judgment was semantically correct."
   },
+  "evidence-independence-audit": {
+    quality_intent: "Release-signoff evidence is not only maker-authored or self-attested.",
+    risk: "AOF treats code, task records, or self-authored impact records as sufficient proof without independent verification evidence.",
+    loss_boundary: "Do not claim release readiness when done implementation work has no independent evidence category such as tests, schemas, Council review, Guardian result, or release check.",
+    evidence_refs: ["council review evidence refs", "test refs", "schema refs", "governance review refs"],
+    acceptance_gate: "Audit fails done tasks whose review evidence has no independent evidence category after the cutoff task.",
+    verdict_boundary: "Evidence-independence structure only; not proof that the evidence proves semantic truth."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

@@ -8,6 +8,8 @@ graph LR
   Runtime -->|impact verification| ArchmapImpactAudit[Archmap Impact Audit]
   Runtime -->|review provenance verification| ReviewProvenanceAudit[Review Provenance Audit]
   Runtime -->|evidence independence verification| EvidenceIndependenceAudit[Evidence Independence Audit]
+  Runtime -->|release sign-off verification| ReleaseStateAudit[Release State Audit]
+  ReleaseStateAudit -->|consumes| GovernanceAudits[Verifiable Governance Audits]
   Archmap -->|rendered view| MissionControl
   Runtime -->|optional icons| Icons[Archmap Icons]
   Builder[Builder Actor] -->|work result| Artifacts
@@ -31,6 +33,8 @@ nodes:
   ArchmapImpactAudit: { zone: governance, layer: verification, kind: audit_command }
   ReviewProvenanceAudit: { zone: governance, layer: verification, kind: audit_command }
   EvidenceIndependenceAudit: { zone: governance, layer: verification, kind: audit_command }
+  ReleaseStateAudit: { zone: governance, layer: verification, kind: audit_command }
+  GovernanceAudits: { zone: governance, layer: verification, kind: audit_bundle }
   Icons: { zone: architecture_map, layer: recognition, kind: icon_pack }
   Builder: { zone: organization, layer: actor, kind: builder }
   Guardian: { zone: organization, layer: actor, kind: checker }
@@ -48,6 +52,8 @@ edges:
   ReviewProvenanceAudit->Artifacts: { flow: governed_review_provenance }
   Runtime->EvidenceIndependenceAudit: { flow: evidence_independence_verification }
   EvidenceIndependenceAudit->Artifacts: { flow: governed_evidence_independence }
+  Runtime->ReleaseStateAudit: { flow: release_state_verification }
+  ReleaseStateAudit->GovernanceAudits: { flow: release_signoff_gate }
   Archmap->MissionControl: { flow: architecture_recognition_projection }
   Runtime->Icons: { flow: optional_icon_lookup }
   Orchestrator->Builder: { flow: actor_assignment }
@@ -64,7 +70,7 @@ zones:
   recognition: { label: Human Recognition, kind: visibility_boundary, contains: [MissionControl] }
   external_frameworks: { label: External Frameworks, kind: reference_boundary, contains: [QIF] }
   architecture_map: { label: Architecture Map, kind: map_boundary, contains: [Archmap, Icons] }
-  governance: { label: Verifiable Governance, kind: audit_boundary, contains: [ArchmapImpactAudit, ReviewProvenanceAudit, EvidenceIndependenceAudit] }
+  governance: { label: Verifiable Governance, kind: audit_boundary, contains: [ArchmapImpactAudit, ReviewProvenanceAudit, EvidenceIndependenceAudit, ReleaseStateAudit, GovernanceAudits] }
   organization: { label: AI Organization, kind: governance_boundary, contains: [Builder, Guardian, Council] }
 boundaries:
   source_of_truth:
