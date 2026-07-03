@@ -332,12 +332,12 @@ completion roadmap:
 
 - [docs/v6.7-v8.0-completion-roadmap.md](v6.7-v8.0-completion-roadmap.md)
 
-The first work item is `TASK-072` (`archmap-impact-audit`), which matches
-priority 1 below. Implementation is continued by Codex.
+The v6.7 work items `TASK-072` through `TASK-076` have implemented and released
+the Verifiable Governance slice.
 
 ## Current Recommendation
 
-After `v6.6.0`, choose the next frontier through runtime-backed review before opening implementation work.
+After `v6.7.0`, choose the next frontier through runtime-backed review before opening implementation work.
 
 Priority order:
 

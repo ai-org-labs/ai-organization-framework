@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-03T19:31:34.299Z",
+  "as_of": "2026-07-03T19:41:51.079Z",
   "usage_level": "runtime-backed",
-  "current_phase": "v6.7 release closure: ship Verifiable Governance",
-  "current_goal": "Close TASK-076 v6.7.0 release: refresh release docs/manifests to 6.7.0, run release-state-audit with integrated Archmap impact, review provenance, and evidence independence gates, run full tests/smoke/help/organization verification, and prepare tag/release notes. Stop condition: release closure only; no new governance audit families. QIF boundary: v6.7 release readiness is structural/runtime governance evidence, not proof of semantic product quality.",
+  "current_phase": "organization_operating",
+  "current_goal": "After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "v6.7 release closure: ship Verifiable Governance",
+  "next_checkpoint": "After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

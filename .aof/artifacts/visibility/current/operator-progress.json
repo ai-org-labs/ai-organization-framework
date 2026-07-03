@@ -1,36 +1,31 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-03T19:31:34.434Z",
+  "generated_at": "2026-07-03T19:41:51.223Z",
   "current_checkpoint": {
-    "stage": "implementation-ready",
-    "frontier_task_id": "TASK-076",
-    "summary": "TASK-076 is active and the runtime is implementation-ready.",
-    "artifact_ref": ".aof/tasks/open/TASK-076.json"
+    "stage": "frontier-definition-needed",
+    "frontier_task_id": null,
+    "summary": "The runtime is frontier-definition-needed.",
+    "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-075 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-075.json"
+    "summary": "TASK-076 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-076.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-075 completed: v6.7 frontier: integrate governance audits into release sign-off",
-      "artifact_ref": ".aof/tasks/done/TASK-075.json"
-    },
-    {
-      "kind": "frontier-task",
-      "summary": "TASK-076 is now the active frontier: v6.7 release closure: ship Verifiable Governance",
-      "artifact_ref": ".aof/tasks/open/TASK-076.json"
+      "summary": "TASK-076 completed: v6.7 release closure: ship Verifiable Governance",
+      "artifact_ref": ".aof/tasks/done/TASK-076.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Close TASK-076 v6.7.0 release: refresh release docs/manifests to 6.7.0, run release-state-audit with integrated Archmap impact, review provenance, and evidence independence gates, run full tests/smoke/help/organization verification, and prepare tag/release notes. Stop condition: release closure only; no new governance audit families. QIF boundary: v6.7 release readiness is structural/runtime governance evidence, not proof of semantic product quality.",
+      "summary": "After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-075 completed: v6.7 frontier: integrate governance audits into release sign-off TASK-076 is now the active frontier: v6.7 release closure: ship Verifiable Governance Close TASK-076 v6.7.0 release: refresh release docs/manifests to 6.7.0, run release-state-audit with integrated Archmap impact, review provenance, and evidence independence gates, run full tests/smoke/help/organization verification, and prepare tag/release notes. Stop condition: release closure only; no new governance audit families. QIF boundary: v6.7 release readiness is structural/runtime governance evidence, not proof of semantic product quality.",
-    "why_it_matters": "TASK-076 now defines the current operating move after the latest completed release step.",
-    "next_checkpoint": "Start TASK-076: v6.7 release closure: ship Verifiable Governance"
+    "what_changed": "TASK-076 completed: v6.7 release closure: ship Verifiable Governance After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal.",
+    "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: After v6.7.0, run a runtime-backed direction review before opening the next implementation task. Candidate direction is v6.8 Executable Quality Ledger, but do not open implementation work until situation-assess, release-state-audit, and Council review confirm the bounded next frontier. QIF boundary: direction selection is planning evidence, not proof that the next frontier is semantically optimal."
   }
 }

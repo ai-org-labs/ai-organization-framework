@@ -2,111 +2,105 @@
 
 ## Version
 
-`v6.6.0`
+`v6.7.0`
 
 ## Release Theme
 
-Archmap-Aware Mission Control.
+Verifiable Governance.
 
-`v6.5.0` made AOF runs lighter and safer by separating safe local runtime work from project, external, and dangerous operations. The next bottleneck is architectural traceability: implementation work can change the organization/runtime shape without a governed map-impact decision.
+`v6.6.0` made architecture impact visible as governed work. The next bottleneck was self-attestation: AOF could still claim release readiness from artifacts that existed, even when the release gate did not machine-check whether architecture impact, Council review provenance, and evidence independence were present.
 
 Human-facing wording:
 
-> v6.6 should make architecture impact visible as governed work progresses by connecting work items, Archmap source, Council disposition, and Mission Control projection.
+> v6.7 should make release governance checkable before sign-off, so AOF cannot quietly treat "we wrote artifacts" as "governance happened."
 
 More explicit wording:
 
-> AOF should not let architecture drift become hidden context. Each implementation-grade work item should either update the architecture map, mark the map as unaffected, or defer the map impact with an explicit reason and follow-up.
+> AOF should reject release readiness when implementation-grade work lacks Archmap impact disposition, Council review provenance, or evidence that is not only maker-authored/self-attested.
 
 ## Runtime Evidence Basis
 
-- runtime command: `situation-assess --project .`
-- release task: `TASK-071`
-- Archmap integration doc: `docs/v6.6-archmap-integration.md`
+- runtime command: `release-state-audit --project .`
+- release task: `TASK-076`
+- release definition: `docs/v6.7-release-definition.md`
+- release checklist: `docs/v6.7-release-checklist.md`
+- release notes: `docs/v6.7.0-release-notes.md`
+- roadmap: `docs/v6.7-v8.0-completion-roadmap.md`
 - Archmap source: `docs/archmaps/aof-runtime-current.archmap`
-- Archmap impact record: `.aof/artifacts/archmap/impact/TASK-071.json`
-- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-071-V66-ARCHMAP.json`
-- QIF readiness review: `docs/v6.6-qif-release-readiness-review.md`
-- roadmap: `docs/vnext-roadmap.md`
+- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-075-RELEASE-GOVERNANCE-GATES.json`
 
 ## Required Outcomes
 
 Required:
 
-- define Archmap architecture impact as governed work evidence
-- define `archmap_update_required`, `archmap_unaffected`, and `archmap_deferred_with_reason`
-- commit a current AOF runtime Archmap source
-- record the current work item impact for `TASK-071`
-- resolve the Archmap impact Council status
-- project Archmap source and map-impact state into Mission Control without making Mission Control source of truth
-- keep QIF v0.3.1 as provider guidance, not executable verifier replacement
-- add Node.js 24 to the CI runtime lane
-- preserve Node.js 25+ unsupported warning
+- add `archmap-impact-audit`
+- add `review-provenance-audit`
+- add `evidence-independence-audit`
+- integrate the three audits into `release-state-audit`
+- make `release-state-audit` fail if any integrated governance audit fails
+- make `cli-help-benchmark` fail missing command help inputs or outputs
+- refresh command registry so every command has AI-readable input/output hints
+- fix visibility latest Archmap work selection so later task ids are not hidden by timestamp ordering
+- align package, bootstrap, active release manifest, organization contract, README, quickstart, checklist, and notes to `6.7.0`
 
 Deferred:
 
-- full Archmap renderer integration into Mission Control
-- mandatory `@archmap/core` runtime dependency
-- mandatory `@archmap/icons` dependency
-- automatic architecture quality scoring from diagrams
-- full machine-verification of every implementation-grade work item map impact
+- automatic semantic truth scoring
+- external market/product validation
+- full external QIF verifier execution
+- automatic replacement of Council judgment
+- Node.js 25+ support
 
 ## Release Gates
 
-### Gate 1: Runtime Direction
+### Gate 1: Governance Audit Commands
 
-- `situation-assess` reported `TASK-071` as the v6.6 frontier before release closure
-- `situation-assess` reported no truth conflicts
-- operating goal and next value slice point at Archmap-aware Mission Control
+- `archmap-impact-audit` passes for `TASK-071` onward
+- `review-provenance-audit` passes for done work at `TASK-071` onward
+- `evidence-independence-audit` passes for done work at `TASK-071` onward
 
-### Gate 2: Archmap Contract
+### Gate 2: Release Sign-Off Integration
 
-- Archmap integration doc exists
-- Archmap source exists
-- current work item impact record exists
-- contract distinguishes update, unaffected, and deferred outcomes
-- docs state that icons and diagrams are not quality evidence by themselves
+- `release-state-audit` consumes all three governance audits
+- `release-state-audit` fails if any governance audit fails
+- release-state schema includes `governance_audits`
 
-### Gate 3: Council Disposition
+### Gate 3: Command Help Completeness
 
-- Council review packet exists for `TASK-071`
-- Archmap impact status is no longer pending
-- release does not treat pending review as approval
+- command registry entries have inputs and outputs
+- `cli-help-benchmark` fails missing input/output hints
+- command help remains compact and AI-readable
 
-### Gate 4: Mission Control Boundary
+### Gate 4: Release Surface
 
-- Mission Control projects current map ref
-- Mission Control projects latest impact status
-- Mission Control does not become source of truth
+- package version is `6.7.0`
+- bootstrap `aof_version` is `6.7.0`
+- active release manifest points at v6.7 docs
+- organization release contract points at `docs/v6.7-release-definition.md`
+- README and quickstart point at v6.7
 
-### Gate 5: Runtime Support
-
-- package engines allow Node.js `>=22 <25`
-- CI validates Node.js 22
-- CI validates Node.js 24
-- CLI warns for Node.js 25+
-- quickstart documents Node.js 22/24 support
-
-### Gate 6: Verification
+### Gate 5: Verification
 
 - command routing audit
+- CLI help benchmark
 - organization verification
 - release-state audit
+- governance audits
 - decision verification
-- focused runtime situation tests
+- focused runtime tests
 - `npm test`
 - `npm run smoke`
 
 ## Release Decision
 
-Release `v6.6.0` only if AOF now makes it harder to confuse:
+Release `v6.7.0` only if AOF now makes it harder to confuse:
 
-- architecture documentation with governed architecture impact
-- Mission Control projection with source of truth
-- visual icons with quality evidence
-- pending Council review with approval
-- permissive Node engine range with CI-validated runtime support
+- artifact existence with governance evidence
+- maker-authored output with independent verification
+- pending or missing Council provenance with approval
+- command availability with AI-readable command usability
+- visibility projection with canonical truth
 
-## Post-v6.6 Direction Candidate
+## Post-v6.7 Direction Candidate
 
-After v6.6, the next frontier should be selected through runtime-backed review. The strongest known candidate is first-class machine verification that every implementation-grade work item has an explicit architecture impact decision before release sign-off.
+After v6.7, choose the next frontier through runtime-backed review before opening implementation work. The known roadmap candidate is `v6.8` Executable Quality Ledger, but it should not start until a fresh direction review confirms it is still the best bounded slice.
