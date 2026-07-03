@@ -10,6 +10,7 @@ import { actorSkillPacketRecordCommand } from "../src/commands/actor-skill-packe
 import { answerCommand } from "../src/commands/answer.js";
 import { alternativeAnalysisRecordCommand } from "../src/commands/alternative-analysis-record.js";
 import { anomalyLogRecordCommand } from "../src/commands/anomaly-log-record.js";
+import { archmapImpactAuditCommand } from "../src/commands/archmap-impact-audit.js";
 import { assumptionMapRecordCommand } from "../src/commands/assumption-map-record.js";
 import { commandRegisterCommand } from "../src/commands/command-register.js";
 import { commandRegistryRefreshCommand } from "../src/commands/command-registry-refresh.js";
@@ -1456,6 +1457,93 @@ test("releaseStateAuditCommand detects bootstrap and contract drift", async (t) 
   assert.equal(result.ok, false);
   assert.ok(result.summary.errors.some((entry) => entry.includes("bootstrap version alignment")));
   assert.ok(result.summary.errors.some((entry) => entry.includes("governance release contract alignment")));
+});
+
+async function writeArchmapAuditFixture(projectRoot, {
+  taskId = "TASK-071",
+  taskStatusDir = "done",
+  impactStatus = "archmap_update_required",
+  councilReviewStatus = "approved",
+  writeImpactRecord = true
+} = {}) {
+  const taskDir = path.join(projectRoot, ".aof", "tasks", taskStatusDir);
+  const impactDir = path.join(projectRoot, ".aof", "artifacts", "archmap", "impact");
+  const archmapDir = path.join(projectRoot, "docs", "archmaps");
+  await fs.mkdir(taskDir, { recursive: true });
+  await fs.mkdir(impactDir, { recursive: true });
+  await fs.mkdir(archmapDir, { recursive: true });
+
+  const taskRef = `.aof/tasks/${taskStatusDir}/${taskId}.json`;
+  await fs.writeFile(path.join(projectRoot, taskRef), `${JSON.stringify({
+    task_id: taskId,
+    title: `${taskId} implementation work`,
+    status: taskStatusDir === "done" ? "done" : "open",
+    description: "Implementation-grade work item for Archmap audit coverage."
+  }, null, 2)}\n`, "utf8");
+  await fs.writeFile(path.join(archmapDir, "aof-runtime-current.archmap"), "graph LR\n  Runtime --> Archmap\n", "utf8");
+
+  if (!writeImpactRecord) {
+    return;
+  }
+
+  await fs.writeFile(path.join(impactDir, `${taskId}.json`), `${JSON.stringify({
+    artifact_type: "archmap-impact-record",
+    record_id: `ARCHMAP-IMPACT-${taskId}`,
+    work_item_ref: taskRef,
+    work_item_id: taskId,
+    status: impactStatus,
+    archmap_source_ref: "docs/archmaps/aof-runtime-current.archmap",
+    changed_elements: [{
+      kind: "node",
+      id: "Runtime",
+      reason: "Runtime command surface changed."
+    }],
+    owner_actor: "builder",
+    reviewer_role: "guardian",
+    council_review_status: councilReviewStatus,
+    evidence_refs: ["src/commands/archmap-impact-audit.js"],
+    recorded_at: "2026-07-04T00:00:00.000Z"
+  }, null, 2)}\n`, "utf8");
+}
+
+test("archmapImpactAuditCommand passes when implementation tasks have approved impact records", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeArchmapAuditFixture(projectRoot);
+
+  const result = await archmapImpactAuditCommand({
+    project: projectRoot,
+    cutoffTaskId: "TASK-071"
+  });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.summary.summary.scoped_task_count, 1);
+  assert.equal(result.summary.errors.length, 0);
+});
+
+test("archmapImpactAuditCommand fails when impact disposition is missing", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeArchmapAuditFixture(projectRoot, { writeImpactRecord: false });
+
+  const result = await archmapImpactAuditCommand({
+    project: projectRoot,
+    cutoffTaskId: "TASK-071"
+  });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((entry) => entry.includes("archmap impact record presence")));
+});
+
+test("archmapImpactAuditCommand fails when council disposition is pending", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeArchmapAuditFixture(projectRoot, { councilReviewStatus: "pending" });
+
+  const result = await archmapImpactAuditCommand({
+    project: projectRoot,
+    cutoffTaskId: "TASK-071"
+  });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((entry) => entry.includes("council impact disposition")));
 });
 
 test("organizationStatusCommand exposes active release manifest when present", async (t) => {

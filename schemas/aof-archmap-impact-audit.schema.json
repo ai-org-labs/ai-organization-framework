@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-archmap-impact-audit.schema.json",
+  "title": "AOF Archmap Impact Audit",
+  "type": "object",
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "cutoff_task_id",
+    "audited_status_dirs",
+    "valid_impact_statuses",
+    "summary",
+    "tasks",
+    "impact_records",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": {
+      "type": "string",
+      "enum": ["archmap-impact-audit"]
+    },
+    "generated_at": { "type": "string" },
+    "project_root": { "type": "string" },
+    "cutoff_task_id": { "type": "string" },
+    "audited_status_dirs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "valid_impact_statuses": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "scoped_task_count",
+        "impact_record_count",
+        "missing_impact_record_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "scoped_task_count": { "type": "integer" },
+        "impact_record_count": { "type": "integer" },
+        "missing_impact_record_count": { "type": "integer" },
+        "failing_check_count": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["task_id", "title", "status", "status_dir", "artifact_ref"],
+        "properties": {
+          "task_id": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "string" },
+          "status_dir": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "impact_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "task_id",
+          "task_ref",
+          "impact_ref",
+          "status",
+          "council_review_status",
+          "archmap_source_ref"
+        ],
+        "properties": {
+          "task_id": { "type": "string" },
+          "task_ref": { "type": "string" },
+          "impact_ref": { "type": "string" },
+          "status": { "type": ["string", "null"] },
+          "council_review_status": { "type": ["string", "null"] },
+          "archmap_source_ref": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

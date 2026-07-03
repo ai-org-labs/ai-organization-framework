@@ -233,6 +233,26 @@ node ./src/cli.js release-state-audit --project .
 - bootstrap version alignment
 - governance release contract alignment
 
+### `archmap-impact-audit`
+
+`TASK-071` 以降の implementation-grade work item が、Archmap への影響判断を持っているかを narrow に検査する。これは v6.7 の Verifiable Governance 用 command であり、release sign-off 前に「アーキテクチャ影響を見たことにしていないか」を機械的に落とすためのもの。
+
+```bash
+node ./src/cli.js archmap-impact-audit --project . --cutoff-task-id TASK-071
+```
+
+主な確認項目:
+
+- 対象 task に `.aof/artifacts/archmap/impact/<TASK-id>.json` が存在する
+- `status` が `archmap_update_required` / `archmap_unaffected` / `archmap_deferred_with_reason` のいずれか
+- `council_review_status` が `pending` ではない
+- `work_item_ref` と `archmap_source_ref` が解決できる
+
+QIF boundary:
+
+- pass は structural/runtime evidence であり、Archmap の意味的完全性や視覚品質を証明しない
+- semantic architecture correctness は Guardian / Council / human review / operational feedback の対象として残る
+
 ### `dependency-graph`
 
 current `.aof/organization.json` から dependency graph を返す。

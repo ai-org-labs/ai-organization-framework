@@ -7,6 +7,14 @@ import {
 } from "./command-registry-payload.js";
 
 const QIF_MAPPING_BY_COMMAND = {
+  "archmap-impact-audit": {
+    quality_intent: "Architecture-impact governance is traceable before release sign-off.",
+    risk: "Implementation work changes architecture or map-relevant runtime behavior without an explicit Archmap impact disposition.",
+    loss_boundary: "Do not claim release readiness when implementation-grade work lacks a resolvable impact record, valid impact status, or non-pending Council disposition.",
+    evidence_refs: ["archmap impact records", "task records", "Archmap source refs"],
+    acceptance_gate: "Audit fails missing impact records, invalid impact statuses, unresolved refs, or pending Council review at or after the cutoff task.",
+    verdict_boundary: "Structural/runtime governance evidence only; not proof that the architecture map is semantically complete or visually optimal."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

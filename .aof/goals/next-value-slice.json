@@ -1,6 +1,6 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Implement TASK-072 archmap-impact-audit: a safe_read verifier that fails when an implementation-grade work item lacks a resolvable archmap impact record with a non-pending council status. Verification gate: negative fixture (missing disposition) must fail plus unit tests and release-state-audit integration follow-up. Stop condition: audit-only scope; no renderer work, no retroactive migration; tasks before TASK-071 are exempt via an explicit cutoff. QIF boundary: audit pass is structural/runtime evidence, not semantic architecture correctness.",
+  "content": "Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
   "updated_at": "2026-07-02T17:28:42.539Z",
   "agreed_with_human": true,
   "source_session_id": null,

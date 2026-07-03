@@ -1,31 +1,36 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-02T08:27:33.190Z",
+  "generated_at": "2026-07-03T18:59:38.016Z",
   "current_checkpoint": {
-    "stage": "frontier-definition-needed",
-    "frontier_task_id": null,
-    "summary": "The runtime is frontier-definition-needed.",
-    "artifact_ref": ".aof/goals/next-value-slice.json"
+    "stage": "implementation-ready",
+    "frontier_task_id": "TASK-073",
+    "summary": "TASK-073 is active and the runtime is implementation-ready.",
+    "artifact_ref": ".aof/tasks/open/TASK-073.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-071 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-071.json"
+    "summary": "TASK-072 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-072.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-071 completed: v6.6 frontier: Integrate Archmap into AOF governed development flow",
-      "artifact_ref": ".aof/tasks/done/TASK-071.json"
+      "summary": "TASK-072 completed: v6.7 frontier: archmap-impact-audit machine verification",
+      "artifact_ref": ".aof/tasks/done/TASK-072.json"
+    },
+    {
+      "kind": "frontier-task",
+      "summary": "TASK-073 is now the active frontier: v6.7 frontier: review provenance audit",
+      "artifact_ref": ".aof/tasks/open/TASK-073.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
+      "summary": "Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-071 completed: v6.6 frontier: Integrate Archmap into AOF governed development flow After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
-    "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary."
+    "what_changed": "TASK-072 completed: v6.7 frontier: archmap-impact-audit machine verification TASK-073 is now the active frontier: v6.7 frontier: review provenance audit Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
+    "why_it_matters": "TASK-073 now defines the current operating move after the latest completed release step.",
+    "next_checkpoint": "Start TASK-073: v6.7 frontier: review provenance audit"
   }
 }

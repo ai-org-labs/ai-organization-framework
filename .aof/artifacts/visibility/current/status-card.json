@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-02T08:27:33.161Z",
+  "as_of": "2026-07-03T18:59:37.901Z",
   "usage_level": "runtime-backed",
-  "current_phase": "organization_operating",
-  "current_goal": "After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
+  "current_phase": "v6.7 frontier: review provenance audit",
+  "current_goal": "Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
+  "next_checkpoint": "v6.7 frontier: review provenance audit",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

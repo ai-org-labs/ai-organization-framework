@@ -2,19 +2,19 @@
   "task_id": "TASK-072",
   "title": "v6.7 frontier: archmap-impact-audit machine verification",
   "description": "Add archmap-impact-audit as a safe_read verify command: for every implementation-grade work item at or after the TASK-071 cutoff, verify (a) an archmap impact record exists and resolves, (b) status is one of archmap_update_required / archmap_unaffected / archmap_deferred_with_reason, (c) council_review_status is not pending. Acceptance: negative fixture with a missing disposition fails the audit; unit tests pass; command is registered with help metadata. Stop condition: audit command + fixtures + tests only; no renderer integration, no retroactive schema migration. QIF boundary: audit pass is structural/runtime evidence of governed disposition, not proof of semantic architecture correctness.",
-  "status": "open",
+  "status": "done",
   "origin": "human",
   "orchestrator_session_id": null,
   "assigned_session_ids": [],
   "related_decision_record_id": null,
   "operating_goal_ref": "v6.7-verifiable-governance",
   "created_at": "2026-07-02T17:28:55.364Z",
-  "updated_at": "2026-07-02T17:28:55.364Z",
+  "updated_at": "2026-07-03T18:55:27.133Z",
   "assigned_at": null,
-  "done_at": null,
+  "done_at": "2026-07-03T18:55:27.133Z",
   "retired_at": null,
   "last_triaged_at": null,
   "stale_candidate_at": null,
   "retire_candidate_at": null,
-  "triage_notes": "Adopted by human operator from the 2026-07-02 runtime-backed post-v6.6 direction review (situation-assess / operator-brief / release-state-audit / organization-verify all executed and green; stage was frontier-definition-needed). This is roadmap priority 1: first-class machine verification of map-impact decisions before release sign-off."
+  "triage_notes": "Implemented archmap-impact-audit safe_read verifier with command registry/help metadata, CLI reference, schema, self-hosting impact record, and pass/fail regression tests. Verification: archmap-impact-audit pass, command-routing-audit pass, organization-verify pass, release-state-audit pass, npm test pass, npm run smoke pass."
 }

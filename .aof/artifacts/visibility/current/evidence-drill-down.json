@@ -1,23 +1,31 @@
 {
   "view_type": "evidence_drill_down",
-  "generated_at": "2026-07-02T08:27:33.162Z",
+  "generated_at": "2026-07-03T18:59:37.909Z",
   "brief_ref": ".aof/artifacts/visibility/current/operator-brief.json",
   "current_state": {
     "release_version": "6.6.0",
     "active_release_track": "v6.6",
     "release_definition_ref": "docs/v6.6-release-definition.md",
-    "current_runtime_stage": "frontier-definition-needed",
-    "primary_frontier_task": null
+    "current_runtime_stage": "implementation-ready",
+    "primary_frontier_task": {
+      "task_id": "TASK-073",
+      "title": "v6.7 frontier: review provenance audit",
+      "status": "open",
+      "updated_at": "2026-07-03T18:57:23.153Z",
+      "track": "v6.7",
+      "artifact_ref": ".aof/tasks/open/TASK-073.json"
+    }
   },
   "answer_to_proof": {
     "headline": {
-      "claim": "The next frontier is defined, but no aligned implementation task is open yet: After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
-      "rationale": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
+      "claim": "TASK-073 is the live v6.7 frontier after 6.6.0.",
+      "rationale": "TASK-073 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
       "evidence_refs": [
         "docs/v6.6-release-definition.md",
         ".aof/context/active/active-release-manifest.json",
         ".aof/goals/operating-goal.json",
         ".aof/goals/next-value-slice.json",
+        ".aof/tasks/open/TASK-073.json",
         ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
       ],
       "evidence_items": [
@@ -38,6 +46,10 @@
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         },
         {
+          "artifact_ref": ".aof/tasks/open/TASK-073.json",
+          "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
+        },
+        {
           "artifact_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         }
@@ -49,7 +61,8 @@
       "entries": [],
       "evidence_refs": [
         ".aof/context/active/organization-analytics.json",
-        ".aof/context/active/alignment-pulse.json"
+        ".aof/context/active/alignment-pulse.json",
+        ".aof/tasks/open/TASK-073.json"
       ],
       "evidence_items": [
         {
@@ -59,19 +72,28 @@
         {
           "artifact_ref": ".aof/context/active/alignment-pulse.json",
           "why_it_matters": "Supports why the current blocker state is empty or populated."
+        },
+        {
+          "artifact_ref": ".aof/tasks/open/TASK-073.json",
+          "why_it_matters": "Supports why the current blocker state is empty or populated."
         }
       ]
     },
     "next_action": {
-      "claim": "Run a runtime-backed direction review before opening the next implementation task: After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
-      "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
-      "artifact_ref": ".aof/goals/next-value-slice.json",
+      "claim": "Start TASK-073: v6.7 frontier: review provenance audit",
+      "rationale": "This is the best open task aligned with the current operating goal and next release frontier.",
+      "artifact_ref": ".aof/tasks/open/TASK-073.json",
       "evidence_refs": [
+        ".aof/tasks/open/TASK-073.json",
         ".aof/goals/next-value-slice.json",
         ".aof/goals/operating-goal.json",
         "docs/v6.6-release-definition.md"
       ],
       "evidence_items": [
+        {
+          "artifact_ref": ".aof/tasks/open/TASK-073.json",
+          "why_it_matters": "Supports why this next action is the highest-leverage current move."
+        },
         {
           "artifact_ref": ".aof/goals/next-value-slice.json",
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
@@ -95,8 +117,8 @@
     },
     {
       "step": "frontier_task",
-      "label": "No frontier task",
-      "artifact_ref": null
+      "label": "v6.7 frontier: review provenance audit",
+      "artifact_ref": ".aof/tasks/open/TASK-073.json"
     },
     {
       "step": "goal_surface",
@@ -115,8 +137,8 @@
     }
   ],
   "operator_questions": {
-    "why_headline_true": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
+    "why_headline_true": "TASK-073 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
     "what_proves_blockers": "No blocker is currently strong enough to displace the live frontier.",
-    "what_proves_next_action": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work."
+    "what_proves_next_action": "This is the best open task aligned with the current operating goal and next release frontier."
   }
 }

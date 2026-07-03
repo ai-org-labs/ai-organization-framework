@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-02T08:27:33.161Z",
+      "at": "2026-07-03T18:59:37.901Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-02T08:27:33.155Z",
+      "at": "2026-07-03T18:59:37.885Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,10 +24,21 @@
       ]
     },
     {
-      "at": "2026-07-02T08:25:00.000Z",
+      "at": "2026-07-03T18:55:27.133Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "v6.7 frontier: archmap-impact-audit machine verification",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-072.json"
+      ]
+    },
+    {
+      "at": "2026-07-02T17:28:42.539Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "After v6.6.0, run a runtime-backed direction review to select the next bounded frontier; do not open implementation work until the next task has a clear goal, verification gate, stop condition, and QIF boundary.",
+      "summary": "Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-070.json"
-      ]
-    },
-    {
-      "at": "2026-06-24T17:20:19.299Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Release v6.4 Pre-Implementation Quality Gate",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-069.json"
       ]
     }
   ]

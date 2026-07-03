@@ -1,21 +1,21 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-02T17:29:15.552Z",
-  "headline": "TASK-072 is the live v6.7 frontier after 6.6.0.",
+  "generated_at": "2026-07-03T18:59:37.977Z",
+  "headline": "TASK-073 is the live v6.7 frontier after 6.6.0.",
   "current_state": {
     "release_version": "6.6.0",
     "active_release_track": "v6.6",
     "release_definition_ref": "docs/v6.6-release-definition.md",
     "current_runtime_stage": "implementation-ready",
     "operating_goal": "Advance v6.7 Verifiable Governance: make missing archmap impact dispositions, self-attested review provenance, and low-independence evidence machine-detectable so release sign-off can fail on structural self-attestation instead of trusting maker claims.",
-    "next_value_slice": "Implement TASK-072 archmap-impact-audit: a safe_read verifier that fails when an implementation-grade work item lacks a resolvable archmap impact record with a non-pending council status. Verification gate: negative fixture (missing disposition) must fail plus unit tests and release-state-audit integration follow-up. Stop condition: audit-only scope; no renderer work, no retroactive migration; tasks before TASK-071 are exempt via an explicit cutoff. QIF boundary: audit pass is structural/runtime evidence, not semantic architecture correctness.",
+    "next_value_slice": "Implement TASK-073 review-provenance-audit: a safe_read verifier that fails when implementation-grade work claims Guardian/Council review without resolvable maker/checker/council provenance. Verification gate: negative fixture with self-attested or missing review provenance must fail plus unit tests and command help metadata. Stop condition: audit-only scope; do not integrate into release-state-audit until TASK-075. QIF boundary: audit pass is structural/runtime evidence of review provenance, not proof that the review was semantically correct.",
     "primary_frontier_task": {
-      "task_id": "TASK-072",
-      "title": "v6.7 frontier: archmap-impact-audit machine verification",
+      "task_id": "TASK-073",
+      "title": "v6.7 frontier: review provenance audit",
       "status": "open",
-      "updated_at": "2026-07-02T17:28:55.364Z",
+      "updated_at": "2026-07-03T18:57:23.153Z",
       "track": "v6.7",
-      "artifact_ref": ".aof/tasks/open/TASK-072.json"
+      "artifact_ref": ".aof/tasks/open/TASK-073.json"
     },
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
@@ -70,29 +70,29 @@
     }
   },
   "why_now": {
-    "summary": "TASK-072 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+    "summary": "TASK-073 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
     "reasons": [
       "The active release baseline is 6.6.0 and the runtime is now targeting v6.7.",
-      "The current operating goal and next value slice both reinforce TASK-072 as the next bounded operating move."
+      "The current operating goal and next value slice both reinforce TASK-073 as the next bounded operating move."
     ],
     "evidence_refs": [
       "docs/v6.6-release-definition.md",
       ".aof/goals/operating-goal.json",
       ".aof/goals/next-value-slice.json",
-      ".aof/tasks/open/TASK-072.json",
+      ".aof/tasks/open/TASK-073.json",
       ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
     ]
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Start TASK-072: v6.7 frontier: archmap-impact-audit machine verification",
+    "recommended_action": "Start TASK-073: v6.7 frontier: review provenance audit",
     "rationale": "This is the best open task aligned with the current operating goal and next release frontier.",
-    "artifact_ref": ".aof/tasks/open/TASK-072.json"
+    "artifact_ref": ".aof/tasks/open/TASK-073.json"
   },
   "operator_answers": {
-    "what_is_happening_now": "TASK-072 is the current frontier; Builder is requires-council-review and says: I need council review before I should execute.",
-    "why_this_state": "TASK-072 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+    "what_is_happening_now": "TASK-073 is the current frontier; Builder is requires-council-review and says: I need council review before I should execute.",
+    "why_this_state": "TASK-073 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Start TASK-072: v6.7 frontier: archmap-impact-audit machine verification"
+    "what_should_happen_next": "Start TASK-073: v6.7 frontier: review provenance audit"
   }
 }

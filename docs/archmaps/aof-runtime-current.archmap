@@ -5,6 +5,8 @@ graph LR
   Runtime -->|projects| MissionControl[Mission Control]
   Runtime -->|quality intent| QIF[QIF Provider]
   Runtime -->|architecture source| Archmap[Archmap Source]
+  Runtime -->|impact verification| ArchmapImpactAudit[Archmap Impact Audit]
+  Runtime -->|review provenance verification| ReviewProvenanceAudit[Review Provenance Audit]
   Archmap -->|rendered view| MissionControl
   Runtime -->|optional icons| Icons[Archmap Icons]
   Builder[Builder Actor] -->|work result| Artifacts
@@ -25,6 +27,8 @@ nodes:
   MissionControl: { zone: recognition, layer: visibility, kind: dashboard }
   QIF: { zone: external_frameworks, layer: quality, kind: quality_framework }
   Archmap: { zone: architecture_map, layer: architecture, kind: diagram_source }
+  ArchmapImpactAudit: { zone: governance, layer: verification, kind: audit_command }
+  ReviewProvenanceAudit: { zone: governance, layer: verification, kind: audit_command }
   Icons: { zone: architecture_map, layer: recognition, kind: icon_pack }
   Builder: { zone: organization, layer: actor, kind: builder }
   Guardian: { zone: organization, layer: actor, kind: checker }
@@ -36,6 +40,10 @@ edges:
   Runtime->MissionControl: { flow: visibility_projection }
   Runtime->QIF: { flow: quality_intent_alignment }
   Runtime->Archmap: { flow: architecture_map_update }
+  Runtime->ArchmapImpactAudit: { flow: architecture_impact_verification }
+  ArchmapImpactAudit->Artifacts: { flow: governed_architecture_disposition }
+  Runtime->ReviewProvenanceAudit: { flow: review_provenance_verification }
+  ReviewProvenanceAudit->Artifacts: { flow: governed_review_provenance }
   Archmap->MissionControl: { flow: architecture_recognition_projection }
   Runtime->Icons: { flow: optional_icon_lookup }
   Orchestrator->Builder: { flow: actor_assignment }
@@ -52,6 +60,7 @@ zones:
   recognition: { label: Human Recognition, kind: visibility_boundary, contains: [MissionControl] }
   external_frameworks: { label: External Frameworks, kind: reference_boundary, contains: [QIF] }
   architecture_map: { label: Architecture Map, kind: map_boundary, contains: [Archmap, Icons] }
+  governance: { label: Verifiable Governance, kind: audit_boundary, contains: [ArchmapImpactAudit, ReviewProvenanceAudit] }
   organization: { label: AI Organization, kind: governance_boundary, contains: [Builder, Guardian, Council] }
 boundaries:
   source_of_truth:

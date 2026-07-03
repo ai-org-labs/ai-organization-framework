@@ -1,0 +1,39 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-072",
+  "work_item_ref": ".aof/tasks/done/TASK-072.json",
+  "work_item_id": "TASK-072",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "node",
+      "id": "ArchmapImpactAudit",
+      "reason": "AOF runtime now exposes a safe_read verifier for implementation work item architecture-map impact disposition."
+    },
+    {
+      "kind": "edge",
+      "id": "Runtime->ArchmapImpactAudit",
+      "reason": "The runtime command surface can verify governed Archmap impact records before release sign-off."
+    },
+    {
+      "kind": "edge",
+      "id": "ArchmapImpactAudit->Artifacts",
+      "reason": "Audit results are derived from canonical task and Archmap impact artifacts."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    "src/commands/archmap-impact-audit.js",
+    "schemas/aof-archmap-impact-audit.schema.json",
+    "docs/cli-reference.md",
+    "test/runtime-core-2.test.js"
+  ],
+  "external_refs": [
+    "https://github.com/ai-org-labs/archmap/tree/v0.1.0",
+    "https://github.com/ai-org-labs/archmap-icons/tree/v0.1.1"
+  ],
+  "recorded_at": "2026-07-04T00:00:00.000Z"
+}
