@@ -322,6 +322,19 @@ Boundary:
 - AOF run contracts should preapprove safe local reads/writes only; project writes, external writes, and dangerous operations require explicit per-run approval.
 - Work item boundaries and handoff artifacts should prevent long conversation context from becoming the hidden source of truth.
 
+## Selected Direction (post-v6.6)
+
+A runtime-backed direction review on `2026-07-02` selected `v6.7` Verifiable
+Governance as the next frontier, with a full path to a `v8.0` bounded-completion
+claim. That path, the permanent boundaries that cannot be closed by machine
+alone, and the Fable 5 review checkpoints are recorded in the canonical
+completion roadmap:
+
+- [docs/v6.7-v8.0-completion-roadmap.md](v6.7-v8.0-completion-roadmap.md)
+
+The first work item is `TASK-072` (`archmap-impact-audit`), which matches
+priority 1 below. Implementation is continued by Codex.
+
 ## Current Recommendation
 
 After `v6.6.0`, choose the next frontier through runtime-backed review before opening implementation work.

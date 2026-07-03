@@ -72,6 +72,7 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - current release notes: [docs/v6.6.0-release-notes.md](docs/v6.6.0-release-notes.md)
 - actor skill packet contract: [docs/v5-actor-skill-packet-contract.md](docs/v5-actor-skill-packet-contract.md)
 - current roadmap: [docs/vnext-roadmap.md](docs/vnext-roadmap.md)
+- v6.7 → v8.0 completion roadmap: [docs/v6.7-v8.0-completion-roadmap.md](docs/v6.7-v8.0-completion-roadmap.md)
 
 ## この規格が解決したい問題
 
