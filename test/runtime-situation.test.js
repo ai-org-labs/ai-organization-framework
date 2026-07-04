@@ -80,7 +80,7 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.ok(result.payloads.mission_control.work_governance.work_items.length >= 2);
   assert.equal(result.payloads.mission_control.archmap.present, true);
   assert.equal(result.payloads.mission_control.archmap.current_source_ref, "docs/archmaps/aof-runtime-current.archmap");
-  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-079");
+  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-080");
   assert.equal(result.payloads.mission_control.archmap.pending_impact_count, 0);
   assert.equal(result.payloads.operator_progress.view_type, "operator_progress");
   assert.equal(result.payloads.tree_position.view_type, "tree_position");

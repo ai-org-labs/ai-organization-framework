@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-080",
+  "title": "Update Archmap provider baseline to v0.1.1",
+  "description": "Update AOF Archmap external provider references from Archmap v0.1.0 to v0.1.1, preserve the source-of-truth boundary, and verify the change through Archmap impact and release-state audits.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-ARCHMAP-V011",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "post-v6.8-archmap-provider-update",
+  "created_at": "2026-07-04T12:47:09.696Z",
+  "updated_at": "2026-07-04T12:51:14.035Z",
+  "assigned_at": null,
+  "done_at": "2026-07-04T12:51:14.035Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed Archmap provider baseline update: docs now reference Archmap v0.1.1 and optional archmap-icons v0.1.2; AOF source-of-truth boundary preserved; Council review CRP-TASK-080-ARCHMAP-V011 and Archmap impact TASK-080 recorded."
+}

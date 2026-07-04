@@ -210,8 +210,11 @@ Canonical refs:
 
 - integration rule: `docs/v6.6-archmap-integration.md`
 - current map source: `docs/archmaps/aof-runtime-current.archmap`
+- external provider baseline: Archmap `v0.1.1`; optional archmap-icons `v0.1.2`
 
 Mission Control may project map state, but Archmap source and AOF artifacts remain the source of truth.
+
+Provider capabilities such as ScreenFlow / Prototype views, diagram tags, exports, or icon packs are available tools. They do not prove architecture quality unless a governed work item ties them to a Quality Intent, Archmap impact record, Council disposition, and reproducible evidence.
 
 ## Writing Style For AOF Artifacts
 

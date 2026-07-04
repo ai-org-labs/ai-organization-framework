@@ -1,0 +1,36 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-080",
+  "work_item_ref": ".aof/tasks/done/TASK-080.json",
+  "work_item_id": "TASK-080",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "external_reference",
+      "id": "Archmap",
+      "reason": "AOF's external Archmap provider baseline is updated from v0.1.0 to v0.1.1."
+    },
+    {
+      "kind": "external_reference",
+      "id": "ArchmapIcons",
+      "reason": "The optional icon compatibility reference is updated to archmap-icons v0.1.2 as a recognition aid only."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-080.json",
+    "docs/v6.6-archmap-integration.md",
+    "docs/vnext-roadmap.md",
+    "docs/AI_AUTHORING_GUIDE.md",
+    "README.md",
+    "docs/archmaps/aof-runtime-current.archmap"
+  ],
+  "external_refs": [
+    "https://github.com/ai-org-labs/archmap/tree/v0.1.1",
+    "https://github.com/ai-org-labs/archmap-icons/tree/v0.1.2"
+  ],
+  "recorded_at": "2026-07-04T12:49:00.000Z"
+}

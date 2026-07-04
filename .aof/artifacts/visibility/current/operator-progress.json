@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-04T01:50:51.558Z",
+  "generated_at": "2026-07-04T12:54:27.761Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,14 +8,14 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-079 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-079.json"
+    "summary": "TASK-080 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-080.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-079 completed: v6.8 release closure: ship Executable Quality Ledger",
-      "artifact_ref": ".aof/tasks/done/TASK-079.json"
+      "summary": "TASK-080 completed: Update Archmap provider baseline to v0.1.1",
+      "artifact_ref": ".aof/tasks/done/TASK-080.json"
     },
     {
       "kind": "goal-refresh",
@@ -24,7 +24,7 @@
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-079 completed: v6.8 release closure: ship Executable Quality Ledger Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
+    "what_changed": "TASK-080 completed: Update Archmap provider baseline to v0.1.1 Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
     "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task."
   }

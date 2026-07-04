@@ -1,6 +1,6 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-04T01:50:51.465Z",
+  "generated_at": "2026-07-04T12:54:27.513Z",
   "mission_overview": {
     "mission": "Ship v6.8.0 as the Executable Quality Ledger release.",
     "release_version": "6.8.0",
@@ -245,16 +245,19 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 9,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-079.json",
-    "latest_impact_status": "archmap_unaffected",
-    "latest_work_item_id": "TASK-079",
+    "impact_record_count": 10,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-080.json",
+    "latest_impact_status": "archmap_update_required",
+    "latest_work_item_id": "TASK-080",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-079.json"
+      ".aof/artifacts/archmap/impact/TASK-080.json"
     ],
-    "external_refs": []
+    "external_refs": [
+      "https://github.com/ai-org-labs/archmap/tree/v0.1.1",
+      "https://github.com/ai-org-labs/archmap-icons/tree/v0.1.2"
+    ]
   }
 }

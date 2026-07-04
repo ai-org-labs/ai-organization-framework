@@ -1,0 +1,45 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-04T12:50:40.887Z",
+  "review_packet_id": "CREV-MR6D1MD3-8YHSLO",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve TASK-080 Archmap provider baseline update to Archmap v0.1.1.",
+  "rationale": "The update changes external provider references and AI-facing authoring guidance while preserving the boundary that Archmap source and AOF artifacts remain source of truth; it does not claim full renderer integration or diagram quality proof.",
+  "recommendation": "Close TASK-080 after Archmap impact, review provenance, evidence independence, and release-state audits pass.",
+  "target_audience": "AOF operator maintaining external architecture-map provider compatibility.",
+  "expected_user_reaction": "The operator should see that AOF now points to Archmap v0.1.1 and optional archmap-icons v0.1.2 without overclaiming product integration.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep future ScreenFlow or Prototype adoption behind a governed work item instead of silently treating Archmap v0.1.1 features as implemented AOF capability."
+  ],
+  "organization_change_recommendations": [
+    "Treat external provider baseline changes as Archmap-impacting work items when they affect AI authoring, Mission Control, or architecture-map semantics."
+  ],
+  "diagnosis_category": "architecture-provider-baseline",
+  "diagnosis_confidence": 0.84,
+  "diagnosis_evidence_refs": [
+    "docs/v6.6-archmap-integration.md",
+    "docs/vnext-roadmap.md",
+    "docs/AI_AUTHORING_GUIDE.md"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [],
+  "role_result_refs": [],
+  "evidence_refs": [
+    "docs/v6.6-archmap-integration.md",
+    "docs/vnext-roadmap.md",
+    "docs/AI_AUTHORING_GUIDE.md",
+    "README.md",
+    ".aof/artifacts/archmap/impact/TASK-080.json",
+    "schemas/aof-archmap-impact-audit.schema.json",
+    "src/commands/release-state-audit.js",
+    "test/runtime-core-2.test.js"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-080",
+  "source_parent_session_id": "SESS-ARCHMAP-V011",
+  "source_decision_record_id": null
+}

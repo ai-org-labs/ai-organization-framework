@@ -330,8 +330,13 @@ Canonical references:
 - `docs/archmaps/aof-runtime-current.archmap`
 - `.aof/artifacts/archmap/impact/TASK-071.json`
 - `.aof/artifacts/execution/council-reviews/CRP-TASK-071-V66-ARCHMAP.json`
-- Archmap `v0.1.0`: `https://github.com/ai-org-labs/archmap/tree/v0.1.0`
-- archmap-icons `v0.1.1`: `https://github.com/ai-org-labs/archmap-icons/tree/v0.1.1`
+- Archmap `v0.1.1`: `https://github.com/ai-org-labs/archmap/tree/v0.1.1`
+- archmap-icons `v0.1.2`: `https://github.com/ai-org-labs/archmap-icons/tree/v0.1.2`
+
+Provider update note:
+
+- Archmap `v0.1.1` makes ScreenFlow / Prototype views, shared diagram tags controls, curated samples, export coverage, and stream input APIs available as external capabilities.
+- AOF should adopt those capabilities through governed work items only; the current release claim remains architecture-impact governance and source-of-truth projection, not full Archmap renderer ownership.
 
 ### Later Candidate: `v7.0` Governed Multi-Actor Orchestration
 

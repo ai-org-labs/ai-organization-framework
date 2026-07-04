@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-04T01:50:51.465Z",
+  "as_of": "2026-07-04T12:54:27.513Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
