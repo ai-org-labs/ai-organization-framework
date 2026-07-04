@@ -1,7 +1,7 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Complete TASK-079 v6.8 release closure: write release definition, checklist, and notes; run quality-ledger-audit, release-state-audit, organization-verify, CLI help benchmark, npm test, and smoke; refresh active release state only when release evidence is complete.",
-  "updated_at": "2026-07-04T01:26:58.122Z",
+  "content": "Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
+  "updated_at": "2026-07-04T01:47:27.358Z",
   "agreed_with_human": true,
   "source_session_id": "SESS-V68-DIRECTION",
   "source_decision_record_id": null,

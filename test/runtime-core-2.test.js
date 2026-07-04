@@ -1550,6 +1550,64 @@ test("releaseStateAuditCommand reports aligned release-state surfaces as green",
   assert.equal(result.summary.errors.length, 0);
 });
 
+test("releaseStateAuditCommand includes quality ledger gate for v6.8 and later", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await ensureReleaseRefFixtures(projectRoot, {
+    releaseDefinitionRef: "docs/v6.8-release-definition.md",
+    releaseNotesRef: "docs/v6.8.0-release-notes.md",
+    releaseChecklistRef: "docs/v6.8-release-checklist.md"
+  });
+  await ensureReleaseContractFixture(projectRoot);
+  await writeArchmapAuditFixture(projectRoot);
+  await writeEvidenceIndependenceFixture(projectRoot);
+  await writeQualityLedgerFixture(projectRoot);
+
+  await releaseStateRefreshCommand({
+    project: projectRoot,
+    releaseVersion: "6.8.0",
+    releaseTag: "v6.8.0",
+    releaseDefinitionRef: "docs/v6.8-release-definition.md",
+    releaseNotesRef: "docs/v6.8.0-release-notes.md",
+    releaseChecklistRef: "docs/v6.8-release-checklist.md"
+  });
+
+  const result = await releaseStateAuditCommand({ project: projectRoot });
+
+  assert.equal(result.ok, true);
+  const ledgerAudit = result.summary.governance_audits.find((audit) => audit.name === "quality-ledger-audit");
+  assert.equal(ledgerAudit.ok, true);
+  assert.equal(ledgerAudit.scoped_task_count, 1);
+  assert.equal(result.summary.errors.length, 0);
+});
+
+test("releaseStateAuditCommand fails v6.8 release when quality ledger audit fails", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await ensureReleaseRefFixtures(projectRoot, {
+    releaseDefinitionRef: "docs/v6.8-release-definition.md",
+    releaseNotesRef: "docs/v6.8.0-release-notes.md",
+    releaseChecklistRef: "docs/v6.8-release-checklist.md"
+  });
+  await ensureReleaseContractFixture(projectRoot);
+  await writeArchmapAuditFixture(projectRoot);
+  await writeEvidenceIndependenceFixture(projectRoot);
+
+  await releaseStateRefreshCommand({
+    project: projectRoot,
+    releaseVersion: "6.8.0",
+    releaseTag: "v6.8.0",
+    releaseDefinitionRef: "docs/v6.8-release-definition.md",
+    releaseNotesRef: "docs/v6.8.0-release-notes.md",
+    releaseChecklistRef: "docs/v6.8-release-checklist.md"
+  });
+
+  const result = await releaseStateAuditCommand({ project: projectRoot });
+
+  assert.equal(result.ok, false);
+  const ledgerAudit = result.summary.governance_audits.find((audit) => audit.name === "quality-ledger-audit");
+  assert.equal(ledgerAudit.ok, false);
+  assert.ok(result.summary.errors.some((entry) => entry.includes("quality-ledger-audit release gate")));
+});
+
 test("releaseStateAuditCommand detects bootstrap and contract drift", async (t) => {
   const projectRoot = await createInitializedProject(t);
   await ensureReleaseRefFixtures(projectRoot);
@@ -1653,6 +1711,45 @@ async function writeArchmapAuditFixture(projectRoot, {
     evidence_refs: ["src/commands/archmap-impact-audit.js"],
     recorded_at: "2026-07-04T00:00:00.000Z"
   }, null, 2)}\n`, "utf8");
+}
+
+async function writeQualityLedgerFixture(projectRoot) {
+  const ledgerDir = path.join(projectRoot, ".aof", "quality", "ledger", "events");
+  const qifDoc = path.join(projectRoot, "docs", "aof-qif-quality-definition.md");
+  const releaseDefinitionDoc = path.join(projectRoot, "docs", "v6.8-release-definition.md");
+  const releaseNotesDoc = path.join(projectRoot, "docs", "v6.8.0-release-notes.md");
+  const releaseChecklistDoc = path.join(projectRoot, "docs", "v6.8-release-checklist.md");
+  await fs.mkdir(ledgerDir, { recursive: true });
+  await fs.writeFile(qifDoc, "# QIF Quality Definition\n", "utf8");
+  await fs.writeFile(releaseDefinitionDoc, "# v6.8 Release Definition\n", "utf8");
+  await fs.writeFile(releaseNotesDoc, "# v6.8.0 Release Notes\n", "utf8");
+  await fs.writeFile(releaseChecklistDoc, "# v6.8 Release Checklist\n", "utf8");
+  await fs.writeFile(
+    path.join(ledgerDir, "QLE-TEST-RUNTIME-EVIDENCE.json"),
+    `${JSON.stringify({
+      artifact_type: "quality-ledger-event",
+      ledger_format_version: 1,
+      event_id: "QLE-TEST-RUNTIME-EVIDENCE",
+      recorded_at: "2026-07-04T00:00:00.000Z",
+      event_type: "evidence_added",
+      quality_intent_ref: "QIN-AOF-RUNTIME",
+      work_item_ref: "TASK-071",
+      claim: "Runtime evidence was added for release audit.",
+      evidence_refs: ["docs/v6.8-release-definition.md"],
+      qif_refs: ["docs/aof-qif-quality-definition.md"],
+      prior_state: null,
+      new_state: "traceability_evidence_added",
+      confidence: 0.7,
+      semantic_truth_claimed: false,
+      operator_validated: false,
+      governance_action: "none",
+      source_task_id: "TASK-071",
+      source_parent_session_id: "SESS-TEST",
+      source_decision_record_id: null,
+      notes: "Fixture event for release-state-audit v6.8 ledger gate."
+    }, null, 2)}\n`,
+    "utf8"
+  );
 }
 
 test("archmapImpactAuditCommand passes when implementation tasks have approved impact records", async (t) => {

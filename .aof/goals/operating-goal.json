@@ -1,7 +1,7 @@
 {
   "goal_type": "operating-goal",
-  "content": "Close v6.8 as the Executable Quality Ledger release: make QIF-relevant evidence changes appendable and auditable while preserving the boundary that ledger pass is traceability evidence, not semantic truth.",
-  "updated_at": "2026-07-04T01:26:57.547Z",
+  "content": "Select the next bounded frontier after v6.8.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
+  "updated_at": "2026-07-04T01:47:24.569Z",
   "agreed_with_human": true,
   "source_session_id": "SESS-V68-DIRECTION",
   "source_decision_record_id": null,

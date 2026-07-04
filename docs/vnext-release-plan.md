@@ -2,46 +2,44 @@
 
 ## Version
 
-`v6.7.0`
+`v6.8.0`
 
 ## Release Theme
 
-Verifiable Governance.
+Executable Quality Ledger.
 
-`v6.6.0` made architecture impact visible as governed work. The next bottleneck was self-attestation: AOF could still claim release readiness from artifacts that existed, even when the release gate did not machine-check whether architecture impact, Council review provenance, and evidence independence were present.
+`v6.7.0` made governance claims harder to fake by requiring machine-checkable Archmap impact, Council provenance, and evidence independence. The next bottleneck is that quality-relevant corrections and contradicted claims can still drift as prose instead of being recorded as auditable ledger events.
 
 Human-facing wording:
 
-> v6.7 should make release governance checkable before sign-off, so AOF cannot quietly treat "we wrote artifacts" as "governance happened."
+> v6.8 should make quality-relevant evidence changes appendable and auditable, so AOF cannot quietly treat "we wrote a report" as "quality truth stayed current."
 
 More explicit wording:
 
-> AOF should reject release readiness when implementation-grade work lacks Archmap impact disposition, Council review provenance, or evidence that is not only maker-authored/self-attested.
+> AOF should reject unsafe quality claims when ledger events lack task/runtime/QIF/evidence refs, miss required governance escalation, or claim semantic truth from ledger presence alone.
 
 ## Runtime Evidence Basis
 
 - runtime command: `release-state-audit --project .`
-- release task: `TASK-076`
-- release definition: `docs/v6.7-release-definition.md`
-- release checklist: `docs/v6.7-release-checklist.md`
-- release notes: `docs/v6.7.0-release-notes.md`
+- release task: `TASK-079`
+- release definition: `docs/v6.8-release-definition.md`
+- release checklist: `docs/v6.8-release-checklist.md`
+- release notes: `docs/v6.8.0-release-notes.md`
 - roadmap: `docs/v6.7-v8.0-completion-roadmap.md`
 - Archmap source: `docs/archmaps/aof-runtime-current.archmap`
-- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-075-RELEASE-GOVERNANCE-GATES.json`
+- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-078-QUALITY-LEDGER-FOUNDATION.json`
 
 ## Required Outcomes
 
 Required:
 
-- add `archmap-impact-audit`
-- add `review-provenance-audit`
-- add `evidence-independence-audit`
-- integrate the three audits into `release-state-audit`
-- make `release-state-audit` fail if any integrated governance audit fails
-- make `cli-help-benchmark` fail missing command help inputs or outputs
-- refresh command registry so every command has AI-readable input/output hints
-- fix visibility latest Archmap work selection so later task ids are not hidden by timestamp ordering
-- align package, bootstrap, active release manifest, organization contract, README, quickstart, checklist, and notes to `6.7.0`
+- add `quality-ledger-record`
+- add `quality-ledger-audit`
+- add quality ledger event and audit schemas
+- add a committed ledger event fixture for `TASK-078`
+- verify negative audit cases for missing QIF refs, unresolved evidence refs, unsupported semantic truth claims, missing escalation, and missing state transition intent
+- refresh command registry so ledger commands have AI-readable input/output hints
+- align package, active release manifest, organization contract, README, quickstart, checklist, and notes to `6.8.0`
 
 Deferred:
 
@@ -53,17 +51,18 @@ Deferred:
 
 ## Release Gates
 
-### Gate 1: Governance Audit Commands
+### Gate 1: Quality Ledger Commands
 
-- `archmap-impact-audit` passes for `TASK-071` onward
-- `review-provenance-audit` passes for done work at `TASK-071` onward
-- `evidence-independence-audit` passes for done work at `TASK-071` onward
+- `quality-ledger-record` writes schema-valid events
+- `quality-ledger-audit` passes committed ledger events
+- `quality-ledger-audit` fails unsafe or incomplete event patterns
 
-### Gate 2: Release Sign-Off Integration
+### Gate 2: Governance Continuity
 
-- `release-state-audit` consumes all three governance audits
-- `release-state-audit` fails if any governance audit fails
-- release-state schema includes `governance_audits`
+- Archmap impact audit still passes for `TASK-071` onward
+- review provenance audit still passes for done work at `TASK-071` onward
+- evidence independence audit still passes for done work at `TASK-071` onward
+- ledger presence remains evidence, not proof of truth
 
 ### Gate 3: Command Help Completeness
 
@@ -73,11 +72,11 @@ Deferred:
 
 ### Gate 4: Release Surface
 
-- package version is `6.7.0`
-- bootstrap `aof_version` is `6.7.0`
-- active release manifest points at v6.7 docs
-- organization release contract points at `docs/v6.7-release-definition.md`
-- README and quickstart point at v6.7
+- package version is `6.8.0`
+- package-lock version is `6.8.0`
+- active release manifest points at v6.8 docs
+- organization release contract points at `docs/v6.8-release-definition.md`
+- README and quickstart point at v6.8
 
 ### Gate 5: Verification
 
@@ -93,14 +92,14 @@ Deferred:
 
 ## Release Decision
 
-Release `v6.7.0` only if AOF now makes it harder to confuse:
+Release `v6.8.0` only if AOF now makes it harder to confuse:
 
-- artifact existence with governance evidence
-- maker-authored output with independent verification
-- pending or missing Council provenance with approval
-- command availability with AI-readable command usability
-- visibility projection with canonical truth
+- ledger existence with quality proof
+- activity evidence with Quality Intent evidence
+- corrected assumptions with hidden churn
+- low-confidence evidence with release-ready truth
+- runtime traceability with semantic validation
 
-## Post-v6.7 Direction Candidate
+## Post-v6.8 Direction Candidate
 
-After v6.7, choose the next frontier through runtime-backed review before opening implementation work. The known roadmap candidate is `v6.8` Executable Quality Ledger, but it should not start until a fresh direction review confirms it is still the best bounded slice.
+After v6.8, choose the next frontier through runtime-backed review before opening implementation work. Strong candidates are executable pre-implementation quality gates, standalone context/reference audits, or the first bounded step toward governed multi-actor orchestration.

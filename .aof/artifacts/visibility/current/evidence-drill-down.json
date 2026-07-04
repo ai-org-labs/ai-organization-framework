@@ -1,36 +1,28 @@
 {
   "view_type": "evidence_drill_down",
-  "generated_at": "2026-07-04T01:30:03.545Z",
+  "generated_at": "2026-07-04T01:50:51.474Z",
   "brief_ref": ".aof/artifacts/visibility/current/operator-brief.json",
   "current_state": {
-    "release_version": "6.7.0",
-    "active_release_track": "v6.7",
-    "release_definition_ref": "docs/v6.7-release-definition.md",
-    "current_runtime_stage": "implementation-ready",
-    "primary_frontier_task": {
-      "task_id": "TASK-079",
-      "title": "v6.8 release closure: ship Executable Quality Ledger",
-      "status": "open",
-      "updated_at": "2026-07-04T01:26:39.315Z",
-      "track": "v6.8",
-      "artifact_ref": ".aof/tasks/open/TASK-079.json"
-    }
+    "release_version": "6.8.0",
+    "active_release_track": "v6.8",
+    "release_definition_ref": "docs/v6.8-release-definition.md",
+    "current_runtime_stage": "frontier-definition-needed",
+    "primary_frontier_task": null
   },
   "answer_to_proof": {
     "headline": {
-      "claim": "TASK-079 is the live v6.8 frontier after 6.7.0.",
-      "rationale": "TASK-079 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+      "claim": "The next frontier is defined, but no aligned implementation task is open yet: Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
+      "rationale": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
       "evidence_refs": [
-        "docs/v6.7-release-definition.md",
+        "docs/v6.8-release-definition.md",
         ".aof/context/active/active-release-manifest.json",
         ".aof/goals/operating-goal.json",
         ".aof/goals/next-value-slice.json",
-        ".aof/tasks/open/TASK-079.json",
         ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
       ],
       "evidence_items": [
         {
-          "artifact_ref": "docs/v6.7-release-definition.md",
+          "artifact_ref": "docs/v6.8-release-definition.md",
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         },
         {
@@ -46,10 +38,6 @@
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         },
         {
-          "artifact_ref": ".aof/tasks/open/TASK-079.json",
-          "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
-        },
-        {
           "artifact_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         }
@@ -61,8 +49,7 @@
       "entries": [],
       "evidence_refs": [
         ".aof/context/active/organization-analytics.json",
-        ".aof/context/active/alignment-pulse.json",
-        ".aof/tasks/open/TASK-079.json"
+        ".aof/context/active/alignment-pulse.json"
       ],
       "evidence_items": [
         {
@@ -72,28 +59,19 @@
         {
           "artifact_ref": ".aof/context/active/alignment-pulse.json",
           "why_it_matters": "Supports why the current blocker state is empty or populated."
-        },
-        {
-          "artifact_ref": ".aof/tasks/open/TASK-079.json",
-          "why_it_matters": "Supports why the current blocker state is empty or populated."
         }
       ]
     },
     "next_action": {
-      "claim": "Start TASK-079: v6.8 release closure: ship Executable Quality Ledger",
-      "rationale": "This is the best open task aligned with the current operating goal and next release frontier.",
-      "artifact_ref": ".aof/tasks/open/TASK-079.json",
+      "claim": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
+      "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
+      "artifact_ref": ".aof/goals/next-value-slice.json",
       "evidence_refs": [
-        ".aof/tasks/open/TASK-079.json",
         ".aof/goals/next-value-slice.json",
         ".aof/goals/operating-goal.json",
-        "docs/v6.7-release-definition.md"
+        "docs/v6.8-release-definition.md"
       ],
       "evidence_items": [
-        {
-          "artifact_ref": ".aof/tasks/open/TASK-079.json",
-          "why_it_matters": "Supports why this next action is the highest-leverage current move."
-        },
         {
           "artifact_ref": ".aof/goals/next-value-slice.json",
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
@@ -103,7 +81,7 @@
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
         },
         {
-          "artifact_ref": "docs/v6.7-release-definition.md",
+          "artifact_ref": "docs/v6.8-release-definition.md",
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
         }
       ]
@@ -117,8 +95,8 @@
     },
     {
       "step": "frontier_task",
-      "label": "v6.8 release closure: ship Executable Quality Ledger",
-      "artifact_ref": ".aof/tasks/open/TASK-079.json"
+      "label": "No frontier task",
+      "artifact_ref": null
     },
     {
       "step": "goal_surface",
@@ -137,8 +115,8 @@
     }
   ],
   "operator_questions": {
-    "why_headline_true": "TASK-079 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+    "why_headline_true": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_proves_blockers": "No blocker is currently strong enough to displace the live frontier.",
-    "what_proves_next_action": "This is the best open task aligned with the current operating goal and next release frontier."
+    "what_proves_next_action": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work."
   }
 }

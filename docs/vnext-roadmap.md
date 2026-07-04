@@ -93,6 +93,22 @@ Post-v6.5 QIF provider alignment:
 - diagrams and icons are not treated as quality evidence by themselves
 - Node.js 22 and Node.js 24 are CI-validated runtime lanes
 
+`v6.7.0` establishes Verifiable Governance:
+
+- implementation-grade work at `TASK-071` onward is checked for Archmap impact disposition
+- done implementation work is checked for Council review provenance
+- done implementation work is checked for evidence that is not only maker-authored or self-attested
+- `release-state-audit` consumes the v6.7 governance audit gates
+- `cli-help-benchmark` verifies AI-readable command inputs and outputs
+
+`v6.8.0` establishes Executable Quality Ledger:
+
+- quality-relevant evidence changes can be recorded as canonical quality ledger events
+- `quality-ledger-record` writes schema-valid ledger events
+- `quality-ledger-audit` checks ledger event traceability, QIF refs, evidence refs, governance escalation, and semantic truth boundary
+- `release-state-audit` includes `quality-ledger-audit` for `6.8.0` and later releases
+- ledger presence is explicitly bounded as traceability evidence, not semantic truth
+
 ## Completed Track
 
 ### `v5.0.0`: Skillful Actor Runtime
@@ -232,6 +248,39 @@ Required outcomes:
 - safe local reads/writes are distinguished from project, external, and dangerous operations
 - release docs preserve the boundary that AOF does not bypass platform or human permissions
 
+### `v6.7.0`: Verifiable Governance
+
+Completed release tasks:
+
+- `TASK-072`: archmap-impact-audit machine verification
+- `TASK-073`: review provenance audit
+- `TASK-074`: evidence independence audit
+- `TASK-075`: integrate governance audits into release sign-off
+- `TASK-076`: release closure
+
+Required outcomes:
+
+- implementation-grade work has Archmap impact disposition
+- done work has Council review provenance
+- evidence independence is checked before release sign-off
+- release-state audit consumes the governance gates
+
+### `v6.8.0`: Executable Quality Ledger
+
+Completed release tasks:
+
+- `TASK-077`: direction selection
+- `TASK-078`: executable quality ledger foundation
+- `TASK-079`: release closure
+
+Required outcomes:
+
+- quality ledger event and audit schemas exist
+- `quality-ledger-record` writes canonical events
+- `quality-ledger-audit` verifies event traceability and bounded truth claims
+- `release-state-audit` includes `quality-ledger-audit` for `6.8.0` and later
+- semantic uncertainty is escalated rather than hidden
+
 ## Next Frontier Candidates
 
 ### Completed: `v6.5` Execution Hygiene And Human Recognition
@@ -335,21 +384,22 @@ completion roadmap:
 The v6.7 work items `TASK-072` through `TASK-076` have implemented and released
 the Verifiable Governance slice.
 
+The v6.8 work items `TASK-077` through `TASK-079` have implemented and released
+the Executable Quality Ledger slice.
+
 ## Current Recommendation
 
-After `v6.7.0`, choose the next frontier through runtime-backed review before opening implementation work.
+After `v6.8.0`, choose the next frontier through runtime-backed review before opening implementation work.
 
 Priority order:
 
-1. `v6.x`: first-class machine verification that implementation-grade work items have map-impact decisions before release sign-off
-2. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
-3. `v6.x`: standalone context / external-ref / operational-map audits
-4. `v7.0`: governed multi-actor orchestration
+1. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
+2. `v6.x`: standalone context / external-ref / operational-map audits
+3. `v7.0`: governed multi-actor orchestration
 
 Reasoning:
 
-- AI Command Help Surface is now complete enough to support command discovery, but it must not be confused with runtime proof.
-- Execution Hygiene is now the v6.5 baseline; v6.6 extends the visibility surface to architecture impact.
-- Pre-Implementation Quality Gate is now the v6.4 baseline; the next product gap is making those gates visible and actionable to a human operator.
-- Mission Control redesign should show assumptions, negative acceptance, evidence independence, Guardian questions, QIF ledger state, and Archmap impact without inventing its own truth.
-- Multi-actor orchestration should wait until command discovery, quality explanation, and visibility surfaces are stable enough to govern parallel actor work.
+- v6.7 and v6.8 have made release governance and quality-ledger traceability executable.
+- Pre-Implementation Quality Gate is still mostly a model-level baseline; the next product gap is making those gates executable before implementation starts.
+- Standalone context / external-ref / operational-map audits are now plausible because release-state and quality-ledger auditing patterns exist.
+- Multi-actor orchestration should wait until pre-implementation gates and context/reference audits are stable enough to govern parallel actor work.

@@ -1,36 +1,31 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-04T01:30:03.659Z",
+  "generated_at": "2026-07-04T01:50:51.558Z",
   "current_checkpoint": {
-    "stage": "implementation-ready",
-    "frontier_task_id": "TASK-079",
-    "summary": "TASK-079 is active and the runtime is implementation-ready.",
-    "artifact_ref": ".aof/tasks/open/TASK-079.json"
+    "stage": "frontier-definition-needed",
+    "frontier_task_id": null,
+    "summary": "The runtime is frontier-definition-needed.",
+    "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-078 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-078.json"
+    "summary": "TASK-079 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-079.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-078 completed: v6.8 frontier: executable quality ledger foundation",
-      "artifact_ref": ".aof/tasks/done/TASK-078.json"
-    },
-    {
-      "kind": "frontier-task",
-      "summary": "TASK-079 is now the active frontier: v6.8 release closure: ship Executable Quality Ledger",
-      "artifact_ref": ".aof/tasks/open/TASK-079.json"
+      "summary": "TASK-079 completed: v6.8 release closure: ship Executable Quality Ledger",
+      "artifact_ref": ".aof/tasks/done/TASK-079.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Complete TASK-079 v6.8 release closure: write release definition, checklist, and notes; run quality-ledger-audit, release-state-audit, organization-verify, CLI help benchmark, npm test, and smoke; refresh active release state only when release evidence is complete.",
+      "summary": "Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-078 completed: v6.8 frontier: executable quality ledger foundation TASK-079 is now the active frontier: v6.8 release closure: ship Executable Quality Ledger Complete TASK-079 v6.8 release closure: write release definition, checklist, and notes; run quality-ledger-audit, release-state-audit, organization-verify, CLI help benchmark, npm test, and smoke; refresh active release state only when release evidence is complete.",
-    "why_it_matters": "TASK-079 now defines the current operating move after the latest completed release step.",
-    "next_checkpoint": "Start TASK-079: v6.8 release closure: ship Executable Quality Ledger"
+    "what_changed": "TASK-079 completed: v6.8 release closure: ship Executable Quality Ledger Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
+    "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task."
   }
 }

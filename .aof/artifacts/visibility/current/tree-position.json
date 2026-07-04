@@ -1,34 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-04T01:30:03.690Z",
+  "generated_at": "2026-07-04T01:50:51.580Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "6.7.0",
-    "active_release_track": "v6.7",
-    "release_definition_ref": "docs/v6.7-release-definition.md"
+    "active_release_version": "6.8.0",
+    "active_release_track": "v6.8",
+    "release_definition_ref": "docs/v6.8-release-definition.md"
   },
   "branch": {
-    "frontier_track": "v6.8",
-    "frontier_task_id": "TASK-079",
-    "frontier_task_title": "v6.8 release closure: ship Executable Quality Ledger",
-    "artifact_ref": ".aof/tasks/open/TASK-079.json",
-    "branch_summary": "Complete TASK-079 v6.8 release closure: write release definition, checklist, and notes; run quality-ledger-audit, release-state-audit, organization-verify, CLI help benchmark, npm test, and smoke; refresh active release state only when release evidence is complete."
+    "frontier_track": null,
+    "frontier_task_id": null,
+    "frontier_task_title": null,
+    "artifact_ref": null,
+    "branch_summary": "Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v6.7",
-      "state": "done"
-    },
-    {
-      "kind": "frontier-track",
       "label": "v6.8",
-      "state": "current"
+      "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "TASK-079 sits on v6.8 after shipped v6.7.",
-    "why_this_branch": "Close v6.8 as the Executable Quality Ledger release: make QIF-relevant evidence changes appendable and auditable while preserving the boundary that ledger pass is traceability evidence, not semantic truth.",
-    "what_branch_comes_next": "Start TASK-079: v6.8 release closure: ship Executable Quality Ledger"
+    "where_are_we": "The runtime is between v6.8 and the next concrete branch.",
+    "why_this_branch": "Select the next bounded frontier after v6.8.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task."
   }
 }

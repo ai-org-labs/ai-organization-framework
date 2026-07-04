@@ -1,22 +1,15 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-04T01:30:03.618Z",
-  "headline": "TASK-079 is the live v6.8 frontier after 6.7.0.",
+  "generated_at": "2026-07-04T01:50:51.528Z",
+  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
   "current_state": {
-    "release_version": "6.7.0",
-    "active_release_track": "v6.7",
-    "release_definition_ref": "docs/v6.7-release-definition.md",
-    "current_runtime_stage": "implementation-ready",
-    "operating_goal": "Close v6.8 as the Executable Quality Ledger release: make QIF-relevant evidence changes appendable and auditable while preserving the boundary that ledger pass is traceability evidence, not semantic truth.",
-    "next_value_slice": "Complete TASK-079 v6.8 release closure: write release definition, checklist, and notes; run quality-ledger-audit, release-state-audit, organization-verify, CLI help benchmark, npm test, and smoke; refresh active release state only when release evidence is complete.",
-    "primary_frontier_task": {
-      "task_id": "TASK-079",
-      "title": "v6.8 release closure: ship Executable Quality Ledger",
-      "status": "open",
-      "updated_at": "2026-07-04T01:26:39.315Z",
-      "track": "v6.8",
-      "artifact_ref": ".aof/tasks/open/TASK-079.json"
-    },
+    "release_version": "6.8.0",
+    "active_release_track": "v6.8",
+    "release_definition_ref": "docs/v6.8-release-definition.md",
+    "current_runtime_stage": "frontier-definition-needed",
+    "operating_goal": "Select the next bounded frontier after v6.8.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
+    "next_value_slice": "Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
+    "primary_frontier_task": null,
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
       "projection_id": "SAHRI-TASK-054-PROOF",
@@ -70,29 +63,28 @@
     }
   },
   "why_now": {
-    "summary": "TASK-079 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+    "summary": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "reasons": [
-      "The active release baseline is 6.7.0 and the runtime is now targeting v6.8.",
-      "The current operating goal and next value slice both reinforce TASK-079 as the next bounded operating move."
+      "The active release baseline is 6.8.0 and the runtime is now targeting the next track.",
+      "The current operating goal and next value slice both reinforce the current frontier as the next bounded operating move."
     ],
     "evidence_refs": [
-      "docs/v6.7-release-definition.md",
+      "docs/v6.8-release-definition.md",
       ".aof/goals/operating-goal.json",
       ".aof/goals/next-value-slice.json",
-      ".aof/tasks/open/TASK-079.json",
       ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
     ]
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Start TASK-079: v6.8 release closure: ship Executable Quality Ledger",
-    "rationale": "This is the best open task aligned with the current operating goal and next release frontier.",
-    "artifact_ref": ".aof/tasks/open/TASK-079.json"
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
+    "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
+    "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "operator_answers": {
-    "what_is_happening_now": "TASK-079 is the current frontier; Builder is requires-council-review and says: I need council review before I should execute.",
-    "why_this_state": "TASK-079 is the best current frontier because it matches the live post-release goal surface and no stronger truth conflict is active.",
+    "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
+    "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Start TASK-079: v6.8 release closure: ship Executable Quality Ledger"
+    "what_should_happen_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task."
   }
 }

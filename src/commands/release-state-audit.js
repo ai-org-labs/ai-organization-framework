@@ -5,6 +5,7 @@ import { loadBundledSchema, validateAgainstSchema } from "../runtime/validation.
 import { archmapImpactAuditCommand } from "./archmap-impact-audit.js";
 import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
+import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
 import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
 
@@ -28,20 +29,34 @@ function summarizeGovernanceAudit(name, result) {
     name,
     ok: Boolean(result.ok),
     artifact_type: result.summary?.artifact_type ?? null,
-    scoped_task_count: result.summary?.summary?.scoped_task_count ?? null,
+    scoped_task_count: result.summary?.summary?.scoped_task_count ?? result.summary?.summary?.event_count ?? null,
     failing_check_count: result.summary?.summary?.failing_check_count ?? result.summary?.errors?.length ?? 0,
     error_count: result.summary?.errors?.length ?? 0,
     errors: result.summary?.errors ?? []
   };
 }
 
-async function runGovernanceAudits(projectRoot, cutoffTaskId) {
+function requiresQualityLedgerAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 6 || (major === 6 && minor >= 8);
+}
+
+async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
     summarizeGovernanceAudit("archmap-impact-audit", await archmapImpactAuditCommand(options)),
     summarizeGovernanceAudit("review-provenance-audit", await reviewProvenanceAuditCommand(options)),
     summarizeGovernanceAudit("evidence-independence-audit", await evidenceIndependenceAuditCommand(options))
   ];
+  if (requiresQualityLedgerAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("quality-ledger-audit", await qualityLedgerAuditCommand({ project: projectRoot }))
+    );
+  }
   return auditResults;
 }
 
@@ -97,7 +112,7 @@ export async function releaseStateAuditCommand(options) {
     pushCheck(checks, errors, "governance release contract alignment", false, "cannot evaluate without an active release manifest");
   }
 
-  const governanceAudits = await runGovernanceAudits(projectRoot, governanceAuditCutoffTaskId);
+  const governanceAudits = await runGovernanceAudits(projectRoot, governanceAuditCutoffTaskId, manifest);
   for (const audit of governanceAudits) {
     pushCheck(
       checks,
