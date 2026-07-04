@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Implement TASK-078 v6.8 Executable Quality Ledger foundation: add the smallest canonical quality-ledger event schema, writer, audit, and negative fixtures that detect missing runtime evidence or contradicted claims. Stop condition: foundation only; do not auto-compute QIF verdicts and do not claim operator validation. QIF boundary: ledger presence is evidence traceability, not semantic truth.",
-  "updated_at": "2026-07-03T19:54:00.000Z",
+  "content": "Complete TASK-079 v6.8 release closure: write release definition, checklist, and notes; run quality-ledger-audit, release-state-audit, organization-verify, CLI help benchmark, npm test, and smoke; refresh active release state only when release evidence is complete.",
+  "updated_at": "2026-07-04T01:26:58.122Z",
   "agreed_with_human": true,
-  "source_session_id": null,
+  "source_session_id": "SESS-V68-DIRECTION",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

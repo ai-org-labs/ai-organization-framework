@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-079",
+  "title": "v6.8 release closure: ship Executable Quality Ledger",
+  "description": "Close v6.8 as the Executable Quality Ledger release: add release definition, checklist, release notes, refresh active release state, run quality-ledger-audit plus release governance gates, and tag only after runtime-backed verification is green. Stop condition: release closure only; do not expand into automatic QIF verdict computation.",
+  "status": "open",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V68-DIRECTION",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v6.8-executable-quality-ledger",
+  "created_at": "2026-07-04T01:26:39.315Z",
+  "updated_at": "2026-07-04T01:26:39.315Z",
+  "assigned_at": null,
+  "done_at": null,
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Opened after TASK-078 completed; bounded release closure for the executable quality ledger foundation."
+}

@@ -37,6 +37,8 @@ import { organizationAnalyticsSnapshotCommand } from "../src/commands/organizati
 import { outcomeReportCommand } from "../src/commands/outcome-report.js";
 import { policyEvaluationReportCommand } from "../src/commands/policy-evaluation-report.js";
 import { problemStatementRecordCommand } from "../src/commands/problem-statement-record.js";
+import { qualityLedgerAuditCommand } from "../src/commands/quality-ledger-audit.js";
+import { qualityLedgerRecordCommand } from "../src/commands/quality-ledger-record.js";
 import { releaseStateAuditCommand } from "../src/commands/release-state-audit.js";
 import { reviewProvenanceAuditCommand } from "../src/commands/review-provenance-audit.js";
 import { resourceClaimRecordCommand } from "../src/commands/resource-claim-record.js";
@@ -131,6 +133,121 @@ test("actor skill packet schema defines the v5.0 contract surface", async () => 
     validateWithBundledSchema(missingSkillRefs, "aof-actor-skill-packet.schema.json", "actor skill packet"),
     /missing required key 'required_skill_refs'/
   );
+});
+
+test("quality ledger event schema defines append-only quality evidence without semantic truth claims", async () => {
+  const payload = {
+    artifact_type: "quality-ledger-event",
+    ledger_format_version: 1,
+    event_id: "QLE-TASK-078-UNIT",
+    recorded_at: "2026-07-03T20:05:00.000Z",
+    event_type: "claim_contradicted",
+    quality_intent_ref: "QIN-AOF-RUNTIME",
+    work_item_ref: "TASK-078",
+    claim: "A release claim was contradicted by missing runtime evidence.",
+    evidence_refs: ["test/runtime-core-2.test.js"],
+    qif_refs: ["docs/aof-qif-quality-definition.md"],
+    prior_state: "release claim accepted from maker evidence",
+    new_state: "release claim requires independent runtime evidence",
+    confidence: 0.7,
+    semantic_truth_claimed: false,
+    operator_validated: false,
+    governance_action: "review-required",
+    source_task_id: "TASK-078",
+    source_parent_session_id: "SESS-V68-DIRECTION",
+    source_decision_record_id: null,
+    notes: null
+  };
+
+  await validateWithBundledSchema(payload, "aof-quality-ledger-event.schema.json", "quality ledger event");
+
+  await assert.rejects(
+    validateWithBundledSchema({ ...payload, unexpected_field: true }, "aof-quality-ledger-event.schema.json", "quality ledger event"),
+    /unexpected_field is not allowed/
+  );
+
+  const missingClaim = { ...payload };
+  delete missingClaim.claim;
+  await assert.rejects(
+    validateWithBundledSchema(missingClaim, "aof-quality-ledger-event.schema.json", "quality ledger event"),
+    /missing required key 'claim'/
+  );
+});
+
+test("qualityLedgerRecordCommand writes a schema-valid quality ledger event", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const artifactPath = path.join(projectRoot, "quality-event.json");
+  const result = await qualityLedgerRecordCommand({
+    project: projectRoot,
+    eventId: "QLE-TASK-078-WRITER",
+    eventType: "runtime_evidence_missing",
+    qualityIntentRef: "QIN-AOF-RUNTIME",
+    workItemRef: "TASK-078",
+    claim: "Runtime evidence is required before a quality claim can be accepted.",
+    qifRefs: ["docs/aof-qif-quality-definition.md"],
+    governanceAction: "request-evidence",
+    confidence: 0.66,
+    sourceTaskId: "TASK-078",
+    sourceParentSessionId: "SESS-V68-DIRECTION",
+    artifactPath
+  });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.payload.semantic_truth_claimed, false);
+  assert.equal(result.payload.operator_validated, false);
+  assert.equal(result.payload.governance_action, "request-evidence");
+
+  const written = JSON.parse(await fs.readFile(result.artifactPath, "utf8"));
+  await validateWithBundledSchema(written, "aof-quality-ledger-event.schema.json", "quality ledger event");
+});
+
+test("qualityLedgerAuditCommand fails missing escalation, semantic truth claims, unresolved refs, and missing state transitions", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const eventRoot = path.join(projectRoot, ".aof", "quality", "ledger", "events");
+  await fs.mkdir(eventRoot, { recursive: true });
+  await fs.writeFile(path.join(eventRoot, "QLE-BAD.json"), `${JSON.stringify({
+    artifact_type: "quality-ledger-event",
+    ledger_format_version: 1,
+    event_id: "QLE-BAD",
+    recorded_at: "2026-07-03T20:10:00.000Z",
+    event_type: "claim_contradicted",
+    quality_intent_ref: "QIN-AOF-RUNTIME",
+    work_item_ref: "TASK-078",
+    claim: "This bad event should be rejected by audit checks.",
+    evidence_refs: ["docs/missing-evidence.md"],
+    qif_refs: [],
+    prior_state: null,
+    new_state: null,
+    confidence: 0.2,
+    semantic_truth_claimed: true,
+    operator_validated: false,
+    governance_action: "none",
+    source_task_id: "TASK-078",
+    source_parent_session_id: "SESS-V68-DIRECTION",
+    source_decision_record_id: null,
+    notes: null
+  }, null, 2)}\n`);
+
+  const result = await qualityLedgerAuditCommand({ project: projectRoot });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((error) => /does not claim semantic truth/.test(error)));
+  assert.ok(result.summary.errors.some((error) => /evidence ref resolves/.test(error)));
+  assert.ok(result.summary.errors.some((error) => /QIF refs present/.test(error)));
+  assert.ok(result.summary.errors.some((error) => /escalates non-green quality signal/.test(error)));
+  assert.ok(result.summary.errors.some((error) => /records state transition/.test(error)));
+});
+
+test("committed quality ledger fixture stays auditable and does not claim semantic truth", async () => {
+  const fixturePath = path.join(repoRoot, ".aof", "quality", "ledger", "events", "QLE-TASK-078-RUNTIME-EVIDENCE.json");
+  const fixture = JSON.parse(await fs.readFile(fixturePath, "utf8"));
+  await validateWithBundledSchema(fixture, "aof-quality-ledger-event.schema.json", "quality ledger event fixture");
+
+  const result = await qualityLedgerAuditCommand({ project: repoRoot });
+  assert.equal(result.ok, true);
+  assert.ok(result.summary.events.some((event) => event.event_id === "QLE-TASK-078-RUNTIME-EVIDENCE"));
+  assert.equal(result.summary.summary.semantic_truth_claim_count, 0);
+  assert.equal(result.summary.summary.operator_validated_count, 0);
 });
 
 test("actorSkillPacketRecordCommand writes a provenance-backed assignment packet", async (t) => {

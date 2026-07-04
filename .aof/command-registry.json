@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-03T19:24:01.079Z",
+  "generated_at": "2026-07-03T20:09:07.157Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -1910,6 +1910,72 @@
       ],
       "outputs": [
         "provider check summary"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "quality-ledger-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify Quality Ledger event structure, evidence refs, QIF refs, and governance escalation for missing or contradicted quality evidence.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "quality ledger audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "quality-ledger-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write an append-only quality evidence event without claiming semantic truth or computing a QIF verdict.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "event-type",
+        "quality-intent-ref",
+        "work-item-ref",
+        "claim",
+        "qif-ref",
+        "evidence-ref?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "quality ledger event artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

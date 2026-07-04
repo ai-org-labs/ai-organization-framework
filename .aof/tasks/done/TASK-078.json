@@ -2,19 +2,19 @@
   "task_id": "TASK-078",
   "title": "v6.8 frontier: executable quality ledger foundation",
   "description": "Implement the smallest executable Quality Ledger foundation: define a canonical quality-ledger event schema, add a runtime writer for QIF-relevant evidence events, add a safe_read ledger audit, and add negative fixtures proving missing runtime evidence or contradicted claims are detectable. Acceptance: schema validates; writer records task/runtime/evidence/QIF intent refs; audit fails a review or release claim with no recent runtime evidence; focused tests pass. Stop condition: foundation only; do not auto-compute QIF verdicts and do not claim operator validation.",
-  "status": "open",
+  "status": "done",
   "origin": "orchestrator",
   "orchestrator_session_id": "SESS-V68-DIRECTION",
   "assigned_session_ids": [],
   "related_decision_record_id": null,
   "operating_goal_ref": "v6.8-executable-quality-ledger",
   "created_at": "2026-07-03T19:53:18.487Z",
-  "updated_at": "2026-07-03T19:53:18.487Z",
+  "updated_at": "2026-07-04T01:26:17.179Z",
   "assigned_at": null,
-  "done_at": null,
+  "done_at": "2026-07-04T01:26:17.179Z",
   "retired_at": null,
   "last_triaged_at": null,
   "stale_candidate_at": null,
   "retire_candidate_at": null,
-  "triage_notes": "Opened after TASK-077 selected v6.8 Executable Quality Ledger with Product Council approval."
+  "triage_notes": "Completed v6.8 executable quality ledger foundation: schemas, writer, audit, fixture, command registry integration, docs, tests, quality-ledger-audit, npm test, and smoke are green."
 }

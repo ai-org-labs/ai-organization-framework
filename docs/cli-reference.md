@@ -299,6 +299,63 @@ QIF boundary:
 - pass は evidence independence の structural/runtime evidence であり、証拠が semantic truth を証明するとは限らない
 - semantic validity は human review / expert review / reproduction test / operational feedback / governance の対象として残る
 
+### `quality-ledger-record`
+
+QIF / AOF の品質主張に関する evidence event を append-only に記録する。これは v6.8 の Executable Quality Ledger 用 command であり、「品質を証明する」ためではなく、「品質主張・欠落証拠・矛盾・修正・governance escalation を追跡可能にする」ためのもの。
+
+```bash
+node ./src/cli.js quality-ledger-record \
+  --project . \
+  --event-type runtime_evidence_missing \
+  --quality-intent-ref QIN-AOF-RUNTIME \
+  --work-item-ref TASK-078 \
+  --claim "A release claim has no runtime evidence yet" \
+  --qif-ref docs/aof-qif-quality-definition.md \
+  --governance-action request-evidence \
+  --source-task-id TASK-078 \
+  --source-parent-session-id SESS-PARENT-001
+```
+
+主な記録項目:
+
+- `event_type`: `evidence_added` / `claim_contradicted` / `runtime_evidence_missing` / `assumption_corrected` / `verdict_changed` / `governance_escalation`
+- `quality_intent_ref`: 対象 Quality Intent
+- `work_item_ref`: 対象 task / work item
+- `claim`: 追跡する品質主張または欠落
+- `evidence_refs`: 根拠 artifact refs
+- `qif_refs`: QIF adapter / quality definition refs
+- `semantic_truth_claimed`: default false
+- `operator_validated`: default false
+- `governance_action`: `none` / `review-required` / `block-release` / `request-evidence` / `update-verdict`
+
+QIF boundary:
+
+- ledger event は evidence traceability であり、QIF verdict や semantic truth を自動生成しない
+- `runtime_evidence_missing` / `claim_contradicted` / `assumption_corrected` は governance action なしで受け入れてはいけない
+- operator validation や external validation は明示 evidence がある場合だけ別途記録する
+
+### `quality-ledger-audit`
+
+Quality Ledger event が構造・参照・governance escalation 境界を満たしているかを narrow に検査する。
+
+```bash
+node ./src/cli.js quality-ledger-audit --project .
+```
+
+主な確認項目:
+
+- ledger event が存在する
+- event schema が valid
+- evidence refs / QIF refs が解決できる
+- `semantic_truth_claimed` が不用意に true になっていない
+- missing / contradicted / corrected / escalation 系 event が governance action を持つ
+- contradicted / corrected event が `prior_state` と `new_state` を持つ
+
+QIF boundary:
+
+- pass は Quality Ledger の structural/runtime evidence であり、品質達成・意味的正しさ・市場価値を証明しない
+- semantic uncertainty は hidden にせず、ledger event と governance action として上げる
+
 ### `dependency-graph`
 
 current `.aof/organization.json` から dependency graph を返す。

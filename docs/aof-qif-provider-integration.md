@@ -60,6 +60,32 @@ The adapter must not treat `pass` as a universal quality verdict.
 
 For example, `AP-003 pass` means the first governed work chain is structurally coherent under Work Governance rules. It does not prove that the work is valuable, correctly scoped, commercially useful, or semantically true.
 
+## Executable Quality Ledger
+
+`v6.8` introduces an AOF-side Quality Ledger as an executable adapter surface for QIF-relevant evidence changes.
+
+The ledger records events such as:
+
+- evidence added
+- claim contradicted
+- runtime evidence missing
+- assumption corrected
+- verdict changed
+- governance escalation
+
+The ledger does not compute QIF verdicts and does not prove semantic truth. It makes the evidence history auditable so a future reviewer can see when a claim was missing evidence, contradicted, corrected, or escalated.
+
+Runtime commands:
+
+- `quality-ledger-record`: write one append-only quality evidence event.
+- `quality-ledger-audit`: verify event structure, evidence refs, QIF refs, and governance escalation boundaries.
+
+Boundary:
+
+- `semantic_truth_claimed` should remain false unless there is explicit human/expert/reproduction/operational evidence.
+- `operator_validated` should remain false unless an operator validation artifact exists.
+- `runtime_evidence_missing`, `claim_contradicted`, and `assumption_corrected` events require a non-`none` governance action.
+
 ## Upgrade Policy
 
 When QIF releases a new version, AOF should add or update a provider profile rather than edit all quality claims blindly.

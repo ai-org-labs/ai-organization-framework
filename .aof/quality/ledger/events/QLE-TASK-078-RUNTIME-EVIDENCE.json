@@ -1,0 +1,24 @@
+{
+  "artifact_type": "quality-ledger-event",
+  "ledger_format_version": 1,
+  "event_id": "QLE-TASK-078-RUNTIME-EVIDENCE",
+  "recorded_at": "2026-07-03T20:05:00.000Z",
+  "event_type": "runtime_evidence_missing",
+  "quality_intent_ref": "QIN-AOF-RUNTIME",
+  "work_item_ref": "TASK-078",
+  "claim": "AOF quality claims need append-only evidence events before future review or release decisions can rely on them.",
+  "evidence_refs": [],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "prior_state": null,
+  "new_state": "quality ledger foundation required",
+  "confidence": 0.74,
+  "semantic_truth_claimed": false,
+  "operator_validated": false,
+  "governance_action": "request-evidence",
+  "source_task_id": "TASK-078",
+  "source_parent_session_id": "SESS-V68-DIRECTION",
+  "source_decision_record_id": null,
+  "notes": "This event is traceability evidence only. It does not prove semantic truth, operator validation, or QIF verdict correctness."
+}

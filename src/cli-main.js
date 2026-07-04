@@ -94,6 +94,8 @@ Usage:
   aof archmap-impact-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof review-provenance-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof evidence-independence-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof quality-ledger-record --project <path> --event-type <evidence_added|claim_contradicted|runtime_evidence_missing|assumption_corrected|verdict_changed|governance_escalation> --quality-intent-ref <ref> --work-item-ref <ref> --claim "<text>" [--evidence-ref <path>] [--qif-ref <path>] [--prior-state "<text>"] [--new-state "<text>"] [--confidence <0-1>] [--semantic-truth-claimed] [--operator-validated] [--governance-action <none|review-required|block-release|request-evidence|update-verdict>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
+  aof quality-ledger-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof value-hypothesis-record --project <path> --expected-value-creation "<text>" --beneficiary "<text>" --supporting-evidence "<text>" [--supporting-evidence "<text>"] --success-criterion "<text>" [--success-criterion "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof alternative-analysis-record --project <path> --subject-need "<text>" --alternative-solution "<text>" [--alternative-solution "<text>"] [--non-solution-option "<text>"] [--defer-option "<text>"] --stop-option "<text>" [--stop-option "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -187,6 +189,8 @@ Examples:
   aof archmap-impact-audit --project . --cutoff-task-id TASK-071 --write-artifact /tmp/aof-archmap-impact-audit.json
   aof review-provenance-audit --project . --cutoff-task-id TASK-071 --write-artifact /tmp/aof-review-provenance-audit.json
   aof evidence-independence-audit --project . --cutoff-task-id TASK-071 --write-artifact /tmp/aof-evidence-independence-audit.json
+  aof quality-ledger-record --project . --event-type runtime_evidence_missing --quality-intent-ref QIN-AOF-RUNTIME --work-item-ref TASK-078 --claim "A release claim has no runtime evidence yet" --qif-ref docs/aof-quality-definition-qif.md --governance-action request-evidence --source-task-id TASK-078 --source-parent-session-id SESS-PARENT-001
+  aof quality-ledger-audit --project . --write-artifact /tmp/aof-quality-ledger-audit.json
   aof problem-statement-record --project . --affected-party "newly invited workspace admins" --actual-problem "activation fails during permission setup" --why-it-matters "high-intent admins fail before value is realized" --why-now "activation drop-off is blocking current growth" --evidence-ref docs/research/funnel-notes.md
   aof value-hypothesis-record --project . --expected-value-creation "higher activation completion and faster time to first value" --beneficiary "newly invited workspace admins and the owning workspace" --supporting-evidence "interviews and analytics both indicate permission-step confusion" --success-criterion "activation completion improves" --success-criterion "permission-step comprehension improves"
   aof alternative-analysis-record --project . --subject-need "Reduce activation failure for invited admins" --alternative-solution "clarify permission setup directly in product" --alternative-solution "human-assisted onboarding for high-value accounts" --non-solution-option "tighten qualification and do nothing in-product" --defer-option "wait until more interview evidence is collected" --stop-option "do not create a project if the problem is not reproducible"
@@ -918,6 +922,33 @@ function parseArgs(argv) {
             ? {
                 project: ".",
                 cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "quality-ledger-record"
+            ? {
+                project: ".",
+                eventId: "",
+                eventType: "",
+                qualityIntentRef: "",
+                workItemRef: "",
+                claim: "",
+                evidenceRefs: [],
+                qifRefs: [],
+                priorState: "",
+                newState: "",
+                confidence: undefined,
+                semanticTruthClaimed: false,
+                operatorValidated: false,
+                governanceAction: "none",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "quality-ledger-audit"
+            ? {
+                project: ".",
                 artifactPath: ""
               }
           : command === "problem-statement-record"
@@ -2095,6 +2126,95 @@ function parseArgs(argv) {
         throw new Error("Missing value after --source-domain.");
       }
       options.sourceDomain = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--event-id") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --event-id.");
+      }
+      options.eventId = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--event-type") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --event-type.");
+      }
+      options.eventType = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--quality-intent-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --quality-intent-ref.");
+      }
+      options.qualityIntentRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--work-item-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --work-item-ref.");
+      }
+      options.workItemRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--claim") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --claim.");
+      }
+      options.claim = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--qif-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --qif-ref.");
+      }
+      options.qifRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--prior-state") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --prior-state.");
+      }
+      options.priorState = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--new-state") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --new-state.");
+      }
+      options.newState = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--semantic-truth-claimed") {
+      options.semanticTruthClaimed = true;
+      continue;
+    }
+    if (part === "--operator-validated") {
+      options.operatorValidated = true;
+      continue;
+    }
+    if (part === "--governance-action") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --governance-action.");
+      }
+      options.governanceAction = value;
       i += 1;
       continue;
     }

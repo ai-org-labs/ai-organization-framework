@@ -1,36 +1,36 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-03T19:57:47.359Z",
+  "generated_at": "2026-07-04T01:30:03.659Z",
   "current_checkpoint": {
     "stage": "implementation-ready",
-    "frontier_task_id": "TASK-078",
-    "summary": "TASK-078 is active and the runtime is implementation-ready.",
-    "artifact_ref": ".aof/tasks/open/TASK-078.json"
+    "frontier_task_id": "TASK-079",
+    "summary": "TASK-079 is active and the runtime is implementation-ready.",
+    "artifact_ref": ".aof/tasks/open/TASK-079.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-077 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-077.json"
+    "summary": "TASK-078 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-078.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-077 completed: v6.8 direction selection: Executable Quality Ledger",
-      "artifact_ref": ".aof/tasks/done/TASK-077.json"
+      "summary": "TASK-078 completed: v6.8 frontier: executable quality ledger foundation",
+      "artifact_ref": ".aof/tasks/done/TASK-078.json"
     },
     {
       "kind": "frontier-task",
-      "summary": "TASK-078 is now the active frontier: v6.8 frontier: executable quality ledger foundation",
-      "artifact_ref": ".aof/tasks/open/TASK-078.json"
+      "summary": "TASK-079 is now the active frontier: v6.8 release closure: ship Executable Quality Ledger",
+      "artifact_ref": ".aof/tasks/open/TASK-079.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Implement TASK-078 v6.8 Executable Quality Ledger foundation: add the smallest canonical quality-ledger event schema, writer, audit, and negative fixtures that detect missing runtime evidence or contradicted claims. Stop condition: foundation only; do not auto-compute QIF verdicts and do not claim operator validation. QIF boundary: ledger presence is evidence traceability, not semantic truth.",
+      "summary": "Complete TASK-079 v6.8 release closure: write release definition, checklist, and notes; run quality-ledger-audit, release-state-audit, organization-verify, CLI help benchmark, npm test, and smoke; refresh active release state only when release evidence is complete.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-077 completed: v6.8 direction selection: Executable Quality Ledger TASK-078 is now the active frontier: v6.8 frontier: executable quality ledger foundation Implement TASK-078 v6.8 Executable Quality Ledger foundation: add the smallest canonical quality-ledger event schema, writer, audit, and negative fixtures that detect missing runtime evidence or contradicted claims. Stop condition: foundation only; do not auto-compute QIF verdicts and do not claim operator validation. QIF boundary: ledger presence is evidence traceability, not semantic truth.",
-    "why_it_matters": "TASK-078 now defines the current operating move after the latest completed release step.",
-    "next_checkpoint": "Start TASK-078: v6.8 frontier: executable quality ledger foundation"
+    "what_changed": "TASK-078 completed: v6.8 frontier: executable quality ledger foundation TASK-079 is now the active frontier: v6.8 release closure: ship Executable Quality Ledger Complete TASK-079 v6.8 release closure: write release definition, checklist, and notes; run quality-ledger-audit, release-state-audit, organization-verify, CLI help benchmark, npm test, and smoke; refresh active release state only when release evidence is complete.",
+    "why_it_matters": "TASK-079 now defines the current operating move after the latest completed release step.",
+    "next_checkpoint": "Start TASK-079: v6.8 release closure: ship Executable Quality Ledger"
   }
 }

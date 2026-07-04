@@ -1,0 +1,19 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-079",
+  "work_item_ref": ".aof/tasks/open/TASK-079.json",
+  "work_item_id": "TASK-079",
+  "status": "archmap_unaffected",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    ".aof/tasks/open/TASK-079.json",
+    "docs/archmaps/aof-runtime-current.archmap",
+    ".aof/quality/ledger/events/QLE-TASK-078-RUNTIME-EVIDENCE.json"
+  ],
+  "external_refs": [],
+  "recorded_at": "2026-07-04T01:27:30.000Z"
+}

@@ -1,8 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Advance v6.8 Executable Quality Ledger: make QIF-relevant evidence changes appendable and auditable, so corrected assumptions, contradicted claims, and missing runtime evidence are visible before future review or release decisions.",
-  "updated_at": "2026-07-03T19:54:00.000Z",
+  "content": "Close v6.8 as the Executable Quality Ledger release: make QIF-relevant evidence changes appendable and auditable while preserving the boundary that ledger pass is traceability evidence, not semantic truth.",
+  "updated_at": "2026-07-04T01:26:57.547Z",
   "agreed_with_human": true,
   "source_session_id": "SESS-V68-DIRECTION",
-  "source_decision_record_id": null
+  "source_decision_record_id": null,
+  "declared_complete_at": null
 }

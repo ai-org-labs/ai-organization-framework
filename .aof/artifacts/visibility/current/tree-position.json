@@ -1,6 +1,6 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-03T19:57:47.400Z",
+  "generated_at": "2026-07-04T01:30:03.690Z",
   "trunk": {
     "label": "AOF release evolution",
     "active_release_version": "6.7.0",
@@ -9,10 +9,10 @@
   },
   "branch": {
     "frontier_track": "v6.8",
-    "frontier_task_id": "TASK-078",
-    "frontier_task_title": "v6.8 frontier: executable quality ledger foundation",
-    "artifact_ref": ".aof/tasks/open/TASK-078.json",
-    "branch_summary": "Implement TASK-078 v6.8 Executable Quality Ledger foundation: add the smallest canonical quality-ledger event schema, writer, audit, and negative fixtures that detect missing runtime evidence or contradicted claims. Stop condition: foundation only; do not auto-compute QIF verdicts and do not claim operator validation. QIF boundary: ledger presence is evidence traceability, not semantic truth."
+    "frontier_task_id": "TASK-079",
+    "frontier_task_title": "v6.8 release closure: ship Executable Quality Ledger",
+    "artifact_ref": ".aof/tasks/open/TASK-079.json",
+    "branch_summary": "Complete TASK-079 v6.8 release closure: write release definition, checklist, and notes; run quality-ledger-audit, release-state-audit, organization-verify, CLI help benchmark, npm test, and smoke; refresh active release state only when release evidence is complete."
   },
   "roadmap_path": [
     {
@@ -27,8 +27,8 @@
     }
   ],
   "tree_answer": {
-    "where_are_we": "TASK-078 sits on v6.8 after shipped v6.7.",
-    "why_this_branch": "Advance v6.8 Executable Quality Ledger: make QIF-relevant evidence changes appendable and auditable, so corrected assumptions, contradicted claims, and missing runtime evidence are visible before future review or release decisions.",
-    "what_branch_comes_next": "Start TASK-078: v6.8 frontier: executable quality ledger foundation"
+    "where_are_we": "TASK-079 sits on v6.8 after shipped v6.7.",
+    "why_this_branch": "Close v6.8 as the Executable Quality Ledger release: make QIF-relevant evidence changes appendable and auditable while preserving the boundary that ledger pass is traceability evidence, not semantic truth.",
+    "what_branch_comes_next": "Start TASK-079: v6.8 release closure: ship Executable Quality Ledger"
   }
 }

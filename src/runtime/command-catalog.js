@@ -51,6 +51,8 @@ const COMMAND_SPECS = [
   ["archmap-impact-audit", "./commands/archmap-impact-audit.js", "archmapImpactAuditCommand"],
   ["review-provenance-audit", "./commands/review-provenance-audit.js", "reviewProvenanceAuditCommand"],
   ["evidence-independence-audit", "./commands/evidence-independence-audit.js", "evidenceIndependenceAuditCommand"],
+  ["quality-ledger-record", "./commands/quality-ledger-record.js", "qualityLedgerRecordCommand"],
+  ["quality-ledger-audit", "./commands/quality-ledger-audit.js", "qualityLedgerAuditCommand"],
   ["problem-statement-record", "./commands/problem-statement-record.js", "problemStatementRecordCommand"],
   ["value-hypothesis-record", "./commands/value-hypothesis-record.js", "valueHypothesisRecordCommand"],
   ["alternative-analysis-record", "./commands/alternative-analysis-record.js", "alternativeAnalysisRecordCommand"],
