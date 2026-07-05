@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Select the next bounded frontier after v6.8.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
-  "updated_at": "2026-07-04T01:47:24.569Z",
+  "content": "Select the next bounded frontier after v6.9.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
+  "updated_at": "2026-07-05T17:40:16.650Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V68-DIRECTION",
+  "source_session_id": "SESS-V69-DIRECTION",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

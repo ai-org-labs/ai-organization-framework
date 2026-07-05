@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-082",
+  "title": "v6.9 frontier: executable work readiness gate",
+  "description": "Implement work-readiness-record and work-readiness-audit so AOF can block implementation readiness when goal, risk, loss boundary, acceptance gates, evidence plan, maker/checker separation, or stop conditions are missing.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V69-DIRECTION",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v6.9-work-readiness-gate",
+  "created_at": "2026-07-05T17:21:00.642Z",
+  "updated_at": "2026-07-05T17:36:53.470Z",
+  "assigned_at": null,
+  "done_at": "2026-07-05T17:36:53.470Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v6.9 implementation: added work-readiness schemas, record/audit commands, release-state integration, CLI docs, tests, and committed readiness evidence."
+}

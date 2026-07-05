@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-04T12:54:27.513Z",
+  "generated_at": "2026-07-05T17:48:17.700Z",
   "mission_overview": {
-    "mission": "Ship v6.8.0 as the Executable Quality Ledger release.",
-    "release_version": "6.8.0",
-    "release_definition_ref": "docs/v6.8-release-definition.md",
-    "operating_goal": "Select the next bounded frontier after v6.8.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
-    "next_value_slice": "Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
+    "mission": "Ship v6.9.0 as the Executable Pre-Implementation Quality Gates release.",
+    "release_version": "6.9.0",
+    "release_definition_ref": "docs/v6.9-release-definition.md",
+    "operating_goal": "Select the next bounded frontier after v6.9.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
+    "next_value_slice": "Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.8 frontier, compare executable pre-implementation quality gates, standalone context/reference audits, and governed multi-actor orchestration, then open exactly one bounded implementation task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,19 +245,16 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 10,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-080.json",
+    "impact_record_count": 13,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-083.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-080",
+    "latest_work_item_id": "TASK-083",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-080.json"
+      ".aof/artifacts/archmap/impact/TASK-083.json"
     ],
-    "external_refs": [
-      "https://github.com/ai-org-labs/archmap/tree/v0.1.1",
-      "https://github.com/ai-org-labs/archmap-icons/tree/v0.1.2"
-    ]
+    "external_refs": []
   }
 }

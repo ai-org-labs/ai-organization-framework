@@ -2,67 +2,69 @@
 
 ## Version
 
-`v6.8.0`
+`v6.9.0`
 
 ## Release Theme
 
-Executable Quality Ledger.
+Executable Pre-Implementation Quality Gates.
 
-`v6.7.0` made governance claims harder to fake by requiring machine-checkable Archmap impact, Council provenance, and evidence independence. The next bottleneck is that quality-relevant corrections and contradicted claims can still drift as prose instead of being recorded as auditable ledger events.
+`v6.8.0` made quality-relevant evidence appendable and auditable after evidence exists. The next bottleneck is that work can still begin before success expectations, loss boundaries, evidence plans, maker/checker separation, and stop conditions are explicit.
 
 Human-facing wording:
 
-> v6.8 should make quality-relevant evidence changes appendable and auditable, so AOF cannot quietly treat "we wrote a report" as "quality truth stayed current."
+> v6.9 should stop AOF from starting implementation work while the definition of success is still hidden in the conversation.
 
 More explicit wording:
 
-> AOF should reject unsafe quality claims when ledger events lack task/runtime/QIF/evidence refs, miss required governance escalation, or claim semantic truth from ledger presence alone.
+> AOF should reject implementation-readiness claims when the work item lacks goal, risk, loss boundary, acceptance gates, evidence plan, maker/checker separation, stop conditions, or QIF refs.
 
 ## Runtime Evidence Basis
 
-- runtime command: `release-state-audit --project .`
-- release task: `TASK-079`
-- release definition: `docs/v6.8-release-definition.md`
-- release checklist: `docs/v6.8-release-checklist.md`
-- release notes: `docs/v6.8.0-release-notes.md`
-- roadmap: `docs/v6.7-v8.0-completion-roadmap.md`
-- Archmap source: `docs/archmaps/aof-runtime-current.archmap`
-- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-078-QUALITY-LEDGER-FOUNDATION.json`
+- runtime command: `situation-assess --project .`
+- direction task: `TASK-081`
+- implementation task: `TASK-082`
+- release task: `TASK-083`
+- release definition: `docs/v6.9-release-definition.md`
+- release checklist: `docs/v6.9-release-checklist.md`
+- release notes: `docs/v6.9.0-release-notes.md`
+- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-082-WORK-READINESS-GATE.json`
 
 ## Required Outcomes
 
 Required:
 
-- add `quality-ledger-record`
-- add `quality-ledger-audit`
-- add quality ledger event and audit schemas
-- add a committed ledger event fixture for `TASK-078`
-- verify negative audit cases for missing QIF refs, unresolved evidence refs, unsupported semantic truth claims, missing escalation, and missing state transition intent
-- refresh command registry so ledger commands have AI-readable input/output hints
-- align package, active release manifest, organization contract, README, quickstart, checklist, and notes to `6.8.0`
+- add `work-readiness-record`
+- add `work-readiness-audit`
+- add work readiness record and audit schemas
+- add committed readiness records for `TASK-082` and release closure `TASK-083`
+- verify negative audit cases for missing readiness records
+- integrate `work-readiness-audit` into `release-state-audit` for `6.9.0` and later
+- refresh command registry so readiness commands have AI-readable input/output hints
+- align package, active release manifest, organization contract, README, checklist, and notes to `6.9.0`
 
 Deferred:
 
-- automatic semantic truth scoring
-- external market/product validation
-- full external QIF verifier execution
-- automatic replacement of Council judgment
+- automatic QIF verdict computation
+- semantic truth validation
+- standalone context/reference audits
+- governed parallel actor orchestration
 - Node.js 25+ support
 
 ## Release Gates
 
-### Gate 1: Quality Ledger Commands
+### Gate 1: Work Readiness Commands
 
-- `quality-ledger-record` writes schema-valid events
-- `quality-ledger-audit` passes committed ledger events
-- `quality-ledger-audit` fails unsafe or incomplete event patterns
+- `work-readiness-record` writes schema-valid records
+- `work-readiness-audit` passes committed readiness records
+- `work-readiness-audit` fails missing or incomplete readiness patterns
 
 ### Gate 2: Governance Continuity
 
 - Archmap impact audit still passes for `TASK-071` onward
 - review provenance audit still passes for done work at `TASK-071` onward
 - evidence independence audit still passes for done work at `TASK-071` onward
-- ledger presence remains evidence, not proof of truth
+- quality ledger audit still passes
+- readiness presence remains evidence, not proof of truth
 
 ### Gate 3: Command Help Completeness
 
@@ -72,14 +74,16 @@ Deferred:
 
 ### Gate 4: Release Surface
 
-- package version is `6.8.0`
-- package-lock version is `6.8.0`
-- active release manifest points at v6.8 docs
-- organization release contract points at `docs/v6.8-release-definition.md`
-- README and quickstart point at v6.8
+- package version is `6.9.0`
+- package-lock version is `6.9.0`
+- active release manifest points at v6.9 docs
+- organization release contract points at `docs/v6.9-release-definition.md`
+- README and roadmap point at v6.9
 
 ### Gate 5: Verification
 
+- work readiness audit
+- quality ledger audit
 - command routing audit
 - CLI help benchmark
 - organization verification
@@ -92,14 +96,14 @@ Deferred:
 
 ## Release Decision
 
-Release `v6.8.0` only if AOF now makes it harder to confuse:
+Release `v6.9.0` only if AOF now makes it harder to confuse:
 
-- ledger existence with quality proof
-- activity evidence with Quality Intent evidence
-- corrected assumptions with hidden churn
-- low-confidence evidence with release-ready truth
-- runtime traceability with semantic validation
+- conversation intent with declared work goal
+- activity with acceptance
+- maker output with checked output
+- iteration with a loop
+- readiness evidence with semantic truth
 
-## Post-v6.8 Direction Candidate
+## Post-v6.9 Direction Candidate
 
-After v6.8, choose the next frontier through runtime-backed review before opening implementation work. Strong candidates are executable pre-implementation quality gates, standalone context/reference audits, or the first bounded step toward governed multi-actor orchestration.
+After v6.9, choose the next frontier through runtime-backed review before opening implementation work. Strong candidates are standalone context/reference audits or the first bounded step toward governed multi-actor orchestration.

@@ -1,0 +1,33 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-083",
+  "work_item_ref": ".aof/tasks/done/TASK-083.json",
+  "work_item_id": "TASK-083",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "node",
+      "id": "ReleaseV69",
+      "reason": "TASK-083 promotes v6.9 work readiness gates into the shipped release baseline."
+    },
+    {
+      "kind": "edge",
+      "id": "ReleaseSignOff->ReleaseV69",
+      "reason": "Release sign-off now ships the v6.9 readiness gate baseline."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-083.json",
+    "docs/v6.9-release-definition.md",
+    "docs/v6.9-release-checklist.md",
+    "docs/v6.9.0-release-notes.md",
+    "docs/archmaps/aof-runtime-current.archmap",
+    ".aof/artifacts/execution/council-reviews/CRP-TASK-083-V69-RELEASE-CLOSURE.json"
+  ],
+  "external_refs": [],
+  "recorded_at": "2026-07-05T17:39:40.000Z"
+}

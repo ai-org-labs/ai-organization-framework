@@ -1,0 +1,34 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MR82FFBA-XP5V3O",
+  "recorded_at": "2026-07-05T17:29:01.510Z",
+  "work_item_id": "TASK-082",
+  "work_item_ref": ".aof/tasks/done/TASK-082.json",
+  "readiness_status": "ready",
+  "goal": "Implement executable pre-implementation gates so work cannot be called ready without expected outcome, risk, evidence, and stop criteria.",
+  "risk": "AOF starts implementation and later invents success criteria, making audits technically green but human expectations opaque.",
+  "loss_boundary": "No implementation-ready claim is acceptable without goal, risk, loss boundary, acceptance gates, evidence plan, maker/checker separation, and stop conditions.",
+  "acceptance_gates": [
+    "work-readiness-record writes a schema-valid readiness artifact",
+    "work-readiness-audit fails missing or weak readiness records",
+    "release-state-audit includes work-readiness-audit for v6.9 and later"
+  ],
+  "evidence_plan": [
+    "schemas, runtime commands, CLI help, command registry, focused tests, release-state audit, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if readiness audit cannot fail a missing gate",
+    "Stop if release-state audit cannot consume the readiness gate"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-082",
+  "source_parent_session_id": "SESS-V69-DIRECTION",
+  "source_decision_record_id": null
+}

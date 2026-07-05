@@ -356,6 +356,69 @@ QIF boundary:
 - pass は Quality Ledger の structural/runtime evidence であり、品質達成・意味的正しさ・市場価値を証明しない
 - semantic uncertainty は hidden にせず、ledger event と governance action として上げる
 
+### `work-readiness-record`
+
+work item を implementation-ready と呼ぶ前に、goal / risk / loss boundary / acceptance gate / evidence plan / maker-checker separation / stop condition を明示する。これは v6.9 の Executable Pre-Implementation Quality Gates 用 command であり、後から成功条件を作る失敗を防ぐ。
+
+```bash
+node ./src/cli.js work-readiness-record \
+  --project . \
+  --work-item-id TASK-082 \
+  --work-item-ref .aof/tasks/open/TASK-082.json \
+  --goal "Implement executable pre-implementation gates" \
+  --risk "AOF starts work without knowing what success means" \
+  --loss-boundary "No implementation-ready claim without gates" \
+  --acceptance-gate "work-readiness-audit passes" \
+  --evidence-plan "schema, command, tests, Council review" \
+  --maker-role builder \
+  --checker-role guardian \
+  --council-ref architecture-council \
+  --stop-condition "audit passes or implementation stops" \
+  --qif-ref docs/aof-qif-quality-definition.md \
+  --source-task-id TASK-082 \
+  --source-parent-session-id SESS-PARENT-001
+```
+
+主な記録項目:
+
+- `goal`: 何を達成する作業か
+- `risk`: 着手前に潰すべき失敗モード
+- `loss_boundary`: ここを越えたら品質主張できない境界
+- `acceptance_gates`: 受け入れ条件
+- `evidence_plan`: 何を証拠にするか
+- `maker_role` / `checker_role`: 作る人と検証する人の分離
+- `stop_conditions`: loop の停止条件
+- `qif_refs`: 関連する Quality Intent / QIF 定義
+
+QIF boundary:
+
+- readiness record は「着手前の期待値」を証跡化するものであり、実装品質や semantic truth を証明しない
+- readiness pass は Council review / runtime tests / release-state audit の代替ではない
+
+### `work-readiness-audit`
+
+implementation-grade work item が、着手前 gate を持たずに ready と扱われていないかを narrow に検査する。
+
+```bash
+node ./src/cli.js work-readiness-audit --project . --cutoff-task-id TASK-082
+```
+
+主な確認項目:
+
+- 対象 task に `.aof/artifacts/work-readiness/<TASK-id>.json` が存在する
+- readiness record schema が valid
+- `work_item_id` が task と一致する
+- `readiness_status` が `ready`
+- goal / risk / loss boundary が存在する
+- acceptance gates / evidence plan / stop conditions が存在する
+- maker role と checker role が分離されている
+- QIF refs と work item refs が解決できる
+
+QIF boundary:
+
+- pass は pre-implementation readiness の structural/runtime evidence であり、成果物の意味的正しさ・市場価値・実装品質を証明しない
+- pass 後も maker/checker/Council/release-state の各 gate は必要
+
 ### `dependency-graph`
 
 current `.aof/organization.json` から dependency graph を返す。

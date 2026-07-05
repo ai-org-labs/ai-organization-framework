@@ -59,6 +59,8 @@ import { needValidationRecordCommand } from "../src/commands/need-validation-rec
 import { valueHypothesisRecordCommand } from "../src/commands/value-hypothesis-record.js";
 import { buildVisibilityPageHtml, loadVisibilityViews, readProjectTextRef } from "../src/commands/visibility-serve.js";
 import { visibilityExportCommand } from "../src/commands/visibility-export.js";
+import { workReadinessAuditCommand } from "../src/commands/work-readiness-audit.js";
+import { workReadinessRecordCommand } from "../src/commands/work-readiness-record.js";
 import { deriveInitialClarification } from "../src/runtime/clarification.js";
 import { loadSession } from "../src/runtime/session.js";
 import { loadTemplate } from "../src/runtime/template-loader.js";
@@ -172,6 +174,114 @@ test("quality ledger event schema defines append-only quality evidence without s
     validateWithBundledSchema(missingClaim, "aof-quality-ledger-event.schema.json", "quality ledger event"),
     /missing required key 'claim'/
   );
+});
+
+test("work readiness record schema defines executable pre-implementation gates", async () => {
+  const payload = {
+    artifact_type: "work-readiness-record",
+    record_id: "WRG-TASK-082",
+    recorded_at: "2026-07-06T00:00:00.000Z",
+    work_item_id: "TASK-082",
+    work_item_ref: ".aof/tasks/open/TASK-082.json",
+    readiness_status: "ready",
+    goal: "Implement pre-implementation quality gates.",
+    risk: "Work starts before success is defined.",
+    loss_boundary: "No implementation-ready claim without explicit gates.",
+    acceptance_gates: ["work-readiness-audit passes"],
+    evidence_plan: ["schema, command, tests, Council review"],
+    maker_role: "builder",
+    checker_role: "guardian",
+    council_ref: "architecture-council",
+    stop_conditions: ["stop if audit cannot fail missing gates"],
+    qif_refs: ["docs/aof-qif-quality-definition.md"],
+    archmap_impact_expected: "yes",
+    notes: null,
+    source_task_id: "TASK-082",
+    source_parent_session_id: "SESS-V69-DIRECTION",
+    source_decision_record_id: null
+  };
+
+  await validateWithBundledSchema(payload, "aof-work-readiness-record.schema.json", "work readiness record");
+
+  const missingLossBoundary = { ...payload };
+  delete missingLossBoundary.loss_boundary;
+  await assert.rejects(
+    validateWithBundledSchema(missingLossBoundary, "aof-work-readiness-record.schema.json", "work readiness record"),
+    /missing required key 'loss_boundary'/
+  );
+});
+
+test("workReadinessRecordCommand writes a schema-valid readiness artifact", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "aof-qif-quality-definition.md"), "# QIF\n");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Implement readiness gate",
+    description: "Fixture task",
+    origin: "human"
+  });
+  const result = await workReadinessRecordCommand({
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    goal: "Define the smallest useful pre-implementation gate.",
+    risk: "The work starts without a concrete expectation.",
+    lossBoundary: "Do not call the work ready without explicit acceptance gates.",
+    acceptanceGates: ["audit passes"],
+    evidencePlan: ["schema and tests"],
+    makerRole: "builder",
+    checkerRole: "guardian",
+    councilRef: "architecture-council",
+    stopConditions: ["stop after one failed audit"],
+    qifRefs: ["docs/aof-qif-quality-definition.md"],
+    archmapImpactExpected: "yes",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-TEST"
+  });
+
+  assert.equal(result.ok, true);
+  const written = JSON.parse(await fs.readFile(result.artifactPath, "utf8"));
+  await validateWithBundledSchema(written, "aof-work-readiness-record.schema.json", "work readiness record");
+});
+
+test("workReadinessAuditCommand fails missing readiness and passes complete gate records", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "aof-qif-quality-definition.md"), "# QIF\n");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Implement readiness gate",
+    description: "Fixture task",
+    origin: "human"
+  });
+
+  const failing = await workReadinessAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(failing.ok, false);
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("work readiness record presence")));
+
+  await workReadinessRecordCommand({
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    goal: "Define the smallest useful pre-implementation gate.",
+    risk: "The work starts without a concrete expectation.",
+    lossBoundary: "Do not call the work ready without explicit acceptance gates.",
+    acceptanceGates: ["audit passes"],
+    evidencePlan: ["schema and tests"],
+    makerRole: "builder",
+    checkerRole: "guardian",
+    councilRef: "architecture-council",
+    stopConditions: ["stop after one failed audit"],
+    qifRefs: ["docs/aof-qif-quality-definition.md"],
+    archmapImpactExpected: "yes",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-TEST"
+  });
+
+  const passing = await workReadinessAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(passing.ok, true);
+  assert.equal(passing.summary.summary.ready_record_count, 1);
 });
 
 test("qualityLedgerRecordCommand writes a schema-valid quality ledger event", async (t) => {

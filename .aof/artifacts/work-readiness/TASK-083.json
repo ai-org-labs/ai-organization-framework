@@ -1,0 +1,34 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MR82QU73-UCJMPJ",
+  "recorded_at": "2026-07-05T17:37:54.015Z",
+  "work_item_id": "TASK-083",
+  "work_item_ref": ".aof/tasks/done/TASK-083.json",
+  "readiness_status": "ready",
+  "goal": "Close v6.9.0 only after readiness, governance, release-state, command-surface, full test, and smoke evidence are green.",
+  "risk": "A release can be tagged because files exist even when the new readiness gate is not actually enforced by release-state audit.",
+  "loss_boundary": "Do not claim v6.9 release-ready unless work-readiness-audit and release-state-audit both include the new gate and pass.",
+  "acceptance_gates": [
+    "work-readiness-audit passes for TASK-082 onward",
+    "release-state-audit includes work-readiness-audit",
+    "npm test and smoke pass"
+  ],
+  "evidence_plan": [
+    "readiness audit, release-state audit, governance audits, focused tests, npm test, smoke"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "operations-council",
+  "stop_conditions": [
+    "stop if any governance audit fails",
+    "stop if package, manifest, organization, or docs disagree on v6.9.0"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-083",
+  "source_parent_session_id": "SESS-V69-DIRECTION",
+  "source_decision_record_id": null
+}

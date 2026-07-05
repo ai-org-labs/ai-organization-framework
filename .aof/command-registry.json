@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-03T20:09:07.157Z",
+  "generated_at": "2026-07-05T17:38:09.787Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -3069,6 +3069,76 @@
       ],
       "outputs": [
         "work item goal artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "work-readiness-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify implementation work is not treated as ready without executable pre-implementation quality gates.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "cutoff-task-id?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "work readiness audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "work-readiness-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a pre-implementation readiness gate with goal, risk, loss boundary, acceptance gates, evidence plan, maker/checker separation, and stop conditions.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "work-item-id",
+        "work-item-ref",
+        "goal",
+        "risk",
+        "loss-boundary",
+        "acceptance-gate",
+        "evidence-plan",
+        "stop-condition",
+        "qif-ref",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "work readiness artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     }

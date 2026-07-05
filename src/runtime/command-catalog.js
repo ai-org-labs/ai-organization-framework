@@ -53,6 +53,8 @@ const COMMAND_SPECS = [
   ["evidence-independence-audit", "./commands/evidence-independence-audit.js", "evidenceIndependenceAuditCommand"],
   ["quality-ledger-record", "./commands/quality-ledger-record.js", "qualityLedgerRecordCommand"],
   ["quality-ledger-audit", "./commands/quality-ledger-audit.js", "qualityLedgerAuditCommand"],
+  ["work-readiness-record", "./commands/work-readiness-record.js", "workReadinessRecordCommand"],
+  ["work-readiness-audit", "./commands/work-readiness-audit.js", "workReadinessAuditCommand"],
   ["problem-statement-record", "./commands/problem-statement-record.js", "problemStatementRecordCommand"],
   ["value-hypothesis-record", "./commands/value-hypothesis-record.js", "valueHypothesisRecordCommand"],
   ["alternative-analysis-record", "./commands/alternative-analysis-record.js", "alternativeAnalysisRecordCommand"],

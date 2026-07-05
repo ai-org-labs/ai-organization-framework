@@ -96,6 +96,8 @@ Usage:
   aof evidence-independence-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof quality-ledger-record --project <path> --event-type <evidence_added|claim_contradicted|runtime_evidence_missing|assumption_corrected|verdict_changed|governance_escalation> --quality-intent-ref <ref> --work-item-ref <ref> --claim "<text>" [--evidence-ref <path>] [--qif-ref <path>] [--prior-state "<text>"] [--new-state "<text>"] [--confidence <0-1>] [--semantic-truth-claimed] [--operator-validated] [--governance-action <none|review-required|block-release|request-evidence|update-verdict>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
   aof quality-ledger-audit [--project <path>] [--write-artifact <path>]
+  aof work-readiness-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --goal "<text>" --risk "<text>" --loss-boundary "<text>" --acceptance-gate "<text>" [--acceptance-gate "<text>"] --evidence-plan "<text>" [--evidence-plan "<text>"] --maker-role <role> --checker-role <role> --council-ref <ref> --stop-condition "<text>" [--stop-condition "<text>"] --qif-ref <path> [--qif-ref <path>] [--readiness-status <ready|blocked|deferred>] [--archmap-impact-expected <yes|no|unknown>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
+  aof work-readiness-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof value-hypothesis-record --project <path> --expected-value-creation "<text>" --beneficiary "<text>" --supporting-evidence "<text>" [--supporting-evidence "<text>"] --success-criterion "<text>" [--success-criterion "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof alternative-analysis-record --project <path> --subject-need "<text>" --alternative-solution "<text>" [--alternative-solution "<text>"] [--non-solution-option "<text>"] [--defer-option "<text>"] --stop-option "<text>" [--stop-option "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -191,6 +193,8 @@ Examples:
   aof evidence-independence-audit --project . --cutoff-task-id TASK-071 --write-artifact /tmp/aof-evidence-independence-audit.json
   aof quality-ledger-record --project . --event-type runtime_evidence_missing --quality-intent-ref QIN-AOF-RUNTIME --work-item-ref TASK-078 --claim "A release claim has no runtime evidence yet" --qif-ref docs/aof-quality-definition-qif.md --governance-action request-evidence --source-task-id TASK-078 --source-parent-session-id SESS-PARENT-001
   aof quality-ledger-audit --project . --write-artifact /tmp/aof-quality-ledger-audit.json
+  aof work-readiness-record --project . --work-item-id TASK-082 --work-item-ref .aof/tasks/open/TASK-082.json --goal "Implement executable pre-implementation gates" --risk "AOF starts work without knowing what success means" --loss-boundary "No implementation-ready claim without gates" --acceptance-gate "work-readiness-audit passes" --evidence-plan "schema, command, tests, Council review" --maker-role builder --checker-role guardian --council-ref architecture-council --stop-condition "audit passes or implementation stops" --qif-ref docs/aof-qif-quality-definition.md --source-task-id TASK-082 --source-parent-session-id SESS-PARENT-001
+  aof work-readiness-audit --project . --cutoff-task-id TASK-082 --write-artifact /tmp/aof-work-readiness-audit.json
   aof problem-statement-record --project . --affected-party "newly invited workspace admins" --actual-problem "activation fails during permission setup" --why-it-matters "high-intent admins fail before value is realized" --why-now "activation drop-off is blocking current growth" --evidence-ref docs/research/funnel-notes.md
   aof value-hypothesis-record --project . --expected-value-creation "higher activation completion and faster time to first value" --beneficiary "newly invited workspace admins and the owning workspace" --supporting-evidence "interviews and analytics both indicate permission-step confusion" --success-criterion "activation completion improves" --success-criterion "permission-step comprehension improves"
   aof alternative-analysis-record --project . --subject-need "Reduce activation failure for invited admins" --alternative-solution "clarify permission setup directly in product" --alternative-solution "human-assisted onboarding for high-value accounts" --non-solution-option "tighten qualification and do nothing in-product" --defer-option "wait until more interview evidence is collected" --stop-option "do not create a project if the problem is not reproducible"
@@ -951,6 +955,36 @@ function parseArgs(argv) {
                 project: ".",
                 artifactPath: ""
               }
+          : command === "work-readiness-record"
+            ? {
+                project: ".",
+                recordId: "",
+                workItemId: "",
+                workItemRef: "",
+                readinessStatus: "ready",
+                goal: "",
+                risk: "",
+                lossBoundary: "",
+                acceptanceGates: [],
+                evidencePlan: [],
+                makerRole: "",
+                checkerRole: "",
+                councilRef: "",
+                stopConditions: [],
+                qifRefs: [],
+                archmapImpactExpected: "unknown",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "work-readiness-audit"
+            ? {
+                project: ".",
+                cutoffTaskId: "",
+                artifactPath: ""
+              }
           : command === "problem-statement-record"
             ? {
                 project: ".",
@@ -1297,6 +1331,11 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--goal") {
+      options.goal = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--content") {
       options.content = rest[i + 1] ?? "";
       i += 1;
@@ -1314,6 +1353,16 @@ function parseArgs(argv) {
     }
     if (part === "--gate-id") {
       options.gateId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--record-id") {
+      options.recordId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--work-item-id") {
+      options.workItemId = rest[i + 1] ?? "";
       i += 1;
       continue;
     }
@@ -2171,6 +2220,96 @@ function parseArgs(argv) {
         throw new Error("Missing value after --claim.");
       }
       options.claim = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--risk") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --risk.");
+      }
+      options.risk = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--loss-boundary") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --loss-boundary.");
+      }
+      options.lossBoundary = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--acceptance-gate") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --acceptance-gate.");
+      }
+      options.acceptanceGates.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--evidence-plan") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --evidence-plan.");
+      }
+      options.evidencePlan.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--maker-role") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --maker-role.");
+      }
+      options.makerRole = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--checker-role") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --checker-role.");
+      }
+      options.checkerRole = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--council-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --council-ref.");
+      }
+      options.councilRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--stop-condition") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --stop-condition.");
+      }
+      options.stopConditions.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--readiness-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --readiness-status.");
+      }
+      options.readinessStatus = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--archmap-impact-expected") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --archmap-impact-expected.");
+      }
+      options.archmapImpactExpected = value;
       i += 1;
       continue;
     }

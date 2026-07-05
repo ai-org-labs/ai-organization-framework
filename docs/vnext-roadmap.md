@@ -281,6 +281,22 @@ Required outcomes:
 - `release-state-audit` includes `quality-ledger-audit` for `6.8.0` and later
 - semantic uncertainty is escalated rather than hidden
 
+### `v6.9.0`: Executable Pre-Implementation Quality Gates
+
+Completed release tasks:
+
+- `TASK-081`: direction selection
+- `TASK-082`: executable work readiness gate
+- `TASK-083`: release closure
+
+Required outcomes:
+
+- work readiness record and audit schemas exist
+- `work-readiness-record` writes canonical readiness records
+- `work-readiness-audit` verifies goal, risk, loss boundary, acceptance gates, evidence plan, maker/checker separation, stop conditions, and QIF refs
+- `release-state-audit` includes `work-readiness-audit` for `6.9.0` and later
+- implementation readiness is evidence, not semantic truth
+
 ## Next Frontier Candidates
 
 ### Completed: `v6.5` Execution Hygiene And Human Recognition
@@ -394,17 +410,16 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v6.8.0`, choose the next frontier through runtime-backed review before opening implementation work.
+After `v6.9.0`, choose the next frontier through runtime-backed review before opening implementation work.
 
 Priority order:
 
-1. `v6.x`: first-class runtime commands/schemas for the v6.4 pre-implementation gates
-2. `v6.x`: standalone context / external-ref / operational-map audits
-3. `v7.0`: governed multi-actor orchestration
+1. `v6.x`: standalone context / external-ref / operational-map audits
+2. `v7.0`: first bounded governed multi-actor orchestration step
+3. `v7.x`: richer organization analytics over actor/council/work readiness outcomes
 
 Reasoning:
 
-- v6.7 and v6.8 have made release governance and quality-ledger traceability executable.
-- Pre-Implementation Quality Gate is still mostly a model-level baseline; the next product gap is making those gates executable before implementation starts.
-- Standalone context / external-ref / operational-map audits are now plausible because release-state and quality-ledger auditing patterns exist.
-- Multi-actor orchestration should wait until pre-implementation gates and context/reference audits are stable enough to govern parallel actor work.
+- v6.7 through v6.9 made release governance, quality ledger traceability, and pre-implementation readiness executable.
+- Standalone context / external-ref / operational-map audits are now plausible because readiness records can declare which references matter before work begins.
+- Multi-actor orchestration is closer, but should still be bounded by explicit context/reference gates so parallel work does not scale ambiguity.

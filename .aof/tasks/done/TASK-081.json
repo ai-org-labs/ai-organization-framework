@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-081",
+  "title": "v6.9 direction selection: Executable Pre-Implementation Quality Gates",
+  "description": "Select the next bounded frontier after v6.8.0 and decide whether executable pre-implementation gates, context/reference audits, or governed multi-actor orchestration should be next.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V69-DIRECTION",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "post-v6.8-frontier-selection",
+  "created_at": "2026-07-05T17:19:51.867Z",
+  "updated_at": "2026-07-05T17:21:05.584Z",
+  "assigned_at": null,
+  "done_at": "2026-07-05T17:21:05.584Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v6.9 direction selection: Product Council approved Executable Pre-Implementation Quality Gates; implementation proceeds as TASK-082."
+}

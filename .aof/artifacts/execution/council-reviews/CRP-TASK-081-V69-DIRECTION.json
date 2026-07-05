@@ -1,0 +1,35 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-05T17:20:44.224Z",
+  "review_packet_id": "CREV-MR824RLS-65QD2Q",
+  "council_id": "product-council",
+  "stage": "planning",
+  "review_status": "approved",
+  "decision_summary": "Approve v6.9 as Executable Pre-Implementation Quality Gates.",
+  "rationale": "v6.8 made quality evidence auditable after it exists; the next leverage point is blocking implementation readiness until goal, loss boundary, acceptance gates, evidence plan, maker/checker separation, and stop conditions are explicit.",
+  "recommendation": "Open TASK-082 for the smallest work-readiness record and audit surface; defer multi-actor orchestration to a later v7-class frontier.",
+  "target_audience": "AOF operator selecting the next bounded release frontier after v6.8.0.",
+  "expected_user_reaction": "The operator should understand that v6.9 makes work expectations executable before implementation begins.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": "frontier-selection",
+  "diagnosis_confidence": 0.86,
+  "diagnosis_evidence_refs": [
+    "docs/v6.9-direction-review.md",
+    ".aof/goals/next-value-slice.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [],
+  "role_result_refs": [],
+  "evidence_refs": [
+    "docs/v6.9-direction-review.md",
+    "docs/vnext-roadmap.md",
+    ".aof/goals/next-value-slice.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-081",
+  "source_parent_session_id": "SESS-V69-DIRECTION",
+  "source_decision_record_id": null
+}

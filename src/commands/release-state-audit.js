@@ -8,6 +8,7 @@ import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
 import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
+import { workReadinessAuditCommand } from "./work-readiness-audit.js";
 
 const DEFAULT_GOVERNANCE_AUDIT_CUTOFF_TASK_ID = "TASK-071";
 
@@ -45,6 +46,15 @@ function requiresQualityLedgerAudit(releaseVersion) {
   return major > 6 || (major === 6 && minor >= 8);
 }
 
+function requiresWorkReadinessAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 6 || (major === 6 && minor >= 9);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -55,6 +65,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresQualityLedgerAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("quality-ledger-audit", await qualityLedgerAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresWorkReadinessAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("work-readiness-audit", await workReadinessAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

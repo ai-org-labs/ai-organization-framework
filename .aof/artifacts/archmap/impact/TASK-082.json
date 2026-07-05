@@ -1,0 +1,33 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-082",
+  "work_item_ref": ".aof/tasks/done/TASK-082.json",
+  "work_item_id": "TASK-082",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "node",
+      "id": "WorkReadinessAudit",
+      "reason": "TASK-082 implemented the work-readiness-audit command and release-state gate integration."
+    },
+    {
+      "kind": "edge",
+      "id": "WorkReadinessAudit->GovernanceAudits",
+      "reason": "Readiness audit evidence is consumed by governed release sign-off for v6.9 and later."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-082.json",
+    "docs/archmaps/aof-runtime-current.archmap",
+    "src/commands/work-readiness-audit.js",
+    "src/commands/release-state-audit.js",
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/execution/council-reviews/CRP-TASK-082-WORK-READINESS-GATE.json"
+  ],
+  "external_refs": [],
+  "recorded_at": "2026-07-05T17:37:00.000Z"
+}
