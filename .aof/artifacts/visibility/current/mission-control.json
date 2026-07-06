@@ -1,6 +1,6 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-06T14:24:14.823Z",
+  "generated_at": "2026-07-06T15:17:12.171Z",
   "mission_overview": {
     "mission": "Ship v6.9.0 as the Executable Pre-Implementation Quality Gates release.",
     "release_version": "6.9.0",
@@ -245,18 +245,281 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 15,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-085.json",
+    "impact_record_count": 16,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-086.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-085",
+    "latest_work_item_id": "TASK-086",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-085.json"
+      ".aof/artifacts/archmap/impact/TASK-086.json"
     ],
-    "external_refs": [
-      "https://github.blog/changelog/2026-07-02-copilot-agent-session-streaming-is-now-in-public-preview/"
+    "external_refs": []
+  },
+  "organization_state": {
+    "present": true,
+    "organization_ref": ".aof/organization.json",
+    "topology": "self-hosting",
+    "council_count": 3,
+    "team_count": 3,
+    "role_count": 3,
+    "agent_count": 1,
+    "councils": [
+      {
+        "council_id": "product-council",
+        "name": "Product Council",
+        "approval_policy": "2_of_3",
+        "mission": "Own product direction, release framing, and user-value prioritization for AOF.",
+        "responsibilities": [
+          "release framing",
+          "scope judgment",
+          "user value alignment"
+        ]
+      },
+      {
+        "council_id": "architecture-council",
+        "name": "Architecture Council",
+        "approval_policy": "2_of_3",
+        "mission": "Own runtime shape, schema integrity, and artifact contract consistency.",
+        "responsibilities": [
+          "schema decisions",
+          "runtime design",
+          "artifact contract review"
+        ]
+      },
+      {
+        "council_id": "operations-council",
+        "name": "Operations Council",
+        "approval_policy": "2_of_3",
+        "mission": "Own verification, cadence health, and operating safety for self-hosting execution.",
+        "responsibilities": [
+          "verification policy",
+          "cadence review",
+          "operational risk"
+        ]
+      }
+    ],
+    "teams": [
+      {
+        "team_id": "runtime-team",
+        "name": "Runtime Team",
+        "mission": "Implement the AOF runtime, CLI, and artifact-writing behavior.",
+        "dependencies": [
+          "architecture-council"
+        ],
+        "responsibilities": [
+          "runtime implementation",
+          "CLI behavior",
+          "artifact integration"
+        ]
+      },
+      {
+        "team_id": "governance-team",
+        "name": "Governance Team",
+        "mission": "Keep contracts, dependencies, and policy surfaces explicit.",
+        "dependencies": [
+          "product-council",
+          "architecture-council"
+        ],
+        "responsibilities": [
+          "decision traceability",
+          "contract maintenance",
+          "policy modeling"
+        ]
+      },
+      {
+        "team_id": "verification-team",
+        "name": "Verification Team",
+        "mission": "Protect runtime correctness, smoke coverage, and benchmark evidence quality.",
+        "dependencies": [
+          "operations-council",
+          "runtime-team"
+        ],
+        "responsibilities": [
+          "test maintenance",
+          "smoke verification",
+          "benchmark validation"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "role_id": "visionary",
+        "name": "Visionary",
+        "team_ref": "governance-team",
+        "team_name": "Governance Team",
+        "mission": "Protect AOF's product identity and long-horizon organization design.",
+        "authority": [
+          "recommend direction",
+          "challenge low-value scope"
+        ],
+        "assignment_count": 0
+      },
+      {
+        "role_id": "builder",
+        "name": "Builder",
+        "team_ref": "runtime-team",
+        "team_name": "Runtime Team",
+        "mission": "Protect feasibility, integration, and implementation sequencing.",
+        "authority": [
+          "recommend implementation path",
+          "challenge infeasible scope"
+        ],
+        "assignment_count": 0
+      },
+      {
+        "role_id": "guardian",
+        "name": "Guardian",
+        "team_ref": "verification-team",
+        "team_name": "Verification Team",
+        "mission": "Protect risk, verification quality, and release safety.",
+        "authority": [
+          "raise blockers",
+          "request human approval"
+        ],
+        "assignment_count": 0
+      }
+    ],
+    "agents": [
+      {
+        "agent_id": "codex",
+        "agent_type": "ai-agent",
+        "provider": "OpenAI Codex",
+        "capabilities": [
+          "repository-navigation",
+          "artifact-authoring",
+          "schema-review",
+          "runtime-editing"
+        ]
+      }
+    ]
+  },
+  "agent_session_observability": {
+    "present": true,
+    "artifact_root_ref": ".aof/artifacts/agent-sessions",
+    "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
+    "stream_count": 2,
+    "latest_session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
+    "latest_actor_ref": "codex",
+    "latest_role_ref": "builder",
+    "latest_recorded_at": "2026-07-06T15:11:22.859Z",
+    "latest_event_count": 8,
+    "latest_release_verdict": "runtime_ready",
+    "audit_ok": true,
+    "audit_failing_check_count": 0,
+    "latest_audit_stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
+    "linked_task_refs": [
+      ".aof/tasks/done/TASK-086.json"
+    ],
+    "linked_requirement_refs": [
+      "docs/v7.0-agent-session-observability-direction.md"
+    ],
+    "linked_test_evidence_refs": [
+      "test/runtime-situation.test.js",
+      "test/runtime-core-2.test.js"
+    ],
+    "linked_artifact_refs": [
+      "schemas/aof-mission-control-view.schema.json",
+      "src/commands/visibility-export.js",
+      "src/commands/visibility-serve.js"
+    ],
+    "risk_candidates": [
+      "Mission Control may look active during execution but fail the operator if current organization and session state disappear after the command completes."
+    ],
+    "decision_candidates": [
+      "Treat persistent organization_state and agent_session_observability as required Mission Control projection surfaces for v7.0."
+    ],
+    "latest_events": [
+      {
+        "event_type": "prompt",
+        "summary": "User clarified that transient execution visuals are insufficient; Mission Control must show current organization and session state persistently, with Archmap if useful.",
+        "occurred_at": "2026-07-06T15:11:22.857Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
+      },
+      {
+        "event_type": "response",
+        "summary": "Opened TASK-086 and implemented persistent organization_state and agent_session_observability projections in Mission Control.",
+        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
+      },
+      {
+        "event_type": "tool_call",
+        "summary": "Ran visibility-export and focused runtime tests.",
+        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "tool_name": "visibility-export and node --test test/runtime-situation.test.js test/runtime-core-2.test.js",
+        "safety_level": "safe_read",
+        "approval_policy": "preapproved",
+        "artifact_refs": []
+      },
+      {
+        "event_type": "artifact_write",
+        "summary": "Updated Mission Control payload schema, visibility export projection, viewer rendering, and runtime-situation tests.",
+        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          "schemas/aof-mission-control-view.schema.json",
+          "src/commands/visibility-export.js",
+          "src/commands/visibility-serve.js",
+          "test/runtime-situation.test.js"
+        ]
+      },
+      {
+        "event_type": "verification_result",
+        "summary": "Focused runtime visibility tests passed: 97 pass, 0 fail.",
+        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          "test/runtime-situation.test.js",
+          "test/runtime-core-2.test.js"
+        ]
+      },
+      {
+        "event_type": "risk_candidate",
+        "summary": "Mission Control may look active during execution but fail the operator if current organization and session state disappear after the command completes.",
+        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
+      },
+      {
+        "event_type": "decision_candidate",
+        "summary": "Treat persistent organization_state and agent_session_observability as required Mission Control projection surfaces for v7.0.",
+        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
+      },
+      {
+        "event_type": "stop_condition",
+        "summary": "Stop this slice after payload validation, focused tests, session audit, governance audit, and Council evidence are green.",
+        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
+      }
+    ],
+    "latest_tool_calls": [
+      {
+        "summary": "Ran visibility-export and focused runtime tests.",
+        "tool_name": "visibility-export and node --test test/runtime-situation.test.js test/runtime-core-2.test.js",
+        "safety_level": "safe_read",
+        "approval_policy": "preapproved"
+      }
     ]
   }
 }

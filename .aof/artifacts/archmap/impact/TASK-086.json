@@ -1,0 +1,30 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-086",
+  "work_item_ref": ".aof/tasks/done/TASK-086.json",
+  "work_item_id": "TASK-086",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "Expose OrganizationState as a persistent Mission Control projection derived from .aof/organization.json.",
+    "Expose AgentSessionObservability as a persistent Mission Control projection derived from agent-session and session-observability-audit artifacts.",
+    "Connect Archmap impact, organization topology, and runtime session evidence into the operator-facing current-state view."
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "defer_reason": null,
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-086.json",
+    ".aof/artifacts/work-readiness/TASK-086.json",
+    ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
+    ".aof/artifacts/session-observability/session-observability-audit.json",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    "schemas/aof-mission-control-view.schema.json",
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "test/runtime-situation.test.js"
+  ],
+  "external_refs": [],
+  "recorded_at": "2026-07-06T15:12:30.000Z"
+}

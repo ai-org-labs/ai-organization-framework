@@ -316,6 +316,174 @@
         }
       },
       "additionalProperties": false
+    },
+    "organization_state": {
+      "type": "object",
+      "required": [
+        "present",
+        "organization_ref",
+        "topology",
+        "council_count",
+        "team_count",
+        "role_count",
+        "agent_count",
+        "councils",
+        "teams",
+        "roles",
+        "agents"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "organization_ref": { "type": "string" },
+        "topology": { "type": ["string", "null"] },
+        "council_count": { "type": "integer" },
+        "team_count": { "type": "integer" },
+        "role_count": { "type": "integer" },
+        "agent_count": { "type": "integer" },
+        "councils": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["council_id", "name", "approval_policy", "mission", "responsibilities"],
+            "properties": {
+              "council_id": { "type": ["string", "null"] },
+              "name": { "type": "string" },
+              "approval_policy": { "type": ["string", "null"] },
+              "mission": { "type": ["string", "null"] },
+              "responsibilities": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        },
+        "teams": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["team_id", "name", "mission", "dependencies", "responsibilities"],
+            "properties": {
+              "team_id": { "type": ["string", "null"] },
+              "name": { "type": "string" },
+              "mission": { "type": ["string", "null"] },
+              "dependencies": { "type": "array", "items": { "type": "string" } },
+              "responsibilities": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["role_id", "name", "team_ref", "team_name", "mission", "authority", "assignment_count"],
+            "properties": {
+              "role_id": { "type": ["string", "null"] },
+              "name": { "type": "string" },
+              "team_ref": { "type": ["string", "null"] },
+              "team_name": { "type": ["string", "null"] },
+              "mission": { "type": ["string", "null"] },
+              "authority": { "type": "array", "items": { "type": "string" } },
+              "assignment_count": { "type": "integer" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "agents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["agent_id", "agent_type", "provider", "capabilities"],
+            "properties": {
+              "agent_id": { "type": ["string", "null"] },
+              "agent_type": { "type": ["string", "null"] },
+              "provider": { "type": ["string", "null"] },
+              "capabilities": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "agent_session_observability": {
+      "type": "object",
+      "required": [
+        "present",
+        "artifact_root_ref",
+        "audit_ref",
+        "stream_count",
+        "latest_session_id",
+        "latest_session_ref",
+        "latest_actor_ref",
+        "latest_role_ref",
+        "latest_recorded_at",
+        "latest_event_count",
+        "latest_release_verdict",
+        "audit_ok",
+        "audit_failing_check_count",
+        "latest_audit_stream_ref",
+        "linked_task_refs",
+        "linked_requirement_refs",
+        "linked_test_evidence_refs",
+        "linked_artifact_refs",
+        "risk_candidates",
+        "decision_candidates",
+        "latest_events",
+        "latest_tool_calls"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "artifact_root_ref": { "type": "string" },
+        "audit_ref": { "type": ["string", "null"] },
+        "stream_count": { "type": "integer" },
+        "latest_session_id": { "type": ["string", "null"] },
+        "latest_session_ref": { "type": ["string", "null"] },
+        "latest_actor_ref": { "type": ["string", "null"] },
+        "latest_role_ref": { "type": ["string", "null"] },
+        "latest_recorded_at": { "type": ["string", "null"] },
+        "latest_event_count": { "type": "integer" },
+        "latest_release_verdict": { "type": ["string", "null"] },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "audit_failing_check_count": { "type": ["integer", "null"] },
+        "latest_audit_stream_ref": { "type": ["string", "null"] },
+        "linked_task_refs": { "type": "array", "items": { "type": "string" } },
+        "linked_requirement_refs": { "type": "array", "items": { "type": "string" } },
+        "linked_test_evidence_refs": { "type": "array", "items": { "type": "string" } },
+        "linked_artifact_refs": { "type": "array", "items": { "type": "string" } },
+        "risk_candidates": { "type": "array", "items": { "type": "string" } },
+        "decision_candidates": { "type": "array", "items": { "type": "string" } },
+        "latest_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["event_type", "summary", "occurred_at", "tool_name", "safety_level", "approval_policy", "artifact_refs"],
+            "properties": {
+              "event_type": { "type": "string" },
+              "summary": { "type": "string" },
+              "occurred_at": { "type": "string" },
+              "tool_name": { "type": ["string", "null"] },
+              "safety_level": { "type": ["string", "null"] },
+              "approval_policy": { "type": ["string", "null"] },
+              "artifact_refs": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        },
+        "latest_tool_calls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["summary", "tool_name", "safety_level", "approval_policy"],
+            "properties": {
+              "summary": { "type": "string" },
+              "tool_name": { "type": ["string", "null"] },
+              "safety_level": { "type": ["string", "null"] },
+              "approval_policy": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

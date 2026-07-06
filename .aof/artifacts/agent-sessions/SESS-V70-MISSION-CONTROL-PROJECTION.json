@@ -1,0 +1,138 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MR9CY9KB-JVGFAP",
+  "recorded_at": "2026-07-06T15:11:22.859Z",
+  "session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MR9CY9KB-63ARMW",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-06T15:11:22.857Z",
+      "summary": "User clarified that transient execution visuals are insufficient; Mission Control must show current organization and session state persistently, with Archmap if useful.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MR9CY9KB-E67Q3H",
+      "event_type": "response",
+      "occurred_at": "2026-07-06T15:11:22.859Z",
+      "summary": "Opened TASK-086 and implemented persistent organization_state and agent_session_observability projections in Mission Control.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV3-MR9CY9KB-HYWATQ",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-06T15:11:22.859Z",
+      "summary": "Ran visibility-export and focused runtime tests.",
+      "artifact_refs": [],
+      "tool_name": "visibility-export and node --test test/runtime-situation.test.js test/runtime-core-2.test.js",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV4-MR9CY9KB-HEYG46",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-06T15:11:22.859Z",
+      "summary": "Updated Mission Control payload schema, visibility export projection, viewer rendering, and runtime-situation tests.",
+      "artifact_refs": [
+        "schemas/aof-mission-control-view.schema.json",
+        "src/commands/visibility-export.js",
+        "src/commands/visibility-serve.js",
+        "test/runtime-situation.test.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV5-MR9CY9KB-6SXE9B",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-06T15:11:22.859Z",
+      "summary": "Focused runtime visibility tests passed: 97 pass, 0 fail.",
+      "artifact_refs": [
+        "test/runtime-situation.test.js",
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV6-MR9CY9KB-VSRANO",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-07-06T15:11:22.859Z",
+      "summary": "Mission Control may look active during execution but fail the operator if current organization and session state disappear after the command completes.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV7-MR9CY9KB-L3TP3Z",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-07-06T15:11:22.859Z",
+      "summary": "Treat persistent organization_state and agent_session_observability as required Mission Control projection surfaces for v7.0.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV8-MR9CY9KB-DT3J8M",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-06T15:11:22.859Z",
+      "summary": "Stop this slice after payload validation, focused tests, session audit, governance audit, and Council evidence are green.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-086.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.0-agent-session-observability-direction.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-situation.test.js",
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "schemas/aof-mission-control-view.schema.json",
+      "src/commands/visibility-export.js",
+      "src/commands/visibility-serve.js"
+    ]
+  },
+  "risk_candidates": [
+    "Mission Control may look active during execution but fail the operator if current organization and session state disappear after the command completes."
+  ],
+  "decision_candidates": [
+    "Treat persistent organization_state and agent_session_observability as required Mission Control projection surfaces for v7.0."
+  ],
+  "release_ready_evidence": {
+    "claim": "Mission Control now has runtime-backed persistent organization and agent session projections.",
+    "evidence_refs": [
+      "test/runtime-situation.test.js",
+      ".aof/artifacts/visibility/current/mission-control.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-086",
+  "source_parent_session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null
+}

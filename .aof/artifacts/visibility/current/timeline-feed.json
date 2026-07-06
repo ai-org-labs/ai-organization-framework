@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-06T14:24:14.823Z",
+      "at": "2026-07-06T15:17:12.171Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-06T14:24:14.801Z",
+      "at": "2026-07-06T15:17:12.151Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -21,6 +21,17 @@
       "next": "Use the visibility packet to inspect operator-facing runtime health.",
       "refs": [
         ".aof/context/active/metrics-snapshot.json"
+      ]
+    },
+    {
+      "at": "2026-07-06T15:14:26.460Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "v7.0 frontier: persistent Mission Control session and organization view",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-086.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
         ".aof/goals/next-value-slice.json"
-      ]
-    },
-    {
-      "at": "2026-07-05T17:39:31.499Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "v6.9 release closure: ship Executable Pre-Implementation Quality Gates",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-083.json"
       ]
     }
   ]

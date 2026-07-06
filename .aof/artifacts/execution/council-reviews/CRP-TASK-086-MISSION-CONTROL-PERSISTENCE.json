@@ -1,0 +1,52 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-06T15:12:30.000Z",
+  "review_packet_id": "CREV-TASK-086-MISSION-CONTROL-PERSISTENCE",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve persistent Mission Control projection for organization state and agent session observability.",
+  "rationale": "The operator feedback correctly identified that transient execution visuals are not enough. The useful product surface must show the current organization, active frontier, latest session stream, linked proof, risks, decisions, Archmap impact, and next action after execution has finished. The implementation keeps the viewer derived from canonical runtime artifacts rather than making the UI the source of truth.",
+  "recommendation": "Keep this as a v7.0 Mission Control projection layer. Do not add live animation as the primary proof mechanism; add richer layout only after the persistent artifact-backed state is stable.",
+  "target_audience": "AOF operator inspecting current organization and runtime evidence after a task run.",
+  "expected_user_reaction": "The operator should be able to see what organization exists, what the latest AI session did, which proof refs support it, and what should happen next without catching a short-lived execution animation.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep organization_state and agent_session_observability in mission-control.json.",
+    "Use Archmap impact records as structural evidence, not as a decorative graph substitute.",
+    "Continue improving the visual layout only from canonical payload fields."
+  ],
+  "organization_change_recommendations": [
+    "Treat latest agent session risks and decision candidates as Council inputs.",
+    "Require persistent visibility evidence before claiming operator recognition quality."
+  ],
+  "diagnosis_category": "persistent-operator-recognition",
+  "diagnosis_confidence": 0.86,
+  "diagnosis_evidence_refs": [
+    ".aof/tasks/done/TASK-086.json",
+    ".aof/artifacts/work-readiness/TASK-086.json",
+    ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
+    ".aof/artifacts/session-observability/session-observability-audit.json",
+    ".aof/artifacts/visibility/current/mission-control.json"
+  ],
+  "human_override_signal": "Operator said transient execution visuals are insufficient; current state and organization situation must remain visible, with Archmap acceptable if useful.",
+  "team_output_refs": [],
+  "role_result_refs": [],
+  "evidence_refs": [
+    "schemas/aof-mission-control-view.schema.json",
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "test/runtime-situation.test.js",
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/work-readiness/TASK-086.json",
+    ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
+    ".aof/artifacts/session-observability/session-observability-audit.json",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/archmap/impact/TASK-086.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-086",
+  "source_parent_session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null
+}

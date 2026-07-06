@@ -656,6 +656,132 @@ async function loadArchmapProjection(projectRoot, aofRoot) {
   };
 }
 
+async function loadOrganizationStateProjection(projectRoot, aofRoot) {
+  const organizationPath = path.join(aofRoot, "organization.json");
+  const organization = await maybeReadJsonByRef(projectRoot, ".aof/organization.json", "organization");
+  if (!organization) {
+    return {
+      present: false,
+      organization_ref: path.relative(projectRoot, organizationPath).replaceAll("\\", "/"),
+      topology: null,
+      council_count: 0,
+      team_count: 0,
+      role_count: 0,
+      agent_count: 0,
+      councils: [],
+      teams: [],
+      roles: [],
+      agents: []
+    };
+  }
+
+  const teams = Array.isArray(organization.teams) ? organization.teams : [];
+  return {
+    present: true,
+    organization_ref: ".aof/organization.json",
+    topology: organization.topology ?? null,
+    council_count: Array.isArray(organization.councils) ? organization.councils.length : 0,
+    team_count: teams.length,
+    role_count: Array.isArray(organization.roles) ? organization.roles.length : 0,
+    agent_count: Array.isArray(organization.agents) ? organization.agents.length : 0,
+    councils: (organization.councils ?? []).map((council) => ({
+      council_id: council.council_id ?? null,
+      name: council.name ?? council.council_id ?? "Council",
+      approval_policy: council.approval_policy ?? null,
+      mission: council.mission ?? null,
+      responsibilities: council.responsibilities ?? []
+    })),
+    teams: teams.map((team) => ({
+      team_id: team.team_id ?? null,
+      name: team.name ?? team.team_id ?? "Team",
+      mission: team.mission ?? null,
+      dependencies: team.dependencies ?? [],
+      responsibilities: team.responsibilities ?? []
+    })),
+    roles: (organization.roles ?? []).map((role) => {
+      const team = teams.find((entry) => entry.team_id === role.team_ref);
+      return {
+        role_id: role.role_id ?? null,
+        name: role.name ?? role.role_id ?? "Role",
+        team_ref: role.team_ref ?? null,
+        team_name: team?.name ?? null,
+        mission: role.mission ?? null,
+        authority: role.authority ?? [],
+        assignment_count: Array.isArray(role.assignments) ? role.assignments.length : 0
+      };
+    }),
+    agents: (organization.agents ?? []).map((agent) => ({
+      agent_id: agent.agent_id ?? null,
+      agent_type: agent.agent_type ?? null,
+      provider: agent.provider ?? null,
+      capabilities: agent.capabilities ?? []
+    }))
+  };
+}
+
+async function loadAgentSessionObservabilityProjection(projectRoot, aofRoot) {
+  const sessionFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "agent-sessions"));
+  const sessions = [];
+  for (const sessionFile of sessionFiles) {
+    sessions.push({
+      ref: path.relative(projectRoot, sessionFile).replaceAll("\\", "/"),
+      payload: await readJson(sessionFile, `agent session ${path.basename(sessionFile)}`)
+    });
+  }
+  sessions.sort((left, right) => String(right.payload.recorded_at ?? "").localeCompare(String(left.payload.recorded_at ?? "")));
+
+  const latest = sessions[0] ?? null;
+  const audit = await maybeReadJsonByRef(
+    projectRoot,
+    ".aof/artifacts/session-observability/session-observability-audit.json",
+    "session observability audit"
+  );
+  const latestAuditStream = latest && Array.isArray(audit?.streams)
+    ? audit.streams.find((stream) => stream.session_id === latest.payload.session_id)
+    : null;
+  const latestEvents = latest?.payload.events ?? [];
+  const latestLinks = latest?.payload.links ?? {};
+  const latestToolEvents = latestEvents.filter((event) => event.event_type === "tool_call");
+
+  return {
+    present: sessions.length > 0,
+    artifact_root_ref: ".aof/artifacts/agent-sessions",
+    audit_ref: audit ? ".aof/artifacts/session-observability/session-observability-audit.json" : null,
+    stream_count: sessions.length,
+    latest_session_id: latest?.payload.session_id ?? null,
+    latest_session_ref: latest?.ref ?? null,
+    latest_actor_ref: latest?.payload.actor_ref ?? null,
+    latest_role_ref: latest?.payload.role_ref ?? null,
+    latest_recorded_at: latest?.payload.recorded_at ?? null,
+    latest_event_count: latestEvents.length,
+    latest_release_verdict: latest?.payload.release_ready_evidence?.verdict ?? null,
+    audit_ok: audit?.ok ?? null,
+    audit_failing_check_count: audit?.summary?.failing_check_count ?? null,
+    latest_audit_stream_ref: latestAuditStream?.stream_ref ?? null,
+    linked_task_refs: latestLinks.task_refs ?? [],
+    linked_requirement_refs: latestLinks.requirement_refs ?? [],
+    linked_test_evidence_refs: latestLinks.test_evidence_refs ?? [],
+    linked_artifact_refs: latestLinks.artifact_refs ?? [],
+    risk_candidates: latest?.payload.risk_candidates ?? [],
+    decision_candidates: latest?.payload.decision_candidates ?? [],
+    latest_events: latestEvents.slice(-8).map((event) => ({
+      event_type: event.event_type,
+      summary: event.summary,
+      occurred_at: event.occurred_at,
+      tool_name: event.tool_name ?? null,
+      safety_level: event.safety_level ?? null,
+      approval_policy: event.approval_policy ?? null,
+      artifact_refs: event.artifact_refs ?? []
+    })),
+    latest_tool_calls: latestToolEvents.map((event) => ({
+      summary: event.summary,
+      tool_name: event.tool_name ?? null,
+      safety_level: event.safety_level ?? null,
+      approval_policy: event.approval_policy ?? null
+    }))
+  };
+}
+
 function buildMissionControl({
   organizationStatus,
   roadmapStatus,
@@ -664,7 +790,9 @@ function buildMissionControl({
   situation,
   skillfulActorProjection = null,
   workGovernanceProjection = null,
-  archmapProjection = null
+  archmapProjection = null,
+  organizationStateProjection = null,
+  agentSessionObservabilityProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
   const skillfulActorSummary = summarizeSkillfulActorProjection(skillfulActorProjection);
@@ -772,6 +900,43 @@ function buildMissionControl({
       pending_impacts: [],
       source_of_truth: [],
       external_refs: []
+    },
+    organization_state: organizationStateProjection ?? {
+      present: false,
+      organization_ref: ".aof/organization.json",
+      topology: null,
+      council_count: 0,
+      team_count: 0,
+      role_count: 0,
+      agent_count: 0,
+      councils: [],
+      teams: [],
+      roles: [],
+      agents: []
+    },
+    agent_session_observability: agentSessionObservabilityProjection ?? {
+      present: false,
+      artifact_root_ref: ".aof/artifacts/agent-sessions",
+      audit_ref: null,
+      stream_count: 0,
+      latest_session_id: null,
+      latest_session_ref: null,
+      latest_actor_ref: null,
+      latest_role_ref: null,
+      latest_recorded_at: null,
+      latest_event_count: 0,
+      latest_release_verdict: null,
+      audit_ok: null,
+      audit_failing_check_count: null,
+      latest_audit_stream_ref: null,
+      linked_task_refs: [],
+      linked_requirement_refs: [],
+      linked_test_evidence_refs: [],
+      linked_artifact_refs: [],
+      risk_candidates: [],
+      decision_candidates: [],
+      latest_events: [],
+      latest_tool_calls: []
     }
   };
 }
@@ -781,7 +946,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -792,7 +957,9 @@ export async function visibilityExportCommand(options) {
     loadSituationAssessmentSummary(projectRoot),
     loadLatestSkillfulActorHriProjection(projectRoot),
     loadWorkGovernanceProjection(projectRoot, aofRoot),
-    loadArchmapProjection(projectRoot, aofRoot)
+    loadArchmapProjection(projectRoot, aofRoot),
+    loadOrganizationStateProjection(projectRoot, aofRoot),
+    loadAgentSessionObservabilityProjection(projectRoot, aofRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -825,7 +992,9 @@ export async function visibilityExportCommand(options) {
     situation,
     skillfulActorProjection,
     workGovernanceProjection,
-    archmapProjection
+    archmapProjection,
+    organizationStateProjection,
+    agentSessionObservabilityProjection
   });
   const operatorBrief = buildOperatorBriefView({
     organizationStatus,

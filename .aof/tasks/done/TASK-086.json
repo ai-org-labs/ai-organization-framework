@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-086",
+  "title": "v7.0 frontier: persistent Mission Control session and organization view",
+  "description": "Project Agent Session Observability into Mission Control as a persistent current-state view: organization councils/teams/roles, latest agent session stream, runtime audit summary, archmap impact, and next action must be visible after execution, not only during transient runtime activity.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v7.0-agent-session-observability",
+  "created_at": "2026-07-06T15:06:15.174Z",
+  "updated_at": "2026-07-06T15:14:26.460Z",
+  "assigned_at": null,
+  "done_at": "2026-07-06T15:14:26.460Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Opened from runtime situation-assess and operator feedback that transient execution visuals are insufficient; current organization/session state must remain visible."
+}

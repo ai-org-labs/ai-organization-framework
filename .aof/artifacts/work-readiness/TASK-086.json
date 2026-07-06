@@ -1,0 +1,35 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MR9CS26I-F1K4MY",
+  "recorded_at": "2026-07-06T15:06:33.354Z",
+  "work_item_id": "TASK-086",
+  "work_item_ref": ".aof/tasks/done/TASK-086.json",
+  "readiness_status": "ready",
+  "goal": "Persistently project current organization state and agent session observability into Mission Control.",
+  "risk": "AOF may show transient runtime activity while humans still cannot see the stable organization/session state after execution.",
+  "loss_boundary": "Do not claim Mission Control projection is useful unless councils, teams, roles, latest session stream, audit status, archmap impact, and next action remain visible from canonical artifacts after execution.",
+  "acceptance_gates": [
+    "mission-control.json includes organization_state derived from .aof/organization.json",
+    "mission-control.json includes agent_session_observability derived from agent-session and audit artifacts",
+    "viewer renders persistent organization and session evidence sections",
+    "runtime-situation tests cover the new projection",
+    "npm test passes"
+  ],
+  "evidence_plan": [
+    "schema, visibility-export, visibility-serve, runtime tests, session-observability-audit, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop when mission-control payload validates, viewer has persistent sections, tests pass, and governance audit passes"
+  ],
+  "qif_refs": [
+    ".aof/quality/QIFPKG-AOF-V5-001.json"
+  ],
+  "archmap_impact_expected": "unknown",
+  "notes": null,
+  "source_task_id": "TASK-086",
+  "source_parent_session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null
+}

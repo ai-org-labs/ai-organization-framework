@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-06T14:24:14.823Z",
+  "as_of": "2026-07-06T15:17:12.171Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",

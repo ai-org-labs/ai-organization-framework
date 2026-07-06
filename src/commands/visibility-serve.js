@@ -2745,6 +2745,8 @@ export function buildVisibilityPageHtml(title) {
         const progress = derived.operator_progress ?? {};
         const workGovernance = mission.work_governance ?? {};
         const workGovernanceItems = Array.isArray(workGovernance.work_items) ? workGovernance.work_items : [];
+        const organizationState = mission.organization_state ?? {};
+        const sessionObservability = mission.agent_session_observability ?? {};
         const lastExecution = runtimeExecution.last_execution ?? {};
         const blockers = Array.isArray(mission.blockers)
           ? mission.blockers
@@ -2760,6 +2762,15 @@ export function buildVisibilityPageHtml(title) {
           ...(Array.isArray(lastExecution.refreshed_artifact_refs) ? lastExecution.refreshed_artifact_refs : [])
         ];
         const activeLoops = taskBoard.counts?.active_loops ?? (Array.isArray(loop.council_runs) ? loop.council_runs.length : 0);
+        const orgRoles = Array.isArray(organizationState.roles) ? organizationState.roles : [];
+        const orgCouncils = Array.isArray(organizationState.councils) ? organizationState.councils : [];
+        const orgTeams = Array.isArray(organizationState.teams) ? organizationState.teams : [];
+        const sessionEvents = Array.isArray(sessionObservability.latest_events) ? sessionObservability.latest_events : [];
+        const sessionLinkedRefs = [
+          ...(Array.isArray(sessionObservability.linked_task_refs) ? sessionObservability.linked_task_refs : []),
+          ...(Array.isArray(sessionObservability.linked_requirement_refs) ? sessionObservability.linked_requirement_refs : []),
+          ...(Array.isArray(sessionObservability.linked_test_evidence_refs) ? sessionObservability.linked_test_evidence_refs : [])
+        ];
 
         return (
           '<section class="mission-top">' +
@@ -2817,6 +2828,54 @@ export function buildVisibilityPageHtml(title) {
                 item.refs?.work_item_goal,
                 item
               )).join("") : '<div class="mini-row"><strong>No Work Governance chain</strong><span>No work-governance artifacts are visible.</span></div>') +
+            '</div></div>' +
+            '<div class="lower-panel persistent-panel"><div class="section-head"><h2>Current Organization</h2><p>Persistent councils, teams, roles, and agents from .aof/organization.json.</p></div><div class="lower-body">' +
+              '<div class="mini-row"><strong>Topology</strong><span>' + escapeHtml(firstText(organizationState.topology, "unknown")) + ' / Councils: ' + escapeHtml(String(organizationState.council_count ?? 0)) + ' / Teams: ' + escapeHtml(String(organizationState.team_count ?? 0)) + ' / Roles: ' + escapeHtml(String(organizationState.role_count ?? 0)) + '</span></div>' +
+              (orgCouncils.length > 0 ? orgCouncils.map((council) => detailRow(
+                "Council: " + firstText(council.name, council.council_id),
+                firstText(council.approval_policy, "-") + " / " + firstText(council.mission, "-"),
+                organizationState.organization_ref,
+                council
+              )).join("") : '<div class="mini-row"><strong>No councils</strong><span>No council definition is visible.</span></div>') +
+              (orgRoles.length > 0 ? orgRoles.map((role) => detailRow(
+                "Role: " + firstText(role.name, role.role_id),
+                firstText(role.team_name, role.team_ref, "-") + " / " + firstText(role.mission, "-"),
+                organizationState.organization_ref,
+                role
+              )).join("") : '<div class="mini-row"><strong>No roles</strong><span>No role definition is visible.</span></div>') +
+              (orgTeams.length > 0 ? orgTeams.slice(0, 4).map((team) => detailRow(
+                "Team: " + firstText(team.name, team.team_id),
+                firstText(team.mission, "-"),
+                organizationState.organization_ref,
+                team
+              )).join("") : "") +
+            '</div></div>' +
+            '<div class="lower-panel persistent-panel"><div class="section-head"><h2>Agent Session Evidence</h2><p>Latest AI work stream, audit status, linked refs, risks, and decisions. This remains visible after execution.</p></div><div class="lower-body">' +
+              '<div class="mini-row"><strong>' + escapeHtml(firstText(sessionObservability.latest_session_id, "No session stream")) + '</strong><span>Actor: ' + escapeHtml(firstText(sessionObservability.latest_actor_ref, "-")) + ' / Role: ' + escapeHtml(firstText(sessionObservability.latest_role_ref, "-")) + ' / Verdict: ' + escapeHtml(firstText(sessionObservability.latest_release_verdict, "-")) + ' / Audit: ' + escapeHtml(sessionObservability.audit_ok === true ? "pass" : (sessionObservability.audit_ok === false ? "fail" : "unknown")) + '</span></div>' +
+              (sessionEvents.length > 0 ? sessionEvents.map((event, index) => detailRow(
+                String(index + 1) + ". " + firstText(event.event_type, "event"),
+                firstText(event.summary, "-"),
+                Array.isArray(event.artifact_refs) ? event.artifact_refs[0] : sessionObservability.latest_session_ref,
+                event
+              )).join("") : '<div class="mini-row"><strong>No session events</strong><span>No agent session event stream is visible.</span></div>') +
+              (sessionLinkedRefs.length > 0 ? detailRow(
+                "Linked proof refs",
+                sessionLinkedRefs.join(" / "),
+                sessionLinkedRefs[0],
+                { linked_refs: sessionLinkedRefs }
+              ) : '<div class="mini-row"><strong>No linked proof refs</strong><span>Session stream has no task/requirement/test linkage visible.</span></div>') +
+              (Array.isArray(sessionObservability.risk_candidates) && sessionObservability.risk_candidates.length > 0 ? detailRow(
+                "Risk candidate",
+                sessionObservability.risk_candidates[0],
+                sessionObservability.latest_session_ref,
+                { risk_candidates: sessionObservability.risk_candidates }
+              ) : "") +
+              (Array.isArray(sessionObservability.decision_candidates) && sessionObservability.decision_candidates.length > 0 ? detailRow(
+                "Decision candidate",
+                sessionObservability.decision_candidates[0],
+                sessionObservability.latest_session_ref,
+                { decision_candidates: sessionObservability.decision_candidates }
+              ) : "") +
             '</div></div>' +
             '<div class="lower-panel"><div class="section-head"><h2>Evidence / Proof Coverage</h2><p>Refs behind headline, next action, and runtime-backed claim.</p></div><div class="lower-body">' +
               (evidenceRefs.length > 0 ? Array.from(new Set(evidenceRefs)).slice(0, 8).map((ref, index) => detailRow(

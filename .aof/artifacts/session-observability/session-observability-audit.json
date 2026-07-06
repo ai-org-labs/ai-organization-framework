@@ -1,14 +1,21 @@
 {
   "ok": true,
   "artifact_type": "session-observability-audit",
-  "generated_at": "2026-07-06T14:22:08.354Z",
+  "generated_at": "2026-07-06T15:15:14.813Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "stream_count": 1,
-    "runtime_ready_stream_count": 1,
+    "stream_count": 2,
+    "runtime_ready_stream_count": 2,
     "failing_check_count": 0
   },
   "streams": [
+    {
+      "session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
+      "stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
+      "source_task_id": "TASK-086",
+      "event_count": 8,
+      "release_verdict": "runtime_ready"
+    },
     {
       "session_id": "SESS-V70-SESSION-OBSERVABILITY",
       "stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-SESSION-OBSERVABILITY.json",
@@ -21,7 +28,132 @@
     {
       "name": "agent session stream presence",
       "status": "pass",
-      "detail": "1 stream(s)"
+      "detail": "2 stream(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION test evidence linkage",
+      "status": "pass",
+      "detail": "2 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 2 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type artifact_write",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION tool call safety metadata",
+      "status": "pass",
+      "detail": "tool=visibility-export and node --test test/runtime-situation.test.js test/runtime-core-2.test.js, safety=safe_read, approval=preapproved"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-086.json"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.0-agent-session-observability-direction.md"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-mission-control-view.schema.json"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-export.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-serve.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
     },
     {
       "name": "SESS-V70-SESSION-OBSERVABILITY schema",

@@ -65,6 +65,8 @@ test("roadmapStatusCommand keeps completed v5/v6 release work on the correct tra
   assert.ok(result.release_tracks["v6.9"].some((task) => task.task_id === "TASK-081"));
   assert.ok(result.release_tracks["v6.9"].some((task) => task.task_id === "TASK-082"));
   assert.ok(result.release_tracks["v6.9"].some((task) => task.task_id === "TASK-083"));
+  assert.ok(Array.isArray(result.release_tracks["v7.0"]));
+  assert.ok(result.release_tracks["v7.0"].some((task) => task.task_id === "TASK-086"));
 });
 
 test("visibilityExportCommand surfaces situation judgment rather than stale release work", async () => {
@@ -84,8 +86,17 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.ok(result.payloads.mission_control.work_governance.work_items.length >= 2);
   assert.equal(result.payloads.mission_control.archmap.present, true);
   assert.equal(result.payloads.mission_control.archmap.current_source_ref, "docs/archmaps/aof-runtime-current.archmap");
-  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-085");
+  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-086");
   assert.equal(result.payloads.mission_control.archmap.pending_impact_count, 0);
+  assert.equal(result.payloads.mission_control.organization_state.present, true);
+  assert.equal(result.payloads.mission_control.organization_state.council_count, 3);
+  assert.ok(result.payloads.mission_control.organization_state.roles.some((role) => role.role_id === "builder"));
+  assert.equal(result.payloads.mission_control.agent_session_observability.present, true);
+  assert.equal(result.payloads.mission_control.agent_session_observability.latest_session_id, "SESS-V70-MISSION-CONTROL-PROJECTION");
+  assert.equal(result.payloads.mission_control.agent_session_observability.audit_ok, true);
+  assert.ok(result.payloads.mission_control.agent_session_observability.linked_task_refs.some((ref) => /TASK-086/.test(ref)));
+  assert.ok(result.payloads.mission_control.agent_session_observability.risk_candidates.length >= 1);
+  assert.ok(result.payloads.mission_control.agent_session_observability.decision_candidates.length >= 1);
   assert.equal(result.payloads.operator_progress.view_type, "operator_progress");
   assert.equal(result.payloads.tree_position.view_type, "tree_position");
   assert.equal(result.payloads.evidence_drill_down.view_type, "evidence_drill_down");
