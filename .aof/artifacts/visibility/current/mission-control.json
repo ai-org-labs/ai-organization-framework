@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-05T17:48:17.700Z",
+  "generated_at": "2026-07-06T05:45:50.937Z",
   "mission_overview": {
     "mission": "Ship v6.9.0 as the Executable Pre-Implementation Quality Gates release.",
     "release_version": "6.9.0",
     "release_definition_ref": "docs/v6.9-release-definition.md",
-    "operating_goal": "Select the next bounded frontier after v6.9.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
-    "next_value_slice": "Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task.",
+    "operating_goal": "Evaluate v7.0 Agent Session Observability as the next bounded frontier after v6.9.0; keep the first implementation vendor-neutral, local, file-backed, and focused on reconstructable runtime event streams.",
+    "next_value_slice": "Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,8 +22,8 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task.",
-    "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
+    "recommended_action": "Open an implementation task for the current frontier: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+    "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "skillful_actor_projection": {
@@ -245,16 +245,18 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 13,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-083.json",
-    "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-083",
+    "impact_record_count": 14,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-084.json",
+    "latest_impact_status": "archmap_deferred_with_reason",
+    "latest_work_item_id": "TASK-084",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-083.json"
+      ".aof/artifacts/archmap/impact/TASK-084.json"
     ],
-    "external_refs": []
+    "external_refs": [
+      "https://github.blog/changelog/2026-07-02-copilot-agent-session-streaming-is-now-in-public-preview/"
+    ]
   }
 }

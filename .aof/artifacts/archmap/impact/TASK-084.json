@@ -1,0 +1,22 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-084",
+  "work_item_ref": ".aof/tasks/done/TASK-084.json",
+  "work_item_id": "TASK-084",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "defer_reason": "TASK-084 is a post-release direction review. It identifies a likely v7.0 architecture extension, but no runtime event-stream component has been implemented yet.",
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-084.json",
+    "docs/v7.0-agent-session-observability-direction.md",
+    ".aof/artifacts/execution/council-reviews/CRP-TASK-084-SESSION-OBSERVABILITY-DIRECTION.json"
+  ],
+  "external_refs": [
+    "https://github.blog/changelog/2026-07-02-copilot-agent-session-streaming-is-now-in-public-preview/"
+  ],
+  "recorded_at": "2026-07-06T05:40:00.000Z"
+}

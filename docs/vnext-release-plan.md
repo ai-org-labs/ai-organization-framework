@@ -2,61 +2,57 @@
 
 ## Version
 
-`v6.9.0`
+Candidate: `v7.0.0`
 
 ## Release Theme
 
-Executable Pre-Implementation Quality Gates.
+Agent Session Observability and Runtime Event Stream.
 
-`v6.8.0` made quality-relevant evidence appendable and auditable after evidence exists. The next bottleneck is that work can still begin before success expectations, loss boundaries, evidence plans, maker/checker separation, and stop conditions are explicit.
+`v6.9.0` made implementation readiness executable before work starts. The next bottleneck is that AOF can prove final artifacts and release gates, but a human still cannot always reconstruct the live agent session path: prompt, response, tool call, artifact write, council decision, verification, blocker, and stop condition.
 
 Human-facing wording:
 
-> v6.9 should stop AOF from starting implementation work while the definition of success is still hidden in the conversation.
+> v7.0 should let an operator reconstruct what the AI organization actually did, step by step, without reverse-engineering scattered final artifacts.
 
 More explicit wording:
 
-> AOF should reject implementation-readiness claims when the work item lacks goal, risk, loss boundary, acceptance gates, evidence plan, maker/checker separation, stop conditions, or QIF refs.
+> AOF should treat session events as canonical runtime evidence: who/what initiated an event, which command/tool ran, which artifact changed, what decision was made, what verification happened, and why the loop stopped.
 
 ## Runtime Evidence Basis
 
 - runtime command: `situation-assess --project .`
-- direction task: `TASK-081`
-- implementation task: `TASK-082`
-- release task: `TASK-083`
-- release definition: `docs/v6.9-release-definition.md`
-- release checklist: `docs/v6.9-release-checklist.md`
-- release notes: `docs/v6.9.0-release-notes.md`
-- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-082-WORK-READINESS-GATE.json`
+- direction task: `TASK-084`
+- direction review: `docs/v7.0-agent-session-observability-direction.md`
+- external signal: GitHub Copilot agent session streaming public preview, 2026-07-02
+- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-084-SESSION-OBSERVABILITY-DIRECTION.json`
 
 ## Required Outcomes
 
 Required:
 
-- add `work-readiness-record`
-- add `work-readiness-audit`
-- add work readiness record and audit schemas
-- add committed readiness records for `TASK-082` and release closure `TASK-083`
-- verify negative audit cases for missing readiness records
-- integrate `work-readiness-audit` into `release-state-audit` for `6.9.0` and later
-- refresh command registry so readiness commands have AI-readable input/output hints
-- align package, active release manifest, organization contract, README, checklist, and notes to `6.9.0`
+- define `session-event-record`
+- define `runtime-event-stream`
+- add a narrow local event writer
+- add `session-observability-audit`
+- require artifact writes, council decisions, verification results, blockers, and stop/defer/reopen outcomes to be reconstructable from session events
+- expose the current event stream in Mission Control / operator surfaces without making the viewer a source of truth
 
 Deferred:
 
-- automatic QIF verdict computation
-- semantic truth validation
-- standalone context/reference audits
-- governed parallel actor orchestration
-- Node.js 25+ support
+- vendor-specific Copilot API dependency
+- SIEM integration
+- live network streaming
+- semantic correctness scoring
+- full governed parallel actor orchestration
 
 ## Release Gates
 
-### Gate 1: Work Readiness Commands
+### Gate 1: Session Event Contract
 
-- `work-readiness-record` writes schema-valid records
-- `work-readiness-audit` passes committed readiness records
-- `work-readiness-audit` fails missing or incomplete readiness patterns
+- session event schema exists
+- runtime event stream schema exists
+- event records include actor/source, command/tool, artifact refs, decision refs, and timestamp
+- stop/defer/reopen events can be represented
 
 ### Gate 2: Governance Continuity
 
@@ -64,26 +60,27 @@ Deferred:
 - review provenance audit still passes for done work at `TASK-071` onward
 - evidence independence audit still passes for done work at `TASK-071` onward
 - quality ledger audit still passes
-- readiness presence remains evidence, not proof of truth
+- work readiness audit still passes
+- event stream presence remains reconstructability evidence, not proof of truth
 
-### Gate 3: Command Help Completeness
+### Gate 3: Observability Audit
 
-- command registry entries have inputs and outputs
-- `cli-help-benchmark` fails missing input/output hints
-- command help remains compact and AI-readable
+- `session-observability-audit` fails missing stream refs
+- audit rejects council decisions without preceding evidence events
+- audit rejects artifact writes without producing events
+- audit checks tool-call safety level and approval policy metadata
 
 ### Gate 4: Release Surface
 
-- package version is `6.9.0`
-- package-lock version is `6.9.0`
-- active release manifest points at v6.9 docs
-- organization release contract points at `docs/v6.9-release-definition.md`
-- README and roadmap point at v6.9
+- package version is updated to the selected release
+- active release manifest points at selected release docs
+- README and roadmap describe session observability without overclaiming semantic truth
 
 ### Gate 5: Verification
 
-- work readiness audit
 - quality ledger audit
+- work readiness audit
+- session observability audit
 - command routing audit
 - CLI help benchmark
 - organization verification
@@ -96,14 +93,14 @@ Deferred:
 
 ## Release Decision
 
-Release `v6.9.0` only if AOF now makes it harder to confuse:
+Release only if AOF now makes it harder to confuse:
 
-- conversation intent with declared work goal
-- activity with acceptance
-- maker output with checked output
-- iteration with a loop
-- readiness evidence with semantic truth
+- final artifacts with live process evidence
+- tool execution with governed tool execution
+- council approval with preceding reviewable evidence
+- an agent session with an auditable session stream
+- reconstructability with semantic correctness
 
-## Post-v6.9 Direction Candidate
+## Post-v7 Direction Candidate
 
-After v6.9, choose the next frontier through runtime-backed review before opening implementation work. Strong candidates are standalone context/reference audits or the first bounded step toward governed multi-actor orchestration.
+After the event stream exists, the next frontier can return to governed multi-actor orchestration or external provider adapters.

@@ -1,0 +1,33 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MR8SP9PC-LUO1RV",
+  "recorded_at": "2026-07-06T05:44:30.816Z",
+  "work_item_id": "TASK-084",
+  "work_item_ref": ".aof/tasks/done/TASK-084.json",
+  "readiness_status": "ready",
+  "goal": "Decide whether GitHub Copilot agent session streaming implies a necessary AOF post-v6.9 direction.",
+  "risk": "AOF may keep claiming runtime-backed work while humans still cannot reconstruct live prompts, responses, tool calls, artifact writes, decisions, verification, and stop events.",
+  "loss_boundary": "Do not open v7 implementation work until the direction is bounded to local vendor-neutral session observability rather than Copilot-specific integration.",
+  "acceptance_gates": [
+    "Direction document exists and states adoption boundary.",
+    "Council review approves or rejects the direction.",
+    "External signal is represented through local evidence rather than unresolved evidence refs."
+  ],
+  "evidence_plan": [
+    "Use docs/v7.0-agent-session-observability-direction.md, TASK-084, Council review, v6.9 release definition, and governance audits as local evidence."
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop after direction selection; defer implementation until a bounded v7 work item is opened."
+  ],
+  "qif_refs": [
+    ".aof/quality/QIFPKG-AOF-V5-001.json"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-084",
+  "source_parent_session_id": "SESS-POST-V69-STREAMING-DIRECTION",
+  "source_decision_record_id": null
+}

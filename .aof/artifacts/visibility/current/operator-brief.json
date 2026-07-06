@@ -1,14 +1,14 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-05T17:48:17.725Z",
-  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task.",
+  "generated_at": "2026-07-06T05:45:50.951Z",
+  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
   "current_state": {
     "release_version": "6.9.0",
     "active_release_track": "v6.9",
     "release_definition_ref": "docs/v6.9-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
-    "operating_goal": "Select the next bounded frontier after v6.9.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
-    "next_value_slice": "Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task.",
+    "operating_goal": "Evaluate v7.0 Agent Session Observability as the next bounded frontier after v6.9.0; keep the first implementation vendor-neutral, local, file-backed, and focused on reconstructable runtime event streams.",
+    "next_value_slice": "Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
     "primary_frontier_task": null,
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
@@ -77,14 +77,14 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task.",
-    "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
+    "recommended_action": "Open an implementation task for the current frontier: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+    "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "operator_answers": {
     "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
     "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task."
+    "what_should_happen_next": "Open an implementation task for the current frontier: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity."
   }
 }

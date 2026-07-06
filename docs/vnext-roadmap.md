@@ -109,6 +109,21 @@ Post-v6.5 QIF provider alignment:
 - `release-state-audit` includes `quality-ledger-audit` for `6.8.0` and later releases
 - ledger presence is explicitly bounded as traceability evidence, not semantic truth
 
+`v6.9.0` establishes Executable Pre-Implementation Quality Gates:
+
+- implementation readiness can be represented as a canonical runtime artifact
+- `work-readiness-record` writes goal, risk, loss boundary, acceptance gates, evidence plan, maker/checker separation, stop conditions, and QIF refs
+- `work-readiness-audit` rejects missing or incomplete readiness evidence
+- `release-state-audit` includes `work-readiness-audit` for `6.9.0` and later releases
+- readiness presence is bounded as pre-implementation governance evidence, not semantic truth
+
+Post-v6.9 direction candidate:
+
+- `TASK-084` selects Agent Session Observability and Runtime Event Stream as the strongest next frontier candidate.
+- The external signal is GitHub Copilot agent session streaming public preview, which indicates prompts, responses, and tool calls are becoming enterprise observability data.
+- AOF should absorb the vendor-neutral pattern, not the vendor dependency: session events should become canonical runtime evidence for prompt, response, tool call, artifact write, council decision, verification result, blocker, and stop condition.
+- The first implementation should be local and file-backed before considering streaming endpoints, REST APIs, SIEM, or provider adapters.
+
 ## Completed Track
 
 ### `v5.0.0`: Skillful Actor Runtime

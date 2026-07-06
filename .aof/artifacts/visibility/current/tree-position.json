@@ -1,6 +1,6 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-05T17:48:17.725Z",
+  "generated_at": "2026-07-06T05:45:50.951Z",
   "trunk": {
     "label": "AOF release evolution",
     "active_release_version": "6.9.0",
@@ -12,7 +12,7 @@
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task."
+    "branch_summary": "Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity."
   },
   "roadmap_path": [
     {
@@ -23,7 +23,7 @@
   ],
   "tree_answer": {
     "where_are_we": "The runtime is between v6.9 and the next concrete branch.",
-    "why_this_branch": "Select the next bounded frontier after v6.9.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task."
+    "why_this_branch": "Evaluate v7.0 Agent Session Observability as the next bounded frontier after v6.9.0; keep the first implementation vendor-neutral, local, file-backed, and focused on reconstructable runtime event streams.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity."
   }
 }

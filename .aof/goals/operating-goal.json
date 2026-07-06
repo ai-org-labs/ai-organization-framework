@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Select the next bounded frontier after v6.9.0 using a runtime-backed direction review; do not open implementation work until the next release goal is explicitly selected.",
-  "updated_at": "2026-07-05T17:40:16.650Z",
+  "content": "Evaluate v7.0 Agent Session Observability as the next bounded frontier after v6.9.0; keep the first implementation vendor-neutral, local, file-backed, and focused on reconstructable runtime event streams.",
+  "updated_at": "2026-07-06T05:41:45.923Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V69-DIRECTION",
+  "source_session_id": "SESS-POST-V69-STREAMING-DIRECTION",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

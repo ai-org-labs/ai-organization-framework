@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Run a runtime-backed direction review for the post-v6.9 frontier, compare standalone context/reference audits and a bounded governed multi-actor orchestration step, then open exactly one bounded implementation task.",
-  "updated_at": "2026-07-05T17:40:16.990Z",
+  "content": "Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+  "updated_at": "2026-07-06T05:41:55.258Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V69-DIRECTION",
+  "source_session_id": "SESS-POST-V69-STREAMING-DIRECTION",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

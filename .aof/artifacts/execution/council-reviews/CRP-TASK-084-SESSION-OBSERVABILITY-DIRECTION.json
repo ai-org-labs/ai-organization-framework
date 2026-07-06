@@ -1,0 +1,46 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-06T05:40:00.000Z",
+  "review_packet_id": "CREV-TASK-084-SESSION-OBSERVABILITY",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve Agent Session Observability as the strongest post-v6.9 direction candidate.",
+  "rationale": "The external Copilot session streaming signal shows that agent prompts, responses, and tool calls are becoming an enterprise observability surface. AOF should absorb the vendor-neutral pattern by treating runtime session events as canonical evidence, while keeping the first implementation local and file-backed.",
+  "recommendation": "Use v7.0 direction review to evaluate a bounded local runtime event stream with session-event records, stream audit, artifact-write provenance, tool-call safety metadata, loop stop events, and Mission Control projection.",
+  "target_audience": "AOF operator choosing the next frontier after v6.9.0.",
+  "expected_user_reaction": "The operator should understand that this direction makes AOF work reconstructable as a live process, not just as final artifacts.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Add session-event-record and runtime-event-stream schemas in the next implementation release.",
+    "Add session-observability-audit before claiming runtime session observability.",
+    "Project event stream state into Mission Control without making the viewer a source of truth."
+  ],
+  "organization_change_recommendations": [
+    "Treat prompts, responses, tool calls, artifact writes, decisions, reviews, and stop/defer/reopen outcomes as runtime evidence events.",
+    "Keep vendor-specific APIs as optional providers rather than core AOF dependencies."
+  ],
+  "diagnosis_category": "post-release-frontier-selection",
+  "diagnosis_confidence": 0.83,
+  "diagnosis_evidence_refs": [
+    "docs/v7.0-agent-session-observability-direction.md",
+    ".aof/tasks/done/TASK-084.json",
+    ".aof/artifacts/work-readiness/TASK-084.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [],
+  "role_result_refs": [],
+  "evidence_refs": [
+    "docs/v7.0-agent-session-observability-direction.md",
+    "docs/v6.9-release-definition.md",
+    "docs/v6.9-release-checklist.md",
+    ".aof/goals/next-value-slice.json",
+    ".aof/artifacts/work-readiness/TASK-084.json",
+    "test/runtime-situation.test.js"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-084",
+  "source_parent_session_id": "SESS-POST-V69-STREAMING-DIRECTION",
+  "source_decision_record_id": null
+}
