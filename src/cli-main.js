@@ -98,6 +98,8 @@ Usage:
   aof quality-ledger-audit [--project <path>] [--write-artifact <path>]
   aof work-readiness-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --goal "<text>" --risk "<text>" --loss-boundary "<text>" --acceptance-gate "<text>" [--acceptance-gate "<text>"] --evidence-plan "<text>" [--evidence-plan "<text>"] --maker-role <role> --checker-role <role> --council-ref <ref> --stop-condition "<text>" [--stop-condition "<text>"] --qif-ref <path> [--qif-ref <path>] [--readiness-status <ready|blocked|deferred>] [--archmap-impact-expected <yes|no|unknown>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
   aof work-readiness-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof agent-session-record --project <path> --session-id <id> --actor-ref <ref> --role-ref <ref> --event-json '<json>' [--event-json '<json>'] --task-ref <path> --requirement-ref <path> --test-evidence-ref <path> --risk-candidate "<text>" --decision-candidate "<text>" --release-ready-evidence-ref <path> [--release-ready-verdict <not_ready|structurally_ready|runtime_ready|operator_validated>] [--release-ready-claim "<text>"] [--provider <name>] [--model <name>] [--parent-session-id <id>] [--commit-ref <ref>] [--pr-ref <ref>] [--artifact-ref <path>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof session-observability-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof value-hypothesis-record --project <path> --expected-value-creation "<text>" --beneficiary "<text>" --supporting-evidence "<text>" [--supporting-evidence "<text>"] --success-criterion "<text>" [--success-criterion "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof alternative-analysis-record --project <path> --subject-need "<text>" --alternative-solution "<text>" [--alternative-solution "<text>"] [--non-solution-option "<text>"] [--defer-option "<text>"] --stop-option "<text>" [--stop-option "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -195,6 +197,8 @@ Examples:
   aof quality-ledger-audit --project . --write-artifact /tmp/aof-quality-ledger-audit.json
   aof work-readiness-record --project . --work-item-id TASK-082 --work-item-ref .aof/tasks/open/TASK-082.json --goal "Implement executable pre-implementation gates" --risk "AOF starts work without knowing what success means" --loss-boundary "No implementation-ready claim without gates" --acceptance-gate "work-readiness-audit passes" --evidence-plan "schema, command, tests, Council review" --maker-role builder --checker-role guardian --council-ref architecture-council --stop-condition "audit passes or implementation stops" --qif-ref docs/aof-qif-quality-definition.md --source-task-id TASK-082 --source-parent-session-id SESS-PARENT-001
   aof work-readiness-audit --project . --cutoff-task-id TASK-082 --write-artifact /tmp/aof-work-readiness-audit.json
+  aof agent-session-record --project . --session-id SESS-001 --actor-ref codex --role-ref builder --event-json '{"event_type":"prompt","summary":"User asked for v7 session observability"}' --event-json '{"event_type":"tool_call","summary":"Ran runtime audit","tool_name":"session-observability-audit","safety_level":"safe_read","approval_policy":"preapproved"}' --task-ref .aof/tasks/open/TASK-085.json --requirement-ref docs/v7.0-agent-session-observability-direction.md --test-evidence-ref test/runtime-core-2.test.js --risk-candidate "session path is not reconstructable" --decision-candidate "promote event stream to release gate" --release-ready-evidence-ref docs/v7.0-agent-session-observability-direction.md --release-ready-verdict runtime_ready --source-task-id TASK-085 --source-parent-session-id SESS-V70-SESSION-OBSERVABILITY
+  aof session-observability-audit --project . --write-artifact /tmp/aof-session-observability-audit.json
   aof problem-statement-record --project . --affected-party "newly invited workspace admins" --actual-problem "activation fails during permission setup" --why-it-matters "high-intent admins fail before value is realized" --why-now "activation drop-off is blocking current growth" --evidence-ref docs/research/funnel-notes.md
   aof value-hypothesis-record --project . --expected-value-creation "higher activation completion and faster time to first value" --beneficiary "newly invited workspace admins and the owning workspace" --supporting-evidence "interviews and analytics both indicate permission-step confusion" --success-criterion "activation completion improves" --success-criterion "permission-step comprehension improves"
   aof alternative-analysis-record --project . --subject-need "Reduce activation failure for invited admins" --alternative-solution "clarify permission setup directly in product" --alternative-solution "human-assisted onboarding for high-value accounts" --non-solution-option "tighten qualification and do nothing in-product" --defer-option "wait until more interview evidence is collected" --stop-option "do not create a project if the problem is not reproducible"
@@ -983,6 +987,38 @@ function parseArgs(argv) {
             ? {
                 project: ".",
                 cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "agent-session-record"
+            ? {
+                project: ".",
+                streamId: "",
+                sessionId: "",
+                parentSessionId: "",
+                actorRef: "",
+                roleRef: "",
+                provider: "local",
+                model: "unspecified",
+                events: [],
+                taskRefs: [],
+                requirementRefs: [],
+                testEvidenceRefs: [],
+                commitRefs: [],
+                prRefs: [],
+                artifactRefs: [],
+                riskCandidates: [],
+                decisionCandidates: [],
+                releaseReadyClaim: "",
+                releaseReadyEvidenceRefs: [],
+                releaseReadyVerdict: "not_ready",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                artifactPath: ""
+              }
+          : command === "session-observability-audit"
+            ? {
+                project: ".",
                 artifactPath: ""
               }
           : command === "problem-statement-record"
@@ -2016,6 +2052,15 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--parent-session-id") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --parent-session-id.");
+      }
+      options.parentSessionId = value;
+      i += 1;
+      continue;
+    }
     if (part === "--team-id") {
       const value = rest[i + 1];
       if (!value) {
@@ -2196,6 +2241,15 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--event-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --event-json.");
+      }
+      options.events.push(JSON.parse(value));
+      i += 1;
+      continue;
+    }
     if (part === "--quality-intent-ref") {
       const value = rest[i + 1];
       if (!value) {
@@ -2214,6 +2268,51 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--task-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --task-ref.");
+      }
+      options.taskRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--requirement-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --requirement-ref.");
+      }
+      options.requirementRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--test-evidence-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --test-evidence-ref.");
+      }
+      options.testEvidenceRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--commit-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --commit-ref.");
+      }
+      options.commitRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--pr-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --pr-ref.");
+      }
+      options.prRefs.push(value);
+      i += 1;
+      continue;
+    }
     if (part === "--claim") {
       const value = rest[i + 1];
       if (!value) {
@@ -2229,6 +2328,51 @@ function parseArgs(argv) {
         throw new Error("Missing value after --risk.");
       }
       options.risk = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--risk-candidate") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --risk-candidate.");
+      }
+      options.riskCandidates.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--decision-candidate") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --decision-candidate.");
+      }
+      options.decisionCandidates.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--release-ready-evidence-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --release-ready-evidence-ref.");
+      }
+      options.releaseReadyEvidenceRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--release-ready-claim") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --release-ready-claim.");
+      }
+      options.releaseReadyClaim = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--release-ready-verdict") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --release-ready-verdict.");
+      }
+      options.releaseReadyVerdict = value;
       i += 1;
       continue;
     }
@@ -4172,6 +4316,54 @@ function parseArgs(argv) {
   if (command === "command-registry-refresh" || command === "command-register" || command === "command-routing-audit" || command === "cli-help-benchmark") {
     if (!options.project) {
       throw new Error(`Missing --project for \`${command}\`.`);
+    }
+  }
+
+  if (command === "agent-session-record") {
+    if (!options.sessionId) {
+      throw new Error("Missing --session-id for `agent-session-record`.");
+    }
+    if (!options.actorRef) {
+      throw new Error("Missing --actor-ref for `agent-session-record`.");
+    }
+    if (!options.roleRef) {
+      throw new Error("Missing --role-ref for `agent-session-record`.");
+    }
+    if (!Array.isArray(options.events) || options.events.length === 0) {
+      throw new Error("At least one --event-json is required for `agent-session-record`.");
+    }
+    if (!Array.isArray(options.taskRefs) || options.taskRefs.length === 0) {
+      throw new Error("At least one --task-ref is required for `agent-session-record`.");
+    }
+    if (!Array.isArray(options.requirementRefs) || options.requirementRefs.length === 0) {
+      throw new Error("At least one --requirement-ref is required for `agent-session-record`.");
+    }
+    if (!Array.isArray(options.testEvidenceRefs) || options.testEvidenceRefs.length === 0) {
+      throw new Error("At least one --test-evidence-ref is required for `agent-session-record`.");
+    }
+    if (!Array.isArray(options.riskCandidates) || options.riskCandidates.length === 0) {
+      throw new Error("At least one --risk-candidate is required for `agent-session-record`.");
+    }
+    if (!Array.isArray(options.decisionCandidates) || options.decisionCandidates.length === 0) {
+      throw new Error("At least one --decision-candidate is required for `agent-session-record`.");
+    }
+    if (!Array.isArray(options.releaseReadyEvidenceRefs) || options.releaseReadyEvidenceRefs.length === 0) {
+      throw new Error("At least one --release-ready-evidence-ref is required for `agent-session-record`.");
+    }
+    if (!options.sourceTaskId) {
+      throw new Error("Missing --source-task-id for `agent-session-record`.");
+    }
+    if (!options.sourceParentSessionId) {
+      throw new Error("Missing --source-parent-session-id for `agent-session-record`.");
+    }
+    if (!["not_ready", "structurally_ready", "runtime_ready", "operator_validated"].includes(options.releaseReadyVerdict)) {
+      throw new Error("Invalid --release-ready-verdict for `agent-session-record`.");
+    }
+  }
+
+  if (command === "session-observability-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `session-observability-audit`.");
     }
   }
 

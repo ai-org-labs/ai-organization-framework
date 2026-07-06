@@ -84,7 +84,7 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.ok(result.payloads.mission_control.work_governance.work_items.length >= 2);
   assert.equal(result.payloads.mission_control.archmap.present, true);
   assert.equal(result.payloads.mission_control.archmap.current_source_ref, "docs/archmaps/aof-runtime-current.archmap");
-  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-083");
+  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-085");
   assert.equal(result.payloads.mission_control.archmap.pending_impact_count, 0);
   assert.equal(result.payloads.operator_progress.view_type, "operator_progress");
   assert.equal(result.payloads.tree_position.view_type, "tree_position");
@@ -110,7 +110,7 @@ test("organizationStatusCommand exposes the post-v6.0 direction goal and next va
 
   assert.equal(result.ok, true);
   assert.match(result.goals.operating_goal, /next bounded frontier|v6\.9\.0|runtime-backed direction review/i);
-  assert.match(result.goals.next_value_slice, /post-v6\.9 frontier|context\/reference audits|multi-actor orchestration|governed multi-actor/i);
+  assert.match(result.goals.next_value_slice, /v7\.0|session-event-record|runtime-event-stream|session-observability/i);
 });
 
 test("operatorProgressCommand explains what changed since the last checkpoint", async () => {
@@ -119,7 +119,7 @@ test("operatorProgressCommand explains what changed since the last checkpoint", 
 
   assert.equal(result.ok, true);
   assert.equal(result.progress.view_type, "operator_progress");
-  assert.match(result.progress.progress_answer.what_changed, /TASK-083|v6\.9|work readiness|direction review/i);
+  assert.match(result.progress.progress_answer.what_changed, /TASK-085|v7\.0|agent session|session observability/i);
 });
 
 test("treePositionCommand explains the current release trunk and frontier branch", async () => {

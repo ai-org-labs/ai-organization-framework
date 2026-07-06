@@ -1,0 +1,35 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MR9AH0NW-2SIKX6",
+  "recorded_at": "2026-07-06T14:01:58.940Z",
+  "work_item_id": "TASK-085",
+  "work_item_ref": ".aof/tasks/done/TASK-085.json",
+  "readiness_status": "ready",
+  "goal": "Implement the first local Agent Session Observability contract and audit surface.",
+  "risk": "AOF may keep final artifacts auditable while the live AI work path remains unreconstructable by humans and release reviewers.",
+  "loss_boundary": "Do not claim v7.0 session observability unless AI work can link to task, requirement, test evidence, risk candidate, decision candidate, and release-ready evidence.",
+  "acceptance_gates": [
+    "Session event record schema exists and validates core event types.",
+    "Runtime event stream schema exists and requires task, requirement, test evidence, risk, decision, and release readiness links.",
+    "Local writer command creates a schema-valid event stream.",
+    "Session observability audit fails missing required links and passes complete streams.",
+    "Focused runtime tests pass."
+  ],
+  "evidence_plan": [
+    "Use schemas, writer command, audit command, TASK-085 readiness record, Council review, and focused tests as local evidence."
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if audit cannot prove the six linkage requirements without semantic overclaiming."
+  ],
+  "qif_refs": [
+    ".aof/quality/QIFPKG-AOF-V5-001.json"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-085",
+  "source_parent_session_id": "SESS-V70-SESSION-OBSERVABILITY",
+  "source_decision_record_id": null
+}

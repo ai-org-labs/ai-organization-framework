@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-06T05:45:50.951Z",
+  "generated_at": "2026-07-06T14:24:14.924Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,14 +8,14 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-084 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-084.json"
+    "summary": "TASK-085 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-085.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-084 completed: Post-v6.9 direction: agent session streaming evidence",
-      "artifact_ref": ".aof/tasks/done/TASK-084.json"
+      "summary": "TASK-085 completed: v7.0 frontier: agent session event stream",
+      "artifact_ref": ".aof/tasks/done/TASK-085.json"
     },
     {
       "kind": "goal-refresh",
@@ -24,7 +24,7 @@
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-084 completed: Post-v6.9 direction: agent session streaming evidence Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+    "what_changed": "TASK-085 completed: v7.0 frontier: agent session event stream Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
     "next_checkpoint": "Open an implementation task for the current frontier: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity."
   }

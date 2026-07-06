@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-05T17:38:09.787Z",
+  "generated_at": "2026-07-06T14:18:15.378Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -162,6 +162,46 @@
       ],
       "outputs": [
         "benchmark report"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "agent-session-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a local agent session event stream that links AI work to task, requirement, test evidence, risk candidates, decision candidates, and release-ready evidence.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "session-id",
+        "actor-ref",
+        "role-ref",
+        "event-json",
+        "task-ref",
+        "requirement-ref",
+        "test-evidence-ref",
+        "risk-candidate",
+        "decision-candidate",
+        "release-ready-evidence-ref",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "agent session event stream artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },
@@ -2339,6 +2379,36 @@
       ],
       "outputs": [
         "self audit record artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "session-observability-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify agent session streams are reconstructable and contain task, requirement, test evidence, risk, decision, and release-ready linkages.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "session observability audit result"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

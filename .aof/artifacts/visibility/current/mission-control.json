@@ -1,6 +1,6 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-06T05:45:50.937Z",
+  "generated_at": "2026-07-06T14:24:14.823Z",
   "mission_overview": {
     "mission": "Ship v6.9.0 as the Executable Pre-Implementation Quality Gates release.",
     "release_version": "6.9.0",
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 14,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-084.json",
-    "latest_impact_status": "archmap_deferred_with_reason",
-    "latest_work_item_id": "TASK-084",
+    "impact_record_count": 15,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-085.json",
+    "latest_impact_status": "archmap_update_required",
+    "latest_work_item_id": "TASK-085",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-084.json"
+      ".aof/artifacts/archmap/impact/TASK-085.json"
     ],
     "external_refs": [
       "https://github.blog/changelog/2026-07-02-copilot-agent-session-streaming-is-now-in-public-preview/"

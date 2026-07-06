@@ -1,0 +1,138 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MR9B1CG5-83I61C",
+  "recorded_at": "2026-07-06T14:17:47.333Z",
+  "session_id": "SESS-V70-SESSION-OBSERVABILITY",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MR9B1CG5-EPFNPN",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-06T14:17:47.332Z",
+      "summary": "User asked AOF to turn AI work into task, requirement, test evidence, risk, decision, and release-ready linked session evidence.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MR9B1CG5-LP6HNY",
+      "event_type": "response",
+      "occurred_at": "2026-07-06T14:17:47.333Z",
+      "summary": "Orchestrator selected the first v7.0 Agent Session Observability slice and opened TASK-085.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV3-MR9B1CG5-9W9B3E",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-06T14:17:47.333Z",
+      "summary": "Ran runtime situation assessment and focused tests.",
+      "artifact_refs": [],
+      "tool_name": "situation-assess and node --test test/runtime-core-2.test.js",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV4-MR9B1CG5-6CVJ55",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-06T14:17:47.333Z",
+      "summary": "Wrote agent session schemas, commands, CLI routing, docs, tests, and readiness evidence.",
+      "artifact_refs": [
+        "schemas/aof-agent-session-record.schema.json",
+        "schemas/aof-session-observability-audit.schema.json",
+        "src/commands/agent-session-record.js",
+        "src/commands/session-observability-audit.js",
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV5-MR9B1CG5-A302UF",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-06T14:17:47.333Z",
+      "summary": "Focused runtime-core-2 tests passed: 88 pass, 0 fail.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV6-MR9B1CG5-ER0NT1",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-07-06T14:17:47.333Z",
+      "summary": "AI work can appear complete while the session path remains unreconstructable unless links are mandatory.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV7-MR9B1CG5-74OJTM",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-07-06T14:17:47.333Z",
+      "summary": "Promote agent session observability audit into v7.0 release-ready evidence.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV8-MR9B1CG5-N4IDAV",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-06T14:17:47.333Z",
+      "summary": "Stop this slice after session-observability-audit, governance audits, and Council evidence are green.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-085.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.0-agent-session-observability-direction.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "schemas/aof-agent-session-record.schema.json",
+      "schemas/aof-session-observability-audit.schema.json",
+      "src/commands/agent-session-record.js",
+      "src/commands/session-observability-audit.js"
+    ]
+  },
+  "risk_candidates": [
+    "AI work can appear complete while the session path remains unreconstructable unless links are mandatory."
+  ],
+  "decision_candidates": [
+    "Promote agent session observability audit into v7.0 release-ready evidence."
+  ],
+  "release_ready_evidence": {
+    "claim": "The first v7.0 session observability slice has runtime-backed structural evidence.",
+    "evidence_refs": [
+      "test/runtime-core-2.test.js",
+      "schemas/aof-agent-session-record.schema.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-085",
+  "source_parent_session_id": "SESS-V70-SESSION-OBSERVABILITY",
+  "source_decision_record_id": null
+}

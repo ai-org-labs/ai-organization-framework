@@ -1,0 +1,31 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-085",
+  "work_item_ref": ".aof/tasks/done/TASK-085.json",
+  "work_item_id": "TASK-085",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "Add AgentSessionObservability as a runtime evidence component.",
+    "Add AgentSessionRecord and SessionObservabilityAudit as artifact-backed runtime surfaces.",
+    "Add edge from Runtime Command Surface to AgentSessionObservability.",
+    "Add edge from AgentSessionObservability to Release Ready Evidence."
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "defer_reason": null,
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-085.json",
+    "docs/v7.0-agent-session-observability-direction.md",
+    "schemas/aof-agent-session-record.schema.json",
+    "schemas/aof-session-observability-audit.schema.json",
+    "src/commands/agent-session-record.js",
+    "src/commands/session-observability-audit.js",
+    ".aof/artifacts/execution/council-reviews/CRP-TASK-085-SESSION-OBSERVABILITY.json"
+  ],
+  "external_refs": [
+    "https://github.blog/changelog/2026-07-02-copilot-agent-session-streaming-is-now-in-public-preview/"
+  ],
+  "recorded_at": "2026-07-06T14:20:00.000Z"
+}

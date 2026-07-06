@@ -6,6 +6,7 @@ import path from "node:path";
 import test from "node:test";
 import { actorAssignmentEvaluationRecordCommand } from "../src/commands/actor-assignment-evaluation-record.js";
 import { actorExecutionGateRecordCommand } from "../src/commands/actor-execution-gate-record.js";
+import { agentSessionRecordCommand } from "../src/commands/agent-session-record.js";
 import { actorSkillPacketRecordCommand } from "../src/commands/actor-skill-packet-record.js";
 import { answerCommand } from "../src/commands/answer.js";
 import { alternativeAnalysisRecordCommand } from "../src/commands/alternative-analysis-record.js";
@@ -50,6 +51,7 @@ import { runtimeLoopProofCommand } from "../src/commands/runtime-loop-proof.js";
 import { roleResultRecordCommand } from "../src/commands/role-result-record.js";
 import { runCommand } from "../src/commands/run.js";
 import { selfAuditRecordCommand } from "../src/commands/self-audit-record.js";
+import { sessionObservabilityAuditCommand } from "../src/commands/session-observability-audit.js";
 import { skillfulActorBenchmarkCommand } from "../src/commands/skillful-actor-benchmark.js";
 import { skillfulActorHriProjectionCommand } from "../src/commands/skillful-actor-hri-projection.js";
 import { taskOpenCommand } from "../src/commands/task-open.js";
@@ -282,6 +284,162 @@ test("workReadinessAuditCommand fails missing readiness and passes complete gate
   const passing = await workReadinessAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
   assert.equal(passing.ok, true);
   assert.equal(passing.summary.summary.ready_record_count, 1);
+});
+
+test("agent session record schema defines task, requirement, test, risk, decision, and release-ready links", async () => {
+  const payload = {
+    artifact_type: "agent-session-record",
+    stream_format_version: 1,
+    stream_id: "ASR-SESS-V70-TEST",
+    recorded_at: "2026-07-06T00:00:00.000Z",
+    session_id: "SESS-V70-TEST",
+    parent_session_id: "SESS-PARENT-TEST",
+    actor_ref: "codex",
+    role_ref: "builder",
+    provider: "local",
+    model: "test-model",
+    events: [{
+      event_id: "EVT-1",
+      event_type: "prompt",
+      occurred_at: "2026-07-06T00:00:00.000Z",
+      summary: "User asked for session observability.",
+      artifact_refs: [],
+      tool_name: null,
+      safety_level: null,
+      approval_policy: null
+    }],
+    links: {
+      task_refs: [".aof/tasks/open/TASK-085.json"],
+      requirement_refs: ["docs/v7.0-agent-session-observability-direction.md"],
+      test_evidence_refs: ["test/runtime-core-2.test.js"],
+      commit_refs: [],
+      pr_refs: [],
+      artifact_refs: ["schemas/aof-agent-session-record.schema.json"]
+    },
+    risk_candidates: ["AI work cannot be reconstructed."],
+    decision_candidates: ["Promote session stream to release gate."],
+    release_ready_evidence: {
+      claim: "Session observability is structurally ready.",
+      evidence_refs: ["test/runtime-core-2.test.js"],
+      verdict: "runtime_ready"
+    },
+    source_task_id: "TASK-085",
+    source_parent_session_id: "SESS-V70-TEST",
+    source_decision_record_id: null,
+    notes: null
+  };
+
+  await validateWithBundledSchema(payload, "aof-agent-session-record.schema.json", "agent session record");
+
+  const missingLinks = { ...payload };
+  delete missingLinks.links;
+  await assert.rejects(
+    validateWithBundledSchema(missingLinks, "aof-agent-session-record.schema.json", "agent session record"),
+    /missing required key 'links'/
+  );
+});
+
+async function writeSessionObservabilityFixtures(projectRoot) {
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, "test"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, "schemas"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "requirement.md"), "# Requirement\n");
+  await fs.writeFile(path.join(projectRoot, "test", "runtime-core-2.test.js"), "test evidence\n");
+  await fs.writeFile(path.join(projectRoot, "schemas", "aof-agent-session-record.schema.json"), "{}\n");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Implement session observability",
+    description: "Fixture task",
+    origin: "human"
+  });
+}
+
+function completeAgentSessionOptions(projectRoot) {
+  return {
+    project: projectRoot,
+    sessionId: "SESS-V70-TEST",
+    parentSessionId: "SESS-PARENT-TEST",
+    actorRef: "codex",
+    roleRef: "builder",
+    provider: "local",
+    model: "test-model",
+    events: [
+      { event_type: "prompt", summary: "User asked for session observability." },
+      { event_type: "response", summary: "Agent selected the v7 session stream slice." },
+      { event_type: "tool_call", summary: "Ran local runtime test.", tool_name: "node --test", safety_level: "safe_read", approval_policy: "preapproved" },
+      { event_type: "artifact_write", summary: "Wrote schema and command artifacts.", artifact_refs: ["schemas/aof-agent-session-record.schema.json"] },
+      { event_type: "verification_result", summary: "Focused tests passed.", artifact_refs: ["test/runtime-core-2.test.js"] },
+      { event_type: "risk_candidate", summary: "Session work may not be reconstructable." },
+      { event_type: "decision_candidate", summary: "Make session observability a release gate." },
+      { event_type: "stop_condition", summary: "Stop after audit and tests pass." }
+    ],
+    taskRefs: [".aof/tasks/open/TASK-001.json"],
+    requirementRefs: ["docs/requirement.md"],
+    testEvidenceRefs: ["test/runtime-core-2.test.js"],
+    artifactRefs: ["schemas/aof-agent-session-record.schema.json"],
+    riskCandidates: ["Session work may not be reconstructable."],
+    decisionCandidates: ["Make session observability a release gate."],
+    releaseReadyClaim: "Session observability has runtime-backed structural evidence.",
+    releaseReadyEvidenceRefs: ["test/runtime-core-2.test.js"],
+    releaseReadyVerdict: "runtime_ready",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PARENT-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "agent-sessions", "SESS-V70-TEST.json")
+  };
+}
+
+test("agentSessionRecordCommand writes a schema-valid event stream", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeSessionObservabilityFixtures(projectRoot);
+
+  const result = await agentSessionRecordCommand(completeAgentSessionOptions(projectRoot));
+
+  assert.equal(result.ok, true);
+  const written = JSON.parse(await fs.readFile(result.artifactPath, "utf8"));
+  await validateWithBundledSchema(written, "aof-agent-session-record.schema.json", "agent session record");
+  assert.equal(written.links.task_refs[0], ".aof/tasks/open/TASK-001.json");
+  assert.equal(written.release_ready_evidence.verdict, "runtime_ready");
+});
+
+test("sessionObservabilityAuditCommand fails weak streams and passes complete reconstructable streams", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeSessionObservabilityFixtures(projectRoot);
+  const sessionRoot = path.join(projectRoot, ".aof", "artifacts", "agent-sessions");
+  await fs.mkdir(sessionRoot, { recursive: true });
+  await fs.writeFile(path.join(sessionRoot, "BAD.json"), `${JSON.stringify({
+    artifact_type: "agent-session-record",
+    stream_format_version: 1,
+    stream_id: "BAD",
+    recorded_at: "2026-07-06T00:00:00.000Z",
+    session_id: "BAD",
+    parent_session_id: null,
+    actor_ref: "codex",
+    role_ref: "builder",
+    provider: "local",
+    model: "test-model",
+    events: [{ event_id: "EVT-BAD", event_type: "prompt", occurred_at: "2026-07-06T00:00:00.000Z", summary: "Only prompt exists.", artifact_refs: [], tool_name: null, safety_level: null, approval_policy: null }],
+    links: { task_refs: [".aof/tasks/open/TASK-001.json"], requirement_refs: [], test_evidence_refs: [], commit_refs: [], pr_refs: [], artifact_refs: [] },
+    risk_candidates: [],
+    decision_candidates: [],
+    release_ready_evidence: { claim: "This weak stream should not be release-ready.", evidence_refs: [], verdict: "not_ready" },
+    source_task_id: "TASK-001",
+    source_parent_session_id: "SESS-PARENT-TEST",
+    source_decision_record_id: null,
+    notes: null
+  }, null, 2)}\n`);
+
+  const failing = await sessionObservabilityAuditCommand({ project: projectRoot });
+  assert.equal(failing.ok, false);
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("requirement linkage")));
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("risk candidates")));
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("release-ready evidence")));
+
+  await fs.rm(path.join(sessionRoot, "BAD.json"));
+  await agentSessionRecordCommand(completeAgentSessionOptions(projectRoot));
+
+  const passing = await sessionObservabilityAuditCommand({ project: projectRoot });
+  assert.equal(passing.ok, true);
+  assert.equal(passing.summary.summary.stream_count, 1);
 });
 
 test("qualityLedgerRecordCommand writes a schema-valid quality ledger event", async (t) => {

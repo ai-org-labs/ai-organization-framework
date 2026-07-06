@@ -419,6 +419,56 @@ QIF boundary:
 - pass は pre-implementation readiness の structural/runtime evidence であり、成果物の意味的正しさ・市場価値・実装品質を証明しない
 - pass 後も maker/checker/Council/release-state の各 gate は必要
 
+### `agent-session-record`
+
+AI 作業を session event stream として記録する。v7.0 の最初の観測単位であり、AI作業を task / requirement / test evidence / risk candidate / decision candidate / release-ready evidence に紐づける。
+
+```bash
+node ./src/cli.js agent-session-record \
+  --project . \
+  --session-id SESS-001 \
+  --actor-ref codex \
+  --role-ref builder \
+  --event-json '{"event_type":"prompt","summary":"User asked for v7 session observability"}' \
+  --event-json '{"event_type":"tool_call","summary":"Ran runtime audit","tool_name":"session-observability-audit","safety_level":"safe_read","approval_policy":"preapproved"}' \
+  --task-ref .aof/tasks/open/TASK-085.json \
+  --requirement-ref docs/v7.0-agent-session-observability-direction.md \
+  --test-evidence-ref test/runtime-core-2.test.js \
+  --risk-candidate "session path is not reconstructable" \
+  --decision-candidate "promote event stream to release gate" \
+  --release-ready-evidence-ref test/runtime-core-2.test.js \
+  --release-ready-verdict runtime_ready \
+  --source-task-id TASK-085 \
+  --source-parent-session-id SESS-V70-SESSION-OBSERVABILITY
+```
+
+必須リンク:
+
+- `--task-ref`: このAI作業が進めた task
+- `--requirement-ref`: このAI作業が満たそうとした要求
+- `--test-evidence-ref`: このAI作業を検証した証跡
+- `--risk-candidate`: 作業中に検出した risk 候補
+- `--decision-candidate`: decision record 化すべき判断候補
+- `--release-ready-evidence-ref`: release ready 判定に使える証跡
+
+### `session-observability-audit`
+
+`agent-session-record` の stream が再構成可能かを検証する。task / requirement / test / risk / decision / release-ready のリンクがない stream は不合格にする。
+
+```bash
+node ./src/cli.js session-observability-audit --project .
+```
+
+主な確認項目:
+
+- session stream が存在する
+- task / requirement / test evidence へのリンクがある
+- risk candidate と decision candidate が記録されている
+- release-ready claim が evidence ref と verdict を持つ
+- prompt / response / tool_call / artifact_write / verification_result / risk_candidate / decision_candidate / stop_condition event が揃っている
+- tool_call event が `tool_name` / `safety_level` / `approval_policy` を持つ
+- file/path ref が解決できる
+
 ### `dependency-graph`
 
 current `.aof/organization.json` から dependency graph を返す。
