@@ -28,7 +28,7 @@ import { executionLineageCommand } from "../src/commands/execution-lineage.js";
 import { initProjectCommand } from "../src/commands/init-project.js";
 import { learningLoopSnapshotCommand } from "../src/commands/learning-loop-snapshot.js";
 import { missionControlBenchmarkCommand } from "../src/commands/mission-control-benchmark.js";
-import { visibilitySessionCommand } from "../src/commands/visibility-session.js";
+import { missionControlCommand, visibilitySessionCommand } from "../src/commands/visibility-session.js";
 import { operatorBriefCommand } from "../src/commands/operator-brief.js";
 import { contractRegisterCommand } from "../src/commands/contract-register.js";
 import { dependencyGraphCommand } from "../src/commands/dependency-graph.js";
@@ -2500,6 +2500,38 @@ test("visibilitySessionCommand exports the current packet and starts one viewer 
   assert.deepEqual(opened, [result.url]);
   assert.match(result.artifacts.status, /status-card\.json$/);
   assert.match(result.artifacts.evidence_drill_down, /evidence-drill-down\.json$/);
+
+  await result.close();
+});
+
+test("missionControlCommand auto-refreshes the packet and starts Mission Control", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const opened = [];
+  const result = await missionControlCommand({
+    project: projectRoot,
+    port: 4174,
+    openBrowser: true
+  }, {
+    installSignalHandlers: false,
+    serveCommand: async (options) => ({
+      ok: true,
+      host: options.host || "127.0.0.1",
+      port: options.port || 4174,
+      title: options.title || "AOF Mission Control",
+      url: `http://${options.host || "127.0.0.1"}:${options.port || 4174}`,
+      close: async () => {}
+    }),
+    openBrowserFn: (url) => {
+      opened.push(url);
+    }
+  });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.title, "AOF Mission Control");
+  assert.equal(result.opened_browser, true);
+  assert.deepEqual(opened, [result.url]);
+  assert.match(result.artifacts.mission, /mission-control\.json$/);
+  assert.match(result.artifacts.runtime_execution, /runtime-execution\.json$/);
 
   await result.close();
 });

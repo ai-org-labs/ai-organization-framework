@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-06T15:17:12.323Z",
+  "generated_at": "2026-07-07T17:57:29.286Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "6.9.0",
-    "active_release_track": "v6.9",
-    "release_definition_ref": "docs/v6.9-release-definition.md"
+    "active_release_version": "7.0.0",
+    "active_release_track": "v7.0",
+    "release_definition_ref": "docs/v7.0-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity."
+    "branch_summary": "Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v6.9",
+      "label": "v7.0",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v6.9 and the next concrete branch.",
-    "why_this_branch": "Evaluate v7.0 Agent Session Observability as the next bounded frontier after v6.9.0; keep the first implementation vendor-neutral, local, file-backed, and focused on reconstructable runtime event streams.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity."
+    "where_are_we": "The runtime is between v7.0 and the next concrete branch.",
+    "why_this_branch": "Evaluate v7.1 Context and Reference Integrity as the next bounded frontier after v7.0.0; keep the first implementation focused on declared context, external reference freshness, hidden-context blockers, and Council-visible reference use.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence."
   }
 }

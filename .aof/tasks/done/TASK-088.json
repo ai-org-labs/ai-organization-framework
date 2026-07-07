@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-088",
+  "title": "Release v7.0 Agent Session Observability",
+  "description": "Close v7.0.0 by aligning release docs, active release state, package version, organization release contract, README, session-observability evidence, audits, tests, smoke validation, and release notes for the Agent Session Observability release.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V70-RELEASE-CLOSURE",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v7.0-release-closure",
+  "created_at": "2026-07-07T17:22:46.042Z",
+  "updated_at": "2026-07-07T17:55:15.649Z",
+  "assigned_at": null,
+  "done_at": "2026-07-07T17:55:15.649Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v7.0 release closure: release docs, package, active manifest, organization contract, README, session observability evidence, Council review, Archmap disposition, and verification gates aligned for v7.0.0."
+}

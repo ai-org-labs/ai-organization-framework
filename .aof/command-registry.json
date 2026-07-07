@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-06T14:18:15.378Z",
+  "generated_at": "2026-07-06T16:08:33.718Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -1440,6 +1440,39 @@
       ],
       "outputs": [
         "metrics snapshot operator surface"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "mission-control",
+      "category": "execute",
+      "safety_level": "project_write",
+      "approval_policy": {
+        "default_run_permission": "requires_approval",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Refresh the current visibility packet and start the Mission Control viewer session from one operator entrypoint.",
+      "operator_path": "top-level-routing",
+      "top_command": true,
+      "inputs": [
+        "project",
+        "artifact-dir?",
+        "host?",
+        "port?",
+        "open-browser?"
+      ],
+      "outputs": [
+        "Mission Control viewer session"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

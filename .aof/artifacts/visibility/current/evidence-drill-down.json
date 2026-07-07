@@ -1,20 +1,20 @@
 {
   "view_type": "evidence_drill_down",
-  "generated_at": "2026-07-06T15:17:12.184Z",
+  "generated_at": "2026-07-07T17:57:29.244Z",
   "brief_ref": ".aof/artifacts/visibility/current/operator-brief.json",
   "current_state": {
-    "release_version": "6.9.0",
-    "active_release_track": "v6.9",
-    "release_definition_ref": "docs/v6.9-release-definition.md",
+    "release_version": "7.0.0",
+    "active_release_track": "v7.0",
+    "release_definition_ref": "docs/v7.0-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
     "primary_frontier_task": null
   },
   "answer_to_proof": {
     "headline": {
-      "claim": "The next frontier is defined, but no aligned implementation task is open yet: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+      "claim": "The next frontier is defined, but no aligned implementation task is open yet: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
       "rationale": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
       "evidence_refs": [
-        "docs/v6.9-release-definition.md",
+        "docs/v7.0-release-definition.md",
         ".aof/context/active/active-release-manifest.json",
         ".aof/goals/operating-goal.json",
         ".aof/goals/next-value-slice.json",
@@ -22,7 +22,7 @@
       ],
       "evidence_items": [
         {
-          "artifact_ref": "docs/v6.9-release-definition.md",
+          "artifact_ref": "docs/v7.0-release-definition.md",
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         },
         {
@@ -63,13 +63,13 @@
       ]
     },
     "next_action": {
-      "claim": "Open an implementation task for the current frontier: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+      "claim": "Open an implementation task for the current frontier: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
       "rationale": "No current open implementation task is aligned to the current operating goal.",
       "artifact_ref": ".aof/goals/next-value-slice.json",
       "evidence_refs": [
         ".aof/goals/next-value-slice.json",
         ".aof/goals/operating-goal.json",
-        "docs/v6.9-release-definition.md"
+        "docs/v7.0-release-definition.md"
       ],
       "evidence_items": [
         {
@@ -81,7 +81,7 @@
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
         },
         {
-          "artifact_ref": "docs/v6.9-release-definition.md",
+          "artifact_ref": "docs/v7.0-release-definition.md",
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
         }
       ]

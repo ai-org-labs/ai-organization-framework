@@ -66,3 +66,10 @@ export async function visibilitySessionCommand(options, runtimeOptions = {}) {
   close: serveResult.close
   };
 }
+
+export async function missionControlCommand(options, runtimeOptions = {}) {
+  return visibilitySessionCommand({
+    ...options,
+    title: options.title || "AOF Mission Control"
+  }, runtimeOptions);
+}

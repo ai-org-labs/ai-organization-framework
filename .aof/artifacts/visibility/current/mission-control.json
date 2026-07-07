@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-06T15:17:12.171Z",
+  "generated_at": "2026-07-07T17:57:29.240Z",
   "mission_overview": {
-    "mission": "Ship v6.9.0 as the Executable Pre-Implementation Quality Gates release.",
-    "release_version": "6.9.0",
-    "release_definition_ref": "docs/v6.9-release-definition.md",
-    "operating_goal": "Evaluate v7.0 Agent Session Observability as the next bounded frontier after v6.9.0; keep the first implementation vendor-neutral, local, file-backed, and focused on reconstructable runtime event streams.",
-    "next_value_slice": "Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+    "mission": "Ship v7.0.0 as the Agent Session Observability release.",
+    "release_version": "7.0.0",
+    "release_definition_ref": "docs/v7.0-release-definition.md",
+    "operating_goal": "Evaluate v7.1 Context and Reference Integrity as the next bounded frontier after v7.0.0; keep the first implementation focused on declared context, external reference freshness, hidden-context blockers, and Council-visible reference use.",
+    "next_value_slice": "Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+    "recommended_action": "Open an implementation task for the current frontier: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 16,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-086.json",
-    "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-086",
+    "impact_record_count": 18,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-088.json",
+    "latest_impact_status": "archmap_unaffected",
+    "latest_work_item_id": "TASK-088",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-086.json"
+      ".aof/artifacts/archmap/impact/TASK-088.json"
     ],
     "external_refs": []
   },
@@ -399,96 +399,91 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 2,
-    "latest_session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
+    "stream_count": 4,
+    "latest_session_id": "SESS-V70-RELEASE-CLOSURE",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json",
     "latest_actor_ref": "codex",
-    "latest_role_ref": "builder",
-    "latest_recorded_at": "2026-07-06T15:11:22.859Z",
-    "latest_event_count": 8,
+    "latest_role_ref": "orchestrator",
+    "latest_recorded_at": "2026-07-07T17:53:06.577Z",
+    "latest_event_count": 9,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "latest_audit_stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
+    "latest_audit_stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json",
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-086.json"
+      ".aof/tasks/done/TASK-088.json"
     ],
     "linked_requirement_refs": [
-      "docs/v7.0-agent-session-observability-direction.md"
+      "docs/v7.0-release-definition.md"
     ],
     "linked_test_evidence_refs": [
-      "test/runtime-situation.test.js",
-      "test/runtime-core-2.test.js"
+      "test/runtime-core-2.test.js",
+      "test/runtime-situation.test.js"
     ],
-    "linked_artifact_refs": [
-      "schemas/aof-mission-control-view.schema.json",
-      "src/commands/visibility-export.js",
-      "src/commands/visibility-serve.js"
-    ],
+    "linked_artifact_refs": [],
     "risk_candidates": [
-      "Mission Control may look active during execution but fail the operator if current organization and session state disappear after the command completes."
+      "Session reconstructability could be overclaimed as semantic truth."
     ],
     "decision_candidates": [
-      "Treat persistent organization_state and agent_session_observability as required Mission Control projection surfaces for v7.0."
+      "Release v7.0.0 only after session observability and release-state audits pass."
     ],
     "latest_events": [
       {
-        "event_type": "prompt",
-        "summary": "User clarified that transient execution visuals are insufficient; Mission Control must show current organization and session state persistently, with Archmap if useful.",
-        "occurred_at": "2026-07-06T15:11:22.857Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "response",
-        "summary": "Opened TASK-086 and implemented persistent organization_state and agent_session_observability projections in Mission Control.",
-        "occurred_at": "2026-07-06T15:11:22.859Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
         "event_type": "tool_call",
-        "summary": "Ran visibility-export and focused runtime tests.",
-        "occurred_at": "2026-07-06T15:11:22.859Z",
-        "tool_name": "visibility-export and node --test test/runtime-situation.test.js test/runtime-core-2.test.js",
+        "summary": "Inspected release state, v7.0 tasks, docs, package version, README, and organization release contract.",
+        "occurred_at": "2026-07-07T17:53:06.577Z",
+        "tool_name": "git status / sed / rg / node",
         "safety_level": "safe_read",
         "approval_policy": "preapproved",
         "artifact_refs": []
       },
       {
         "event_type": "artifact_write",
-        "summary": "Updated Mission Control payload schema, visibility export projection, viewer rendering, and runtime-situation tests.",
-        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "summary": "Created v7.0 release definition, checklist, release notes, and updated package, bootstrap, manifest, organization contract, README, quickstart, and vnext plan.",
+        "occurred_at": "2026-07-07T17:53:06.577Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "schemas/aof-mission-control-view.schema.json",
-          "src/commands/visibility-export.js",
-          "src/commands/visibility-serve.js",
-          "test/runtime-situation.test.js"
+          "docs/v7.0-release-definition.md",
+          "docs/v7.0-release-checklist.md",
+          "docs/v7.0.0-release-notes.md",
+          "package.json",
+          "package-lock.json",
+          ".aof/project-bootstrap.json",
+          ".aof/context/active/active-release-manifest.json",
+          ".aof/organization.json",
+          "README.md",
+          "docs/quickstart.md",
+          "docs/vnext-release-plan.md"
+        ]
+      },
+      {
+        "event_type": "artifact_write",
+        "summary": "Recorded TASK-088 work readiness, Council review, and Archmap impact disposition as release closure governance evidence.",
+        "occurred_at": "2026-07-07T17:53:06.577Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          ".aof/artifacts/work-readiness/TASK-088.json",
+          ".aof/artifacts/execution/council-reviews/CRP-TASK-088-V70-RELEASE-CLOSURE.json",
+          ".aof/artifacts/archmap/impact/TASK-088.json"
         ]
       },
       {
         "event_type": "verification_result",
-        "summary": "Focused runtime visibility tests passed: 97 pass, 0 fail.",
-        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "summary": "Initial audits passed for work readiness, Archmap impact, and review provenance; session observability required this stream update before final rerun.",
+        "occurred_at": "2026-07-07T17:53:06.577Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
-        "artifact_refs": [
-          "test/runtime-situation.test.js",
-          "test/runtime-core-2.test.js"
-        ]
+        "artifact_refs": []
       },
       {
         "event_type": "risk_candidate",
-        "summary": "Mission Control may look active during execution but fail the operator if current organization and session state disappear after the command completes.",
-        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "summary": "Release closure can still overclaim reconstructability as correctness unless release docs and checklist keep the boundary explicit.",
+        "occurred_at": "2026-07-07T17:53:06.577Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -496,8 +491,17 @@
       },
       {
         "event_type": "decision_candidate",
-        "summary": "Treat persistent organization_state and agent_session_observability as required Mission Control projection surfaces for v7.0.",
-        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "summary": "Treat v7.0 release readiness as runtime-ready only after the complete release verification suite passes.",
+        "occurred_at": "2026-07-07T17:53:06.577Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
+      },
+      {
+        "event_type": "response",
+        "summary": "Proceeding with v7.0 release closure using runtime-backed evidence and bounded claims.",
+        "occurred_at": "2026-07-07T17:53:06.577Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -505,8 +509,8 @@
       },
       {
         "event_type": "stop_condition",
-        "summary": "Stop this slice after payload validation, focused tests, session audit, governance audit, and Council evidence are green.",
-        "occurred_at": "2026-07-06T15:11:22.859Z",
+        "summary": "Do not tag v7.0.0 unless all release checklist verification gates pass; defer on any failed audit/test.",
+        "occurred_at": "2026-07-07T17:53:06.577Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -515,8 +519,8 @@
     ],
     "latest_tool_calls": [
       {
-        "summary": "Ran visibility-export and focused runtime tests.",
-        "tool_name": "visibility-export and node --test test/runtime-situation.test.js test/runtime-core-2.test.js",
+        "summary": "Inspected release state, v7.0 tasks, docs, package version, README, and organization release contract.",
+        "tool_name": "git status / sed / rg / node",
         "safety_level": "safe_read",
         "approval_policy": "preapproved"
       }

@@ -1,0 +1,32 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-087",
+  "work_item_ref": ".aof/tasks/done/TASK-087.json",
+  "work_item_id": "TASK-087",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "Promote mission-control as the canonical operator entrypoint for refreshing current visibility artifacts and starting the viewer.",
+    "Keep visibility-session as the compatibility layer beneath Mission Control.",
+    "Expose mission-control in command registry top commands so AI and operators can discover the status viewer without manual visibility wiring."
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "defer_reason": null,
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-087.json",
+    ".aof/artifacts/work-readiness/TASK-087.json",
+    ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-AUTOSTART.json",
+    ".aof/artifacts/execution/council-reviews/CRP-TASK-087-MISSION-CONTROL-AUTOSTART.json",
+    ".aof/command-registry.json",
+    "src/commands/visibility-session.js",
+    "src/runtime/command-catalog.js",
+    "src/runtime/command-registry-payload.js",
+    "test/runtime-core-2.test.js",
+    "docs/quickstart.md",
+    "docs/cli-reference.md"
+  ],
+  "external_refs": [],
+  "recorded_at": "2026-07-06T16:28:00.000Z"
+}

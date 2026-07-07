@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Evaluate v7.0 Agent Session Observability as the next bounded frontier after v6.9.0; keep the first implementation vendor-neutral, local, file-backed, and focused on reconstructable runtime event streams.",
-  "updated_at": "2026-07-06T05:41:45.923Z",
+  "content": "Evaluate v7.1 Context and Reference Integrity as the next bounded frontier after v7.0.0; keep the first implementation focused on declared context, external reference freshness, hidden-context blockers, and Council-visible reference use.",
+  "updated_at": "2026-07-08T00:00:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-POST-V69-STREAMING-DIRECTION",
+  "source_session_id": "SESS-V70-RELEASE-CLOSURE",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

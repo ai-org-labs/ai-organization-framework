@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-06T15:17:12.297Z",
+  "generated_at": "2026-07-07T17:57:29.279Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-086 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-086.json"
+    "summary": "TASK-088 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-088.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-086 completed: v7.0 frontier: persistent Mission Control session and organization view",
-      "artifact_ref": ".aof/tasks/done/TASK-086.json"
+      "summary": "TASK-088 completed: Release v7.0 Agent Session Observability",
+      "artifact_ref": ".aof/tasks/done/TASK-088.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+      "summary": "Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-086 completed: v7.0 frontier: persistent Mission Control session and organization view Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
+    "what_changed": "TASK-088 completed: Release v7.0 Agent Session Observability Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity."
+    "next_checkpoint": "Open an implementation task for the current frontier: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence."
   }
 }

@@ -115,6 +115,7 @@ Usage:
   aof evidence-drill-down [--project <path>] [--write-artifact <path>]
   aof evidence-drill-down-benchmark [--project <path>] [--write-artifact <path>]
   aof situation-assess [--project <path>] [--write-artifact <path>]
+  aof mission-control [--project <path>] [--artifact-dir <path>] [--host <host>] [--port <port>] [--title <text>] [--open-browser]
   aof role-result-record --project <path> --role <role> --stage <stage> --session-id <id> --status <completed|blocked|partial> --recommendation "<text>" --rationale "<text>" [--signal "<text>"] [--artifact-ref <path>] [--decision-required] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--blocking-reason "<text>"] [--missing-input "<text>"] [--confidence <0-1>] [--write-artifact <path>]
   aof role-join-record --project <path> --stage <stage> --expected-role <role> [--expected-role <role>] [--received-role <role>] [--missing-role <role>] --aggregate-state <ready-for-orchestrator-decision|waiting-for-missing-roles|blocked-by-signal|degraded-partial-join> --recommended-next-step "<text>" [--blocking-signal "<text>"] [--received-session-id <id>] [--join-status <open|resolved|escalated>] [--summary "<text>"] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--decision-record-ref <path>] [--write-artifact <path>]
   aof team-output-record --project <path> --team-id <id> --stage <stage> --expected-role <role> [--expected-role <role>] [--received-role <role>] [--missing-role <role>] --aggregate-state <ready-for-council-review|waiting-for-missing-roles|blocked-by-signal|degraded-partial-team-output> --recommended-next-step "<text>" [--role-result-ref <path>] [--artifact-ref <path>] [--blocking-signal "<text>"] [--decision-required] [--summary "<text>"] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -214,6 +215,7 @@ Examples:
   aof evidence-drill-down --project . --write-artifact /tmp/aof-evidence-drill-down.json
   aof evidence-drill-down-benchmark --project . --write-artifact /tmp/aof-evidence-drill-down-benchmark.json
   aof situation-assess --project . --write-artifact /tmp/aof-situation-assessment.json
+  aof mission-control --project . --port 4174 --open-browser
   aof role-result-record --project . --role Builder --stage planning --session-id SESS-001 --status completed --recommendation "merge into team packet" --rationale "implementation path is coherent" --signal "needs Guardian review" --artifact-ref docs/spec.md --decision-required --source-task-id TASK-012 --source-parent-session-id SESS-PARENT-001
   aof role-join-record --project . --stage planning --expected-role Builder --expected-role Guardian --expected-role Visionary --received-role Builder --received-role Guardian --aggregate-state waiting-for-missing-roles --recommended-next-step "wait for Visionary result" --received-session-id SESS-BUILD-001 --received-session-id SESS-GUARD-001 --source-task-id TASK-011 --source-parent-session-id SESS-PARENT-001
   aof team-output-record --project . --team-id runtime-team --stage planning --expected-role Builder --expected-role Guardian --received-role Builder --aggregate-state waiting-for-missing-roles --recommended-next-step "wait for Guardian result" --role-result-ref .aof/artifacts/execution/role-results/RRES-001.json --blocking-signal "guardian pending" --source-task-id TASK-012 --source-parent-session-id SESS-PARENT-001
@@ -597,6 +599,15 @@ function parseArgs(argv) {
             host: "127.0.0.1",
             port: 4174,
             title: "AOF Human Recognition Interface",
+            openBrowser: false
+          }
+      : command === "mission-control"
+        ? {
+            project: ".",
+            artifactDir: "",
+            host: "127.0.0.1",
+            port: 4174,
+            title: "AOF Mission Control",
             openBrowser: false
           }
       : command === "visibility-export"
@@ -3947,6 +3958,15 @@ function parseArgs(argv) {
     }
     if (!Number.isInteger(options.port) || options.port < 0 || options.port > 65535) {
       throw new Error("Invalid --port for `visibility-session`.");
+    }
+  }
+
+  if (command === "mission-control") {
+    if (!options.project) {
+      throw new Error("Missing --project for `mission-control`.");
+    }
+    if (!Number.isInteger(options.port) || options.port < 0 || options.port > 65535) {
+      throw new Error("Invalid --port for `mission-control`.");
     }
   }
 

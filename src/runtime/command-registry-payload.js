@@ -47,6 +47,7 @@ export const COMMAND_ROUTING_TOP_COMMANDS = [
   "tree-position",
   "evidence-drill-down",
   "situation-assess",
+  "mission-control",
   "organization-status",
   "organization-verify",
   "command-routing-audit",
@@ -153,6 +154,7 @@ const COMMAND_NAMES = [
   "mission-control-benchmark",
   "cli-help-benchmark",
   "situation-assess",
+  "mission-control",
   "visibility-serve",
   "visibility-session",
   "packet",
@@ -219,6 +221,7 @@ const CATEGORY_OVERRIDES = {
   "evidence-drill-down-benchmark": "verify",
   "mission-control-benchmark": "verify",
   "situation-assess": "read",
+  "mission-control": "execute",
   "visibility-serve": "observe",
   "visibility-session": "execute",
   packet: "read",
@@ -265,6 +268,7 @@ const PURPOSE_OVERRIDES = {
   "evidence-drill-down": "Read the bounded answer-to-proof packet below the operator brief.",
   "evidence-drill-down-benchmark": "Verify that the evidence drill-down packet stays aligned to the live operator brief.",
   "situation-assess": "Diagnose the current runtime situation, truth conflicts, and best next operating move.",
+  "mission-control": "Refresh the current visibility packet and start the Mission Control viewer session from one operator entrypoint.",
   "visibility-session": "Export the current visibility packet, start the viewer session, and optionally open the browser.",
   "actor-skill-packet-record": "Write a schema-valid actor skill packet with assignment, skill, capability, resource, policy, review, blocker, HRI, and provenance evidence.",
   "actor-assignment-evaluation-record": "Evaluate an actor skill packet into selected, degraded, blocked, or escalated assignment state.",
@@ -311,6 +315,7 @@ const INPUT_HINTS = {
   "mission-control-benchmark": ["project", "write-artifact?"],
   "cli-help-benchmark": ["project", "write-artifact?"],
   "situation-assess": ["project", "write-artifact?"],
+  "mission-control": ["project", "artifact-dir?", "host?", "port?", "open-browser?"],
   "visibility-session": ["project", "artifact-dir?", "host?", "port?", "open-browser?"],
   "actor-skill-packet-record": ["project", "objective", "role-ref", "skill-ref", "capability-fit-json", "source-task-id", "source-parent-session-id", "write-artifact?"],
   "actor-assignment-evaluation-record": ["project", "actor-skill-packet-ref", "write-artifact?"],
@@ -357,6 +362,7 @@ const OUTPUT_HINTS = {
   "mission-control-benchmark": ["benchmark report"],
   "cli-help-benchmark": ["benchmark report"],
   "situation-assess": ["situation diagnosis"],
+  "mission-control": ["Mission Control viewer session"],
   "visibility-session": ["viewer session"],
   "actor-skill-packet-record": ["actor skill packet artifact"],
   "actor-assignment-evaluation-record": ["actor assignment evaluation artifact"],
@@ -482,7 +488,7 @@ function inferSafetyLevel(command, category) {
   ].includes(command)) {
     return "project_write";
   }
-  if (command === "visibility-session") {
+  if (command === "mission-control" || command === "visibility-session") {
     return "project_write";
   }
   if (category === "observe") {

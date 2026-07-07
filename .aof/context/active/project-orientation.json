@@ -154,6 +154,26 @@
         "purpose": "Seed a project with the canonical AOF runtime skeleton and recognition packet."
       },
       {
+        "command": "mission-control",
+        "category": "execute",
+        "safety_level": "project_write",
+        "approval_policy": {
+          "default_run_permission": "requires_approval",
+          "requires_per_run_approval_for": [
+            "git push",
+            "npm publish",
+            "deploy",
+            "external service write",
+            "secrets access",
+            "billing operation",
+            "destructive operation",
+            "production mutation",
+            "irreversible operation"
+          ]
+        },
+        "purpose": "Refresh the current visibility packet and start the Mission Control viewer session from one operator entrypoint."
+      },
+      {
         "command": "need-validation-benchmark",
         "category": "verify",
         "safety_level": "safe_read",
@@ -363,5 +383,5 @@
       "Use observe commands when exporting visibility, metrics, or analytical outputs."
     ]
   },
-  "updated_at": "2026-07-06T14:18:15.378Z"
+  "updated_at": "2026-07-06T16:08:33.718Z"
 }

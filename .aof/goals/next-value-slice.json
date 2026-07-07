@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Define the first v7.0 slice: session-event-record schema, runtime-event-stream schema, local event writer, session-observability-audit, and Mission Control projection for reconstructable agent session activity.",
-  "updated_at": "2026-07-06T05:41:55.258Z",
+  "content": "Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
+  "updated_at": "2026-07-08T00:00:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-POST-V69-STREAMING-DIRECTION",
+  "source_session_id": "SESS-V70-RELEASE-CLOSURE",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

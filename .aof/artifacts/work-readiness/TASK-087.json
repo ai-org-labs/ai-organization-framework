@@ -1,0 +1,34 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MR9EY48W-D69N6J",
+  "recorded_at": "2026-07-06T16:07:15.200Z",
+  "work_item_id": "TASK-087",
+  "work_item_ref": ".aof/tasks/done/TASK-087.json",
+  "readiness_status": "ready",
+  "goal": "Mission Control can be started from one canonical operator command that refreshes current runtime visibility artifacts before serving the viewer.",
+  "risk": "Operators and AI keep treating Mission Control as a manual wiring step, so status visibility does not appear during runtime operation.",
+  "loss_boundary": "Do not claim Mission Control auto-start unless a first-class CLI command updates packet artifacts and launches a viewer session path with test coverage.",
+  "acceptance_gates": [
+    "mission-control command is registered in CLI catalog, command registry, docs, and quickstart",
+    "missionControlCommand regression test proves packet refresh, viewer session, and browser-open path",
+    "runtime audits and npm test pass after TASK-087"
+  ],
+  "evidence_plan": [
+    "CLI wrapper, registry entries, docs, runtime-core-2 regression, session observability audit, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if the command cannot reuse the existing visibility-session path without making read commands long-running.",
+    "Stop if tests show viewer startup breaks existing visibility-session behavior."
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "unknown",
+  "notes": null,
+  "source_task_id": "TASK-087",
+  "source_parent_session_id": "SESS-V70-MISSION-CONTROL-AUTOSTART",
+  "source_decision_record_id": null
+}

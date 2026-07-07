@@ -1,0 +1,40 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-06T16:27:03.869Z",
+  "review_packet_id": "CREV-MR9FNLFF-AL1BTF",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Mission Control auto-start is approved as a canonical operator entrypoint.",
+  "rationale": "The implementation reuses the existing visibility-session path, adds a discoverable mission-control command, refreshes the command registry, updates quickstart and CLI reference, and adds regression coverage without making read commands long-running.",
+  "recommendation": "Close TASK-087 after final audits pass and keep visibility-session as the compatibility layer.",
+  "target_audience": "AOF operators and AI orchestrators",
+  "expected_user_reaction": "Use node ./src/cli.js mission-control --project . --port 4174 --open-browser instead of manually wiring visibility-export and visibility-serve.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep Mission Control as the named entrypoint for status visibility."
+  ],
+  "organization_change_recommendations": [
+    "Treat mission-control as a top command in the command registry."
+  ],
+  "diagnosis_category": "operator-entrypoint-gap",
+  "diagnosis_confidence": 0.9,
+  "diagnosis_evidence_refs": [
+    ".aof/command-registry.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [],
+  "role_result_refs": [],
+    "evidence_refs": [
+      "test/runtime-core-2.test.js",
+      "test/runtime-situation.test.js",
+      ".aof/command-registry.json"
+    ],
+  "follow_up_task_ids": [
+    "TASK-087"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-087",
+  "source_parent_session_id": "SESS-V70-MISSION-CONTROL-AUTOSTART",
+  "source_decision_record_id": null
+}

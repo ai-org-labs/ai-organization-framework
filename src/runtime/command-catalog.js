@@ -92,6 +92,7 @@ const COMMAND_SPECS = [
   ["mission-control-benchmark", "./commands/mission-control-benchmark.js", "missionControlBenchmarkCommand"],
   ["cli-help-benchmark", "./commands/cli-help-benchmark.js", "cliHelpBenchmarkCommand"],
   ["situation-assess", "./commands/situation-assess.js", "situationAssessCommand"],
+  ["mission-control", "./commands/visibility-session.js", "missionControlCommand"],
   ["visibility-serve", "./commands/visibility-serve.js", "visibilityServeCommand"],
   ["visibility-session", "./commands/visibility-session.js", "visibilitySessionCommand"],
   ["packet", "./commands/packet.js", "packetCommand"],
@@ -150,7 +151,7 @@ export function buildCommandHandlers() {
     url: result.url,
     sources: result.sources
   });
-  handlers["visibility-session"].formatResult = (result) => ({
+  const formatVisibilitySession = (result) => ({
     ok: result.ok,
     host: result.host,
     port: result.port,
@@ -159,6 +160,8 @@ export function buildCommandHandlers() {
     opened_browser: result.opened_browser,
     artifacts: result.artifacts
   });
+  handlers["mission-control"].formatResult = formatVisibilitySession;
+  handlers["visibility-session"].formatResult = formatVisibilitySession;
   return handlers;
 }
 

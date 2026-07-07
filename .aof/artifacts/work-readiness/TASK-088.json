@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRAXNAA5-XF108L",
+  "recorded_at": "2026-07-07T17:38:28.685Z",
+  "work_item_id": "TASK-088",
+  "work_item_ref": ".aof/tasks/done/TASK-088.json",
+  "readiness_status": "ready",
+  "goal": "Release v7.0.0 as Agent Session Observability with package, docs, manifest, README, audits, tests, smoke, and release notes aligned.",
+  "risk": "Release could overclaim session reconstructability as semantic correctness, or ship with release surface and verification evidence out of sync.",
+  "loss_boundary": "Do not tag v7.0.0 unless session observability, release-state, governance, command surface, focused tests, full tests, and smoke validation are green; do not claim truth beyond reconstructable process evidence.",
+  "acceptance_gates": [
+    "v7.0 release definition, checklist, notes, README, package, project bootstrap, active release manifest, organization contract, roadmap, and release plan are aligned",
+    "session-observability-audit, work-readiness-audit, quality-ledger-audit, release-state-audit, organization-verify, command-routing-audit, cli-help-benchmark, decision-verify, governance audits, focused tests, npm test, and smoke pass"
+  ],
+  "evidence_plan": [
+    "Use docs/v7.0-release-definition.md, docs/v7.0-release-checklist.md, docs/v7.0.0-release-notes.md, session observability audit artifact, focused tests, npm test, and smoke validation as release evidence."
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "product-council",
+  "stop_conditions": [
+    "Stop at release-ready sign-off after all verification gates pass, or defer if any audit/test fails."
+  ],
+  "qif_refs": [
+    ".aof/quality/QIFPKG-AOF-V5-001.json"
+  ],
+  "archmap_impact_expected": "no",
+  "notes": null,
+  "source_task_id": "TASK-088",
+  "source_parent_session_id": "SESS-V70-RELEASE-CLOSURE",
+  "source_decision_record_id": null
+}

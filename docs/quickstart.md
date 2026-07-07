@@ -24,8 +24,8 @@ npm install
 bundled example ではなく別プロジェクトへ AOF を持ち込む場合、現在の canonical acquisition path は GitHub tag から local tool source を取得する方式である。
 
 ```bash
-git clone --branch v6.9.0 https://github.com/ai-org-labs/ai-organization-framework.git ~/.local/share/aof/v6.9.0
-cd ~/.local/share/aof/v6.9.0
+git clone --branch v7.0.0 https://github.com/ai-org-labs/ai-organization-framework.git ~/.local/share/aof/v7.0.0
+cd ~/.local/share/aof/v7.0.0
 npm install
 npm link
 ```
@@ -117,13 +117,19 @@ node ./src/cli.js live-verify \
 
 ## Mission Control Dashboard / Human Recognition Interface
 
-Mission Control Dashboard と Human Recognition Interface の current viewer を local で見たい場合は、まず runtime から visibility packet を生成し、その JSON を `visibility-serve` に渡す。
+Mission Control Dashboard と Human Recognition Interface の current viewer を local で見たい場合は、通常は `mission-control` を使う。これは runtime から current visibility packet を更新し、その packet を viewer に渡して起動する canonical operator entrypoint である。
 
 ```bash
-node ./src/cli.js visibility-export --project .
+node ./src/cli.js mission-control --project . --port 4174 --open-browser
 ```
 
-default では次に生成される:
+これは次をまとめて行う。
+
+- current visibility packet を export する
+- viewer session を起動する
+- `--open-browser` がある場合は browser を自動で開く
+
+default では次の current packet が生成される:
 
 - `.aof/artifacts/visibility/current/status-card.json`
 - `.aof/artifacts/visibility/current/timeline-feed.json`
@@ -144,17 +150,11 @@ node ./src/cli.js operator-brief --project .
 これは `何が起きているか / なぜそうなのか / 何が詰まっているか / 次に何をするか` を 1 packet で返す。  
 current main operator path はこの brief で、viewer は補助面として扱う。
 
-runtime から viewer までを 1 command でつなぐ場合は `visibility-session` を使う。
+既存の低レベル互換入口として `visibility-session` も同じ runtime-to-viewer path を起動できる。
 
 ```bash
 node ./src/cli.js visibility-session --project . --port 4174 --open-browser
 ```
-
-これは次をまとめて行う。
-
-- current visibility packet を export する
-- viewer session を起動する
-- browser を自動で開く
 
 viewer では次を 1 画面にまとめて表示する。
 
@@ -223,4 +223,4 @@ Need / Intent / Context を整えることが目的で、planning / approval の
 - project bootstrap model: [aof-project-bootstrap-model.md](./aof-project-bootstrap-model.md)
 - public runtime readiness: [v6.0-public-runtime-readiness.md](./v6.0-public-runtime-readiness.md)
 - Work Governance examples: [v6.1-work-governance-examples.md](./v6.1-work-governance-examples.md)
-- current release definition: [v6.9-release-definition.md](./v6.9-release-definition.md)
+- current release definition: [v7.0-release-definition.md](./v7.0-release-definition.md)

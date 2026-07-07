@@ -1,19 +1,33 @@
 {
   "ok": true,
   "artifact_type": "session-observability-audit",
-  "generated_at": "2026-07-06T15:15:14.813Z",
+  "generated_at": "2026-07-07T17:57:25.158Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "stream_count": 2,
-    "runtime_ready_stream_count": 2,
+    "stream_count": 4,
+    "runtime_ready_stream_count": 4,
     "failing_check_count": 0
   },
   "streams": [
+    {
+      "session_id": "SESS-V70-MISSION-CONTROL-AUTOSTART",
+      "stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-AUTOSTART.json",
+      "source_task_id": "TASK-087",
+      "event_count": 8,
+      "release_verdict": "runtime_ready"
+    },
     {
       "session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
       "stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
       "source_task_id": "TASK-086",
       "event_count": 8,
+      "release_verdict": "runtime_ready"
+    },
+    {
+      "session_id": "SESS-V70-RELEASE-CLOSURE",
+      "stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json",
+      "source_task_id": "TASK-088",
+      "event_count": 9,
       "release_verdict": "runtime_ready"
     },
     {
@@ -28,7 +42,137 @@
     {
       "name": "agent session stream presence",
       "status": "pass",
-      "detail": "2 stream(s)"
+      "detail": "4 stream(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-AUTOSTART.json"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART test evidence linkage",
+      "status": "pass",
+      "detail": "2 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 3 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type artifact_write",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART tool call safety metadata",
+      "status": "pass",
+      "detail": "tool=situation-assess/task-open/work-readiness-record/command-registry-refresh, safety=safe_local_write, approval=preapproved"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-087.json"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": "docs/quickstart.md"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-session.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": "src/runtime/command-catalog.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/command-registry.json"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": "docs/cli-reference.md"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
     },
     {
       "name": "SESS-V70-MISSION-CONTROL-PROJECTION schema",
@@ -154,6 +298,121 @@
       "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
       "status": "pass",
       "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE test evidence linkage",
+      "status": "pass",
+      "detail": "2 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 3 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE event type artifact_write",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE tool call safety metadata",
+      "status": "pass",
+      "detail": "tool=git status / sed / rg / node, safety=safe_read, approval=preapproved"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-088.json"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.0-release-definition.md"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.0-release-checklist.md"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-088.json"
+    },
+    {
+      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CRP-TASK-088-V70-RELEASE-CLOSURE.json"
     },
     {
       "name": "SESS-V70-SESSION-OBSERVABILITY schema",

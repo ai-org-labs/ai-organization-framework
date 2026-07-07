@@ -1,0 +1,131 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MR9FEK9O-ELGED0",
+  "recorded_at": "2026-07-06T16:20:02.460Z",
+  "session_id": "SESS-V70-MISSION-CONTROL-AUTOSTART",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "ASEV1-MR9FEK9O-LI41JV",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-06T16:20:02.459Z",
+      "summary": "User requested Mission Control to auto-start and show current runtime status.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MR9FEK9O-I6XZFQ",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-06T16:20:02.460Z",
+      "summary": "Ran situation-assess, task-open, work-readiness-record, and command-registry-refresh.",
+      "artifact_refs": [],
+      "tool_name": "situation-assess/task-open/work-readiness-record/command-registry-refresh",
+      "safety_level": "safe_local_write",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV3-MR9FEK9O-LD30I3",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-06T16:20:02.460Z",
+      "summary": "Updated CLI command surface, command registry, quickstart, CLI reference, and runtime tests for mission-control.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV4-MR9FEK9O-G5PK6H",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-06T16:20:02.460Z",
+      "summary": "Targeted runtime-core-2 passed and command-routing/cli-help checks passed; full npm test is expected to pass after TASK-087 is closed because open implementation tasks intentionally change situation state.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV5-MR9FEK9O-IQW96U",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-07-06T16:20:02.460Z",
+      "summary": "Mission Control remains hidden behind low-level visibility-session if registry/docs are not updated.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV6-MR9FEK9O-JTP5XH",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-07-06T16:20:02.460Z",
+      "summary": "Promote mission-control as the canonical operator entrypoint while preserving visibility-session compatibility.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV7-MR9FEK9O-0QCUXQ",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-06T16:20:02.460Z",
+      "summary": "Stop if mission-control cannot reuse visibility-session safely or if tests break existing visibility behavior; neither condition triggered.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV8-MR9FEK9O-2KIHY9",
+      "event_type": "response",
+      "occurred_at": "2026-07-06T16:20:02.460Z",
+      "summary": "Implemented mission-control command as canonical operator entrypoint backed by visibility-session packet refresh and viewer launch.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-087.json"
+    ],
+    "requirement_refs": [
+      "docs/quickstart.md"
+    ],
+      "test_evidence_refs": [
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "src/commands/visibility-session.js",
+      "src/runtime/command-catalog.js",
+      ".aof/command-registry.json"
+    ]
+  },
+  "risk_candidates": [
+    "Mission Control remains hidden behind low-level visibility-session if registry/docs are not updated."
+  ],
+  "decision_candidates": [
+    "Promote mission-control as the canonical operator entrypoint while preserving visibility-session compatibility."
+  ],
+  "release_ready_evidence": {
+    "claim": "Release readiness is not claimed from this session alone.",
+      "evidence_refs": [
+        "docs/cli-reference.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-087",
+  "source_parent_session_id": "SESS-V70-MISSION-CONTROL-AUTOSTART",
+  "source_decision_record_id": null
+}

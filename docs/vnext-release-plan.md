@@ -2,85 +2,78 @@
 
 ## Version
 
-Candidate: `v7.0.0`
+Candidate: `v7.1.0`
 
 ## Release Theme
 
-Agent Session Observability and Runtime Event Stream.
+Context and Reference Integrity.
 
-`v6.9.0` made implementation readiness executable before work starts. The next bottleneck is that AOF can prove final artifacts and release gates, but a human still cannot always reconstruct the live agent session path: prompt, response, tool call, artifact write, council decision, verification, blocker, and stop condition.
+`v7.0.0` made the live agent session path reconstructable as local runtime event evidence. The next bottleneck is that a reconstructable session can still depend on hidden conversation context, stale external references, or undeclared sources that the operator cannot verify.
 
 Human-facing wording:
 
-> v7.0 should let an operator reconstruct what the AI organization actually did, step by step, without reverse-engineering scattered final artifacts.
+> v7.1 should let an operator see which context and references the AI organization relied on, and whether those inputs were declared, current, and reviewable.
 
 More explicit wording:
 
-> AOF should treat session events as canonical runtime evidence: who/what initiated an event, which command/tool ran, which artifact changed, what decision was made, what verification happened, and why the loop stopped.
+> AOF should treat context and external references as explicit runtime dependencies, not invisible conversation residue.
 
 ## Runtime Evidence Basis
 
-- runtime command: `situation-assess --project .`
-- direction task: `TASK-084`
-- direction review: `docs/v7.0-agent-session-observability-direction.md`
-- external signal: GitHub Copilot agent session streaming public preview, 2026-07-02
-- Council review packet: `.aof/artifacts/execution/council-reviews/CRP-TASK-084-SESSION-OBSERVABILITY-DIRECTION.json`
+- runtime basis: `docs/v7.x-roadmap.md`
+- previous release: `v7.0.0`
+- v7.0 evidence: `docs/v7.0-release-definition.md`, `docs/v7.0.0-release-notes.md`
+- current frontier candidate: `v7.1` Context and Reference Integrity
 
 ## Required Outcomes
 
 Required:
 
-- define `session-event-record`
-- define `runtime-event-stream`
-- add a narrow local event writer
-- add `session-observability-audit`
-- require artifact writes, council decisions, verification results, blockers, and stop/defer/reopen outcomes to be reconstructable from session events
-- expose the current event stream in Mission Control / operator surfaces without making the viewer a source of truth
+- define context pack integrity expectations for runtime work
+- define external reference resolution expectations
+- detect stale, missing, or hidden reference dependencies
+- project context/reference blockers into Mission Control
+- connect context/reference evidence to session event streams and Council review
 
 Deferred:
 
-- vendor-specific Copilot API dependency
-- SIEM integration
-- live network streaming
-- semantic correctness scoring
-- full governed parallel actor orchestration
+- semantic validation of every referenced source
+- automated web freshness scoring for all domains
+- external service writes
+- general autonomous workforce execution
 
 ## Release Gates
 
-### Gate 1: Session Event Contract
+### Gate 1: Context Contract
 
-- session event schema exists
-- runtime event stream schema exists
-- event records include actor/source, command/tool, artifact refs, decision refs, and timestamp
-- stop/defer/reopen events can be represented
+- work items can declare required context refs
+- hidden conversation context can be represented as a blocker
+- context refs link to session and Council evidence
 
-### Gate 2: Governance Continuity
+### Gate 2: External Reference Integrity
 
-- Archmap impact audit still passes for `TASK-071` onward
-- review provenance audit still passes for done work at `TASK-071` onward
-- evidence independence audit still passes for done work at `TASK-071` onward
-- quality ledger audit still passes
-- work readiness audit still passes
-- event stream presence remains reconstructability evidence, not proof of truth
+- external refs can declare source, access date, freshness expectation, and usage
+- unresolved or stale refs can fail the audit
+- reference presence is not misrepresented as semantic truth
 
-### Gate 3: Observability Audit
+### Gate 3: Governance Continuity
 
-- `session-observability-audit` fails missing stream refs
-- audit rejects council decisions without preceding evidence events
-- audit rejects artifact writes without producing events
-- audit checks tool-call safety level and approval policy metadata
+- v7.0 session observability audit still passes
+- work readiness, quality ledger, Archmap impact, review provenance, and evidence independence audits still pass
+- Council review can see which refs were actually used
 
 ### Gate 4: Release Surface
 
 - package version is updated to the selected release
 - active release manifest points at selected release docs
-- README and roadmap describe session observability without overclaiming semantic truth
+- README and roadmap describe context/reference integrity without overclaiming semantic truth
 
 ### Gate 5: Verification
 
+- context/reference integrity audit
+- session observability audit
 - quality ledger audit
 - work readiness audit
-- session observability audit
 - command routing audit
 - CLI help benchmark
 - organization verification
@@ -95,12 +88,27 @@ Deferred:
 
 Release only if AOF now makes it harder to confuse:
 
-- final artifacts with live process evidence
-- tool execution with governed tool execution
-- council approval with preceding reviewable evidence
-- an agent session with an auditable session stream
-- reconstructability with semantic correctness
+- declared context with hidden context
+- available references with trusted references
+- stale external references with current evidence
+- event reconstructability with input integrity
+- reference presence with semantic correctness
 
-## Post-v7 Direction Candidate
+## Post-v7.1 Direction
 
-After the event stream exists, the next frontier can return to governed multi-actor orchestration or external provider adapters.
+The v7 line should proceed in this order:
+
+1. `v7.2`: Work Execution Packet
+2. `v7.3`: Governed Multi-Actor Pilot
+3. `v7.4`: Governed Parallel Lanes
+4. `v7.5`: Organization Analytics From Runtime Evidence
+5. `v7.6`: Provider-Neutral Session Export
+6. `v7.7`: Adoption-Grade v7 Runtime
+
+Canonical planning reference:
+
+- `docs/v7.x-roadmap.md`
+
+Do not jump directly from event streams to autonomous workforce claims. The
+runtime must first prove context integrity, bounded execution packets, Council
+join semantics, and evidence-backed analytics.

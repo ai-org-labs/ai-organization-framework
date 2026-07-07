@@ -369,19 +369,27 @@ Provider update note:
 - Archmap `v0.1.1` makes ScreenFlow / Prototype views, shared diagram tags controls, curated samples, export coverage, and stream input APIs available as external capabilities.
 - AOF should adopt those capabilities through governed work items only; the current release claim remains architecture-impact governance and source-of-truth projection, not full Archmap renderer ownership.
 
-### Later Candidate: `v7.0` Governed Multi-Actor Orchestration
+### Selected: `v7.0` Agent Session Observability
 
 Theme:
 
-- move beyond single parent runtime acting sequentially into governed parent/child actor execution where maker/checker/council separation is first-class
+- make AI work reconstructable through canonical session events before scaling
+  orchestration complexity
 
 Why it matters:
 
-- this is closer to the full AI Organization OS promise
+- AOF can already audit many final artifacts, but a human still needs to
+  reconstruct prompt, response, tool call, artifact write, decision,
+  verification, blocker, and stop-condition paths without reverse-engineering
+  scattered files
 
 Boundary:
 
-- do not claim autonomous workforce execution before artifact contracts, budgets, stop conditions, and verification gates exist
+- do not claim reconstructability proves semantic correctness
+- do not add vendor-specific streaming dependencies before local file-backed
+  session evidence is proven
+- do not jump into full multi-actor orchestration until event streams, context
+  integrity, execution packets, and Council join semantics exist
 
 ## Roadmap Rules
 
@@ -425,16 +433,33 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v6.9.0`, choose the next frontier through runtime-backed review before opening implementation work.
+After `v6.9.0`, close `v7.0` as Agent Session Observability before expanding into
+multi-actor runtime. `TASK-085`, `TASK-086`, and `TASK-087` are already
+implementation-grade slices toward that release.
 
 Priority order:
 
-1. `v6.x`: standalone context / external-ref / operational-map audits
-2. `v7.0`: first bounded governed multi-actor orchestration step
-3. `v7.x`: richer organization analytics over actor/council/work readiness outcomes
+1. `v7.0`: Agent Session Observability and Mission Control session projection
+2. `v7.1`: Context and Reference Integrity
+3. `v7.2`: Work Execution Packet
+4. `v7.3`: Governed Multi-Actor Pilot
+5. `v7.4`: Governed Parallel Lanes
+6. `v7.5`: Organization Analytics From Runtime Evidence
+7. `v7.6`: Provider-Neutral Session Export
+8. `v7.7`: Adoption-Grade v7 Runtime
+
+Canonical v7.x roadmap:
+
+- [docs/v7.x-roadmap.md](v7.x-roadmap.md)
 
 Reasoning:
 
-- v6.7 through v6.9 made release governance, quality ledger traceability, and pre-implementation readiness executable.
-- Standalone context / external-ref / operational-map audits are now plausible because readiness records can declare which references matter before work begins.
-- Multi-actor orchestration is closer, but should still be bounded by explicit context/reference gates so parallel work does not scale ambiguity.
+- v6.7 through v6.9 made release governance, quality ledger traceability, and
+  pre-implementation readiness executable.
+- v7.0 makes the live AI work path reconstructable.
+- v7.1 and v7.2 prevent hidden context and unbounded chat continuation from
+  becoming the new source of truth.
+- v7.3 and v7.4 can then add governed multi-actor and parallel execution without
+  scaling ambiguity.
+- v7.5 through v7.7 turn the evidence into analytics, export, and adoption
+  proof without overclaiming semantic truth.

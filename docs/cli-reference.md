@@ -1541,6 +1541,28 @@ node ./src/cli.js visibility-export \
 - `--project <path>`
 - `--artifact-dir <path>`: default `.aof/artifacts/visibility/current`
 
+### `mission-control`
+
+Mission Control の canonical operator entrypoint。current visibility packet を runtime から更新し、その packet を viewer に渡して起動する。
+
+```bash
+node ./src/cli.js mission-control \
+  --project . \
+  --port 4174 \
+  --open-browser
+```
+
+主な option:
+
+- `--project <path>`
+- `--artifact-dir <path>`: optional. `visibility-export` の出力先 override
+- `--host <host>`: default `127.0.0.1`
+- `--port <port>`: default `4174`
+- `--title "<text>"`: viewer title
+- `--open-browser`: browser を自動で開く
+
+この command は `visibility-export` と viewer session 起動を 1 step にまとめる。Mission Control を見たい operator / AI は、manual wiring が必要な場合を除き、この command を使う。
+
 ### `visibility-session`
 
 current visibility packet を export し、viewer session を起動し、必要なら browser まで開く。
