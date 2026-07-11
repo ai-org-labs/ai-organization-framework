@@ -1,11 +1,11 @@
 {
   "ok": true,
   "artifact_type": "session-observability-audit",
-  "generated_at": "2026-07-07T17:57:25.158Z",
+  "generated_at": "2026-07-11T17:19:02.804Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "stream_count": 4,
-    "runtime_ready_stream_count": 4,
+    "stream_count": 5,
+    "runtime_ready_stream_count": 5,
     "failing_check_count": 0
   },
   "streams": [
@@ -36,13 +36,20 @@
       "source_task_id": "TASK-085",
       "event_count": 8,
       "release_verdict": "runtime_ready"
+    },
+    {
+      "session_id": "SESS-V71-CONTEXT-REFERENCE-DESIGN",
+      "stream_ref": ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-DESIGN.json",
+      "source_task_id": "TASK-089",
+      "event_count": 9,
+      "release_verdict": "structurally_ready"
     }
   ],
   "checks": [
     {
       "name": "agent session stream presence",
       "status": "pass",
-      "detail": "4 stream(s)"
+      "detail": "5 stream(s)"
     },
     {
       "name": "SESS-V70-MISSION-CONTROL-AUTOSTART schema",
@@ -538,6 +545,136 @@
       "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
       "status": "pass",
       "detail": "schemas/aof-agent-session-record.schema.json"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-DESIGN.json"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN requirement linkage",
+      "status": "pass",
+      "detail": "2 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN test evidence linkage",
+      "status": "pass",
+      "detail": "4 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN release-ready evidence",
+      "status": "pass",
+      "detail": "structurally_ready, 2 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type artifact_write",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN tool call safety metadata",
+      "status": "pass",
+      "detail": "tool=situation-assess, safety=safe_read, approval=preapproved"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN tool call safety metadata",
+      "status": "pass",
+      "detail": "tool=local-artifact-read, safety=safe_read, approval=preapproved"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-089.json"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.x-roadmap.md"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-089.json"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.1-context-reference-integrity-design.md"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/work-readiness-audit.json"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/archmap-impact-audit.json"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.1-context-reference-integrity-design.md"
+    },
+    {
+      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-089.json"
     }
   ],
   "errors": []

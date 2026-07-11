@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-089",
+  "title": "Design v7.1 Context and Reference Integrity",
+  "description": "Design the v7.1 Context and Reference Integrity release surface: context pack integrity, external reference resolution, hidden-context blockers, Council-visible reference-use evidence, Mission Control projection, and release gates before implementation.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V71-CONTEXT-REFERENCE-DESIGN",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": "v7.1-context-reference-integrity",
+  "created_at": "2026-07-11T17:07:17.383Z",
+  "updated_at": "2026-07-11T17:15:55.507Z",
+  "assigned_at": null,
+  "done_at": "2026-07-11T17:15:55.507Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v7.1 Context and Reference Integrity design. Evidence: docs/v7.1-context-reference-integrity-design.md, work-readiness TASK-089, agent session SESS-V71-CONTEXT-REFERENCE-DESIGN, Council review CRP-TASK-089-V71-DESIGN, Archmap impact TASK-089. Follow-up implementation split into TASK-090 through TASK-094."
+}

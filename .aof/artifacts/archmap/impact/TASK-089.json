@@ -1,0 +1,22 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-089",
+  "work_item_ref": ".aof/tasks/done/TASK-089.json",
+  "work_item_id": "TASK-089",
+  "status": "archmap_unaffected",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "TASK-089 adds a v7.1 design document and runtime evidence only; it does not change the current runtime architecture map, command graph, schema graph, or Mission Control projection yet."
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "defer_reason": null,
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-089.json",
+    ".aof/artifacts/work-readiness/TASK-089.json",
+    "docs/v7.1-context-reference-integrity-design.md"
+  ],
+  "external_refs": [],
+  "recorded_at": "2026-07-11T17:11:00.000Z"
+}

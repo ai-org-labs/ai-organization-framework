@@ -1,0 +1,45 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-11T17:13:24.114Z",
+  "review_packet_id": "CREV-MRGMIG0I-CEXJRX",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "v7.1 Context and Reference Integrity design is approved as the next bounded roadmap step after v7.0.0.",
+  "rationale": "The design reuses existing context-pack, external-ref, work-governance, session observability, and Mission Control surfaces instead of inventing a broad research verifier. It defines a bounded claim, artifacts, audit command, negative coverage, Council gate, release gates, and explicit semantic-truth boundary.",
+  "recommendation": "Proceed to TASK-090 through TASK-094 in order: contract, writers, audit, Mission Control projection, release integration.",
+  "target_audience": "AOF maintainer and release operator",
+  "expected_user_reaction": "Understand what v7.1 will prove, what it will not prove, and why implementation should be split into small runtime-backed tasks.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Add context/reference integrity schemas, writer commands, audit command, Mission Control projection, and release docs in separate tasks."
+  ],
+  "organization_change_recommendations": [
+    "Require Council-visible context/reference integrity evidence before approving implementation-grade work or release sign-off."
+  ],
+  "diagnosis_category": "context-integrity-gap",
+  "diagnosis_confidence": 0.86,
+  "diagnosis_evidence_refs": [
+    "docs/v7.1-context-reference-integrity-design.md"
+  ],
+  "human_override_signal": "User asked to advance the roadmap but design first.",
+  "team_output_refs": [],
+  "role_result_refs": [],
+  "evidence_refs": [
+    "docs/v7.1-context-reference-integrity-design.md",
+    ".aof/artifacts/work-readiness/TASK-089.json",
+    ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-DESIGN.json",
+    ".aof/artifacts/archmap/impact/TASK-089.json"
+  ],
+  "follow_up_task_ids": [
+    "TASK-090",
+    "TASK-091",
+    "TASK-092",
+    "TASK-093",
+    "TASK-094"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-089",
+  "source_parent_session_id": "SESS-V71-CONTEXT-REFERENCE-DESIGN",
+  "source_decision_record_id": null
+}

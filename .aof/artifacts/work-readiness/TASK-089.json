@@ -1,0 +1,31 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRGMEL0A-PKB42Z",
+  "recorded_at": "2026-07-11T17:10:23.962Z",
+  "work_item_id": "TASK-089",
+  "work_item_ref": ".aof/tasks/done/TASK-089.json",
+  "readiness_status": "ready",
+  "goal": "Design v7.1 Context and Reference Integrity before implementation so AOF can prevent hidden conversation context, undeclared sources, and stale external references from reaching Council approval or release sign-off.",
+  "risk": "Without this design, v7.1 could become another broad feature slice instead of a bounded integrity layer over context packs, external references, session observability, and Council-visible evidence.",
+  "loss_boundary": "Do not open v7.1 implementation tasks until the design states the bounded claim, artifacts, audit command, Mission Control projection, Council gate, release gates, and deferred semantic-truth boundary.",
+  "acceptance_gates": [
+    "docs/v7.1-context-reference-integrity-design.md exists and defines context dependency, context pack integrity, external reference integrity, hidden context, context/reference audit checks, release gates, and TASK-090 through TASK-094."
+  ],
+  "evidence_plan": [
+    "Runtime situation-assess recognized TASK-089 as the active frontier; docs/v7.x-roadmap.md and docs/vnext-release-plan.md define v7.1; schemas/aof-context-pack.schema.json, schemas/aof-external-ref.schema.json, and work-governance-benchmark provide existing surfaces; docs/v7.1-context-reference-integrity-design.md records the design."
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop at design sign-off; defer implementation if the design conflicts with Work Governance, session observability, or QIF semantic uncertainty boundaries."
+  ],
+  "qif_refs": [
+    ".aof/quality/QIFPKG-AOF-V5-001.json"
+  ],
+  "archmap_impact_expected": "no",
+  "notes": null,
+  "source_task_id": "TASK-089",
+  "source_parent_session_id": "SESS-V71-CONTEXT-REFERENCE-DESIGN",
+  "source_decision_record_id": null
+}

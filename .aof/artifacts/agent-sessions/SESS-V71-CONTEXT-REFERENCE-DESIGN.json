@@ -1,0 +1,146 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRGMJORQ-3H6G0W",
+  "recorded_at": "2026-07-11T17:14:22.118Z",
+  "session_id": "SESS-V71-CONTEXT-REFERENCE-DESIGN",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "orchestrator-builder",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "ASEV1-MRGMJORQ-D8LB96",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-11T17:14:22.117Z",
+      "summary": "User asked to advance the roadmap and design first.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRGMJORQ-PSZ7PN",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-11T17:14:22.118Z",
+      "summary": "Ran situation-assess and confirmed TASK-089 is the active v7.1 frontier.",
+      "artifact_refs": [],
+      "tool_name": "situation-assess",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV3-MRGMJORQ-G9VEI8",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-11T17:14:22.118Z",
+      "summary": "Read roadmap, release plan, context pack schema, external reference schema, and work-governance benchmark references.",
+      "artifact_refs": [],
+      "tool_name": "local-artifact-read",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV4-MRGMJORQ-V4MGGT",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-11T17:14:22.118Z",
+      "summary": "Wrote v7.1 Context and Reference Integrity design plus work readiness and Archmap impact artifacts.",
+      "artifact_refs": [
+        "docs/v7.1-context-reference-integrity-design.md",
+        ".aof/artifacts/work-readiness/TASK-089.json",
+        ".aof/artifacts/archmap/impact/TASK-089.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV5-MRGMJORQ-B8FUYH",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-07-11T17:14:22.118Z",
+      "summary": "Hidden conversation context, undeclared files, or stale external references can still influence AI work unless v7.1 adds explicit declaration and audit gates.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV6-MRGMJORQ-STGSYV",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-07-11T17:14:22.118Z",
+      "summary": "Proceed with v7.1 as an integrity layer over context packs, external refs, session observability, and Council review; defer broad semantic truth verification.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV7-MRGMJORQ-16WKTO",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-11T17:14:22.118Z",
+      "summary": "work-readiness-audit and archmap-impact-audit passed; session-observability-audit identified missing response and verification_result events, so this stream was corrected before sign-off.",
+      "artifact_refs": [
+          ".aof/artifacts/work-readiness/work-readiness-audit.json",
+          ".aof/artifacts/archmap/archmap-impact-audit.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV8-MRGMJORQ-GUFQ6P",
+      "event_type": "response",
+      "occurred_at": "2026-07-11T17:14:22.118Z",
+      "summary": "Design is ready for Council sign-off, with implementation split into TASK-090 through TASK-094 and v7.1 release readiness not yet claimed.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV9-MRGMJORQ-BL0XEW",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-11T17:14:22.118Z",
+      "summary": "Stop at design sign-off; implementation must be split into TASK-090 through TASK-094.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+        ".aof/tasks/done/TASK-089.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.x-roadmap.md",
+      "docs/vnext-release-plan.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/work-readiness/TASK-089.json",
+      "docs/v7.1-context-reference-integrity-design.md",
+      ".aof/artifacts/work-readiness/work-readiness-audit.json",
+      ".aof/artifacts/archmap/archmap-impact-audit.json"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": []
+  },
+  "risk_candidates": [
+    "Hidden conversation context, undeclared files, or stale external references can still influence AI work unless v7.1 adds explicit declaration and audit gates."
+  ],
+  "decision_candidates": [
+    "v7.1 should implement context-integrity-record, external-reference-integrity-record, and context-reference-integrity-audit before Mission Control projection and release integration."
+  ],
+  "release_ready_evidence": {
+    "claim": "TASK-089 design is structurally ready; v7.1 implementation and release readiness are not yet claimed.",
+    "evidence_refs": [
+      "docs/v7.1-context-reference-integrity-design.md",
+      ".aof/artifacts/work-readiness/TASK-089.json"
+    ],
+    "verdict": "structurally_ready"
+  },
+  "source_task_id": "TASK-089",
+  "source_parent_session_id": "SESS-V71-CONTEXT-REFERENCE-DESIGN",
+  "source_decision_record_id": null
+}

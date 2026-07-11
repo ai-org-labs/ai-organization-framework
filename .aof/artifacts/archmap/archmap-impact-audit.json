@@ -1,0 +1,890 @@
+{
+  "ok": true,
+  "artifact_type": "archmap-impact-audit",
+  "generated_at": "2026-07-11T17:18:23.820Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "cutoff_task_id": "TASK-071",
+  "audited_status_dirs": [
+    "open",
+    "assigned",
+    "done"
+  ],
+  "valid_impact_statuses": [
+    "archmap_update_required",
+    "archmap_unaffected",
+    "archmap_deferred_with_reason"
+  ],
+  "summary": {
+    "scoped_task_count": 19,
+    "impact_record_count": 19,
+    "missing_impact_record_count": 0,
+    "failing_check_count": 0
+  },
+  "tasks": [
+    {
+      "task_id": "TASK-071",
+      "title": "v6.6 frontier: Integrate Archmap into AOF governed development flow",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-071.json"
+    },
+    {
+      "task_id": "TASK-072",
+      "title": "v6.7 frontier: archmap-impact-audit machine verification",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-072.json"
+    },
+    {
+      "task_id": "TASK-073",
+      "title": "v6.7 frontier: review provenance audit",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-073.json"
+    },
+    {
+      "task_id": "TASK-074",
+      "title": "v6.7 frontier: evidence independence audit",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-074.json"
+    },
+    {
+      "task_id": "TASK-075",
+      "title": "v6.7 frontier: integrate governance audits into release sign-off",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-075.json"
+    },
+    {
+      "task_id": "TASK-076",
+      "title": "v6.7 release closure: ship Verifiable Governance",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-076.json"
+    },
+    {
+      "task_id": "TASK-077",
+      "title": "v6.8 direction selection: Executable Quality Ledger",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-077.json"
+    },
+    {
+      "task_id": "TASK-078",
+      "title": "v6.8 frontier: executable quality ledger foundation",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-078.json"
+    },
+    {
+      "task_id": "TASK-079",
+      "title": "v6.8 release closure: ship Executable Quality Ledger",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-079.json"
+    },
+    {
+      "task_id": "TASK-080",
+      "title": "Update Archmap provider baseline to v0.1.1",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-080.json"
+    },
+    {
+      "task_id": "TASK-081",
+      "title": "v6.9 direction selection: Executable Pre-Implementation Quality Gates",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-081.json"
+    },
+    {
+      "task_id": "TASK-082",
+      "title": "v6.9 frontier: executable work readiness gate",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-082.json"
+    },
+    {
+      "task_id": "TASK-083",
+      "title": "v6.9 release closure: ship Executable Pre-Implementation Quality Gates",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-083.json"
+    },
+    {
+      "task_id": "TASK-084",
+      "title": "Post-v6.9 direction: agent session streaming evidence",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-084.json"
+    },
+    {
+      "task_id": "TASK-085",
+      "title": "v7.0 frontier: agent session event stream",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-085.json"
+    },
+    {
+      "task_id": "TASK-086",
+      "title": "v7.0 frontier: persistent Mission Control session and organization view",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-086.json"
+    },
+    {
+      "task_id": "TASK-087",
+      "title": "Add Mission Control auto-start operator entrypoint",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-087.json"
+    },
+    {
+      "task_id": "TASK-088",
+      "title": "Release v7.0 Agent Session Observability",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-088.json"
+    },
+    {
+      "task_id": "TASK-089",
+      "title": "Design v7.1 Context and Reference Integrity",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-089.json"
+    }
+  ],
+  "impact_records": [
+    {
+      "task_id": "TASK-071",
+      "task_ref": ".aof/tasks/done/TASK-071.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-071.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-072",
+      "task_ref": ".aof/tasks/done/TASK-072.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-072.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-073",
+      "task_ref": ".aof/tasks/done/TASK-073.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-073.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-074",
+      "task_ref": ".aof/tasks/done/TASK-074.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-074.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-075",
+      "task_ref": ".aof/tasks/done/TASK-075.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-075.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-076",
+      "task_ref": ".aof/tasks/done/TASK-076.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-076.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-077",
+      "task_ref": ".aof/tasks/done/TASK-077.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-077.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-078",
+      "task_ref": ".aof/tasks/done/TASK-078.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-078.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-079",
+      "task_ref": ".aof/tasks/done/TASK-079.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-079.json",
+      "status": "archmap_unaffected",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-080",
+      "task_ref": ".aof/tasks/done/TASK-080.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-080.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-081",
+      "task_ref": ".aof/tasks/done/TASK-081.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-081.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-082",
+      "task_ref": ".aof/tasks/done/TASK-082.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-082.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-083",
+      "task_ref": ".aof/tasks/done/TASK-083.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-083.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-084",
+      "task_ref": ".aof/tasks/done/TASK-084.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-084.json",
+      "status": "archmap_deferred_with_reason",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-085",
+      "task_ref": ".aof/tasks/done/TASK-085.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-085.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-086",
+      "task_ref": ".aof/tasks/done/TASK-086.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-086.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-087",
+      "task_ref": ".aof/tasks/done/TASK-087.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-087.json",
+      "status": "archmap_update_required",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-088",
+      "task_ref": ".aof/tasks/done/TASK-088.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-088.json",
+      "status": "archmap_unaffected",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-089",
+      "task_ref": ".aof/tasks/done/TASK-089.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-089.json",
+      "status": "archmap_unaffected",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    }
+  ],
+  "checks": [
+    {
+      "name": "scoped task discovery",
+      "status": "pass",
+      "detail": "19 task(s) at or after TASK-071 in open, assigned, done"
+    },
+    {
+      "name": "TASK-071 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-071.json"
+    },
+    {
+      "name": "TASK-071 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-071, expected=TASK-071"
+    },
+    {
+      "name": "TASK-071 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-071 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-071 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-071.json"
+    },
+    {
+      "name": "TASK-071 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-072 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-072.json"
+    },
+    {
+      "name": "TASK-072 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-072, expected=TASK-072"
+    },
+    {
+      "name": "TASK-072 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-072 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-072 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-072.json"
+    },
+    {
+      "name": "TASK-072 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-073 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-073.json"
+    },
+    {
+      "name": "TASK-073 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-073, expected=TASK-073"
+    },
+    {
+      "name": "TASK-073 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-073 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-073 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-073.json"
+    },
+    {
+      "name": "TASK-073 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-074 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-074.json"
+    },
+    {
+      "name": "TASK-074 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-074, expected=TASK-074"
+    },
+    {
+      "name": "TASK-074 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-074 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-074 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-074.json"
+    },
+    {
+      "name": "TASK-074 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-075 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-075.json"
+    },
+    {
+      "name": "TASK-075 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-075, expected=TASK-075"
+    },
+    {
+      "name": "TASK-075 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-075 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-075 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-075.json"
+    },
+    {
+      "name": "TASK-075 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-076 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-076.json"
+    },
+    {
+      "name": "TASK-076 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-076, expected=TASK-076"
+    },
+    {
+      "name": "TASK-076 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-076 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-076 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-076.json"
+    },
+    {
+      "name": "TASK-076 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-077 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-077.json"
+    },
+    {
+      "name": "TASK-077 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-077, expected=TASK-077"
+    },
+    {
+      "name": "TASK-077 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-077 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-077 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-077.json"
+    },
+    {
+      "name": "TASK-077 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-078 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-078.json"
+    },
+    {
+      "name": "TASK-078 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-078, expected=TASK-078"
+    },
+    {
+      "name": "TASK-078 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-078 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-078 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-078.json"
+    },
+    {
+      "name": "TASK-078 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-079 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-079.json"
+    },
+    {
+      "name": "TASK-079 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-079, expected=TASK-079"
+    },
+    {
+      "name": "TASK-079 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_unaffected"
+    },
+    {
+      "name": "TASK-079 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-079 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-079.json"
+    },
+    {
+      "name": "TASK-079 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-080 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-080.json"
+    },
+    {
+      "name": "TASK-080 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-080, expected=TASK-080"
+    },
+    {
+      "name": "TASK-080 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-080 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-080 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-080.json"
+    },
+    {
+      "name": "TASK-080 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-081 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-081.json"
+    },
+    {
+      "name": "TASK-081 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-081, expected=TASK-081"
+    },
+    {
+      "name": "TASK-081 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-081 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-081 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-081.json"
+    },
+    {
+      "name": "TASK-081 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-082 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-082.json"
+    },
+    {
+      "name": "TASK-082 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-082, expected=TASK-082"
+    },
+    {
+      "name": "TASK-082 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-082 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-082 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-082.json"
+    },
+    {
+      "name": "TASK-082 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-083 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-083.json"
+    },
+    {
+      "name": "TASK-083 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-083, expected=TASK-083"
+    },
+    {
+      "name": "TASK-083 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-083 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-083 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-083.json"
+    },
+    {
+      "name": "TASK-083 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-084 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-084.json"
+    },
+    {
+      "name": "TASK-084 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-084, expected=TASK-084"
+    },
+    {
+      "name": "TASK-084 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_deferred_with_reason"
+    },
+    {
+      "name": "TASK-084 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-084 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-084.json"
+    },
+    {
+      "name": "TASK-084 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-085 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-085.json"
+    },
+    {
+      "name": "TASK-085 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-085, expected=TASK-085"
+    },
+    {
+      "name": "TASK-085 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-085 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-085 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-085.json"
+    },
+    {
+      "name": "TASK-085 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-086 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-086.json"
+    },
+    {
+      "name": "TASK-086 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-086, expected=TASK-086"
+    },
+    {
+      "name": "TASK-086 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-086 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-086 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-086.json"
+    },
+    {
+      "name": "TASK-086 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-087 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-087.json"
+    },
+    {
+      "name": "TASK-087 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-087, expected=TASK-087"
+    },
+    {
+      "name": "TASK-087 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_update_required"
+    },
+    {
+      "name": "TASK-087 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-087 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-087.json"
+    },
+    {
+      "name": "TASK-087 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-088 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-088.json"
+    },
+    {
+      "name": "TASK-088 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-088, expected=TASK-088"
+    },
+    {
+      "name": "TASK-088 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_unaffected"
+    },
+    {
+      "name": "TASK-088 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-088 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-088.json"
+    },
+    {
+      "name": "TASK-088 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-089 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-089.json"
+    },
+    {
+      "name": "TASK-089 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-089, expected=TASK-089"
+    },
+    {
+      "name": "TASK-089 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_unaffected"
+    },
+    {
+      "name": "TASK-089 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-089 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-089.json"
+    },
+    {
+      "name": "TASK-089 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,719 @@
+{
+  "ok": true,
+  "artifact_type": "work-readiness-audit",
+  "generated_at": "2026-07-11T17:18:24.006Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "cutoff_task_id": "TASK-082",
+  "audited_status_dirs": [
+    "open",
+    "assigned",
+    "done"
+  ],
+  "summary": {
+    "scoped_task_count": 8,
+    "readiness_record_count": 8,
+    "ready_record_count": 8,
+    "missing_readiness_record_count": 0,
+    "failing_check_count": 0
+  },
+  "tasks": [
+    {
+      "task_id": "TASK-082",
+      "title": "v6.9 frontier: executable work readiness gate",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-082.json"
+    },
+    {
+      "task_id": "TASK-083",
+      "title": "v6.9 release closure: ship Executable Pre-Implementation Quality Gates",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-083.json"
+    },
+    {
+      "task_id": "TASK-084",
+      "title": "Post-v6.9 direction: agent session streaming evidence",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-084.json"
+    },
+    {
+      "task_id": "TASK-085",
+      "title": "v7.0 frontier: agent session event stream",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-085.json"
+    },
+    {
+      "task_id": "TASK-086",
+      "title": "v7.0 frontier: persistent Mission Control session and organization view",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-086.json"
+    },
+    {
+      "task_id": "TASK-087",
+      "title": "Add Mission Control auto-start operator entrypoint",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-087.json"
+    },
+    {
+      "task_id": "TASK-088",
+      "title": "Release v7.0 Agent Session Observability",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-088.json"
+    },
+    {
+      "task_id": "TASK-089",
+      "title": "Design v7.1 Context and Reference Integrity",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-089.json"
+    }
+  ],
+  "readiness_records": [
+    {
+      "task_id": "TASK-082",
+      "task_ref": ".aof/tasks/done/TASK-082.json",
+      "readiness_ref": ".aof/artifacts/work-readiness/TASK-082.json",
+      "readiness_status": "ready",
+      "acceptance_gate_count": 3,
+      "evidence_plan_count": 1,
+      "stop_condition_count": 2
+    },
+    {
+      "task_id": "TASK-083",
+      "task_ref": ".aof/tasks/done/TASK-083.json",
+      "readiness_ref": ".aof/artifacts/work-readiness/TASK-083.json",
+      "readiness_status": "ready",
+      "acceptance_gate_count": 3,
+      "evidence_plan_count": 1,
+      "stop_condition_count": 2
+    },
+    {
+      "task_id": "TASK-084",
+      "task_ref": ".aof/tasks/done/TASK-084.json",
+      "readiness_ref": ".aof/artifacts/work-readiness/TASK-084.json",
+      "readiness_status": "ready",
+      "acceptance_gate_count": 3,
+      "evidence_plan_count": 1,
+      "stop_condition_count": 1
+    },
+    {
+      "task_id": "TASK-085",
+      "task_ref": ".aof/tasks/done/TASK-085.json",
+      "readiness_ref": ".aof/artifacts/work-readiness/TASK-085.json",
+      "readiness_status": "ready",
+      "acceptance_gate_count": 5,
+      "evidence_plan_count": 1,
+      "stop_condition_count": 1
+    },
+    {
+      "task_id": "TASK-086",
+      "task_ref": ".aof/tasks/done/TASK-086.json",
+      "readiness_ref": ".aof/artifacts/work-readiness/TASK-086.json",
+      "readiness_status": "ready",
+      "acceptance_gate_count": 5,
+      "evidence_plan_count": 1,
+      "stop_condition_count": 1
+    },
+    {
+      "task_id": "TASK-087",
+      "task_ref": ".aof/tasks/done/TASK-087.json",
+      "readiness_ref": ".aof/artifacts/work-readiness/TASK-087.json",
+      "readiness_status": "ready",
+      "acceptance_gate_count": 3,
+      "evidence_plan_count": 1,
+      "stop_condition_count": 2
+    },
+    {
+      "task_id": "TASK-088",
+      "task_ref": ".aof/tasks/done/TASK-088.json",
+      "readiness_ref": ".aof/artifacts/work-readiness/TASK-088.json",
+      "readiness_status": "ready",
+      "acceptance_gate_count": 2,
+      "evidence_plan_count": 1,
+      "stop_condition_count": 1
+    },
+    {
+      "task_id": "TASK-089",
+      "task_ref": ".aof/tasks/done/TASK-089.json",
+      "readiness_ref": ".aof/artifacts/work-readiness/TASK-089.json",
+      "readiness_status": "ready",
+      "acceptance_gate_count": 1,
+      "evidence_plan_count": 1,
+      "stop_condition_count": 1
+    }
+  ],
+  "checks": [
+    {
+      "name": "scoped task discovery",
+      "status": "pass",
+      "detail": "8 task(s) at or after TASK-082 in open, assigned, done"
+    },
+    {
+      "name": "TASK-082 work readiness record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-082.json"
+    },
+    {
+      "name": "TASK-082 readiness schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-082.json"
+    },
+    {
+      "name": "TASK-082 readiness links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-082, expected=TASK-082"
+    },
+    {
+      "name": "TASK-082 readiness is ready",
+      "status": "pass",
+      "detail": "readiness_status=ready"
+    },
+    {
+      "name": "TASK-082 goal present",
+      "status": "pass",
+      "detail": "Implement executable pre-implementation gates so work cannot be called ready without expected outcome, risk, evidence, and stop criteria."
+    },
+    {
+      "name": "TASK-082 risk present",
+      "status": "pass",
+      "detail": "AOF starts implementation and later invents success criteria, making audits technically green but human expectations opaque."
+    },
+    {
+      "name": "TASK-082 loss boundary present",
+      "status": "pass",
+      "detail": "No implementation-ready claim is acceptable without goal, risk, loss boundary, acceptance gates, evidence plan, maker/checker separation, and stop conditions."
+    },
+    {
+      "name": "TASK-082 acceptance gates present",
+      "status": "pass",
+      "detail": "3 acceptance gate(s)"
+    },
+    {
+      "name": "TASK-082 evidence plan present",
+      "status": "pass",
+      "detail": "1 evidence plan item(s)"
+    },
+    {
+      "name": "TASK-082 maker/checker separation",
+      "status": "pass",
+      "detail": "maker=builder, checker=guardian"
+    },
+    {
+      "name": "TASK-082 stop conditions present",
+      "status": "pass",
+      "detail": "2 stop condition(s)"
+    },
+    {
+      "name": "TASK-082 QIF refs present",
+      "status": "pass",
+      "detail": "1 QIF ref(s)"
+    },
+    {
+      "name": "TASK-082 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-082.json"
+    },
+    {
+      "name": "TASK-082 readiness ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-quality-definition.md"
+    },
+    {
+      "name": "TASK-083 work readiness record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-083.json"
+    },
+    {
+      "name": "TASK-083 readiness schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-083.json"
+    },
+    {
+      "name": "TASK-083 readiness links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-083, expected=TASK-083"
+    },
+    {
+      "name": "TASK-083 readiness is ready",
+      "status": "pass",
+      "detail": "readiness_status=ready"
+    },
+    {
+      "name": "TASK-083 goal present",
+      "status": "pass",
+      "detail": "Close v6.9.0 only after readiness, governance, release-state, command-surface, full test, and smoke evidence are green."
+    },
+    {
+      "name": "TASK-083 risk present",
+      "status": "pass",
+      "detail": "A release can be tagged because files exist even when the new readiness gate is not actually enforced by release-state audit."
+    },
+    {
+      "name": "TASK-083 loss boundary present",
+      "status": "pass",
+      "detail": "Do not claim v6.9 release-ready unless work-readiness-audit and release-state-audit both include the new gate and pass."
+    },
+    {
+      "name": "TASK-083 acceptance gates present",
+      "status": "pass",
+      "detail": "3 acceptance gate(s)"
+    },
+    {
+      "name": "TASK-083 evidence plan present",
+      "status": "pass",
+      "detail": "1 evidence plan item(s)"
+    },
+    {
+      "name": "TASK-083 maker/checker separation",
+      "status": "pass",
+      "detail": "maker=builder, checker=guardian"
+    },
+    {
+      "name": "TASK-083 stop conditions present",
+      "status": "pass",
+      "detail": "2 stop condition(s)"
+    },
+    {
+      "name": "TASK-083 QIF refs present",
+      "status": "pass",
+      "detail": "1 QIF ref(s)"
+    },
+    {
+      "name": "TASK-083 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-083.json"
+    },
+    {
+      "name": "TASK-083 readiness ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-quality-definition.md"
+    },
+    {
+      "name": "TASK-084 work readiness record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-084.json"
+    },
+    {
+      "name": "TASK-084 readiness schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-084.json"
+    },
+    {
+      "name": "TASK-084 readiness links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-084, expected=TASK-084"
+    },
+    {
+      "name": "TASK-084 readiness is ready",
+      "status": "pass",
+      "detail": "readiness_status=ready"
+    },
+    {
+      "name": "TASK-084 goal present",
+      "status": "pass",
+      "detail": "Decide whether GitHub Copilot agent session streaming implies a necessary AOF post-v6.9 direction."
+    },
+    {
+      "name": "TASK-084 risk present",
+      "status": "pass",
+      "detail": "AOF may keep claiming runtime-backed work while humans still cannot reconstruct live prompts, responses, tool calls, artifact writes, decisions, verification, and stop events."
+    },
+    {
+      "name": "TASK-084 loss boundary present",
+      "status": "pass",
+      "detail": "Do not open v7 implementation work until the direction is bounded to local vendor-neutral session observability rather than Copilot-specific integration."
+    },
+    {
+      "name": "TASK-084 acceptance gates present",
+      "status": "pass",
+      "detail": "3 acceptance gate(s)"
+    },
+    {
+      "name": "TASK-084 evidence plan present",
+      "status": "pass",
+      "detail": "1 evidence plan item(s)"
+    },
+    {
+      "name": "TASK-084 maker/checker separation",
+      "status": "pass",
+      "detail": "maker=builder, checker=guardian"
+    },
+    {
+      "name": "TASK-084 stop conditions present",
+      "status": "pass",
+      "detail": "1 stop condition(s)"
+    },
+    {
+      "name": "TASK-084 QIF refs present",
+      "status": "pass",
+      "detail": "1 QIF ref(s)"
+    },
+    {
+      "name": "TASK-084 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-084.json"
+    },
+    {
+      "name": "TASK-084 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/QIFPKG-AOF-V5-001.json"
+    },
+    {
+      "name": "TASK-085 work readiness record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-085.json"
+    },
+    {
+      "name": "TASK-085 readiness schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-085.json"
+    },
+    {
+      "name": "TASK-085 readiness links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-085, expected=TASK-085"
+    },
+    {
+      "name": "TASK-085 readiness is ready",
+      "status": "pass",
+      "detail": "readiness_status=ready"
+    },
+    {
+      "name": "TASK-085 goal present",
+      "status": "pass",
+      "detail": "Implement the first local Agent Session Observability contract and audit surface."
+    },
+    {
+      "name": "TASK-085 risk present",
+      "status": "pass",
+      "detail": "AOF may keep final artifacts auditable while the live AI work path remains unreconstructable by humans and release reviewers."
+    },
+    {
+      "name": "TASK-085 loss boundary present",
+      "status": "pass",
+      "detail": "Do not claim v7.0 session observability unless AI work can link to task, requirement, test evidence, risk candidate, decision candidate, and release-ready evidence."
+    },
+    {
+      "name": "TASK-085 acceptance gates present",
+      "status": "pass",
+      "detail": "5 acceptance gate(s)"
+    },
+    {
+      "name": "TASK-085 evidence plan present",
+      "status": "pass",
+      "detail": "1 evidence plan item(s)"
+    },
+    {
+      "name": "TASK-085 maker/checker separation",
+      "status": "pass",
+      "detail": "maker=builder, checker=guardian"
+    },
+    {
+      "name": "TASK-085 stop conditions present",
+      "status": "pass",
+      "detail": "1 stop condition(s)"
+    },
+    {
+      "name": "TASK-085 QIF refs present",
+      "status": "pass",
+      "detail": "1 QIF ref(s)"
+    },
+    {
+      "name": "TASK-085 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-085.json"
+    },
+    {
+      "name": "TASK-085 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/QIFPKG-AOF-V5-001.json"
+    },
+    {
+      "name": "TASK-086 work readiness record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-086.json"
+    },
+    {
+      "name": "TASK-086 readiness schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-086.json"
+    },
+    {
+      "name": "TASK-086 readiness links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-086, expected=TASK-086"
+    },
+    {
+      "name": "TASK-086 readiness is ready",
+      "status": "pass",
+      "detail": "readiness_status=ready"
+    },
+    {
+      "name": "TASK-086 goal present",
+      "status": "pass",
+      "detail": "Persistently project current organization state and agent session observability into Mission Control."
+    },
+    {
+      "name": "TASK-086 risk present",
+      "status": "pass",
+      "detail": "AOF may show transient runtime activity while humans still cannot see the stable organization/session state after execution."
+    },
+    {
+      "name": "TASK-086 loss boundary present",
+      "status": "pass",
+      "detail": "Do not claim Mission Control projection is useful unless councils, teams, roles, latest session stream, audit status, archmap impact, and next action remain visible from canonical artifacts after execution."
+    },
+    {
+      "name": "TASK-086 acceptance gates present",
+      "status": "pass",
+      "detail": "5 acceptance gate(s)"
+    },
+    {
+      "name": "TASK-086 evidence plan present",
+      "status": "pass",
+      "detail": "1 evidence plan item(s)"
+    },
+    {
+      "name": "TASK-086 maker/checker separation",
+      "status": "pass",
+      "detail": "maker=builder, checker=guardian"
+    },
+    {
+      "name": "TASK-086 stop conditions present",
+      "status": "pass",
+      "detail": "1 stop condition(s)"
+    },
+    {
+      "name": "TASK-086 QIF refs present",
+      "status": "pass",
+      "detail": "1 QIF ref(s)"
+    },
+    {
+      "name": "TASK-086 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-086.json"
+    },
+    {
+      "name": "TASK-086 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/QIFPKG-AOF-V5-001.json"
+    },
+    {
+      "name": "TASK-087 work readiness record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-087.json"
+    },
+    {
+      "name": "TASK-087 readiness schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-087.json"
+    },
+    {
+      "name": "TASK-087 readiness links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-087, expected=TASK-087"
+    },
+    {
+      "name": "TASK-087 readiness is ready",
+      "status": "pass",
+      "detail": "readiness_status=ready"
+    },
+    {
+      "name": "TASK-087 goal present",
+      "status": "pass",
+      "detail": "Mission Control can be started from one canonical operator command that refreshes current runtime visibility artifacts before serving the viewer."
+    },
+    {
+      "name": "TASK-087 risk present",
+      "status": "pass",
+      "detail": "Operators and AI keep treating Mission Control as a manual wiring step, so status visibility does not appear during runtime operation."
+    },
+    {
+      "name": "TASK-087 loss boundary present",
+      "status": "pass",
+      "detail": "Do not claim Mission Control auto-start unless a first-class CLI command updates packet artifacts and launches a viewer session path with test coverage."
+    },
+    {
+      "name": "TASK-087 acceptance gates present",
+      "status": "pass",
+      "detail": "3 acceptance gate(s)"
+    },
+    {
+      "name": "TASK-087 evidence plan present",
+      "status": "pass",
+      "detail": "1 evidence plan item(s)"
+    },
+    {
+      "name": "TASK-087 maker/checker separation",
+      "status": "pass",
+      "detail": "maker=builder, checker=guardian"
+    },
+    {
+      "name": "TASK-087 stop conditions present",
+      "status": "pass",
+      "detail": "2 stop condition(s)"
+    },
+    {
+      "name": "TASK-087 QIF refs present",
+      "status": "pass",
+      "detail": "1 QIF ref(s)"
+    },
+    {
+      "name": "TASK-087 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-087.json"
+    },
+    {
+      "name": "TASK-087 readiness ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-quality-definition.md"
+    },
+    {
+      "name": "TASK-088 work readiness record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-088.json"
+    },
+    {
+      "name": "TASK-088 readiness schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-088.json"
+    },
+    {
+      "name": "TASK-088 readiness links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-088, expected=TASK-088"
+    },
+    {
+      "name": "TASK-088 readiness is ready",
+      "status": "pass",
+      "detail": "readiness_status=ready"
+    },
+    {
+      "name": "TASK-088 goal present",
+      "status": "pass",
+      "detail": "Release v7.0.0 as Agent Session Observability with package, docs, manifest, README, audits, tests, smoke, and release notes aligned."
+    },
+    {
+      "name": "TASK-088 risk present",
+      "status": "pass",
+      "detail": "Release could overclaim session reconstructability as semantic correctness, or ship with release surface and verification evidence out of sync."
+    },
+    {
+      "name": "TASK-088 loss boundary present",
+      "status": "pass",
+      "detail": "Do not tag v7.0.0 unless session observability, release-state, governance, command surface, focused tests, full tests, and smoke validation are green; do not claim truth beyond reconstructable process evidence."
+    },
+    {
+      "name": "TASK-088 acceptance gates present",
+      "status": "pass",
+      "detail": "2 acceptance gate(s)"
+    },
+    {
+      "name": "TASK-088 evidence plan present",
+      "status": "pass",
+      "detail": "1 evidence plan item(s)"
+    },
+    {
+      "name": "TASK-088 maker/checker separation",
+      "status": "pass",
+      "detail": "maker=builder, checker=guardian"
+    },
+    {
+      "name": "TASK-088 stop conditions present",
+      "status": "pass",
+      "detail": "1 stop condition(s)"
+    },
+    {
+      "name": "TASK-088 QIF refs present",
+      "status": "pass",
+      "detail": "1 QIF ref(s)"
+    },
+    {
+      "name": "TASK-088 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-088.json"
+    },
+    {
+      "name": "TASK-088 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/QIFPKG-AOF-V5-001.json"
+    },
+    {
+      "name": "TASK-089 work readiness record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-089.json"
+    },
+    {
+      "name": "TASK-089 readiness schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-089.json"
+    },
+    {
+      "name": "TASK-089 readiness links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-089, expected=TASK-089"
+    },
+    {
+      "name": "TASK-089 readiness is ready",
+      "status": "pass",
+      "detail": "readiness_status=ready"
+    },
+    {
+      "name": "TASK-089 goal present",
+      "status": "pass",
+      "detail": "Design v7.1 Context and Reference Integrity before implementation so AOF can prevent hidden conversation context, undeclared sources, and stale external references from reaching Council approval or release sign-off."
+    },
+    {
+      "name": "TASK-089 risk present",
+      "status": "pass",
+      "detail": "Without this design, v7.1 could become another broad feature slice instead of a bounded integrity layer over context packs, external references, session observability, and Council-visible evidence."
+    },
+    {
+      "name": "TASK-089 loss boundary present",
+      "status": "pass",
+      "detail": "Do not open v7.1 implementation tasks until the design states the bounded claim, artifacts, audit command, Mission Control projection, Council gate, release gates, and deferred semantic-truth boundary."
+    },
+    {
+      "name": "TASK-089 acceptance gates present",
+      "status": "pass",
+      "detail": "1 acceptance gate(s)"
+    },
+    {
+      "name": "TASK-089 evidence plan present",
+      "status": "pass",
+      "detail": "1 evidence plan item(s)"
+    },
+    {
+      "name": "TASK-089 maker/checker separation",
+      "status": "pass",
+      "detail": "maker=builder, checker=guardian"
+    },
+    {
+      "name": "TASK-089 stop conditions present",
+      "status": "pass",
+      "detail": "1 stop condition(s)"
+    },
+    {
+      "name": "TASK-089 QIF refs present",
+      "status": "pass",
+      "detail": "1 QIF ref(s)"
+    },
+    {
+      "name": "TASK-089 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-089.json"
+    },
+    {
+      "name": "TASK-089 readiness ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/QIFPKG-AOF-V5-001.json"
+    }
+  ],
+  "errors": []
+}
