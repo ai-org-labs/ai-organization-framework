@@ -101,7 +101,7 @@ The v7 line should proceed in this order:
 1. `v7.2`: Work Execution Packet
 2. `v7.3`: Governed Multi-Actor Pilot
 3. `v7.4`: Governed Parallel Lanes
-4. `v7.5`: Organization Analytics From Runtime Evidence
+4. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
 5. `v7.6`: Provider-Neutral Session Export
 6. `v7.7`: Adoption-Grade v7 Runtime
 
@@ -111,4 +111,34 @@ Canonical planning reference:
 
 Do not jump directly from event streams to autonomous workforce claims. The
 runtime must first prove context integrity, bounded execution packets, Council
-join semantics, and evidence-backed analytics.
+join semantics, requirement-linked coverage/forecasting, and evidence-backed
+analytics.
+
+## Requirement Coverage Direction
+
+The post-v7.1 roadmap must treat Mission Control as more than a status viewer.
+It should eventually show:
+
+- requirement coverage
+- requirement-linked task completion rate
+- blocked / at-risk / unstarted requirement signals
+- completion forecast
+- token or cost forecast
+- burn-down chart data
+
+This requires AOF to extract and maintain requirements before analytics can be
+credible:
+
+- raw need / validated need
+- project charter objective
+- functional requirements
+- non-functional requirements
+- QIF quality intents
+- acceptance gates
+- evidence refs
+- verdict boundary
+
+QIF should be used for the quality definition side: quality intent, risk, loss
+boundary, acceptance gates, evidence, confidence, uncertainty, and governance
+trigger. AOF should not claim that requirement-linked tasks are "satisfied"
+merely because task files are done.
