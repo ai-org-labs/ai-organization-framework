@@ -31,6 +31,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails done tasks whose review evidence has no independent evidence category after the cutoff task.",
     verdict_boundary: "Evidence-independence structure only; not proof that the evidence proves semantic truth."
   },
+  "context-reference-integrity-audit": {
+    quality_intent: "Work and release claims disclose the context and external references they depended on.",
+    risk: "AOF answers look correct while relying on stale, hidden, unavailable, or unreviewed context.",
+    loss_boundary: "Do not claim release readiness when implementation-grade work lacks context integrity records, unresolved required refs, external reference freshness evidence, or explicit not-proven boundaries.",
+    evidence_refs: ["context integrity records", "external reference integrity records", "context packs", "agent session records"],
+    acceptance_gate: "Audit fails missing context records, unresolved required refs, stale/unavailable external refs without accepted residual risk, blocked context, or absent not-proven boundaries.",
+    verdict_boundary: "Context/reference integrity evidence only; not proof that the referenced material is semantically correct."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

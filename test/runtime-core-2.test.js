@@ -17,6 +17,8 @@ import { commandRegisterCommand } from "../src/commands/command-register.js";
 import { commandRegistryRefreshCommand } from "../src/commands/command-registry-refresh.js";
 import { commandRoutingAuditCommand } from "../src/commands/command-routing-audit.js";
 import { confirmationWindowRecordCommand } from "../src/commands/confirmation-window-record.js";
+import { contextIntegrityRecordCommand } from "../src/commands/context-integrity-record.js";
+import { contextReferenceIntegrityAuditCommand } from "../src/commands/context-reference-integrity-audit.js";
 import { councilReviewPacketCommand } from "../src/commands/council-review-packet.js";
 import { decisionRegisterCommand } from "../src/commands/decision-register.js";
 import { discoveryHandoffBenchmarkCommand } from "../src/commands/discovery-handoff-benchmark.js";
@@ -25,6 +27,7 @@ import { discoveryHandoffRecordCommand } from "../src/commands/discovery-handoff
 import { discoveryQuestionSetRecordCommand } from "../src/commands/discovery-question-set-record.js";
 import { evidenceIndependenceAuditCommand } from "../src/commands/evidence-independence-audit.js";
 import { executionLineageCommand } from "../src/commands/execution-lineage.js";
+import { externalReferenceIntegrityRecordCommand } from "../src/commands/external-reference-integrity-record.js";
 import { initProjectCommand } from "../src/commands/init-project.js";
 import { learningLoopSnapshotCommand } from "../src/commands/learning-loop-snapshot.js";
 import { missionControlBenchmarkCommand } from "../src/commands/mission-control-benchmark.js";
@@ -440,6 +443,200 @@ test("sessionObservabilityAuditCommand fails weak streams and passes complete re
   const passing = await sessionObservabilityAuditCommand({ project: projectRoot });
   assert.equal(passing.ok, true);
   assert.equal(passing.summary.summary.stream_count, 1);
+});
+
+test("context integrity schemas require explicit not-proven and reference status boundaries", async () => {
+  const contextPayload = {
+    artifact_type: "context-integrity-record",
+    record_id: "CIR-TASK-090",
+    recorded_at: "2026-07-12T00:00:00.000Z",
+    work_item_id: "TASK-090",
+    work_item_ref: ".aof/tasks/open/TASK-090.json",
+    session_ref: ".aof/artifacts/agent-sessions/SESS-V71-TEST.json",
+    context_pack_refs: [".aof/artifacts/work-governance/context-packs/CTX-TASK-090.json"],
+    declared_context_refs: ["docs/v7.1-context-reference-integrity-design.md"],
+    required_context_refs: ["docs/v7.1-context-reference-integrity-design.md"],
+    missing_context_refs: [],
+    hidden_context_signals: [],
+    integrity_status: "ready",
+    not_proven: "This record proves declared context structure, not semantic truth.",
+    source_task_id: "TASK-090",
+    source_parent_session_id: "SESS-V71-TEST",
+    source_decision_record_id: null
+  };
+  await validateWithBundledSchema(contextPayload, "aof-context-integrity-record.schema.json", "context integrity record");
+
+  const missingBoundary = { ...contextPayload };
+  delete missingBoundary.not_proven;
+  await assert.rejects(
+    validateWithBundledSchema(missingBoundary, "aof-context-integrity-record.schema.json", "context integrity record"),
+    /missing required key 'not_proven'/
+  );
+
+  const externalPayload = {
+    artifact_type: "external-reference-integrity-record",
+    record_id: "ERIR-QIF-V030",
+    recorded_at: "2026-07-12T00:00:00.000Z",
+    external_ref: "QIF-v0.3.0",
+    external_ref_artifact_ref: ".aof/external-refs/QIF-v0.3.0.json",
+    source_system: "github",
+    url: "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.0",
+    relationship: "quality provider dependency",
+    source_of_truth: "GitHub release tag",
+    sync_policy: "manual release-linked check",
+    usage_purpose: "AOF/QIF integration boundary",
+    freshness_required: true,
+    observed_at: "2026-07-12T00:00:00.000Z",
+    freshness_status: "current",
+    availability_status: "available",
+    integrity_status: "ready",
+    not_proven: "Availability does not prove QIF semantic fitness for every AOF work product.",
+    source_task_id: "TASK-090",
+    source_parent_session_id: "SESS-V71-TEST",
+    source_decision_record_id: null
+  };
+  await validateWithBundledSchema(
+    externalPayload,
+    "aof-external-reference-integrity-record.schema.json",
+    "external reference integrity record"
+  );
+});
+
+async function writeContextReferenceIntegrityFixtures(projectRoot) {
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, "test"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "external-refs"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "work-governance", "context-packs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "v7.1-context-reference-integrity-design.md"), "# v7.1 design\n");
+  await fs.writeFile(path.join(projectRoot, "test", "runtime-core-2.test.js"), "test evidence\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "external-refs", "QIF-v0.3.0.json"), "{}\n");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Implement context reference integrity",
+    description: "Fixture task",
+    origin: "human"
+  });
+  await agentSessionRecordCommand({
+    ...completeAgentSessionOptions(projectRoot),
+    sessionId: "SESS-V71-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "agent-sessions", "SESS-V71-TEST.json")
+  });
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "work-governance", "context-packs", "CTX-TASK-001.json"), `${JSON.stringify({
+    artifact_type: "context-pack",
+    recorded_at: "2026-07-12T00:00:00.000Z",
+    pack_id: "CTX-TASK-001",
+    audience: "codex",
+    current_mission: "Verify context/reference integrity.",
+    current_frontier: "TASK-001",
+    active_work_items: [{ work_item_id: "TASK-001", summary: "Implement context reference integrity.", state: "in_progress" }],
+    open_blockers: [],
+    pending_human_approvals: [],
+    latest_decisions: [],
+    applicable_quality_intents: ["QIN-AOF-RUNTIME"],
+    priority_summary: "Keep references declared and auditable.",
+    operational_map_refs: [],
+    go_no_go_status_summary: "go",
+    actor_composition_summary: "builder/guardian/council",
+    next_recommended_action: "Run context-reference-integrity-audit.",
+    evidence_refs: ["docs/v7.1-context-reference-integrity-design.md"],
+    external_refs: [".aof/external-refs/QIF-v0.3.0.json"],
+    raw_artifact_bodies_included: false,
+    source_task_id: "TASK-001",
+    source_parent_session_id: "SESS-V71-TEST",
+    source_decision_record_id: null
+  }, null, 2)}\n`);
+}
+
+test("context integrity writers create schema-valid artifacts", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeContextReferenceIntegrityFixtures(projectRoot);
+
+  const contextResult = await contextIntegrityRecordCommand({
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: ".aof/artifacts/agent-sessions/SESS-V71-TEST.json",
+    contextPackRefs: [".aof/artifacts/work-governance/context-packs/CTX-TASK-001.json"],
+    declaredContextRefs: ["docs/v7.1-context-reference-integrity-design.md"],
+    requiredContextRefs: ["docs/v7.1-context-reference-integrity-design.md"],
+    integrityStatus: "ready",
+    notProven: "This proves context declaration structure, not semantic truth.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V71-TEST"
+  });
+  const contextPayload = JSON.parse(await fs.readFile(contextResult.artifactPath, "utf8"));
+  await validateWithBundledSchema(contextPayload, "aof-context-integrity-record.schema.json", "context integrity record");
+
+  const externalResult = await externalReferenceIntegrityRecordCommand({
+    project: projectRoot,
+    externalRef: "QIF-v0.3.0",
+    externalRefArtifactRef: ".aof/external-refs/QIF-v0.3.0.json",
+    sourceSystem: "github",
+    url: "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.0",
+    relationship: "quality provider dependency",
+    sourceOfTruth: "GitHub release tag",
+    syncPolicy: "manual release-linked check",
+    usagePurpose: "AOF/QIF integration boundary",
+    freshnessRequired: true,
+    freshnessStatus: "current",
+    availabilityStatus: "available",
+    integrityStatus: "ready",
+    notProven: "Availability does not prove semantic suitability for every AOF work product.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V71-TEST"
+  });
+  const externalPayload = JSON.parse(await fs.readFile(externalResult.artifactPath, "utf8"));
+  await validateWithBundledSchema(
+    externalPayload,
+    "aof-external-reference-integrity-record.schema.json",
+    "external reference integrity record"
+  );
+});
+
+test("contextReferenceIntegrityAuditCommand fails missing context and passes complete references", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeContextReferenceIntegrityFixtures(projectRoot);
+
+  const failing = await contextReferenceIntegrityAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(failing.ok, false);
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("context integrity record presence")));
+
+  await contextIntegrityRecordCommand({
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: ".aof/artifacts/agent-sessions/SESS-V71-TEST.json",
+    contextPackRefs: [".aof/artifacts/work-governance/context-packs/CTX-TASK-001.json"],
+    declaredContextRefs: ["docs/v7.1-context-reference-integrity-design.md"],
+    requiredContextRefs: ["docs/v7.1-context-reference-integrity-design.md"],
+    integrityStatus: "ready",
+    notProven: "This proves context declaration structure, not semantic truth.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V71-TEST"
+  });
+  await externalReferenceIntegrityRecordCommand({
+    project: projectRoot,
+    externalRef: "QIF-v0.3.0",
+    externalRefArtifactRef: ".aof/external-refs/QIF-v0.3.0.json",
+    sourceSystem: "github",
+    url: "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.0",
+    relationship: "quality provider dependency",
+    sourceOfTruth: "GitHub release tag",
+    syncPolicy: "manual release-linked check",
+    usagePurpose: "AOF/QIF integration boundary",
+    freshnessRequired: true,
+    freshnessStatus: "current",
+    availabilityStatus: "available",
+    integrityStatus: "ready",
+    notProven: "Availability does not prove semantic suitability for every AOF work product.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V71-TEST"
+  });
+
+  const passing = await contextReferenceIntegrityAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(passing.ok, true);
+  assert.equal(passing.summary.summary.context_record_count, 1);
+  assert.equal(passing.summary.summary.external_reference_record_count, 1);
 });
 
 test("qualityLedgerRecordCommand writes a schema-valid quality ledger event", async (t) => {

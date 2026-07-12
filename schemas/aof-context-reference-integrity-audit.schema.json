@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-context-reference-integrity-audit.schema.json",
+  "title": "AOF Context Reference Integrity Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "cutoff_task_id",
+    "audited_status_dirs",
+    "summary",
+    "tasks",
+    "context_integrity_records",
+    "external_reference_integrity_records",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "context-reference-integrity-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "cutoff_task_id": { "type": "string", "minLength": 1 },
+    "audited_status_dirs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scoped_task_count",
+        "context_record_count",
+        "external_reference_record_count",
+        "missing_context_record_count",
+        "blocked_context_count",
+        "stale_external_reference_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "scoped_task_count": { "type": "integer", "minimum": 0 },
+        "context_record_count": { "type": "integer", "minimum": 0 },
+        "external_reference_record_count": { "type": "integer", "minimum": 0 },
+        "missing_context_record_count": { "type": "integer", "minimum": 0 },
+        "blocked_context_count": { "type": "integer", "minimum": 0 },
+        "stale_external_reference_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["task_id", "title", "status", "status_dir", "artifact_ref"],
+        "properties": {
+          "task_id": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "string" },
+          "status_dir": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "context_integrity_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["task_id", "task_ref", "context_integrity_ref", "integrity_status", "missing_context_count", "hidden_signal_count"],
+        "properties": {
+          "task_id": { "type": "string" },
+          "task_ref": { "type": "string" },
+          "context_integrity_ref": { "type": "string" },
+          "integrity_status": { "type": "string" },
+          "missing_context_count": { "type": "integer", "minimum": 0 },
+          "hidden_signal_count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "external_reference_integrity_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["external_ref", "external_ref_artifact_ref", "integrity_ref", "freshness_status", "availability_status", "integrity_status"],
+        "properties": {
+          "external_ref": { "type": "string" },
+          "external_ref_artifact_ref": { "type": "string" },
+          "integrity_ref": { "type": "string" },
+          "freshness_status": { "type": "string" },
+          "availability_status": { "type": "string" },
+          "integrity_status": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

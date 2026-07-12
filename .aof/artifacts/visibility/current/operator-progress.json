@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-07T17:57:29.279Z",
+  "generated_at": "2026-07-12T16:11:32.649Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-088 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-088.json"
+    "summary": "TASK-090 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-090.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-088 completed: Release v7.0 Agent Session Observability",
-      "artifact_ref": ".aof/tasks/done/TASK-088.json"
+      "summary": "TASK-090 completed: Ship v7.1 Context and Reference Integrity",
+      "artifact_ref": ".aof/tasks/done/TASK-090.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
+      "summary": "Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-088 completed: Release v7.0 Agent Session Observability Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
+    "what_changed": "TASK-090 completed: Ship v7.1 Context and Reference Integrity Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence."
+    "next_checkpoint": "Open an implementation task for the current frontier: Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface."
   }
 }

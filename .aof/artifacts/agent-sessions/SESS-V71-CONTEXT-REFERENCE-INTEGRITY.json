@@ -1,0 +1,94 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRHZCOQ8-7DS67D",
+  "recorded_at": "2026-07-12T16:00:36.656Z",
+  "session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "ASEV1-MRHZCOQ8-M9GQBY",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-12T16:00:36.650Z",
+      "summary": "User asked to complete the next AOF release.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRHZCOQ8-BXMCK2",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-12T16:00:36.656Z",
+      "summary": "Ran situation-assess before implementation.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json"
+      ],
+      "tool_name": "situation-assess",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV3-MRHZCOQ8-AI4DT7",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-12T16:00:36.656Z",
+      "summary": "Implemented context/reference integrity schemas, writers, audit, Mission Control projection, tests, and release artifacts.",
+      "artifact_refs": [
+        "schemas/aof-context-integrity-record.schema.json",
+        "schemas/aof-external-reference-integrity-record.schema.json",
+        "schemas/aof-context-reference-integrity-audit.schema.json",
+        "src/commands/context-reference-integrity-audit.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV4-MRHZCOQ8-ZMN796",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-12T16:00:36.656Z",
+      "summary": "Focused runtime tests passed: 92 pass, 0 fail.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+        ".aof/tasks/done/TASK-090.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.1-context-reference-integrity-design.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": []
+  },
+  "risk_candidates": [
+    "Hidden or stale context can still look correct to the operator."
+  ],
+  "decision_candidates": [
+    "Promote context/reference integrity audit into release-state-audit for v7.1 and later."
+  ],
+  "release_ready_evidence": {
+    "claim": "v7.1 has runtime-backed structural evidence pending final release-state audit.",
+    "evidence_refs": [
+      "test/runtime-core-2.test.js",
+      "docs/v7.1-context-reference-integrity-design.md"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-090",
+  "source_parent_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+  "source_decision_record_id": null
+}

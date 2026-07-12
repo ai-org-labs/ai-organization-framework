@@ -1,0 +1,33 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRHZB99B-65HN5I",
+  "recorded_at": "2026-07-12T15:59:29.951Z",
+  "work_item_id": "TASK-090",
+  "work_item_ref": ".aof/tasks/done/TASK-090.json",
+  "readiness_status": "ready",
+  "goal": "Ship v7.1 Context and Reference Integrity as a release-grade runtime gate.",
+  "risk": "AOF can answer from stale, hidden, or unresolved context while appearing release-ready.",
+  "loss_boundary": "Do not claim v7.1 release readiness without context integrity records, external reference integrity records, audit coverage, tests, and Council review evidence.",
+  "acceptance_gates": [
+    "context-reference-integrity-audit passes for TASK-090",
+    "release-state-audit passes for v7.1.0"
+  ],
+  "evidence_plan": [
+    "schemas, writer commands, audit command, focused runtime tests, release docs, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if new audit cannot fail missing context",
+    "stop if release-state-audit fails"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-090",
+  "source_parent_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+  "source_decision_record_id": null
+}

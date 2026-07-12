@@ -1,0 +1,22 @@
+{
+  "artifact_type": "external-reference-integrity-record",
+  "record_id": "ERIR-MRHZCRRA-3PG64Q",
+  "recorded_at": "2026-07-12T16:00:40.582Z",
+  "external_ref": "QIF-v0.3.0",
+  "external_ref_artifact_ref": ".aof/external-refs/QIF-v0.3.0.json",
+  "source_system": "github",
+  "url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.0",
+  "relationship": "quality provider dependency",
+  "source_of_truth": "GitHub release tag",
+  "sync_policy": "manual release-linked check",
+  "usage_purpose": "AOF v7.1 context/reference integrity validation",
+  "freshness_required": true,
+  "observed_at": "2026-07-12T16:00:40.584Z",
+  "freshness_status": "current",
+  "availability_status": "available",
+  "integrity_status": "ready",
+  "not_proven": "Availability and tag reference do not prove semantic suitability for every AOF work product.",
+  "source_task_id": "TASK-090",
+  "source_parent_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+  "source_decision_record_id": null
+}

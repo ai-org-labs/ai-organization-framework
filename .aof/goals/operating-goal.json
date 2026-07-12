@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Evaluate v7.1 Context and Reference Integrity as the next bounded frontier after v7.0.0; keep the first implementation focused on declared context, external reference freshness, hidden-context blockers, and Council-visible reference use.",
-  "updated_at": "2026-07-08T00:00:00.000Z",
+  "content": "After v7.1.0, evaluate v7.2 Work Execution Packet as the next bounded frontier; preserve context/reference integrity as a mandatory precondition for execution claims.",
+  "updated_at": "2026-07-12T16:07:57.018Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V70-RELEASE-CLOSURE",
+  "source_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

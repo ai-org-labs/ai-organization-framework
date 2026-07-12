@@ -484,6 +484,68 @@
         }
       },
       "additionalProperties": false
+    },
+    "context_reference_integrity": {
+      "type": "object",
+      "required": [
+        "present",
+        "artifact_root_ref",
+        "external_artifact_root_ref",
+        "audit_ref",
+        "audit_ok",
+        "audit_failing_check_count",
+        "context_record_count",
+        "external_reference_record_count",
+        "blocked_context_count",
+        "stale_external_reference_count",
+        "latest_context_records",
+        "latest_external_reference_records"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "artifact_root_ref": { "type": "string" },
+        "external_artifact_root_ref": { "type": "string" },
+        "audit_ref": { "type": ["string", "null"] },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "audit_failing_check_count": { "type": ["integer", "null"] },
+        "context_record_count": { "type": "integer" },
+        "external_reference_record_count": { "type": "integer" },
+        "blocked_context_count": { "type": "integer" },
+        "stale_external_reference_count": { "type": "integer" },
+        "latest_context_records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["ref", "work_item_id", "integrity_status", "missing_context_count", "hidden_signal_count", "not_proven"],
+            "properties": {
+              "ref": { "type": "string" },
+              "work_item_id": { "type": ["string", "null"] },
+              "integrity_status": { "type": ["string", "null"] },
+              "missing_context_count": { "type": "integer" },
+              "hidden_signal_count": { "type": "integer" },
+              "not_proven": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "latest_external_reference_records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["ref", "external_ref", "external_ref_artifact_ref", "freshness_status", "availability_status", "integrity_status"],
+            "properties": {
+              "ref": { "type": "string" },
+              "external_ref": { "type": ["string", "null"] },
+              "external_ref_artifact_ref": { "type": ["string", "null"] },
+              "freshness_status": { "type": ["string", "null"] },
+              "availability_status": { "type": ["string", "null"] },
+              "integrity_status": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

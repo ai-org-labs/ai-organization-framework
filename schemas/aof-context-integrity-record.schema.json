@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-context-integrity-record.schema.json",
+  "title": "AOF Context Integrity Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "record_id",
+    "recorded_at",
+    "work_item_id",
+    "work_item_ref",
+    "session_ref",
+    "context_pack_refs",
+    "declared_context_refs",
+    "required_context_refs",
+    "missing_context_refs",
+    "hidden_context_signals",
+    "integrity_status",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "context-integrity-record" },
+    "record_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_id": { "type": "string", "minLength": 1 },
+    "work_item_ref": { "type": "string", "minLength": 1 },
+    "session_ref": { "type": "string", "minLength": 1 },
+    "context_pack_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "declared_context_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "required_context_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "missing_context_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "hidden_context_signals": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "integrity_status": {
+      "type": "string",
+      "enum": ["ready", "warning", "blocked", "accepted_residual_risk"]
+    },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] }
+  }
+}

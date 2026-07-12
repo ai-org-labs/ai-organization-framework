@@ -782,6 +782,61 @@ async function loadAgentSessionObservabilityProjection(projectRoot, aofRoot) {
   };
 }
 
+async function loadContextReferenceIntegrityProjection(projectRoot, aofRoot) {
+  const contextFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "context-integrity"));
+  const externalFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "external-reference-integrity"));
+  const contextRecords = [];
+  const externalRecords = [];
+
+  for (const filePath of contextFiles) {
+    const payload = await readJson(filePath, `context integrity ${path.basename(filePath)}`);
+    contextRecords.push({
+      ref: path.relative(projectRoot, filePath).replaceAll("\\", "/"),
+      work_item_id: payload.work_item_id ?? null,
+      integrity_status: payload.integrity_status ?? null,
+      missing_context_count: Array.isArray(payload.missing_context_refs) ? payload.missing_context_refs.length : 0,
+      hidden_signal_count: Array.isArray(payload.hidden_context_signals) ? payload.hidden_context_signals.length : 0,
+      not_proven: payload.not_proven ?? null
+    });
+  }
+
+  for (const filePath of externalFiles) {
+    const payload = await readJson(filePath, `external reference integrity ${path.basename(filePath)}`);
+    externalRecords.push({
+      ref: path.relative(projectRoot, filePath).replaceAll("\\", "/"),
+      external_ref: payload.external_ref ?? null,
+      external_ref_artifact_ref: payload.external_ref_artifact_ref ?? null,
+      freshness_status: payload.freshness_status ?? null,
+      availability_status: payload.availability_status ?? null,
+      integrity_status: payload.integrity_status ?? null
+    });
+  }
+
+  contextRecords.sort((left, right) => String(right.work_item_id ?? "").localeCompare(String(left.work_item_id ?? "")));
+  externalRecords.sort((left, right) => String(right.external_ref ?? "").localeCompare(String(left.external_ref ?? "")));
+
+  const audit = await maybeReadJsonByRef(
+    projectRoot,
+    ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
+    "context reference integrity audit"
+  );
+
+  return {
+    present: contextRecords.length > 0 || externalRecords.length > 0 || Boolean(audit),
+    artifact_root_ref: ".aof/artifacts/context-integrity",
+    external_artifact_root_ref: ".aof/artifacts/external-reference-integrity",
+    audit_ref: audit ? ".aof/artifacts/context-reference/context-reference-integrity-audit.json" : null,
+    audit_ok: audit?.ok ?? null,
+    audit_failing_check_count: audit?.summary?.failing_check_count ?? null,
+    context_record_count: contextRecords.length,
+    external_reference_record_count: externalRecords.length,
+    blocked_context_count: contextRecords.filter((record) => record.integrity_status === "blocked").length,
+    stale_external_reference_count: externalRecords.filter((record) => record.freshness_status === "stale").length,
+    latest_context_records: contextRecords.slice(0, 8),
+    latest_external_reference_records: externalRecords.slice(0, 8)
+  };
+}
+
 function buildMissionControl({
   organizationStatus,
   roadmapStatus,
@@ -792,7 +847,8 @@ function buildMissionControl({
   workGovernanceProjection = null,
   archmapProjection = null,
   organizationStateProjection = null,
-  agentSessionObservabilityProjection = null
+  agentSessionObservabilityProjection = null,
+  contextReferenceIntegrityProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
   const skillfulActorSummary = summarizeSkillfulActorProjection(skillfulActorProjection);
@@ -937,6 +993,20 @@ function buildMissionControl({
       decision_candidates: [],
       latest_events: [],
       latest_tool_calls: []
+    },
+    context_reference_integrity: contextReferenceIntegrityProjection ?? {
+      present: false,
+      artifact_root_ref: ".aof/artifacts/context-integrity",
+      external_artifact_root_ref: ".aof/artifacts/external-reference-integrity",
+      audit_ref: null,
+      audit_ok: null,
+      audit_failing_check_count: null,
+      context_record_count: 0,
+      external_reference_record_count: 0,
+      blocked_context_count: 0,
+      stale_external_reference_count: 0,
+      latest_context_records: [],
+      latest_external_reference_records: []
     }
   };
 }
@@ -946,7 +1016,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -959,7 +1029,8 @@ export async function visibilityExportCommand(options) {
     loadWorkGovernanceProjection(projectRoot, aofRoot),
     loadArchmapProjection(projectRoot, aofRoot),
     loadOrganizationStateProjection(projectRoot, aofRoot),
-    loadAgentSessionObservabilityProjection(projectRoot, aofRoot)
+    loadAgentSessionObservabilityProjection(projectRoot, aofRoot),
+    loadContextReferenceIntegrityProjection(projectRoot, aofRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -994,7 +1065,8 @@ export async function visibilityExportCommand(options) {
     workGovernanceProjection,
     archmapProjection,
     organizationStateProjection,
-    agentSessionObservabilityProjection
+    agentSessionObservabilityProjection,
+    contextReferenceIntegrityProjection
   });
   const operatorBrief = buildOperatorBriefView({
     organizationStatus,

@@ -100,6 +100,9 @@ Usage:
   aof work-readiness-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof agent-session-record --project <path> --session-id <id> --actor-ref <ref> --role-ref <ref> --event-json '<json>' [--event-json '<json>'] --task-ref <path> --requirement-ref <path> --test-evidence-ref <path> --risk-candidate "<text>" --decision-candidate "<text>" --release-ready-evidence-ref <path> [--release-ready-verdict <not_ready|structurally_ready|runtime_ready|operator_validated>] [--release-ready-claim "<text>"] [--provider <name>] [--model <name>] [--parent-session-id <id>] [--commit-ref <ref>] [--pr-ref <ref>] [--artifact-ref <path>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof session-observability-audit [--project <path>] [--write-artifact <path>]
+  aof context-integrity-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> [--context-pack-ref <path>] [--declared-context-ref <path>] [--required-context-ref <path>] [--missing-context-ref <path>] [--hidden-context-signal "<text>"] --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof external-reference-integrity-record --project <path> --external-ref "<ref>" --external-ref-artifact-ref <path> --source-system "<text>" --url <url> --relationship "<text>" --source-of-truth "<text>" --sync-policy "<text>" --usage-purpose "<text>" [--freshness-required] [--observed-at <date-time>] --freshness-status <not_required|current|stale|unknown> --availability-status <available|unavailable|not_checked> --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof context-reference-integrity-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof value-hypothesis-record --project <path> --expected-value-creation "<text>" --beneficiary "<text>" --supporting-evidence "<text>" [--supporting-evidence "<text>"] --success-criterion "<text>" [--success-criterion "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof alternative-analysis-record --project <path> --subject-need "<text>" --alternative-solution "<text>" [--alternative-solution "<text>"] [--non-solution-option "<text>"] [--defer-option "<text>"] --stop-option "<text>" [--stop-option "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1030,6 +1033,54 @@ function parseArgs(argv) {
           : command === "session-observability-audit"
             ? {
                 project: ".",
+                artifactPath: ""
+              }
+          : command === "context-integrity-record"
+            ? {
+                project: ".",
+                recordId: "",
+                workItemId: "",
+                workItemRef: "",
+                sessionRef: "",
+                contextPackRefs: [],
+                declaredContextRefs: [],
+                requiredContextRefs: [],
+                missingContextRefs: [],
+                hiddenContextSignals: [],
+                integrityStatus: "ready",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                artifactPath: ""
+              }
+          : command === "external-reference-integrity-record"
+            ? {
+                project: ".",
+                recordId: "",
+                externalRef: "",
+                externalRefArtifactRef: "",
+                sourceSystem: "",
+                url: "",
+                relationship: "",
+                sourceOfTruth: "",
+                syncPolicy: "",
+                usagePurpose: "",
+                freshnessRequired: false,
+                observedAt: "",
+                freshnessStatus: "not_required",
+                availabilityStatus: "not_checked",
+                integrityStatus: "ready",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                artifactPath: ""
+              }
+          : command === "context-reference-integrity-audit"
+            ? {
+                project: ".",
+                cutoffTaskId: "",
                 artifactPath: ""
               }
           : command === "problem-statement-record"
@@ -2063,6 +2114,15 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--session-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --session-ref.");
+      }
+      options.sessionRef = value;
+      i += 1;
+      continue;
+    }
     if (part === "--parent-session-id") {
       const value = rest[i + 1];
       if (!value) {
@@ -2276,6 +2336,172 @@ function parseArgs(argv) {
         throw new Error("Missing value after --work-item-ref.");
       }
       options.workItemRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--context-pack-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --context-pack-ref.");
+      }
+      options.contextPackRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--declared-context-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --declared-context-ref.");
+      }
+      options.declaredContextRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--required-context-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --required-context-ref.");
+      }
+      options.requiredContextRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--missing-context-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --missing-context-ref.");
+      }
+      options.missingContextRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--hidden-context-signal") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --hidden-context-signal.");
+      }
+      options.hiddenContextSignals.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--integrity-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --integrity-status.");
+      }
+      options.integrityStatus = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--not-proven") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --not-proven.");
+      }
+      options.notProven = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--external-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --external-ref.");
+      }
+      options.externalRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--external-ref-artifact-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --external-ref-artifact-ref.");
+      }
+      options.externalRefArtifactRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--source-system") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --source-system.");
+      }
+      options.sourceSystem = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--url") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --url.");
+      }
+      options.url = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--relationship") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --relationship.");
+      }
+      options.relationship = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--source-of-truth") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --source-of-truth.");
+      }
+      options.sourceOfTruth = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--sync-policy") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --sync-policy.");
+      }
+      options.syncPolicy = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--usage-purpose") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --usage-purpose.");
+      }
+      options.usagePurpose = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--freshness-required") {
+      options.freshnessRequired = true;
+      continue;
+    }
+    if (part === "--observed-at") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --observed-at.");
+      }
+      options.observedAt = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--freshness-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --freshness-status.");
+      }
+      options.freshnessStatus = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--availability-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --availability-status.");
+      }
+      options.availabilityStatus = value;
       i += 1;
       continue;
     }
@@ -4384,6 +4610,65 @@ function parseArgs(argv) {
   if (command === "session-observability-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `session-observability-audit`.");
+    }
+  }
+
+  if (command === "context-integrity-record") {
+    if (!options.workItemId) {
+      throw new Error("Missing --work-item-id for `context-integrity-record`.");
+    }
+    if (!options.workItemRef) {
+      throw new Error("Missing --work-item-ref for `context-integrity-record`.");
+    }
+    if (!options.sessionRef) {
+      throw new Error("Missing --session-ref for `context-integrity-record`.");
+    }
+    if (!["ready", "warning", "blocked", "accepted_residual_risk"].includes(options.integrityStatus)) {
+      throw new Error("Invalid --integrity-status for `context-integrity-record`.");
+    }
+    if (!options.notProven) {
+      throw new Error("Missing --not-proven for `context-integrity-record`.");
+    }
+    if (!options.sourceTaskId) {
+      throw new Error("Missing --source-task-id for `context-integrity-record`.");
+    }
+    if (!options.sourceParentSessionId) {
+      throw new Error("Missing --source-parent-session-id for `context-integrity-record`.");
+    }
+  }
+
+  if (command === "external-reference-integrity-record") {
+    for (const [flag, value] of [
+      ["--external-ref", options.externalRef],
+      ["--external-ref-artifact-ref", options.externalRefArtifactRef],
+      ["--source-system", options.sourceSystem],
+      ["--url", options.url],
+      ["--relationship", options.relationship],
+      ["--source-of-truth", options.sourceOfTruth],
+      ["--sync-policy", options.syncPolicy],
+      ["--usage-purpose", options.usagePurpose],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`external-reference-integrity-record\`.`);
+      }
+    }
+    if (!["not_required", "current", "stale", "unknown"].includes(options.freshnessStatus)) {
+      throw new Error("Invalid --freshness-status for `external-reference-integrity-record`.");
+    }
+    if (!["available", "unavailable", "not_checked"].includes(options.availabilityStatus)) {
+      throw new Error("Invalid --availability-status for `external-reference-integrity-record`.");
+    }
+    if (!["ready", "warning", "blocked", "accepted_residual_risk"].includes(options.integrityStatus)) {
+      throw new Error("Invalid --integrity-status for `external-reference-integrity-record`.");
+    }
+  }
+
+  if (command === "context-reference-integrity-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `context-reference-integrity-audit`.");
     }
   }
 

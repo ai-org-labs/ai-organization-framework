@@ -1,0 +1,46 @@
+{
+  "artifact_type": "context-pack",
+  "recorded_at": "2026-07-12T15:59:30.000Z",
+  "pack_id": "CTX-TASK-090-V71",
+  "audience": "codex",
+  "current_mission": "Ship v7.1 Context and Reference Integrity.",
+  "current_frontier": "TASK-090",
+  "active_work_items": [
+    {
+      "work_item_id": "TASK-090",
+      "summary": "Implement context/reference integrity writers, audit gate, Mission Control projection, tests, and release docs.",
+      "state": "in_progress"
+    }
+  ],
+  "open_blockers": [],
+  "pending_human_approvals": [],
+  "latest_decisions": [
+    "v7.1 should promote context/reference integrity into a release-state gate."
+  ],
+  "applicable_quality_intents": [
+    "QIN-AOF-RUNTIME",
+    "QIN-AOF-RELEASE",
+    "QIN-AOF-LEARNING"
+  ],
+  "priority_summary": "Prevent release claims that rely on stale, hidden, unavailable, or unreviewed context.",
+  "operational_map_refs": [
+    "docs/v7.1-context-reference-integrity-design.md"
+  ],
+  "go_no_go_status_summary": "go after writer, audit, Mission Control projection, tests, and release-state audit pass.",
+  "actor_composition_summary": "Builder implements; Guardian verifies with tests and audit; Architecture Council reviews release evidence.",
+  "next_recommended_action": "Run context-reference-integrity-audit and release-state-audit before tagging v7.1.0.",
+  "evidence_refs": [
+    "docs/v7.1-context-reference-integrity-design.md",
+    "test/runtime-core-2.test.js",
+    "schemas/aof-context-integrity-record.schema.json",
+    "schemas/aof-external-reference-integrity-record.schema.json",
+    "schemas/aof-context-reference-integrity-audit.schema.json"
+  ],
+  "external_refs": [
+    ".aof/external-refs/QIF-v0.3.0.json"
+  ],
+  "raw_artifact_bodies_included": false,
+  "source_task_id": "TASK-090",
+  "source_parent_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+  "source_decision_record_id": null
+}

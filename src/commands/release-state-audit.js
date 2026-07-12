@@ -3,6 +3,7 @@ import path from "node:path";
 import { writeJsonArtifact } from "../runtime/utils.js";
 import { loadBundledSchema, validateAgainstSchema } from "../runtime/validation.js";
 import { archmapImpactAuditCommand } from "./archmap-impact-audit.js";
+import { contextReferenceIntegrityAuditCommand } from "./context-reference-integrity-audit.js";
 import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
@@ -55,6 +56,15 @@ function requiresWorkReadinessAudit(releaseVersion) {
   return major > 6 || (major === 6 && minor >= 9);
 }
 
+function requiresContextReferenceIntegrityAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 7 || (major === 7 && minor >= 1);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -70,6 +80,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresWorkReadinessAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("work-readiness-audit", await workReadinessAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresContextReferenceIntegrityAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("context-reference-integrity-audit", await contextReferenceIntegrityAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

@@ -1,0 +1,158 @@
+{
+  "ok": true,
+  "artifact_type": "context-reference-integrity-audit",
+  "generated_at": "2026-07-12T16:02:16.014Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "cutoff_task_id": "TASK-090",
+  "audited_status_dirs": [
+    "open",
+    "assigned",
+    "done"
+  ],
+  "summary": {
+    "scoped_task_count": 1,
+    "context_record_count": 1,
+    "external_reference_record_count": 1,
+    "missing_context_record_count": 0,
+    "blocked_context_count": 0,
+    "stale_external_reference_count": 0,
+    "failing_check_count": 0
+  },
+  "tasks": [
+    {
+      "task_id": "TASK-090",
+      "title": "Ship v7.1 Context and Reference Integrity",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-090.json"
+    }
+  ],
+  "context_integrity_records": [
+    {
+      "task_id": "TASK-090",
+      "task_ref": ".aof/tasks/done/TASK-090.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-090.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    }
+  ],
+  "external_reference_integrity_records": [
+    {
+      "external_ref": "QIF-v0.3.0",
+      "external_ref_artifact_ref": ".aof/external-refs/QIF-v0.3.0.json",
+      "integrity_ref": ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json",
+      "freshness_status": "current",
+      "availability_status": "available",
+      "integrity_status": "ready"
+    }
+  ],
+  "checks": [
+    {
+      "name": "scoped task discovery",
+      "status": "pass",
+      "detail": "1 task(s) at or after TASK-090 in open, assigned, done"
+    },
+    {
+      "name": "QIF-v0.3.0 external reference schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+    },
+    {
+      "name": "QIF-v0.3.0 external artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/external-refs/QIF-v0.3.0.json"
+    },
+    {
+      "name": "QIF-v0.3.0 not_proven boundary present",
+      "status": "pass",
+      "detail": "Availability and tag reference do not prove semantic suitability for every AOF work product."
+    },
+    {
+      "name": "QIF-v0.3.0 is not blocked",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "QIF-v0.3.0 stale/unavailable refs are accepted or repaired",
+      "status": "pass",
+      "detail": "freshness=current, availability=available, integrity=ready"
+    },
+    {
+      "name": "TASK-090 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-090.json"
+    },
+    {
+      "name": "TASK-090 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-090.json"
+    },
+    {
+      "name": "TASK-090 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-090, expected=TASK-090"
+    },
+    {
+      "name": "TASK-090 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-090 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-090 not_proven boundary present",
+      "status": "pass",
+      "detail": "This record proves declared context structure and local reference resolution, not semantic truth or market validity."
+    },
+    {
+      "name": "TASK-090 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-090.json"
+    },
+    {
+      "name": "TASK-090 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-INTEGRITY.json"
+    },
+    {
+      "name": "TASK-090 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-governance/context-packs/CTX-TASK-090-V71.json"
+    },
+    {
+      "name": "TASK-090 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.1-context-reference-integrity-design.md"
+    },
+    {
+      "name": "TASK-090 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-quality-definition.md"
+    },
+    {
+      "name": "TASK-090 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.1-context-reference-integrity-design.md"
+    },
+    {
+      "name": "TASK-090 context ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-090 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-context-reference-integrity-audit.schema.json"
+    },
+    {
+      "name": "TASK-090 external ref has integrity record",
+      "status": "pass",
+      "detail": ".aof/external-refs/QIF-v0.3.0.json -> .aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+    }
+  ],
+  "errors": []
+}

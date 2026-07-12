@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-12T15:59:30.000Z",
+  "work_item_id": "TASK-090",
+  "work_item_ref": ".aof/tasks/done/TASK-090.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v7.1 adds context/reference integrity as a release-state governance gate and Mission Control data projection.",
+  "archmap_source_ref": "docs/v7.1-context-reference-integrity-design.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-090-V71.json",
+  "not_proven": "This impact record states that the AOF governance map changes; it does not prove the visual map has already been redrawn."
+}

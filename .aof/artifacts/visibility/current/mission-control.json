@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-07T17:57:29.240Z",
+  "generated_at": "2026-07-12T16:11:32.528Z",
   "mission_overview": {
-    "mission": "Ship v7.0.0 as the Agent Session Observability release.",
-    "release_version": "7.0.0",
-    "release_definition_ref": "docs/v7.0-release-definition.md",
-    "operating_goal": "Evaluate v7.1 Context and Reference Integrity as the next bounded frontier after v7.0.0; keep the first implementation focused on declared context, external reference freshness, hidden-context blockers, and Council-visible reference use.",
-    "next_value_slice": "Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
+    "mission": "Ship v7.1.0 as the Context and Reference Integrity release.",
+    "release_version": "7.1.0",
+    "release_definition_ref": "docs/v7.1-release-definition.md",
+    "operating_goal": "After v7.1.0, evaluate v7.2 Work Execution Packet as the next bounded frontier; preserve context/reference integrity as a mandatory precondition for execution claims.",
+    "next_value_slice": "Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
+    "recommended_action": "Open an implementation task for the current frontier: Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 18,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-088.json",
-    "latest_impact_status": "archmap_unaffected",
-    "latest_work_item_id": "TASK-088",
+    "impact_record_count": 20,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-090.json",
+    "latest_impact_status": "archmap_update_required",
+    "latest_work_item_id": "TASK-090",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-088.json"
+      ".aof/artifacts/archmap/impact/TASK-090.json"
     ],
     "external_refs": []
   },
@@ -399,130 +399,118 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 4,
-    "latest_session_id": "SESS-V70-RELEASE-CLOSURE",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json",
+    "stream_count": 6,
+    "latest_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-INTEGRITY.json",
     "latest_actor_ref": "codex",
-    "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-07T17:53:06.577Z",
-    "latest_event_count": 9,
+    "latest_role_ref": "builder",
+    "latest_recorded_at": "2026-07-12T16:00:36.656Z",
+    "latest_event_count": 4,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "latest_audit_stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json",
+    "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-088.json"
+      ".aof/tasks/done/TASK-090.json"
     ],
     "linked_requirement_refs": [
-      "docs/v7.0-release-definition.md"
+      "docs/v7.1-context-reference-integrity-design.md"
     ],
     "linked_test_evidence_refs": [
-      "test/runtime-core-2.test.js",
-      "test/runtime-situation.test.js"
+      "test/runtime-core-2.test.js"
     ],
     "linked_artifact_refs": [],
     "risk_candidates": [
-      "Session reconstructability could be overclaimed as semantic truth."
+      "Hidden or stale context can still look correct to the operator."
     ],
     "decision_candidates": [
-      "Release v7.0.0 only after session observability and release-state audits pass."
+      "Promote context/reference integrity audit into release-state-audit for v7.1 and later."
     ],
     "latest_events": [
       {
-        "event_type": "tool_call",
-        "summary": "Inspected release state, v7.0 tasks, docs, package version, README, and organization release contract.",
-        "occurred_at": "2026-07-07T17:53:06.577Z",
-        "tool_name": "git status / sed / rg / node",
-        "safety_level": "safe_read",
-        "approval_policy": "preapproved",
-        "artifact_refs": []
-      },
-      {
-        "event_type": "artifact_write",
-        "summary": "Created v7.0 release definition, checklist, release notes, and updated package, bootstrap, manifest, organization contract, README, quickstart, and vnext plan.",
-        "occurred_at": "2026-07-07T17:53:06.577Z",
+        "event_type": "prompt",
+        "summary": "User asked to complete the next AOF release.",
+        "occurred_at": "2026-07-12T16:00:36.650Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
+        "artifact_refs": []
+      },
+      {
+        "event_type": "tool_call",
+        "summary": "Ran situation-assess before implementation.",
+        "occurred_at": "2026-07-12T16:00:36.656Z",
+        "tool_name": "situation-assess",
+        "safety_level": "safe_read",
+        "approval_policy": "preapproved",
         "artifact_refs": [
-          "docs/v7.0-release-definition.md",
-          "docs/v7.0-release-checklist.md",
-          "docs/v7.0.0-release-notes.md",
-          "package.json",
-          "package-lock.json",
-          ".aof/project-bootstrap.json",
-          ".aof/context/active/active-release-manifest.json",
-          ".aof/organization.json",
-          "README.md",
-          "docs/quickstart.md",
-          "docs/vnext-release-plan.md"
+          ".aof/goals/next-value-slice.json"
         ]
       },
       {
         "event_type": "artifact_write",
-        "summary": "Recorded TASK-088 work readiness, Council review, and Archmap impact disposition as release closure governance evidence.",
-        "occurred_at": "2026-07-07T17:53:06.577Z",
+        "summary": "Implemented context/reference integrity schemas, writers, audit, Mission Control projection, tests, and release artifacts.",
+        "occurred_at": "2026-07-12T16:00:36.656Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          ".aof/artifacts/work-readiness/TASK-088.json",
-          ".aof/artifacts/execution/council-reviews/CRP-TASK-088-V70-RELEASE-CLOSURE.json",
-          ".aof/artifacts/archmap/impact/TASK-088.json"
+          "schemas/aof-context-integrity-record.schema.json",
+          "schemas/aof-external-reference-integrity-record.schema.json",
+          "schemas/aof-context-reference-integrity-audit.schema.json",
+          "src/commands/context-reference-integrity-audit.js"
         ]
       },
       {
         "event_type": "verification_result",
-        "summary": "Initial audits passed for work readiness, Archmap impact, and review provenance; session observability required this stream update before final rerun.",
-        "occurred_at": "2026-07-07T17:53:06.577Z",
+        "summary": "Focused runtime tests passed: 92 pass, 0 fail.",
+        "occurred_at": "2026-07-12T16:00:36.656Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "risk_candidate",
-        "summary": "Release closure can still overclaim reconstructability as correctness unless release docs and checklist keep the boundary explicit.",
-        "occurred_at": "2026-07-07T17:53:06.577Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "decision_candidate",
-        "summary": "Treat v7.0 release readiness as runtime-ready only after the complete release verification suite passes.",
-        "occurred_at": "2026-07-07T17:53:06.577Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "response",
-        "summary": "Proceeding with v7.0 release closure using runtime-backed evidence and bounded claims.",
-        "occurred_at": "2026-07-07T17:53:06.577Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "stop_condition",
-        "summary": "Do not tag v7.0.0 unless all release checklist verification gates pass; defer on any failed audit/test.",
-        "occurred_at": "2026-07-07T17:53:06.577Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
+        "artifact_refs": [
+          "test/runtime-core-2.test.js"
+        ]
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "Inspected release state, v7.0 tasks, docs, package version, README, and organization release contract.",
-        "tool_name": "git status / sed / rg / node",
+        "summary": "Ran situation-assess before implementation.",
+        "tool_name": "situation-assess",
         "safety_level": "safe_read",
         "approval_policy": "preapproved"
+      }
+    ]
+  },
+  "context_reference_integrity": {
+    "present": true,
+    "artifact_root_ref": ".aof/artifacts/context-integrity",
+    "external_artifact_root_ref": ".aof/artifacts/external-reference-integrity",
+    "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
+    "audit_ok": true,
+    "audit_failing_check_count": 0,
+    "context_record_count": 1,
+    "external_reference_record_count": 1,
+    "blocked_context_count": 0,
+    "stale_external_reference_count": 0,
+    "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-090.json",
+        "work_item_id": "TASK-090",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "This record proves declared context structure and local reference resolution, not semantic truth or market validity."
+      }
+    ],
+    "latest_external_reference_records": [
+      {
+        "ref": ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json",
+        "external_ref": "QIF-v0.3.0",
+        "external_ref_artifact_ref": ".aof/external-refs/QIF-v0.3.0.json",
+        "freshness_status": "current",
+        "availability_status": "available",
+        "integrity_status": "ready"
       }
     ]
   }

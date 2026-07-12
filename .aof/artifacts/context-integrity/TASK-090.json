@@ -1,0 +1,27 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRHZD849-ZEA9TB",
+  "recorded_at": "2026-07-12T16:01:01.785Z",
+  "work_item_id": "TASK-090",
+  "work_item_ref": ".aof/tasks/done/TASK-090.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-INTEGRITY.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-governance/context-packs/CTX-TASK-090-V71.json"
+  ],
+  "declared_context_refs": [
+    "docs/v7.1-context-reference-integrity-design.md",
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "required_context_refs": [
+    "docs/v7.1-context-reference-integrity-design.md",
+    "test/runtime-core-2.test.js",
+    "schemas/aof-context-reference-integrity-audit.schema.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "This record proves declared context structure and local reference resolution, not semantic truth or market validity.",
+  "source_task_id": "TASK-090",
+  "source_parent_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+  "source_decision_record_id": null
+}

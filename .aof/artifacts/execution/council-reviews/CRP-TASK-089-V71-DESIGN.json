@@ -27,6 +27,8 @@
   "role_result_refs": [],
   "evidence_refs": [
     "docs/v7.1-context-reference-integrity-design.md",
+    "test/runtime-core-2.test.js",
+    "schemas/aof-context-pack.schema.json",
     ".aof/artifacts/work-readiness/TASK-089.json",
     ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-DESIGN.json",
     ".aof/artifacts/archmap/impact/TASK-089.json"

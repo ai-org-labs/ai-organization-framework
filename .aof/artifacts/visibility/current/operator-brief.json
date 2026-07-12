@@ -1,14 +1,14 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-07T17:57:29.265Z",
-  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
+  "generated_at": "2026-07-12T16:11:32.616Z",
+  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface.",
   "current_state": {
-    "release_version": "7.0.0",
-    "active_release_track": "v7.0",
-    "release_definition_ref": "docs/v7.0-release-definition.md",
+    "release_version": "7.1.0",
+    "active_release_track": "v7.1",
+    "release_definition_ref": "docs/v7.1-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
-    "operating_goal": "Evaluate v7.1 Context and Reference Integrity as the next bounded frontier after v7.0.0; keep the first implementation focused on declared context, external reference freshness, hidden-context blockers, and Council-visible reference use.",
-    "next_value_slice": "Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
+    "operating_goal": "After v7.1.0, evaluate v7.2 Work Execution Packet as the next bounded frontier; preserve context/reference integrity as a mandatory precondition for execution claims.",
+    "next_value_slice": "Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface.",
     "primary_frontier_task": null,
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
@@ -65,11 +65,11 @@
   "why_now": {
     "summary": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "reasons": [
-      "The active release baseline is 7.0.0 and the runtime is now targeting the next track.",
+      "The active release baseline is 7.1.0 and the runtime is now targeting the next track.",
       "The current operating goal and next value slice both reinforce the current frontier as the next bounded operating move."
     ],
     "evidence_refs": [
-      "docs/v7.0-release-definition.md",
+      "docs/v7.1-release-definition.md",
       ".aof/goals/operating-goal.json",
       ".aof/goals/next-value-slice.json",
       ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
@@ -77,7 +77,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence.",
+    "recommended_action": "Open an implementation task for the current frontier: Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -85,6 +85,6 @@
     "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
     "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Open an implementation task for the current frontier: Select the first v7.1 slice: context pack integrity audit, external reference resolution audit, stale/hidden reference blocker projection, and Council-visible reference-use evidence."
+    "what_should_happen_next": "Open an implementation task for the current frontier: Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface."
   }
 }
