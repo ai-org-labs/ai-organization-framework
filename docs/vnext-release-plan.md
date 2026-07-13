@@ -2,74 +2,77 @@
 
 ## Version
 
-Candidate: `v7.1.0`
+Candidate: `v7.3.0`
 
 ## Release Theme
 
-Context and Reference Integrity.
+Governed Multi-Actor Pilot.
 
-`v7.0.0` made the live agent session path reconstructable as local runtime event evidence. The next bottleneck is that a reconstructable session can still depend on hidden conversation context, stale external references, or undeclared sources that the operator cannot verify.
+`v7.2.0` made execution claims bounded through a Work Execution Packet. The next bottleneck is proving that AOF can use that packet as the handoff unit for a small governed multi-actor loop without hiding actor work, weakening Maker / Checker separation, or turning Council review into decoration.
 
 Human-facing wording:
 
-> v7.1 should let an operator see which context and references the AI organization relied on, and whether those inputs were declared, current, and reviewable.
+> v7.3 should prove that a Council can select multiple actors, assign bounded work, receive actor handoffs, judge the output, and return a reconstructable Work Execution Packet.
 
 More explicit wording:
 
-> AOF should treat context and external references as explicit runtime dependencies, not invisible conversation residue.
+> AOF should treat actor work as governed organization evidence, not as one parent AI silently role-playing every participant.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/v7.x-roadmap.md`
-- previous release: `v7.0.0`
-- v7.0 evidence: `docs/v7.0-release-definition.md`, `docs/v7.0.0-release-notes.md`
-- current frontier candidate: `v7.1` Context and Reference Integrity
+- previous release: `v7.2.0`
+- v7.2 evidence: `docs/v7.2-release-definition.md`, `docs/v7.2.0-release-notes.md`, `.aof/artifacts/work-execution-packets/TASK-091.json`
+- current frontier candidate: `v7.3` Governed Multi-Actor Pilot
 
 ## Required Outcomes
 
 Required:
 
-- define context pack integrity expectations for runtime work
-- define external reference resolution expectations
-- detect stale, missing, or hidden reference dependencies
-- project context/reference blockers into Mission Control
-- connect context/reference evidence to session event streams and Council review
+- define the parent orchestrator assignment packet for a bounded pilot
+- keep Visionary / Builder / Guardian present as Council participants
+- record actor roster proposal and Council approval before execution
+- require actor output handoffs before Council judgment
+- close the pilot through Work Execution Packet audit
 
 Deferred:
 
-- semantic validation of every referenced source
-- automated web freshness scoring for all domains
-- external service writes
-- general autonomous workforce execution
+- full autonomous workforce execution
+- external worker adapters
+- parallel lane join/conflict semantics
+- provider-specific session streaming integrations
 
 ## Release Gates
 
-### Gate 1: Context Contract
+### Gate 1: Council And Actor Contract
 
-- work items can declare required context refs
-- hidden conversation context can be represented as a blocker
-- context refs link to session and Council evidence
+- Council roster includes Visionary, Builder, and Guardian
+- parent orchestrator proposes actor roster before work execution
+- Council can approve, reject, or request changes to the roster
 
-### Gate 2: External Reference Integrity
+### Gate 2: Actor Handoff
 
-- external refs can declare source, access date, freshness expectation, and usage
-- unresolved or stale refs can fail the audit
-- reference presence is not misrepresented as semantic truth
+- actor outputs are submitted through organization handoff artifacts
+- actor handoffs link to source task, packet, session evidence, and verification evidence
+- actor work is not treated as final truth without Council judgment
 
 ### Gate 3: Governance Continuity
 
 - v7.0 session observability audit still passes
+- v7.1 context/reference integrity audit still passes
+- v7.2 Work Execution Packet audit still passes
 - work readiness, quality ledger, Archmap impact, review provenance, and evidence independence audits still pass
-- Council review can see which refs were actually used
 
 ### Gate 4: Release Surface
 
 - package version is updated to the selected release
 - active release manifest points at selected release docs
-- README and roadmap describe context/reference integrity without overclaiming semantic truth
+- README and roadmap describe governed multi-actor evidence without overclaiming autonomous organization performance
 
 ### Gate 5: Verification
 
+- multi-actor pilot audit
+- work execution packet audit
 - context/reference integrity audit
 - session observability audit
 - quality ledger audit
@@ -88,31 +91,30 @@ Deferred:
 
 Release only if AOF now makes it harder to confuse:
 
-- declared context with hidden context
-- available references with trusted references
-- stale external references with current evidence
-- event reconstructability with input integrity
-- reference presence with semantic correctness
+- parent orchestration with silent role-play
+- actor participation with actor handoff evidence
+- Council approval with decoration
+- packet completeness with semantic truth
+- multi-actor activity with governed organization work
 
-## Post-v7.1 Direction
+## Post-v7.2 Direction
 
 The v7 line should proceed in this order:
 
-1. `v7.2`: Work Execution Packet
-2. `v7.3`: Governed Multi-Actor Pilot
-3. `v7.4`: Governed Parallel Lanes
-4. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
-5. `v7.6`: Provider-Neutral Session Export
-6. `v7.7`: Adoption-Grade v7 Runtime
+1. `v7.3`: Governed Multi-Actor Pilot
+2. `v7.4`: Governed Parallel Lanes
+3. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
+4. `v7.6`: Provider-Neutral Session Export
+5. `v7.7`: Adoption-Grade v7 Runtime
 
 Canonical planning reference:
 
 - `docs/v7.x-roadmap.md`
 
-Do not jump directly from event streams to autonomous workforce claims. The
-runtime must first prove context integrity, bounded execution packets, Council
-join semantics, requirement-linked coverage/forecasting, and evidence-backed
-analytics.
+Do not jump directly from bounded packets to autonomous workforce claims. The
+runtime must first prove Council join semantics, actor handoff integrity,
+parallel lane join/conflict semantics, requirement-linked coverage/forecasting,
+and evidence-backed analytics.
 
 ## Requirement Coverage Direction
 

@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-13T04:44:30.000Z",
+  "work_item_id": "TASK-091",
+  "work_item_ref": ".aof/tasks/done/TASK-091.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v7.2 adds Work Execution Packet as the bounded execution-claim unit and release-state governance gate.",
+  "archmap_source_ref": "docs/v7.2-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-091-V72.json",
+  "not_proven": "This impact record states that the AOF governance map changes; it does not prove the visual map has already been redrawn."
+}

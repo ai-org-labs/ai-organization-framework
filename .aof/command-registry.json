@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-06T16:08:33.718Z",
+  "generated_at": "2026-07-13T04:52:40.046Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -691,6 +691,46 @@
       "detail_ref": "docs/cli-reference.md"
     },
     {
+      "command": "context-integrity-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a context dependency record that declares what a work item read, required, missed, and could not prove.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "work-item-id",
+        "work-item-ref",
+        "session-ref",
+        "context-pack-ref?",
+        "declared-context-ref?",
+        "required-context-ref?",
+        "missing-context-ref?",
+        "hidden-context-signal?",
+        "integrity-status",
+        "not-proven",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "context integrity artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
       "command": "context-pack",
       "category": "execute",
       "safety_level": "safe_local_write",
@@ -718,6 +758,37 @@
       ],
       "outputs": [
         "context pack artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "context-reference-integrity-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify that implementation-grade work has resolvable context, external reference integrity, and explicit hidden-context boundaries before release sign-off.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "cutoff-task-id?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "context/reference integrity audit result"
       ],
       "detail_ref": "docs/cli-reference.md"
     },
@@ -1259,6 +1330,47 @@
       ],
       "outputs": [
         "experiment proposal record artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "external-reference-integrity-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write freshness, availability, source-of-truth, and not-proven boundaries for an external reference used by AOF work.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "external-ref",
+        "external-ref-artifact-ref",
+        "source-system",
+        "url",
+        "relationship",
+        "source-of-truth",
+        "sync-policy",
+        "usage-purpose",
+        "freshness-status",
+        "availability-status",
+        "not-proven",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "external reference integrity artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },
@@ -3111,6 +3223,75 @@
       ],
       "outputs": [
         "viewer session"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "work-execution-packet-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify implementation work is not treated as executed without a bounded execution packet and resolvable handoff, lineage, verification, and stop/continue evidence.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "cutoff-task-id?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "work execution packet audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "work-execution-packet-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a bounded execution packet that links task, context integrity, actor handoff, execution lineage, verification evidence, and stop/continue decision.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "work-item-id",
+        "work-item-ref",
+        "context-integrity-ref",
+        "actor-handoff-ref",
+        "execution-lineage-ref",
+        "verification-evidence-ref",
+        "stop-continue-decision",
+        "not-proven",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "work execution packet artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

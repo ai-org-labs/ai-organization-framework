@@ -39,6 +39,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing context records, unresolved required refs, stale/unavailable external refs without accepted residual risk, blocked context, or absent not-proven boundaries.",
     verdict_boundary: "Context/reference integrity evidence only; not proof that the referenced material is semantically correct."
   },
+  "work-execution-packet-audit": {
+    quality_intent: "Execution claims are bounded by task, context, actor handoff, verification, and stop/continue evidence.",
+    risk: "AOF treats scattered runtime artifacts as proof of execution even when no one can reconstruct what was handed off, checked, and decided.",
+    loss_boundary: "Do not claim execution readiness or release readiness when implementation-grade work lacks a Work Execution Packet with resolvable handoff, lineage, verification, and stop/continue evidence.",
+    evidence_refs: ["work execution packets", "context integrity records", "agent session records", "execution lineage", "verification evidence"],
+    acceptance_gate: "Audit fails missing packets, unresolved refs, absent actor handoff, absent verification evidence, missing stop/continue decision, or absent not-proven boundary.",
+    verdict_boundary: "Execution packet integrity only; not proof that the executed work is semantically valuable or externally validated."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

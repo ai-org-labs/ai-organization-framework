@@ -64,6 +64,8 @@ import { needValidationRecordCommand } from "../src/commands/need-validation-rec
 import { valueHypothesisRecordCommand } from "../src/commands/value-hypothesis-record.js";
 import { buildVisibilityPageHtml, loadVisibilityViews, readProjectTextRef } from "../src/commands/visibility-serve.js";
 import { visibilityExportCommand } from "../src/commands/visibility-export.js";
+import { workExecutionPacketAuditCommand } from "../src/commands/work-execution-packet-audit.js";
+import { workExecutionPacketRecordCommand } from "../src/commands/work-execution-packet-record.js";
 import { workReadinessAuditCommand } from "../src/commands/work-readiness-audit.js";
 import { workReadinessRecordCommand } from "../src/commands/work-readiness-record.js";
 import { deriveInitialClarification } from "../src/runtime/clarification.js";
@@ -287,6 +289,128 @@ test("workReadinessAuditCommand fails missing readiness and passes complete gate
   const passing = await workReadinessAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
   assert.equal(passing.ok, true);
   assert.equal(passing.summary.summary.ready_record_count, 1);
+});
+
+test("work execution packet schema requires handoff, verification, stop decision, and not-proven boundary", async () => {
+  const payload = {
+    artifact_type: "work-execution-packet",
+    packet_id: "WEP-TASK-091",
+    recorded_at: "2026-07-13T00:00:00.000Z",
+    work_item_id: "TASK-091",
+    work_item_ref: ".aof/tasks/open/TASK-091.json",
+    execution_status: "ready",
+    context_integrity_ref: ".aof/artifacts/context-integrity/TASK-091.json",
+    actor_handoff_refs: [".aof/artifacts/agent-sessions/SESS-V72-WORK-EXECUTION-PACKET.json"],
+    execution_lineage_ref: ".aof/context/active/execution-lineage.json",
+    verification_evidence_refs: ["test/runtime-core-2.test.js"],
+    stop_continue_decision: {
+      decision: "continue",
+      rationale: "Focused verification passed.",
+      decided_by: "architecture-council",
+      evidence_refs: [".aof/artifacts/execution/council-reviews/CREV-TASK-091-V72.json"]
+    },
+    not_proven: "semantic value still requires operator review",
+    source_task_id: "TASK-091",
+    source_parent_session_id: "SESS-V72-WORK-EXECUTION-PACKET",
+    source_decision_record_id: null,
+    notes: null
+  };
+
+  await validateWithBundledSchema(payload, "aof-work-execution-packet.schema.json", "work execution packet");
+
+  const missingDecision = { ...payload };
+  delete missingDecision.stop_continue_decision;
+  await assert.rejects(
+    validateWithBundledSchema(missingDecision, "aof-work-execution-packet.schema.json", "work execution packet"),
+    /missing required key 'stop_continue_decision'/
+  );
+
+  const missingBoundary = { ...payload };
+  delete missingBoundary.not_proven;
+  await assert.rejects(
+    validateWithBundledSchema(missingBoundary, "aof-work-execution-packet.schema.json", "work execution packet"),
+    /missing required key 'not_proven'/
+  );
+});
+
+async function writeWorkExecutionPacketFixtures(projectRoot) {
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, "test"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "context-integrity"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "agent-sessions"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "context", "active"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "requirement.md"), "# Requirement\n");
+  await fs.writeFile(path.join(projectRoot, "test", "runtime-core-2.test.js"), "test evidence\n");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Implement work execution packet",
+    description: "Fixture task",
+    origin: "human"
+  });
+  await contextIntegrityRecordCommand({
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: ".aof/artifacts/agent-sessions/SESS-V72-TEST.json",
+    declaredContextRefs: ["docs/requirement.md"],
+    requiredContextRefs: ["docs/requirement.md"],
+    integrityStatus: "ready",
+    notProven: "semantic adequacy still requires operator review",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V72-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "context-integrity", "TASK-001.json")
+  });
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "agent-sessions", "SESS-V72-TEST.json"), "{}\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "context", "active", "execution-lineage.json"), "{}\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews", "CREV-TASK-001-V72.json"), "{}\n");
+}
+
+function completeWorkExecutionPacketOptions(projectRoot) {
+  return {
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    executionStatus: "ready",
+    contextIntegrityRef: ".aof/artifacts/context-integrity/TASK-001.json",
+    actorHandoffRefs: [".aof/artifacts/agent-sessions/SESS-V72-TEST.json"],
+    executionLineageRef: ".aof/context/active/execution-lineage.json",
+    verificationEvidenceRefs: ["test/runtime-core-2.test.js"],
+    stopContinueDecision: "continue",
+    stopContinueRationale: "Focused verification passed and no blocker remains.",
+    stopContinueDecidedBy: "architecture-council",
+    stopContinueEvidenceRefs: [".aof/artifacts/execution/council-reviews/CREV-TASK-001-V72.json"],
+    notProven: "semantic value still requires operator review",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V72-TEST"
+  };
+}
+
+test("workExecutionPacketRecordCommand writes a schema-valid packet", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeWorkExecutionPacketFixtures(projectRoot);
+
+  const result = await workExecutionPacketRecordCommand(completeWorkExecutionPacketOptions(projectRoot));
+
+  assert.equal(result.ok, true);
+  const written = JSON.parse(await fs.readFile(result.artifactPath, "utf8"));
+  await validateWithBundledSchema(written, "aof-work-execution-packet.schema.json", "work execution packet");
+  assert.equal(written.stop_continue_decision.decision, "continue");
+});
+
+test("workExecutionPacketAuditCommand fails missing packets and passes complete execution packets", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeWorkExecutionPacketFixtures(projectRoot);
+
+  const failing = await workExecutionPacketAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(failing.ok, false);
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("work execution packet presence")));
+
+  await workExecutionPacketRecordCommand(completeWorkExecutionPacketOptions(projectRoot));
+
+  const passing = await workExecutionPacketAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(passing.ok, true);
+  assert.equal(passing.summary.summary.accepted_packet_count, 1);
 });
 
 test("agent session record schema defines task, requirement, test, risk, decision, and release-ready links", async () => {

@@ -1,0 +1,102 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRIQPJHU-XAQ9I8",
+  "recorded_at": "2026-07-13T04:46:26.034Z",
+  "session_id": "SESS-V72-WORK-EXECUTION-PACKET",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "ASEV1-MRIQPJHU-5V2HKI",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-13T04:46:26.034Z",
+      "summary": "User required v7.2 release after v7.1 was already shipped.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRIQPJHU-UHUMQ0",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-13T04:46:26.034Z",
+      "summary": "Ran situation-assess and selected Work Execution Packet frontier.",
+      "artifact_refs": [],
+      "tool_name": "situation-assess",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV3-MRIQPJHU-TK89FW",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-13T04:46:26.034Z",
+      "summary": "Implemented Work Execution Packet schemas, writer, audit, CLI wiring, tests, and release docs.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV4-MRIQPJHU-59DMGG",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-13T04:46:26.034Z",
+      "summary": "Focused runtime-core-2 tests passed for packet schema, writer, audit fail/pass.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV5-MRIQPJHU-Q8V0ZQ",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-13T04:46:26.034Z",
+      "summary": "Stop after packet audit, release-state audit, full tests, and smoke pass.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+        ".aof/tasks/done/TASK-091.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.2-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "schemas/aof-work-execution-packet.schema.json",
+      "schemas/aof-work-execution-packet-audit.schema.json",
+      "src/commands/work-execution-packet-record.js",
+      "src/commands/work-execution-packet-audit.js"
+    ]
+  },
+  "risk_candidates": [
+    "Execution packet could become another artifact count metric unless audit requires resolvable handoff and stop decision evidence."
+  ],
+  "decision_candidates": [
+    "Promote Work Execution Packet audit to release-state gate for v7.2 and later."
+  ],
+  "release_ready_evidence": {
+    "claim": "v7.2 Work Execution Packet is structurally ready pending full release gates.",
+    "evidence_refs": [
+      "docs/v7.2-release-checklist.md",
+      "test/runtime-core-2.test.js"
+    ],
+    "verdict": "structurally_ready"
+  },
+  "source_task_id": "TASK-091",
+  "source_parent_session_id": "SESS-V72-WORK-EXECUTION-PACKET",
+  "source_decision_record_id": null
+}

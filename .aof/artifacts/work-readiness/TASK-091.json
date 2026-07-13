@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRIQK2L5-Q5X5UL",
+  "recorded_at": "2026-07-13T04:42:10.841Z",
+  "work_item_id": "TASK-091",
+  "work_item_ref": ".aof/tasks/done/TASK-091.json",
+  "readiness_status": "ready",
+  "goal": "Ship v7.2 Work Execution Packet as the bounded execution-claim contract.",
+  "risk": "AOF may treat scattered artifacts as proof of execution when the handoff, verification, and stop decision are not reconstructable.",
+  "loss_boundary": "No execution-ready or release-ready claim without a resolvable Work Execution Packet.",
+  "acceptance_gates": [
+    "work-execution-packet-audit passes",
+    "release-state-audit includes the work execution packet gate for v7.2"
+  ],
+  "evidence_plan": [
+    "schema, writer, audit, CLI wiring, tests, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if packet cannot link task, context, actor handoff, lineage, verification, and stop/continue decision"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-091",
+  "source_parent_session_id": "SESS-V72-WORK-EXECUTION-PACKET",
+  "source_decision_record_id": null
+}

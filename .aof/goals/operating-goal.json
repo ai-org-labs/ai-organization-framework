@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "After v7.1.0, evaluate v7.2 Work Execution Packet as the next bounded frontier; preserve context/reference integrity as a mandatory precondition for execution claims.",
-  "updated_at": "2026-07-12T16:07:57.018Z",
+  "content": "After v7.2.0, advance v7.3 Governed Multi-Actor Pilot: prove that Council-selected actors can be assigned, produce bounded handoffs, and return evidence through the Work Execution Packet without weakening context/reference integrity.",
+  "updated_at": "2026-07-13T05:00:38.191Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+  "source_session_id": "SESS-V72-WORK-EXECUTION-PACKET",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

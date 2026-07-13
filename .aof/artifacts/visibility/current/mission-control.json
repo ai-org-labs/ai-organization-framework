@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-12T16:11:32.528Z",
+  "generated_at": "2026-07-13T05:04:33.844Z",
   "mission_overview": {
-    "mission": "Ship v7.1.0 as the Context and Reference Integrity release.",
-    "release_version": "7.1.0",
-    "release_definition_ref": "docs/v7.1-release-definition.md",
-    "operating_goal": "After v7.1.0, evaluate v7.2 Work Execution Packet as the next bounded frontier; preserve context/reference integrity as a mandatory precondition for execution claims.",
-    "next_value_slice": "Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface.",
+    "mission": "Ship v7.2.0 as the Work Execution Packet release.",
+    "release_version": "7.2.0",
+    "release_definition_ref": "docs/v7.2-release-definition.md",
+    "operating_goal": "After v7.2.0, advance v7.3 Governed Multi-Actor Pilot: prove that Council-selected actors can be assigned, produce bounded handoffs, and return evidence through the Work Execution Packet without weakening context/reference integrity.",
+    "next_value_slice": "Define the v7.3 Governed Multi-Actor Pilot slice: Council opens a bounded pilot, selects at least three persistent actors, records actor assignment/handoff evidence, verifies maker/checker separation, and closes the pilot through Work Execution Packet audit.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: Define the v7.2 Work Execution Packet slice: task-to-execution packet contract, actor handoff evidence, verification result linkage, and stop/continue decision surface.",
+    "recommended_action": "Open an implementation task for the current frontier: Define the v7.3 Governed Multi-Actor Pilot slice: Council opens a bounded pilot, selects at least three persistent actors, records actor assignment/handoff evidence, verifies maker/checker separation, and closes the pilot through Work Execution Packet audit.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 20,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-090.json",
+    "impact_record_count": 21,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-091.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-090",
+    "latest_work_item_id": "TASK-091",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-090.json"
+      ".aof/artifacts/archmap/impact/TASK-091.json"
     ],
     "external_refs": []
   },
@@ -399,38 +399,43 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 6,
-    "latest_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-INTEGRITY.json",
+    "stream_count": 7,
+    "latest_session_id": "SESS-V72-WORK-EXECUTION-PACKET",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V72-WORK-EXECUTION-PACKET.json",
     "latest_actor_ref": "codex",
     "latest_role_ref": "builder",
-    "latest_recorded_at": "2026-07-12T16:00:36.656Z",
-    "latest_event_count": 4,
-    "latest_release_verdict": "runtime_ready",
+    "latest_recorded_at": "2026-07-13T04:46:26.034Z",
+    "latest_event_count": 5,
+    "latest_release_verdict": "structurally_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-090.json"
+      ".aof/tasks/done/TASK-091.json"
     ],
     "linked_requirement_refs": [
-      "docs/v7.1-context-reference-integrity-design.md"
+      "docs/v7.2-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js"
     ],
-    "linked_artifact_refs": [],
+    "linked_artifact_refs": [
+      "schemas/aof-work-execution-packet.schema.json",
+      "schemas/aof-work-execution-packet-audit.schema.json",
+      "src/commands/work-execution-packet-record.js",
+      "src/commands/work-execution-packet-audit.js"
+    ],
     "risk_candidates": [
-      "Hidden or stale context can still look correct to the operator."
+      "Execution packet could become another artifact count metric unless audit requires resolvable handoff and stop decision evidence."
     ],
     "decision_candidates": [
-      "Promote context/reference integrity audit into release-state-audit for v7.1 and later."
+      "Promote Work Execution Packet audit to release-state gate for v7.2 and later."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "User asked to complete the next AOF release.",
-        "occurred_at": "2026-07-12T16:00:36.650Z",
+        "summary": "User required v7.2 release after v7.1 was already shipped.",
+        "occurred_at": "2026-07-13T04:46:26.034Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -438,44 +443,46 @@
       },
       {
         "event_type": "tool_call",
-        "summary": "Ran situation-assess before implementation.",
-        "occurred_at": "2026-07-12T16:00:36.656Z",
+        "summary": "Ran situation-assess and selected Work Execution Packet frontier.",
+        "occurred_at": "2026-07-13T04:46:26.034Z",
         "tool_name": "situation-assess",
         "safety_level": "safe_read",
         "approval_policy": "preapproved",
-        "artifact_refs": [
-          ".aof/goals/next-value-slice.json"
-        ]
+        "artifact_refs": []
       },
       {
         "event_type": "artifact_write",
-        "summary": "Implemented context/reference integrity schemas, writers, audit, Mission Control projection, tests, and release artifacts.",
-        "occurred_at": "2026-07-12T16:00:36.656Z",
+        "summary": "Implemented Work Execution Packet schemas, writer, audit, CLI wiring, tests, and release docs.",
+        "occurred_at": "2026-07-13T04:46:26.034Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
-        "artifact_refs": [
-          "schemas/aof-context-integrity-record.schema.json",
-          "schemas/aof-external-reference-integrity-record.schema.json",
-          "schemas/aof-context-reference-integrity-audit.schema.json",
-          "src/commands/context-reference-integrity-audit.js"
-        ]
+        "artifact_refs": []
       },
       {
         "event_type": "verification_result",
-        "summary": "Focused runtime tests passed: 92 pass, 0 fail.",
-        "occurred_at": "2026-07-12T16:00:36.656Z",
+        "summary": "Focused runtime-core-2 tests passed for packet schema, writer, audit fail/pass.",
+        "occurred_at": "2026-07-13T04:46:26.034Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
           "test/runtime-core-2.test.js"
         ]
+      },
+      {
+        "event_type": "stop_condition",
+        "summary": "Stop after packet audit, release-state audit, full tests, and smoke pass.",
+        "occurred_at": "2026-07-13T04:46:26.034Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "Ran situation-assess before implementation.",
+        "summary": "Ran situation-assess and selected Work Execution Packet frontier.",
         "tool_name": "situation-assess",
         "safety_level": "safe_read",
         "approval_policy": "preapproved"
@@ -489,11 +496,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 1,
+    "context_record_count": 2,
     "external_reference_record_count": 1,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-091.json",
+        "work_item_id": "TASK-091",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity does not prove semantic value or external adoption of the packet."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-090.json",
         "work_item_id": "TASK-090",

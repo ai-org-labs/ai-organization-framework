@@ -9,6 +9,7 @@ import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
 import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
+import { workExecutionPacketAuditCommand } from "./work-execution-packet-audit.js";
 import { workReadinessAuditCommand } from "./work-readiness-audit.js";
 
 const DEFAULT_GOVERNANCE_AUDIT_CUTOFF_TASK_ID = "TASK-071";
@@ -65,6 +66,15 @@ function requiresContextReferenceIntegrityAudit(releaseVersion) {
   return major > 7 || (major === 7 && minor >= 1);
 }
 
+function requiresWorkExecutionPacketAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 7 || (major === 7 && minor >= 2);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -85,6 +95,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresContextReferenceIntegrityAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("context-reference-integrity-audit", await contextReferenceIntegrityAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresWorkExecutionPacketAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("work-execution-packet-audit", await workExecutionPacketAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

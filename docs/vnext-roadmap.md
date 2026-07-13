@@ -433,20 +433,18 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v6.9.0`, close `v7.0` as Agent Session Observability before expanding into
-multi-actor runtime. `TASK-085`, `TASK-086`, and `TASK-087` are already
-implementation-grade slices toward that release.
+After `v7.2.0`, advance `v7.3` as Governed Multi-Actor Pilot. The v7.2 Work
+Execution Packet gives AOF a bounded execution claim; the next proof is that a
+Council can select actors, receive actor handoffs, judge the result, and return
+the whole loop as reconstructable runtime evidence.
 
 Priority order:
 
-1. `v7.0`: Agent Session Observability and Mission Control session projection
-2. `v7.1`: Context and Reference Integrity
-3. `v7.2`: Work Execution Packet
-4. `v7.3`: Governed Multi-Actor Pilot
-5. `v7.4`: Governed Parallel Lanes
-6. `v7.5`: Organization Analytics From Runtime Evidence
-7. `v7.6`: Provider-Neutral Session Export
-8. `v7.7`: Adoption-Grade v7 Runtime
+1. `v7.3`: Governed Multi-Actor Pilot
+2. `v7.4`: Governed Parallel Lanes
+3. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
+4. `v7.6`: Provider-Neutral Session Export
+5. `v7.7`: Adoption-Grade v7 Runtime
 
 Canonical v7.x roadmap:
 
@@ -454,12 +452,9 @@ Canonical v7.x roadmap:
 
 Reasoning:
 
-- v6.7 through v6.9 made release governance, quality ledger traceability, and
-  pre-implementation readiness executable.
-- v7.0 makes the live AI work path reconstructable.
-- v7.1 and v7.2 prevent hidden context and unbounded chat continuation from
-  becoming the new source of truth.
-- v7.3 and v7.4 can then add governed multi-actor and parallel execution without
+- v7.0 through v7.2 made the live AI work path reconstructable, context-bound,
+  and packetized.
+- v7.3 and v7.4 can now add governed multi-actor and parallel execution without
   scaling ambiguity.
-- v7.5 through v7.7 turn the evidence into analytics, export, and adoption
-  proof without overclaiming semantic truth.
+- v7.5 through v7.7 turn the evidence into coverage analytics, provider-neutral
+  export, and adoption proof without overclaiming semantic truth.

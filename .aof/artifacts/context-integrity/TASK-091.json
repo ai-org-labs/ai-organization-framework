@@ -1,0 +1,26 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRIQYNWS-A8WDI1",
+  "recorded_at": "2026-07-13T04:53:31.660Z",
+  "work_item_id": "TASK-091",
+  "work_item_ref": ".aof/tasks/done/TASK-091.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V72-WORK-EXECUTION-PACKET.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-governance/context-packs/CTX-TASK-091-V72.json"
+  ],
+  "declared_context_refs": [
+    "docs/v7.x-roadmap.md",
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "required_context_refs": [
+    "schemas/aof-work-execution-packet.schema.json",
+    "schemas/aof-work-execution-packet-audit.schema.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity does not prove semantic value or external adoption of the packet.",
+  "source_task_id": "TASK-091",
+  "source_parent_session_id": "SESS-V72-WORK-EXECUTION-PACKET",
+  "source_decision_record_id": null
+}

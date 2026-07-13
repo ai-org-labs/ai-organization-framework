@@ -1,0 +1,44 @@
+{
+  "artifact_type": "context-pack",
+  "recorded_at": "2026-07-13T04:42:30.000Z",
+  "pack_id": "CTX-TASK-091-V72",
+  "audience": "codex",
+  "current_mission": "Ship v7.2 Work Execution Packet",
+  "current_frontier": "Bound execution claims by task, context, actor handoff, verification evidence, and stop/continue decision.",
+  "active_work_items": [
+    {
+      "work_item_id": "TASK-091",
+      "summary": "Implement and verify Work Execution Packet contract and audit.",
+      "state": "in_progress"
+    }
+  ],
+  "open_blockers": [],
+  "pending_human_approvals": [],
+  "latest_decisions": [
+    "v7.2 frontier selected by situation-assess"
+  ],
+  "applicable_quality_intents": [
+    "QIN-AOF-RUNTIME",
+    "QIN-AOF-RELEASE"
+  ],
+  "priority_summary": "Close the execution-claim gap before expanding automation.",
+  "operational_map_refs": [
+    "docs/v7.x-roadmap.md"
+  ],
+  "go_no_go_status_summary": "go if packet audit, context/reference audit, release-state audit, npm test, and smoke pass.",
+  "actor_composition_summary": "Builder makes packet contract, Guardian checks audit failure modes, Council decides release readiness.",
+  "next_recommended_action": "Create packet evidence and run v7.2 release gates.",
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-091.json",
+    "schemas/aof-work-execution-packet.schema.json",
+    "schemas/aof-work-execution-packet-audit.schema.json",
+    "test/runtime-core-2.test.js"
+  ],
+  "external_refs": [
+    ".aof/external-refs/QIF-v0.3.0.json"
+  ],
+  "raw_artifact_bodies_included": false,
+  "source_task_id": "TASK-091",
+  "source_parent_session_id": "SESS-V72-WORK-EXECUTION-PACKET",
+  "source_decision_record_id": null
+}

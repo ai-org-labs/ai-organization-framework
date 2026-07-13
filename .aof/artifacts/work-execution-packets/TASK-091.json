@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-execution-packet",
+  "packet_id": "WEP-MRIQUEFJ-1PCIU4",
+  "recorded_at": "2026-07-13T04:50:12.751Z",
+  "work_item_id": "TASK-091",
+  "work_item_ref": ".aof/tasks/done/TASK-091.json",
+  "execution_status": "ready",
+  "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-091.json",
+  "actor_handoff_refs": [
+    ".aof/artifacts/agent-sessions/SESS-V72-WORK-EXECUTION-PACKET.json"
+  ],
+  "execution_lineage_ref": ".aof/context/active/execution-lineage.json",
+  "verification_evidence_refs": [
+    "test/runtime-core-2.test.js",
+    "schemas/aof-work-execution-packet.schema.json",
+    "schemas/aof-work-execution-packet-audit.schema.json"
+  ],
+  "stop_continue_decision": {
+    "decision": "continue",
+    "rationale": "Focused packet tests passed and Council review approved the bounded release gate pending full verification.",
+    "decided_by": "architecture-council",
+    "evidence_refs": [
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-091-V72.json",
+      "test/runtime-core-2.test.js"
+    ]
+  },
+  "not_proven": "Work Execution Packet integrity does not prove semantic value, operator acceptance, or external adoption.",
+  "source_task_id": "TASK-091",
+  "source_parent_session_id": "SESS-V72-WORK-EXECUTION-PACKET",
+  "source_decision_record_id": null,
+  "notes": null
+}

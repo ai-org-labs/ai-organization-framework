@@ -98,6 +98,8 @@ Usage:
   aof quality-ledger-audit [--project <path>] [--write-artifact <path>]
   aof work-readiness-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --goal "<text>" --risk "<text>" --loss-boundary "<text>" --acceptance-gate "<text>" [--acceptance-gate "<text>"] --evidence-plan "<text>" [--evidence-plan "<text>"] --maker-role <role> --checker-role <role> --council-ref <ref> --stop-condition "<text>" [--stop-condition "<text>"] --qif-ref <path> [--qif-ref <path>] [--readiness-status <ready|blocked|deferred>] [--archmap-impact-expected <yes|no|unknown>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
   aof work-readiness-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof work-execution-packet-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --context-integrity-ref <path> --actor-handoff-ref <path> [--actor-handoff-ref <path>] --execution-lineage-ref <path> --verification-evidence-ref <path> [--verification-evidence-ref <path>] --stop-continue-decision <continue|stop|defer|reopen> --stop-continue-rationale "<text>" --stop-continue-decided-by <ref> --stop-continue-evidence-ref <path> [--stop-continue-evidence-ref <path>] --not-proven "<text>" [--execution-status <draft|ready|blocked|completed>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
+  aof work-execution-packet-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof agent-session-record --project <path> --session-id <id> --actor-ref <ref> --role-ref <ref> --event-json '<json>' [--event-json '<json>'] --task-ref <path> --requirement-ref <path> --test-evidence-ref <path> --risk-candidate "<text>" --decision-candidate "<text>" --release-ready-evidence-ref <path> [--release-ready-verdict <not_ready|structurally_ready|runtime_ready|operator_validated>] [--release-ready-claim "<text>"] [--provider <name>] [--model <name>] [--parent-session-id <id>] [--commit-ref <ref>] [--pr-ref <ref>] [--artifact-ref <path>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof session-observability-audit [--project <path>] [--write-artifact <path>]
   aof context-integrity-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> [--context-pack-ref <path>] [--declared-context-ref <path>] [--required-context-ref <path>] [--missing-context-ref <path>] [--hidden-context-signal "<text>"] --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -201,6 +203,8 @@ Examples:
   aof quality-ledger-audit --project . --write-artifact /tmp/aof-quality-ledger-audit.json
   aof work-readiness-record --project . --work-item-id TASK-082 --work-item-ref .aof/tasks/open/TASK-082.json --goal "Implement executable pre-implementation gates" --risk "AOF starts work without knowing what success means" --loss-boundary "No implementation-ready claim without gates" --acceptance-gate "work-readiness-audit passes" --evidence-plan "schema, command, tests, Council review" --maker-role builder --checker-role guardian --council-ref architecture-council --stop-condition "audit passes or implementation stops" --qif-ref docs/aof-qif-quality-definition.md --source-task-id TASK-082 --source-parent-session-id SESS-PARENT-001
   aof work-readiness-audit --project . --cutoff-task-id TASK-082 --write-artifact /tmp/aof-work-readiness-audit.json
+  aof work-execution-packet-record --project . --work-item-id TASK-091 --work-item-ref .aof/tasks/open/TASK-091.json --context-integrity-ref .aof/artifacts/context-integrity/TASK-091.json --actor-handoff-ref .aof/artifacts/agent-sessions/SESS-V72-WORK-EXECUTION-PACKET.json --execution-lineage-ref .aof/context/active/execution-lineage.json --verification-evidence-ref test/runtime-core-2.test.js --stop-continue-decision continue --stop-continue-rationale "all v7.2 execution packet gates are green" --stop-continue-decided-by architecture-council --stop-continue-evidence-ref .aof/artifacts/execution/council-reviews/CREV-TASK-091-V72.json --not-proven "semantic value of the work still requires operator review" --source-task-id TASK-091 --source-parent-session-id SESS-V72-WORK-EXECUTION-PACKET
+  aof work-execution-packet-audit --project . --cutoff-task-id TASK-091 --write-artifact /tmp/aof-work-execution-packet-audit.json
   aof agent-session-record --project . --session-id SESS-001 --actor-ref codex --role-ref builder --event-json '{"event_type":"prompt","summary":"User asked for v7 session observability"}' --event-json '{"event_type":"tool_call","summary":"Ran runtime audit","tool_name":"session-observability-audit","safety_level":"safe_read","approval_policy":"preapproved"}' --task-ref .aof/tasks/open/TASK-085.json --requirement-ref docs/v7.0-agent-session-observability-direction.md --test-evidence-ref test/runtime-core-2.test.js --risk-candidate "session path is not reconstructable" --decision-candidate "promote event stream to release gate" --release-ready-evidence-ref docs/v7.0-agent-session-observability-direction.md --release-ready-verdict runtime_ready --source-task-id TASK-085 --source-parent-session-id SESS-V70-SESSION-OBSERVABILITY
   aof session-observability-audit --project . --write-artifact /tmp/aof-session-observability-audit.json
   aof problem-statement-record --project . --affected-party "newly invited workspace admins" --actual-problem "activation fails during permission setup" --why-it-matters "high-intent admins fail before value is realized" --why-now "activation drop-off is blocking current growth" --evidence-ref docs/research/funnel-notes.md
@@ -998,6 +1002,34 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "work-readiness-audit"
+            ? {
+                project: ".",
+                cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "work-execution-packet-record"
+            ? {
+                project: ".",
+                packetId: "",
+                workItemId: "",
+                workItemRef: "",
+                executionStatus: "ready",
+                contextIntegrityRef: "",
+                actorHandoffRefs: [],
+                executionLineageRef: "",
+                verificationEvidenceRefs: [],
+                stopContinueDecision: "continue",
+                stopContinueRationale: "",
+                stopContinueDecidedBy: "",
+                stopContinueEvidenceRefs: [],
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "work-execution-packet-audit"
             ? {
                 project: ".",
                 cutoffTaskId: "",
@@ -2682,6 +2714,87 @@ function parseArgs(argv) {
         throw new Error("Missing value after --readiness-status.");
       }
       options.readinessStatus = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--execution-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --execution-status.");
+      }
+      options.executionStatus = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--context-integrity-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --context-integrity-ref.");
+      }
+      options.contextIntegrityRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--actor-handoff-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --actor-handoff-ref.");
+      }
+      options.actorHandoffRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--execution-lineage-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --execution-lineage-ref.");
+      }
+      options.executionLineageRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--verification-evidence-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --verification-evidence-ref.");
+      }
+      options.verificationEvidenceRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--stop-continue-decision") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --stop-continue-decision.");
+      }
+      options.stopContinueDecision = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--stop-continue-rationale") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --stop-continue-rationale.");
+      }
+      options.stopContinueRationale = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--stop-continue-decided-by") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --stop-continue-decided-by.");
+      }
+      options.stopContinueDecidedBy = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--stop-continue-evidence-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --stop-continue-evidence-ref.");
+      }
+      options.stopContinueEvidenceRefs.push(value);
       i += 1;
       continue;
     }
@@ -4669,6 +4782,54 @@ function parseArgs(argv) {
   if (command === "context-reference-integrity-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `context-reference-integrity-audit`.");
+    }
+  }
+
+  if (command === "work-execution-packet-record") {
+    if (!options.workItemId) {
+      throw new Error("Missing --work-item-id for `work-execution-packet-record`.");
+    }
+    if (!options.workItemRef) {
+      throw new Error("Missing --work-item-ref for `work-execution-packet-record`.");
+    }
+    if (!["draft", "ready", "blocked", "completed"].includes(options.executionStatus)) {
+      throw new Error("Invalid --execution-status for `work-execution-packet-record`.");
+    }
+    if (!options.contextIntegrityRef) {
+      throw new Error("Missing --context-integrity-ref for `work-execution-packet-record`.");
+    }
+    if (!Array.isArray(options.actorHandoffRefs) || options.actorHandoffRefs.length === 0) {
+      throw new Error("At least one --actor-handoff-ref is required for `work-execution-packet-record`.");
+    }
+    if (!options.executionLineageRef) {
+      throw new Error("Missing --execution-lineage-ref for `work-execution-packet-record`.");
+    }
+    if (!Array.isArray(options.verificationEvidenceRefs) || options.verificationEvidenceRefs.length === 0) {
+      throw new Error("At least one --verification-evidence-ref is required for `work-execution-packet-record`.");
+    }
+    if (!["continue", "stop", "defer", "reopen"].includes(options.stopContinueDecision)) {
+      throw new Error("Invalid --stop-continue-decision for `work-execution-packet-record`.");
+    }
+    if (!options.stopContinueRationale || !options.stopContinueDecidedBy) {
+      throw new Error("Missing --stop-continue-rationale or --stop-continue-decided-by for `work-execution-packet-record`.");
+    }
+    if (!Array.isArray(options.stopContinueEvidenceRefs) || options.stopContinueEvidenceRefs.length === 0) {
+      throw new Error("At least one --stop-continue-evidence-ref is required for `work-execution-packet-record`.");
+    }
+    if (!options.notProven) {
+      throw new Error("Missing --not-proven for `work-execution-packet-record`.");
+    }
+    if (!options.sourceTaskId) {
+      throw new Error("Missing --source-task-id for `work-execution-packet-record`.");
+    }
+    if (!options.sourceParentSessionId) {
+      throw new Error("Missing --source-parent-session-id for `work-execution-packet-record`.");
+    }
+  }
+
+  if (command === "work-execution-packet-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `work-execution-packet-audit`.");
     }
   }
 
