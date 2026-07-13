@@ -419,6 +419,63 @@ QIF boundary:
 - pass は pre-implementation readiness の structural/runtime evidence であり、成果物の意味的正しさ・市場価値・実装品質を証明しない
 - pass 後も maker/checker/Council/release-state の各 gate は必要
 
+### `requirement-coverage-record`
+
+work item の progress / forecast claim を、requirement / work / evidence / coverage count / forecast boundary に束ねる。これは v7.5 の Requirements Coverage, Forecasting, And Organization Analytics 用 command であり、task activity や dashboard 表示を品質・進捗の証明として扱わないためのもの。
+
+```bash
+node ./src/cli.js requirement-coverage-record \
+  --project . \
+  --work-item-id TASK-094 \
+  --work-item-ref .aof/tasks/done/TASK-094.json \
+  --requirement-json '{"requirement_id":"REQ-V75-001","requirement_type":"functional","source_ref":"docs/v7.5-release-definition.md","title":"Record requirement coverage","owner_ref":"builder","acceptance_boundary":"linked work and evidence refs resolve","status":"covered","linked_work_item_refs":[".aof/tasks/done/TASK-094.json"],"evidence_refs":["schemas/aof-requirement-coverage-record.schema.json"]}' \
+  --coverage-summary-json '{"total_requirements":1,"covered_count":1,"partial_count":0,"blocked_count":0,"at_risk_count":0,"unstarted_count":0}' \
+  --forecast-json '{"estimated_remaining_work_items":0,"estimated_token_cost_range":"bounded release verification only","burndown_ref":"docs/v7.5-release-checklist.md","forecast_boundary":"forecast is planning evidence, not delivery certainty"}' \
+  --not-proven "coverage evidence does not prove semantic satisfaction" \
+  --source-task-id TASK-094 \
+  --source-parent-session-id SESS-PARENT-001
+```
+
+主な記録項目:
+
+- `requirements`: functional / non-functional / QIF quality-intent / release-gate requirement
+- `source_ref`: requirement の由来
+- `linked_work_item_refs`: requirement に紐づく work item
+- `evidence_refs`: coverage claim の根拠
+- `coverage_summary`: covered / partial / blocked / at-risk / unstarted counts
+- `forecast`: remaining work, token/cost range, burndown ref, forecast boundary
+- `not_proven`: coverage/forecast が証明しないこと
+
+QIF boundary:
+
+- coverage record は requirement linkage evidence であり、requirement の semantic satisfaction を証明しない
+- forecast は planning evidence であり、delivery certainty / token certainty / market truth を証明しない
+
+### `requirement-coverage-audit`
+
+implementation-grade work item が、requirement coverage と forecast を証拠なしで主張していないかを narrow に検査する。
+
+```bash
+node ./src/cli.js requirement-coverage-audit --project . --cutoff-task-id TASK-094
+```
+
+主な確認項目:
+
+- 対象 task に `.aof/artifacts/requirement-coverage/<TASK-id>.json` が存在する
+- record schema が valid
+- `work_item_id` が task と一致する
+- coverage status が accepted state
+- requirement entries が存在する
+- coverage summary counts が requirement status と一致する
+- requirement source refs / linked work refs / evidence refs が解決できる
+- forecast boundary と optional burndown ref が解決できる
+- `not_proven` boundary が存在する
+
+QIF boundary:
+
+- pass は requirement coverage / forecast governance の structural/runtime evidence であり、semantic satisfaction や forecast accuracy を証明しない
+- release sign-off では `release-state-audit` が v7.5 以降この audit を release gate として実行する
+
 ### `agent-session-record`
 
 AI 作業を session event stream として記録する。v7.0 の最初の観測単位であり、AI作業を task / requirement / test evidence / risk candidate / decision candidate / release-ready evidence に紐づける。

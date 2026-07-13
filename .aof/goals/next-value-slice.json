@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
-  "updated_at": "2026-07-13T13:11:05.126Z",
+  "content": "Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
+  "updated_at": "2026-07-13T16:56:38.203Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V74-PARALLEL-LANES",
+  "source_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

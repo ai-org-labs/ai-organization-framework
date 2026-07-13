@@ -1,0 +1,23 @@
+{
+  "artifact_type": "actor-roster",
+  "work_item_id": "TASK-094",
+  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "actors": [
+    {
+      "actor_ref": "visionary",
+      "role_ref": "visionary",
+      "assignment": "Frame v7.5 as bounded requirement coverage and forecast governance."
+    },
+    {
+      "actor_ref": "builder",
+      "role_ref": "builder",
+      "assignment": "Implement schemas, writer, audit command, CLI wiring, release integration, tests, and docs."
+    },
+    {
+      "actor_ref": "guardian",
+      "role_ref": "guardian",
+      "assignment": "Verify missing coverage fails and coverage/forecast claims retain not-proven boundaries."
+    }
+  ],
+  "not_proven": "Actor roster evidence does not prove autonomous worker scheduling or semantic judgment quality."
+}

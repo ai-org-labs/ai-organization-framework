@@ -36,6 +36,8 @@ import { multiActorPilotAuditCommand } from "../src/commands/multi-actor-pilot-a
 import { multiActorPilotRecordCommand } from "../src/commands/multi-actor-pilot-record.js";
 import { parallelLaneAuditCommand } from "../src/commands/parallel-lane-audit.js";
 import { parallelLaneRecordCommand } from "../src/commands/parallel-lane-record.js";
+import { requirementCoverageAuditCommand } from "../src/commands/requirement-coverage-audit.js";
+import { requirementCoverageRecordCommand } from "../src/commands/requirement-coverage-record.js";
 import { operatorBriefCommand } from "../src/commands/operator-brief.js";
 import { contractRegisterCommand } from "../src/commands/contract-register.js";
 import { dependencyGraphCommand } from "../src/commands/dependency-graph.js";
@@ -680,6 +682,115 @@ test("parallelLaneAuditCommand fails missing pilots and passes complete lane evi
   const passing = await parallelLaneAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
   assert.equal(passing.ok, true);
   assert.equal(passing.summary.summary.accepted_pilot_count, 1);
+});
+
+async function writeRequirementCoverageFixtures(projectRoot) {
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "requirement-coverage", "fixtures"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "tasks", "open"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, ".aof", "tasks", "open", "TASK-001.json"), JSON.stringify({
+    task_id: "TASK-001",
+    title: "Test requirement coverage",
+    description: "Fixture task for requirement coverage audit.",
+    status: "open",
+    origin: "orchestrator",
+    orchestrator_session_id: "SESS-V75-TEST",
+    assigned_session_ids: [],
+    related_decision_record_id: null,
+    operating_goal_ref: null,
+    created_at: "2026-07-13T00:00:00.000Z",
+    updated_at: "2026-07-13T00:00:00.000Z",
+    assigned_at: null,
+    done_at: null,
+    retired_at: null,
+    last_triaged_at: null,
+    stale_candidate_at: null,
+    retire_candidate_at: null,
+    triage_notes: null
+  }, null, 2));
+  await fs.writeFile(path.join(projectRoot, "docs", "v7.5-release-definition.md"), "# v7.5\n");
+  await fs.writeFile(path.join(projectRoot, "docs", "v7.5-release-checklist.md"), "# checklist\n");
+  await fs.writeFile(path.join(projectRoot, "docs", "aof-qif-quality-definition.md"), "# QIF\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "requirement-coverage", "fixtures", "evidence.json"), "{}\n");
+}
+
+function completeRequirementCoverageOptions(projectRoot) {
+  return {
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    coverageStatus: "ready",
+    requirements: [
+      {
+        requirement_id: "REQ-V75-001",
+        requirement_type: "functional",
+        source_ref: "docs/v7.5-release-definition.md",
+        title: "Record requirement coverage.",
+        owner_ref: "builder",
+        acceptance_boundary: "Coverage only counts when linked work and evidence refs resolve.",
+        status: "covered",
+        linked_work_item_refs: [".aof/tasks/open/TASK-001.json"],
+        evidence_refs: [".aof/artifacts/requirement-coverage/fixtures/evidence.json"],
+        blocker_refs: []
+      },
+      {
+        requirement_id: "REQ-V75-002",
+        requirement_type: "qif_quality_intent",
+        source_ref: "docs/aof-qif-quality-definition.md",
+        title: "Do not claim semantic satisfaction from counts.",
+        owner_ref: "guardian",
+        acceptance_boundary: "Counts are evidence only when tied to risk and not-proven boundaries.",
+        status: "covered",
+        linked_work_item_refs: [".aof/tasks/open/TASK-001.json"],
+        evidence_refs: ["docs/aof-qif-quality-definition.md"],
+        blocker_refs: []
+      }
+    ],
+    coverageSummary: {
+      total_requirements: 2,
+      covered_count: 2,
+      partial_count: 0,
+      blocked_count: 0,
+      at_risk_count: 0,
+      unstarted_count: 0
+    },
+    forecast: {
+      estimated_remaining_work_items: 0,
+      estimated_token_cost_range: "bounded test fixture only",
+      burndown_ref: "docs/v7.5-release-checklist.md",
+      forecast_boundary: "forecast is planning evidence, not delivery certainty"
+    },
+    notProven: "Requirement coverage does not prove semantic satisfaction.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V75-TEST"
+  };
+}
+
+test("requirementCoverageRecordCommand writes a schema-valid coverage record", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeRequirementCoverageFixtures(projectRoot);
+
+  const result = await requirementCoverageRecordCommand(completeRequirementCoverageOptions(projectRoot));
+
+  assert.equal(result.ok, true);
+  const written = JSON.parse(await fs.readFile(result.artifactPath, "utf8"));
+  await validateWithBundledSchema(written, "aof-requirement-coverage-record.schema.json", "requirement coverage record");
+  assert.equal(written.coverage_summary.covered_count, 2);
+});
+
+test("requirementCoverageAuditCommand fails missing coverage and passes complete coverage evidence", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeRequirementCoverageFixtures(projectRoot);
+
+  const failing = await requirementCoverageAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(failing.ok, false);
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("requirement coverage record presence")));
+
+  await requirementCoverageRecordCommand(completeRequirementCoverageOptions(projectRoot));
+
+  const passing = await requirementCoverageAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(passing.ok, true);
+  assert.equal(passing.summary.summary.accepted_record_count, 1);
 });
 
 test("agent session record schema defines task, requirement, test, risk, decision, and release-ready links", async () => {

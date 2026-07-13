@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-requirement-coverage-audit.schema.json",
+  "title": "AOF Requirement Coverage Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "cutoff_task_id",
+    "audited_status_dirs",
+    "summary",
+    "tasks",
+    "records",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "requirement-coverage-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "cutoff_task_id": { "type": "string", "minLength": 1 },
+    "audited_status_dirs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scoped_task_count",
+        "record_count",
+        "accepted_record_count",
+        "missing_record_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "scoped_task_count": { "type": "integer", "minimum": 0 },
+        "record_count": { "type": "integer", "minimum": 0 },
+        "accepted_record_count": { "type": "integer", "minimum": 0 },
+        "missing_record_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "tasks": { "type": "array", "items": { "type": "object" } },
+    "records": { "type": "array", "items": { "type": "object" } },
+    "checks": { "type": "array", "items": { "type": "object" } },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

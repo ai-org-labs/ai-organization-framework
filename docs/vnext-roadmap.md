@@ -433,18 +433,18 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v7.4.0`, advance `v7.5` as Requirements Coverage, Forecasting, And
-Organization Analytics. The v7.4 Parallel Lane Pilot gives AOF a bounded
-split/join evidence claim; the next proof is that requirements can be extracted,
-linked to work items and evidence, and projected into coverage, blocker,
-completion, token-cost forecast, and burndown views without claiming semantic
-satisfaction.
+After `v7.5.0`, advance `v7.6` as Provider-Neutral Session Export. The v7.5
+Requirement Coverage gate gives AOF bounded coverage and forecast evidence; the
+next proof is that agent/session streams can be exported as portable packages
+linking prompts, responses, tool calls, artifacts, task refs, requirement refs,
+test evidence, risk candidates, decision candidates, redaction boundaries, and
+release-readiness evidence without depending on one vendor stream format.
 
 Priority order:
 
-1. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
-2. `v7.6`: Provider-Neutral Session Export
-3. `v7.7`: Adoption-Grade v7 Runtime
+1. `v7.6`: Provider-Neutral Session Export
+2. `v7.7`: Adoption-Grade v7 Runtime
+3. `v7.8`: Mission Control Coverage Forecast Projection
 4. `v8.0`: Externalized Organization Runtime
 
 Canonical v7.x roadmap:
@@ -453,10 +453,11 @@ Canonical v7.x roadmap:
 
 Reasoning:
 
-- v7.0 through v7.4 made the live AI work path reconstructable, context-bound,
-  packetized, multi-actor-governed, and parallel-lane-governed.
-- v7.5 can now turn that evidence into requirement coverage and forecast data
-  without claiming semantic satisfaction.
-- v7.6 through v8.0 turn the evidence into provider-neutral export, adoption
-  proof, and externalized organization runtime without overclaiming semantic
+- v7.0 through v7.5 made the live AI work path reconstructable, context-bound,
+  packetized, multi-actor-governed, parallel-lane-governed, and
+  requirement-coverage-aware.
+- v7.6 should package that evidence into provider-neutral session exports
+  without turning vendor streams into source-of-truth dependencies.
+- v7.7 through v8.0 turn the evidence into adoption proof, Mission Control
+  projection, and externalized organization runtime without overclaiming semantic
   truth.

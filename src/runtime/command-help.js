@@ -63,6 +63,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing pilot records, fewer than two lanes, unresolved lane refs, incomplete join packet, missing Council decision, missing upstream packet evidence, or absent not-proven statement.",
     verdict_boundary: "Parallel lane governance evidence only; not proof that parallel execution was faster, autonomous, or semantically correct."
   },
+  "requirement-coverage-audit": {
+    quality_intent: "Requirement, work, evidence, and forecast claims are traceable before release sign-off.",
+    risk: "AOF claims progress, completion, or forecast confidence from task counts or dashboard state without proving which requirements are covered by which work and evidence.",
+    loss_boundary: "Do not claim release readiness from coverage or forecast data when requirement records, work refs, evidence refs, blockers, forecast boundaries, or not-proven limits are missing or unresolved.",
+    evidence_refs: ["requirement coverage records", "work item refs", "requirement source refs", "evidence refs", "burndown refs"],
+    acceptance_gate: "Audit fails missing records, invalid schemas, unresolved refs, inconsistent coverage counts, missing forecast boundaries, or absent not-proven statements.",
+    verdict_boundary: "Coverage and forecast governance evidence only; not proof that requirements are semantically satisfied or forecasts will be accurate."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

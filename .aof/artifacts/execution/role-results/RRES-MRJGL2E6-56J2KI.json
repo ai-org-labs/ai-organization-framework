@@ -1,0 +1,24 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-13T16:50:47.262Z",
+  "role": "builder",
+  "stage": "execution",
+  "session_id": "SESS-V75-BUILDER",
+  "status": "completed",
+  "recommendation": "Implement requirement-coverage-record, requirement-coverage-audit, CLI routing, registry/help metadata, release integration, tests, and release docs.",
+  "rationale": "A narrow auditable gate is the fastest release-grade way to prove requirement coverage without overclaiming forecast truth.",
+  "signals": [
+    "runtime command plus audit surface"
+  ],
+  "artifact_refs": [
+    "src/commands/requirement-coverage-audit.js",
+    "schemas/aof-requirement-coverage-record.schema.json"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-094",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

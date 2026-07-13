@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-13T13:16:24.160Z",
+      "at": "2026-07-13T17:00:55.246Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-13T13:16:24.152Z",
+      "at": "2026-07-13T17:00:55.235Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -21,6 +21,28 @@
       "next": "Use the visibility packet to inspect operator-facing runtime health.",
       "refs": [
         ".aof/context/active/metrics-snapshot.json"
+      ]
+    },
+    {
+      "at": "2026-07-13T16:56:38.203Z",
+      "actor": "AOF Runtime",
+      "event_type": "next_value_slice_updated",
+      "summary": "Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
+      "rationale": "Project memory was updated to reflect the current operating focus.",
+      "next": "Project the current slice into operator visibility outputs.",
+      "refs": [
+        ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-07-13T16:56:08.333Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Ship v7.5 Requirements Coverage, Forecasting, And Organization Analytics",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-094.json"
       ]
     },
     {
@@ -35,17 +57,6 @@
       ]
     },
     {
-      "at": "2026-07-13T13:11:05.126Z",
-      "actor": "AOF Runtime",
-      "event_type": "next_value_slice_updated",
-      "summary": "Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
-      "rationale": "Project memory was updated to reflect the current operating focus.",
-      "next": "Project the current slice into operator visibility outputs.",
-      "refs": [
-        ".aof/goals/next-value-slice.json"
-      ]
-    },
-    {
       "at": "2026-07-13T06:38:03.692Z",
       "actor": "AOF Runtime",
       "event_type": "task_completed",
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-092.json"
-      ]
-    },
-    {
-      "at": "2026-07-13T04:53:52.928Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Ship v7.2 Work Execution Packet",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-091.json"
       ]
     }
   ]

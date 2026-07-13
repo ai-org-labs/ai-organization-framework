@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-13T13:10:26.258Z",
+  "generated_at": "2026-07-13T16:56:56.743Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2361,6 +2361,76 @@
       ],
       "outputs": [
         "active release manifest"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "requirement-coverage-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify requirement coverage and forecast claims are backed by resolvable requirement records, work links, evidence refs, coverage counts, and explicit forecast/not-proven boundaries.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "cutoff-task-id?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "requirement coverage audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "requirement-coverage-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a bounded requirement coverage record that links requirements, work items, evidence, coverage counts, forecast boundaries, blockers, and not-proven limits.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "work-item-id",
+        "work-item-ref",
+        "coverage-status?",
+        "requirement-json",
+        "coverage-summary-json",
+        "forecast-json",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "requirement coverage artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

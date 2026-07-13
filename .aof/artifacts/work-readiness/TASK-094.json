@@ -1,0 +1,34 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRJGJAMM-6E786L",
+  "recorded_at": "2026-07-13T16:49:24.622Z",
+  "work_item_id": "TASK-094",
+  "work_item_ref": ".aof/tasks/done/TASK-094.json",
+  "readiness_status": "ready",
+  "goal": "Ship v7.5 requirement coverage and forecast governance without overclaiming semantic satisfaction.",
+  "risk": "AOF could show progress or forecast numbers without proving which requirements are covered by which work and evidence.",
+  "loss_boundary": "No release-ready claim from task count, dashboard state, or forecast unless requirement records, work refs, evidence refs, blocker state, forecast boundary, and not-proven limits are present.",
+  "acceptance_gates": [
+    "requirement-coverage-audit passes for TASK-094",
+    "release-state-audit includes requirement-coverage-audit for 7.5.0 and later"
+  ],
+  "evidence_plan": [
+    "schema, writer, audit command, CLI help, focused tests, and release evidence",
+    "TASK-094 Council review, Work Execution Packet, Multi-Actor Pilot, Parallel Lane Pilot, and Requirement Coverage artifact"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if requirement coverage can pass without evidence refs",
+    "stop if forecast can be treated as delivery certainty"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-094",
+  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "source_decision_record_id": null
+}

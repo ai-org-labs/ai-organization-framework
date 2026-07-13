@@ -12,6 +12,7 @@ import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
 import { workExecutionPacketAuditCommand } from "./work-execution-packet-audit.js";
 import { multiActorPilotAuditCommand } from "./multi-actor-pilot-audit.js";
 import { parallelLaneAuditCommand } from "./parallel-lane-audit.js";
+import { requirementCoverageAuditCommand } from "./requirement-coverage-audit.js";
 import { workReadinessAuditCommand } from "./work-readiness-audit.js";
 
 const DEFAULT_GOVERNANCE_AUDIT_CUTOFF_TASK_ID = "TASK-071";
@@ -95,6 +96,15 @@ function requiresParallelLaneAudit(releaseVersion) {
   return major > 7 || (major === 7 && minor >= 4);
 }
 
+function requiresRequirementCoverageAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 7 || (major === 7 && minor >= 5);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -130,6 +140,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresParallelLaneAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("parallel-lane-audit", await parallelLaneAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresRequirementCoverageAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("requirement-coverage-audit", await requirementCoverageAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

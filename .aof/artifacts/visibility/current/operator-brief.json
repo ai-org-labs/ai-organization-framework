@@ -1,14 +1,14 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-13T13:16:24.163Z",
-  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
+  "generated_at": "2026-07-13T17:00:55.284Z",
+  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
   "current_state": {
-    "release_version": "7.4.0",
-    "active_release_track": "v7.4",
-    "release_definition_ref": "docs/v7.4-release-definition.md",
+    "release_version": "7.5.0",
+    "active_release_track": "v7.5",
+    "release_definition_ref": "docs/v7.5-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
-    "operating_goal": "After v7.4.0, advance v7.5 Requirements Coverage, Forecasting, And Organization Analytics: prove that AOF can extract requirements, link tasks and evidence to requirements, show coverage/completion/blocked risk, and produce bounded completion and token-cost forecasts without claiming semantic satisfaction.",
-    "next_value_slice": "Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
+    "operating_goal": "After v7.5.0, advance v7.6 Provider-Neutral Session Export: prove that agent/session evidence can be exported in a provider-neutral package linking prompts, responses, tool calls, artifacts, task refs, requirement refs, tests, risks, decisions, redaction boundaries, and release-readiness evidence without depending on a vendor-specific session stream.",
+    "next_value_slice": "Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
     "primary_frontier_task": null,
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
@@ -65,11 +65,11 @@
   "why_now": {
     "summary": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "reasons": [
-      "The active release baseline is 7.4.0 and the runtime is now targeting the next track.",
+      "The active release baseline is 7.5.0 and the runtime is now targeting the next track.",
       "The current operating goal and next value slice both reinforce the current frontier as the next bounded operating move."
     ],
     "evidence_refs": [
-      "docs/v7.4-release-definition.md",
+      "docs/v7.5-release-definition.md",
       ".aof/goals/operating-goal.json",
       ".aof/goals/next-value-slice.json",
       ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
@@ -77,7 +77,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
+    "recommended_action": "Open an implementation task for the current frontier: Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -85,6 +85,6 @@
     "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
     "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Open an implementation task for the current frontier: Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence."
+    "what_should_happen_next": "Open an implementation task for the current frontier: Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools."
   }
 }

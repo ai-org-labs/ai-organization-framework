@@ -1,0 +1,43 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-13T16:52:15.194Z",
+  "review_packet_id": "CREV-MRJGMY8Q-1P6UZL",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v7.5 requirement coverage and forecast governance for release once verification is green.",
+  "rationale": "The new gate prevents AOF from claiming progress or forecast confidence without requirement, work, evidence, coverage count, forecast boundary, and not-proven linkage.",
+  "recommendation": "Ship v7.5.0 after scoped audits, release-state-audit, npm test, and smoke validation pass.",
+  "target_audience": "AOF operators and downstream AI orchestrators",
+  "expected_user_reaction": "Operators can see what requirements are covered and what remains unproven.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep coverage and forecast as governed evidence, not semantic truth."
+  ],
+  "organization_change_recommendations": [
+    "Use Requirement Coverage as the bridge from work execution to Mission Control analytics."
+  ],
+  "diagnosis_category": "Release Governance",
+  "diagnosis_confidence": 0.86,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-094-V75.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-094-V75.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-MRJGKLR5-1CCPMY.json",
+    ".aof/artifacts/execution/role-results/RRES-MRJGL2E6-56J2KI.json",
+    ".aof/artifacts/execution/role-results/RRES-MRJGKNN9-J5J2WC.json"
+  ],
+  "evidence_refs": [
+    "docs/v7.5-release-definition.md",
+    "test/runtime-core-2.test.js"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-094",
+  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "source_decision_record_id": null
+}

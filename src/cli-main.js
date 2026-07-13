@@ -104,6 +104,8 @@ Usage:
   aof multi-actor-pilot-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof parallel-lane-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --parent-multi-actor-pilot-ref <path> --work-execution-packet-ref <path> --lane-json '<json>' --lane-json '<json>' --join-decision <merge|stop|defer|reopen> --joined-lane-id <id> --joined-lane-id <id> --conflict-summary "<text>" --blocker-summary "<text>" --merge-rationale "<text>" --council-authority "<text>" --council-decision-ref <path> --not-proven "<text>" [--pilot-status <draft|ready|blocked|completed>] [--join-status <ready|blocked|merged|stopped|deferred|reopened>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
   aof parallel-lane-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof requirement-coverage-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --requirement-json '<json>' [--requirement-json '<json>'] --coverage-summary-json '<json>' --forecast-json '<json>' --not-proven "<text>" [--coverage-status <draft|ready|blocked|completed>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
+  aof requirement-coverage-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof agent-session-record --project <path> --session-id <id> --actor-ref <ref> --role-ref <ref> --event-json '<json>' [--event-json '<json>'] --task-ref <path> --requirement-ref <path> --test-evidence-ref <path> --risk-candidate "<text>" --decision-candidate "<text>" --release-ready-evidence-ref <path> [--release-ready-verdict <not_ready|structurally_ready|runtime_ready|operator_validated>] [--release-ready-claim "<text>"] [--provider <name>] [--model <name>] [--parent-session-id <id>] [--commit-ref <ref>] [--pr-ref <ref>] [--artifact-ref <path>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof session-observability-audit [--project <path>] [--write-artifact <path>]
   aof context-integrity-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> [--context-pack-ref <path>] [--declared-context-ref <path>] [--required-context-ref <path>] [--missing-context-ref <path>] [--hidden-context-signal "<text>"] --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -213,6 +215,8 @@ Examples:
   aof multi-actor-pilot-audit --project . --cutoff-task-id TASK-092 --write-artifact /tmp/aof-multi-actor-pilot-audit.json
   aof parallel-lane-record --project . --work-item-id TASK-093 --work-item-ref .aof/tasks/open/TASK-093.json --parent-multi-actor-pilot-ref .aof/artifacts/multi-actor-pilots/TASK-093.json --work-execution-packet-ref .aof/artifacts/work-execution-packets/TASK-093.json --lane-json '{"lane_id":"schema","goal":"define contract","owner_actor_ref":"builder","input_refs":["docs/v7.4-release-definition.md"],"expected_output":"schema and writer","output_refs":["schemas/aof-parallel-lane-pilot.schema.json"],"verification_refs":["test/runtime-core-2.test.js"],"stop_condition":"stop if schema cannot fail missing lane evidence","lane_status":"completed"}' --lane-json '{"lane_id":"audit","goal":"verify join semantics","owner_actor_ref":"guardian","input_refs":["docs/v7.4-release-definition.md"],"expected_output":"audit and negative checks","output_refs":["src/commands/parallel-lane-audit.js"],"verification_refs":["test/runtime-core-2.test.js"],"stop_condition":"stop if audit cannot fail missing join evidence","lane_status":"completed"}' --join-decision merge --joined-lane-id schema --joined-lane-id audit --conflict-summary "no unresolved lane conflict" --blocker-summary "no active blocker" --merge-rationale "lane outputs are independently verified and Council-approved" --council-authority architecture-council --council-decision-ref .aof/artifacts/execution/council-reviews/CREV-TASK-093-V74.json --not-proven "parallel lane evidence does not prove autonomous scheduling or speed improvement" --source-task-id TASK-093 --source-parent-session-id SESS-V74-PARALLEL-LANES
   aof parallel-lane-audit --project . --cutoff-task-id TASK-093 --write-artifact /tmp/aof-parallel-lane-audit.json
+  aof requirement-coverage-record --project . --work-item-id TASK-094 --work-item-ref .aof/tasks/open/TASK-094.json --requirement-json '{"requirement_id":"REQ-V75-001","requirement_type":"functional","source_ref":"docs/v7.5-release-definition.md","title":"record requirement coverage","owner_ref":"builder","acceptance_boundary":"covered only when linked work and evidence refs resolve","status":"covered","linked_work_item_refs":[".aof/tasks/open/TASK-094.json"],"evidence_refs":["schemas/aof-requirement-coverage-record.schema.json"]}' --coverage-summary-json '{"total_requirements":1,"covered_count":1,"partial_count":0,"blocked_count":0,"at_risk_count":0,"unstarted_count":0}' --forecast-json '{"estimated_remaining_work_items":0,"estimated_token_cost_range":"bounded release verification only","burndown_ref":"docs/v7.5-release-checklist.md","forecast_boundary":"forecast is planning evidence, not delivery certainty"}' --not-proven "coverage evidence does not prove semantic satisfaction" --source-task-id TASK-094 --source-parent-session-id SESS-V75-REQUIREMENT-COVERAGE
+  aof requirement-coverage-audit --project . --cutoff-task-id TASK-094 --write-artifact /tmp/aof-requirement-coverage-audit.json
   aof agent-session-record --project . --session-id SESS-001 --actor-ref codex --role-ref builder --event-json '{"event_type":"prompt","summary":"User asked for v7 session observability"}' --event-json '{"event_type":"tool_call","summary":"Ran runtime audit","tool_name":"session-observability-audit","safety_level":"safe_read","approval_policy":"preapproved"}' --task-ref .aof/tasks/open/TASK-085.json --requirement-ref docs/v7.0-agent-session-observability-direction.md --test-evidence-ref test/runtime-core-2.test.js --risk-candidate "session path is not reconstructable" --decision-candidate "promote event stream to release gate" --release-ready-evidence-ref docs/v7.0-agent-session-observability-direction.md --release-ready-verdict runtime_ready --source-task-id TASK-085 --source-parent-session-id SESS-V70-SESSION-OBSERVABILITY
   aof session-observability-audit --project . --write-artifact /tmp/aof-session-observability-audit.json
   aof problem-statement-record --project . --affected-party "newly invited workspace admins" --actual-problem "activation fails during permission setup" --why-it-matters "high-intent admins fail before value is realized" --why-now "activation drop-off is blocking current growth" --evidence-ref docs/research/funnel-notes.md
@@ -1096,6 +1100,29 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "parallel-lane-audit"
+            ? {
+                project: ".",
+                cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "requirement-coverage-record"
+            ? {
+                project: ".",
+                recordId: "",
+                workItemId: "",
+                workItemRef: "",
+                coverageStatus: "ready",
+                requirements: [],
+                coverageSummary: null,
+                forecast: null,
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "requirement-coverage-audit"
             ? {
                 project: ".",
                 cutoffTaskId: "",
@@ -2888,6 +2915,42 @@ function parseArgs(argv) {
         throw new Error("Missing value after --lane-json.");
       }
       options.lanes.push(JSON.parse(value));
+      i += 1;
+      continue;
+    }
+    if (part === "--requirement-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --requirement-json.");
+      }
+      options.requirements.push(JSON.parse(value));
+      i += 1;
+      continue;
+    }
+    if (part === "--coverage-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --coverage-status.");
+      }
+      options.coverageStatus = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--coverage-summary-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --coverage-summary-json.");
+      }
+      options.coverageSummary = JSON.parse(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--forecast-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --forecast-json.");
+      }
+      options.forecast = JSON.parse(value);
       i += 1;
       continue;
     }
@@ -5158,6 +5221,42 @@ function parseArgs(argv) {
   if (command === "parallel-lane-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `parallel-lane-audit`.");
+    }
+  }
+
+  if (command === "requirement-coverage-record") {
+    if (!options.workItemId) {
+      throw new Error("Missing --work-item-id for `requirement-coverage-record`.");
+    }
+    if (!options.workItemRef) {
+      throw new Error("Missing --work-item-ref for `requirement-coverage-record`.");
+    }
+    if (!["draft", "ready", "blocked", "completed"].includes(options.coverageStatus)) {
+      throw new Error("Invalid --coverage-status for `requirement-coverage-record`.");
+    }
+    if (!Array.isArray(options.requirements) || options.requirements.length === 0) {
+      throw new Error("At least one --requirement-json value is required for `requirement-coverage-record`.");
+    }
+    if (!options.coverageSummary || typeof options.coverageSummary !== "object") {
+      throw new Error("Missing --coverage-summary-json for `requirement-coverage-record`.");
+    }
+    if (!options.forecast || typeof options.forecast !== "object") {
+      throw new Error("Missing --forecast-json for `requirement-coverage-record`.");
+    }
+    for (const flag of [
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!flag[1]) {
+        throw new Error(`Missing ${flag[0]} for \`requirement-coverage-record\`.`);
+      }
+    }
+  }
+
+  if (command === "requirement-coverage-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `requirement-coverage-audit`.");
     }
   }
 

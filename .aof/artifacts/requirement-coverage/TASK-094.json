@@ -1,0 +1,97 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRJGQN9O-46F0N0",
+  "recorded_at": "2026-07-13T16:55:07.596Z",
+  "work_item_id": "TASK-094",
+  "work_item_ref": ".aof/tasks/done/TASK-094.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V75-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v7.5-release-definition.md",
+      "title": "Record requirement coverage evidence",
+      "owner_ref": "builder",
+      "acceptance_boundary": "Covered only when linked work and implementation evidence refs resolve.",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-094.json"
+      ],
+      "evidence_refs": [
+        "schemas/aof-requirement-coverage-record.schema.json",
+        "src/commands/requirement-coverage-record.js"
+      ],
+      "blocker_refs": []
+    },
+    {
+      "requirement_id": "REQ-V75-002",
+      "requirement_type": "non_functional",
+      "source_ref": "docs/v7.5-release-definition.md",
+      "title": "Forecast remains bounded planning evidence",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "Forecast must include boundary and must not claim delivery certainty.",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-094.json"
+      ],
+      "evidence_refs": [
+        "schemas/aof-requirement-coverage-audit.schema.json",
+        "src/commands/requirement-coverage-audit.js"
+      ],
+      "blocker_refs": []
+    },
+    {
+      "requirement_id": "REQ-V75-003",
+      "requirement_type": "qif_quality_intent",
+      "source_ref": "docs/aof-qif-quality-definition.md",
+      "title": "Activity counts are not quality claims",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "Coverage is evidence only when tied to risk, loss boundary, evidence, confidence, and verdict boundaries.",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-094.json"
+      ],
+      "evidence_refs": [
+        "docs/aof-qif-quality-definition.md",
+        "docs/v7.5.0-release-notes.md"
+      ],
+      "blocker_refs": []
+    },
+    {
+      "requirement_id": "REQ-V75-004",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v7.5-release-checklist.md",
+      "title": "Release state includes requirement coverage audit",
+      "owner_ref": "architecture-council",
+      "acceptance_boundary": "release-state-audit invokes requirement-coverage-audit for v7.5.0 and later.",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-094.json"
+      ],
+      "evidence_refs": [
+        "src/commands/release-state-audit.js",
+        "test/runtime-core-2.test.js"
+      ],
+      "blocker_refs": []
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered_count": 4,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded to completed v7.5 release verification; future v7.6 excluded",
+    "burndown_ref": "docs/v7.5-release-checklist.md",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty, semantic satisfaction, or market truth"
+  },
+  "not_proven": "Requirement coverage does not prove semantic satisfaction, forecast accuracy, delivery certainty, market truth, or external adoption.",
+  "source_task_id": "TASK-094",
+  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "source_decision_record_id": null,
+  "notes": null
+}

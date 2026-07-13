@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-13T16:55:30.000Z",
+  "work_item_id": "TASK-094",
+  "work_item_ref": ".aof/tasks/done/TASK-094.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v7.5 adds Requirement Coverage and Forecast governance as the bounded analytics layer above Parallel Lane, Multi-Actor Pilot, and Work Execution Packet evidence.",
+  "archmap_source_ref": "docs/v7.5-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-094-V75.json",
+  "not_proven": "This impact record states that AOF governance map semantics changed; it does not prove Mission Control visual analytics are complete."
+}

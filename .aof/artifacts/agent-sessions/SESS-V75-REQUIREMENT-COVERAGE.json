@@ -1,0 +1,75 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRJGJS9F-G4TFW5",
+  "recorded_at": "2026-07-13T16:49:47.475Z",
+  "session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "EVT-V75-001",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-13T16:37:25.743Z",
+      "summary": "Runtime selected v7.5 Requirements Coverage as the next release frontier.",
+      "artifact_refs": [
+          ".aof/tasks/done/TASK-094.json"
+      ],
+      "tool_name": null,
+      "safety_level": "safe_local_write",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "EVT-V75-002",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-13T16:49:00.000Z",
+      "summary": "Implemented requirement coverage schema, writer, audit, CLI routing, release docs, and tests.",
+      "artifact_refs": [
+        "schemas/aof-requirement-coverage-record.schema.json",
+        "schemas/aof-requirement-coverage-audit.schema.json",
+        "src/commands/requirement-coverage-record.js",
+        "src/commands/requirement-coverage-audit.js",
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": "apply_patch",
+      "safety_level": "project_write",
+      "approval_policy": "operator-approved"
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-094.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.5-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "schemas/aof-requirement-coverage-record.schema.json",
+      "src/commands/requirement-coverage-audit.js"
+    ]
+  },
+  "risk_candidates": [
+    "Coverage and forecast could be mistaken for semantic satisfaction or delivery certainty."
+  ],
+  "decision_candidates": [
+    "Promote requirement-coverage-audit into release-state-audit for v7.5.0 and later."
+  ],
+  "release_ready_evidence": {
+    "claim": "v7.5 is structurally and runtime ready when release-state and scoped governance audits pass.",
+    "evidence_refs": [
+      "docs/v7.5-release-checklist.md"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-094",
+  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "source_decision_record_id": null
+}

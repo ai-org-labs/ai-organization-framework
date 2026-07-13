@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-13T13:16:24.163Z",
+  "generated_at": "2026-07-13T17:00:55.311Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "7.4.0",
-    "active_release_track": "v7.4",
-    "release_definition_ref": "docs/v7.4-release-definition.md"
+    "active_release_version": "7.5.0",
+    "active_release_track": "v7.5",
+    "release_definition_ref": "docs/v7.5-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence."
+    "branch_summary": "Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v7.4",
+      "label": "v7.5",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v7.4 and the next concrete branch.",
-    "why_this_branch": "After v7.4.0, advance v7.5 Requirements Coverage, Forecasting, And Organization Analytics: prove that AOF can extract requirements, link tasks and evidence to requirements, show coverage/completion/blocked risk, and produce bounded completion and token-cost forecasts without claiming semantic satisfaction.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence."
+    "where_are_we": "The runtime is between v7.5 and the next concrete branch.",
+    "why_this_branch": "After v7.5.0, advance v7.6 Provider-Neutral Session Export: prove that agent/session evidence can be exported in a provider-neutral package linking prompts, responses, tool calls, artifacts, task refs, requirement refs, tests, risks, decisions, redaction boundaries, and release-readiness evidence without depending on a vendor-specific session stream.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools."
   }
 }

@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-13T13:16:24.160Z",
+  "generated_at": "2026-07-13T17:00:55.246Z",
   "mission_overview": {
-    "mission": "Ship v7.4.0 as the Governed Parallel Lanes release.",
-    "release_version": "7.4.0",
-    "release_definition_ref": "docs/v7.4-release-definition.md",
-    "operating_goal": "After v7.4.0, advance v7.5 Requirements Coverage, Forecasting, And Organization Analytics: prove that AOF can extract requirements, link tasks and evidence to requirements, show coverage/completion/blocked risk, and produce bounded completion and token-cost forecasts without claiming semantic satisfaction.",
-    "next_value_slice": "Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
+    "mission": "Ship v7.5.0 as Requirements Coverage, Forecasting, And Organization Analytics.",
+    "release_version": "7.5.0",
+    "release_definition_ref": "docs/v7.5-release-definition.md",
+    "operating_goal": "After v7.5.0, advance v7.6 Provider-Neutral Session Export: prove that agent/session evidence can be exported in a provider-neutral package linking prompts, responses, tool calls, artifacts, task refs, requirement refs, tests, risks, decisions, redaction boundaries, and release-readiness evidence without depending on a vendor-specific session stream.",
+    "next_value_slice": "Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
+    "recommended_action": "Open an implementation task for the current frontier: Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 23,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-093.json",
+    "impact_record_count": 24,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-094.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-093",
+    "latest_work_item_id": "TASK-094",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-093.json"
+      ".aof/artifacts/archmap/impact/TASK-094.json"
     ],
     "external_refs": []
   },
@@ -399,73 +399,65 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 9,
-    "latest_session_id": "SESS-V74-PARALLEL-LANES",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V74-PARALLEL-LANES.json",
+    "stream_count": 10,
+    "latest_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V75-REQUIREMENT-COVERAGE.json",
     "latest_actor_ref": "codex",
-    "latest_role_ref": "parent-orchestrator",
-    "latest_recorded_at": "2026-07-13T13:04:45.056Z",
-    "latest_event_count": 3,
+    "latest_role_ref": "builder",
+    "latest_recorded_at": "2026-07-13T16:49:47.475Z",
+    "latest_event_count": 2,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-093.json"
+      ".aof/tasks/done/TASK-094.json"
     ],
     "linked_requirement_refs": [
-      "docs/v7.4-release-definition.md"
+      "docs/v7.5-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js"
     ],
     "linked_artifact_refs": [
-      "schemas/aof-parallel-lane-pilot.schema.json",
-      "src/commands/parallel-lane-audit.js"
+      "schemas/aof-requirement-coverage-record.schema.json",
+      "src/commands/requirement-coverage-audit.js"
     ],
     "risk_candidates": [
-      "parallel work could be mistaken for ungoverned simultaneous activity"
+      "Coverage and forecast could be mistaken for semantic satisfaction or delivery certainty."
     ],
     "decision_candidates": [
-      "promote parallel lane join semantics to release-state gate"
+      "Promote requirement-coverage-audit into release-state-audit for v7.5.0 and later."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "User asked to advance the next AOF release after v7.3.0.",
-        "occurred_at": "2026-07-13T13:04:45.056Z",
+        "summary": "Runtime selected v7.5 Requirements Coverage as the next release frontier.",
+        "occurred_at": "2026-07-13T16:37:25.743Z",
         "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "tool_call",
-        "summary": "Ran situation-assess and opened TASK-093 for v7.4 Governed Parallel Lanes.",
-        "occurred_at": "2026-07-13T13:04:45.056Z",
-        "tool_name": "situation-assess",
-        "safety_level": "safe_read",
+        "safety_level": "safe_local_write",
         "approval_policy": "preapproved",
-        "artifact_refs": []
+        "artifact_refs": [
+          ".aof/tasks/done/TASK-094.json"
+        ]
       },
       {
         "event_type": "artifact_write",
-        "summary": "Implemented parallel lane schemas, commands, tests, and release evidence.",
-        "occurred_at": "2026-07-13T13:04:45.056Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
+        "summary": "Implemented requirement coverage schema, writer, audit, CLI routing, release docs, and tests.",
+        "occurred_at": "2026-07-13T16:49:00.000Z",
+        "tool_name": "apply_patch",
+        "safety_level": "project_write",
+        "approval_policy": "operator-approved",
+        "artifact_refs": [
+          "schemas/aof-requirement-coverage-record.schema.json",
+          "schemas/aof-requirement-coverage-audit.schema.json",
+          "src/commands/requirement-coverage-record.js",
+          "src/commands/requirement-coverage-audit.js",
+          "test/runtime-core-2.test.js"
+        ]
       }
     ],
-    "latest_tool_calls": [
-      {
-        "summary": "Ran situation-assess and opened TASK-093 for v7.4 Governed Parallel Lanes.",
-        "tool_name": "situation-assess",
-        "safety_level": "safe_read",
-        "approval_policy": "preapproved"
-      }
-    ]
+    "latest_tool_calls": []
   },
   "context_reference_integrity": {
     "present": true,
@@ -474,11 +466,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 4,
+    "context_record_count": 5,
     "external_reference_record_count": 1,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-094.json",
+        "work_item_id": "TASK-094",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context refs prove what was consulted and bounded, not semantic correctness of the v7.5 direction."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-093.json",
         "work_item_id": "TASK-093",

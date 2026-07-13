@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "After v7.4.0, advance v7.5 Requirements Coverage, Forecasting, And Organization Analytics: prove that AOF can extract requirements, link tasks and evidence to requirements, show coverage/completion/blocked risk, and produce bounded completion and token-cost forecasts without claiming semantic satisfaction.",
-  "updated_at": "2026-07-13T13:11:03.470Z",
+  "content": "After v7.5.0, advance v7.6 Provider-Neutral Session Export: prove that agent/session evidence can be exported in a provider-neutral package linking prompts, responses, tool calls, artifacts, task refs, requirement refs, tests, risks, decisions, redaction boundaries, and release-readiness evidence without depending on a vendor-specific session stream.",
+  "updated_at": "2026-07-13T16:56:35.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V74-PARALLEL-LANES",
+  "source_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

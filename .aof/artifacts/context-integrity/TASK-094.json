@@ -1,0 +1,23 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRJGK3OD-G0BGQM",
+  "recorded_at": "2026-07-13T16:50:02.269Z",
+  "work_item_id": "TASK-094",
+  "work_item_ref": ".aof/tasks/done/TASK-094.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V75-REQUIREMENT-COVERAGE.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/v7.5-release-definition.md"
+  ],
+  "required_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context refs prove what was consulted and bounded, not semantic correctness of the v7.5 direction.",
+  "source_task_id": "TASK-094",
+  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "source_decision_record_id": null
+}

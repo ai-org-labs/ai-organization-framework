@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-execution-packet",
+  "packet_id": "WEP-MRJGO0DQ-BRMMU9",
+  "recorded_at": "2026-07-13T16:53:04.622Z",
+  "work_item_id": "TASK-094",
+  "work_item_ref": ".aof/tasks/done/TASK-094.json",
+  "execution_status": "completed",
+  "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-094.json",
+  "actor_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-MRJGKLR5-1CCPMY.json",
+    ".aof/artifacts/execution/role-results/RRES-MRJGL2E6-56J2KI.json",
+    ".aof/artifacts/execution/role-results/RRES-MRJGKNN9-J5J2WC.json"
+  ],
+  "execution_lineage_ref": ".aof/context/active/execution-lineage.json",
+  "verification_evidence_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v7.5-release-checklist.md"
+  ],
+  "stop_continue_decision": {
+    "decision": "continue",
+    "rationale": "Continue to release verification because maker/checker/council evidence is present and focused runtime tests are green.",
+    "decided_by": "architecture-council",
+    "evidence_refs": [
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-094-V75.json"
+    ]
+  },
+  "not_proven": "Work Execution Packet does not prove semantic requirement satisfaction or forecast accuracy.",
+  "source_task_id": "TASK-094",
+  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "source_decision_record_id": null,
+  "notes": null
+}

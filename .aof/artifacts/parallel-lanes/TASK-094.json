@@ -1,0 +1,69 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRJGPNNV-6JIB4N",
+  "recorded_at": "2026-07-13T16:54:21.451Z",
+  "work_item_id": "TASK-094",
+  "work_item_ref": ".aof/tasks/done/TASK-094.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-094.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-094.json",
+  "lanes": [
+    {
+      "lane_id": "contract",
+      "goal": "Define requirement coverage contract and writer.",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v7.5-release-definition.md"
+      ],
+      "expected_output": "Requirement coverage schema and writer command",
+      "output_refs": [
+        "schemas/aof-requirement-coverage-record.schema.json",
+        "src/commands/requirement-coverage-record.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "blocker_refs": [],
+      "stop_condition": "Stop if requirements can be counted without source, work, and evidence refs.",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "audit",
+      "goal": "Verify coverage, forecast, and not-proven boundaries.",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "docs/v7.5-release-checklist.md"
+      ],
+      "expected_output": "Requirement coverage audit and release-state integration",
+      "output_refs": [
+        "schemas/aof-requirement-coverage-audit.schema.json",
+        "src/commands/requirement-coverage-audit.js",
+        "src/commands/release-state-audit.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "blocker_refs": [],
+      "stop_condition": "Stop if forecast claims can pass without explicit forecast boundary.",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "contract",
+      "audit"
+    ],
+    "conflict_summary": "No unresolved contract/audit conflict.",
+    "blocker_summary": "No active blocker after focused tests.",
+    "merge_rationale": "Contract and audit lanes are independently represented and covered by runtime regression tests.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-094-V75.json",
+  "not_proven": "Parallel Lane Pilot does not prove parallel speed improvement, semantic satisfaction, or forecast accuracy.",
+  "source_task_id": "TASK-094",
+  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "source_decision_record_id": null,
+  "notes": null
+}
