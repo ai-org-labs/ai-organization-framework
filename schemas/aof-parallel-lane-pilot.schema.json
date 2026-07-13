@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-parallel-lane-pilot.schema.json",
+  "title": "AOF Parallel Lane Pilot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "pilot_id",
+    "recorded_at",
+    "work_item_id",
+    "work_item_ref",
+    "pilot_status",
+    "parent_multi_actor_pilot_ref",
+    "work_execution_packet_ref",
+    "lanes",
+    "join_packet",
+    "council_decision_ref",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "parallel-lane-pilot" },
+    "pilot_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_id": { "type": "string", "minLength": 1 },
+    "work_item_ref": { "type": "string", "minLength": 1 },
+    "pilot_status": {
+      "type": "string",
+      "enum": ["draft", "ready", "blocked", "completed"]
+    },
+    "parent_multi_actor_pilot_ref": { "type": "string", "minLength": 1 },
+    "work_execution_packet_ref": { "type": "string", "minLength": 1 },
+    "lanes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "lane_id",
+          "goal",
+          "owner_actor_ref",
+          "input_refs",
+          "expected_output",
+          "output_refs",
+          "verification_refs",
+          "stop_condition",
+          "lane_status"
+        ],
+        "properties": {
+          "lane_id": { "type": "string", "minLength": 1 },
+          "goal": { "type": "string", "minLength": 1 },
+          "owner_actor_ref": { "type": "string", "minLength": 1 },
+          "input_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "expected_output": { "type": "string", "minLength": 1 },
+          "output_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "verification_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "blocker_refs": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "stop_condition": { "type": "string", "minLength": 1 },
+          "lane_status": {
+            "type": "string",
+            "enum": ["ready", "blocked", "completed", "stopped", "deferred"]
+          }
+        }
+      }
+    },
+    "join_packet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "join_status",
+        "join_decision",
+        "joined_lane_ids",
+        "conflict_summary",
+        "blocker_summary",
+        "merge_rationale",
+        "council_authority"
+      ],
+      "properties": {
+        "join_status": {
+          "type": "string",
+          "enum": ["ready", "blocked", "merged", "stopped", "deferred", "reopened"]
+        },
+        "join_decision": {
+          "type": "string",
+          "enum": ["merge", "stop", "defer", "reopen"]
+        },
+        "joined_lane_ids": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "conflict_summary": { "type": "string", "minLength": 1 },
+        "blocker_summary": { "type": "string", "minLength": 1 },
+        "merge_rationale": { "type": "string", "minLength": 1 },
+        "council_authority": { "type": "string", "minLength": 1 }
+      }
+    },
+    "council_decision_ref": { "type": "string", "minLength": 1 },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

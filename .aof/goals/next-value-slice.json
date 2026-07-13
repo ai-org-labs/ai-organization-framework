@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
-  "updated_at": "2026-07-13T06:38:59.718Z",
+  "content": "Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
+  "updated_at": "2026-07-13T13:11:05.126Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
+  "source_session_id": "SESS-V74-PARALLEL-LANES",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

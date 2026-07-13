@@ -1,0 +1,28 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRJ8L10X-2U3PHP",
+  "recorded_at": "2026-07-13T13:06:48.561Z",
+  "work_item_id": "TASK-093",
+  "work_item_ref": ".aof/tasks/done/TASK-093.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V74-PARALLEL-LANES.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-governance/context-packs/CTX-TASK-093-V74.json"
+  ],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/v7.3-release-definition.md",
+    "docs/v7.4-release-definition.md"
+  ],
+  "required_context_refs": [
+    "docs/v7.4-release-definition.md",
+    "test/runtime-core-2.test.js",
+    "schemas/aof-parallel-lane-pilot.schema.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared local context for v7.4, not semantic correctness, autonomous scheduling, or speed improvement.",
+  "source_task_id": "TASK-093",
+  "source_parent_session_id": "SESS-V74-PARALLEL-LANES",
+  "source_decision_record_id": null
+}

@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-13T06:42:42.423Z",
+  "generated_at": "2026-07-13T13:16:24.163Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-092 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-092.json"
+    "summary": "TASK-093 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-093.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-092 completed: Ship v7.3 Governed Multi-Actor Pilot",
-      "artifact_ref": ".aof/tasks/done/TASK-092.json"
+      "summary": "TASK-093 completed: Ship v7.4 Governed Parallel Lanes",
+      "artifact_ref": ".aof/tasks/done/TASK-093.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
+      "summary": "Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-092 completed: Ship v7.3 Governed Multi-Actor Pilot Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
+    "what_changed": "TASK-093 completed: Ship v7.4 Governed Parallel Lanes Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision."
+    "next_checkpoint": "Open an implementation task for the current frontier: Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence."
   }
 }

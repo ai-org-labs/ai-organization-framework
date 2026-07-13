@@ -59,6 +59,8 @@ const COMMAND_SPECS = [
   ["work-execution-packet-audit", "./commands/work-execution-packet-audit.js", "workExecutionPacketAuditCommand"],
   ["multi-actor-pilot-record", "./commands/multi-actor-pilot-record.js", "multiActorPilotRecordCommand"],
   ["multi-actor-pilot-audit", "./commands/multi-actor-pilot-audit.js", "multiActorPilotAuditCommand"],
+  ["parallel-lane-record", "./commands/parallel-lane-record.js", "parallelLaneRecordCommand"],
+  ["parallel-lane-audit", "./commands/parallel-lane-audit.js", "parallelLaneAuditCommand"],
   ["agent-session-record", "./commands/agent-session-record.js", "agentSessionRecordCommand"],
   ["session-observability-audit", "./commands/session-observability-audit.js", "sessionObservabilityAuditCommand"],
   ["context-integrity-record", "./commands/context-integrity-record.js", "contextIntegrityRecordCommand"],

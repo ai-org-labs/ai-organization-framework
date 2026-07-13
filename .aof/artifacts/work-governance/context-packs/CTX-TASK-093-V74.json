@@ -1,0 +1,13 @@
+{
+  "artifact_type": "context-pack",
+  "work_item_id": "TASK-093",
+  "recorded_at": "2026-07-13T13:06:10.000Z",
+  "context_summary": "v7.4 follows v7.3 Multi-Actor Pilot and adds governed parallel lane split/join evidence.",
+  "included_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/v7.3-release-definition.md",
+    "docs/v7.4-release-definition.md",
+    "test/runtime-core-2.test.js"
+  ],
+  "excluded_context_boundary": "Does not include external provider-specific parallel execution APIs or autonomous scheduler design."
+}

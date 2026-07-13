@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-13T06:32:20.577Z",
+  "generated_at": "2026-07-13T13:10:26.258Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2044,6 +2044,76 @@
       ],
       "outputs": [
         "packet summary"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "parallel-lane-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify parallel work is not claimed without multiple lane evidence, a join packet, conflict/blocker semantics, Council decision, Work Execution Packet evidence, and upstream multi-actor evidence.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "cutoff-task-id?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "parallel lane audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "parallel-lane-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a governed parallel lane pilot that links bounded lanes, lane-local evidence, join/conflict semantics, Council decision, Work Execution Packet evidence, and upstream multi-actor evidence.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "work-item-id",
+        "work-item-ref",
+        "parent-multi-actor-pilot-ref",
+        "work-execution-packet-ref",
+        "lane-json",
+        "join-decision",
+        "joined-lane-id",
+        "council-decision-ref",
+        "not-proven",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "parallel lane pilot artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

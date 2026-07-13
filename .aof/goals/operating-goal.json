@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "After v7.3.0, advance v7.4 Governed Parallel Lanes: prove that multiple bounded actor lanes can run with explicit join, conflict, blocker, and Council decision semantics without weakening Work Execution Packet or Multi-Actor Pilot evidence.",
-  "updated_at": "2026-07-13T06:38:56.732Z",
+  "content": "After v7.4.0, advance v7.5 Requirements Coverage, Forecasting, And Organization Analytics: prove that AOF can extract requirements, link tasks and evidence to requirements, show coverage/completion/blocked risk, and produce bounded completion and token-cost forecasts without claiming semantic satisfaction.",
+  "updated_at": "2026-07-13T13:11:03.470Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
+  "source_session_id": "SESS-V74-PARALLEL-LANES",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

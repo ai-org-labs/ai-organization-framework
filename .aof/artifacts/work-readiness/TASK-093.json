@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRJ8HXND-G62ZA0",
+  "recorded_at": "2026-07-13T13:04:24.217Z",
+  "work_item_id": "TASK-093",
+  "work_item_ref": ".aof/tasks/done/TASK-093.json",
+  "readiness_status": "ready",
+  "goal": "Ship v7.4 Governed Parallel Lanes as a bounded lane-local evidence and Council join semantics contract.",
+  "risk": "AOF may claim parallel execution when work is merely simultaneous, fragmented, or unjoined by Council authority.",
+  "loss_boundary": "No governed parallel claim without at least two bounded lanes, lane-local evidence, join/conflict semantics, Council decision, Work Execution Packet, and upstream Multi-Actor Pilot evidence.",
+  "acceptance_gates": [
+    "parallel-lane-audit passes",
+    "release-state-audit includes the v7.4 parallel lane gate"
+  ],
+  "evidence_plan": [
+    "schema, command, focused tests, Council review, Work Execution Packet, Multi-Actor Pilot, Parallel Lane Pilot audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if the audit cannot fail missing lane evidence or missing join decision"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-093",
+  "source_parent_session_id": "SESS-V74-PARALLEL-LANES",
+  "source_decision_record_id": null
+}

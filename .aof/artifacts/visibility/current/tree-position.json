@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-13T06:42:42.434Z",
+  "generated_at": "2026-07-13T13:16:24.163Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "7.3.0",
-    "active_release_track": "v7.3",
-    "release_definition_ref": "docs/v7.3-release-definition.md"
+    "active_release_version": "7.4.0",
+    "active_release_track": "v7.4",
+    "release_definition_ref": "docs/v7.4-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision."
+    "branch_summary": "Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v7.3",
+      "label": "v7.4",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v7.3 and the next concrete branch.",
-    "why_this_branch": "After v7.3.0, advance v7.4 Governed Parallel Lanes: prove that multiple bounded actor lanes can run with explicit join, conflict, blocker, and Council decision semantics without weakening Work Execution Packet or Multi-Actor Pilot evidence.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision."
+    "where_are_we": "The runtime is between v7.4 and the next concrete branch.",
+    "why_this_branch": "After v7.4.0, advance v7.5 Requirements Coverage, Forecasting, And Organization Analytics: prove that AOF can extract requirements, link tasks and evidence to requirements, show coverage/completion/blocked risk, and produce bounded completion and token-cost forecasts without claiming semantic satisfaction.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence."
   }
 }

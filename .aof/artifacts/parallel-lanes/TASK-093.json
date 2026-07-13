@@ -1,0 +1,70 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRJ8OA58-363R37",
+  "recorded_at": "2026-07-13T13:09:20.348Z",
+  "work_item_id": "TASK-093",
+  "work_item_ref": ".aof/tasks/done/TASK-093.json",
+  "pilot_status": "ready",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-093.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-093.json",
+  "lanes": [
+    {
+      "lane_id": "contract",
+      "goal": "Define the parallel lane artifact and CLI contract.",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v7.4-release-definition.md",
+        "docs/vnext-release-plan.md"
+      ],
+      "expected_output": "Parallel lane schemas, writer, CLI routing, and release-state integration.",
+      "output_refs": [
+        "schemas/aof-parallel-lane-pilot.schema.json",
+        "src/commands/parallel-lane-record.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "blocker_refs": [],
+      "stop_condition": "Stop if lane-local evidence cannot be represented as required schema fields.",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "verification",
+      "goal": "Verify missing lane and join evidence fails before release.",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "docs/v7.4-release-definition.md",
+        "src/commands/parallel-lane-audit.js"
+      ],
+      "expected_output": "Parallel lane audit with negative and positive checks.",
+      "output_refs": [
+        "schemas/aof-parallel-lane-audit.schema.json",
+        "src/commands/parallel-lane-audit.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "blocker_refs": [],
+      "stop_condition": "Stop if missing pilot, missing join, or unresolved lane refs can pass.",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "contract",
+      "verification"
+    ],
+    "conflict_summary": "No unresolved lane conflict; contract and verification lanes converge on narrow runtime evidence.",
+    "blocker_summary": "No active blocker after focused runtime tests and Council review.",
+    "merge_rationale": "Both lanes have lane-local outputs, verification refs, and Council-approved join semantics.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-093-V74.json",
+  "not_proven": "Parallel Lane Pilot evidence does not prove autonomous scheduling, speed improvement, semantic correctness, or external adoption.",
+  "source_task_id": "TASK-093",
+  "source_parent_session_id": "SESS-V74-PARALLEL-LANES",
+  "source_decision_record_id": null,
+  "notes": null
+}

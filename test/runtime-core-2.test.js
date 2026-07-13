@@ -34,6 +34,8 @@ import { missionControlBenchmarkCommand } from "../src/commands/mission-control-
 import { missionControlCommand, visibilitySessionCommand } from "../src/commands/visibility-session.js";
 import { multiActorPilotAuditCommand } from "../src/commands/multi-actor-pilot-audit.js";
 import { multiActorPilotRecordCommand } from "../src/commands/multi-actor-pilot-record.js";
+import { parallelLaneAuditCommand } from "../src/commands/parallel-lane-audit.js";
+import { parallelLaneRecordCommand } from "../src/commands/parallel-lane-record.js";
 import { operatorBriefCommand } from "../src/commands/operator-brief.js";
 import { contractRegisterCommand } from "../src/commands/contract-register.js";
 import { dependencyGraphCommand } from "../src/commands/dependency-graph.js";
@@ -520,6 +522,162 @@ test("multiActorPilotAuditCommand fails missing pilots and passes complete multi
   await multiActorPilotRecordCommand(completeMultiActorPilotOptions(projectRoot));
 
   const passing = await multiActorPilotAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(passing.ok, true);
+  assert.equal(passing.summary.summary.accepted_pilot_count, 1);
+});
+
+test("parallel lane pilot schema requires lanes, join semantics, Council decision, and not-proven boundary", async () => {
+  const payload = {
+    artifact_type: "parallel-lane-pilot",
+    pilot_id: "PLP-TASK-093",
+    recorded_at: "2026-07-13T00:00:00.000Z",
+    work_item_id: "TASK-093",
+    work_item_ref: ".aof/tasks/open/TASK-093.json",
+    pilot_status: "ready",
+    parent_multi_actor_pilot_ref: ".aof/artifacts/multi-actor-pilots/TASK-093.json",
+    work_execution_packet_ref: ".aof/artifacts/work-execution-packets/TASK-093.json",
+    lanes: [
+      {
+        lane_id: "schema",
+        goal: "Define the parallel lane contract.",
+        owner_actor_ref: "builder",
+        input_refs: ["docs/v7.4-release-definition.md"],
+        expected_output: "Schema and writer",
+        output_refs: ["schemas/aof-parallel-lane-pilot.schema.json"],
+        verification_refs: ["test/runtime-core-2.test.js"],
+        blocker_refs: [],
+        stop_condition: "Stop if lane evidence cannot fail missing refs.",
+        lane_status: "completed"
+      },
+      {
+        lane_id: "audit",
+        goal: "Verify join semantics.",
+        owner_actor_ref: "guardian",
+        input_refs: ["docs/v7.4-release-definition.md"],
+        expected_output: "Audit and negative checks",
+        output_refs: ["src/commands/parallel-lane-audit.js"],
+        verification_refs: ["test/runtime-core-2.test.js"],
+        blocker_refs: [],
+        stop_condition: "Stop if join claims can pass without Council decision.",
+        lane_status: "completed"
+      }
+    ],
+    join_packet: {
+      join_status: "merged",
+      join_decision: "merge",
+      joined_lane_ids: ["schema", "audit"],
+      conflict_summary: "No unresolved lane conflict.",
+      blocker_summary: "No active blocker.",
+      merge_rationale: "Both lanes have independent verification refs.",
+      council_authority: "architecture-council"
+    },
+    council_decision_ref: ".aof/artifacts/execution/council-reviews/CREV-TASK-093-V74.json",
+    not_proven: "Parallel lane evidence does not prove autonomous scheduling or speed improvement.",
+    source_task_id: "TASK-093",
+    source_parent_session_id: "SESS-V74-PARALLEL-LANES",
+    source_decision_record_id: null,
+    notes: null
+  };
+
+  await validateWithBundledSchema(payload, "aof-parallel-lane-pilot.schema.json", "parallel lane pilot");
+
+  const oneLaneOnly = { ...payload, lanes: [payload.lanes[0]], join_packet: { ...payload.join_packet, joined_lane_ids: ["schema"] } };
+  await assert.rejects(
+    validateWithBundledSchema(oneLaneOnly, "aof-parallel-lane-pilot.schema.json", "parallel lane pilot"),
+    /must contain at least 2 items/
+  );
+
+  const missingBoundary = { ...payload };
+  delete missingBoundary.not_proven;
+  await assert.rejects(
+    validateWithBundledSchema(missingBoundary, "aof-parallel-lane-pilot.schema.json", "parallel lane pilot"),
+    /missing required key 'not_proven'/
+  );
+});
+
+async function writeParallelLaneFixtures(projectRoot) {
+  await writeMultiActorPilotFixtures(projectRoot);
+  await multiActorPilotRecordCommand(completeMultiActorPilotOptions(projectRoot));
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "parallel-lanes", "fixtures"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "parallel-lanes", "fixtures", "schema-input.json"), "{}\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "parallel-lanes", "fixtures", "audit-input.json"), "{}\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "parallel-lanes", "fixtures", "schema-output.json"), "{}\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "parallel-lanes", "fixtures", "audit-output.json"), "{}\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "parallel-lanes", "fixtures", "schema-verify.json"), "{}\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "parallel-lanes", "fixtures", "audit-verify.json"), "{}\n");
+}
+
+function completeParallelLaneOptions(projectRoot) {
+  return {
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    pilotStatus: "ready",
+    parentMultiActorPilotRef: ".aof/artifacts/multi-actor-pilots/TASK-001.json",
+    workExecutionPacketRef: ".aof/artifacts/work-execution-packets/TASK-001.json",
+    lanes: [
+      {
+        lane_id: "schema",
+        goal: "Define the parallel lane contract.",
+        owner_actor_ref: "builder",
+        input_refs: [".aof/artifacts/parallel-lanes/fixtures/schema-input.json"],
+        expected_output: "Schema and writer",
+        output_refs: [".aof/artifacts/parallel-lanes/fixtures/schema-output.json"],
+        verification_refs: [".aof/artifacts/parallel-lanes/fixtures/schema-verify.json"],
+        blocker_refs: [],
+        stop_condition: "Stop if lane evidence cannot fail missing refs.",
+        lane_status: "completed"
+      },
+      {
+        lane_id: "audit",
+        goal: "Verify join semantics.",
+        owner_actor_ref: "guardian",
+        input_refs: [".aof/artifacts/parallel-lanes/fixtures/audit-input.json"],
+        expected_output: "Audit and negative checks",
+        output_refs: [".aof/artifacts/parallel-lanes/fixtures/audit-output.json"],
+        verification_refs: [".aof/artifacts/parallel-lanes/fixtures/audit-verify.json"],
+        blocker_refs: [],
+        stop_condition: "Stop if join claims can pass without Council decision.",
+        lane_status: "completed"
+      }
+    ],
+    joinStatus: "merged",
+    joinDecision: "merge",
+    joinedLaneIds: ["schema", "audit"],
+    conflictSummary: "No unresolved lane conflict.",
+    blockerSummary: "No active blocker.",
+    mergeRationale: "Both lanes have independent verification refs and no conflict.",
+    councilAuthority: "architecture-council",
+    councilDecisionRef: ".aof/artifacts/execution/council-reviews/CREV-TASK-001-V72.json",
+    notProven: "parallel lane evidence does not prove autonomous scheduling or speed improvement",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V74-TEST"
+  };
+}
+
+test("parallelLaneRecordCommand writes a schema-valid pilot", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeParallelLaneFixtures(projectRoot);
+
+  const result = await parallelLaneRecordCommand(completeParallelLaneOptions(projectRoot));
+
+  assert.equal(result.ok, true);
+  const written = JSON.parse(await fs.readFile(result.artifactPath, "utf8"));
+  await validateWithBundledSchema(written, "aof-parallel-lane-pilot.schema.json", "parallel lane pilot");
+  assert.deepEqual(written.join_packet.joined_lane_ids, ["schema", "audit"]);
+});
+
+test("parallelLaneAuditCommand fails missing pilots and passes complete lane evidence", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeParallelLaneFixtures(projectRoot);
+
+  const failing = await parallelLaneAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(failing.ok, false);
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("parallel lane pilot presence")));
+
+  await parallelLaneRecordCommand(completeParallelLaneOptions(projectRoot));
+
+  const passing = await parallelLaneAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
   assert.equal(passing.ok, true);
   assert.equal(passing.summary.summary.accepted_pilot_count, 1);
 });

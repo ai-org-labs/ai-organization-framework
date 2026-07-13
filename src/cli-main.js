@@ -102,6 +102,8 @@ Usage:
   aof work-execution-packet-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof multi-actor-pilot-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --parent-orchestrator-ref <path> --council-role visionary --council-role builder --council-role guardian --actor-roster-ref <path> --actor-output-handoff-ref <path> [--actor-output-handoff-ref <path>] --council-judgment-ref <path> --work-execution-packet-ref <path> --maker-checker-council-boundary "<text>" --not-proven "<text>" [--pilot-status <draft|ready|blocked|completed>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
   aof multi-actor-pilot-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof parallel-lane-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --parent-multi-actor-pilot-ref <path> --work-execution-packet-ref <path> --lane-json '<json>' --lane-json '<json>' --join-decision <merge|stop|defer|reopen> --joined-lane-id <id> --joined-lane-id <id> --conflict-summary "<text>" --blocker-summary "<text>" --merge-rationale "<text>" --council-authority "<text>" --council-decision-ref <path> --not-proven "<text>" [--pilot-status <draft|ready|blocked|completed>] [--join-status <ready|blocked|merged|stopped|deferred|reopened>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
+  aof parallel-lane-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof agent-session-record --project <path> --session-id <id> --actor-ref <ref> --role-ref <ref> --event-json '<json>' [--event-json '<json>'] --task-ref <path> --requirement-ref <path> --test-evidence-ref <path> --risk-candidate "<text>" --decision-candidate "<text>" --release-ready-evidence-ref <path> [--release-ready-verdict <not_ready|structurally_ready|runtime_ready|operator_validated>] [--release-ready-claim "<text>"] [--provider <name>] [--model <name>] [--parent-session-id <id>] [--commit-ref <ref>] [--pr-ref <ref>] [--artifact-ref <path>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof session-observability-audit [--project <path>] [--write-artifact <path>]
   aof context-integrity-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> [--context-pack-ref <path>] [--declared-context-ref <path>] [--required-context-ref <path>] [--missing-context-ref <path>] [--hidden-context-signal "<text>"] --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -209,6 +211,8 @@ Examples:
   aof work-execution-packet-audit --project . --cutoff-task-id TASK-091 --write-artifact /tmp/aof-work-execution-packet-audit.json
   aof multi-actor-pilot-record --project . --work-item-id TASK-092 --work-item-ref .aof/tasks/open/TASK-092.json --parent-orchestrator-ref .aof/artifacts/agent-sessions/SESS-V73-MULTI-ACTOR-PILOT.json --council-role visionary --council-role builder --council-role guardian --actor-roster-ref .aof/artifacts/work-governance/actor-compositions/ACT-TASK-092-V73.json --actor-output-handoff-ref .aof/artifacts/execution/role-results/RRES-BUILDER.json --actor-output-handoff-ref .aof/artifacts/execution/role-results/RRES-GUARDIAN.json --council-judgment-ref .aof/artifacts/execution/council-reviews/CREV-TASK-092-V73.json --work-execution-packet-ref .aof/artifacts/work-execution-packets/TASK-092.json --maker-checker-council-boundary "Builder makes, Guardian checks, Council judges." --not-proven "multi-actor pilot evidence does not prove autonomous workforce performance" --source-task-id TASK-092 --source-parent-session-id SESS-V73-MULTI-ACTOR-PILOT
   aof multi-actor-pilot-audit --project . --cutoff-task-id TASK-092 --write-artifact /tmp/aof-multi-actor-pilot-audit.json
+  aof parallel-lane-record --project . --work-item-id TASK-093 --work-item-ref .aof/tasks/open/TASK-093.json --parent-multi-actor-pilot-ref .aof/artifacts/multi-actor-pilots/TASK-093.json --work-execution-packet-ref .aof/artifacts/work-execution-packets/TASK-093.json --lane-json '{"lane_id":"schema","goal":"define contract","owner_actor_ref":"builder","input_refs":["docs/v7.4-release-definition.md"],"expected_output":"schema and writer","output_refs":["schemas/aof-parallel-lane-pilot.schema.json"],"verification_refs":["test/runtime-core-2.test.js"],"stop_condition":"stop if schema cannot fail missing lane evidence","lane_status":"completed"}' --lane-json '{"lane_id":"audit","goal":"verify join semantics","owner_actor_ref":"guardian","input_refs":["docs/v7.4-release-definition.md"],"expected_output":"audit and negative checks","output_refs":["src/commands/parallel-lane-audit.js"],"verification_refs":["test/runtime-core-2.test.js"],"stop_condition":"stop if audit cannot fail missing join evidence","lane_status":"completed"}' --join-decision merge --joined-lane-id schema --joined-lane-id audit --conflict-summary "no unresolved lane conflict" --blocker-summary "no active blocker" --merge-rationale "lane outputs are independently verified and Council-approved" --council-authority architecture-council --council-decision-ref .aof/artifacts/execution/council-reviews/CREV-TASK-093-V74.json --not-proven "parallel lane evidence does not prove autonomous scheduling or speed improvement" --source-task-id TASK-093 --source-parent-session-id SESS-V74-PARALLEL-LANES
+  aof parallel-lane-audit --project . --cutoff-task-id TASK-093 --write-artifact /tmp/aof-parallel-lane-audit.json
   aof agent-session-record --project . --session-id SESS-001 --actor-ref codex --role-ref builder --event-json '{"event_type":"prompt","summary":"User asked for v7 session observability"}' --event-json '{"event_type":"tool_call","summary":"Ran runtime audit","tool_name":"session-observability-audit","safety_level":"safe_read","approval_policy":"preapproved"}' --task-ref .aof/tasks/open/TASK-085.json --requirement-ref docs/v7.0-agent-session-observability-direction.md --test-evidence-ref test/runtime-core-2.test.js --risk-candidate "session path is not reconstructable" --decision-candidate "promote event stream to release gate" --release-ready-evidence-ref docs/v7.0-agent-session-observability-direction.md --release-ready-verdict runtime_ready --source-task-id TASK-085 --source-parent-session-id SESS-V70-SESSION-OBSERVABILITY
   aof session-observability-audit --project . --write-artifact /tmp/aof-session-observability-audit.json
   aof problem-statement-record --project . --affected-party "newly invited workspace admins" --actual-problem "activation fails during permission setup" --why-it-matters "high-intent admins fail before value is realized" --why-now "activation drop-off is blocking current growth" --evidence-ref docs/research/funnel-notes.md
@@ -1061,6 +1065,37 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "multi-actor-pilot-audit"
+            ? {
+                project: ".",
+                cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "parallel-lane-record"
+            ? {
+                project: ".",
+                pilotId: "",
+                workItemId: "",
+                workItemRef: "",
+                pilotStatus: "ready",
+                parentMultiActorPilotRef: "",
+                workExecutionPacketRef: "",
+                lanes: [],
+                joinStatus: "ready",
+                joinDecision: "",
+                joinedLaneIds: [],
+                conflictSummary: "",
+                blockerSummary: "",
+                mergeRationale: "",
+                councilAuthority: "",
+                councilDecisionRef: "",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "parallel-lane-audit"
             ? {
                 project: ".",
                 cutoffTaskId: "",
@@ -2766,6 +2801,15 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--join-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --join-status.");
+      }
+      options.joinStatus = value;
+      i += 1;
+      continue;
+    }
     if (part === "--context-integrity-ref") {
       const value = rest[i + 1];
       if (!value) {
@@ -2781,6 +2825,15 @@ function parseArgs(argv) {
         throw new Error("Missing value after --parent-orchestrator-ref.");
       }
       options.parentOrchestratorRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--parent-multi-actor-pilot-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --parent-multi-actor-pilot-ref.");
+      }
+      options.parentMultiActorPilotRef = value;
       i += 1;
       continue;
     }
@@ -2826,6 +2879,78 @@ function parseArgs(argv) {
         throw new Error("Missing value after --work-execution-packet-ref.");
       }
       options.workExecutionPacketRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--lane-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --lane-json.");
+      }
+      options.lanes.push(JSON.parse(value));
+      i += 1;
+      continue;
+    }
+    if (part === "--join-decision") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --join-decision.");
+      }
+      options.joinDecision = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--joined-lane-id") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --joined-lane-id.");
+      }
+      options.joinedLaneIds.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--conflict-summary") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --conflict-summary.");
+      }
+      options.conflictSummary = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--blocker-summary") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --blocker-summary.");
+      }
+      options.blockerSummary = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--merge-rationale") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --merge-rationale.");
+      }
+      options.mergeRationale = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--council-authority") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --council-authority.");
+      }
+      options.councilAuthority = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--council-decision-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --council-decision-ref.");
+      }
+      options.councilDecisionRef = value;
       i += 1;
       continue;
     }
@@ -4983,6 +5108,56 @@ function parseArgs(argv) {
   if (command === "multi-actor-pilot-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `multi-actor-pilot-audit`.");
+    }
+  }
+
+  if (command === "parallel-lane-record") {
+    if (!options.workItemId) {
+      throw new Error("Missing --work-item-id for `parallel-lane-record`.");
+    }
+    if (!options.workItemRef) {
+      throw new Error("Missing --work-item-ref for `parallel-lane-record`.");
+    }
+    if (!["draft", "ready", "blocked", "completed"].includes(options.pilotStatus)) {
+      throw new Error("Invalid --pilot-status for `parallel-lane-record`.");
+    }
+    if (!options.parentMultiActorPilotRef) {
+      throw new Error("Missing --parent-multi-actor-pilot-ref for `parallel-lane-record`.");
+    }
+    if (!options.workExecutionPacketRef) {
+      throw new Error("Missing --work-execution-packet-ref for `parallel-lane-record`.");
+    }
+    if (!Array.isArray(options.lanes) || options.lanes.length < 2) {
+      throw new Error("At least two --lane-json values are required for `parallel-lane-record`.");
+    }
+    if (!["ready", "blocked", "merged", "stopped", "deferred", "reopened"].includes(options.joinStatus)) {
+      throw new Error("Invalid --join-status for `parallel-lane-record`.");
+    }
+    if (!["merge", "stop", "defer", "reopen"].includes(options.joinDecision)) {
+      throw new Error("Invalid --join-decision for `parallel-lane-record`.");
+    }
+    if (!Array.isArray(options.joinedLaneIds) || options.joinedLaneIds.length < 2) {
+      throw new Error("At least two --joined-lane-id values are required for `parallel-lane-record`.");
+    }
+    for (const flag of [
+      ["--conflict-summary", options.conflictSummary],
+      ["--blocker-summary", options.blockerSummary],
+      ["--merge-rationale", options.mergeRationale],
+      ["--council-authority", options.councilAuthority],
+      ["--council-decision-ref", options.councilDecisionRef],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!flag[1]) {
+        throw new Error(`Missing ${flag[0]} for \`parallel-lane-record\`.`);
+      }
+    }
+  }
+
+  if (command === "parallel-lane-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `parallel-lane-audit`.");
     }
   }
 

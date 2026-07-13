@@ -1,0 +1,77 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRJ8IDQ8-01MV9M",
+  "recorded_at": "2026-07-13T13:04:45.056Z",
+  "session_id": "SESS-V74-PARALLEL-LANES",
+  "parent_session_id": "SESS-V74-PARENT",
+  "actor_ref": "codex",
+  "role_ref": "parent-orchestrator",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MRJ8IDQ8-PDEEJ5",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-13T13:04:45.056Z",
+      "summary": "User asked to advance the next AOF release after v7.3.0.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRJ8IDQ8-42ZF1C",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-13T13:04:45.056Z",
+      "summary": "Ran situation-assess and opened TASK-093 for v7.4 Governed Parallel Lanes.",
+      "artifact_refs": [],
+      "tool_name": "situation-assess",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV3-MRJ8IDQ8-HXZR18",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-13T13:04:45.056Z",
+      "summary": "Implemented parallel lane schemas, commands, tests, and release evidence.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-093.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.4-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "schemas/aof-parallel-lane-pilot.schema.json",
+      "src/commands/parallel-lane-audit.js"
+    ]
+  },
+  "risk_candidates": [
+    "parallel work could be mistaken for ungoverned simultaneous activity"
+  ],
+  "decision_candidates": [
+    "promote parallel lane join semantics to release-state gate"
+  ],
+  "release_ready_evidence": {
+    "claim": "v7.4 parallel lane governance is structurally testable",
+    "evidence_refs": [
+      "docs/v7.4-release-checklist.md"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-093",
+  "source_parent_session_id": "SESS-V74-PARALLEL-LANES",
+  "source_decision_record_id": null
+}

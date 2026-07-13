@@ -2,59 +2,60 @@
 
 ## Version
 
-Candidate: `v7.4.0`
+Candidate: `v7.5.0`
 
 ## Release Theme
 
-Governed Parallel Lanes.
+Requirements Coverage, Forecasting, And Organization Analytics.
 
-`v7.3.0` made multi-actor claims auditable through Council roles, actor roster, actor handoffs, Council judgment, and Work Execution Packet closure. The next bottleneck is proving that multiple bounded lanes can run in parallel without losing join, conflict, blocker, and Council decision semantics.
+`v7.4.0` made parallel lane claims auditable through bounded lane evidence, join/conflict semantics, Council decision, Work Execution Packet closure, and upstream Multi-Actor Pilot evidence. The next bottleneck is proving that AOF can explain how requirements are covered, which work items advance them, what remains blocked, and what completion/cost forecast follows from runtime evidence.
 
 Human-facing wording:
 
-> v7.4 should prove that AOF can split work into bounded parallel lanes, track lane-local evidence, and join or stop the lanes through Council judgment.
+> v7.5 should prove that AOF can show requirement coverage, requirement-linked task completion, blockers, completion forecast, token-cost forecast, and burndown data from canonical runtime artifacts.
 
 More explicit wording:
 
-> AOF should treat parallelism as governed lane evidence, not as simultaneous unbounded AI activity.
+> AOF should treat coverage and forecast as bounded planning evidence, not as proof that requirements are semantically satisfied.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/v7.x-roadmap.md`
-- previous release: `v7.3.0`
-- v7.3 evidence: `docs/v7.3-release-definition.md`, `docs/v7.3.0-release-notes.md`, `.aof/artifacts/multi-actor-pilots/TASK-092.json`
-- current frontier candidate: `v7.4` Governed Parallel Lanes
+- previous release: `v7.4.0`
+- v7.4 evidence: `docs/v7.4-release-definition.md`, `docs/v7.4.0-release-notes.md`, `.aof/artifacts/parallel-lanes/TASK-093.json`
+- current frontier candidate: `v7.5` Requirements Coverage, Forecasting, And Organization Analytics
 
 ## Required Outcomes
 
 Required:
 
-- define a parallel lane contract for bounded work splits
-- record lane-local inputs, actor assignment, evidence, blocker, and output refs
-- record lane join/conflict semantics
-- require Council merge, stop, defer, or reopen decision before the work is treated as joined
-- preserve Work Execution Packet and Multi-Actor Pilot evidence as upstream gates
+- define requirement records for functional requirements, non-functional requirements, QIF quality gates, and acceptance boundaries
+- link work items, evidence refs, blockers, and Council decisions to requirement refs
+- compute requirement coverage, requirement-linked task completion, blocked/at-risk/unstarted signals, completion forecast, and token/cost forecast
+- expose forecast and burndown data in Mission Control as runtime projection
+- preserve Parallel Lane, Multi-Actor Pilot, Work Execution Packet, context/reference, and QIF boundaries as upstream evidence gates
 
 Deferred:
 
-- full autonomous workforce execution
+- semantic satisfaction scoring
+- market validation or operator acceptance claims
 - external worker adapters
 - provider-specific session streaming integrations
 - runtime scheduler automation
 
 ## Release Gates
 
-### Gate 1: Parallel Lane Contract
+### Gate 1: Requirement Contract
 
-- each lane has a goal, owner actor, input refs, expected output, verification refs, and stop condition
-- lanes are explicitly linked to the parent work item
-- missing lane evidence blocks join claims
+- each requirement has type, source, owner, acceptance boundary, evidence refs, and status
+- requirements can represent functional, non-functional, QIF quality-intent, and release-gate concerns
+- missing requirement evidence blocks coverage claims
 
-### Gate 2: Join And Conflict
+### Gate 2: Coverage And Forecast
 
-- lane outputs are joined only through a recorded join packet
-- conflicts and blockers are explicit
-- Council can merge, stop, defer, or reopen
+- work items and evidence refs link to requirement refs
+- coverage, completion, blocked/at-risk/unstarted signals are derived from canonical artifacts
+- completion and token/cost forecast are bounded projections, not certainty claims
 
 ### Gate 3: Governance Continuity
 
@@ -62,16 +63,18 @@ Deferred:
 - v7.1 context/reference integrity audit still passes
 - v7.2 Work Execution Packet audit still passes
 - v7.3 Multi-Actor Pilot audit still passes
+- v7.4 Parallel Lane audit still passes
 - work readiness, quality ledger, Archmap impact, review provenance, and evidence independence audits still pass
 
 ### Gate 4: Release Surface
 
 - package version is updated to the selected release
 - active release manifest points at selected release docs
-- README and roadmap describe governed parallel lane evidence without overclaiming autonomous scheduling or autonomous workforce performance
+- README and roadmap describe requirement coverage and forecast evidence without overclaiming semantic satisfaction or delivery certainty
 
 ### Gate 5: Verification
 
+- requirement coverage audit
 - parallel lane audit
 - multi-actor pilot audit
 - work execution packet audit
@@ -93,28 +96,28 @@ Deferred:
 
 Release only if AOF now makes it harder to confuse:
 
-- parallel activity with governed lane evidence
-- lane completion with parent work completion
-- join packets with semantic correctness
-- Council merge with decoration
-- speed with quality
+- requirement presence with requirement satisfaction
+- task completion with requirement coverage
+- forecast with certainty
+- dashboard display with proof
+- QIF gates with semantic truth
 
-## Post-v7.3 Direction
+## Post-v7.4 Direction
 
 The v7 line should proceed in this order:
 
-1. `v7.4`: Governed Parallel Lanes
-2. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
-3. `v7.6`: Provider-Neutral Session Export
-4. `v7.7`: Adoption-Grade v7 Runtime
+1. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
+2. `v7.6`: Provider-Neutral Session Export
+3. `v7.7`: Adoption-Grade v7 Runtime
+4. `v8.0`: Externalized Organization Runtime
 
 Canonical planning reference:
 
 - `docs/v7.x-roadmap.md`
 
-Do not jump directly from multi-actor pilot evidence to autonomous workforce claims. The
-runtime must first prove parallel lane join/conflict semantics,
-requirement-linked coverage/forecasting, and evidence-backed analytics.
+Do not jump directly from parallel lane evidence to autonomous workforce claims. The
+runtime must first prove requirement-linked coverage/forecasting and
+evidence-backed analytics.
 
 ## Requirement Coverage Direction
 

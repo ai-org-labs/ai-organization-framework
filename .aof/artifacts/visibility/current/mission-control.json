@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-13T06:42:42.379Z",
+  "generated_at": "2026-07-13T13:16:24.160Z",
   "mission_overview": {
-    "mission": "Ship v7.3.0 as the Governed Multi-Actor Pilot release.",
-    "release_version": "7.3.0",
-    "release_definition_ref": "docs/v7.3-release-definition.md",
-    "operating_goal": "After v7.3.0, advance v7.4 Governed Parallel Lanes: prove that multiple bounded actor lanes can run with explicit join, conflict, blocker, and Council decision semantics without weakening Work Execution Packet or Multi-Actor Pilot evidence.",
-    "next_value_slice": "Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
+    "mission": "Ship v7.4.0 as the Governed Parallel Lanes release.",
+    "release_version": "7.4.0",
+    "release_definition_ref": "docs/v7.4-release-definition.md",
+    "operating_goal": "After v7.4.0, advance v7.5 Requirements Coverage, Forecasting, And Organization Analytics: prove that AOF can extract requirements, link tasks and evidence to requirements, show coverage/completion/blocked risk, and produce bounded completion and token-cost forecasts without claiming semantic satisfaction.",
+    "next_value_slice": "Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
+    "recommended_action": "Open an implementation task for the current frontier: Define the v7.5 Requirements Coverage slice: maintain requirement records, map work items to functional/non-functional/QIF gates, compute coverage and task completion, surface blockers and risks, and expose forecast/burndown data in Mission Control as bounded planning evidence.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 22,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-092.json",
+    "impact_record_count": 23,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-093.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-092",
+    "latest_work_item_id": "TASK-093",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-092.json"
+      ".aof/artifacts/archmap/impact/TASK-093.json"
     ],
     "external_refs": []
   },
@@ -399,38 +399,41 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 8,
-    "latest_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V73-MULTI-ACTOR-PILOT.json",
-    "latest_actor_ref": "parent-codex",
-    "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-13T06:32:52.525Z",
+    "stream_count": 9,
+    "latest_session_id": "SESS-V74-PARALLEL-LANES",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V74-PARALLEL-LANES.json",
+    "latest_actor_ref": "codex",
+    "latest_role_ref": "parent-orchestrator",
+    "latest_recorded_at": "2026-07-13T13:04:45.056Z",
     "latest_event_count": 3,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-092.json"
+      ".aof/tasks/done/TASK-093.json"
     ],
     "linked_requirement_refs": [
-      "docs/v7.3-release-definition.md"
+      "docs/v7.4-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js"
     ],
-    "linked_artifact_refs": [],
+    "linked_artifact_refs": [
+      "schemas/aof-parallel-lane-pilot.schema.json",
+      "src/commands/parallel-lane-audit.js"
+    ],
     "risk_candidates": [
-      "multi-actor claim can degrade into silent parent role-play"
+      "parallel work could be mistaken for ungoverned simultaneous activity"
     ],
     "decision_candidates": [
-      "promote Multi-Actor Pilot audit to v7.3 release-state gate"
+      "promote parallel lane join semantics to release-state gate"
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "User asked to advance to the next AOF release after v7.2.",
-        "occurred_at": "2026-07-13T06:32:52.525Z",
+        "summary": "User asked to advance the next AOF release after v7.3.0.",
+        "occurred_at": "2026-07-13T13:04:45.056Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -438,17 +441,17 @@
       },
       {
         "event_type": "tool_call",
-        "summary": "Opened TASK-092 and implemented multi-actor pilot commands.",
-        "occurred_at": "2026-07-13T06:32:52.525Z",
-        "tool_name": "task-open",
-        "safety_level": "safe_local_write",
+        "summary": "Ran situation-assess and opened TASK-093 for v7.4 Governed Parallel Lanes.",
+        "occurred_at": "2026-07-13T13:04:45.056Z",
+        "tool_name": "situation-assess",
+        "safety_level": "safe_read",
         "approval_policy": "preapproved",
         "artifact_refs": []
       },
       {
         "event_type": "artifact_write",
-        "summary": "Wrote v7.3 multi-actor pilot schemas, commands, tests, and release docs.",
-        "occurred_at": "2026-07-13T06:32:52.525Z",
+        "summary": "Implemented parallel lane schemas, commands, tests, and release evidence.",
+        "occurred_at": "2026-07-13T13:04:45.056Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -457,9 +460,9 @@
     ],
     "latest_tool_calls": [
       {
-        "summary": "Opened TASK-092 and implemented multi-actor pilot commands.",
-        "tool_name": "task-open",
-        "safety_level": "safe_local_write",
+        "summary": "Ran situation-assess and opened TASK-093 for v7.4 Governed Parallel Lanes.",
+        "tool_name": "situation-assess",
+        "safety_level": "safe_read",
         "approval_policy": "preapproved"
       }
     ]
@@ -471,11 +474,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 3,
+    "context_record_count": 4,
     "external_reference_record_count": 1,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-093.json",
+        "work_item_id": "TASK-093",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared local context for v7.4, not semantic correctness, autonomous scheduling, or speed improvement."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-092.json",
         "work_item_id": "TASK-092",

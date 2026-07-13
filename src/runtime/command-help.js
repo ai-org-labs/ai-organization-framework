@@ -55,6 +55,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing pilot records, missing Visionary/Builder/Guardian, insufficient actor handoffs, unresolved refs, absent boundary, or absent not-proven statement.",
     verdict_boundary: "Multi-actor governance evidence only; not proof that actor judgment was semantically correct or externally validated."
   },
+  "parallel-lane-audit": {
+    quality_intent: "Parallel execution claims are backed by bounded lane-local evidence and Council join semantics.",
+    risk: "AOF claims parallel work happened when activity was only simultaneous or fragmented, with no reconstructable lane split, join decision, blocker state, or Council merge/stop authority.",
+    loss_boundary: "Do not claim governed parallel work when lane evidence, join/conflict semantics, Council decision, Work Execution Packet evidence, or upstream multi-actor evidence is missing or unresolved.",
+    evidence_refs: ["parallel lane pilot records", "lane input/output/verification refs", "join packet", "Council decision refs", "Work Execution Packet refs", "Multi-Actor Pilot refs"],
+    acceptance_gate: "Audit fails missing pilot records, fewer than two lanes, unresolved lane refs, incomplete join packet, missing Council decision, missing upstream packet evidence, or absent not-proven statement.",
+    verdict_boundary: "Parallel lane governance evidence only; not proof that parallel execution was faster, autonomous, or semantically correct."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

@@ -11,6 +11,7 @@ import { loadActiveReleaseManifest } from "./release-state-helpers.js";
 import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
 import { workExecutionPacketAuditCommand } from "./work-execution-packet-audit.js";
 import { multiActorPilotAuditCommand } from "./multi-actor-pilot-audit.js";
+import { parallelLaneAuditCommand } from "./parallel-lane-audit.js";
 import { workReadinessAuditCommand } from "./work-readiness-audit.js";
 
 const DEFAULT_GOVERNANCE_AUDIT_CUTOFF_TASK_ID = "TASK-071";
@@ -85,6 +86,15 @@ function requiresMultiActorPilotAudit(releaseVersion) {
   return major > 7 || (major === 7 && minor >= 3);
 }
 
+function requiresParallelLaneAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 7 || (major === 7 && minor >= 4);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -115,6 +125,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresMultiActorPilotAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("multi-actor-pilot-audit", await multiActorPilotAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresParallelLaneAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("parallel-lane-audit", await parallelLaneAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

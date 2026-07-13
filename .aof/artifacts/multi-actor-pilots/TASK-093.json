@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRJ8NQ7I-HFPI2Y",
+  "recorded_at": "2026-07-13T13:08:54.510Z",
+  "work_item_id": "TASK-093",
+  "work_item_ref": ".aof/tasks/done/TASK-093.json",
+  "pilot_status": "ready",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V74-PARALLEL-LANES.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/work-governance/actor-compositions/ACT-TASK-093-V74.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-093-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-093-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-093-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-093-V74.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-093.json",
+  "maker_checker_council_boundary": "Visionary bounds the product claim, Builder implements, Guardian verifies, Council judges the join boundary.",
+  "not_proven": "Multi-Actor Pilot evidence does not prove autonomous workforce performance, parallel scheduling, semantic correctness, or external adoption.",
+  "source_task_id": "TASK-093",
+  "source_parent_session_id": "SESS-V74-PARALLEL-LANES",
+  "source_decision_record_id": null,
+  "notes": null
+}

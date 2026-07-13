@@ -1,0 +1,24 @@
+{
+  "artifact_type": "actor-composition",
+  "work_item_id": "TASK-093",
+  "recorded_at": "2026-07-13T13:06:10.000Z",
+  "composition_status": "ready",
+  "actors": [
+    {
+      "actor_ref": "visionary",
+      "role_ref": "Visionary",
+      "responsibility": "Keep v7.4 bounded to governed lane evidence rather than autonomous parallelism claims."
+    },
+    {
+      "actor_ref": "builder",
+      "role_ref": "Builder",
+      "responsibility": "Implement schemas, writer, audit, CLI routing, and release-state integration."
+    },
+    {
+      "actor_ref": "guardian",
+      "role_ref": "Guardian",
+      "responsibility": "Verify missing lane evidence and missing join authority fail before release."
+    }
+  ],
+  "authority_boundary": "Parent orchestrator coordinates work, actors produce evidence, Council joins or stops the lane outputs."
+}

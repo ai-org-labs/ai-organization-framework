@@ -433,17 +433,19 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v7.3.0`, advance `v7.4` as Governed Parallel Lanes. The v7.3 Multi-Actor
-Pilot gives AOF a bounded Council-and-actor handoff claim; the next proof is
-that multiple bounded lanes can run with explicit join, conflict, blocker, and
-Council decision semantics.
+After `v7.4.0`, advance `v7.5` as Requirements Coverage, Forecasting, And
+Organization Analytics. The v7.4 Parallel Lane Pilot gives AOF a bounded
+split/join evidence claim; the next proof is that requirements can be extracted,
+linked to work items and evidence, and projected into coverage, blocker,
+completion, token-cost forecast, and burndown views without claiming semantic
+satisfaction.
 
 Priority order:
 
-1. `v7.4`: Governed Parallel Lanes
-2. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
-3. `v7.6`: Provider-Neutral Session Export
-4. `v7.7`: Adoption-Grade v7 Runtime
+1. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
+2. `v7.6`: Provider-Neutral Session Export
+3. `v7.7`: Adoption-Grade v7 Runtime
+4. `v8.0`: Externalized Organization Runtime
 
 Canonical v7.x roadmap:
 
@@ -451,8 +453,10 @@ Canonical v7.x roadmap:
 
 Reasoning:
 
-- v7.0 through v7.3 made the live AI work path reconstructable, context-bound,
-  packetized, and multi-actor-governed.
-- v7.4 can now add governed parallel execution without scaling ambiguity.
-- v7.5 through v7.7 turn the evidence into coverage analytics, provider-neutral
-  export, and adoption proof without overclaiming semantic truth.
+- v7.0 through v7.4 made the live AI work path reconstructable, context-bound,
+  packetized, multi-actor-governed, and parallel-lane-governed.
+- v7.5 can now turn that evidence into requirement coverage and forecast data
+  without claiming semantic satisfaction.
+- v7.6 through v8.0 turn the evidence into provider-neutral export, adoption
+  proof, and externalized organization runtime without overclaiming semantic
+  truth.
