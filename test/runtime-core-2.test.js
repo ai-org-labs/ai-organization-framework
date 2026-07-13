@@ -32,6 +32,8 @@ import { initProjectCommand } from "../src/commands/init-project.js";
 import { learningLoopSnapshotCommand } from "../src/commands/learning-loop-snapshot.js";
 import { missionControlBenchmarkCommand } from "../src/commands/mission-control-benchmark.js";
 import { missionControlCommand, visibilitySessionCommand } from "../src/commands/visibility-session.js";
+import { multiActorPilotAuditCommand } from "../src/commands/multi-actor-pilot-audit.js";
+import { multiActorPilotRecordCommand } from "../src/commands/multi-actor-pilot-record.js";
 import { operatorBriefCommand } from "../src/commands/operator-brief.js";
 import { contractRegisterCommand } from "../src/commands/contract-register.js";
 import { dependencyGraphCommand } from "../src/commands/dependency-graph.js";
@@ -411,6 +413,115 @@ test("workExecutionPacketAuditCommand fails missing packets and passes complete 
   const passing = await workExecutionPacketAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
   assert.equal(passing.ok, true);
   assert.equal(passing.summary.summary.accepted_packet_count, 1);
+});
+
+test("multi-actor pilot schema requires council roles, handoffs, judgment, packet, and not-proven boundary", async () => {
+  const payload = {
+    artifact_type: "multi-actor-pilot",
+    pilot_id: "MAP-TASK-092",
+    recorded_at: "2026-07-13T00:00:00.000Z",
+    work_item_id: "TASK-092",
+    work_item_ref: ".aof/tasks/open/TASK-092.json",
+    pilot_status: "ready",
+    parent_orchestrator_ref: ".aof/artifacts/agent-sessions/SESS-V73-MULTI-ACTOR-PILOT.json",
+    core_council_roles: ["visionary", "builder", "guardian"],
+    actor_roster_ref: ".aof/artifacts/work-governance/actor-compositions/ACT-TASK-092-V73.json",
+    actor_output_handoff_refs: [
+      ".aof/artifacts/execution/role-results/RRES-TASK-092-BUILDER.json",
+      ".aof/artifacts/execution/role-results/RRES-TASK-092-GUARDIAN.json"
+    ],
+    council_judgment_ref: ".aof/artifacts/execution/council-reviews/CREV-TASK-092-V73.json",
+    work_execution_packet_ref: ".aof/artifacts/work-execution-packets/TASK-092.json",
+    maker_checker_council_boundary: "Builder makes, Guardian checks, Council judges.",
+    not_proven: "This pilot proves governance evidence, not autonomous workforce performance.",
+    source_task_id: "TASK-092",
+    source_parent_session_id: "SESS-V73-MULTI-ACTOR-PILOT",
+    source_decision_record_id: null,
+    notes: null
+  };
+
+  await validateWithBundledSchema(payload, "aof-multi-actor-pilot.schema.json", "multi-actor pilot");
+
+  const missingGuardian = { ...payload, core_council_roles: ["visionary", "builder"] };
+  await assert.rejects(
+    validateWithBundledSchema(missingGuardian, "aof-multi-actor-pilot.schema.json", "multi-actor pilot"),
+    /must contain at least 3 items|must be equal to one of the allowed values|missing/
+  );
+
+  const missingBoundary = { ...payload };
+  delete missingBoundary.not_proven;
+  await assert.rejects(
+    validateWithBundledSchema(missingBoundary, "aof-multi-actor-pilot.schema.json", "multi-actor pilot"),
+    /missing required key 'not_proven'/
+  );
+});
+
+async function writeMultiActorPilotFixtures(projectRoot) {
+  await writeWorkExecutionPacketFixtures(projectRoot);
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "work-governance", "actor-compositions"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "execution", "role-results"), { recursive: true });
+  await workExecutionPacketRecordCommand(completeWorkExecutionPacketOptions(projectRoot));
+  await fs.writeFile(
+    path.join(projectRoot, ".aof", "artifacts", "work-governance", "actor-compositions", "ACT-TASK-001-V73.json"),
+    "{}\n"
+  );
+  await fs.writeFile(
+    path.join(projectRoot, ".aof", "artifacts", "execution", "role-results", "RRES-TASK-001-BUILDER.json"),
+    "{}\n"
+  );
+  await fs.writeFile(
+    path.join(projectRoot, ".aof", "artifacts", "execution", "role-results", "RRES-TASK-001-GUARDIAN.json"),
+    "{}\n"
+  );
+}
+
+function completeMultiActorPilotOptions(projectRoot) {
+  return {
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    pilotStatus: "ready",
+    parentOrchestratorRef: ".aof/artifacts/agent-sessions/SESS-V72-TEST.json",
+    coreCouncilRoles: ["visionary", "builder", "guardian"],
+    actorRosterRef: ".aof/artifacts/work-governance/actor-compositions/ACT-TASK-001-V73.json",
+    actorOutputHandoffRefs: [
+      ".aof/artifacts/execution/role-results/RRES-TASK-001-BUILDER.json",
+      ".aof/artifacts/execution/role-results/RRES-TASK-001-GUARDIAN.json"
+    ],
+    councilJudgmentRef: ".aof/artifacts/execution/council-reviews/CREV-TASK-001-V72.json",
+    workExecutionPacketRef: ".aof/artifacts/work-execution-packets/TASK-001.json",
+    makerCheckerCouncilBoundary: "Builder makes, Guardian checks, Council judges.",
+    notProven: "multi-actor pilot evidence does not prove autonomous workforce performance",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V73-TEST"
+  };
+}
+
+test("multiActorPilotRecordCommand writes a schema-valid pilot", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeMultiActorPilotFixtures(projectRoot);
+
+  const result = await multiActorPilotRecordCommand(completeMultiActorPilotOptions(projectRoot));
+
+  assert.equal(result.ok, true);
+  const written = JSON.parse(await fs.readFile(result.artifactPath, "utf8"));
+  await validateWithBundledSchema(written, "aof-multi-actor-pilot.schema.json", "multi-actor pilot");
+  assert.deepEqual(written.core_council_roles, ["visionary", "builder", "guardian"]);
+});
+
+test("multiActorPilotAuditCommand fails missing pilots and passes complete multi-actor evidence", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeMultiActorPilotFixtures(projectRoot);
+
+  const failing = await multiActorPilotAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(failing.ok, false);
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("multi-actor pilot presence")));
+
+  await multiActorPilotRecordCommand(completeMultiActorPilotOptions(projectRoot));
+
+  const passing = await multiActorPilotAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(passing.ok, true);
+  assert.equal(passing.summary.summary.accepted_pilot_count, 1);
 });
 
 test("agent session record schema defines task, requirement, test, risk, decision, and release-ready links", async () => {

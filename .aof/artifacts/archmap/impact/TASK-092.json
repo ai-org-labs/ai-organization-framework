@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-13T06:37:20.000Z",
+  "work_item_id": "TASK-092",
+  "work_item_ref": ".aof/tasks/done/TASK-092.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v7.3 adds Governed Multi-Actor Pilot as the bounded Council-and-actor handoff layer above Work Execution Packet closure.",
+  "archmap_source_ref": "docs/v7.3-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-092-V73.json",
+  "not_proven": "This impact record states that the AOF governance map changes; it does not prove the visual map has already been redrawn."
+}

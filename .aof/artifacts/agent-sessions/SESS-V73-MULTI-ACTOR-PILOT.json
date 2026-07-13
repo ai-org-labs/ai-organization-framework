@@ -1,0 +1,74 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRIUIFCD-47NBXG",
+  "recorded_at": "2026-07-13T06:32:52.525Z",
+  "session_id": "SESS-V73-MULTI-ACTOR-PILOT",
+  "parent_session_id": null,
+  "actor_ref": "parent-codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MRIUIFCD-44UHIW",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-13T06:32:52.525Z",
+      "summary": "User asked to advance to the next AOF release after v7.2.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRIUIFCD-5QPTQP",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-13T06:32:52.525Z",
+      "summary": "Opened TASK-092 and implemented multi-actor pilot commands.",
+      "artifact_refs": [],
+      "tool_name": "task-open",
+      "safety_level": "safe_local_write",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV3-MRIUIFCD-HDCZD9",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-13T06:32:52.525Z",
+      "summary": "Wrote v7.3 multi-actor pilot schemas, commands, tests, and release docs.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+        ".aof/tasks/done/TASK-092.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.3-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": []
+  },
+  "risk_candidates": [
+    "multi-actor claim can degrade into silent parent role-play"
+  ],
+  "decision_candidates": [
+    "promote Multi-Actor Pilot audit to v7.3 release-state gate"
+  ],
+  "release_ready_evidence": {
+    "claim": "v7.3 has structural runtime evidence for governed multi-actor pilot integrity",
+    "evidence_refs": [
+      "docs/v7.3-release-checklist.md"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-092",
+  "source_parent_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
+  "source_decision_record_id": null
+}

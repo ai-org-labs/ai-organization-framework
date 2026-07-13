@@ -1,0 +1,83 @@
+{
+  "artifact_type": "actor-composition",
+  "recorded_at": "2026-07-13T06:33:30.000Z",
+  "work_item_id": "TASK-092",
+  "required_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "required_skills": [
+    "runtime-contract-design",
+    "schema-implementation",
+    "governance-review"
+  ],
+  "actor_candidates": [
+    {
+      "actor_ref": "visionary-seat",
+      "actor_type": "ai-agent",
+      "candidate_role": "visionary",
+      "fit_reason": "Evaluates whether multi-actor evidence avoids decorative role-play."
+    },
+    {
+      "actor_ref": "builder-seat",
+      "actor_type": "ai-agent",
+      "candidate_role": "builder",
+      "fit_reason": "Implements schemas, commands, and tests."
+    },
+    {
+      "actor_ref": "guardian-seat",
+      "actor_type": "ai-agent",
+      "candidate_role": "guardian",
+      "fit_reason": "Checks maker/checker/council separation and not-proven boundary."
+    }
+  ],
+  "selected_actors": [
+    {
+      "actor_ref": "visionary-seat",
+      "actor_type": "ai-agent",
+      "assigned_role": "visionary",
+      "output_required": "direction judgment handoff"
+    },
+    {
+      "actor_ref": "builder-seat",
+      "actor_type": "ai-agent",
+      "assigned_role": "builder",
+      "output_required": "implementation handoff"
+    },
+    {
+      "actor_ref": "guardian-seat",
+      "actor_type": "ai-agent",
+      "assigned_role": "guardian",
+      "output_required": "verification handoff"
+    }
+  ],
+  "authority_boundaries": [
+    {
+      "actor_ref": "visionary-seat",
+      "authority_level": "propose",
+      "must_not_decide": [
+        "release sign-off"
+      ]
+    },
+    {
+      "actor_ref": "builder-seat",
+      "authority_level": "execute",
+      "must_not_decide": [
+        "approval of own work"
+      ]
+    },
+    {
+      "actor_ref": "guardian-seat",
+      "authority_level": "review",
+      "must_not_decide": [
+        "product direction alone"
+      ]
+    }
+  ],
+  "selection_reason": "v7.3 needs all three Council perspectives plus actor handoffs before any multi-actor claim is accepted.",
+  "missing_roles": [],
+  "source_task_id": "TASK-092",
+  "source_parent_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
+  "source_decision_record_id": null
+}

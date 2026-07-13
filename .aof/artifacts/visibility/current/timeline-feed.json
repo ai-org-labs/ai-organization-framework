@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-13T05:04:33.844Z",
+      "at": "2026-07-13T06:42:42.379Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-13T05:04:33.834Z",
+      "at": "2026-07-13T06:42:42.368Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,14 +24,25 @@
       ]
     },
     {
-      "at": "2026-07-13T05:00:40.483Z",
+      "at": "2026-07-13T06:38:59.718Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "Define the v7.3 Governed Multi-Actor Pilot slice: Council opens a bounded pilot, selects at least three persistent actors, records actor assignment/handoff evidence, verifies maker/checker separation, and closes the pilot through Work Execution Packet audit.",
+      "summary": "Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
         ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-07-13T06:38:03.692Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Ship v7.3 Governed Multi-Actor Pilot",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-092.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-090.json"
-      ]
-    },
-    {
-      "at": "2026-07-11T17:15:55.507Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Design v7.1 Context and Reference Integrity",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-089.json"
       ]
     }
   ]

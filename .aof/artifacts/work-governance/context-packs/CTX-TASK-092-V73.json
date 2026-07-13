@@ -1,0 +1,40 @@
+{
+  "artifact_type": "context-pack",
+  "recorded_at": "2026-07-13T06:33:30.000Z",
+  "pack_id": "CTX-TASK-092-V73",
+  "audience": "codex",
+  "current_mission": "Ship v7.3 Governed Multi-Actor Pilot.",
+  "current_frontier": "TASK-092 Governed Multi-Actor Pilot",
+  "active_work_items": [
+    {
+      "work_item_id": "TASK-092",
+      "summary": "Define and verify bounded multi-actor pilot evidence.",
+      "state": "in_progress"
+    }
+  ],
+  "open_blockers": [],
+  "pending_human_approvals": [],
+  "latest_decisions": [
+    "Use Work Execution Packet as closure for multi-actor pilot."
+  ],
+  "applicable_quality_intents": [
+    "QIN-AOF-RUNTIME",
+    "QIN-AOF-RELEASE"
+  ],
+  "priority_summary": "Prove multi-actor claims require Council roster, actor roster, actor handoffs, Council judgment, and packet closure.",
+  "operational_map_refs": [
+    "docs/v7.3-release-definition.md"
+  ],
+  "go_no_go_status_summary": "Go if multi-actor-pilot-audit and release-state-audit pass.",
+  "actor_composition_summary": "Visionary, Builder, and Guardian remain required Council roles; actor outputs are handoffs, not final truth.",
+  "next_recommended_action": "Create actor handoffs and Council judgment, then close through Work Execution Packet and Multi-Actor Pilot audit.",
+  "evidence_refs": [
+    "docs/v7.3-release-definition.md",
+    "test/runtime-core-2.test.js"
+  ],
+  "external_refs": [],
+  "raw_artifact_bodies_included": false,
+  "source_task_id": "TASK-092",
+  "source_parent_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
+  "source_decision_record_id": null
+}

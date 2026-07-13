@@ -47,6 +47,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing packets, unresolved refs, absent actor handoff, absent verification evidence, missing stop/continue decision, or absent not-proven boundary.",
     verdict_boundary: "Execution packet integrity only; not proof that the executed work is semantically valuable or externally validated."
   },
+  "multi-actor-pilot-audit": {
+    quality_intent: "Multi-actor execution claims are backed by Council roster, actor handoff, Council judgment, and bounded packet evidence.",
+    risk: "AOF claims an organization worked when one parent AI silently role-played actors or skipped Council judgment.",
+    loss_boundary: "Do not claim governed multi-actor work when core Council roles, actor roster, actor handoffs, Council judgment, or Work Execution Packet evidence is missing or unresolved.",
+    evidence_refs: ["multi-actor pilot records", "actor roster refs", "actor handoff refs", "Council judgment refs", "Work Execution Packet refs"],
+    acceptance_gate: "Audit fails missing pilot records, missing Visionary/Builder/Guardian, insufficient actor handoffs, unresolved refs, absent boundary, or absent not-proven statement.",
+    verdict_boundary: "Multi-actor governance evidence only; not proof that actor judgment was semantically correct or externally validated."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

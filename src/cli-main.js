@@ -100,6 +100,8 @@ Usage:
   aof work-readiness-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof work-execution-packet-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --context-integrity-ref <path> --actor-handoff-ref <path> [--actor-handoff-ref <path>] --execution-lineage-ref <path> --verification-evidence-ref <path> [--verification-evidence-ref <path>] --stop-continue-decision <continue|stop|defer|reopen> --stop-continue-rationale "<text>" --stop-continue-decided-by <ref> --stop-continue-evidence-ref <path> [--stop-continue-evidence-ref <path>] --not-proven "<text>" [--execution-status <draft|ready|blocked|completed>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
   aof work-execution-packet-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof multi-actor-pilot-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --parent-orchestrator-ref <path> --council-role visionary --council-role builder --council-role guardian --actor-roster-ref <path> --actor-output-handoff-ref <path> [--actor-output-handoff-ref <path>] --council-judgment-ref <path> --work-execution-packet-ref <path> --maker-checker-council-boundary "<text>" --not-proven "<text>" [--pilot-status <draft|ready|blocked|completed>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
+  aof multi-actor-pilot-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof agent-session-record --project <path> --session-id <id> --actor-ref <ref> --role-ref <ref> --event-json '<json>' [--event-json '<json>'] --task-ref <path> --requirement-ref <path> --test-evidence-ref <path> --risk-candidate "<text>" --decision-candidate "<text>" --release-ready-evidence-ref <path> [--release-ready-verdict <not_ready|structurally_ready|runtime_ready|operator_validated>] [--release-ready-claim "<text>"] [--provider <name>] [--model <name>] [--parent-session-id <id>] [--commit-ref <ref>] [--pr-ref <ref>] [--artifact-ref <path>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof session-observability-audit [--project <path>] [--write-artifact <path>]
   aof context-integrity-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> [--context-pack-ref <path>] [--declared-context-ref <path>] [--required-context-ref <path>] [--missing-context-ref <path>] [--hidden-context-signal "<text>"] --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -205,6 +207,8 @@ Examples:
   aof work-readiness-audit --project . --cutoff-task-id TASK-082 --write-artifact /tmp/aof-work-readiness-audit.json
   aof work-execution-packet-record --project . --work-item-id TASK-091 --work-item-ref .aof/tasks/open/TASK-091.json --context-integrity-ref .aof/artifacts/context-integrity/TASK-091.json --actor-handoff-ref .aof/artifacts/agent-sessions/SESS-V72-WORK-EXECUTION-PACKET.json --execution-lineage-ref .aof/context/active/execution-lineage.json --verification-evidence-ref test/runtime-core-2.test.js --stop-continue-decision continue --stop-continue-rationale "all v7.2 execution packet gates are green" --stop-continue-decided-by architecture-council --stop-continue-evidence-ref .aof/artifacts/execution/council-reviews/CREV-TASK-091-V72.json --not-proven "semantic value of the work still requires operator review" --source-task-id TASK-091 --source-parent-session-id SESS-V72-WORK-EXECUTION-PACKET
   aof work-execution-packet-audit --project . --cutoff-task-id TASK-091 --write-artifact /tmp/aof-work-execution-packet-audit.json
+  aof multi-actor-pilot-record --project . --work-item-id TASK-092 --work-item-ref .aof/tasks/open/TASK-092.json --parent-orchestrator-ref .aof/artifacts/agent-sessions/SESS-V73-MULTI-ACTOR-PILOT.json --council-role visionary --council-role builder --council-role guardian --actor-roster-ref .aof/artifacts/work-governance/actor-compositions/ACT-TASK-092-V73.json --actor-output-handoff-ref .aof/artifacts/execution/role-results/RRES-BUILDER.json --actor-output-handoff-ref .aof/artifacts/execution/role-results/RRES-GUARDIAN.json --council-judgment-ref .aof/artifacts/execution/council-reviews/CREV-TASK-092-V73.json --work-execution-packet-ref .aof/artifacts/work-execution-packets/TASK-092.json --maker-checker-council-boundary "Builder makes, Guardian checks, Council judges." --not-proven "multi-actor pilot evidence does not prove autonomous workforce performance" --source-task-id TASK-092 --source-parent-session-id SESS-V73-MULTI-ACTOR-PILOT
+  aof multi-actor-pilot-audit --project . --cutoff-task-id TASK-092 --write-artifact /tmp/aof-multi-actor-pilot-audit.json
   aof agent-session-record --project . --session-id SESS-001 --actor-ref codex --role-ref builder --event-json '{"event_type":"prompt","summary":"User asked for v7 session observability"}' --event-json '{"event_type":"tool_call","summary":"Ran runtime audit","tool_name":"session-observability-audit","safety_level":"safe_read","approval_policy":"preapproved"}' --task-ref .aof/tasks/open/TASK-085.json --requirement-ref docs/v7.0-agent-session-observability-direction.md --test-evidence-ref test/runtime-core-2.test.js --risk-candidate "session path is not reconstructable" --decision-candidate "promote event stream to release gate" --release-ready-evidence-ref docs/v7.0-agent-session-observability-direction.md --release-ready-verdict runtime_ready --source-task-id TASK-085 --source-parent-session-id SESS-V70-SESSION-OBSERVABILITY
   aof session-observability-audit --project . --write-artifact /tmp/aof-session-observability-audit.json
   aof problem-statement-record --project . --affected-party "newly invited workspace admins" --actual-problem "activation fails during permission setup" --why-it-matters "high-intent admins fail before value is realized" --why-now "activation drop-off is blocking current growth" --evidence-ref docs/research/funnel-notes.md
@@ -1030,6 +1034,33 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "work-execution-packet-audit"
+            ? {
+                project: ".",
+                cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "multi-actor-pilot-record"
+            ? {
+                project: ".",
+                pilotId: "",
+                workItemId: "",
+                workItemRef: "",
+                pilotStatus: "ready",
+                parentOrchestratorRef: "",
+                coreCouncilRoles: [],
+                actorRosterRef: "",
+                actorOutputHandoffRefs: [],
+                councilJudgmentRef: "",
+                workExecutionPacketRef: "",
+                makerCheckerCouncilBoundary: "",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "multi-actor-pilot-audit"
             ? {
                 project: ".",
                 cutoffTaskId: "",
@@ -2726,12 +2757,84 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--pilot-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --pilot-status.");
+      }
+      options.pilotStatus = value;
+      i += 1;
+      continue;
+    }
     if (part === "--context-integrity-ref") {
       const value = rest[i + 1];
       if (!value) {
         throw new Error("Missing value after --context-integrity-ref.");
       }
       options.contextIntegrityRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--parent-orchestrator-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --parent-orchestrator-ref.");
+      }
+      options.parentOrchestratorRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--council-role") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --council-role.");
+      }
+      options.coreCouncilRoles.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--actor-roster-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --actor-roster-ref.");
+      }
+      options.actorRosterRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--actor-output-handoff-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --actor-output-handoff-ref.");
+      }
+      options.actorOutputHandoffRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--council-judgment-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --council-judgment-ref.");
+      }
+      options.councilJudgmentRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--work-execution-packet-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --work-execution-packet-ref.");
+      }
+      options.workExecutionPacketRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--maker-checker-council-boundary") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --maker-checker-council-boundary.");
+      }
+      options.makerCheckerCouncilBoundary = value;
       i += 1;
       continue;
     }
@@ -4830,6 +4933,56 @@ function parseArgs(argv) {
   if (command === "work-execution-packet-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `work-execution-packet-audit`.");
+    }
+  }
+
+  if (command === "multi-actor-pilot-record") {
+    if (!options.workItemId) {
+      throw new Error("Missing --work-item-id for `multi-actor-pilot-record`.");
+    }
+    if (!options.workItemRef) {
+      throw new Error("Missing --work-item-ref for `multi-actor-pilot-record`.");
+    }
+    if (!["draft", "ready", "blocked", "completed"].includes(options.pilotStatus)) {
+      throw new Error("Invalid --pilot-status for `multi-actor-pilot-record`.");
+    }
+    if (!options.parentOrchestratorRef) {
+      throw new Error("Missing --parent-orchestrator-ref for `multi-actor-pilot-record`.");
+    }
+    for (const role of ["visionary", "builder", "guardian"]) {
+      if (!options.coreCouncilRoles.includes(role)) {
+        throw new Error(`Missing --council-role ${role} for \`multi-actor-pilot-record\`.`);
+      }
+    }
+    if (!options.actorRosterRef) {
+      throw new Error("Missing --actor-roster-ref for `multi-actor-pilot-record`.");
+    }
+    if (!Array.isArray(options.actorOutputHandoffRefs) || options.actorOutputHandoffRefs.length < 2) {
+      throw new Error("At least two --actor-output-handoff-ref values are required for `multi-actor-pilot-record`.");
+    }
+    if (!options.councilJudgmentRef) {
+      throw new Error("Missing --council-judgment-ref for `multi-actor-pilot-record`.");
+    }
+    if (!options.workExecutionPacketRef) {
+      throw new Error("Missing --work-execution-packet-ref for `multi-actor-pilot-record`.");
+    }
+    if (!options.makerCheckerCouncilBoundary) {
+      throw new Error("Missing --maker-checker-council-boundary for `multi-actor-pilot-record`.");
+    }
+    if (!options.notProven) {
+      throw new Error("Missing --not-proven for `multi-actor-pilot-record`.");
+    }
+    if (!options.sourceTaskId) {
+      throw new Error("Missing --source-task-id for `multi-actor-pilot-record`.");
+    }
+    if (!options.sourceParentSessionId) {
+      throw new Error("Missing --source-parent-session-id for `multi-actor-pilot-record`.");
+    }
+  }
+
+  if (command === "multi-actor-pilot-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `multi-actor-pilot-audit`.");
     }
   }
 

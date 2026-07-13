@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRIUNBI6-RCS63L",
+  "recorded_at": "2026-07-13T06:36:40.830Z",
+  "work_item_id": "TASK-092",
+  "work_item_ref": ".aof/tasks/done/TASK-092.json",
+  "pilot_status": "ready",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V73-MULTI-ACTOR-PILOT.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/work-governance/actor-compositions/ACT-TASK-092-V73.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-092-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-092-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-092-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-092-V73.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-092.json",
+  "maker_checker_council_boundary": "Visionary proposes direction, Builder implements, Guardian checks, Council judges, and parent orchestrator records the loop.",
+  "not_proven": "Multi-Actor Pilot evidence does not prove autonomous workforce performance, semantic correctness, or external adoption.",
+  "source_task_id": "TASK-092",
+  "source_parent_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,6 +1,6 @@
 {
   "view_type": "runtime_execution",
-  "generated_at": "2026-07-13T05:04:33.849Z",
+  "generated_at": "2026-07-13T06:42:42.384Z",
   "runtime_backing_required": {
     "required_for": [
       "direction",
@@ -15,7 +15,7 @@
   },
   "last_execution": {
     "status": "pass",
-    "executed_at": "2026-07-13T05:04:33.849Z",
+    "executed_at": "2026-07-13T06:42:42.384Z",
     "primary_command": "visibility-export",
     "command_runs": [
       {
@@ -28,7 +28,7 @@
       },
       {
         "command": "roadmap-status",
-        "artifact_ref": "docs/v7.2-release-definition.md"
+        "artifact_ref": "docs/v7.3-release-definition.md"
       },
       {
         "command": "organization-analytics-snapshot",

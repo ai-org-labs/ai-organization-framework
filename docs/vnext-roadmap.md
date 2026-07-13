@@ -433,18 +433,17 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v7.2.0`, advance `v7.3` as Governed Multi-Actor Pilot. The v7.2 Work
-Execution Packet gives AOF a bounded execution claim; the next proof is that a
-Council can select actors, receive actor handoffs, judge the result, and return
-the whole loop as reconstructable runtime evidence.
+After `v7.3.0`, advance `v7.4` as Governed Parallel Lanes. The v7.3 Multi-Actor
+Pilot gives AOF a bounded Council-and-actor handoff claim; the next proof is
+that multiple bounded lanes can run with explicit join, conflict, blocker, and
+Council decision semantics.
 
 Priority order:
 
-1. `v7.3`: Governed Multi-Actor Pilot
-2. `v7.4`: Governed Parallel Lanes
-3. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
-4. `v7.6`: Provider-Neutral Session Export
-5. `v7.7`: Adoption-Grade v7 Runtime
+1. `v7.4`: Governed Parallel Lanes
+2. `v7.5`: Requirements Coverage, Forecasting, And Organization Analytics
+3. `v7.6`: Provider-Neutral Session Export
+4. `v7.7`: Adoption-Grade v7 Runtime
 
 Canonical v7.x roadmap:
 
@@ -452,9 +451,8 @@ Canonical v7.x roadmap:
 
 Reasoning:
 
-- v7.0 through v7.2 made the live AI work path reconstructable, context-bound,
-  and packetized.
-- v7.3 and v7.4 can now add governed multi-actor and parallel execution without
-  scaling ambiguity.
+- v7.0 through v7.3 made the live AI work path reconstructable, context-bound,
+  packetized, and multi-actor-governed.
+- v7.4 can now add governed parallel execution without scaling ambiguity.
 - v7.5 through v7.7 turn the evidence into coverage analytics, provider-neutral
   export, and adoption proof without overclaiming semantic truth.

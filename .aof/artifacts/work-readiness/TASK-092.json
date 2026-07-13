@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRIUICUT-762HP2",
+  "recorded_at": "2026-07-13T06:32:49.301Z",
+  "work_item_id": "TASK-092",
+  "work_item_ref": ".aof/tasks/done/TASK-092.json",
+  "readiness_status": "ready",
+  "goal": "Ship v7.3 Governed Multi-Actor Pilot as a bounded Council-and-actor handoff contract.",
+  "risk": "AOF may claim multi-actor organization work when one parent AI silently role-plays actors or actor outputs bypass Council judgment.",
+  "loss_boundary": "No governed multi-actor claim without core Council roles, actor roster evidence, actor output handoffs, Council judgment, and Work Execution Packet closure.",
+  "acceptance_gates": [
+    "multi-actor-pilot-audit passes",
+    "release-state-audit includes the v7.3 pilot gate"
+  ],
+  "evidence_plan": [
+    "schema, command, focused tests, Council review, Work Execution Packet, pilot audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if the audit cannot fail missing actor handoffs or missing Council roles"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-092",
+  "source_parent_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
+  "source_decision_record_id": null
+}

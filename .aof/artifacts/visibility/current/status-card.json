@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-13T05:04:33.844Z",
+  "as_of": "2026-07-13T06:42:42.379Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "Define the v7.3 Governed Multi-Actor Pilot slice: Council opens a bounded pilot, selects at least three persistent actors, records actor assignment/handoff evidence, verifies maker/checker separation, and closes the pilot through Work Execution Packet audit.",
+  "current_goal": "Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "Define the v7.3 Governed Multi-Actor Pilot slice: Council opens a bounded pilot, selects at least three persistent actors, records actor assignment/handoff evidence, verifies maker/checker separation, and closes the pilot through Work Execution Packet audit.",
+  "next_checkpoint": "Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

@@ -1,0 +1,26 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRIULGE1-PX7AOP",
+  "recorded_at": "2026-07-13T06:35:13.849Z",
+  "work_item_id": "TASK-092",
+  "work_item_ref": ".aof/tasks/done/TASK-092.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V73-MULTI-ACTOR-PILOT.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-governance/context-packs/CTX-TASK-092-V73.json"
+  ],
+  "declared_context_refs": [
+    "docs/v7.3-release-definition.md",
+    "docs/vnext-release-plan.md"
+  ],
+  "required_context_refs": [
+    "docs/v7.3-release-definition.md",
+    "test/runtime-core-2.test.js"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared local context, not semantic correctness or autonomous workforce performance.",
+  "source_task_id": "TASK-092",
+  "source_parent_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
+  "source_decision_record_id": null
+}

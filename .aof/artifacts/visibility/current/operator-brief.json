@@ -1,14 +1,14 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-13T05:04:33.875Z",
-  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Define the v7.3 Governed Multi-Actor Pilot slice: Council opens a bounded pilot, selects at least three persistent actors, records actor assignment/handoff evidence, verifies maker/checker separation, and closes the pilot through Work Execution Packet audit.",
+  "generated_at": "2026-07-13T06:42:42.410Z",
+  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
   "current_state": {
-    "release_version": "7.2.0",
-    "active_release_track": "v7.2",
-    "release_definition_ref": "docs/v7.2-release-definition.md",
+    "release_version": "7.3.0",
+    "active_release_track": "v7.3",
+    "release_definition_ref": "docs/v7.3-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
-    "operating_goal": "After v7.2.0, advance v7.3 Governed Multi-Actor Pilot: prove that Council-selected actors can be assigned, produce bounded handoffs, and return evidence through the Work Execution Packet without weakening context/reference integrity.",
-    "next_value_slice": "Define the v7.3 Governed Multi-Actor Pilot slice: Council opens a bounded pilot, selects at least three persistent actors, records actor assignment/handoff evidence, verifies maker/checker separation, and closes the pilot through Work Execution Packet audit.",
+    "operating_goal": "After v7.3.0, advance v7.4 Governed Parallel Lanes: prove that multiple bounded actor lanes can run with explicit join, conflict, blocker, and Council decision semantics without weakening Work Execution Packet or Multi-Actor Pilot evidence.",
+    "next_value_slice": "Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
     "primary_frontier_task": null,
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
@@ -65,11 +65,11 @@
   "why_now": {
     "summary": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "reasons": [
-      "The active release baseline is 7.2.0 and the runtime is now targeting the next track.",
+      "The active release baseline is 7.3.0 and the runtime is now targeting the next track.",
       "The current operating goal and next value slice both reinforce the current frontier as the next bounded operating move."
     ],
     "evidence_refs": [
-      "docs/v7.2-release-definition.md",
+      "docs/v7.3-release-definition.md",
       ".aof/goals/operating-goal.json",
       ".aof/goals/next-value-slice.json",
       ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
@@ -77,7 +77,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: Define the v7.3 Governed Multi-Actor Pilot slice: Council opens a bounded pilot, selects at least three persistent actors, records actor assignment/handoff evidence, verifies maker/checker separation, and closes the pilot through Work Execution Packet audit.",
+    "recommended_action": "Open an implementation task for the current frontier: Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -85,6 +85,6 @@
     "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
     "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Open an implementation task for the current frontier: Define the v7.3 Governed Multi-Actor Pilot slice: Council opens a bounded pilot, selects at least three persistent actors, records actor assignment/handoff evidence, verifies maker/checker separation, and closes the pilot through Work Execution Packet audit."
+    "what_should_happen_next": "Open an implementation task for the current frontier: Define the v7.4 Governed Parallel Lanes slice: split a bounded work item into parallel lanes, require lane-local evidence, record join/conflict semantics, and close only through Council-approved merge or stop decision."
   }
 }

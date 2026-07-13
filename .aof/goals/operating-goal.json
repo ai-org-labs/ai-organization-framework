@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "After v7.2.0, advance v7.3 Governed Multi-Actor Pilot: prove that Council-selected actors can be assigned, produce bounded handoffs, and return evidence through the Work Execution Packet without weakening context/reference integrity.",
-  "updated_at": "2026-07-13T05:00:38.191Z",
+  "content": "After v7.3.0, advance v7.4 Governed Parallel Lanes: prove that multiple bounded actor lanes can run with explicit join, conflict, blocker, and Council decision semantics without weakening Work Execution Packet or Multi-Actor Pilot evidence.",
+  "updated_at": "2026-07-13T06:38:56.732Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V72-WORK-EXECUTION-PACKET",
+  "source_session_id": "SESS-V73-MULTI-ACTOR-PILOT",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

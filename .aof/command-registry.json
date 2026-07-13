@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-13T04:52:40.046Z",
+  "generated_at": "2026-07-13T06:32:20.577Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -1615,6 +1615,76 @@
       ],
       "outputs": [
         "benchmark report"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "multi-actor-pilot-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify multi-actor work is not claimed without core Council roles, actor roster evidence, actor handoffs, Council judgment, and Work Execution Packet closure.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "cutoff-task-id?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "multi-actor pilot audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "multi-actor-pilot-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a bounded multi-actor pilot record that links Council roster, actor roster, actor handoffs, Council judgment, and Work Execution Packet evidence.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "work-item-id",
+        "work-item-ref",
+        "parent-orchestrator-ref",
+        "council-role",
+        "actor-roster-ref",
+        "actor-output-handoff-ref",
+        "council-judgment-ref",
+        "work-execution-packet-ref",
+        "not-proven",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "multi-actor pilot artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

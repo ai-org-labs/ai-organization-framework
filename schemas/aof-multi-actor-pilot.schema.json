@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-multi-actor-pilot.schema.json",
+  "title": "AOF Multi-Actor Pilot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "pilot_id",
+    "recorded_at",
+    "work_item_id",
+    "work_item_ref",
+    "pilot_status",
+    "parent_orchestrator_ref",
+    "core_council_roles",
+    "actor_roster_ref",
+    "actor_output_handoff_refs",
+    "council_judgment_ref",
+    "work_execution_packet_ref",
+    "maker_checker_council_boundary",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "multi-actor-pilot" },
+    "pilot_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_id": { "type": "string", "minLength": 1 },
+    "work_item_ref": { "type": "string", "minLength": 1 },
+    "pilot_status": {
+      "type": "string",
+      "enum": ["draft", "ready", "blocked", "completed"]
+    },
+    "parent_orchestrator_ref": { "type": "string", "minLength": 1 },
+    "core_council_roles": {
+      "type": "array",
+      "minItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["visionary", "builder", "guardian"]
+      }
+    },
+    "actor_roster_ref": { "type": "string", "minLength": 1 },
+    "actor_output_handoff_refs": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "council_judgment_ref": { "type": "string", "minLength": 1 },
+    "work_execution_packet_ref": { "type": "string", "minLength": 1 },
+    "maker_checker_council_boundary": { "type": "string", "minLength": 1 },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}
