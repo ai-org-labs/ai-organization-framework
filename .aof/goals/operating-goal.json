@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "After v7.5.0, advance v7.6 Provider-Neutral Session Export: prove that agent/session evidence can be exported in a provider-neutral package linking prompts, responses, tool calls, artifacts, task refs, requirement refs, tests, risks, decisions, redaction boundaries, and release-readiness evidence without depending on a vendor-specific session stream.",
-  "updated_at": "2026-07-13T16:56:35.000Z",
+  "content": "Prepare v7.7 Adoption-Grade v7 Runtime: prove a fresh project can reach governed work with bounded context, requirement coverage, session export evidence, and release-ready boundaries.",
+  "updated_at": "2026-07-14T01:52:07.217Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "source_session_id": "SESS-V76-SESSION-EXPORT",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

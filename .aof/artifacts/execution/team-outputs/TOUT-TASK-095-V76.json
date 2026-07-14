@@ -1,0 +1,36 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-14T01:46:53.363Z",
+  "team_output_id": "TOUT-MRJZQHWZ-3O4Q8V",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit TASK-095 provider-neutral session export evidence to architecture council review.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v7.6-release-definition.md",
+    "docs/v7.6-release-checklist.md",
+    "schemas/aof-session-export-record.schema.json"
+  ],
+  "decision_required": true,
+  "summary": "Visionary, Builder, and Guardian agree TASK-095 is ready for Council review if release audits and tests are green.",
+  "source_task_id": "TASK-095",
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_decision_record_id": null
+}

@@ -1,0 +1,109 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRJZTW0T-60ZS7M",
+  "recorded_at": "2026-07-14T01:49:31.613Z",
+  "work_item_id": "TASK-095",
+  "work_item_ref": ".aof/tasks/done/TASK-095.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V76-SESSION-EXPORT.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "Provider-native streams are input evidence; the normalized AOF session export is the canonical portable package."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V76-001",
+      "event_type": "prompt",
+      "summary": "Runtime selected v7.6 Provider-Neutral Session Export as the next release frontier.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-095.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V76-002",
+      "event_type": "response",
+      "summary": "AOF framed v7.6 as portable session evidence rather than provider automation or semantic proof.",
+      "artifact_refs": [
+        "docs/v7.6-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V76-003",
+      "event_type": "tool_call",
+      "summary": "AOF runtime commands created task, readiness, session, role, team, council, coverage, and export evidence.",
+      "artifact_refs": [
+        ".aof/artifacts/agent-sessions/SESS-V76-SESSION-EXPORT.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V76-004",
+      "event_type": "artifact_write",
+      "summary": "Schemas, commands, CLI routing, docs, tests, and release metadata were written for v7.6.",
+      "artifact_refs": [
+        "schemas/aof-session-export-record.schema.json",
+        "src/commands/session-export-audit.js",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-V76-005",
+      "event_type": "verification",
+      "summary": "Session export tests and release audits are required before tag.",
+      "artifact_refs": [
+        "docs/v7.6-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-V76-006",
+      "event_type": "blocker",
+      "summary": "No active blocker remains; Node 25 local warning is treated as a boundary, not release proof.",
+      "artifact_refs": [
+        "package.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V76-007",
+      "event_type": "stop_condition",
+      "summary": "Stop if export lacks required event types, source-of-truth boundary, redaction boundary, release-ready boundary, or not-proven limits.",
+      "artifact_refs": [
+        "docs/v7.6-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-095.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.6-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      "schemas/aof-session-export-record.schema.json",
+      "src/commands/session-export-record.js",
+      "src/commands/session-export-audit.js"
+    ],
+    "risk_candidates": [
+      "Provider stream lock-in could hide AI work evidence.",
+      "Export completeness could be mistaken for semantic correctness or privacy completeness."
+    ],
+    "decision_candidates": [
+      "Promote session-export-audit into release-state-audit for v7.6.0 and later."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v7.6-release-checklist.md"
+    ]
+  },
+  "redaction_boundary": "Export stores summaries and refs only; raw secrets, credentials, and private full prompt bodies are out of scope.",
+  "release_ready_boundary": "Release-ready export evidence is structural/runtime evidence only.",
+  "not_proven": "Session export does not prove semantic correctness, universal privacy safety, provider API integration, or external adoption.",
+  "source_task_id": "TASK-095",
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_decision_record_id": null,
+  "notes": null
+}

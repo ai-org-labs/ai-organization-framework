@@ -1,0 +1,24 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-14T01:46:11.425Z",
+  "role": "Visionary",
+  "stage": "review",
+  "session_id": "SESS-V76-VISIONARY",
+  "status": "completed",
+  "recommendation": "Ship v7.6 only as provider-neutral evidence portability, not as provider automation or semantic quality proof.",
+  "rationale": "The product value is preventing vendor stream lock-in while preserving AOF as the canonical governance record.",
+  "signals": [
+    "Do not overclaim external provider integration."
+  ],
+  "artifact_refs": [
+    "docs/v7.6-release-definition.md",
+    "docs/v7.6.0-release-notes.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-095",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

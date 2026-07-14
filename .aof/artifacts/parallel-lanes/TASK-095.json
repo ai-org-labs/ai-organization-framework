@@ -1,0 +1,66 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRJZSBHS-FMHDVZ",
+  "recorded_at": "2026-07-14T01:48:18.352Z",
+  "work_item_id": "TASK-095",
+  "work_item_ref": ".aof/tasks/done/TASK-095.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-095.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-095.json",
+  "lanes": [
+    {
+      "lane_id": "contract",
+      "goal": "define provider-neutral export contract",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v7.6-release-definition.md"
+      ],
+      "expected_output": "schema and writer",
+      "output_refs": [
+        "schemas/aof-session-export-record.schema.json",
+        "src/commands/session-export-record.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if required session events or boundaries cannot be represented",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "audit",
+      "goal": "verify export claims and release-state integration",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "docs/v7.6-release-checklist.md"
+      ],
+      "expected_output": "audit command and release gate",
+      "output_refs": [
+        "src/commands/session-export-audit.js",
+        "src/commands/release-state-audit.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if unresolved refs or not-proven limits do not fail",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "contract",
+      "audit"
+    ],
+    "conflict_summary": "no unresolved lane conflict",
+    "blocker_summary": "no active blocker",
+    "merge_rationale": "contract and audit lanes are independently represented and Council-approved",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-095-V76.json",
+  "not_proven": "Parallel lane evidence does not prove speed improvement, autonomous scheduling, or semantic correctness.",
+  "source_task_id": "TASK-095",
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
-  "updated_at": "2026-07-13T16:56:38.203Z",
+  "content": "Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task.",
+  "updated_at": "2026-07-14T01:52:02.037Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
+  "source_session_id": "SESS-V76-SESSION-EXPORT",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

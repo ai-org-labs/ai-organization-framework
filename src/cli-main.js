@@ -106,6 +106,8 @@ Usage:
   aof parallel-lane-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof requirement-coverage-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --requirement-json '<json>' [--requirement-json '<json>'] --coverage-summary-json '<json>' --forecast-json '<json>' --not-proven "<text>" [--coverage-status <draft|ready|blocked|completed>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
   aof requirement-coverage-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof session-export-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --source-session-ref <path> --provider-source-json '<json>' --event-summary-json '<json>' [--event-summary-json '<json>'] --task-ref <path> --requirement-ref <path> --test-evidence-ref <path> --artifact-ref <path> --risk-candidate "<text>" --decision-candidate "<text>" --release-ready-evidence-ref <path> --redaction-boundary "<text>" --release-ready-boundary "<text>" --not-proven "<text>" [--export-status <draft|ready|blocked|completed>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
+  aof session-export-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof agent-session-record --project <path> --session-id <id> --actor-ref <ref> --role-ref <ref> --event-json '<json>' [--event-json '<json>'] --task-ref <path> --requirement-ref <path> --test-evidence-ref <path> --risk-candidate "<text>" --decision-candidate "<text>" --release-ready-evidence-ref <path> [--release-ready-verdict <not_ready|structurally_ready|runtime_ready|operator_validated>] [--release-ready-claim "<text>"] [--provider <name>] [--model <name>] [--parent-session-id <id>] [--commit-ref <ref>] [--pr-ref <ref>] [--artifact-ref <path>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof session-observability-audit [--project <path>] [--write-artifact <path>]
   aof context-integrity-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> [--context-pack-ref <path>] [--declared-context-ref <path>] [--required-context-ref <path>] [--missing-context-ref <path>] [--hidden-context-signal "<text>"] --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -217,6 +219,8 @@ Examples:
   aof parallel-lane-audit --project . --cutoff-task-id TASK-093 --write-artifact /tmp/aof-parallel-lane-audit.json
   aof requirement-coverage-record --project . --work-item-id TASK-094 --work-item-ref .aof/tasks/open/TASK-094.json --requirement-json '{"requirement_id":"REQ-V75-001","requirement_type":"functional","source_ref":"docs/v7.5-release-definition.md","title":"record requirement coverage","owner_ref":"builder","acceptance_boundary":"covered only when linked work and evidence refs resolve","status":"covered","linked_work_item_refs":[".aof/tasks/open/TASK-094.json"],"evidence_refs":["schemas/aof-requirement-coverage-record.schema.json"]}' --coverage-summary-json '{"total_requirements":1,"covered_count":1,"partial_count":0,"blocked_count":0,"at_risk_count":0,"unstarted_count":0}' --forecast-json '{"estimated_remaining_work_items":0,"estimated_token_cost_range":"bounded release verification only","burndown_ref":"docs/v7.5-release-checklist.md","forecast_boundary":"forecast is planning evidence, not delivery certainty"}' --not-proven "coverage evidence does not prove semantic satisfaction" --source-task-id TASK-094 --source-parent-session-id SESS-V75-REQUIREMENT-COVERAGE
   aof requirement-coverage-audit --project . --cutoff-task-id TASK-094 --write-artifact /tmp/aof-requirement-coverage-audit.json
+  aof session-export-record --project . --work-item-id TASK-095 --work-item-ref .aof/tasks/open/TASK-095.json --source-session-ref .aof/artifacts/agent-sessions/SESS-V76-SESSION-EXPORT.json --provider-source-json '{"provider":"local","model":"codex","source_format":"aof-agent-session-record","source_of_truth_boundary":"provider stream is input evidence; AOF export is canonical"}' --event-summary-json '{"event_id":"EVT-1","event_type":"prompt","summary":"operator requested v7.6 export","artifact_refs":[".aof/tasks/open/TASK-095.json"]}' --task-ref .aof/tasks/open/TASK-095.json --requirement-ref docs/v7.6-release-definition.md --test-evidence-ref test/runtime-core-2.test.js --artifact-ref schemas/aof-session-export-record.schema.json --risk-candidate "provider lock-in" --decision-candidate "make export audit a release gate" --release-ready-evidence-ref docs/v7.6-release-checklist.md --redaction-boundary "summaries only; secrets and raw private prompts are not exported" --release-ready-boundary "export readiness is structural evidence only" --not-proven "export does not prove semantic correctness" --source-task-id TASK-095 --source-parent-session-id SESS-V76-SESSION-EXPORT
+  aof session-export-audit --project . --cutoff-task-id TASK-095 --write-artifact /tmp/aof-session-export-audit.json
   aof agent-session-record --project . --session-id SESS-001 --actor-ref codex --role-ref builder --event-json '{"event_type":"prompt","summary":"User asked for v7 session observability"}' --event-json '{"event_type":"tool_call","summary":"Ran runtime audit","tool_name":"session-observability-audit","safety_level":"safe_read","approval_policy":"preapproved"}' --task-ref .aof/tasks/open/TASK-085.json --requirement-ref docs/v7.0-agent-session-observability-direction.md --test-evidence-ref test/runtime-core-2.test.js --risk-candidate "session path is not reconstructable" --decision-candidate "promote event stream to release gate" --release-ready-evidence-ref docs/v7.0-agent-session-observability-direction.md --release-ready-verdict runtime_ready --source-task-id TASK-085 --source-parent-session-id SESS-V70-SESSION-OBSERVABILITY
   aof session-observability-audit --project . --write-artifact /tmp/aof-session-observability-audit.json
   aof problem-statement-record --project . --affected-party "newly invited workspace admins" --actual-problem "activation fails during permission setup" --why-it-matters "high-intent admins fail before value is realized" --why-now "activation drop-off is blocking current growth" --evidence-ref docs/research/funnel-notes.md
@@ -1123,6 +1127,38 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "requirement-coverage-audit"
+            ? {
+                project: ".",
+                cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "session-export-record"
+            ? {
+                project: ".",
+                exportId: "",
+                workItemId: "",
+                workItemRef: "",
+                exportStatus: "ready",
+                sourceSessionRef: "",
+                providerSource: null,
+                eventSummaries: [],
+                taskRefs: [],
+                requirementRefs: [],
+                testEvidenceRefs: [],
+                artifactRefs: [],
+                riskCandidates: [],
+                decisionCandidates: [],
+                releaseReadyEvidenceRefs: [],
+                redactionBoundary: "",
+                releaseReadyBoundary: "",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "session-export-audit"
             ? {
                 project: ".",
                 cutoffTaskId: "",
@@ -2951,6 +2987,60 @@ function parseArgs(argv) {
         throw new Error("Missing value after --forecast-json.");
       }
       options.forecast = JSON.parse(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--provider-source-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --provider-source-json.");
+      }
+      options.providerSource = JSON.parse(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--event-summary-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --event-summary-json.");
+      }
+      options.eventSummaries.push(JSON.parse(value));
+      i += 1;
+      continue;
+    }
+    if (part === "--export-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --export-status.");
+      }
+      options.exportStatus = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--source-session-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --source-session-ref.");
+      }
+      options.sourceSessionRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--redaction-boundary") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --redaction-boundary.");
+      }
+      options.redactionBoundary = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--release-ready-boundary") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --release-ready-boundary.");
+      }
+      options.releaseReadyBoundary = value;
       i += 1;
       continue;
     }
@@ -5257,6 +5347,57 @@ function parseArgs(argv) {
   if (command === "requirement-coverage-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `requirement-coverage-audit`.");
+    }
+  }
+
+  if (command === "session-export-record") {
+    if (!options.workItemId) {
+      throw new Error("Missing --work-item-id for `session-export-record`.");
+    }
+    if (!options.workItemRef) {
+      throw new Error("Missing --work-item-ref for `session-export-record`.");
+    }
+    if (!["draft", "ready", "blocked", "completed"].includes(options.exportStatus)) {
+      throw new Error("Invalid --export-status for `session-export-record`.");
+    }
+    if (!options.sourceSessionRef) {
+      throw new Error("Missing --source-session-ref for `session-export-record`.");
+    }
+    if (!options.providerSource || typeof options.providerSource !== "object") {
+      throw new Error("Missing --provider-source-json for `session-export-record`.");
+    }
+    if (!Array.isArray(options.eventSummaries) || options.eventSummaries.length === 0) {
+      throw new Error("At least one --event-summary-json value is required for `session-export-record`.");
+    }
+    for (const [flagName, values] of [
+      ["--task-ref", options.taskRefs],
+      ["--requirement-ref", options.requirementRefs],
+      ["--test-evidence-ref", options.testEvidenceRefs],
+      ["--artifact-ref", options.artifactRefs],
+      ["--risk-candidate", options.riskCandidates],
+      ["--decision-candidate", options.decisionCandidates],
+      ["--release-ready-evidence-ref", options.releaseReadyEvidenceRefs]
+    ]) {
+      if (!Array.isArray(values) || values.length === 0) {
+        throw new Error(`At least one ${flagName} value is required for \`session-export-record\`.`);
+      }
+    }
+    for (const flag of [
+      ["--redaction-boundary", options.redactionBoundary],
+      ["--release-ready-boundary", options.releaseReadyBoundary],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!flag[1]) {
+        throw new Error(`Missing ${flag[0]} for \`session-export-record\`.`);
+      }
+    }
+  }
+
+  if (command === "session-export-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `session-export-audit`.");
     }
   }
 

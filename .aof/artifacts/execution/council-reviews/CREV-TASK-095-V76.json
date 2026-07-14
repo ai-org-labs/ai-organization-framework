@@ -1,0 +1,46 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-14T01:47:14.329Z",
+  "review_packet_id": "CREV-MRJZQY3D-WAZLO4",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "TASK-095 provider-neutral session export contract is approved for v7.6.0 release verification.",
+  "rationale": "The schema, writer, audit, release-state integration, CLI help, tests, and release docs create a bounded portable evidence package without treating vendor streams as source of truth.",
+  "recommendation": "Run session-export-audit, release-state-audit, full tests, smoke, then tag v7.6.0 if green.",
+  "target_audience": "AOF operator deciding whether v7.6 is release-ready.",
+  "expected_user_reaction": "Accept provider-neutral export as runtime/process evidence, not as proof of semantic correctness, privacy completeness, or external provider integration.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep event summaries narrow and require redaction, release-ready, and not-proven boundaries."
+  ],
+  "organization_change_recommendations": [
+    "Advance v7.7 toward adoption-grade v7 runtime after release."
+  ],
+  "diagnosis_category": "release-readiness",
+  "diagnosis_confidence": 0.86,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-095-V76.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-095-V76.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v7.6-release-definition.md",
+    "src/commands/session-export-audit.js",
+    "test/runtime-core-2.test.js"
+  ],
+  "follow_up_task_ids": [
+    "TASK-095"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-095",
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_decision_record_id": null
+}

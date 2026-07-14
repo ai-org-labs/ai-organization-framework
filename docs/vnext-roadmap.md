@@ -433,19 +433,18 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v7.5.0`, advance `v7.6` as Provider-Neutral Session Export. The v7.5
-Requirement Coverage gate gives AOF bounded coverage and forecast evidence; the
-next proof is that agent/session streams can be exported as portable packages
-linking prompts, responses, tool calls, artifacts, task refs, requirement refs,
-test evidence, risk candidates, decision candidates, redaction boundaries, and
-release-readiness evidence without depending on one vendor stream format.
+After `v7.6.0`, advance `v7.7` as Adoption-Grade v7 Runtime. The v7.6 Provider-
+Neutral Session Export gate gives AOF portable process evidence; the next proof
+is that a fresh adopter can use the v7 runtime path without reading the whole
+repository, while still producing governed work, requirement coverage, session
+export evidence, and release-ready boundaries.
 
 Priority order:
 
-1. `v7.6`: Provider-Neutral Session Export
-2. `v7.7`: Adoption-Grade v7 Runtime
-3. `v7.8`: Mission Control Coverage Forecast Projection
-4. `v8.0`: Externalized Organization Runtime
+1. `v7.7`: Adoption-Grade v7 Runtime
+2. `v7.8`: Mission Control Coverage Forecast Projection
+3. `v8.0`: Externalized Organization Runtime
+4. `v8.1`: External Reference And Provider Adapter Governance
 
 Canonical v7.x roadmap:
 
@@ -453,11 +452,11 @@ Canonical v7.x roadmap:
 
 Reasoning:
 
-- v7.0 through v7.5 made the live AI work path reconstructable, context-bound,
-  packetized, multi-actor-governed, parallel-lane-governed, and
-  requirement-coverage-aware.
-- v7.6 should package that evidence into provider-neutral session exports
-  without turning vendor streams into source-of-truth dependencies.
-- v7.7 through v8.0 turn the evidence into adoption proof, Mission Control
-  projection, and externalized organization runtime without overclaiming semantic
-  truth.
+- v7.0 through v7.6 made the live AI work path reconstructable, context-bound,
+  packetized, multi-actor-governed, parallel-lane-governed,
+  requirement-coverage-aware, and provider-neutral-exportable.
+- v7.7 should prove the v7 path is adoption-grade for a fresh project without
+  turning examples or docs volume into quality claims.
+- v7.8 through v8.1 turn the evidence into Mission Control projection,
+  externalized organization runtime, and adapter governance without overclaiming
+  semantic truth.

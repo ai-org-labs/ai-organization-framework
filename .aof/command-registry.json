@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-13T16:56:56.743Z",
+  "generated_at": "2026-07-14T01:51:11.610Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2734,6 +2734,84 @@
       ],
       "outputs": [
         "self audit record artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "session-export-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify provider-neutral session export claims are backed by required event types, resolvable links, source-of-truth boundaries, redaction boundaries, release-ready boundaries, and not-proven limits.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "cutoff-task-id?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "session export audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "session-export-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a provider-neutral session export record that links summarized session events to tasks, requirements, tests, risks, decisions, redaction boundaries, and release-ready evidence.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "work-item-id",
+        "work-item-ref",
+        "source-session-ref",
+        "provider-source-json",
+        "event-summary-json",
+        "task-ref",
+        "requirement-ref",
+        "test-evidence-ref",
+        "artifact-ref",
+        "risk-candidate",
+        "decision-candidate",
+        "release-ready-evidence-ref",
+        "redaction-boundary",
+        "release-ready-boundary",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider-neutral session export artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

@@ -1,0 +1,24 @@
+{
+  "artifact_type": "actor-roster",
+  "roster_id": "ACT-TASK-095-V76",
+  "work_item_id": "TASK-095",
+  "recorded_at": "2026-07-14T01:44:00.000Z",
+  "actors": [
+    {
+      "actor_ref": "visionary",
+      "role": "Visionary",
+      "assignment": "Protect the product value boundary for provider-neutral session export."
+    },
+    {
+      "actor_ref": "builder",
+      "role": "Builder",
+      "assignment": "Implement the export schema, writer, audit, CLI routing, and tests."
+    },
+    {
+      "actor_ref": "guardian",
+      "role": "Guardian",
+      "assignment": "Verify that export evidence is bounded, linked, and not overclaimed."
+    }
+  ],
+  "not_proven": "This roster records governed participation for TASK-095; it does not prove independent AI autonomy or semantic correctness."
+}

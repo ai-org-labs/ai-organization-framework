@@ -38,6 +38,8 @@ import { parallelLaneAuditCommand } from "../src/commands/parallel-lane-audit.js
 import { parallelLaneRecordCommand } from "../src/commands/parallel-lane-record.js";
 import { requirementCoverageAuditCommand } from "../src/commands/requirement-coverage-audit.js";
 import { requirementCoverageRecordCommand } from "../src/commands/requirement-coverage-record.js";
+import { sessionExportAuditCommand } from "../src/commands/session-export-audit.js";
+import { sessionExportRecordCommand } from "../src/commands/session-export-record.js";
 import { operatorBriefCommand } from "../src/commands/operator-brief.js";
 import { contractRegisterCommand } from "../src/commands/contract-register.js";
 import { dependencyGraphCommand } from "../src/commands/dependency-graph.js";
@@ -791,6 +793,103 @@ test("requirementCoverageAuditCommand fails missing coverage and passes complete
   const passing = await requirementCoverageAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
   assert.equal(passing.ok, true);
   assert.equal(passing.summary.summary.accepted_record_count, 1);
+});
+
+async function writeSessionExportFixtures(projectRoot) {
+  await fs.mkdir(path.join(projectRoot, ".aof", "tasks", "open"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "agent-sessions"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "session-exports", "fixtures"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, "test"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, ".aof", "tasks", "open", "TASK-001.json"), JSON.stringify({
+    task_id: "TASK-001",
+    title: "Test session export",
+    description: "Fixture task for session export audit.",
+    status: "open",
+    origin: "orchestrator",
+    orchestrator_session_id: "SESS-V76-TEST",
+    assigned_session_ids: [],
+    related_decision_record_id: null,
+    operating_goal_ref: null,
+    created_at: "2026-07-14T00:00:00.000Z",
+    updated_at: "2026-07-14T00:00:00.000Z",
+    assigned_at: null,
+    done_at: null,
+    retired_at: null,
+    last_triaged_at: null,
+    stale_candidate_at: null,
+    retire_candidate_at: null,
+    triage_notes: null
+  }, null, 2));
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "agent-sessions", "SESS-V76-TEST.json"), "{}\n");
+  await fs.writeFile(path.join(projectRoot, "docs", "v7.6-release-definition.md"), "# v7.6\n");
+  await fs.writeFile(path.join(projectRoot, "docs", "v7.6-release-checklist.md"), "# checklist\n");
+  await fs.writeFile(path.join(projectRoot, "test", "runtime-core-2.test.js"), "// fixture\n");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "session-exports", "fixtures", "artifact.json"), "{}\n");
+}
+
+function completeSessionExportOptions(projectRoot) {
+  return {
+    project: projectRoot,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    exportStatus: "ready",
+    sourceSessionRef: ".aof/artifacts/agent-sessions/SESS-V76-TEST.json",
+    providerSource: {
+      provider: "local",
+      model: "test-model",
+      source_format: "aof-agent-session-record",
+      source_of_truth_boundary: "Provider stream is input evidence; AOF export is canonical."
+    },
+    eventSummaries: [
+      { event_id: "EVT-1", event_type: "prompt", summary: "User requested export.", artifact_refs: [".aof/tasks/open/TASK-001.json"] },
+      { event_id: "EVT-2", event_type: "response", summary: "AI proposed export.", artifact_refs: ["docs/v7.6-release-definition.md"] },
+      { event_id: "EVT-3", event_type: "tool_call", summary: "Runtime command executed.", artifact_refs: [".aof/artifacts/agent-sessions/SESS-V76-TEST.json"] },
+      { event_id: "EVT-4", event_type: "artifact_write", summary: "Schema written.", artifact_refs: [".aof/artifacts/session-exports/fixtures/artifact.json"] },
+      { event_id: "EVT-5", event_type: "verification", summary: "Focused test passed.", artifact_refs: ["test/runtime-core-2.test.js"] },
+      { event_id: "EVT-6", event_type: "blocker", summary: "No active blocker.", artifact_refs: ["docs/v7.6-release-checklist.md"] },
+      { event_id: "EVT-7", event_type: "stop_condition", summary: "Stop if redaction boundary is missing.", artifact_refs: ["docs/v7.6-release-checklist.md"] }
+    ],
+    taskRefs: [".aof/tasks/open/TASK-001.json"],
+    requirementRefs: ["docs/v7.6-release-definition.md"],
+    testEvidenceRefs: ["test/runtime-core-2.test.js"],
+    artifactRefs: [".aof/artifacts/session-exports/fixtures/artifact.json"],
+    riskCandidates: ["provider stream lock-in"],
+    decisionCandidates: ["make session export audit a release gate"],
+    releaseReadyEvidenceRefs: ["docs/v7.6-release-checklist.md"],
+    redactionBoundary: "Summaries only; raw secrets and private prompt bodies are not exported.",
+    releaseReadyBoundary: "Export readiness is structural evidence only.",
+    notProven: "Session export does not prove semantic correctness or privacy safety in every downstream context.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V76-TEST"
+  };
+}
+
+test("sessionExportRecordCommand writes a schema-valid provider-neutral export", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeSessionExportFixtures(projectRoot);
+
+  const result = await sessionExportRecordCommand(completeSessionExportOptions(projectRoot));
+
+  assert.equal(result.ok, true);
+  const written = JSON.parse(await fs.readFile(result.artifactPath, "utf8"));
+  await validateWithBundledSchema(written, "aof-session-export-record.schema.json", "session export record");
+  assert.equal(written.event_summaries.length, 7);
+});
+
+test("sessionExportAuditCommand fails missing exports and passes complete export evidence", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeSessionExportFixtures(projectRoot);
+
+  const failing = await sessionExportAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(failing.ok, false);
+  assert.ok(failing.summary.errors.some((entry) => entry.includes("session export presence")));
+
+  await sessionExportRecordCommand(completeSessionExportOptions(projectRoot));
+
+  const passing = await sessionExportAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-001" });
+  assert.equal(passing.ok, true);
+  assert.equal(passing.summary.summary.accepted_export_count, 1);
 });
 
 test("agent session record schema defines task, requirement, test, risk, decision, and release-ready links", async () => {

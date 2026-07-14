@@ -476,6 +476,71 @@ QIF boundary:
 - pass は requirement coverage / forecast governance の structural/runtime evidence であり、semantic satisfaction や forecast accuracy を証明しない
 - release sign-off では `release-state-audit` が v7.5 以降この audit を release gate として実行する
 
+### `session-export-record`
+
+AI 作業 session を provider-neutral export として記録する。これは v7.6 の Provider-Neutral Session Export 用 command であり、vendor-native stream を canonical source of truth にしないためのもの。
+
+```bash
+node ./src/cli.js session-export-record \
+  --project . \
+  --work-item-id TASK-095 \
+  --work-item-ref .aof/tasks/done/TASK-095.json \
+  --source-session-ref .aof/artifacts/agent-sessions/SESS-V76-SESSION-EXPORT.json \
+  --provider-source-json '{"provider":"local","model":"codex","source_format":"aof-agent-session-record","source_of_truth_boundary":"provider stream is input evidence; AOF export is canonical"}' \
+  --event-summary-json '{"event_id":"EVT-1","event_type":"prompt","summary":"operator requested v7.6 export","artifact_refs":[".aof/tasks/done/TASK-095.json"]}' \
+  --task-ref .aof/tasks/done/TASK-095.json \
+  --requirement-ref docs/v7.6-release-definition.md \
+  --test-evidence-ref test/runtime-core-2.test.js \
+  --artifact-ref schemas/aof-session-export-record.schema.json \
+  --risk-candidate "provider lock-in" \
+  --decision-candidate "make export audit a release gate" \
+  --release-ready-evidence-ref docs/v7.6-release-checklist.md \
+  --redaction-boundary "summaries only; secrets and raw private prompts are not exported" \
+  --release-ready-boundary "export readiness is structural evidence only" \
+  --not-proven "export does not prove semantic correctness" \
+  --source-task-id TASK-095 \
+  --source-parent-session-id SESS-V76-SESSION-EXPORT
+```
+
+主な記録項目:
+
+- `provider_source`: provider / model / source format / source-of-truth boundary
+- `event_summaries`: prompt / response / tool_call / artifact_write / verification / blocker / stop_condition
+- `links`: task / requirement / test evidence / artifact / risk / decision / release-ready refs
+- `redaction_boundary`: export に含めない情報の境界
+- `release_ready_boundary`: release-ready evidence として言える範囲
+- `not_proven`: export が証明しないこと
+
+QIF boundary:
+
+- session export は portability / process evidence であり、semantic correctness、privacy completeness、external provider integration、operator acceptance を証明しない
+- provider-native stream は input evidence であり、AOF normalized export package が canonical portable artifact である
+
+### `session-export-audit`
+
+implementation-grade work item が provider-neutral session export を証拠なしで主張していないかを narrow に検査する。
+
+```bash
+node ./src/cli.js session-export-audit --project . --cutoff-task-id TASK-095
+```
+
+主な確認項目:
+
+- 対象 task に `.aof/artifacts/session-exports/<TASK-id>.json` が存在する
+- export record schema が valid
+- `work_item_id` が task と一致する
+- export status が accepted state
+- required event types が揃っている
+- provider/source-of-truth boundary が存在する
+- task / requirement / test / artifact / release-ready refs が解決できる
+- redaction boundary、release-ready boundary、not-proven boundary が存在する
+- missing upstream evidence can be represented as blocked rather than hidden
+
+QIF boundary:
+
+- pass は session portability の structural/runtime evidence であり、session content の意味的正しさや外部サービス連携を証明しない
+- release sign-off では `release-state-audit` が v7.6 以降この audit を release gate として実行する
+
 ### `agent-session-record`
 
 AI 作業を session event stream として記録する。v7.0 の最初の観測単位であり、AI作業を task / requirement / test evidence / risk candidate / decision candidate / release-ready evidence に紐づける。

@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-095",
+  "title": "Ship v7.6 Provider-Neutral Session Export",
+  "description": "Implement the v7.6 release slice: package agent/session evidence into provider-neutral export artifacts with schema, audit, redaction boundary, task/requirement/test/risk/decision/release-ready linkage, and release-state integration without depending on a vendor session stream.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V76-SESSION-EXPORT",
+  "assigned_session_ids": [
+    "SESS-V76-SESSION-EXPORT"
+  ],
+  "related_decision_record_id": null,
+  "operating_goal_ref": null,
+  "created_at": "2026-07-14T01:32:15.614Z",
+  "updated_at": "2026-07-14T01:50:51.200Z",
+  "assigned_at": "2026-07-14T01:43:29.822Z",
+  "done_at": "2026-07-14T01:50:51.200Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v7.6 provider-neutral session export implemented with schema, writer, audit, CLI help, release-state integration, runtime evidence, and release docs."
+}

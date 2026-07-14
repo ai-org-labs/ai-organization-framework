@@ -1,0 +1,26 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-14T01:46:14.781Z",
+  "role": "Builder",
+  "stage": "execution",
+  "session_id": "SESS-V76-BUILDER",
+  "status": "completed",
+  "recommendation": "Merge the session export schema, writer, audit command, CLI routing, help, and regression tests.",
+  "rationale": "The implementation creates a narrow provider-neutral artifact contract and makes it auditable by release-state-audit for v7.6.0 and later.",
+  "signals": [
+    "Focused tests and CLI reference must stay aligned with schema fields."
+  ],
+  "artifact_refs": [
+    "schemas/aof-session-export-record.schema.json",
+    "src/commands/session-export-record.js",
+    "src/commands/session-export-audit.js",
+    "test/runtime-core-2.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-095",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.88
+}

@@ -2,68 +2,66 @@
 
 ## Version
 
-Candidate: `v7.6.0`
+Candidate: `v7.7.0`
 
 ## Release Theme
 
-Provider-Neutral Session Export.
+Adoption-Grade v7 Runtime.
 
-`v7.5.0` made requirement coverage and forecast claims auditable through requirement records, work links, evidence refs, coverage counts, forecast boundaries, and not-proven limits. The next bottleneck is portability: AOF should be able to export agent/session evidence as a provider-neutral package instead of depending on one vendor's session stream.
+`v7.6.0` made provider-neutral session export claims auditable through normalized session export artifacts, required event summaries, resolvable links, source-of-truth boundaries, redaction boundaries, release-ready evidence, and not-proven limits. The next bottleneck is adoption: AOF should prove that a fresh project can reach governed work without depending on implicit maintainer knowledge or full-repo context loading.
 
 Human-facing wording:
 
-> v7.6 should prove that AOF can export the evidence of AI work in a portable package that connects session events to tasks, requirements, tests, risks, decisions, and release-readiness boundaries.
+> v7.7 should prove that a new project can use the v7 runtime path to reach governed work with bounded context, explicit commands, requirement coverage, session export evidence, and release-ready boundaries.
 
 More explicit wording:
 
-> AOF should treat provider session streams as input evidence, not as the canonical source of truth; the canonical source is the normalized AOF export package and its refs.
+> AOF should treat examples, docs, and generated artifacts as adoption aids, not as quality proof; the proof is whether a bounded adoption run produces valid runtime evidence and clear human handoff.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/v7.x-roadmap.md`
-- previous release: `v7.5.0`
-- v7.5 evidence: `docs/v7.5-release-definition.md`, `docs/v7.5.0-release-notes.md`, `.aof/artifacts/requirement-coverage/TASK-094.json`
-- current frontier candidate: `v7.6` Provider-Neutral Session Export
+- previous release: `v7.6.0`
+- v7.6 evidence: `docs/v7.6-release-definition.md`, `docs/v7.6.0-release-notes.md`, `.aof/artifacts/session-exports/TASK-095.json`
+- current frontier candidate: `v7.7` Adoption-Grade v7 Runtime
 
 ## Required Outcomes
 
 Required:
 
-- define provider-neutral session export schema
-- include prompt, response, tool call, artifact write, verification, blocker, and stop-condition event summaries
-- link exported events to task refs, requirement refs, test evidence refs, risk candidates, decision candidates, and release-ready evidence
-- include redaction and privacy boundary fields
-- audit export presence, schema validity, required links, redaction boundary, and not-proven limits
-- integrate the export audit into release-state governance for `7.6.0` and later
+- define an adoption run contract for a fresh managed project
+- define the minimal context packet required to start governed work without reading the full repository
+- verify that the adoption run creates work readiness, context integrity, execution packet, requirement coverage, and session export evidence
+- make failure conditions human-readable: missing context, missing requirement, missing task linkage, missing export, missing release-ready boundary
+- keep adoption proof bounded to structural/runtime evidence and avoid claiming external market adoption
 
 Deferred:
 
-- provider-specific streaming adapters
-- external SIEM/observability integrations
-- real-time event ingestion
-- semantic judgment of prompt or response quality
-- market/operator acceptance claims
+- external customer adoption
+- hosted onboarding service
+- provider-specific managed integrations
+- semantic quality proof of the adopter's actual product idea
+- market/operator acceptance claims beyond the committed adoption run
 
 ## Release Gates
 
-### Gate 1: Export Contract
+### Gate 1: Adoption Contract
 
-- session export schema exists
-- exported event summaries cover prompt, response, tool call, artifact write, verification, blocker, and stop condition
-- export includes provider/source metadata without requiring a vendor as source of truth
+- adoption run contract exists
+- required starting packet is explicit
+- commands required for first governed work are discoverable through AI-oriented help/registry
 
-### Gate 2: Linkage
+### Gate 2: Governed Work Chain
 
-- exported session data links to task refs
-- exported session data links to requirement refs
-- exported session data links to test evidence refs
-- exported session data links to risk and decision candidates
-- release-ready evidence is explicit and bounded
+- fresh-project work item reaches readiness, execution, review, and closure evidence
+- requirement coverage and session export evidence are created for the adoption work
+- links resolve without maintainer-only local state
 
 ### Gate 3: Governance Boundary
 
-- redaction/privacy boundary is mandatory
-- missing export, missing links, missing redaction boundary, or absent not-proven limits fail the audit
+- context and permission boundaries are mandatory
+- missing work chain, missing requirement linkage, missing export linkage, or absent not-proven limits fail the audit
+- v7.6 Session Export audit still passes
 - v7.5 Requirement Coverage audit still passes
 - v7.4 Parallel Lane audit still passes
 - v7.3 Multi-Actor Pilot audit still passes
@@ -77,6 +75,7 @@ Deferred:
 
 ### Gate 5: Verification
 
+- adoption-run audit
 - provider-neutral session export audit
 - requirement coverage audit
 - parallel lane audit
@@ -98,20 +97,20 @@ Deferred:
 
 Release only if AOF now makes it harder to confuse:
 
-- provider stream availability with canonical evidence
-- session event existence with semantic quality
-- export completeness with privacy safety
-- task linkage with requirement satisfaction
+- onboarding material with governed work
+- example artifact existence with adoption success
+- session export completeness with semantic quality
+- requirement linkage with requirement satisfaction
 - release-ready evidence with external validation
 
-## Post-v7.5 Direction
+## Post-v7.6 Direction
 
 The v7 line should proceed in this order:
 
-1. `v7.6`: Provider-Neutral Session Export
-2. `v7.7`: Adoption-Grade v7 Runtime
-3. `v7.8`: Mission Control Coverage Forecast Projection
-4. `v8.0`: Externalized Organization Runtime
+1. `v7.7`: Adoption-Grade v7 Runtime
+2. `v7.8`: Mission Control Coverage Forecast Projection
+3. `v8.0`: Externalized Organization Runtime
+4. `v8.1`: External Reference And Provider Adapter Governance
 
 Canonical planning reference:
 

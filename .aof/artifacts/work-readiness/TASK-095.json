@@ -1,0 +1,34 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRJZM80E-OGWK0H",
+  "recorded_at": "2026-07-14T01:43:33.902Z",
+  "work_item_id": "TASK-095",
+  "work_item_ref": ".aof/tasks/done/TASK-095.json",
+  "readiness_status": "ready",
+  "goal": "Ship v7.6 provider-neutral session export without depending on a vendor stream as source of truth.",
+  "risk": "AOF could claim session portability while prompts, responses, tool calls, artifacts, task links, requirement links, tests, risks, decisions, redaction boundaries, or release-ready evidence remain provider-locked or hidden.",
+  "loss_boundary": "No provider-neutral export claim without required event summaries, resolvable links, source-of-truth boundary, redaction boundary, release-ready boundary, and not-proven limits.",
+  "acceptance_gates": [
+    "session-export-audit passes for TASK-095",
+    "release-state-audit includes session-export-audit for 7.6.0 and later"
+  ],
+  "evidence_plan": [
+    "schema, writer, audit command, CLI help, focused tests, and release evidence",
+    "TASK-095 Council review, Work Execution Packet, Multi-Actor Pilot, Parallel Lane Pilot, Requirement Coverage, and Session Export artifact"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if required event types are missing",
+    "stop if redaction boundary or source-of-truth boundary is missing"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-095",
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_decision_record_id": null
+}

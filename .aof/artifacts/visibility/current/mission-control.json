@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-13T17:00:55.246Z",
+  "generated_at": "2026-07-14T01:56:03.638Z",
   "mission_overview": {
-    "mission": "Ship v7.5.0 as Requirements Coverage, Forecasting, And Organization Analytics.",
-    "release_version": "7.5.0",
-    "release_definition_ref": "docs/v7.5-release-definition.md",
-    "operating_goal": "After v7.5.0, advance v7.6 Provider-Neutral Session Export: prove that agent/session evidence can be exported in a provider-neutral package linking prompts, responses, tool calls, artifacts, task refs, requirement refs, tests, risks, decisions, redaction boundaries, and release-readiness evidence without depending on a vendor-specific session stream.",
-    "next_value_slice": "Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
+    "mission": "Ship v7.6.0 as Provider-Neutral Session Export.",
+    "release_version": "7.6.0",
+    "release_definition_ref": "docs/v7.6-release-definition.md",
+    "operating_goal": "Prepare v7.7 Adoption-Grade v7 Runtime: prove a fresh project can reach governed work with bounded context, requirement coverage, session export evidence, and release-ready boundaries.",
+    "next_value_slice": "Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,8 +22,8 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
-    "rationale": "No current open implementation task is aligned to the current operating goal.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task.",
+    "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "skillful_actor_projection": {
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 24,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-094.json",
+    "impact_record_count": 25,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-095.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-094",
+    "latest_work_item_id": "TASK-095",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-094.json"
+      ".aof/artifacts/archmap/impact/TASK-095.json"
     ],
     "external_refs": []
   },
@@ -399,65 +399,117 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 10,
-    "latest_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V75-REQUIREMENT-COVERAGE.json",
+    "stream_count": 11,
+    "latest_session_id": "SESS-V76-SESSION-EXPORT",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V76-SESSION-EXPORT.json",
     "latest_actor_ref": "codex",
-    "latest_role_ref": "builder",
-    "latest_recorded_at": "2026-07-13T16:49:47.475Z",
-    "latest_event_count": 2,
+    "latest_role_ref": "orchestrator",
+    "latest_recorded_at": "2026-07-14T01:45:32.556Z",
+    "latest_event_count": 6,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-094.json"
+      ".aof/tasks/done/TASK-095.json"
     ],
     "linked_requirement_refs": [
-      "docs/v7.5-release-definition.md"
+      "docs/v7.6-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js"
     ],
     "linked_artifact_refs": [
-      "schemas/aof-requirement-coverage-record.schema.json",
-      "src/commands/requirement-coverage-audit.js"
+      "schemas/aof-session-export-record.schema.json",
+      "src/commands/session-export-audit.js"
     ],
     "risk_candidates": [
-      "Coverage and forecast could be mistaken for semantic satisfaction or delivery certainty."
+      "Provider-native session streams could be mistaken for canonical AOF evidence."
     ],
     "decision_candidates": [
-      "Promote requirement-coverage-audit into release-state-audit for v7.5.0 and later."
+      "Promote session-export-audit into release-state-audit for v7.6.0 and later."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Runtime selected v7.5 Requirements Coverage as the next release frontier.",
-        "occurred_at": "2026-07-13T16:37:25.743Z",
+        "summary": "Runtime selected v7.6 Provider-Neutral Session Export as the next release frontier.",
+        "occurred_at": "2026-07-14T01:45:32.556Z",
         "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          ".aof/tasks/done/TASK-095.json"
+        ]
+      },
+      {
+        "event_type": "tool_call",
+        "summary": "Ran AOF runtime task update and readiness commands for TASK-095.",
+        "occurred_at": "2026-07-14T01:45:32.556Z",
+        "tool_name": "task-update",
         "safety_level": "safe_local_write",
         "approval_policy": "preapproved",
         "artifact_refs": [
-          ".aof/tasks/done/TASK-094.json"
+          ".aof/tasks/done/TASK-095.json",
+          ".aof/artifacts/work-readiness/TASK-095.json"
         ]
       },
       {
         "event_type": "artifact_write",
-        "summary": "Implemented requirement coverage schema, writer, audit, CLI routing, release docs, and tests.",
-        "occurred_at": "2026-07-13T16:49:00.000Z",
-        "tool_name": "apply_patch",
-        "safety_level": "project_write",
-        "approval_policy": "operator-approved",
+        "summary": "Implemented session export schemas, writer, audit, CLI routing, help, tests, release docs, and roadmap updates.",
+        "occurred_at": "2026-07-14T01:45:32.556Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
         "artifact_refs": [
-          "schemas/aof-requirement-coverage-record.schema.json",
-          "schemas/aof-requirement-coverage-audit.schema.json",
-          "src/commands/requirement-coverage-record.js",
-          "src/commands/requirement-coverage-audit.js",
+          "schemas/aof-session-export-record.schema.json",
+          "schemas/aof-session-export-audit.schema.json",
+          "src/commands/session-export-record.js",
+          "src/commands/session-export-audit.js",
+          "docs/v7.6-release-definition.md"
+        ]
+      },
+      {
+        "event_type": "verification_result",
+        "summary": "Focused runtime-core-2 tests passed after adding session export regression tests.",
+        "occurred_at": "2026-07-14T01:45:32.556Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
           "test/runtime-core-2.test.js"
+        ]
+      },
+      {
+        "event_type": "risk_candidate",
+        "summary": "Local Node 25 is outside CI lane and must be treated as boundary rather than release proof.",
+        "occurred_at": "2026-07-14T01:45:32.556Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          "package.json"
+        ]
+      },
+      {
+        "event_type": "stop_condition",
+        "summary": "Stop if required export events, redaction boundary, source-of-truth boundary, or release-ready boundary are missing.",
+        "occurred_at": "2026-07-14T01:45:32.556Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          "docs/v7.6-release-checklist.md"
         ]
       }
     ],
-    "latest_tool_calls": []
+    "latest_tool_calls": [
+      {
+        "summary": "Ran AOF runtime task update and readiness commands for TASK-095.",
+        "tool_name": "task-update",
+        "safety_level": "safe_local_write",
+        "approval_policy": "preapproved"
+      }
+    ]
   },
   "context_reference_integrity": {
     "present": true,
@@ -466,11 +518,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 5,
+    "context_record_count": 6,
     "external_reference_record_count": 1,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-095.json",
+        "work_item_id": "TASK-095",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared refs are tracked for TASK-095; it does not prove semantic correctness or external provider integration."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-094.json",
         "work_item_id": "TASK-094",

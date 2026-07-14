@@ -1,0 +1,25 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-14T01:46:32.295Z",
+  "role": "Guardian",
+  "stage": "review",
+  "session_id": "SESS-V76-GUARDIAN",
+  "status": "completed",
+  "recommendation": "Approve only if session-export-audit, requirement coverage, execution packet, multi-actor, parallel-lane, release-state, tests, and smoke are green.",
+  "rationale": "Provider-neutral export is useful only if links resolve and boundaries prevent confusing portability with semantic correctness or privacy completeness.",
+  "signals": [
+    "Node 25 local warning is not release proof; rely on CI-supported Node 22/24 lanes and npm verification."
+  ],
+  "artifact_refs": [
+    "docs/v7.6-release-checklist.md",
+    "src/commands/release-state-audit.js",
+    "package.json"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-095",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

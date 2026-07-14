@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRJZSBXU-K3GZBF",
+  "recorded_at": "2026-07-14T01:48:18.930Z",
+  "work_item_id": "TASK-095",
+  "work_item_ref": ".aof/tasks/done/TASK-095.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V76-SESSION-EXPORT.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/actor-rosters/TASK-095.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-095-V76.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-095.json",
+  "maker_checker_council_boundary": "Visionary protects product boundary, Builder implements, Guardian verifies, Architecture Council approves release readiness.",
+  "not_proven": "Multi-actor pilot evidence does not prove autonomous workforce performance, semantic correctness, or external adoption.",
+  "source_task_id": "TASK-095",
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_decision_record_id": null,
+  "notes": null
+}

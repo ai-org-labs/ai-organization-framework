@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-13T17:00:55.298Z",
+  "generated_at": "2026-07-14T01:56:03.641Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-094 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-094.json"
+    "summary": "TASK-095 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-095.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-094 completed: Ship v7.5 Requirements Coverage, Forecasting, And Organization Analytics",
-      "artifact_ref": ".aof/tasks/done/TASK-094.json"
+      "summary": "TASK-095 completed: Ship v7.6 Provider-Neutral Session Export",
+      "artifact_ref": ".aof/tasks/done/TASK-095.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
+      "summary": "Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-094 completed: Ship v7.5 Requirements Coverage, Forecasting, And Organization Analytics Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools.",
+    "what_changed": "TASK-095 completed: Ship v7.6 Provider-Neutral Session Export Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: Define the v7.6 Provider-Neutral Session Export slice: package local agent session streams into portable export artifacts with schema, audit, redaction boundary, and release evidence linkage for downstream tools."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task."
   }
 }

@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-14T01:50:00.000Z",
+  "work_item_id": "TASK-095",
+  "work_item_ref": ".aof/tasks/done/TASK-095.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v7.6 adds Provider-Neutral Session Export as a portable session evidence layer above Agent Session Observability and below release-state governance.",
+  "archmap_source_ref": "docs/v7.6-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-095-V76.json",
+  "not_proven": "This impact record states that AOF governance map semantics changed; it does not prove external provider integration, semantic correctness, or Mission Control visual completeness."
+}

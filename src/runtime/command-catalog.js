@@ -63,6 +63,8 @@ const COMMAND_SPECS = [
   ["parallel-lane-audit", "./commands/parallel-lane-audit.js", "parallelLaneAuditCommand"],
   ["requirement-coverage-record", "./commands/requirement-coverage-record.js", "requirementCoverageRecordCommand"],
   ["requirement-coverage-audit", "./commands/requirement-coverage-audit.js", "requirementCoverageAuditCommand"],
+  ["session-export-record", "./commands/session-export-record.js", "sessionExportRecordCommand"],
+  ["session-export-audit", "./commands/session-export-audit.js", "sessionExportAuditCommand"],
   ["agent-session-record", "./commands/agent-session-record.js", "agentSessionRecordCommand"],
   ["session-observability-audit", "./commands/session-observability-audit.js", "sessionObservabilityAuditCommand"],
   ["context-integrity-record", "./commands/context-integrity-record.js", "contextIntegrityRecordCommand"],

@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-execution-packet",
+  "packet_id": "WEP-MRJZRPDQ-L8T3WG",
+  "recorded_at": "2026-07-14T01:47:49.694Z",
+  "work_item_id": "TASK-095",
+  "work_item_ref": ".aof/tasks/done/TASK-095.json",
+  "execution_status": "completed",
+  "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-095.json",
+  "actor_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-095-GUARDIAN.json"
+  ],
+  "execution_lineage_ref": ".aof/context/active/execution-lineage.json",
+  "verification_evidence_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v7.6-release-checklist.md"
+  ],
+  "stop_continue_decision": {
+    "decision": "continue",
+    "rationale": "TASK-095 has context integrity, role handoff, Council review, and pending release verification gates.",
+    "decided_by": "architecture-council",
+    "evidence_refs": [
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-095-V76.json"
+    ]
+  },
+  "not_proven": "Work execution packet proves process closure only; it does not prove semantic correctness, privacy completeness, or external adoption.",
+  "source_task_id": "TASK-095",
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_decision_record_id": null,
+  "notes": null
+}

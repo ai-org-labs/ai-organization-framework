@@ -1,67 +1,66 @@
 {
   "snapshot_type": "execution-lineage",
-  "generated_at": "2026-07-13T16:52:44.342Z",
-  "source_parent_session_id": "SESS-V75-REQUIREMENT-COVERAGE",
-  "source_task_id": "TASK-094",
+  "generated_at": "2026-07-14T01:47:29.157Z",
+  "source_parent_session_id": null,
+  "source_task_id": "TASK-095",
   "stage_filter": null,
   "role_result_count": 3,
   "role_join_count": 0,
   "team_output_count": 1,
   "council_review_count": 1,
-  "decision_required_count": 1,
+  "decision_required_count": 4,
   "blocking_signal_count": 3,
   "stages_observed": [
-    "planning",
     "review",
     "execution"
   ],
   "latest_stage": "review",
-  "recommended_next_step": "Ship v7.5.0 after scoped audits, release-state-audit, npm test, and smoke validation pass.",
+  "recommended_next_step": "Run session-export-audit, release-state-audit, full tests, smoke, then tag v7.6.0 if green.",
   "role_results": [
     {
       "role_result_id": null,
-      "role": "visionary",
-      "stage": "planning",
-      "status": "completed",
-      "decision_required": false,
-      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-MRJGKLR5-1CCPMY.json"
-    },
-    {
-      "role_result_id": null,
-      "role": "guardian",
+      "role": "Visionary",
       "stage": "review",
       "status": "completed",
-      "decision_required": false,
-      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-MRJGKNN9-J5J2WC.json"
+      "decision_required": true,
+      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-095-VISIONARY.json"
     },
     {
       "role_result_id": null,
-      "role": "builder",
+      "role": "Builder",
       "stage": "execution",
       "status": "completed",
-      "decision_required": false,
-      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-MRJGL2E6-56J2KI.json"
+      "decision_required": true,
+      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-095-BUILDER.json"
+    },
+    {
+      "role_result_id": null,
+      "role": "Guardian",
+      "stage": "review",
+      "status": "completed",
+      "decision_required": true,
+      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-095-GUARDIAN.json"
     }
   ],
   "role_joins": [],
   "team_outputs": [
     {
-      "team_output_id": "TOUT-MRJGMJPV-JWL7TS",
+      "team_output_id": "TOUT-MRJZQHWZ-3O4Q8V",
       "team_id": "runtime-team",
       "stage": "review",
       "aggregate_state": "ready-for-council-review",
       "decision_required": true,
-      "artifact_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-094-V75.json"
+      "artifact_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-095-V76.json"
     }
   ],
   "council_reviews": [
     {
-      "review_packet_id": "CREV-MRJGMY8Q-1P6UZL",
+      "review_packet_id": "CREV-MRJZQY3D-WAZLO4",
       "council_id": "architecture-council",
       "stage": "review",
       "review_status": "approved",
       "escalation_required": false,
-      "artifact_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-094-V75.json"
+      "artifact_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-095-V76.json"
     }
   ]
 }

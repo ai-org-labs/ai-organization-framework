@@ -1,0 +1,124 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRJZORKC-Y5QO6N",
+  "recorded_at": "2026-07-14T01:45:32.556Z",
+  "session_id": "SESS-V76-SESSION-EXPORT",
+  "parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MRJZORKC-GEV2P0",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-14T01:45:32.556Z",
+      "summary": "Runtime selected v7.6 Provider-Neutral Session Export as the next release frontier.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-095.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRJZORKC-YPOJ8H",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-14T01:45:32.556Z",
+      "summary": "Ran AOF runtime task update and readiness commands for TASK-095.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-095.json",
+        ".aof/artifacts/work-readiness/TASK-095.json"
+      ],
+      "tool_name": "task-update",
+      "safety_level": "safe_local_write",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV3-MRJZORKC-8RPPFO",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-14T01:45:32.556Z",
+      "summary": "Implemented session export schemas, writer, audit, CLI routing, help, tests, release docs, and roadmap updates.",
+      "artifact_refs": [
+        "schemas/aof-session-export-record.schema.json",
+        "schemas/aof-session-export-audit.schema.json",
+        "src/commands/session-export-record.js",
+        "src/commands/session-export-audit.js",
+        "docs/v7.6-release-definition.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV4-MRJZORKC-H7L4LV",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-14T01:45:32.556Z",
+      "summary": "Focused runtime-core-2 tests passed after adding session export regression tests.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV5-MRJZORKC-IPFAPR",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-07-14T01:45:32.556Z",
+      "summary": "Local Node 25 is outside CI lane and must be treated as boundary rather than release proof.",
+      "artifact_refs": [
+        "package.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV6-MRJZORKC-CE2K5Y",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-14T01:45:32.556Z",
+      "summary": "Stop if required export events, redaction boundary, source-of-truth boundary, or release-ready boundary are missing.",
+      "artifact_refs": [
+        "docs/v7.6-release-checklist.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-095.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.6-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "schemas/aof-session-export-record.schema.json",
+      "src/commands/session-export-audit.js"
+    ]
+  },
+  "risk_candidates": [
+    "Provider-native session streams could be mistaken for canonical AOF evidence."
+  ],
+  "decision_candidates": [
+    "Promote session-export-audit into release-state-audit for v7.6.0 and later."
+  ],
+  "release_ready_evidence": {
+    "claim": "TASK-095 has runtime-backed provider-neutral session export evidence.",
+    "evidence_refs": [
+      "docs/v7.6-release-checklist.md"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-095",
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_decision_record_id": null
+}

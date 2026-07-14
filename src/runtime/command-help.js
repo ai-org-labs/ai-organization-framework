@@ -71,6 +71,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing records, invalid schemas, unresolved refs, inconsistent coverage counts, missing forecast boundaries, or absent not-proven statements.",
     verdict_boundary: "Coverage and forecast governance evidence only; not proof that requirements are semantically satisfied or forecasts will be accurate."
   },
+  "session-export-audit": {
+    quality_intent: "Agent/session evidence can be exported without depending on a vendor-specific stream as the source of truth.",
+    risk: "AOF claims AI work is portable or auditable while prompts, responses, tool calls, artifacts, task links, requirement links, tests, risks, decisions, redaction boundaries, or release-ready evidence remain hidden or provider-locked.",
+    loss_boundary: "Do not claim provider-neutral session export readiness when required event summaries, resolvable refs, redaction boundary, release-ready boundary, or not-proven limits are missing.",
+    evidence_refs: ["session export records", "agent session records", "task refs", "requirement refs", "test evidence refs", "release-ready refs"],
+    acceptance_gate: "Audit fails missing exports, missing required event types, unresolved refs, missing source-of-truth boundary, missing redaction boundary, missing release-ready boundary, or absent not-proven statement.",
+    verdict_boundary: "Export governance evidence only; not proof that session content is semantically correct, privacy-safe in every downstream context, or externally adopted."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

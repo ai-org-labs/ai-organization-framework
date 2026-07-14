@@ -1,0 +1,62 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRJZTBJC-6A9YH5",
+  "recorded_at": "2026-07-14T01:49:05.064Z",
+  "work_item_id": "TASK-095",
+  "work_item_ref": ".aof/tasks/done/TASK-095.json",
+  "coverage_status": "ready",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V76-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v7.6-release-definition.md",
+      "title": "Record provider-neutral session export",
+      "owner_ref": "builder",
+      "acceptance_boundary": "session export record links required events, refs, boundaries, and not-proven limits",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-095.json"
+      ],
+      "evidence_refs": [
+        "schemas/aof-session-export-record.schema.json",
+        "src/commands/session-export-record.js"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V76-002",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v7.6-release-checklist.md",
+      "title": "Audit provider-neutral session export",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "session-export-audit fails missing evidence and is integrated into release-state-audit for 7.6.0 and later",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-095.json"
+      ],
+      "evidence_refs": [
+        "src/commands/session-export-audit.js",
+        "src/commands/release-state-audit.js",
+        "test/runtime-core-2.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded release verification only",
+    "burndown_ref": "docs/v7.6-release-checklist.md",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves linkage and bounded release evidence only; it does not prove semantic correctness, privacy completeness, external provider integration, or external adoption.",
+  "source_task_id": "TASK-095",
+  "source_parent_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_decision_record_id": null,
+  "notes": null
+}
