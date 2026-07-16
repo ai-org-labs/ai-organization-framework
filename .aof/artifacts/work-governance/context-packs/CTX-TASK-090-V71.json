@@ -37,7 +37,7 @@
     "schemas/aof-context-reference-integrity-audit.schema.json"
   ],
   "external_refs": [
-    ".aof/external-refs/QIF-v0.3.0.json"
+    ".aof/artifacts/work-governance/external-refs/QIF-v0.3.0.json"
   ],
   "raw_artifact_bodies_included": false,
   "source_task_id": "TASK-090",

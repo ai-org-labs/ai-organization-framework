@@ -1,0 +1,36 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-16T01:52:38.218Z",
+  "team_output_id": "TOUT-TASK-096-V77",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve v7.7 release after adoption benchmark and release-state audit pass.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-096-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-096-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-096-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v7.7-release-definition.md",
+    "docs/v7.7-release-checklist.md",
+    ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+  ],
+  "decision_required": true,
+  "summary": "The runtime team recommends releasing v7.7 after verifying AP-007 through AP-011 and release-state audit integration.",
+  "source_task_id": "TASK-096",
+  "source_parent_session_id": "SESS-V77-ADOPTION-GRADE",
+  "source_decision_record_id": null
+}

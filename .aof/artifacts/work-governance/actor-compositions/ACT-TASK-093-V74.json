@@ -1,24 +1,83 @@
 {
   "artifact_type": "actor-composition",
-  "work_item_id": "TASK-093",
   "recorded_at": "2026-07-13T13:06:10.000Z",
-  "composition_status": "ready",
-  "actors": [
+  "work_item_id": "TASK-093",
+  "required_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "required_skills": [
+    "release framing",
+    "runtime implementation",
+    "verification review"
+  ],
+  "actor_candidates": [
     {
       "actor_ref": "visionary",
-      "role_ref": "Visionary",
-      "responsibility": "Keep v7.4 bounded to governed lane evidence rather than autonomous parallelism claims."
+      "actor_type": "ai-agent",
+      "candidate_role": "visionary",
+      "fit_reason": "Can keep v7.4 bounded to governed lane evidence rather than autonomous parallelism claims."
     },
     {
       "actor_ref": "builder",
-      "role_ref": "Builder",
-      "responsibility": "Implement schemas, writer, audit, CLI routing, and release-state integration."
+      "actor_type": "ai-agent",
+      "candidate_role": "builder",
+      "fit_reason": "Can implement schemas, writer, audit, CLI routing, and release-state integration."
     },
     {
       "actor_ref": "guardian",
-      "role_ref": "Guardian",
-      "responsibility": "Verify missing lane evidence and missing join authority fail before release."
+      "actor_type": "ai-agent",
+      "candidate_role": "guardian",
+      "fit_reason": "Can verify missing lane evidence and missing join authority fail before release."
     }
   ],
-  "authority_boundary": "Parent orchestrator coordinates work, actors produce evidence, Council joins or stops the lane outputs."
+  "selected_actors": [
+    {
+      "actor_ref": "visionary",
+      "actor_type": "ai-agent",
+      "assigned_role": "visionary",
+      "output_required": "Bounded release framing."
+    },
+    {
+      "actor_ref": "builder",
+      "actor_type": "ai-agent",
+      "assigned_role": "builder",
+      "output_required": "Parallel lane runtime implementation."
+    },
+    {
+      "actor_ref": "guardian",
+      "actor_type": "ai-agent",
+      "assigned_role": "guardian",
+      "output_required": "Release verification and negative checks."
+    }
+  ],
+  "authority_boundaries": [
+    {
+      "actor_ref": "visionary",
+      "authority_level": "propose",
+      "must_not_decide": [
+        "release approval"
+      ]
+    },
+    {
+      "actor_ref": "builder",
+      "authority_level": "execute",
+      "must_not_decide": [
+        "release approval"
+      ]
+    },
+    {
+      "actor_ref": "guardian",
+      "authority_level": "review",
+      "must_not_decide": [
+        "scope approval"
+      ]
+    }
+  ],
+  "selection_reason": "v7.4 required separated direction, implementation, and verification roles for governed parallel lane evidence.",
+  "missing_roles": [],
+  "source_task_id": "TASK-093",
+  "source_parent_session_id": "SESS-V74-PARALLEL-LANES",
+  "source_decision_record_id": null
 }

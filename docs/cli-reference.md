@@ -1785,7 +1785,7 @@ node ./src/cli.js mission-control-benchmark \
 
 ### `adoption-proof-benchmark`
 
-fresh managed-project を temp に作成し、初回の governed work item まで到達できるかを検証する。v6.2 の Worked Adoption Proof 用の narrow benchmark であり、正しい JSON だけでなく、人間が初回作業を理解できる recognition summary も確認する。
+fresh managed-project を temp に作成し、初回の governed work item まで到達できるかを検証する。v6.2 の Worked Adoption Proof に加えて、v7.7 以降は fresh project が v7 runtime evidence chain を生成できるかも確認する。
 
 ```bash
 node ./src/cli.js adoption-proof-benchmark \
@@ -1799,6 +1799,19 @@ node ./src/cli.js adoption-proof-benchmark \
 - `--work-dir <path>`: optional. fresh project を作る親ディレクトリ
 - `--keep-temp`: optional. temp project を削除せず確認用に残す
 - `--write-artifact <path>`: optional. benchmark summary を保存する
+
+主な benchmark:
+
+- `AP-001` through `AP-006`: managed-project bootstrap、first work item、work governance chain、human recognition summary、public repo hygiene を確認する。
+- `AP-007`: fresh project が v7 runtime evidence chain を生成できることを確認する。
+- `AP-008`: work readiness と context integrity boundary が存在することを確認する。
+- `AP-009`: bounded Work Execution Packet が存在することを確認する。
+- `AP-010`: Requirement Coverage evidence が存在することを確認する。
+- `AP-011`: provider-neutral Session Export と release-ready boundary が存在することを確認する。
+
+QIF / governance boundary:
+
+- adoption proof は structural/runtime evidence であり、外部市場採用、operator acceptance、semantic quality の証明ではない。
 
 ### AI Command Help Surface
 

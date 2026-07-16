@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-14T01:56:03.641Z",
+  "generated_at": "2026-07-16T02:04:30.064Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-095 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-095.json"
+    "summary": "TASK-096 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-096.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-095 completed: Ship v7.6 Provider-Neutral Session Export",
-      "artifact_ref": ".aof/tasks/done/TASK-095.json"
+      "summary": "TASK-096 completed: Ship v7.7 Adoption-Grade v7 Runtime",
+      "artifact_ref": ".aof/tasks/done/TASK-096.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task.",
+      "summary": "Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-095 completed: Ship v7.6 Provider-Neutral Session Export Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task.",
+    "what_changed": "TASK-096 completed: Ship v7.7 Adoption-Grade v7 Runtime Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task."
   }
 }

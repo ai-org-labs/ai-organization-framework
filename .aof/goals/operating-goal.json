@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v7.7 Adoption-Grade v7 Runtime: prove a fresh project can reach governed work with bounded context, requirement coverage, session export evidence, and release-ready boundaries.",
-  "updated_at": "2026-07-14T01:52:07.217Z",
+  "content": "Prepare v7.8 Mission Control Coverage Forecast Projection: show requirement coverage, forecast, blockers, adoption proof, and evidence completeness from canonical runtime artifacts without making the viewer a source of truth.",
+  "updated_at": "2026-07-16T01:53:15.794Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_session_id": "SESS-V77-ADOPTION-GRADE",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

@@ -1,13 +1,42 @@
 {
   "artifact_type": "context-pack",
-  "work_item_id": "TASK-093",
   "recorded_at": "2026-07-13T13:06:10.000Z",
-  "context_summary": "v7.4 follows v7.3 Multi-Actor Pilot and adds governed parallel lane split/join evidence.",
-  "included_refs": [
+  "pack_id": "CTX-TASK-093-V74",
+  "audience": "codex",
+  "current_mission": "Ship v7.4 Governed Parallel Lanes.",
+  "current_frontier": "TASK-093",
+  "active_work_items": [
+    {
+      "work_item_id": "TASK-093",
+      "summary": "Add governed parallel lane split/join evidence after v7.3 Multi-Actor Pilot.",
+      "state": "in_progress"
+    }
+  ],
+  "open_blockers": [],
+  "pending_human_approvals": [],
+  "latest_decisions": [
+    "v7.4 should require lane-local evidence, join semantics, and Council authority before parallelism claims."
+  ],
+  "applicable_quality_intents": [
+    "QIN-AOF-RUNTIME",
+    "QIN-AOF-RELEASE"
+  ],
+  "priority_summary": "Prevent parallel execution claims from becoming decorative or ungoverned.",
+  "operational_map_refs": [
+    "docs/v7.4-release-definition.md"
+  ],
+  "go_no_go_status_summary": "Go if parallel-lane-audit and release-state-audit pass.",
+  "actor_composition_summary": "Visionary bounds the claim, Builder implements lane evidence, Guardian verifies join authority.",
+  "next_recommended_action": "Create lane evidence, Council join decision, and release-state audit gate.",
+  "evidence_refs": [
     "docs/vnext-release-plan.md",
     "docs/v7.3-release-definition.md",
     "docs/v7.4-release-definition.md",
     "test/runtime-core-2.test.js"
   ],
-  "excluded_context_boundary": "Does not include external provider-specific parallel execution APIs or autonomous scheduler design."
+  "external_refs": [],
+  "raw_artifact_bodies_included": false,
+  "source_task_id": "TASK-093",
+  "source_parent_session_id": "SESS-V74-PARALLEL-LANES",
+  "source_decision_record_id": null
 }

@@ -2,65 +2,69 @@
 
 ## Version
 
-Candidate: `v7.7.0`
+Candidate: `v7.8.0`
 
 ## Release Theme
 
-Adoption-Grade v7 Runtime.
+Mission Control Coverage Forecast Projection.
 
-`v7.6.0` made provider-neutral session export claims auditable through normalized session export artifacts, required event summaries, resolvable links, source-of-truth boundaries, redaction boundaries, release-ready evidence, and not-proven limits. The next bottleneck is adoption: AOF should prove that a fresh project can reach governed work without depending on implicit maintainer knowledge or full-repo context loading.
+`v7.7.0` made adoption readiness auditable through a fresh managed-project runtime evidence chain. The next bottleneck is operator recognition: Mission Control should show requirement coverage, blocked work, forecast, adoption proof, and evidence completeness in a way that helps a human understand the current position without reading raw JSON.
 
 Human-facing wording:
 
-> v7.7 should prove that a new project can use the v7 runtime path to reach governed work with bounded context, explicit commands, requirement coverage, session export evidence, and release-ready boundaries.
+> v7.8 should make the v7 evidence chain visible as coverage, forecast, blockers, and adoption proof, while keeping canonical artifacts as the source of truth.
 
 More explicit wording:
 
-> AOF should treat examples, docs, and generated artifacts as adoption aids, not as quality proof; the proof is whether a bounded adoption run produces valid runtime evidence and clear human handoff.
+> Mission Control should explain what is covered, what remains, what is blocked, what the forecast says, and which evidence backs the answer.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/v7.x-roadmap.md`
-- previous release: `v7.6.0`
-- v7.6 evidence: `docs/v7.6-release-definition.md`, `docs/v7.6.0-release-notes.md`, `.aof/artifacts/session-exports/TASK-095.json`
-- current frontier candidate: `v7.7` Adoption-Grade v7 Runtime
+- previous release: `v7.7.0`
+- v7.7 evidence: `docs/v7.7-release-definition.md`, `docs/v7.7.0-release-notes.md`, `.aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json`
+- current frontier candidate: `v7.8` Mission Control Coverage Forecast Projection
 
 ## Required Outcomes
 
 Required:
 
-- define an adoption run contract for a fresh managed project
-- define the minimal context packet required to start governed work without reading the full repository
-- verify that the adoption run creates work readiness, context integrity, execution packet, requirement coverage, and session export evidence
-- make failure conditions human-readable: missing context, missing requirement, missing task linkage, missing export, missing release-ready boundary
-- keep adoption proof bounded to structural/runtime evidence and avoid claiming external market adoption
+- project requirement coverage into Mission Control
+- project forecast / remaining work / blocked work into Mission Control
+- show adoption proof status and latest benchmark evidence in Mission Control
+- keep the dashboard as a read-only projection of canonical artifacts
+- make failure states human-readable: missing coverage, missing benchmark, unresolved evidence, stale forecast, blocked work
 
 Deferred:
 
-- external customer adoption
-- hosted onboarding service
-- provider-specific managed integrations
-- semantic quality proof of the adopter's actual product idea
-- market/operator acceptance claims beyond the committed adoption run
+- real-time hosted dashboard
+- custom charting engine ownership
+- external BI integration
+- semantic correctness of forecast estimates
+- operator acceptance beyond local runtime evidence
 
 ## Release Gates
 
-### Gate 1: Adoption Contract
+### Gate 1: Projection Contract
 
-- adoption run contract exists
-- required starting packet is explicit
-- commands required for first governed work are discoverable through AI-oriented help/registry
+- Mission Control projection fields are defined for coverage, forecast, blockers, adoption proof, and evidence completeness
+- projection source refs point to canonical artifacts
+- dashboard does not become source of truth
 
-### Gate 2: Governed Work Chain
+### Gate 2: Runtime Evidence
 
-- fresh-project work item reaches readiness, execution, review, and closure evidence
-- requirement coverage and session export evidence are created for the adoption work
-- links resolve without maintainer-only local state
+- latest requirement coverage is readable
+- latest adoption proof benchmark is readable
+- release-state evidence is readable
+- blocked work and top risks are readable
 
 ### Gate 3: Governance Boundary
 
-- context and permission boundaries are mandatory
-- missing work chain, missing requirement linkage, missing export linkage, or absent not-proven limits fail the audit
+- missing or stale projection sources fail the audit
+- unresolved refs fail the audit
+- forecast is labeled as estimate, not truth
+- adoption proof remains structural/runtime evidence only
+- v7.7 Adoption Proof benchmark still passes
 - v7.6 Session Export audit still passes
 - v7.5 Requirement Coverage audit still passes
 - v7.4 Parallel Lane audit still passes
@@ -71,11 +75,12 @@ Deferred:
 
 - package version is updated to the selected release
 - active release manifest points at selected release docs
-- README and roadmap describe provider-neutral export without claiming provider automation or semantic truth
+- README and roadmap describe Mission Control projection without claiming semantic truth or delivery certainty
 
 ### Gate 5: Verification
 
-- adoption-run audit
+- Mission Control projection audit
+- adoption-proof benchmark
 - provider-neutral session export audit
 - requirement coverage audit
 - parallel lane audit
@@ -97,20 +102,20 @@ Deferred:
 
 Release only if AOF now makes it harder to confuse:
 
-- onboarding material with governed work
-- example artifact existence with adoption success
-- session export completeness with semantic quality
-- requirement linkage with requirement satisfaction
-- release-ready evidence with external validation
+- dashboard visibility with source-of-truth evidence
+- forecast estimate with delivery certainty
+- requirement coverage with semantic satisfaction
+- adoption proof with market adoption
+- evidence presence with operator acceptance
 
-## Post-v7.6 Direction
+## Post-v7.7 Direction
 
 The v7 line should proceed in this order:
 
-1. `v7.7`: Adoption-Grade v7 Runtime
-2. `v7.8`: Mission Control Coverage Forecast Projection
-3. `v8.0`: Externalized Organization Runtime
-4. `v8.1`: External Reference And Provider Adapter Governance
+1. `v7.8`: Mission Control Coverage Forecast Projection
+2. `v8.0`: Externalized Organization Runtime
+3. `v8.1`: External Reference And Provider Adapter Governance
+4. `v8.2`: Adoption Feedback And Operator Validation Loop
 
 Canonical planning reference:
 

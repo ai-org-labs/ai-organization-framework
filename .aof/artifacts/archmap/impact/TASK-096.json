@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-16T01:52:38.224Z",
+  "work_item_id": "TASK-096",
+  "work_item_ref": ".aof/tasks/done/TASK-096.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v7.7 adds Adoption-Grade v7 Runtime as a fresh-project adoption proof layer above provider-neutral session export and release-state governance.",
+  "archmap_source_ref": "docs/v7.7-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-096-V77.json",
+  "not_proven": "This impact record states that AOF governance map semantics changed; it does not prove external adoption, semantic correctness, or Mission Control visual completeness."
+}

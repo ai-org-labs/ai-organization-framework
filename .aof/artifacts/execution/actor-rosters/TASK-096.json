@@ -1,0 +1,29 @@
+{
+  "artifact_type": "actor-roster",
+  "recorded_at": "2026-07-16T01:52:38.221Z",
+  "work_item_id": "TASK-096",
+  "work_item_ref": ".aof/tasks/done/TASK-096.json",
+  "council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "assigned_actors": [
+    {
+      "actor_ref": "codex",
+      "role_ref": "visionary",
+      "responsibility": "release direction and bounded claim review"
+    },
+    {
+      "actor_ref": "codex",
+      "role_ref": "builder",
+      "responsibility": "benchmark and release audit implementation"
+    },
+    {
+      "actor_ref": "codex",
+      "role_ref": "guardian",
+      "responsibility": "evidence boundary and verification review"
+    }
+  ],
+  "not_proven": "Actor roster records intended responsibilities; it does not prove independent model execution."
+}

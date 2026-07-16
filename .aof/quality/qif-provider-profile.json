@@ -9,8 +9,7 @@
     "tag": "v0.3.1",
     "release_url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.1",
     "tree_url": "https://github.com/ai-org-labs/quality-intent-framework/tree/v0.3.1",
-    "tag_sha": "f175e583008c9490eb2fb35ea910854244dd8800",
-    "commit_sha": "1ba7c9c17216acaa24f20dbbae67172ef3a00dd2"
+    "tag_sha": "f175e583008c9490eb2fb35ea910854244dd8800"
   },
   "active_package_ref": ".aof/quality/QIFPKG-AOF-V5-001.json",
   "layer_model": {

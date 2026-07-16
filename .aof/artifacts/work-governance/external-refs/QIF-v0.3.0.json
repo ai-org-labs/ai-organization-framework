@@ -1,0 +1,15 @@
+{
+  "artifact_type": "external-ref",
+  "recorded_at": "2026-07-16T02:01:00.000Z",
+  "external_ref_id": "QIF-v0.3.0",
+  "system": "github",
+  "site": "github.com",
+  "external_id": "quality-intent-framework-v0.3.0",
+  "url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.0",
+  "relationship": "evidence_source",
+  "sync_policy": "read_only",
+  "source_of_truth": "external-document",
+  "source_task_id": "TASK-090",
+  "source_parent_session_id": "SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+  "source_decision_record_id": null
+}

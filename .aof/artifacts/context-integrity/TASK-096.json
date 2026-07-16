@@ -1,0 +1,28 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRMUTLC9-1Y9MHZ",
+  "recorded_at": "2026-07-16T01:52:38.217Z",
+  "work_item_id": "TASK-096",
+  "work_item_ref": ".aof/tasks/done/TASK-096.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V77-ADOPTION-GRADE.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md",
+    "docs/v7.x-roadmap.md"
+  ],
+  "required_context_refs": [
+    "docs/v7.7-release-definition.md",
+    "docs/v7.7-release-checklist.md",
+    "src/commands/adoption-proof-benchmark.js",
+    "src/commands/release-state-audit.js",
+    "schemas/aof-adoption-proof-benchmark.schema.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves required refs were declared and linked; it does not prove external adoption or semantic product quality.",
+  "source_task_id": "TASK-096",
+  "source_parent_session_id": "SESS-V77-ADOPTION-GRADE",
+  "source_decision_record_id": null
+}

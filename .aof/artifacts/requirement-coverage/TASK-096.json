@@ -1,0 +1,76 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRMUTLCE-D143P9",
+  "recorded_at": "2026-07-16T01:52:38.222Z",
+  "work_item_id": "TASK-096",
+  "work_item_ref": ".aof/tasks/done/TASK-096.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V77-001",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v7.7-release-definition.md",
+      "title": "Adoption proof requires AP-001 through AP-011",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "schema requires AP-007 through AP-011 and benchmark returns pass",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-096.json"
+      ],
+      "evidence_refs": [
+        "schemas/aof-adoption-proof-benchmark.schema.json",
+        ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V77-002",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v7.7-release-definition.md",
+      "title": "Release-state audit includes adoption proof for 7.7.0+",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "release-state-audit runs adoption-proof-benchmark for release versions >= 7.7.0",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-096.json"
+      ],
+      "evidence_refs": [
+        "src/commands/release-state-audit.js"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V77-003",
+      "requirement_type": "non_functional",
+      "source_ref": "docs/v7.7-release-definition.md",
+      "title": "Adoption proof remains bounded",
+      "owner_ref": "visionary",
+      "acceptance_boundary": "release docs state structural/runtime evidence only and no external adoption claim",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-096.json"
+      ],
+      "evidence_refs": [
+        "docs/v7.7-release-definition.md",
+        "docs/v7.7.0-release-notes.md"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered_count": 3,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "release-local only",
+    "burndown_ref": "docs/v7.7-release-checklist.md",
+    "forecast_boundary": "release forecast is local governance evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves release-gate linkage only; it does not prove semantic adoption success or operator acceptance.",
+  "source_task_id": "TASK-096",
+  "source_parent_session_id": "SESS-V77-ADOPTION-GRADE",
+  "source_decision_record_id": null,
+  "notes": null
+}

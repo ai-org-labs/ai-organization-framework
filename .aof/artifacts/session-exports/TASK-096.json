@@ -1,0 +1,108 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRMUTLCF-STH36U",
+  "recorded_at": "2026-07-16T01:52:38.223Z",
+  "work_item_id": "TASK-096",
+  "work_item_ref": ".aof/tasks/done/TASK-096.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V77-ADOPTION-GRADE.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export package is canonical runtime evidence; provider-native stream is input evidence only."
+  },
+  "event_summaries": [
+    {
+      "event_id": "V77-EVT-001",
+      "event_type": "prompt",
+      "summary": "Heartbeat requested next release implementation.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-096.json"
+      ]
+    },
+    {
+      "event_id": "V77-EVT-002",
+      "event_type": "response",
+      "summary": "AOF selected v7.7 Adoption-Grade v7 Runtime.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "event_id": "V77-EVT-003",
+      "event_type": "tool_call",
+      "summary": "AOF ran runtime commands and generated release evidence.",
+      "artifact_refs": [
+        ".aof/artifacts/agent-sessions/SESS-V77-ADOPTION-GRADE.json"
+      ]
+    },
+    {
+      "event_id": "V77-EVT-004",
+      "event_type": "artifact_write",
+      "summary": "AP-007 through AP-011 implementation and docs were written.",
+      "artifact_refs": [
+        "src/commands/adoption-proof-benchmark.js",
+        "docs/v7.7-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "V77-EVT-005",
+      "event_type": "verification",
+      "summary": "Verification gates are listed in release checklist.",
+      "artifact_refs": [
+        "docs/v7.7-release-checklist.md"
+      ]
+    },
+    {
+      "event_id": "V77-EVT-006",
+      "event_type": "blocker",
+      "summary": "No blocker remains if adoption proof and release-state audit pass.",
+      "artifact_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-096-V77.json"
+      ]
+    },
+    {
+      "event_id": "V77-EVT-007",
+      "event_type": "stop_condition",
+      "summary": "Stop if adoption proof evidence, coverage, export, or not-proven boundaries are missing.",
+      "artifact_refs": [
+        "docs/v7.7-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-096.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.7-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
+      "test/work-governance-schema.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/work-execution-packets/TASK-096.json",
+      ".aof/artifacts/requirement-coverage/TASK-096.json",
+      ".aof/artifacts/parallel-lanes/TASK-096.json",
+      ".aof/artifacts/multi-actor-pilots/TASK-096.json"
+    ],
+    "risk_candidates": [
+      "Adoption proof could be overread as external adoption."
+    ],
+    "decision_candidates": [
+      "Require adoption-proof-benchmark in release-state-audit from 7.7.0 onward."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v7.7-release-checklist.md"
+    ]
+  },
+  "redaction_boundary": "Session export stores summaries and artifact refs only; secrets and raw private prompts are out of scope.",
+  "release_ready_boundary": "v7.7 is release-ready only as structural/runtime adoption evidence.",
+  "not_proven": "Session export does not prove semantic correctness, operator acceptance, external adoption, or provider integration.",
+  "source_task_id": "TASK-096",
+  "source_parent_session_id": "SESS-V77-ADOPTION-GRADE",
+  "source_decision_record_id": null,
+  "notes": null
+}

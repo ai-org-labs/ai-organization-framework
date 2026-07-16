@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-096",
+  "title": "Ship v7.7 Adoption-Grade v7 Runtime",
+  "description": "Implement the v7.7 release slice: extend adoption proof so a fresh managed project produces bounded v7 runtime evidence including readiness, context integrity, work execution packet, requirement coverage, session export, and human-readable boundaries.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V77-ADOPTION-GRADE",
+  "assigned_session_ids": [
+    "SESS-V77-ADOPTION-GRADE"
+  ],
+  "related_decision_record_id": null,
+  "operating_goal_ref": null,
+  "created_at": "2026-07-16T01:35:35.053Z",
+  "updated_at": "2026-07-16T01:51:03.719Z",
+  "assigned_at": "2026-07-16T01:41:21.453Z",
+  "done_at": "2026-07-16T01:51:03.719Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v7.7 implementation, runtime evidence, and adoption benchmark AP-001 through AP-011 are ready for release verification."
+}

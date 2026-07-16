@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Open the next implementation task only after a runtime-backed direction review turns v7.7 adoption proof into a bounded task.",
-  "updated_at": "2026-07-14T01:52:02.037Z",
+  "content": "Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task.",
+  "updated_at": "2026-07-16T01:53:30.312Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V76-SESSION-EXPORT",
+  "source_session_id": "SESS-V77-ADOPTION-GRADE",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

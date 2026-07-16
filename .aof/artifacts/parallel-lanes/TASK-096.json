@@ -1,0 +1,64 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRMUTLCE-T4DKRN",
+  "recorded_at": "2026-07-16T01:52:38.222Z",
+  "work_item_id": "TASK-096",
+  "work_item_ref": ".aof/tasks/done/TASK-096.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-096.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-096.json",
+  "lanes": [
+    {
+      "lane_id": "contract-lane",
+      "goal": "Update adoption proof contract for AP-007 through AP-011.",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v7.7-release-definition.md"
+      ],
+      "expected_output": "schema and benchmark implementation",
+      "output_refs": [
+        "schemas/aof-adoption-proof-benchmark.schema.json"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+      ],
+      "stop_condition": "benchmark passes AP-001 through AP-011",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "audit-lane",
+      "goal": "Gate v7.7 release readiness through adoption proof.",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "src/commands/release-state-audit.js"
+      ],
+      "expected_output": "release-state audit integration",
+      "output_refs": [
+        "docs/v7.7-release-checklist.md"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+      ],
+      "stop_condition": "release-state audit includes adoption proof for 7.7.0+",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "contract-lane",
+      "audit-lane"
+    ],
+    "conflict_summary": "No unresolved conflict between adoption proof contract and release audit integration.",
+    "blocker_summary": "No active blocker after verification gates are run.",
+    "merge_rationale": "Both lanes support the same bounded v7.7 release claim.",
+    "council_authority": "operations-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-096-V77.json",
+  "not_proven": "Parallel lane evidence proves governed lane joining, not speed improvement or semantic correctness.",
+  "source_task_id": "TASK-096",
+  "source_parent_session_id": "SESS-V77-ADOPTION-GRADE",
+  "source_decision_record_id": null,
+  "notes": null
+}

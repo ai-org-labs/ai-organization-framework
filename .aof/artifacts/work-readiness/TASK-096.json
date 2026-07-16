@@ -1,0 +1,39 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRMUTLC8-XJYHYJ",
+  "recorded_at": "2026-07-16T01:52:38.216Z",
+  "work_item_id": "TASK-096",
+  "work_item_ref": ".aof/tasks/done/TASK-096.json",
+  "readiness_status": "ready",
+  "goal": "Ship v7.7 as adoption-grade v7 runtime by making fresh-project adoption proof produce bounded v7 evidence.",
+  "risk": "AOF could claim adoption readiness from docs, examples, or artifact count instead of a fresh runtime evidence chain.",
+  "loss_boundary": "No v7.7 release claim without AP-007 through AP-011, release-state audit integration, and not-proven adoption boundaries.",
+  "acceptance_gates": [
+    "adoption-proof-benchmark passes AP-001 through AP-011",
+    "release-state-audit includes adoption proof for 7.7.0",
+    "TASK-096 has runtime evidence chain"
+  ],
+  "evidence_plan": [
+    "benchmark schema",
+    "benchmark command",
+    "release-state audit",
+    "runtime evidence artifacts",
+    "npm test",
+    "smoke"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "operations-council",
+  "stop_conditions": [
+    "stop if AP-007 through AP-011 fail",
+    "stop if adoption is overclaimed as market validation"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-096",
+  "source_parent_session_id": "SESS-V77-ADOPTION-GRADE",
+  "source_decision_record_id": null
+}

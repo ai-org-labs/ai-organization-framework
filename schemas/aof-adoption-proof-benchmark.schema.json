@@ -25,14 +25,19 @@
     "artifacts_evaluated": { "type": "integer" },
     "benchmarks": {
       "type": "object",
-      "required": ["AP-001", "AP-002", "AP-003", "AP-004", "AP-005", "AP-006"],
+      "required": ["AP-001", "AP-002", "AP-003", "AP-004", "AP-005", "AP-006", "AP-007", "AP-008", "AP-009", "AP-010", "AP-011"],
       "properties": {
         "AP-001": { "$ref": "#/$defs/benchmark_result" },
         "AP-002": { "$ref": "#/$defs/benchmark_result" },
         "AP-003": { "$ref": "#/$defs/benchmark_result" },
         "AP-004": { "$ref": "#/$defs/benchmark_result" },
         "AP-005": { "$ref": "#/$defs/benchmark_result" },
-        "AP-006": { "$ref": "#/$defs/benchmark_result" }
+        "AP-006": { "$ref": "#/$defs/benchmark_result" },
+        "AP-007": { "$ref": "#/$defs/benchmark_result" },
+        "AP-008": { "$ref": "#/$defs/benchmark_result" },
+        "AP-009": { "$ref": "#/$defs/benchmark_result" },
+        "AP-010": { "$ref": "#/$defs/benchmark_result" },
+        "AP-011": { "$ref": "#/$defs/benchmark_result" }
       },
       "additionalProperties": false
     }

@@ -35,7 +35,7 @@
     "test/runtime-core-2.test.js"
   ],
   "external_refs": [
-    ".aof/external-refs/QIF-v0.3.0.json"
+    ".aof/artifacts/work-governance/external-refs/QIF-v0.3.0.json"
   ],
   "raw_artifact_bodies_included": false,
   "source_task_id": "TASK-091",
