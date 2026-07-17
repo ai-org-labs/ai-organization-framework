@@ -70,6 +70,7 @@ const COMMAND_SPECS = [
   ["context-integrity-record", "./commands/context-integrity-record.js", "contextIntegrityRecordCommand"],
   ["external-reference-integrity-record", "./commands/external-reference-integrity-record.js", "externalReferenceIntegrityRecordCommand"],
   ["context-reference-integrity-audit", "./commands/context-reference-integrity-audit.js", "contextReferenceIntegrityAuditCommand"],
+  ["externalization-readiness-audit", "./commands/externalization-readiness-audit.js", "externalizationReadinessAuditCommand"],
   ["problem-statement-record", "./commands/problem-statement-record.js", "problemStatementRecordCommand"],
   ["value-hypothesis-record", "./commands/value-hypothesis-record.js", "valueHypothesisRecordCommand"],
   ["alternative-analysis-record", "./commands/alternative-analysis-record.js", "alternativeAnalysisRecordCommand"],

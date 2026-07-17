@@ -433,12 +433,14 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v7.8.0`, advance `v8.0` as Externalized Organization Runtime.
-The v7.8 Mission Control gate proves requirement coverage, forecast, adoption
+After `v7.9.0`, advance `v8.0` as Externalized Organization Runtime.
+The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
 proof, session, context, release, and Archmap evidence can be projected from
-canonical runtime artifacts; the next proof is that this organization runtime can
-be externalized safely without turning provider adapters into hidden sources of
-truth.
+canonical runtime artifacts. The v7.9 Externalization Readiness Boundary then
+made externalized actor/tool/provider/reference claims auditable for
+source-of-truth, permission, freshness, availability, approval, provenance, and
+not-proven boundaries. The next proof is actual externalized runtime resource
+governance without turning provider adapters into hidden sources of truth.
 
 Priority order:
 
@@ -453,11 +455,12 @@ Canonical v7.x roadmap:
 
 Reasoning:
 
-- v7.0 through v7.8 made the live AI work path reconstructable, context-bound,
+- v7.0 through v7.9 made the live AI work path reconstructable, context-bound,
   packetized, multi-actor-governed, parallel-lane-governed,
   requirement-coverage-aware, provider-neutral-exportable, and adoption-grade
   as bounded runtime evidence, then legible in Mission Control as coverage,
-  forecast, blocked work, adoption proof, and evidence completeness.
+  forecast, blocked work, adoption proof, and evidence completeness, and finally
+  bounded externalization claims before v8.
 - v8.0 through v8.3 externalize the organization runtime, govern adapters, and
   add operator validation and acceptance loops without overclaiming semantic
   truth.

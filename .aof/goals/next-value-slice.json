@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Open the next implementation task only after a runtime-backed direction review turns v8.0 Externalized Organization Runtime into a bounded task with external source-of-truth and approval boundaries.",
-  "updated_at": "2026-07-17T02:44:22.497Z",
+  "content": "Run a runtime-backed v8.0 direction review before opening the first externalized organization runtime implementation task.",
+  "updated_at": "2026-07-17T14:28:31.369Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_session_id": "SESS-V79-EXTERNALIZATION-READINESS",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

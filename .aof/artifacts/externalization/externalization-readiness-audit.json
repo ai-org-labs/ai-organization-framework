@@ -1,0 +1,211 @@
+{
+  "ok": true,
+  "artifact_type": "externalization-readiness-audit",
+  "generated_at": "2026-07-17T14:34:06.586Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "externalization_claim_count": 2,
+    "ready_claim_count": 2,
+    "blocked_claim_count": 0,
+    "missing_boundary_count": 0,
+    "failing_check_count": 0
+  },
+  "externalization_claims": [
+    {
+      "claim_id": "ERIR-MRHZCRRA-3PG64Q",
+      "claim_type": "external-reference",
+      "artifact_ref": ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json",
+      "readiness_status": "ready",
+      "source_of_truth": "GitHub release tag",
+      "permission_boundary": "manual release-linked check",
+      "freshness_boundary": "freshness_required:current",
+      "availability_boundary": "available",
+      "approval_boundary": "quality provider dependency",
+      "not_proven": "Availability and tag reference do not prove semantic suitability for every AOF work product."
+    },
+    {
+      "claim_id": "ERIR-MRP10X0T-402AC4",
+      "claim_type": "external-reference",
+      "artifact_ref": ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json",
+      "readiness_status": "ready",
+      "source_of_truth": "docs/v7.9-release-definition.md is the canonical local source for this release boundary",
+      "permission_boundary": "local canonical artifact; no external write or provider execution is authorized by this record",
+      "freshness_boundary": "freshness_required:current",
+      "availability_boundary": "available",
+      "approval_boundary": "pre-v8 externalization claim; external writes require explicit approval before runtime use",
+      "not_proven": "This record does not prove external provider correctness, external tool availability beyond local refs, semantic truth, or operator acceptance."
+    }
+  ],
+  "checks": [
+    {
+      "name": "externalization claim presence",
+      "status": "pass",
+      "detail": "2 claim(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json",
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q source artifact resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q external source ref resolves",
+      "status": "pass",
+      "detail": ".aof/external-refs/QIF-v0.3.0.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q source-of-truth boundary",
+      "status": "pass",
+      "detail": "GitHub release tag",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q permission boundary",
+      "status": "pass",
+      "detail": "manual release-linked check",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q freshness boundary",
+      "status": "pass",
+      "detail": "freshness_required:current",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q availability boundary",
+      "status": "pass",
+      "detail": "available",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q approval boundary",
+      "status": "pass",
+      "detail": "quality provider dependency",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q not-proven boundary",
+      "status": "pass",
+      "detail": "Availability and tag reference do not prove semantic suitability for every AOF work product.",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q readiness status",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRHZCRRA-3PG64Q runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-090, source_parent_session_id=SESS-V71-CONTEXT-REFERENCE-INTEGRITY",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 source artifact resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 external source ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 source-of-truth boundary",
+      "status": "pass",
+      "detail": "docs/v7.9-release-definition.md is the canonical local source for this release boundary",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 permission boundary",
+      "status": "pass",
+      "detail": "local canonical artifact; no external write or provider execution is authorized by this record",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 freshness boundary",
+      "status": "pass",
+      "detail": "freshness_required:current",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 availability boundary",
+      "status": "pass",
+      "detail": "available",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 approval boundary",
+      "status": "pass",
+      "detail": "pre-v8 externalization claim; external writes require explicit approval before runtime use",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 not-proven boundary",
+      "status": "pass",
+      "detail": "This record does not prove external provider correctness, external tool availability beyond local refs, semantic truth, or operator acceptance.",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 readiness status",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    },
+    {
+      "name": "ERIR-MRP10X0T-402AC4 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-098, source_parent_session_id=SESS-V79-EXTERNALIZATION-READINESS",
+      "evidence_refs": [
+        ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json"
+      ]
+    }
+  ],
+  "errors": []
+}

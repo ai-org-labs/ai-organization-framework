@@ -1,0 +1,27 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRP18LUX-2WEB5B",
+  "recorded_at": "2026-07-17T14:27:48.777Z",
+  "work_item_id": "TASK-098",
+  "work_item_ref": ".aof/tasks/done/TASK-098.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V79-EXTERNALIZATION-READINESS.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/actor-rosters/TASK-098.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-098-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-098-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-098-V79.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-098.json",
+  "maker_checker_council_boundary": "Builder makes, Guardian checks, Council judges.",
+  "not_proven": "Multi-actor evidence does not prove autonomous externalized runtime performance.",
+  "source_task_id": "TASK-098",
+  "source_parent_session_id": "SESS-V79-EXTERNALIZATION-READINESS",
+  "source_decision_record_id": null,
+  "notes": null
+}

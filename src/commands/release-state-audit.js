@@ -6,6 +6,7 @@ import { archmapImpactAuditCommand } from "./archmap-impact-audit.js";
 import { adoptionProofBenchmarkCommand } from "./adoption-proof-benchmark.js";
 import { contextReferenceIntegrityAuditCommand } from "./context-reference-integrity-audit.js";
 import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
+import { externalizationReadinessAuditCommand } from "./externalization-readiness-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
@@ -135,6 +136,15 @@ function requiresMissionControlProjectionAudit(releaseVersion) {
   return major > 7 || (major === 7 && minor >= 8);
 }
 
+function requiresExternalizationReadinessAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 7 || (major === 7 && minor >= 9);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -190,6 +200,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresMissionControlProjectionAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("mission-control-projection-audit", await missionControlProjectionAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresExternalizationReadinessAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("externalization-readiness-audit", await externalizationReadinessAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

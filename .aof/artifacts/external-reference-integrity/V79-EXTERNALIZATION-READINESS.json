@@ -1,0 +1,22 @@
+{
+  "artifact_type": "external-reference-integrity-record",
+  "record_id": "ERIR-MRP10X0T-402AC4",
+  "recorded_at": "2026-07-17T14:21:49.997Z",
+  "external_ref": "v8-externalized-organization-runtime-candidate",
+  "external_ref_artifact_ref": "docs/v7.9-release-definition.md",
+  "source_system": "AOF roadmap and release governance",
+  "url": "docs/v7.9-release-definition.md",
+  "relationship": "pre-v8 externalization claim; external writes require explicit approval before runtime use",
+  "source_of_truth": "docs/v7.9-release-definition.md is the canonical local source for this release boundary",
+  "sync_policy": "local canonical artifact; no external write or provider execution is authorized by this record",
+  "usage_purpose": "Gate external actor tool provider and reference claims before v8 runtime externalization",
+  "freshness_required": true,
+  "observed_at": "2026-07-17T14:21:49.998Z",
+  "freshness_status": "current",
+  "availability_status": "available",
+  "integrity_status": "ready",
+  "not_proven": "This record does not prove external provider correctness, external tool availability beyond local refs, semantic truth, or operator acceptance.",
+  "source_task_id": "TASK-098",
+  "source_parent_session_id": "SESS-V79-EXTERNALIZATION-READINESS",
+  "source_decision_record_id": null
+}

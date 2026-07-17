@@ -1,0 +1,22 @@
+{
+  "artifact_type": "actor-roster",
+  "roster_id": "AR-TASK-098-V79",
+  "recorded_at": "2026-07-17T14:25:31.218Z",
+  "source_task_id": "TASK-098",
+  "source_parent_session_id": "SESS-V79-EXTERNALIZATION-READINESS",
+  "actors": [
+    {
+      "actor_ref": "visionary",
+      "role_ref": "visionary"
+    },
+    {
+      "actor_ref": "builder",
+      "role_ref": "builder"
+    },
+    {
+      "actor_ref": "guardian",
+      "role_ref": "guardian"
+    }
+  ],
+  "not_proven": "Roster records participation, not actor performance quality."
+}

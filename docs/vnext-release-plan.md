@@ -8,7 +8,7 @@ Candidate: `v8.0.0`
 
 Externalized Organization Runtime.
 
-`v7.8.0` made Mission Control project requirement coverage, forecast, adoption proof, session, context, release, and Archmap evidence from canonical runtime artifacts. The next bottleneck is externalization: AOF should be able to describe and govern organization runtime boundaries when some actors, tools, providers, or references live outside the local repo.
+`v7.8.0` made Mission Control project requirement coverage, forecast, adoption proof, session, context, release, and Archmap evidence from canonical runtime artifacts. `v7.9.0` added the Externalization Readiness Boundary so externalized actor/tool/provider/reference claims must expose source-of-truth, permission, freshness, availability, approval, provenance, and not-proven boundaries before release sign-off. The next bottleneck is implementation: AOF should govern externalized organization runtime resources without turning provider adapters into hidden sources of truth.
 
 Human-facing wording:
 
@@ -21,8 +21,8 @@ More explicit wording:
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/vnext-roadmap.md`
-- previous release: `v7.8.0`
-- v7.8 evidence: `docs/v7.8-release-definition.md`, `docs/v7.8.0-release-notes.md`, `.aof/artifacts/mission-control/mission-control-projection-audit.json`
+- previous release: `v7.9.0`
+- v7.9 evidence: `docs/v7.9-release-definition.md`, `docs/v7.9.0-release-notes.md`, `.aof/artifacts/externalization/externalization-readiness-audit.json`, `.aof/context/active/release-state-audit.json`
 - current frontier candidate: `v8.0` Externalized Organization Runtime
 
 ## Required Outcomes
@@ -64,6 +64,7 @@ Deferred:
 - missing approval policy for external writes fails the audit
 - unavailable or stale external references fail when freshness is required
 - externalized runtime evidence is not treated as semantic truth
+- v7.9 externalization readiness audit still passes
 - v7.8 Mission Control projection audit still passes
 - v7.7 Adoption Proof benchmark still passes
 - v7.6 Session Export audit still passes
@@ -109,7 +110,7 @@ Release only if AOF now makes it harder to confuse:
 - approval policy text with actual permission safety
 - adapter availability with release readiness
 
-## Post-v7.8 Direction
+## Post-v7.9 Direction
 
 The next line should proceed in this order:
 

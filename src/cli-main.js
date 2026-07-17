@@ -113,6 +113,7 @@ Usage:
   aof context-integrity-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> [--context-pack-ref <path>] [--declared-context-ref <path>] [--required-context-ref <path>] [--missing-context-ref <path>] [--hidden-context-signal "<text>"] --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof external-reference-integrity-record --project <path> --external-ref "<ref>" --external-ref-artifact-ref <path> --source-system "<text>" --url <url> --relationship "<text>" --source-of-truth "<text>" --sync-policy "<text>" --usage-purpose "<text>" [--freshness-required] [--observed-at <date-time>] --freshness-status <not_required|current|stale|unknown> --availability-status <available|unavailable|not_checked> --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof context-reference-integrity-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof externalization-readiness-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof value-hypothesis-record --project <path> --expected-value-creation "<text>" --beneficiary "<text>" --supporting-evidence "<text>" [--supporting-evidence "<text>"] --success-criterion "<text>" [--success-criterion "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof alternative-analysis-record --project <path> --subject-need "<text>" --alternative-solution "<text>" [--alternative-solution "<text>"] [--non-solution-option "<text>"] [--defer-option "<text>"] --stop-option "<text>" [--stop-option "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1243,6 +1244,11 @@ function parseArgs(argv) {
             ? {
                 project: ".",
                 cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "externalization-readiness-audit"
+            ? {
+                project: ".",
                 artifactPath: ""
               }
           : command === "problem-statement-record"
@@ -5530,6 +5536,12 @@ function parseArgs(argv) {
   if (command === "mission-control-projection-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `mission-control-projection-audit`.");
+    }
+  }
+
+  if (command === "externalization-readiness-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `externalization-readiness-audit`.");
     }
   }
 

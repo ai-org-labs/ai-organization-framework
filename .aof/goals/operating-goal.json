@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v8.0 Externalized Organization Runtime: define how external actors, tools, providers, and references become governed runtime resources with source-of-truth, permission, freshness, availability, approval, and not-proven boundaries.",
-  "updated_at": "2026-07-17T02:44:22.048Z",
+  "content": "Prepare v8.0 Externalized Organization Runtime: external actors, tools, providers, and references become governed runtime resources under v7.9 readiness boundaries.",
+  "updated_at": "2026-07-17T14:28:32.723Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_session_id": "SESS-V79-EXTERNALIZATION-READINESS",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

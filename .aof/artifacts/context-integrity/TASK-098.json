@@ -1,0 +1,26 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRP16FZY-FAP823",
+  "recorded_at": "2026-07-17T14:26:07.870Z",
+  "work_item_id": "TASK-098",
+  "work_item_ref": ".aof/tasks/done/TASK-098.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V79-EXTERNALIZATION-READINESS.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "required_context_refs": [
+    "docs/v7.9-release-definition.md",
+    "src/commands/externalization-readiness-audit.js",
+    "src/commands/release-state-audit.js",
+    "schemas/aof-externalization-readiness-audit.schema.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared refs are linked; it does not prove semantic truth, external provider correctness, or operator acceptance.",
+  "source_task_id": "TASK-098",
+  "source_parent_session_id": "SESS-V79-EXTERNALIZATION-READINESS",
+  "source_decision_record_id": null
+}

@@ -1,0 +1,105 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRP18LVS-CJEW1Q",
+  "recorded_at": "2026-07-17T14:27:48.808Z",
+  "work_item_id": "TASK-098",
+  "work_item_ref": ".aof/tasks/done/TASK-098.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V79-EXTERNALIZATION-READINESS.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export package is canonical runtime evidence; provider-native stream is input evidence only."
+  },
+  "event_summaries": [
+    {
+      "event_id": "V79-EVT-001",
+      "event_type": "prompt",
+      "summary": "User directed AOF to continue to v7.9.0.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "event_id": "V79-EVT-002",
+      "event_type": "response",
+      "summary": "AOF selected Externalization Readiness Boundary as bounded v7.9 work.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-098.json"
+      ]
+    },
+    {
+      "event_id": "V79-EVT-003",
+      "event_type": "tool_call",
+      "summary": "AOF created the externalization readiness audit and release evidence.",
+      "artifact_refs": [
+        "src/commands/externalization-readiness-audit.js"
+      ]
+    },
+    {
+      "event_id": "V79-EVT-004",
+      "event_type": "artifact_write",
+      "summary": "v7.9 schema, command, docs, and runtime artifacts were written.",
+      "artifact_refs": [
+        "schemas/aof-externalization-readiness-audit.schema.json",
+        "docs/v7.9-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "V79-EVT-005",
+      "event_type": "verification",
+      "summary": "Externalization readiness audit passed.",
+      "artifact_refs": [
+        ".aof/artifacts/externalization/externalization-readiness-audit.json"
+      ]
+    },
+    {
+      "event_id": "V79-EVT-006",
+      "event_type": "blocker",
+      "summary": "No v7.9 release blocker remains if release-state audit and tests pass.",
+      "artifact_refs": [
+        "docs/v7.9-release-checklist.md"
+      ]
+    },
+    {
+      "event_id": "V79-EVT-007",
+      "event_type": "stop_condition",
+      "summary": "Stop if externalization readiness or release-state audit fails.",
+      "artifact_refs": [
+        ".aof/artifacts/externalization/externalization-readiness-audit.json",
+        "docs/v7.9-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-098.json"
+    ],
+    "requirement_refs": [
+      ".aof/artifacts/requirement-coverage/TASK-098.json"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/externalization/externalization-readiness-audit.json"
+    ],
+    "artifact_refs": [
+      "src/commands/externalization-readiness-audit.js"
+    ],
+    "risk_candidates": [
+      "Externalization readiness can be mistaken for external execution."
+    ],
+    "decision_candidates": [
+      "Proceed to v8 only after externalization boundaries are release-gated."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v7.9-release-checklist.md"
+    ]
+  },
+  "redaction_boundary": "No secrets or provider-native raw transcript are included.",
+  "release_ready_boundary": "Release readiness requires audits and tests; session export alone is not a release-ready verdict.",
+  "not_proven": "Session export proves reconstructable process summary, not semantic correctness or operator acceptance.",
+  "source_task_id": "TASK-098",
+  "source_parent_session_id": "SESS-V79-EXTERNALIZATION-READINESS",
+  "source_decision_record_id": null,
+  "notes": null
+}

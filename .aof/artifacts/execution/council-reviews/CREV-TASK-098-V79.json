@@ -1,0 +1,18 @@
+{
+  "artifact_type": "council-review",
+  "review_id": "CREV-TASK-098-V79",
+  "recorded_at": "2026-07-17T14:25:31.218Z",
+  "source_task_id": "TASK-098",
+  "source_parent_session_id": "SESS-V79-EXTERNALIZATION-READINESS",
+  "council_id": "operations-council",
+  "stage": "execution",
+  "review_status": "approved",
+  "decision_summary": "Approve v7.9 Externalization Readiness Boundary for release verification.",
+  "rationale": "The release adds a narrow audit gate for externalization boundaries without claiming external execution or semantic truth.",
+  "recommendation": "Proceed to release verification and tag after tests pass.",
+  "evidence_refs": [
+    ".aof/artifacts/externalization/externalization-readiness-audit.json",
+    "docs/v7.9-release-checklist.md"
+  ],
+  "not_proven": "Council approval is release governance evidence, not market or semantic validation."
+}

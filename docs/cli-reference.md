@@ -220,7 +220,7 @@ node ./src/cli.js release-state-refresh \
 
 ### `release-state-audit`
 
-active release baseline の drift と、v6.7 governance audit gate を narrow に検査する。
+active release baseline の drift と、release-version dependent governance audit gate を narrow に検査する。
 
 ```bash
 node ./src/cli.js release-state-audit --project .
@@ -235,8 +235,36 @@ node ./src/cli.js release-state-audit --project .
 - `archmap-impact-audit` release gate
 - `review-provenance-audit` release gate
 - `evidence-independence-audit` release gate
+- version-gated runtime audits such as `quality-ledger-audit`, `work-readiness-audit`, `mission-control-projection-audit`, and `externalization-readiness-audit`
 
 このコマンドが green でない場合、release sign-off は incomplete と扱う。Validator pass は構造・参照・証拠独立性のruntime境界を確認するものであり、semantic truth や market truth の証明ではない。
+
+### `externalization-readiness-audit`
+
+external actor/tool/provider/reference claim が v8 以降の governed runtime resource として扱えるだけの境界を持つかを narrow に検査する。これは v7.9 の Externalization Readiness Boundary 用 command であり、外部連携を実装したことではなく、外部化を安全に始めるための source-of-truth / permission / freshness / availability / approval / provenance / not-proven 境界を確認する。
+
+```bash
+node ./src/cli.js externalization-readiness-audit --project . \
+  --write-artifact .aof/artifacts/externalization/externalization-readiness-audit.json
+```
+
+主な確認項目:
+
+- `.aof/artifacts/external-reference-integrity/*.json` に externalization claim が存在する
+- claim artifact と external source ref が解決できる
+- source-of-truth boundary が明示されている
+- permission boundary が明示されている
+- freshness boundary が stale / unknown ではない
+- availability boundary が not_checked / unavailable ではない
+- approval boundary が明示されている
+- not-proven boundary が明示されている
+- readiness status が `ready` または `accepted_residual_risk` である
+- source task / parent session provenance が残っている
+
+QIF boundary:
+
+- pass は externalization readiness の structural/runtime evidence であり、外部 provider 実行、外部 tool の semantic correctness、operator acceptance、secrets/billing/deploy safety を証明しない
+- release sign-off では `release-state-audit` が v7.9 以降この audit を release gate として実行する
 
 ### `archmap-impact-audit`
 

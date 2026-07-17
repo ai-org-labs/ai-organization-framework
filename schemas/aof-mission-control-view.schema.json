@@ -11,6 +11,7 @@
     ,
     "requirement_coverage_projection",
     "adoption_proof_projection",
+    "externalization_readiness_projection",
     "evidence_completeness_projection"
   ],
   "properties": {
@@ -649,6 +650,62 @@
         },
         "artifacts_evaluated": { "type": "array", "items": { "type": "string" } },
         "latest_evidence_refs": { "type": "array", "items": { "type": "string" } },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "externalization_readiness_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "externalization_claim_count",
+        "ready_claim_count",
+        "blocked_claim_count",
+        "missing_boundary_count",
+        "claims",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "externalization_claim_count": { "type": "integer" },
+        "ready_claim_count": { "type": "integer" },
+        "blocked_claim_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "claim_id",
+              "claim_type",
+              "artifact_ref",
+              "readiness_status",
+              "source_of_truth",
+              "permission_boundary",
+              "freshness_boundary",
+              "availability_boundary",
+              "approval_boundary",
+              "not_proven"
+            ],
+            "properties": {
+              "claim_id": { "type": "string" },
+              "claim_type": { "type": "string" },
+              "artifact_ref": { "type": "string" },
+              "readiness_status": { "type": "string" },
+              "source_of_truth": { "type": "string" },
+              "permission_boundary": { "type": "string" },
+              "freshness_boundary": { "type": "string" },
+              "availability_boundary": { "type": "string" },
+              "approval_boundary": { "type": "string" },
+              "not_proven": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
         "not_proven": { "type": "string" }
       },
       "additionalProperties": false
