@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ai-org-labs/ai-organization-framework/schemas/aof-mission-control-projection-audit.schema.json",
+  "title": "AOF Mission Control Projection Audit",
+  "type": "object",
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "mission_control_ref",
+    "summary",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "mission-control-projection-audit" },
+    "generated_at": { "type": "string" },
+    "project_root": { "type": "string" },
+    "mission_control_ref": { "type": "string" },
+    "summary": {
+      "type": "object",
+      "required": [
+        "check_count",
+        "failing_check_count",
+        "required_source_count",
+        "missing_source_count"
+      ],
+      "properties": {
+        "check_count": { "type": "integer" },
+        "failing_check_count": { "type": "integer" },
+        "required_source_count": { "type": "integer" },
+        "missing_source_count": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "detail", "evidence_refs"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" },
+          "evidence_refs": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

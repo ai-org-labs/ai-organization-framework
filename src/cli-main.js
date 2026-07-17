@@ -122,6 +122,7 @@ Usage:
   aof need-validation-advance --session <path> --need-validation-record <path> [--project-charter-ref <path>]
   aof need-validation-benchmark [--project <path>] [--write-artifact <path>]
   aof mission-control-benchmark [--project <path>] [--write-artifact <path>]
+  aof mission-control-projection-audit [--project <path>] [--write-artifact <path>]
   aof operator-brief [--project <path>] [--write-artifact <path>]
   aof operator-progress [--project <path>] [--write-artifact <path>]
   aof tree-position [--project <path>] [--write-artifact <path>]
@@ -1343,6 +1344,11 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "mission-control-benchmark"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "mission-control-projection-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -5518,6 +5524,12 @@ function parseArgs(argv) {
   if (command === "mission-control-benchmark") {
     if (!options.project) {
       throw new Error("Missing --project for `mission-control-benchmark`.");
+    }
+  }
+
+  if (command === "mission-control-projection-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `mission-control-projection-audit`.");
     }
   }
 

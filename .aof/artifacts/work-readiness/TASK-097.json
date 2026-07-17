@@ -1,0 +1,40 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MROC0F9M-0S26OH",
+  "recorded_at": "2026-07-17T02:41:36.586Z",
+  "work_item_id": "TASK-097",
+  "work_item_ref": ".aof/tasks/done/TASK-097.json",
+  "readiness_status": "ready",
+  "goal": "Ship v7.8 as Mission Control Coverage Forecast Projection.",
+  "risk": "AOF could show dashboard status without proving the projection is backed by coverage, forecast, adoption, session, context, release, and Archmap evidence.",
+  "loss_boundary": "No v7.8 release claim without projection schema, projection audit, release-state integration, TASK-097 evidence, tests, and smoke.",
+  "acceptance_gates": [
+    "Mission Control includes coverage, adoption, and evidence completeness projections",
+    "mission-control-projection-audit passes",
+    "release-state-audit includes projection audit for v7.8.0+",
+    "TASK-097 has runtime evidence chain"
+  ],
+  "evidence_plan": [
+    "projection schema",
+    "projection audit command",
+    "release-state audit",
+    "runtime evidence artifacts",
+    "npm test",
+    "smoke"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "operations-council",
+  "stop_conditions": [
+    "stop if projection audit fails",
+    "stop if Mission Control is described as semantic truth or forecast certainty"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-097",
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null
+}

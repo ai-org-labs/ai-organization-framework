@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v7.8 Mission Control Coverage Forecast Projection: show requirement coverage, forecast, blockers, adoption proof, and evidence completeness from canonical runtime artifacts without making the viewer a source of truth.",
-  "updated_at": "2026-07-16T01:53:15.794Z",
+  "content": "Prepare v8.0 Externalized Organization Runtime: define how external actors, tools, providers, and references become governed runtime resources with source-of-truth, permission, freshness, availability, approval, and not-proven boundaries.",
+  "updated_at": "2026-07-17T02:44:22.048Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V77-ADOPTION-GRADE",
+  "source_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

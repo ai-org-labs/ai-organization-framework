@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-17T02:41:36.576Z",
+  "role": "visionary",
+  "stage": "execution",
+  "session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "status": "completed",
+  "recommendation": "Proceed if the projection remains read-only and does not claim semantic truth.",
+  "rationale": "Mission Control projection is the correct v7.8 slice because it makes runtime evidence recognizable without changing source of truth.",
+  "signals": [],
+  "artifact_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/mission-control-projection-audit.js",
+    "schemas/aof-mission-control-view.schema.json"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-097",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.9
+}

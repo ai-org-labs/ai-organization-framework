@@ -1,0 +1,66 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MROC1WEP-VL5O2N",
+  "recorded_at": "2026-07-17T02:42:45.457Z",
+  "work_item_id": "TASK-097",
+  "work_item_ref": ".aof/tasks/done/TASK-097.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-097.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-097.json",
+  "lanes": [
+    {
+      "lane_id": "projection-lane",
+      "goal": "Add Mission Control coverage, adoption, and evidence completeness projections.",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "src/commands/visibility-export.js"
+      ],
+      "expected_output": "projection fields in Mission Control payload",
+      "output_refs": [
+        "src/commands/visibility-export.js",
+        "schemas/aof-mission-control-view.schema.json"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "stop_condition": "schema validation fails",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "audit-lane",
+      "goal": "Add narrow projection audit and release-state integration.",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "src/commands/release-state-audit.js"
+      ],
+      "expected_output": "mission-control-projection-audit and v7.8 release gate integration",
+      "output_refs": [
+        "src/commands/mission-control-projection-audit.js",
+        "schemas/aof-mission-control-projection-audit.schema.json"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/mission-control/mission-control-projection-audit.json"
+      ],
+      "stop_condition": "audit fails missing source refs",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "projection-lane",
+      "audit-lane"
+    ],
+    "conflict_summary": "No conflict; projection and audit lanes reinforce the same source-of-truth boundary.",
+    "blocker_summary": "No active blocker after projection compatibility fixes.",
+    "merge_rationale": "Both lanes are required for release-grade projection: visible fields plus enforceable audit.",
+    "council_authority": "Operations Council approves release readiness after verification gates pass."
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json",
+  "not_proven": "Parallel lane pilot proves bounded lane evidence and join decision, not speed improvement or semantic correctness.",
+  "source_task_id": "TASK-097",
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

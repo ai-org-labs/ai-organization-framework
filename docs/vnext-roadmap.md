@@ -433,18 +433,19 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v7.7.0`, advance `v7.8` as Mission Control Coverage Forecast Projection.
-The v7.7 Adoption-Grade Runtime gate proves a fresh managed project can produce
-bounded v7 runtime evidence; the next proof is that Mission Control can show
-requirement coverage, blocked work, forecast, and adoption evidence without
-becoming an independent source of truth.
+After `v7.8.0`, advance `v8.0` as Externalized Organization Runtime.
+The v7.8 Mission Control gate proves requirement coverage, forecast, adoption
+proof, session, context, release, and Archmap evidence can be projected from
+canonical runtime artifacts; the next proof is that this organization runtime can
+be externalized safely without turning provider adapters into hidden sources of
+truth.
 
 Priority order:
 
-1. `v7.8`: Mission Control Coverage Forecast Projection
-2. `v8.0`: Externalized Organization Runtime
-3. `v8.1`: External Reference And Provider Adapter Governance
-4. `v8.2`: Adoption Feedback And Operator Validation Loop
+1. `v8.0`: Externalized Organization Runtime
+2. `v8.1`: External Reference And Provider Adapter Governance
+3. `v8.2`: Adoption Feedback And Operator Validation Loop
+4. `v8.3`: Mission Control Operator Acceptance Evidence
 
 Canonical v7.x roadmap:
 
@@ -452,11 +453,11 @@ Canonical v7.x roadmap:
 
 Reasoning:
 
-- v7.0 through v7.7 made the live AI work path reconstructable, context-bound,
+- v7.0 through v7.8 made the live AI work path reconstructable, context-bound,
   packetized, multi-actor-governed, parallel-lane-governed,
   requirement-coverage-aware, provider-neutral-exportable, and adoption-grade
-  as bounded runtime evidence.
-- v7.8 should make that evidence legible in Mission Control as coverage,
-  forecast, blocked work, and adoption proof.
-- v8.0 through v8.2 externalize the organization runtime, govern adapters, and
-  add operator validation loops without overclaiming semantic truth.
+  as bounded runtime evidence, then legible in Mission Control as coverage,
+  forecast, blocked work, adoption proof, and evidence completeness.
+- v8.0 through v8.3 externalize the organization runtime, govern adapters, and
+  add operator validation and acceptance loops without overclaiming semantic
+  truth.

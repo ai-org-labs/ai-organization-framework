@@ -1,0 +1,38 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-17T02:41:36.581Z",
+  "team_output_id": "TOUT-TASK-097-V78",
+  "team_id": "runtime-team",
+  "stage": "execution",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve v7.8 if projection audit, release-state audit, command routing, tests, and smoke pass.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-097-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-097-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-097-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/mission-control-projection-audit.js",
+    "schemas/aof-mission-control-view.schema.json",
+    "schemas/aof-mission-control-projection-audit.schema.json",
+    "docs/v7.8-release-definition.md"
+  ],
+  "decision_required": true,
+  "summary": "Runtime team completed Mission Control coverage/forecast/adoption/evidence projection and added a dedicated projection audit.",
+  "source_task_id": "TASK-097",
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null
+}

@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-16T02:04:30.008Z",
+  "generated_at": "2026-07-17T03:05:05.525Z",
   "mission_overview": {
-    "mission": "Ship v7.7.0 as Adoption-Grade v7 Runtime.",
-    "release_version": "7.7.0",
-    "release_definition_ref": "docs/v7.7-release-definition.md",
-    "operating_goal": "Prepare v7.8 Mission Control Coverage Forecast Projection: show requirement coverage, forecast, blockers, adoption proof, and evidence completeness from canonical runtime artifacts without making the viewer a source of truth.",
-    "next_value_slice": "Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task.",
+    "mission": "Ship v7.8.0 as Mission Control Coverage Forecast Projection.",
+    "release_version": "7.8.0",
+    "release_definition_ref": "docs/v7.8-release-definition.md",
+    "operating_goal": "Prepare v8.0 Externalized Organization Runtime: define how external actors, tools, providers, and references become governed runtime resources with source-of-truth, permission, freshness, availability, approval, and not-proven boundaries.",
+    "next_value_slice": "Open the next implementation task only after a runtime-backed direction review turns v8.0 Externalized Organization Runtime into a bounded task with external source-of-truth and approval boundaries.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Open the next implementation task only after a runtime-backed direction review turns v8.0 Externalized Organization Runtime into a bounded task with external source-of-truth and approval boundaries.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 26,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-096.json",
+    "impact_record_count": 27,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-097.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-096",
+    "latest_work_item_id": "TASK-097",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-096.json"
+      ".aof/artifacts/archmap/impact/TASK-097.json"
     ],
     "external_refs": []
   },
@@ -399,101 +399,111 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 12,
-    "latest_session_id": "SESS-V77-ADOPTION-GRADE",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V77-ADOPTION-GRADE.json",
-    "latest_actor_ref": "codex",
+    "stream_count": 13,
+    "latest_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json",
+    "latest_actor_ref": "codex-parent-orchestrator",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-16T01:52:38.214Z",
-    "latest_event_count": 5,
+    "latest_recorded_at": "2026-07-17T02:41:36.584Z",
+    "latest_event_count": 6,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-096.json"
+      ".aof/tasks/done/TASK-097.json"
     ],
     "linked_requirement_refs": [
-      "docs/v7.7-release-definition.md"
+      "docs/v7.8-release-definition.md"
     ],
     "linked_test_evidence_refs": [
-      ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-      "test/work-governance-schema.test.js"
+      "node ./src/cli.js mission-control-projection-audit --project ."
     ],
     "linked_artifact_refs": [
-      "docs/v7.7-release-checklist.md",
-      "docs/v7.7.0-release-notes.md"
+      "src/commands/mission-control-projection-audit.js",
+      ".aof/artifacts/visibility/current/mission-control.json"
     ],
     "risk_candidates": [
-      "Adoption readiness could be confused with external adoption or semantic product success."
+      "Mission Control projection could be mistaken for semantic proof or forecast certainty."
     ],
     "decision_candidates": [
-      "Promote v7 adoption proof into release-state governance for 7.7.0 and later."
+      "Keep Mission Control as read-only projection and gate missing projection sources through release-state-audit."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Heartbeat requested the next roadmap release be implemented with AOF runtime.",
-        "occurred_at": "2026-07-16T01:52:38.214Z",
+        "summary": "Heartbeat requested the next roadmap release using AOF runtime.",
+        "occurred_at": "2026-07-17T02:41:36.584Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
-        "artifact_refs": [
-          ".aof/tasks/done/TASK-096.json"
-        ]
-      },
-      {
-        "event_type": "tool_call",
-        "summary": "Ran situation-assess and selected v7.7 Adoption-Grade v7 Runtime as nearest release slice.",
-        "occurred_at": "2026-07-16T01:52:38.214Z",
-        "tool_name": "situation-assess",
-        "safety_level": "safe_read",
-        "approval_policy": "preapproved",
         "artifact_refs": [
           "docs/vnext-release-plan.md"
         ]
       },
       {
+        "event_type": "tool_call",
+        "summary": "AOF opened and assigned TASK-097 for v7.8 Mission Control projection.",
+        "occurred_at": "2026-07-17T02:41:36.584Z",
+        "tool_name": "task-open/task-update",
+        "safety_level": "safe_local_write",
+        "approval_policy": "preapproved",
+        "artifact_refs": [
+          ".aof/tasks/assigned/TASK-097.json"
+        ]
+      },
+      {
         "event_type": "artifact_write",
-        "summary": "Implemented AP-007 through AP-011 and release-state adoption proof gate.",
-        "occurred_at": "2026-07-16T01:52:38.214Z",
+        "summary": "AOF implemented projection fields, schema, and projection audit command.",
+        "occurred_at": "2026-07-17T02:41:36.584Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "src/commands/adoption-proof-benchmark.js",
-          "src/commands/release-state-audit.js",
-          "schemas/aof-adoption-proof-benchmark.schema.json"
+          "src/commands/visibility-export.js",
+          "src/commands/mission-control-projection-audit.js",
+          "schemas/aof-mission-control-view.schema.json"
         ]
       },
       {
         "event_type": "verification_result",
-        "summary": "Adoption proof benchmark generated v7 runtime evidence chain in a fresh project.",
-        "occurred_at": "2026-07-16T01:52:38.214Z",
+        "summary": "AOF ran mission-control-projection-audit and resolved projection compatibility bugs.",
+        "occurred_at": "2026-07-17T02:41:36.584Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+          ".aof/artifacts/visibility/current/mission-control.json"
+        ]
+      },
+      {
+        "event_type": "council_review",
+        "summary": "Operations Council approved bounded release verification for v7.8.",
+        "occurred_at": "2026-07-17T02:41:36.584Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json"
         ]
       },
       {
         "event_type": "stop_condition",
-        "summary": "Stop if adoption proof, requirement coverage, or session export evidence is missing.",
-        "occurred_at": "2026-07-16T01:52:38.214Z",
+        "summary": "Stop if release-state-audit or projection audit fails.",
+        "occurred_at": "2026-07-17T02:41:36.584Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "docs/v7.7-release-checklist.md"
+          "docs/v7.8-release-checklist.md"
         ]
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "Ran situation-assess and selected v7.7 Adoption-Grade v7 Runtime as nearest release slice.",
-        "tool_name": "situation-assess",
-        "safety_level": "safe_read",
+        "summary": "AOF opened and assigned TASK-097 for v7.8 Mission Control projection.",
+        "tool_name": "task-open/task-update",
+        "safety_level": "safe_local_write",
         "approval_policy": "preapproved"
       }
     ]
@@ -505,11 +515,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 7,
+    "context_record_count": 8,
     "external_reference_record_count": 1,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-097.json",
+        "work_item_id": "TASK-097",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared references are linked; it does not prove semantic truth, operator acceptance, or forecast accuracy."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-096.json",
         "work_item_id": "TASK-096",
@@ -577,5 +595,153 @@
         "integrity_status": "ready"
       }
     ]
+  },
+  "requirement_coverage_projection": {
+    "present": true,
+    "artifact_root_ref": ".aof/artifacts/requirement-coverage",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-097.json",
+    "latest_work_item_id": "TASK-097",
+    "latest_recorded_at": "2026-07-17T02:43:28.591Z",
+    "coverage_status": "completed",
+    "total_requirements": 4,
+    "covered_count": 4,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0,
+    "coverage_ratio": null,
+    "forecast": {
+      "estimated_remaining_work_items": 0,
+      "estimated_token_cost_range": "release-local only",
+      "burndown_ref": "docs/v7.8-release-checklist.md",
+      "forecast_boundary": "release forecast is local governance evidence, not delivery certainty"
+    },
+    "forecast_boundary": "release forecast is local governance evidence, not delivery certainty",
+    "requirements": [
+      {
+        "requirement_id": "REQ-V78-001",
+        "title": "Mission Control projects requirement coverage, adoption proof, and evidence completeness.",
+        "status": "covered",
+        "source_ref": "docs/v7.8-release-definition.md",
+        "owner_ref": "builder",
+        "evidence_refs": [
+          "schemas/aof-mission-control-view.schema.json",
+          "src/commands/visibility-export.js"
+        ],
+        "blocker_refs": []
+      },
+      {
+        "requirement_id": "REQ-V78-002",
+        "title": "mission-control-projection-audit verifies required source refs and boundaries.",
+        "status": "covered",
+        "source_ref": "docs/v7.8-release-definition.md",
+        "owner_ref": "guardian",
+        "evidence_refs": [
+          "src/commands/mission-control-projection-audit.js",
+          "schemas/aof-mission-control-projection-audit.schema.json"
+        ],
+        "blocker_refs": []
+      },
+      {
+        "requirement_id": "REQ-V78-003",
+        "title": "release-state-audit includes projection audit for v7.8.0 and later.",
+        "status": "covered",
+        "source_ref": "docs/v7.8-release-definition.md",
+        "owner_ref": "guardian",
+        "evidence_refs": [
+          "src/commands/release-state-audit.js"
+        ],
+        "blocker_refs": []
+      },
+      {
+        "requirement_id": "REQ-V78-004",
+        "title": "Mission Control projection is not overclaimed as semantic truth or forecast certainty.",
+        "status": "covered",
+        "source_ref": "docs/v7.8-release-definition.md",
+        "owner_ref": "guardian",
+        "evidence_refs": [
+          "docs/v7.8-release-definition.md",
+          ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json"
+        ],
+        "blocker_refs": []
+      }
+    ],
+    "not_proven": "Requirement coverage proves traceability and release gate status, not semantic satisfaction, forecast accuracy, or external operator acceptance.",
+    "source_of_truth": [
+      ".aof/artifacts/requirement-coverage/TASK-097.json"
+    ]
+  },
+  "adoption_proof_projection": {
+    "present": true,
+    "benchmark_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
+    "generated_at": "2026-07-17T02:48:12.716Z",
+    "benchmark_status": "pass",
+    "benchmark_count": 11,
+    "pass_count": 11,
+    "fail_count": 0,
+    "failing_benchmarks": [],
+    "artifacts_evaluated": [
+      "14 artifact(s) evaluated"
+    ],
+    "latest_evidence_refs": [
+      ".aof/artifacts/agent-sessions/SESS-ADOPTION-V7-RUNTIME.json",
+      ".aof/artifacts/context-integrity/TASK-001.json",
+      ".aof/artifacts/requirement-coverage/TASK-001.json",
+      ".aof/artifacts/session-exports/TASK-001.json",
+      ".aof/artifacts/work-execution-packets/TASK-001.json",
+      ".aof/artifacts/work-governance/fixtures/adoption/actor-composition.json",
+      ".aof/artifacts/work-governance/fixtures/adoption/context-pack.json",
+      ".aof/artifacts/work-governance/fixtures/adoption/council-ready-output.json",
+      ".aof/artifacts/work-governance/fixtures/adoption/external-ref.json",
+      ".aof/artifacts/work-governance/fixtures/adoption/go-no-go-visualization.json",
+      ".aof/artifacts/work-governance/fixtures/adoption/operational-map-change-log.json",
+      ".aof/artifacts/work-governance/fixtures/adoption/work-item-goal.json",
+      ".aof/artifacts/work-governance/recognition-summaries/first-governed-work.md",
+      ".aof/artifacts/work-readiness/TASK-001.json",
+      ".aof/context/active/project-orientation.json",
+      ".aof/project-bootstrap.json",
+      "work-governance-benchmark"
+    ],
+    "not_proven": "Adoption proof is structural/runtime evidence; market value and semantic truth still require operator or external validation."
+  },
+  "evidence_completeness_projection": {
+    "completeness_status": "ready",
+    "source_of_truth_boundary": "Mission Control is a read-only projection of canonical AOF artifacts; it must not invent coverage, forecast, adoption proof, session, context, or Archmap evidence.",
+    "required_sources": [
+      {
+        "source_id": "requirement-coverage",
+        "present": true,
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-097.json"
+      },
+      {
+        "source_id": "adoption-proof",
+        "present": true,
+        "artifact_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+      },
+      {
+        "source_id": "agent-session",
+        "present": true,
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json"
+      },
+      {
+        "source_id": "context-integrity",
+        "present": true,
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-097.json"
+      },
+      {
+        "source_id": "release-definition",
+        "present": true,
+        "artifact_ref": "docs/v7.8-release-definition.md"
+      },
+      {
+        "source_id": "archmap-impact",
+        "present": true,
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-097.json"
+      }
+    ],
+    "missing_sources": [],
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-097.json",
+    "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json"
   }
 }

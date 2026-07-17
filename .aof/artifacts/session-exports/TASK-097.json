@@ -1,0 +1,109 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MROC6SMW-6N6ZMU",
+  "recorded_at": "2026-07-17T02:46:33.848Z",
+  "work_item_id": "TASK-097",
+  "work_item_ref": ".aof/tasks/done/TASK-097.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export package is canonical runtime evidence; provider-native stream is input evidence only."
+  },
+  "event_summaries": [
+    {
+      "event_id": "V78-EVT-001",
+      "event_type": "prompt",
+      "summary": "Heartbeat selected next release work.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "event_id": "V78-EVT-002",
+      "event_type": "response",
+      "summary": "AOF chose v7.8 Mission Control projection as the nearest release target.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-097.json"
+      ]
+    },
+    {
+      "event_id": "V78-EVT-003",
+      "event_type": "tool_call",
+      "summary": "AOF ran Mission Control projection audit and release evidence commands.",
+      "artifact_refs": [
+        "src/commands/mission-control-projection-audit.js"
+      ]
+    },
+    {
+      "event_id": "V78-EVT-004",
+      "event_type": "artifact_write",
+      "summary": "Projection schema, command, docs, and runtime evidence artifacts were written.",
+      "artifact_refs": [
+        ".aof/artifacts/requirement-coverage/TASK-097.json",
+        ".aof/artifacts/work-execution-packets/TASK-097.json"
+      ]
+    },
+    {
+      "event_id": "V78-EVT-005",
+      "event_type": "verification",
+      "summary": "Release verification gates are recorded in v7.8 checklist.",
+      "artifact_refs": [
+        "docs/v7.8-release-checklist.md"
+      ]
+    },
+    {
+      "event_id": "V78-EVT-006",
+      "event_type": "blocker",
+      "summary": "No active blocker remains after projection compatibility fixes; release still stops if audit gates fail.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "V78-EVT-007",
+      "event_type": "stop_condition",
+      "summary": "Stop v7.8 release if projection audit or release-state audit fails.",
+      "artifact_refs": [
+        ".aof/artifacts/mission-control/mission-control-projection-audit.json",
+        "docs/v7.8-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-097.json"
+    ],
+    "requirement_refs": [
+      ".aof/artifacts/requirement-coverage/TASK-097.json"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/mission-control/mission-control-projection-audit.json",
+      "docs/v7.8-release-checklist.md"
+    ],
+    "artifact_refs": [
+      "src/commands/visibility-export.js",
+      "src/commands/mission-control-projection-audit.js",
+      "schemas/aof-mission-control-view.schema.json"
+    ],
+    "risk_candidates": [
+      "Projection can still be visually insufficient even if data projection is correct."
+    ],
+    "decision_candidates": [
+      "Move v8.0 toward externalized organization runtime after v7.8 visibility evidence projection is shipped."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v7.8-release-checklist.md",
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json"
+    ]
+  },
+  "redaction_boundary": "No secrets or provider-native raw transcript are included; local summary artifacts are canonical evidence.",
+  "release_ready_boundary": "Release readiness requires audits and tests; session export alone is not a release-ready verdict.",
+  "not_proven": "Session export proves reconstructable process summary, not semantic correctness or operator acceptance.",
+  "source_task_id": "TASK-097",
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -2,68 +2,69 @@
 
 ## Version
 
-Candidate: `v7.8.0`
+Candidate: `v8.0.0`
 
 ## Release Theme
 
-Mission Control Coverage Forecast Projection.
+Externalized Organization Runtime.
 
-`v7.7.0` made adoption readiness auditable through a fresh managed-project runtime evidence chain. The next bottleneck is operator recognition: Mission Control should show requirement coverage, blocked work, forecast, adoption proof, and evidence completeness in a way that helps a human understand the current position without reading raw JSON.
+`v7.8.0` made Mission Control project requirement coverage, forecast, adoption proof, session, context, release, and Archmap evidence from canonical runtime artifacts. The next bottleneck is externalization: AOF should be able to describe and govern organization runtime boundaries when some actors, tools, providers, or references live outside the local repo.
 
 Human-facing wording:
 
-> v7.8 should make the v7 evidence chain visible as coverage, forecast, blockers, and adoption proof, while keeping canonical artifacts as the source of truth.
+> v8.0 should let AOF govern externalized organization work without losing source-of-truth boundaries, approval gates, or reconstructable runtime evidence.
 
 More explicit wording:
 
-> Mission Control should explain what is covered, what remains, what is blocked, what the forecast says, and which evidence backs the answer.
+> External actors, tools, providers, and references should become governed runtime resources, not invisible context or untracked side effects.
 
 ## Runtime Evidence Basis
 
-- runtime basis: `docs/v7.x-roadmap.md`
-- previous release: `v7.7.0`
-- v7.7 evidence: `docs/v7.7-release-definition.md`, `docs/v7.7.0-release-notes.md`, `.aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json`
-- current frontier candidate: `v7.8` Mission Control Coverage Forecast Projection
+- runtime basis: `docs/vnext-roadmap.md`
+- previous release: `v7.8.0`
+- v7.8 evidence: `docs/v7.8-release-definition.md`, `docs/v7.8.0-release-notes.md`, `.aof/artifacts/mission-control/mission-control-projection-audit.json`
+- current frontier candidate: `v8.0` Externalized Organization Runtime
 
 ## Required Outcomes
 
 Required:
 
-- project requirement coverage into Mission Control
-- project forecast / remaining work / blocked work into Mission Control
-- show adoption proof status and latest benchmark evidence in Mission Control
-- keep the dashboard as a read-only projection of canonical artifacts
-- make failure states human-readable: missing coverage, missing benchmark, unresolved evidence, stale forecast, blocked work
+- define external actor/tool/provider/reference boundaries as governed runtime resources
+- require source-of-truth, permission, freshness, availability, and not-proven boundaries for externalized organization work
+- make externalization visible in Mission Control without making the viewer the source of truth
+- preserve reconstructable session, task, requirement, test, risk, decision, and release evidence across externalized work
+- extend release audit so externalized organization claims fail when source boundaries or approval gates are missing
 
 Deferred:
 
-- real-time hosted dashboard
-- custom charting engine ownership
-- external BI integration
-- semantic correctness of forecast estimates
-- operator acceptance beyond local runtime evidence
+- autonomous external provider execution
+- production deployment automation
+- credential or billing management
+- hosted multi-tenant runtime
+- semantic correctness of external tool outputs
 
 ## Release Gates
 
-### Gate 1: Projection Contract
+### Gate 1: Externalization Contract
 
-- Mission Control projection fields are defined for coverage, forecast, blockers, adoption proof, and evidence completeness
-- projection source refs point to canonical artifacts
-- dashboard does not become source of truth
+- external actor/tool/provider/reference resources are represented with explicit boundaries
+- source-of-truth and approval policies are explicit
+- external side effects are not hidden behind local artifact presence
 
 ### Gate 2: Runtime Evidence
 
-- latest requirement coverage is readable
-- latest adoption proof benchmark is readable
-- release-state evidence is readable
-- blocked work and top risks are readable
+- local runtime artifacts link to externalized work claims
+- context/reference integrity is preserved
+- provider-neutral session export remains reconstructable
+- Mission Control shows externalization status from canonical artifacts
 
 ### Gate 3: Governance Boundary
 
-- missing or stale projection sources fail the audit
-- unresolved refs fail the audit
-- forecast is labeled as estimate, not truth
-- adoption proof remains structural/runtime evidence only
+- missing external source-of-truth boundaries fail the audit
+- missing approval policy for external writes fails the audit
+- unavailable or stale external references fail when freshness is required
+- externalized runtime evidence is not treated as semantic truth
+- v7.8 Mission Control projection audit still passes
 - v7.7 Adoption Proof benchmark still passes
 - v7.6 Session Export audit still passes
 - v7.5 Requirement Coverage audit still passes
@@ -102,21 +103,21 @@ Deferred:
 
 Release only if AOF now makes it harder to confuse:
 
-- dashboard visibility with source-of-truth evidence
-- forecast estimate with delivery certainty
-- requirement coverage with semantic satisfaction
-- adoption proof with market adoption
-- evidence presence with operator acceptance
+- external tool output with validated truth
+- provider activity with governed work
+- local artifact presence with external source-of-truth control
+- approval policy text with actual permission safety
+- adapter availability with release readiness
 
-## Post-v7.7 Direction
+## Post-v7.8 Direction
 
-The v7 line should proceed in this order:
+The next line should proceed in this order:
 
-1. `v7.8`: Mission Control Coverage Forecast Projection
-2. `v8.0`: Externalized Organization Runtime
-3. `v8.1`: External Reference And Provider Adapter Governance
-4. `v8.2`: Adoption Feedback And Operator Validation Loop
+1. `v8.0`: Externalized Organization Runtime
+2. `v8.1`: External Reference And Provider Adapter Governance
+3. `v8.2`: Adoption Feedback And Operator Validation Loop
+4. `v8.3`: Mission Control Operator Acceptance Evidence
 
 Canonical planning reference:
 
-- `docs/v7.x-roadmap.md`
+- `docs/vnext-roadmap.md`

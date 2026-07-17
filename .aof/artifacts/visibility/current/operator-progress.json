@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-16T02:04:30.064Z",
+  "generated_at": "2026-07-17T03:05:05.535Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-096 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-096.json"
+    "summary": "TASK-097 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-097.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-096 completed: Ship v7.7 Adoption-Grade v7 Runtime",
-      "artifact_ref": ".aof/tasks/done/TASK-096.json"
+      "summary": "TASK-097 completed: Ship v7.8 Mission Control Coverage Forecast Projection",
+      "artifact_ref": ".aof/tasks/done/TASK-097.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task.",
+      "summary": "Open the next implementation task only after a runtime-backed direction review turns v8.0 Externalized Organization Runtime into a bounded task with external source-of-truth and approval boundaries.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-096 completed: Ship v7.7 Adoption-Grade v7 Runtime Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task.",
+    "what_changed": "TASK-097 completed: Ship v7.8 Mission Control Coverage Forecast Projection Open the next implementation task only after a runtime-backed direction review turns v8.0 Externalized Organization Runtime into a bounded task with external source-of-truth and approval boundaries.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Open the next implementation task only after a runtime-backed direction review turns v8.0 Externalized Organization Runtime into a bounded task with external source-of-truth and approval boundaries."
   }
 }

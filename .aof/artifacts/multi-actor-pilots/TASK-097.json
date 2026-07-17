@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MROC1WEK-CKU0MY",
+  "recorded_at": "2026-07-17T02:42:45.452Z",
+  "work_item_id": "TASK-097",
+  "work_item_ref": ".aof/tasks/done/TASK-097.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/actor-rosters/TASK-097.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-097-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-097-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-097-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-097.json",
+  "maker_checker_council_boundary": "Builder implemented projection code, Guardian checked evidence boundaries, Council approved bounded release claim.",
+  "not_proven": "Multi-actor pilot proves governed participation, not autonomous workforce performance or semantic correctness.",
+  "source_task_id": "TASK-097",
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-16T02:04:30.008Z",
+      "at": "2026-07-17T03:05:05.525Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-16T02:04:29.997Z",
+      "at": "2026-07-17T03:05:05.506Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,14 +24,25 @@
       ]
     },
     {
-      "at": "2026-07-16T01:53:30.312Z",
+      "at": "2026-07-17T02:44:22.497Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "Open the next implementation task only after a runtime-backed direction review turns v7.8 Mission Control coverage and forecast projection into a bounded task.",
+      "summary": "Open the next implementation task only after a runtime-backed direction review turns v8.0 Externalized Organization Runtime into a bounded task with external source-of-truth and approval boundaries.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
         ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-07-17T02:44:00.239Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Ship v7.8 Mission Control Coverage Forecast Projection",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-097.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-095.json"
-      ]
-    },
-    {
-      "at": "2026-07-13T16:56:08.333Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Ship v7.5 Requirements Coverage, Forecasting, And Organization Analytics",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-094.json"
       ]
     }
   ]

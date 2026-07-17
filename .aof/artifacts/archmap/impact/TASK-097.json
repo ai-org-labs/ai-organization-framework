@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-17T02:44:00.123Z",
+  "work_item_id": "TASK-097",
+  "work_item_ref": ".aof/tasks/done/TASK-097.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v7.8 adds Mission Control Coverage Forecast Projection as a visibility evidence layer above requirement coverage, adoption proof, session, context, release, and Archmap artifacts.",
+  "archmap_source_ref": "docs/v7.8-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json",
+  "not_proven": "This impact record states governance map semantics changed; it does not prove visual UX quality, semantic truth, or forecast accuracy."
+}

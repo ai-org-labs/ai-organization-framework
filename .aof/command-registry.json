@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-16T01:53:23.787Z",
+  "generated_at": "2026-07-17T02:44:37.865Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -1615,6 +1615,36 @@
       ],
       "outputs": [
         "benchmark report"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "mission-control-projection-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify that Mission Control projects requirement coverage, forecast, adoption proof, session, context, release, and Archmap evidence from canonical artifacts.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "Mission Control projection audit result"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

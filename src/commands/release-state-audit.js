@@ -12,6 +12,7 @@ import { loadActiveReleaseManifest } from "./release-state-helpers.js";
 import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
 import { workExecutionPacketAuditCommand } from "./work-execution-packet-audit.js";
 import { multiActorPilotAuditCommand } from "./multi-actor-pilot-audit.js";
+import { missionControlProjectionAuditCommand } from "./mission-control-projection-audit.js";
 import { parallelLaneAuditCommand } from "./parallel-lane-audit.js";
 import { requirementCoverageAuditCommand } from "./requirement-coverage-audit.js";
 import { sessionExportAuditCommand } from "./session-export-audit.js";
@@ -125,6 +126,15 @@ function requiresAdoptionProofBenchmark(releaseVersion) {
   return major > 7 || (major === 7 && minor >= 7);
 }
 
+function requiresMissionControlProjectionAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 7 || (major === 7 && minor >= 8);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -175,6 +185,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresAdoptionProofBenchmark(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("adoption-proof-benchmark", await adoptionProofBenchmarkCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresMissionControlProjectionAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("mission-control-projection-audit", await missionControlProjectionAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

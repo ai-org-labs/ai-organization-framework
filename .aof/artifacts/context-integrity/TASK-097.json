@@ -1,0 +1,29 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MROC0F9N-X8YXQR",
+  "recorded_at": "2026-07-17T02:41:36.587Z",
+  "work_item_id": "TASK-097",
+  "work_item_ref": ".aof/tasks/done/TASK-097.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md",
+    "docs/v7.x-roadmap.md"
+  ],
+  "required_context_refs": [
+    "docs/v7.8-release-definition.md",
+    "docs/v7.8-release-checklist.md",
+    "src/commands/visibility-export.js",
+    "src/commands/mission-control-projection-audit.js",
+    "src/commands/release-state-audit.js",
+    "schemas/aof-mission-control-view.schema.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared references are linked; it does not prove semantic truth, operator acceptance, or forecast accuracy.",
+  "source_task_id": "TASK-097",
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null
+}

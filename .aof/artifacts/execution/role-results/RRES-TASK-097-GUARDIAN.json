@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-17T02:41:36.580Z",
+  "role": "guardian",
+  "stage": "execution",
+  "session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "status": "completed",
+  "recommendation": "Require mission-control-projection-audit in release-state-audit for v7.8.0+.",
+  "rationale": "The release must fail if coverage, forecast boundary, adoption proof, session, context, release definition, or Archmap source refs are missing.",
+  "signals": [],
+  "artifact_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/mission-control-projection-audit.js",
+    "schemas/aof-mission-control-view.schema.json"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-097",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.88
+}

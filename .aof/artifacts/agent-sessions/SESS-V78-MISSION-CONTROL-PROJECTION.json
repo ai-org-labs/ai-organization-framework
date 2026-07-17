@@ -1,0 +1,122 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MROC0F9K-259LIE",
+  "recorded_at": "2026-07-17T02:41:36.584Z",
+  "session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "parent_session_id": null,
+  "actor_ref": "codex-parent-orchestrator",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "V78-EVT-001",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-17T02:41:36.584Z",
+      "summary": "Heartbeat requested the next roadmap release using AOF runtime.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "V78-EVT-002",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-17T02:41:36.584Z",
+      "summary": "AOF opened and assigned TASK-097 for v7.8 Mission Control projection.",
+      "artifact_refs": [
+        ".aof/tasks/assigned/TASK-097.json"
+      ],
+      "tool_name": "task-open/task-update",
+      "safety_level": "safe_local_write",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "V78-EVT-003",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-17T02:41:36.584Z",
+      "summary": "AOF implemented projection fields, schema, and projection audit command.",
+      "artifact_refs": [
+        "src/commands/visibility-export.js",
+        "src/commands/mission-control-projection-audit.js",
+        "schemas/aof-mission-control-view.schema.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "V78-EVT-004",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-17T02:41:36.584Z",
+      "summary": "AOF ran mission-control-projection-audit and resolved projection compatibility bugs.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "V78-EVT-005",
+      "event_type": "council_review",
+      "occurred_at": "2026-07-17T02:41:36.584Z",
+      "summary": "Operations Council approved bounded release verification for v7.8.",
+      "artifact_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "V78-EVT-006",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-17T02:41:36.584Z",
+      "summary": "Stop if release-state-audit or projection audit fails.",
+      "artifact_refs": [
+        "docs/v7.8-release-checklist.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-097.json"
+    ],
+    "requirement_refs": [
+      "docs/v7.8-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "node ./src/cli.js mission-control-projection-audit --project ."
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "src/commands/mission-control-projection-audit.js",
+      ".aof/artifacts/visibility/current/mission-control.json"
+    ]
+  },
+  "risk_candidates": [
+    "Mission Control projection could be mistaken for semantic proof or forecast certainty."
+  ],
+  "decision_candidates": [
+    "Keep Mission Control as read-only projection and gate missing projection sources through release-state-audit."
+  ],
+  "release_ready_evidence": {
+    "claim": "TASK-097 can be release-ready only after all v7.8 projection, governance, test, and smoke gates pass.",
+    "evidence_refs": [
+      "docs/v7.8-release-checklist.md",
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-097",
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null
+}

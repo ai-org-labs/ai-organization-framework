@@ -103,6 +103,7 @@ const COMMAND_SPECS = [
   ["evidence-drill-down", "./commands/evidence-drill-down.js", "evidenceDrillDownCommand"],
   ["evidence-drill-down-benchmark", "./commands/evidence-drill-down-benchmark.js", "evidenceDrillDownBenchmarkCommand"],
   ["mission-control-benchmark", "./commands/mission-control-benchmark.js", "missionControlBenchmarkCommand"],
+  ["mission-control-projection-audit", "./commands/mission-control-projection-audit.js", "missionControlProjectionAuditCommand"],
   ["cli-help-benchmark", "./commands/cli-help-benchmark.js", "cliHelpBenchmarkCommand"],
   ["situation-assess", "./commands/situation-assess.js", "situationAssessCommand"],
   ["mission-control", "./commands/visibility-session.js", "missionControlCommand"],

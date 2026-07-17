@@ -837,6 +837,167 @@ async function loadContextReferenceIntegrityProjection(projectRoot, aofRoot) {
   };
 }
 
+async function loadRequirementCoverageProjection(projectRoot, aofRoot) {
+  const recordFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "requirement-coverage"));
+  const records = [];
+  for (const recordFile of recordFiles) {
+    const payload = await readJson(recordFile, `requirement coverage ${path.basename(recordFile)}`);
+    records.push({
+      ref: path.relative(projectRoot, recordFile).replaceAll("\\", "/"),
+      payload
+    });
+  }
+
+  records.sort((left, right) => {
+    const leftTask = taskNumber(left.payload.work_item_id);
+    const rightTask = taskNumber(right.payload.work_item_id);
+    if (Number.isFinite(leftTask) && Number.isFinite(rightTask) && leftTask !== rightTask) {
+      return rightTask - leftTask;
+    }
+    return String(right.payload.recorded_at ?? "").localeCompare(String(left.payload.recorded_at ?? ""));
+  });
+
+  const latest = records[0] ?? null;
+  const requirements = latest?.payload.requirements ?? [];
+  const coverageSummary = latest?.payload.coverage_summary ?? {};
+
+  return {
+    present: records.length > 0,
+    artifact_root_ref: ".aof/artifacts/requirement-coverage",
+    latest_record_ref: latest?.ref ?? null,
+    latest_work_item_id: latest?.payload.work_item_id ?? null,
+    latest_recorded_at: latest?.payload.recorded_at ?? null,
+    coverage_status: latest?.payload.coverage_status ?? null,
+    total_requirements: coverageSummary.total_requirements ?? requirements.length,
+    covered_count: coverageSummary.covered_count ?? requirements.filter((entry) => entry.status === "covered").length,
+    partial_count: coverageSummary.partial_count ?? requirements.filter((entry) => entry.status === "partial").length,
+    blocked_count: coverageSummary.blocked_count ?? requirements.filter((entry) => entry.status === "blocked").length,
+    at_risk_count: coverageSummary.at_risk_count ?? requirements.filter((entry) => entry.status === "at_risk").length,
+    unstarted_count: coverageSummary.unstarted_count ?? requirements.filter((entry) => entry.status === "unstarted").length,
+    coverage_ratio: latest?.payload.coverage_summary?.coverage_ratio ?? null,
+    forecast: latest?.payload.forecast ?? null,
+    forecast_boundary: latest?.payload.forecast?.forecast_boundary ?? null,
+    requirements: requirements.map((entry) => ({
+      requirement_id: entry.requirement_id ?? null,
+      title: entry.title ?? null,
+      status: entry.status ?? null,
+      source_ref: entry.source_ref ?? null,
+      owner_ref: entry.owner_ref ?? null,
+      evidence_refs: entry.evidence_refs ?? [],
+      blocker_refs: entry.blocker_refs ?? []
+    })),
+    not_proven: latest?.payload.not_proven ?? null,
+    source_of_truth: [latest?.ref ?? null].filter(Boolean)
+  };
+}
+
+async function loadAdoptionProofProjection(projectRoot) {
+  const benchmarkRef = ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json";
+  const benchmark = await maybeReadJsonByRef(projectRoot, benchmarkRef, "adoption proof benchmark");
+  if (!benchmark) {
+    return {
+      present: false,
+      benchmark_ref: benchmarkRef,
+      generated_at: null,
+      benchmark_status: "missing",
+      benchmark_count: 0,
+      pass_count: 0,
+      fail_count: 0,
+      failing_benchmarks: [],
+      artifacts_evaluated: [],
+      latest_evidence_refs: [],
+      not_proven: "No adoption proof benchmark artifact is present."
+    };
+  }
+
+  const rawChecks = benchmark.checks ?? benchmark.benchmarks ?? [];
+  const checks = Array.isArray(rawChecks)
+    ? rawChecks
+    : Object.entries(rawChecks).map(([id, entry]) => ({ id, ...entry }));
+  const failing = checks.filter((entry) => entry.status !== "pass");
+  const evidenceRefs = new Set();
+  for (const check of checks) {
+    for (const ref of check.evidence_refs ?? check.evidence ?? []) {
+      evidenceRefs.add(ref);
+    }
+  }
+  const artifactsEvaluated = Array.isArray(benchmark.artifacts_evaluated)
+    ? benchmark.artifacts_evaluated
+    : Number.isFinite(benchmark.artifacts_evaluated)
+      ? [`${benchmark.artifacts_evaluated} artifact(s) evaluated`]
+      : benchmark.summary?.artifact_refs ?? [];
+
+  return {
+    present: true,
+    benchmark_ref: benchmarkRef,
+    generated_at: benchmark.generated_at ?? null,
+    benchmark_status: (benchmark.ok === true || benchmark.ok == null) && failing.length === 0 ? "pass" : "fail",
+    benchmark_count: checks.length,
+    pass_count: checks.filter((entry) => entry.status === "pass").length,
+    fail_count: failing.length,
+    failing_benchmarks: failing.map((entry) => ({
+      id: entry.id ?? entry.name ?? null,
+      summary: entry.summary ?? entry.detail ?? null,
+      evidence_refs: entry.evidence_refs ?? entry.evidence ?? []
+    })),
+    artifacts_evaluated: artifactsEvaluated,
+    latest_evidence_refs: [...evidenceRefs].sort(),
+    not_proven: "Adoption proof is structural/runtime evidence; market value and semantic truth still require operator or external validation."
+  };
+}
+
+function buildEvidenceCompletenessProjection({
+  requirementCoverageProjection,
+  adoptionProofProjection,
+  agentSessionObservabilityProjection,
+  contextReferenceIntegrityProjection,
+  archmapProjection,
+  roadmapStatus
+}) {
+  const requiredSources = [
+    {
+      source_id: "requirement-coverage",
+      present: Boolean(requirementCoverageProjection?.present && requirementCoverageProjection.latest_record_ref),
+      artifact_ref: requirementCoverageProjection?.latest_record_ref ?? null
+    },
+    {
+      source_id: "adoption-proof",
+      present: Boolean(adoptionProofProjection?.present && adoptionProofProjection.benchmark_ref),
+      artifact_ref: adoptionProofProjection?.benchmark_ref ?? null
+    },
+    {
+      source_id: "agent-session",
+      present: Boolean(agentSessionObservabilityProjection?.present && agentSessionObservabilityProjection.latest_session_ref),
+      artifact_ref: agentSessionObservabilityProjection?.latest_session_ref ?? null
+    },
+    {
+      source_id: "context-integrity",
+      present: Boolean(contextReferenceIntegrityProjection?.present && contextReferenceIntegrityProjection.latest_context_records?.[0]?.ref),
+      artifact_ref: contextReferenceIntegrityProjection?.latest_context_records?.[0]?.ref ?? null
+    },
+    {
+      source_id: "release-definition",
+      present: Boolean(roadmapStatus?.roadmap_refs?.current_release_definition),
+      artifact_ref: roadmapStatus?.roadmap_refs?.current_release_definition ?? null
+    },
+    {
+      source_id: "archmap-impact",
+      present: Boolean(archmapProjection?.present && archmapProjection.latest_impact_ref),
+      artifact_ref: archmapProjection?.latest_impact_ref ?? null
+    }
+  ];
+  const missingSources = requiredSources.filter((entry) => !entry.present);
+  return {
+    completeness_status: missingSources.length === 0 ? "ready" : "incomplete",
+    source_of_truth_boundary: "Mission Control is a read-only projection of canonical AOF artifacts; it must not invent coverage, forecast, adoption proof, session, context, or Archmap evidence.",
+    required_sources: requiredSources,
+    missing_sources: missingSources.map((entry) => entry.source_id),
+    latest_requirement_coverage_ref: requirementCoverageProjection?.latest_record_ref ?? null,
+    latest_adoption_proof_ref: adoptionProofProjection?.benchmark_ref ?? null,
+    latest_session_ref: agentSessionObservabilityProjection?.latest_session_ref ?? null
+  };
+}
+
 function buildMissionControl({
   organizationStatus,
   roadmapStatus,
@@ -848,7 +1009,10 @@ function buildMissionControl({
   archmapProjection = null,
   organizationStateProjection = null,
   agentSessionObservabilityProjection = null,
-  contextReferenceIntegrityProjection = null
+  contextReferenceIntegrityProjection = null,
+  requirementCoverageProjection = null,
+  adoptionProofProjection = null,
+  evidenceCompletenessProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
   const skillfulActorSummary = summarizeSkillfulActorProjection(skillfulActorProjection);
@@ -1007,6 +1171,48 @@ function buildMissionControl({
       stale_external_reference_count: 0,
       latest_context_records: [],
       latest_external_reference_records: []
+    },
+    requirement_coverage_projection: requirementCoverageProjection ?? {
+      present: false,
+      artifact_root_ref: ".aof/artifacts/requirement-coverage",
+      latest_record_ref: null,
+      latest_work_item_id: null,
+      latest_recorded_at: null,
+      coverage_status: null,
+      total_requirements: 0,
+      covered_count: 0,
+      partial_count: 0,
+      blocked_count: 0,
+      at_risk_count: 0,
+      unstarted_count: 0,
+      coverage_ratio: null,
+      forecast: null,
+      forecast_boundary: null,
+      requirements: [],
+      not_proven: null,
+      source_of_truth: []
+    },
+    adoption_proof_projection: adoptionProofProjection ?? {
+      present: false,
+      benchmark_ref: ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
+      generated_at: null,
+      benchmark_status: "missing",
+      benchmark_count: 0,
+      pass_count: 0,
+      fail_count: 0,
+      failing_benchmarks: [],
+      artifacts_evaluated: [],
+      latest_evidence_refs: [],
+      not_proven: "No adoption proof benchmark artifact is present."
+    },
+    evidence_completeness_projection: evidenceCompletenessProjection ?? {
+      completeness_status: "incomplete",
+      source_of_truth_boundary: "Mission Control is a read-only projection of canonical AOF artifacts.",
+      required_sources: [],
+      missing_sources: ["requirement-coverage", "adoption-proof", "agent-session", "context-integrity", "release-definition", "archmap-impact"],
+      latest_requirement_coverage_ref: null,
+      latest_adoption_proof_ref: null,
+      latest_session_ref: null
     }
   };
 }
@@ -1016,7 +1222,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -1030,7 +1236,9 @@ export async function visibilityExportCommand(options) {
     loadArchmapProjection(projectRoot, aofRoot),
     loadOrganizationStateProjection(projectRoot, aofRoot),
     loadAgentSessionObservabilityProjection(projectRoot, aofRoot),
-    loadContextReferenceIntegrityProjection(projectRoot, aofRoot)
+    loadContextReferenceIntegrityProjection(projectRoot, aofRoot),
+    loadRequirementCoverageProjection(projectRoot, aofRoot),
+    loadAdoptionProofProjection(projectRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -1055,6 +1263,14 @@ export async function visibilityExportCommand(options) {
     })
   };
   const flowSnapshot = buildFlowSnapshot(Boolean(currentTask));
+  const evidenceCompletenessProjection = buildEvidenceCompletenessProjection({
+    requirementCoverageProjection,
+    adoptionProofProjection,
+    agentSessionObservabilityProjection,
+    contextReferenceIntegrityProjection,
+    archmapProjection,
+    roadmapStatus
+  });
   const missionControl = buildMissionControl({
     organizationStatus,
     roadmapStatus,
@@ -1066,7 +1282,10 @@ export async function visibilityExportCommand(options) {
     archmapProjection,
     organizationStateProjection,
     agentSessionObservabilityProjection,
-    contextReferenceIntegrityProjection
+    contextReferenceIntegrityProjection,
+    requirementCoverageProjection,
+    adoptionProofProjection,
+    evidenceCompletenessProjection
   });
   const operatorBrief = buildOperatorBriefView({
     organizationStatus,

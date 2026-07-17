@@ -1,0 +1,178 @@
+{
+  "ok": true,
+  "artifact_type": "mission-control-projection-audit",
+  "generated_at": "2026-07-17T03:05:05.572Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "summary": {
+    "check_count": 20,
+    "failing_check_count": 0,
+    "required_source_count": 6,
+    "missing_source_count": 0
+  },
+  "checks": [
+    {
+      "name": "mission control projection schema",
+      "status": "pass",
+      "detail": "/Users/mn/development/ai-organization-framework-public/.aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "name": "requirement coverage projection present",
+      "status": "pass",
+      "detail": ".aof/artifacts/requirement-coverage/TASK-097.json",
+      "evidence_refs": [
+        ".aof/artifacts/requirement-coverage/TASK-097.json"
+      ]
+    },
+    {
+      "name": "requirement coverage includes forecast boundary",
+      "status": "pass",
+      "detail": "release forecast is local governance evidence, not delivery certainty",
+      "evidence_refs": [
+        ".aof/artifacts/requirement-coverage/TASK-097.json"
+      ]
+    },
+    {
+      "name": "requirement coverage includes requirement rows",
+      "status": "pass",
+      "detail": "4 requirement(s)",
+      "evidence_refs": [
+        ".aof/artifacts/requirement-coverage/TASK-097.json"
+      ]
+    },
+    {
+      "name": "adoption proof projection present",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
+      "evidence_refs": [
+        ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+      ]
+    },
+    {
+      "name": "adoption proof benchmark passes",
+      "status": "pass",
+      "detail": "benchmark_status=pass",
+      "evidence_refs": [
+        ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+      ]
+    },
+    {
+      "name": "evidence completeness projection ready",
+      "status": "pass",
+      "detail": "status=ready, missing=",
+      "evidence_refs": [
+        ".aof/artifacts/requirement-coverage/TASK-097.json",
+        ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
+        ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json"
+      ]
+    },
+    {
+      "name": "mission control states read-only source boundary",
+      "status": "pass",
+      "detail": "Mission Control is a read-only projection of canonical AOF artifacts; it must not invent coverage, forecast, adoption proof, session, context, or Archmap evidence.",
+      "evidence_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "name": "requirement-coverage source declared",
+      "status": "pass",
+      "detail": ".aof/artifacts/requirement-coverage/TASK-097.json",
+      "evidence_refs": [
+        ".aof/artifacts/requirement-coverage/TASK-097.json"
+      ]
+    },
+    {
+      "name": "requirement-coverage source resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/requirement-coverage/TASK-097.json",
+      "evidence_refs": [
+        ".aof/artifacts/requirement-coverage/TASK-097.json"
+      ]
+    },
+    {
+      "name": "adoption-proof source declared",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
+      "evidence_refs": [
+        ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+      ]
+    },
+    {
+      "name": "adoption-proof source resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
+      "evidence_refs": [
+        ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+      ]
+    },
+    {
+      "name": "agent-session source declared",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json",
+      "evidence_refs": [
+        ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json"
+      ]
+    },
+    {
+      "name": "agent-session source resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json",
+      "evidence_refs": [
+        ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json"
+      ]
+    },
+    {
+      "name": "context-integrity source declared",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-097.json",
+      "evidence_refs": [
+        ".aof/artifacts/context-integrity/TASK-097.json"
+      ]
+    },
+    {
+      "name": "context-integrity source resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-097.json",
+      "evidence_refs": [
+        ".aof/artifacts/context-integrity/TASK-097.json"
+      ]
+    },
+    {
+      "name": "release-definition source declared",
+      "status": "pass",
+      "detail": "docs/v7.8-release-definition.md",
+      "evidence_refs": [
+        "docs/v7.8-release-definition.md"
+      ]
+    },
+    {
+      "name": "release-definition source resolves",
+      "status": "pass",
+      "detail": "docs/v7.8-release-definition.md",
+      "evidence_refs": [
+        "docs/v7.8-release-definition.md"
+      ]
+    },
+    {
+      "name": "archmap-impact source declared",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-097.json",
+      "evidence_refs": [
+        ".aof/artifacts/archmap/impact/TASK-097.json"
+      ]
+    },
+    {
+      "name": "archmap-impact source resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-097.json",
+      "evidence_refs": [
+        ".aof/artifacts/archmap/impact/TASK-097.json"
+      ]
+    }
+  ],
+  "errors": []
+}

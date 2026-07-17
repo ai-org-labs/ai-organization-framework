@@ -1,8 +1,8 @@
 {
   "artifact_type": "adoption-proof-benchmark",
-  "generated_at": "2026-07-16T01:50:50.430Z",
+  "generated_at": "2026-07-17T02:48:12.716Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
-  "benchmark_project_root": "/var/folders/zw/w0v3jtfx17d507v6qttf9bqh0000gn/T/aof-adoption-proof-t2jXpq/project",
+  "benchmark_project_root": "/var/folders/zw/w0v3jtfx17d507v6qttf9bqh0000gn/T/aof-adoption-proof-npatm1/project",
   "first_work_item_id": "SW-WORK-001",
   "recognition_summary_ref": ".aof/artifacts/work-governance/recognition-summaries/first-governed-work.md",
   "work_governance_benchmark_status": "pass",

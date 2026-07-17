@@ -1,0 +1,92 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MROC2TOV-AUANEC",
+  "recorded_at": "2026-07-17T02:43:28.591Z",
+  "work_item_id": "TASK-097",
+  "work_item_ref": ".aof/tasks/done/TASK-097.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V78-001",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v7.8-release-definition.md",
+      "title": "Mission Control projects requirement coverage, adoption proof, and evidence completeness.",
+      "owner_ref": "builder",
+      "acceptance_boundary": "schema validates Mission Control payload with v7.8 projection fields",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-097.json"
+      ],
+      "evidence_refs": [
+        "schemas/aof-mission-control-view.schema.json",
+        "src/commands/visibility-export.js"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V78-002",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v7.8-release-definition.md",
+      "title": "mission-control-projection-audit verifies required source refs and boundaries.",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "audit passes and fails missing projection sources",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-097.json"
+      ],
+      "evidence_refs": [
+        "src/commands/mission-control-projection-audit.js",
+        "schemas/aof-mission-control-projection-audit.schema.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V78-003",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v7.8-release-definition.md",
+      "title": "release-state-audit includes projection audit for v7.8.0 and later.",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "release-state-audit invokes mission-control-projection-audit for v7.8.0+",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-097.json"
+      ],
+      "evidence_refs": [
+        "src/commands/release-state-audit.js"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V78-004",
+      "requirement_type": "qif_quality_intent",
+      "source_ref": "docs/v7.8-release-definition.md",
+      "title": "Mission Control projection is not overclaimed as semantic truth or forecast certainty.",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "release docs, projection boundary, and not-proven text state read-only projection limits",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-097.json"
+      ],
+      "evidence_refs": [
+        "docs/v7.8-release-definition.md",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 4,
+    "covered_count": 4,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "release-local only",
+    "burndown_ref": "docs/v7.8-release-checklist.md",
+    "forecast_boundary": "release forecast is local governance evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves traceability and release gate status, not semantic satisfaction, forecast accuracy, or external operator acceptance.",
+  "source_task_id": "TASK-097",
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

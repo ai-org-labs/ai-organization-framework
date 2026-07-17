@@ -1,0 +1,24 @@
+{
+  "artifact_type": "actor-roster",
+  "recorded_at": "2026-07-17T02:41:36.573Z",
+  "work_item_id": "TASK-097",
+  "work_item_ref": ".aof/tasks/done/TASK-097.json",
+  "parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "actors": [
+    {
+      "actor_ref": "visionary",
+      "role_ref": "visionary",
+      "assignment": "Judge whether Mission Control projection advances operator recognition without overclaiming truth."
+    },
+    {
+      "actor_ref": "builder",
+      "role_ref": "builder",
+      "assignment": "Implement projection fields and audit command using canonical runtime artifacts."
+    },
+    {
+      "actor_ref": "guardian",
+      "role_ref": "guardian",
+      "assignment": "Verify projection source refs, release-state integration, and not-proven boundaries."
+    }
+  ]
+}

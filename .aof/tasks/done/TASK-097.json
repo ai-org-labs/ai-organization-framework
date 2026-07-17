@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-097",
+  "title": "Ship v7.8 Mission Control Coverage Forecast Projection",
+  "description": "Implement the v7.8 release slice: project requirement coverage, forecast, blockers, adoption proof, and evidence completeness into Mission Control from canonical runtime artifacts, with an audit that fails stale or missing projection sources.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "assigned_session_ids": [
+    "SESS-V78-MISSION-CONTROL-PROJECTION"
+  ],
+  "related_decision_record_id": null,
+  "operating_goal_ref": null,
+  "created_at": "2026-07-17T01:33:44.705Z",
+  "updated_at": "2026-07-17T02:44:00.239Z",
+  "assigned_at": "2026-07-17T01:33:56.390Z",
+  "done_at": "2026-07-17T02:44:00.239Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v7.8 Mission Control Coverage Forecast Projection with runtime evidence and projection audit."
+}

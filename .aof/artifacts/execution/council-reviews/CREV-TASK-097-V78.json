@@ -1,0 +1,41 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-17T02:41:36.582Z",
+  "review_packet_id": "CREV-TASK-097-V78",
+  "council_id": "operations-council",
+  "stage": "execution",
+  "review_status": "approved",
+  "decision_summary": "Approve v7.8 Mission Control Coverage Forecast Projection after runtime projection audit is added and release-state audit gates it for 7.8.0+.",
+  "rationale": "The implementation makes coverage, forecast, adoption proof, evidence completeness, and missing source boundaries visible from canonical artifacts while preserving source-of-truth boundaries.",
+  "recommendation": "Proceed to release verification and tag v7.8.0 if all gates pass.",
+  "target_audience": "AOF operator",
+  "expected_user_reaction": "Operator can see why Mission Control projection is backed by coverage, adoption, session, context, release, and Archmap evidence.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-097-V78.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-097-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-097-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-097-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "src/commands/mission-control-projection-audit.js",
+    "src/commands/visibility-export.js",
+    "src/commands/release-state-audit.js",
+    "schemas/aof-mission-control-view.schema.json",
+    "schemas/aof-mission-control-projection-audit.schema.json",
+    "docs/v7.8-release-checklist.md"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-097",
+  "source_parent_session_id": "SESS-V78-MISSION-CONTROL-PROJECTION",
+  "source_decision_record_id": null
+}

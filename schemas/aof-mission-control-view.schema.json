@@ -8,6 +8,10 @@
     "runtime_position",
     "blockers",
     "next_action"
+    ,
+    "requirement_coverage_projection",
+    "adoption_proof_projection",
+    "evidence_completeness_projection"
   ],
   "properties": {
     "view_type": {
@@ -544,6 +548,142 @@
             "additionalProperties": false
           }
         }
+      },
+      "additionalProperties": false
+    },
+    "requirement_coverage_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "artifact_root_ref",
+        "latest_record_ref",
+        "latest_work_item_id",
+        "latest_recorded_at",
+        "coverage_status",
+        "total_requirements",
+        "covered_count",
+        "partial_count",
+        "blocked_count",
+        "at_risk_count",
+        "unstarted_count",
+        "coverage_ratio",
+        "forecast",
+        "forecast_boundary",
+        "requirements",
+        "not_proven",
+        "source_of_truth"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "artifact_root_ref": { "type": "string" },
+        "latest_record_ref": { "type": ["string", "null"] },
+        "latest_work_item_id": { "type": ["string", "null"] },
+        "latest_recorded_at": { "type": ["string", "null"] },
+        "coverage_status": { "type": ["string", "null"] },
+        "total_requirements": { "type": "integer" },
+        "covered_count": { "type": "integer" },
+        "partial_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "at_risk_count": { "type": "integer" },
+        "unstarted_count": { "type": "integer" },
+        "coverage_ratio": { "type": ["number", "null"] },
+        "forecast": { "type": ["object", "null"] },
+        "forecast_boundary": { "type": ["string", "null"] },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["requirement_id", "title", "status", "source_ref", "owner_ref", "evidence_refs", "blocker_refs"],
+            "properties": {
+              "requirement_id": { "type": ["string", "null"] },
+              "title": { "type": ["string", "null"] },
+              "status": { "type": ["string", "null"] },
+              "source_ref": { "type": ["string", "null"] },
+              "owner_ref": { "type": ["string", "null"] },
+              "evidence_refs": { "type": "array", "items": { "type": "string" } },
+              "blocker_refs": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": ["string", "null"] },
+        "source_of_truth": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "adoption_proof_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "benchmark_ref",
+        "generated_at",
+        "benchmark_status",
+        "benchmark_count",
+        "pass_count",
+        "fail_count",
+        "failing_benchmarks",
+        "artifacts_evaluated",
+        "latest_evidence_refs",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "benchmark_ref": { "type": "string" },
+        "generated_at": { "type": ["string", "null"] },
+        "benchmark_status": { "type": "string" },
+        "benchmark_count": { "type": "integer" },
+        "pass_count": { "type": "integer" },
+        "fail_count": { "type": "integer" },
+        "failing_benchmarks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "summary", "evidence_refs"],
+            "properties": {
+              "id": { "type": ["string", "null"] },
+              "summary": { "type": ["string", "null"] },
+              "evidence_refs": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        },
+        "artifacts_evaluated": { "type": "array", "items": { "type": "string" } },
+        "latest_evidence_refs": { "type": "array", "items": { "type": "string" } },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "evidence_completeness_projection": {
+      "type": "object",
+      "required": [
+        "completeness_status",
+        "source_of_truth_boundary",
+        "required_sources",
+        "missing_sources",
+        "latest_requirement_coverage_ref",
+        "latest_adoption_proof_ref",
+        "latest_session_ref"
+      ],
+      "properties": {
+        "completeness_status": { "type": "string" },
+        "source_of_truth_boundary": { "type": "string" },
+        "required_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source_id", "present", "artifact_ref"],
+            "properties": {
+              "source_id": { "type": "string" },
+              "present": { "type": "boolean" },
+              "artifact_ref": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "missing_sources": { "type": "array", "items": { "type": "string" } },
+        "latest_requirement_coverage_ref": { "type": ["string", "null"] },
+        "latest_adoption_proof_ref": { "type": ["string", "null"] },
+        "latest_session_ref": { "type": ["string", "null"] }
       },
       "additionalProperties": false
     }
