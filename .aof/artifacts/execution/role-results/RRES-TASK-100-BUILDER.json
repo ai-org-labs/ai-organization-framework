@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-18T12:07:14.538Z",
+  "role": "Builder",
+  "stage": "planning",
+  "session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "status": "completed",
+  "recommendation": "Accept the v8.0 implementation surface: schemas, writers, audit, release-state gate, and Mission Control projection.",
+  "rationale": "The new commands can write external resource and use records, and external-resource-audit validates the required boundaries and refs.",
+  "signals": [],
+  "artifact_refs": [
+    "src/commands/external-runtime-resource-record.js",
+    "src/commands/external-resource-use-record.js",
+    "src/commands/external-resource-audit.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-100",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": null
+}

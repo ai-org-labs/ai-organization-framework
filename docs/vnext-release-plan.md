@@ -2,38 +2,38 @@
 
 ## Version
 
-Candidate: `v8.0.0`
+Candidate: `v8.1.0`
 
 ## Release Theme
 
-Externalized Organization Runtime.
+External Reference And Provider Adapter Governance.
 
-`v7.8.0` made Mission Control project requirement coverage, forecast, adoption proof, session, context, release, and Archmap evidence from canonical runtime artifacts. `v7.9.0` added the Externalization Readiness Boundary so externalized actor/tool/provider/reference claims must expose source-of-truth, permission, freshness, availability, approval, provenance, and not-proven boundaries before release sign-off. The next bottleneck is implementation: AOF should govern externalized organization runtime resources without turning provider adapters into hidden sources of truth.
+`v8.0.0` made external actors, tools, providers, and references governable as runtime resources through resource/use records, audit, release-state integration, and Mission Control projection. The next bottleneck is adapter governance: AOF should define safe read adapter contracts, freshness checks, approval policy gates, and explicit external-write escalation before any provider adapter can be treated as operationally safe.
 
 Human-facing wording:
 
-> v8.0 should let AOF govern externalized organization work without losing source-of-truth boundaries, approval gates, or reconstructable runtime evidence.
+> v8.1 should let AOF use provider adapters only when the adapter's read/write authority, freshness, approval, and side effects are visible and bounded.
 
 More explicit wording:
 
-> External actors, tools, providers, and references should become governed runtime resources, not invisible context or untracked side effects.
+> Provider adapters should become governed access paths, not hidden execution shortcuts.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/vnext-roadmap.md`
-- previous release: `v7.9.0`
-- v7.9 evidence: `docs/v7.9-release-definition.md`, `docs/v7.9.0-release-notes.md`, `.aof/artifacts/externalization/externalization-readiness-audit.json`, `.aof/context/active/release-state-audit.json`
-- current frontier candidate: `v8.0` Externalized Organization Runtime
+- previous release: `v8.0.0`
+- v8.0 evidence: `docs/v8.0-release-definition.md`, `docs/v8.0.0-release-notes.md`, `.aof/artifacts/external-resources/external-resource-audit.json`, `.aof/context/active/release-state-audit.json`
+- current frontier candidate: `v8.1` External Reference And Provider Adapter Governance
 
 ## Required Outcomes
 
 Required:
 
-- define external actor/tool/provider/reference boundaries as governed runtime resources
-- require source-of-truth, permission, freshness, availability, and not-proven boundaries for externalized organization work
-- make externalization visible in Mission Control without making the viewer the source of truth
-- preserve reconstructable session, task, requirement, test, risk, decision, and release evidence across externalized work
-- extend release audit so externalized organization claims fail when source boundaries or approval gates are missing
+- define provider adapter records with read/write authority boundaries
+- require freshness checks and approval policy evidence before adapter use is release-ready
+- fail unapproved external-write adapter paths
+- preserve external resource/use audit compatibility from v8.0
+- project adapter readiness into Mission Control from canonical artifacts
 
 Deferred:
 
@@ -60,10 +60,11 @@ Deferred:
 
 ### Gate 3: Governance Boundary
 
-- missing external source-of-truth boundaries fail the audit
-- missing approval policy for external writes fails the audit
-- unavailable or stale external references fail when freshness is required
-- externalized runtime evidence is not treated as semantic truth
+- missing provider adapter source-of-truth boundaries fail the audit
+- missing approval policy for external-write adapter paths fails the audit
+- unavailable or stale adapter references fail when freshness is required
+- adapter runtime evidence is not treated as semantic truth
+- v8.0 external-resource-audit still passes
 - v7.9 externalization readiness audit still passes
 - v7.8 Mission Control projection audit still passes
 - v7.7 Adoption Proof benchmark still passes
@@ -110,14 +111,14 @@ Release only if AOF now makes it harder to confuse:
 - approval policy text with actual permission safety
 - adapter availability with release readiness
 
-## Post-v7.9 Direction
+## Post-v8.0 Direction
 
 The next line should proceed in this order:
 
-1. `v8.0`: Externalized Organization Runtime
-2. `v8.1`: External Reference And Provider Adapter Governance
-3. `v8.2`: Adoption Feedback And Operator Validation Loop
-4. `v8.3`: Mission Control Operator Acceptance Evidence
+1. `v8.1`: External Reference And Provider Adapter Governance
+2. `v8.2`: Adoption Feedback And Operator Validation Loop
+3. `v8.3`: Mission Control Operator Acceptance Evidence
+4. `v8.4`: Externalized Runtime Operator Safety Proof
 
 Canonical planning reference:
 

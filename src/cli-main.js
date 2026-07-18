@@ -114,6 +114,9 @@ Usage:
   aof external-reference-integrity-record --project <path> --external-ref "<ref>" --external-ref-artifact-ref <path> --source-system "<text>" --url <url> --relationship "<text>" --source-of-truth "<text>" --sync-policy "<text>" --usage-purpose "<text>" [--freshness-required] [--observed-at <date-time>] --freshness-status <not_required|current|stale|unknown> --availability-status <available|unavailable|not_checked> --integrity-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof context-reference-integrity-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof externalization-readiness-audit [--project <path>] [--write-artifact <path>]
+  aof external-runtime-resource-record --project <path> --resource-kind <actor|tool|provider|reference> --display-name "<name>" --canonical-ref <path-or-ref> --source-system "<text>" --owner-ref <team-or-council> --source-of-truth "<text>" --permission-boundary "<text>" --freshness-boundary "<text>" --availability-boundary "<text>" --approval-boundary "<text>" --side-effect-boundary "<text>" --allowed-operation <read|local_write|external_write|dangerous> [--allowed-operation <...>] --readiness-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof external-resource-use-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> --resource-ref <path> --use-purpose "<text>" --operation-type <read|local_write|external_write|dangerous> --approval-status <not_required|pending|approved|rejected> [--approval-ref <path>] --execution-status <planned|executed|blocked|skipped> [--output-artifact-ref <path>] [--risk-candidate "<text>"] [--decision-candidate "<text>"] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof external-resource-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof value-hypothesis-record --project <path> --expected-value-creation "<text>" --beneficiary "<text>" --supporting-evidence "<text>" [--supporting-evidence "<text>"] --success-criterion "<text>" [--success-criterion "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof alternative-analysis-record --project <path> --subject-need "<text>" --alternative-solution "<text>" [--alternative-solution "<text>"] [--non-solution-option "<text>"] [--defer-option "<text>"] --stop-option "<text>" [--stop-option "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1247,6 +1250,58 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "externalization-readiness-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "external-runtime-resource-record"
+            ? {
+                project: ".",
+                resourceId: "",
+                resourceKind: "",
+                displayName: "",
+                canonicalRef: "",
+                sourceSystem: "",
+                ownerRef: "",
+                sourceOfTruth: "",
+                permissionBoundary: "",
+                freshnessBoundary: "",
+                availabilityBoundary: "",
+                approvalBoundary: "",
+                sideEffectBoundary: "",
+                allowedOperations: [],
+                readinessStatus: "ready",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "external-resource-use-record"
+            ? {
+                project: ".",
+                useId: "",
+                workItemId: "",
+                workItemRef: "",
+                sessionRef: "",
+                resourceRef: "",
+                usePurpose: "",
+                operationType: "read",
+                approvalStatus: "not_required",
+                approvalRef: "",
+                executionStatus: "planned",
+                outputArtifactRefs: [],
+                riskCandidates: [],
+                decisionCandidates: [],
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "external-resource-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -2855,6 +2910,99 @@ function parseArgs(argv) {
         throw new Error("Missing value after --readiness-status.");
       }
       options.readinessStatus = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--resource-kind") {
+      options.resourceKind = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--resource-id") {
+      options.resourceId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--display-name") {
+      options.displayName = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--canonical-ref") {
+      options.canonicalRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--owner-ref") {
+      options.ownerRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--permission-boundary") {
+      options.permissionBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--freshness-boundary") {
+      options.freshnessBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--availability-boundary") {
+      options.availabilityBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--approval-boundary") {
+      options.approvalBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--side-effect-boundary") {
+      options.sideEffectBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--allowed-operation") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --allowed-operation.");
+      }
+      options.allowedOperations.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--use-id") {
+      options.useId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--use-purpose") {
+      options.usePurpose = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--operation-type") {
+      options.operationType = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--approval-status") {
+      options.approvalStatus = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--approval-ref") {
+      options.approvalRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--output-artifact-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --output-artifact-ref.");
+      }
+      options.outputArtifactRefs.push(value);
       i += 1;
       continue;
     }
@@ -5542,6 +5690,73 @@ function parseArgs(argv) {
   if (command === "externalization-readiness-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `externalization-readiness-audit`.");
+    }
+  }
+
+  if (command === "external-runtime-resource-record") {
+    for (const [flag, value] of [
+      ["--resource-kind", options.resourceKind],
+      ["--display-name", options.displayName],
+      ["--canonical-ref", options.canonicalRef],
+      ["--source-system", options.sourceSystem],
+      ["--owner-ref", options.ownerRef],
+      ["--source-of-truth", options.sourceOfTruth],
+      ["--permission-boundary", options.permissionBoundary],
+      ["--freshness-boundary", options.freshnessBoundary],
+      ["--availability-boundary", options.availabilityBoundary],
+      ["--approval-boundary", options.approvalBoundary],
+      ["--side-effect-boundary", options.sideEffectBoundary],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`external-runtime-resource-record\`.`);
+      }
+    }
+    if (!["actor", "tool", "provider", "reference"].includes(options.resourceKind)) {
+      throw new Error("Invalid --resource-kind for `external-runtime-resource-record`.");
+    }
+    if (!Array.isArray(options.allowedOperations) || options.allowedOperations.length === 0) {
+      throw new Error("At least one --allowed-operation is required for `external-runtime-resource-record`.");
+    }
+    if (!options.allowedOperations.every((operation) => ["read", "local_write", "external_write", "dangerous"].includes(operation))) {
+      throw new Error("Invalid --allowed-operation for `external-runtime-resource-record`.");
+    }
+    if (!["ready", "warning", "blocked", "accepted_residual_risk"].includes(options.readinessStatus)) {
+      throw new Error("Invalid --readiness-status for `external-runtime-resource-record`.");
+    }
+  }
+
+  if (command === "external-resource-use-record") {
+    for (const [flag, value] of [
+      ["--work-item-id", options.workItemId],
+      ["--work-item-ref", options.workItemRef],
+      ["--session-ref", options.sessionRef],
+      ["--resource-ref", options.resourceRef],
+      ["--use-purpose", options.usePurpose],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`external-resource-use-record\`.`);
+      }
+    }
+    if (!["read", "local_write", "external_write", "dangerous"].includes(options.operationType)) {
+      throw new Error("Invalid --operation-type for `external-resource-use-record`.");
+    }
+    if (!["not_required", "pending", "approved", "rejected"].includes(options.approvalStatus)) {
+      throw new Error("Invalid --approval-status for `external-resource-use-record`.");
+    }
+    if (!["planned", "executed", "blocked", "skipped"].includes(options.executionStatus)) {
+      throw new Error("Invalid --execution-status for `external-resource-use-record`.");
+    }
+  }
+
+  if (command === "external-resource-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `external-resource-audit`.");
     }
   }
 

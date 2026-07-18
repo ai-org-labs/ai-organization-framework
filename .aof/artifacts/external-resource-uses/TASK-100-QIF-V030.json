@@ -1,0 +1,29 @@
+{
+  "artifact_type": "external-resource-use-record",
+  "use_id": "ERU-MRQBLODX-J929DD",
+  "recorded_at": "2026-07-18T12:05:40.917Z",
+  "work_item_id": "TASK-100",
+  "work_item_ref": ".aof/tasks/done/TASK-100.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V80-EXTERNAL-RESOURCE-RUNTIME.json",
+  "resource_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+  "use_purpose": "Use QIF v0.3.0 as a read-only external quality reference while designing the v8.0 external resource governance boundary.",
+  "operation_type": "read",
+  "approval_status": "not_required",
+  "approval_ref": null,
+  "execution_status": "executed",
+  "output_artifact_refs": [
+    "docs/v8.0-direction-review.md",
+    "schemas/aof-external-runtime-resource-record.schema.json"
+  ],
+  "risk_candidates": [
+    "external reference could be mistaken for semantic truth"
+  ],
+  "decision_candidates": [
+    "external resources need first-class audit before v8 release sign-off"
+  ],
+  "not_proven": "This use record proves only that a bounded read-only external resource was linked to TASK-100; it does not prove QIF correctness, external provider execution, or operator acceptance.",
+  "source_task_id": "TASK-100",
+  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "source_decision_record_id": "CREV-TASK-099-V80-DIRECTION",
+  "notes": null
+}

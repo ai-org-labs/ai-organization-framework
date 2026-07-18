@@ -1,0 +1,21 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-18T11:52:02.360Z",
+  "role": "Visionary",
+  "stage": "planning",
+  "session_id": "SESS-V80-DIRECTION",
+  "status": "completed",
+  "recommendation": "Proceed with v8.0 as Externalized Organization Runtime, but keep the first slice bounded to governable resource contracts rather than autonomous provider execution.",
+  "rationale": "The v7.9 readiness boundary makes the next leverage point actual governed external resource use. Product value comes from preserving truth ownership and approval boundaries while widening the organization beyond local artifacts.",
+  "signals": [],
+  "artifact_refs": [
+    "docs/v8.0-direction-review.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-099",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": null
+}

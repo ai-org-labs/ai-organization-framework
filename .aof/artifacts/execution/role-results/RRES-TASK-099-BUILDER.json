@@ -1,0 +1,21 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-18T11:52:01.637Z",
+  "role": "Builder",
+  "stage": "planning",
+  "session_id": "SESS-V80-DIRECTION",
+  "status": "completed",
+  "recommendation": "Implement v8.0 as schema plus writer plus audit plus release-state integration plus Mission Control projection for external runtime resources.",
+  "rationale": "A narrow implementation path can prove the runtime contract without adding fragile external provider execution, credentials, billing, or production-write risks.",
+  "signals": [],
+  "artifact_refs": [
+    "docs/v8.0-direction-review.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-099",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": null
+}

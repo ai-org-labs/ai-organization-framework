@@ -1,0 +1,33 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRQBN36M-EPK95V",
+  "recorded_at": "2026-07-18T12:06:46.750Z",
+  "work_item_id": "TASK-100",
+  "work_item_ref": ".aof/tasks/done/TASK-100.json",
+  "readiness_status": "ready",
+  "goal": "Ship v8.0 Externalized Organization Runtime first bounded slice.",
+  "risk": "AOF could treat external actors tools providers or references as runtime truth without governed resource/use contracts and approval boundaries.",
+  "loss_boundary": "No v8.0 release claim without external resource records use records audit release-state integration Mission Control projection TASK-100 evidence tests and smoke.",
+  "acceptance_gates": [
+    "external-resource-audit passes",
+    "release-state-audit includes external-resource-audit for v8.0+"
+  ],
+  "evidence_plan": [
+    "schemas writers audit release-state Mission Control docs runtime evidence npm test smoke"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if external-resource-audit fails",
+    "stop if v8.0 claims autonomous external execution or semantic truth"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-100",
+  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "source_decision_record_id": "CREV-TASK-099-V80-DIRECTION"
+}

@@ -1,0 +1,106 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-V80-DIRECTION",
+  "recorded_at": "2026-07-18T11:52:41.514Z",
+  "work_item_id": "TASK-099",
+  "work_item_ref": ".aof/tasks/done/TASK-099.json",
+  "export_status": "ready",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V80-DIRECTION.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF session export normalizes local direction evidence; provider stream is not canonical truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V80-DIR-1",
+      "event_type": "prompt",
+      "summary": "operator authorized progressing from v7.9 to v8.0",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-099.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V80-DIR-2",
+      "event_type": "response",
+      "summary": "runtime selected Externalized Organization Runtime as the v8.0 direction",
+      "artifact_refs": [
+        "docs/v8.0-direction-review.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V80-DIR-3",
+      "event_type": "tool_call",
+      "summary": "ran AOF runtime direction, role-output, team-output, and council-review commands for TASK-099",
+      "artifact_refs": [
+        ".aof/artifacts/execution/team-outputs/TOUT-TASK-099-V80-DIRECTION.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V80-DIR-4",
+      "event_type": "artifact_write",
+      "summary": "direction review and role outputs were written",
+      "artifact_refs": [
+        "docs/v8.0-direction-review.md",
+        ".aof/artifacts/execution/role-results/RRES-TASK-099-BUILDER.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V80-DIR-5",
+      "event_type": "verification",
+      "summary": "Council approved bounded v8.0 direction",
+      "artifact_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V80-DIR-6",
+      "event_type": "blocker",
+      "summary": "no active blocker after Council excluded external-write and semantic-truth overclaims from v8.0",
+      "artifact_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V80-DIR-7",
+      "event_type": "stop_condition",
+      "summary": "do not claim autonomous external execution or semantic truth in v8.0 direction",
+      "artifact_refs": [
+        "docs/v8.0-direction-review.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-099.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.0-direction-review.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+    ],
+    "artifact_refs": [
+      "docs/v8.0-direction-review.md",
+      ".aof/artifacts/execution/team-outputs/TOUT-TASK-099-V80-DIRECTION.json"
+    ],
+    "risk_candidates": [
+      "v8.0 direction overclaimed as external provider execution"
+    ],
+    "decision_candidates": [
+      "open TASK-100 as the bounded implementation slice"
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+    ]
+  },
+  "redaction_boundary": "summaries only; no secrets, credentials, billing, deploy, or production writes are exported",
+  "release_ready_boundary": "direction evidence only; release readiness requires TASK-100 implementation and audits",
+  "not_proven": "Session export does not prove implementation completeness, external provider execution, semantic truth, or operator acceptance.",
+  "source_task_id": "TASK-099",
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-099-V80-DIRECTION",
+  "notes": null
+}

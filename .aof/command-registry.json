@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-17T14:22:02.180Z",
+  "generated_at": "2026-07-18T12:21:54.903Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -1371,6 +1371,122 @@
       ],
       "outputs": [
         "external reference integrity artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "external-resource-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify external runtime resources and use records have resolvable refs, approved operations, required boundaries, provenance, and no hidden external-write authority.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "external resource audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "external-resource-use-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a governed use record linking an external runtime resource to a task, session, operation, approval status, outputs, risks, decisions, and not-proven boundary.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "work-item-id",
+        "work-item-ref",
+        "session-ref",
+        "resource-ref",
+        "use-purpose",
+        "operation-type",
+        "approval-status",
+        "execution-status",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "external resource use artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "external-runtime-resource-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a governed external actor/tool/provider/reference resource with source-of-truth, permission, freshness, availability, approval, side-effect, provenance, and not-proven boundaries.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "resource-kind",
+        "display-name",
+        "canonical-ref",
+        "source-system",
+        "owner-ref",
+        "source-of-truth",
+        "permission-boundary",
+        "freshness-boundary",
+        "availability-boundary",
+        "approval-boundary",
+        "side-effect-boundary",
+        "allowed-operation",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "external runtime resource artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

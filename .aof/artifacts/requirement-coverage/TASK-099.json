@@ -1,0 +1,64 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-V80-DIRECTION",
+  "recorded_at": "2026-07-18T11:52:41.514Z",
+  "work_item_id": "TASK-099",
+  "work_item_ref": ".aof/tasks/done/TASK-099.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "V80-DIR-REQ-001",
+      "title": "v8.0 direction is runtime-backed and Council-approved",
+      "requirement_type": "release_gate",
+      "status": "covered",
+      "source_ref": "docs/v8.0-direction-review.md",
+      "owner_ref": "architecture-council",
+      "acceptance_boundary": "direction review, role outputs, team output, and Council review identify the bounded first v8.0 slice",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-099.json"
+      ],
+      "evidence_refs": [
+        "docs/v8.0-direction-review.md",
+        ".aof/artifacts/execution/team-outputs/TOUT-TASK-099-V80-DIRECTION.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+      ],
+      "blocker_refs": []
+    },
+    {
+      "requirement_id": "V80-DIR-REQ-002",
+      "title": "v8.0 direction preserves externalization boundaries",
+      "requirement_type": "release_gate",
+      "status": "covered",
+      "source_ref": "docs/v8.0-direction-review.md",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "direction excludes autonomous provider execution, secrets, billing, deploy, production writes, and semantic truth claims",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-099.json"
+      ],
+      "evidence_refs": [
+        "docs/v8.0-direction-review.md",
+        ".aof/artifacts/execution/role-results/RRES-TASK-099-GUARDIAN.json"
+      ],
+      "blocker_refs": []
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "direction complete; implementation handled by TASK-100",
+    "burndown_ref": null,
+    "forecast_boundary": "direction forecast is not implementation or release readiness proof"
+  },
+  "not_proven": "Coverage proves the direction task is represented and bounded, not that TASK-100 implementation or external execution is complete.",
+  "source_task_id": "TASK-099",
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-099-V80-DIRECTION",
+  "notes": null
+}

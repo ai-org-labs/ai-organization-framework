@@ -1,0 +1,34 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-18T11:52:24.044Z",
+  "team_output_id": "TOUT-MRQB4LIK-EBPM2K",
+  "team_id": "governance-team",
+  "stage": "planning",
+  "expected_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Council should approve v8.0 direction as Externalized Organization Runtime with a bounded first implementation slice: external resource schema, writer, audit, release-state gate, Mission Control projection, and self-hosting evidence.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v8.0-direction-review.md"
+  ],
+  "decision_required": false,
+  "summary": null,
+  "source_task_id": "TASK-099",
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "source_decision_record_id": null
+}

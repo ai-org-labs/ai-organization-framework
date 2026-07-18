@@ -1,0 +1,27 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRQBQ5VZ-472NZM",
+  "recorded_at": "2026-07-18T12:09:10.223Z",
+  "work_item_id": "TASK-100",
+  "work_item_ref": ".aof/tasks/done/TASK-100.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V80-EXTERNAL-RESOURCE-RUNTIME.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/actor-rosters/TASK-100.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-100-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-100-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-100-V80.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-100.json",
+  "maker_checker_council_boundary": "Builder makes, Guardian checks, Council judges; external resource output is not accepted as truth without boundaries.",
+  "not_proven": "Multi-actor evidence does not prove autonomous external provider execution or semantic correctness.",
+  "source_task_id": "TASK-100",
+  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "source_decision_record_id": "CREV-TASK-100-V80",
+  "notes": null
+}

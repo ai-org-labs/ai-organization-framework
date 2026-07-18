@@ -1,0 +1,27 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-V80-DIRECTION",
+  "recorded_at": "2026-07-18T11:52:41.514Z",
+  "work_item_id": "TASK-099",
+  "work_item_ref": ".aof/tasks/done/TASK-099.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V80-DIRECTION.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/actor-rosters/TASK-099.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-099.json",
+  "maker_checker_council_boundary": "Builder proposes the bounded v8.0 slice, Guardian checks overclaim boundaries, and Council judges whether implementation may proceed.",
+  "not_proven": "Multi-actor direction evidence does not prove implementation completeness, autonomous external execution, or semantic correctness.",
+  "source_task_id": "TASK-099",
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-099-V80-DIRECTION",
+  "notes": null
+}

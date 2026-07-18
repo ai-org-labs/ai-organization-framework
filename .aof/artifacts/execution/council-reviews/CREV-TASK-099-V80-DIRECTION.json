@@ -1,0 +1,38 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-18T11:52:41.514Z",
+  "review_packet_id": "CREV-MRQB4YZU-B9Y1UC",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v8.0 direction as Externalized Organization Runtime with bounded first slice.",
+  "rationale": "The direction preserves v7.9 boundaries and limits implementation to canonical external resource records, use records, audits, release-state integration, Mission Control projection, and self-hosting evidence. It explicitly defers autonomous provider execution, secrets, billing, deployment, production writes, and semantic truth claims.",
+  "recommendation": "Open the first v8.0 implementation task for external runtime resource contract and audit surface.",
+  "target_audience": null,
+  "expected_user_reaction": null,
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-099-V80-DIRECTION.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v8.0-direction-review.md"
+  ],
+  "follow_up_task_ids": [
+    "TASK-100"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-099",
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "source_decision_record_id": null
+}

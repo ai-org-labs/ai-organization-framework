@@ -1,0 +1,22 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-18T12:07:17.334Z",
+  "role": "Guardian",
+  "stage": "planning",
+  "session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "status": "completed",
+  "recommendation": "Approve only as bounded runtime governance evidence; reject any claim of autonomous external execution or semantic truth.",
+  "rationale": "external-resource-audit fails missing boundaries and requires approval for write-class operations, while current self-hosting proof is read-only.",
+  "signals": [],
+  "artifact_refs": [
+    ".aof/artifacts/external-resources/external-resource-audit.json",
+    "src/commands/release-state-audit.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-100",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": null
+}

@@ -1,0 +1,236 @@
+{
+  "ok": true,
+  "artifact_type": "external-resource-audit",
+  "generated_at": "2026-07-18T12:17:43.733Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "resource_count": 1,
+    "ready_resource_count": 1,
+    "use_count": 1,
+    "approved_or_not_required_use_count": 1,
+    "blocked_use_count": 0,
+    "missing_boundary_count": 0,
+    "failing_check_count": 0
+  },
+  "resources": [
+    {
+      "resource_id": "ERR-QIF-V030",
+      "resource_kind": "reference",
+      "display_name": "QIF v0.3.0 release reference",
+      "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+      "readiness_status": "ready",
+      "allowed_operations": [
+        "read"
+      ]
+    }
+  ],
+  "uses": [
+    {
+      "use_id": "ERU-MRQBLODX-J929DD",
+      "work_item_id": "TASK-100",
+      "resource_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+      "operation_type": "read",
+      "approval_status": "not_required",
+      "execution_status": "executed",
+      "artifact_ref": ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "external runtime resource presence",
+      "status": "pass",
+      "detail": "1 resource(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "external resource use presence",
+      "status": "pass",
+      "detail": "1 use record(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 source-of-truth boundary",
+      "status": "pass",
+      "detail": "QIF v0.3.0 release tag and local external-ref artifact are the source boundary",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 permission boundary",
+      "status": "pass",
+      "detail": "read-only reference; no external writes authorized",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 freshness boundary",
+      "status": "pass",
+      "detail": "freshness_required:current",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 availability boundary",
+      "status": "pass",
+      "detail": "available as local external-ref artifact",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 approval boundary",
+      "status": "pass",
+      "detail": "release-linked quality provider dependency; external updates require Council approval",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 side-effect boundary",
+      "status": "pass",
+      "detail": "read-only; no provider execution, billing, secrets, deploy, or production write",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 allowed operations",
+      "status": "pass",
+      "detail": "read",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 readiness status",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 not-proven boundary",
+      "status": "pass",
+      "detail": "This resource record does not prove QIF semantic suitability for every AOF work product or any market/operator acceptance.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V030 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-100, source_parent_session_id=SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-100.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V80-EXTERNAL-RESOURCE-RUNTIME.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD resource ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD resource is audited",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD operation allowed by resource",
+      "status": "pass",
+      "detail": "operation_type=read",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD resource readiness",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD approval status",
+      "status": "pass",
+      "detail": "operation_type=read, approval_status=not_required",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD output artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD output artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-runtime-resource-record.schema.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD not-proven boundary",
+      "status": "pass",
+      "detail": "This use record proves only that a bounded read-only external resource was linked to TASK-100; it does not prove QIF correctness, external provider execution, or operator acceptance.",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-MRQBLODX-J929DD runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-100, source_parent_session_id=SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    }
+  ],
+  "errors": []
+}

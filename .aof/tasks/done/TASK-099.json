@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-099",
+  "title": "Define v8.0 Externalized Organization Runtime direction",
+  "description": "Run the post-v7.9 runtime-backed direction review that selects the first bounded v8.0 implementation path for governed external actors, tools, providers, and references under explicit source-of-truth, permission, freshness, availability, approval, provenance, and not-proven boundaries.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V80-DIRECTION",
+  "assigned_session_ids": [
+    "SESS-V80-DIRECTION"
+  ],
+  "related_decision_record_id": "CREV-TASK-099-V80-DIRECTION",
+  "operating_goal_ref": "v8.0-externalized-organization-runtime",
+  "created_at": "2026-07-18T11:49:24.388Z",
+  "updated_at": "2026-07-18T11:52:59.860Z",
+  "assigned_at": null,
+  "done_at": "2026-07-18T11:52:59.860Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v8.0 direction approved: first slice is external runtime resource contract, writer, audit, release-state integration, Mission Control projection, and self-hosting evidence."
+}

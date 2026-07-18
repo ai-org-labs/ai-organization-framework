@@ -7,6 +7,7 @@ import { adoptionProofBenchmarkCommand } from "./adoption-proof-benchmark.js";
 import { contextReferenceIntegrityAuditCommand } from "./context-reference-integrity-audit.js";
 import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
 import { externalizationReadinessAuditCommand } from "./externalization-readiness-audit.js";
+import { externalResourceAuditCommand } from "./external-resource-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
@@ -145,6 +146,15 @@ function requiresExternalizationReadinessAudit(releaseVersion) {
   return major > 7 || (major === 7 && minor >= 9);
 }
 
+function requiresExternalResourceAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major] = match.map(Number);
+  return major >= 8;
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -205,6 +215,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresExternalizationReadinessAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("externalization-readiness-audit", await externalizationReadinessAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresExternalResourceAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("external-resource-audit", await externalResourceAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

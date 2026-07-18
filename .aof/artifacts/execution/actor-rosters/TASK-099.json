@@ -1,0 +1,25 @@
+{
+  "artifact_type": "actor-roster",
+  "recorded_at": "2026-07-18T11:52:41.514Z",
+  "work_item_id": "TASK-099",
+  "work_item_ref": ".aof/tasks/done/TASK-099.json",
+  "actors": [
+    {
+      "actor_ref": "visionary",
+      "role_ref": "visionary",
+      "responsibility": "Judge whether v8.0 moves AOF toward governed externalized organization runtime value."
+    },
+    {
+      "actor_ref": "builder",
+      "role_ref": "builder",
+      "responsibility": "Define the bounded implementation slice for external resource contracts and audits."
+    },
+    {
+      "actor_ref": "guardian",
+      "role_ref": "guardian",
+      "responsibility": "Protect authority boundaries and prevent overclaiming external execution or semantic truth."
+    }
+  ],
+  "source_task_id": "TASK-099",
+  "source_parent_session_id": "SESS-V80-DIRECTION"
+}

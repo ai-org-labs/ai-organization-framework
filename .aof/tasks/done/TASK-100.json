@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-100",
+  "title": "Implement v8.0 External Runtime Resource contract and audit",
+  "description": "Implement the first bounded v8.0 slice: external-runtime-resource-record, external-resource-use-record, external-resource-audit, release-state integration for v8.0+, Mission Control projection, self-hosting evidence, and tests. Do not implement autonomous provider execution, credentials, billing, deployment, or production writes.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "assigned_session_ids": [
+    "SESS-V80-EXTERNAL-RESOURCE-RUNTIME"
+  ],
+  "related_decision_record_id": "CREV-TASK-100-V80",
+  "operating_goal_ref": "v8.0-externalized-organization-runtime",
+  "created_at": "2026-07-18T11:53:00.366Z",
+  "updated_at": "2026-07-18T12:14:22.154Z",
+  "assigned_at": null,
+  "done_at": "2026-07-18T12:14:22.154Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v8.0 External Runtime Resource contract, use record, audit, release-state gate, Mission Control projection, and self-hosting evidence implemented."
+}

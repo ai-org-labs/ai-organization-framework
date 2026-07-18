@@ -1,0 +1,67 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-V80-DIRECTION",
+  "recorded_at": "2026-07-18T11:52:41.514Z",
+  "work_item_id": "TASK-099",
+  "work_item_ref": ".aof/tasks/done/TASK-099.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-099.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-099.json",
+  "lanes": [
+    {
+      "lane_id": "direction-value",
+      "goal": "select the highest-leverage v8.0 direction after v7.9 externalization readiness",
+      "owner_actor_ref": "visionary",
+      "input_refs": [
+        "docs/vnext-roadmap.md",
+        "docs/v8.0-direction-review.md"
+      ],
+      "expected_output": "approved v8.0 externalized organization runtime direction",
+      "output_refs": [
+        "docs/v8.0-direction-review.md",
+        ".aof/artifacts/execution/role-results/RRES-TASK-099-VISIONARY.json"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+      ],
+      "stop_condition": "stop if no bounded first slice can be selected",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "boundary-risk",
+      "goal": "prevent v8.0 from overclaiming provider execution, secrets, deploy, billing, production writes, or semantic truth",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "docs/v8.0-direction-review.md"
+      ],
+      "expected_output": "explicit authority and not-proven boundary for v8.0",
+      "output_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-099-GUARDIAN.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+      ],
+      "verification_refs": [
+        "docs/v8.0-direction-review.md"
+      ],
+      "stop_condition": "stop if v8.0 is framed as autonomous external execution",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "direction-value",
+      "boundary-risk"
+    ],
+    "conflict_summary": "no unresolved direction conflict",
+    "blocker_summary": "no active blocker after Council bounded the release scope",
+    "merge_rationale": "value and boundary lanes agree that v8.0 should implement external resource contract and audit before provider adapter automation",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json",
+  "not_proven": "Parallel lane direction evidence does not prove implementation completeness or external provider execution.",
+  "source_task_id": "TASK-099",
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-099-V80-DIRECTION",
+  "notes": null
+}

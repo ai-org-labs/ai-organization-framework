@@ -1,0 +1,25 @@
+{
+  "artifact_type": "external-runtime-resource-record",
+  "resource_id": "ERR-QIF-V030",
+  "recorded_at": "2026-07-18T12:05:24.224Z",
+  "resource_kind": "reference",
+  "display_name": "QIF v0.3.0 release reference",
+  "canonical_ref": ".aof/external-refs/QIF-v0.3.0.json",
+  "source_system": "GitHub release tag",
+  "owner_ref": "verification-team",
+  "source_of_truth": "QIF v0.3.0 release tag and local external-ref artifact are the source boundary",
+  "permission_boundary": "read-only reference; no external writes authorized",
+  "freshness_boundary": "freshness_required:current",
+  "availability_boundary": "available as local external-ref artifact",
+  "approval_boundary": "release-linked quality provider dependency; external updates require Council approval",
+  "side_effect_boundary": "read-only; no provider execution, billing, secrets, deploy, or production write",
+  "allowed_operations": [
+    "read"
+  ],
+  "readiness_status": "ready",
+  "not_proven": "This resource record does not prove QIF semantic suitability for every AOF work product or any market/operator acceptance.",
+  "source_task_id": "TASK-100",
+  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "source_decision_record_id": "CREV-TASK-099-V80-DIRECTION",
+  "notes": null
+}

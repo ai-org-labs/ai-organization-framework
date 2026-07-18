@@ -1,0 +1,25 @@
+{
+  "artifact_type": "actor-roster",
+  "recorded_at": "2026-07-18T12:07:45.000Z",
+  "work_item_id": "TASK-100",
+  "work_item_ref": ".aof/tasks/done/TASK-100.json",
+  "actors": [
+    {
+      "actor_ref": "visionary",
+      "role_ref": "visionary",
+      "responsibility": "Confirm the product value of externalized runtime resource governance."
+    },
+    {
+      "actor_ref": "builder",
+      "role_ref": "builder",
+      "responsibility": "Implement schemas, writers, audit, release-state integration, and Mission Control projection."
+    },
+    {
+      "actor_ref": "guardian",
+      "role_ref": "guardian",
+      "responsibility": "Verify boundaries, refs, approval status, provenance, and not-proven claims."
+    }
+  ],
+  "source_task_id": "TASK-100",
+  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME"
+}

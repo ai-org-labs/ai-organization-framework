@@ -266,6 +266,96 @@ QIF boundary:
 - pass は externalization readiness の structural/runtime evidence であり、外部 provider 実行、外部 tool の semantic correctness、operator acceptance、secrets/billing/deploy safety を証明しない
 - release sign-off では `release-state-audit` が v7.9 以降この audit を release gate として実行する
 
+### `external-runtime-resource-record`
+
+external actor / tool / provider / reference を governed runtime resource として記録する。これは v8.0 の Externalized Organization Runtime 用 command であり、外部の存在を「見えないcontext」ではなく、境界付きresource artifactとして扱う。
+
+```bash
+node ./src/cli.js external-runtime-resource-record \
+  --project . \
+  --resource-kind reference \
+  --display-name "QIF v0.3.0 release reference" \
+  --canonical-ref .aof/external-refs/QIF-v0.3.0.json \
+  --source-system "GitHub release tag" \
+  --owner-ref verification-team \
+  --source-of-truth "release tag and local external-ref artifact" \
+  --permission-boundary "read-only reference" \
+  --freshness-boundary "freshness_required:current" \
+  --availability-boundary "available" \
+  --approval-boundary "updates require Council approval" \
+  --side-effect-boundary "read-only; no external write" \
+  --allowed-operation read \
+  --readiness-status ready \
+  --not-proven "does not prove semantic suitability" \
+  --source-task-id TASK-100 \
+  --source-parent-session-id SESS-V80-EXTERNAL-RESOURCE-RUNTIME
+```
+
+主な記録項目:
+
+- resource kind / display name / canonical ref
+- source-of-truth / permission / freshness / availability / approval boundary
+- side-effect boundary
+- allowed operations
+- readiness status
+- runtime provenance
+- not-proven boundary
+
+### `external-resource-use-record`
+
+external runtime resource の利用を task / session / operation / approval / output / risk / decision に紐づける。
+
+```bash
+node ./src/cli.js external-resource-use-record \
+  --project . \
+  --work-item-id TASK-100 \
+  --work-item-ref .aof/tasks/open/TASK-100.json \
+  --session-ref .aof/artifacts/agent-sessions/SESS-V80-EXTERNAL-RESOURCE-RUNTIME.json \
+  --resource-ref .aof/artifacts/external-runtime-resources/ERR-QIF-V030.json \
+  --use-purpose "Read QIF as external quality reference" \
+  --operation-type read \
+  --approval-status not_required \
+  --execution-status executed \
+  --not-proven "does not prove external semantic correctness" \
+  --source-task-id TASK-100 \
+  --source-parent-session-id SESS-V80-EXTERNAL-RESOURCE-RUNTIME
+```
+
+主な記録項目:
+
+- linked work item / session / resource
+- operation type: read / local_write / external_write / dangerous
+- approval status and optional approval ref
+- output artifact refs
+- risk / decision candidates
+- runtime provenance
+- not-proven boundary
+
+### `external-resource-audit`
+
+external runtime resource と use record が、境界・参照・承認・provenanceを満たしているかを検査する。write-class operation は `approval_status=approved` と approval ref がない限り release-ready ではない。
+
+```bash
+node ./src/cli.js external-resource-audit --project . \
+  --write-artifact .aof/artifacts/external-resources/external-resource-audit.json
+```
+
+主な確認項目:
+
+- external runtime resource presence
+- external resource use presence
+- source-of-truth / permission / freshness / availability / approval boundary
+- side-effect / allowed-operation / not-proven boundary
+- use record の task / session / resource / output refs 解決
+- operation が resource の allowed operations に含まれること
+- external_write / dangerous operation は explicit approval が必要
+- runtime provenance があること
+
+QIF boundary:
+
+- pass は external resource governance の structural/runtime evidence であり、外部 provider execution、semantic truth、operator acceptance、credential/billing/deploy safety を証明しない
+- release sign-off では `release-state-audit` が v8.0 以降この audit を release gate として実行する
+
 ### `archmap-impact-audit`
 
 `TASK-071` 以降の implementation-grade work item が、Archmap への影響判断を持っているかを narrow に検査する。これは v6.7 の Verifiable Governance 用 command であり、release sign-off 前に「アーキテクチャ影響を見たことにしていないか」を機械的に落とすためのもの。

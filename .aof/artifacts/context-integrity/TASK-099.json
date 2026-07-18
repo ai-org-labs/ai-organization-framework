@@ -1,0 +1,25 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-V80-DIRECTION",
+  "recorded_at": "2026-07-18T11:52:41.514Z",
+  "work_item_id": "TASK-099",
+  "work_item_ref": ".aof/tasks/done/TASK-099.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V80-DIRECTION.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/v8.0-direction-review.md",
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-099-V80-DIRECTION.json",
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+  ],
+  "required_context_refs": [
+    "docs/v8.0-direction-review.md",
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves TASK-099 direction evidence is present; it does not prove implementation completeness, external provider execution, semantic truth, or operator acceptance.",
+  "source_task_id": "TASK-099",
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-099-V80-DIRECTION"
+}

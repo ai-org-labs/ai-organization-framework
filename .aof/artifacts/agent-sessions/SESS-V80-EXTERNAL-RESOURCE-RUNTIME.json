@@ -1,0 +1,122 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRQBKWGQ-LWPT1C",
+  "recorded_at": "2026-07-18T12:05:04.730Z",
+  "session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "ASEV1-MRQBKWGQ-W58I3K",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-18T12:05:04.730Z",
+      "summary": "Operator advanced AOF from v7.9 to v8.0 Externalized Organization Runtime.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRQBKWGQ-NKN7YV",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-18T12:05:04.730Z",
+      "summary": "Implemented external resource schemas, writers, audit, release-state gate, and Mission Control projection.",
+      "artifact_refs": [],
+      "tool_name": "external-resource-audit",
+      "safety_level": "safe_local_write",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV3-MRQBKWGQ-1EB9LO",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-18T12:05:04.730Z",
+      "summary": "Wrote v8.0 external resource contract artifacts and direction review.",
+      "artifact_refs": [
+        "docs/v8.0-direction-review.md",
+        "schemas/aof-external-runtime-resource-record.schema.json",
+        "schemas/aof-external-resource-use-record.schema.json",
+        "schemas/aof-external-resource-audit.schema.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV4-MRQBKWGQ-PB32S6",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-18T12:05:04.730Z",
+      "summary": "Initial command help checks passed for the new v8.0 commands.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV5-MRQBKWGQ-CDRMRM",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-07-18T12:05:04.730Z",
+      "summary": "External resource presence could be mistaken for semantic truth without explicit not-proven boundary.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV6-MRQBKWGQ-KYV8WS",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-07-18T12:05:04.730Z",
+      "summary": "Promote external-resource-audit to release-state-audit for v8.0 and later.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV7-MRQBKWGQ-P300N2",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-18T12:05:04.730Z",
+      "summary": "Do not claim autonomous external execution, credentials, billing, deploy, or production write support in v8.0.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-100.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.0-direction-review.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "docs/v8.0-direction-review.md",
+      "schemas/aof-external-runtime-resource-record.schema.json"
+    ]
+  },
+  "risk_candidates": [
+    "external resource output overclaimed as semantic truth"
+  ],
+  "decision_candidates": [
+    "make external-resource-audit a v8.0 release gate"
+  ],
+  "release_ready_evidence": {
+    "claim": "Release readiness is not claimed from this session alone.",
+    "evidence_refs": [
+      "docs/v8.0-direction-review.md"
+    ],
+    "verdict": "structurally_ready"
+  },
+  "source_task_id": "TASK-100",
+  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "source_decision_record_id": null
+}

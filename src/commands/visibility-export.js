@@ -975,6 +975,41 @@ async function loadExternalizationReadinessProjection(projectRoot) {
   };
 }
 
+async function loadExternalResourceProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/external-resources/external-resource-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "external resource audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      resource_count: 0,
+      ready_resource_count: 0,
+      use_count: 0,
+      approved_or_not_required_use_count: 0,
+      blocked_use_count: 0,
+      missing_boundary_count: null,
+      resources: [],
+      uses: [],
+      not_proven: "No external resource audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    resource_count: audit.summary?.resource_count ?? 0,
+    ready_resource_count: audit.summary?.ready_resource_count ?? 0,
+    use_count: audit.summary?.use_count ?? 0,
+    approved_or_not_required_use_count: audit.summary?.approved_or_not_required_use_count ?? 0,
+    blocked_use_count: audit.summary?.blocked_use_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    resources: audit.resources ?? [],
+    uses: audit.uses ?? [],
+    not_proven: "External resource projection is structural/runtime evidence; it does not prove semantic correctness of external output or operator acceptance."
+  };
+}
+
 function buildEvidenceCompletenessProjection({
   requirementCoverageProjection,
   adoptionProofProjection,
@@ -1042,6 +1077,7 @@ function buildMissionControl({
   requirementCoverageProjection = null,
   adoptionProofProjection = null,
   externalizationReadinessProjection = null,
+  externalResourceProjection = null,
   evidenceCompletenessProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
@@ -1246,6 +1282,20 @@ function buildMissionControl({
       claims: [],
       not_proven: "No externalization readiness audit artifact is present."
     },
+    external_resource_projection: externalResourceProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/external-resources/external-resource-audit.json",
+      audit_ok: null,
+      resource_count: 0,
+      ready_resource_count: 0,
+      use_count: 0,
+      approved_or_not_required_use_count: 0,
+      blocked_use_count: 0,
+      missing_boundary_count: null,
+      resources: [],
+      uses: [],
+      not_proven: "No external resource audit artifact is present."
+    },
     evidence_completeness_projection: evidenceCompletenessProjection ?? {
       completeness_status: "incomplete",
       source_of_truth_boundary: "Mission Control is a read-only projection of canonical AOF artifacts.",
@@ -1263,7 +1313,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -1280,7 +1330,8 @@ export async function visibilityExportCommand(options) {
     loadContextReferenceIntegrityProjection(projectRoot, aofRoot),
     loadRequirementCoverageProjection(projectRoot, aofRoot),
     loadAdoptionProofProjection(projectRoot),
-    loadExternalizationReadinessProjection(projectRoot)
+    loadExternalizationReadinessProjection(projectRoot),
+    loadExternalResourceProjection(projectRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -1328,6 +1379,7 @@ export async function visibilityExportCommand(options) {
     requirementCoverageProjection,
     adoptionProofProjection,
     externalizationReadinessProjection,
+    externalResourceProjection,
     evidenceCompletenessProjection
   });
   const operatorBrief = buildOperatorBriefView({

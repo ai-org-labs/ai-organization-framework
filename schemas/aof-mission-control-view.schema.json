@@ -12,6 +12,7 @@
     "requirement_coverage_projection",
     "adoption_proof_projection",
     "externalization_readiness_projection",
+    "external_resource_projection",
     "evidence_completeness_projection"
   ],
   "properties": {
@@ -702,6 +703,69 @@
               "availability_boundary": { "type": "string" },
               "approval_boundary": { "type": "string" },
               "not_proven": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "external_resource_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "resource_count",
+        "ready_resource_count",
+        "use_count",
+        "approved_or_not_required_use_count",
+        "blocked_use_count",
+        "missing_boundary_count",
+        "resources",
+        "uses",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "resource_count": { "type": "integer" },
+        "ready_resource_count": { "type": "integer" },
+        "use_count": { "type": "integer" },
+        "approved_or_not_required_use_count": { "type": "integer" },
+        "blocked_use_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["resource_id", "resource_kind", "display_name", "artifact_ref", "readiness_status", "allowed_operations"],
+            "properties": {
+              "resource_id": { "type": "string" },
+              "resource_kind": { "type": "string" },
+              "display_name": { "type": "string" },
+              "artifact_ref": { "type": "string" },
+              "readiness_status": { "type": "string" },
+              "allowed_operations": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        },
+        "uses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["use_id", "work_item_id", "resource_ref", "operation_type", "approval_status", "execution_status", "artifact_ref"],
+            "properties": {
+              "use_id": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "resource_ref": { "type": "string" },
+              "operation_type": { "type": "string" },
+              "approval_status": { "type": "string" },
+              "execution_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false
           }

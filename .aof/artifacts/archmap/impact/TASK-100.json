@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-18T12:10:20.000Z",
+  "work_item_id": "TASK-100",
+  "work_item_ref": ".aof/tasks/done/TASK-100.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v8.0 adds Externalized Organization Runtime resource governance: external actors, tools, providers, and references can be represented as bounded runtime resources and linked to use records before release sign-off.",
+  "archmap_source_ref": "docs/v8.0-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-100-V80.json",
+  "not_proven": "This impact record states governance map semantics changed; it does not prove external provider execution, semantic truth, or operator acceptance."
+}

@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-18T11:52:41.514Z",
+  "work_item_id": "TASK-099",
+  "work_item_ref": ".aof/tasks/done/TASK-099.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v8.0 direction moves AOF from externalization readiness to Externalized Organization Runtime: external actors, tools, providers, and references must become governed resource/use/audit records before adapter automation.",
+  "archmap_source_ref": "docs/v8.0-direction-review.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json",
+  "not_proven": "This impact record states direction-level architecture impact; it does not prove implementation completeness, external provider execution, semantic truth, or operator acceptance."
+}

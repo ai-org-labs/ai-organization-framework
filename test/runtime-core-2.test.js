@@ -28,6 +28,9 @@ import { discoveryQuestionSetRecordCommand } from "../src/commands/discovery-que
 import { evidenceIndependenceAuditCommand } from "../src/commands/evidence-independence-audit.js";
 import { executionLineageCommand } from "../src/commands/execution-lineage.js";
 import { externalReferenceIntegrityRecordCommand } from "../src/commands/external-reference-integrity-record.js";
+import { externalResourceAuditCommand } from "../src/commands/external-resource-audit.js";
+import { externalResourceUseRecordCommand } from "../src/commands/external-resource-use-record.js";
+import { externalRuntimeResourceRecordCommand } from "../src/commands/external-runtime-resource-record.js";
 import { initProjectCommand } from "../src/commands/init-project.js";
 import { learningLoopSnapshotCommand } from "../src/commands/learning-loop-snapshot.js";
 import { missionControlBenchmarkCommand } from "../src/commands/mission-control-benchmark.js";
@@ -2521,11 +2524,165 @@ test("commandRegistryRefreshCommand writes the canonical command registry artifa
   const registry = JSON.parse(await fs.readFile(result.artifactPath, "utf8"));
   assert.equal(registry.artifact_type, "command-registry");
   assert.equal(registry.commands.some((entry) => entry.command === "command-register"), true);
+  assert.equal(registry.commands.some((entry) => entry.command === "external-runtime-resource-record"), true);
+  assert.equal(registry.commands.some((entry) => entry.command === "external-resource-use-record"), true);
+  assert.equal(registry.commands.some((entry) => entry.command === "external-resource-audit"), true);
   assert.equal(typeof result.orientationPath, "string");
   const orientation = JSON.parse(await fs.readFile(result.orientationPath, "utf8"));
   const registryTopCommands = registry.commands.filter((entry) => entry.top_command).map((entry) => entry.command).sort();
   const orientationTopCommands = orientation.command_routing_summary.top_commands.map((entry) => entry.command).sort();
   assert.deepEqual(orientationTopCommands, registryTopCommands);
+});
+
+test("external resource commands write bounded records and audit read-only use", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "external-output.md"), "# External Output\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Use governed external reference",
+    description: "Fixture task for external resource governance.",
+    origin: "human"
+  });
+  const taskRef = ".aof/tasks/open/TASK-001.json";
+  const sessionResult = await agentSessionRecordCommand({
+    project: projectRoot,
+    sessionId: "SESS-EXTERNAL-READ",
+    actorRef: "codex",
+    roleRef: "builder",
+    events: [{
+      eventType: "tool_call",
+      summary: "Read an external reference under an approved boundary."
+    }],
+    taskRefs: [taskRef],
+    requirementRefs: ["docs/external-output.md"],
+    testEvidenceRefs: ["docs/external-output.md"],
+    artifactRefs: ["docs/external-output.md"],
+    releaseReadyVerdict: "structurally_ready",
+    releaseReadyEvidenceRefs: ["docs/external-output.md"],
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-EXTERNAL-READ"
+  });
+  const sessionRef = path.relative(projectRoot, sessionResult.artifactPath).replaceAll(path.sep, "/");
+
+  const resourceResult = await externalRuntimeResourceRecordCommand({
+    project: projectRoot,
+    resourceId: "ERR-TEST-REFERENCE",
+    resourceKind: "reference",
+    displayName: "Test external reference",
+    canonicalRef: "https://example.invalid/reference",
+    sourceSystem: "example",
+    ownerRef: "runtime-team",
+    sourceOfTruth: "fixture reference boundary",
+    permissionBoundary: "read-only fixture",
+    freshnessBoundary: "static fixture",
+    availabilityBoundary: "local test artifact",
+    approvalBoundary: "read does not require approval",
+    sideEffectBoundary: "no side effects",
+    allowedOperations: ["read"],
+    readinessStatus: "ready",
+    notProven: "This fixture does not prove external semantic truth.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-EXTERNAL-READ"
+  });
+  const resourceRef = path.relative(projectRoot, resourceResult.artifactPath).replaceAll(path.sep, "/");
+
+  await externalResourceUseRecordCommand({
+    project: projectRoot,
+    useId: "ERU-TEST-READ",
+    workItemId: "TASK-001",
+    workItemRef: taskRef,
+    sessionRef,
+    resourceRef,
+    usePurpose: "Read a governed reference during test work.",
+    operationType: "read",
+    approvalStatus: "not_required",
+    executionStatus: "executed",
+    outputArtifactRefs: ["docs/external-output.md"],
+    riskCandidates: ["semantic truth not proven"],
+    decisionCandidates: ["keep external reference bounded"],
+    notProven: "This use record proves only bounded read linkage.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-EXTERNAL-READ"
+  });
+
+  const audit = await externalResourceAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true);
+  assert.equal(audit.summary.summary.resource_count, 1);
+  assert.equal(audit.summary.summary.use_count, 1);
+  assert.equal(audit.summary.errors.length, 0);
+});
+
+test("externalResourceAuditCommand fails unapproved external writes", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Attempt external write",
+    description: "Fixture task for external write gate.",
+    origin: "human"
+  });
+  const taskRef = ".aof/tasks/open/TASK-001.json";
+  const sessionResult = await agentSessionRecordCommand({
+    project: projectRoot,
+    sessionId: "SESS-EXTERNAL-WRITE",
+    actorRef: "codex",
+    roleRef: "builder",
+    events: [{
+      eventType: "tool_call",
+      summary: "Attempted external write without approval."
+    }],
+    taskRefs: [taskRef],
+    requirementRefs: [taskRef],
+    testEvidenceRefs: [taskRef],
+    artifactRefs: [taskRef],
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-EXTERNAL-WRITE"
+  });
+  const sessionRef = path.relative(projectRoot, sessionResult.artifactPath).replaceAll(path.sep, "/");
+  const resourceResult = await externalRuntimeResourceRecordCommand({
+    project: projectRoot,
+    resourceId: "ERR-TEST-WRITE",
+    resourceKind: "provider",
+    displayName: "Test write provider",
+    canonicalRef: "https://example.invalid/provider",
+    sourceSystem: "example",
+    ownerRef: "runtime-team",
+    sourceOfTruth: "fixture provider boundary",
+    permissionBoundary: "external writes require approval",
+    freshnessBoundary: "static fixture",
+    availabilityBoundary: "local test artifact",
+    approvalBoundary: "Council approval required for external_write",
+    sideEffectBoundary: "external write has side effects",
+    allowedOperations: ["external_write"],
+    readinessStatus: "ready",
+    notProven: "This fixture does not prove write safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-EXTERNAL-WRITE"
+  });
+  const resourceRef = path.relative(projectRoot, resourceResult.artifactPath).replaceAll(path.sep, "/");
+
+  await externalResourceUseRecordCommand({
+    project: projectRoot,
+    useId: "ERU-TEST-WRITE",
+    workItemId: "TASK-001",
+    workItemRef: taskRef,
+    sessionRef,
+    resourceRef,
+    usePurpose: "Attempt an external write without explicit approval.",
+    operationType: "external_write",
+    approvalStatus: "not_required",
+    executionStatus: "planned",
+    outputArtifactRefs: [],
+    riskCandidates: ["external write without approval"],
+    decisionCandidates: ["block unapproved external write"],
+    notProven: "This use record intentionally lacks approval.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-EXTERNAL-WRITE"
+  });
+
+  const audit = await externalResourceAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("approval status")));
 });
 
 test("commandRegisterCommand exposes command taxonomy and top commands", async (t) => {

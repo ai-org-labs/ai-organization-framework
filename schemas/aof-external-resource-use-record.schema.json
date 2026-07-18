@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-external-resource-use-record.schema.json",
+  "title": "AOF External Resource Use Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "use_id",
+    "recorded_at",
+    "work_item_id",
+    "work_item_ref",
+    "session_ref",
+    "resource_ref",
+    "use_purpose",
+    "operation_type",
+    "approval_status",
+    "execution_status",
+    "output_artifact_refs",
+    "risk_candidates",
+    "decision_candidates",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "external-resource-use-record" },
+    "use_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_id": { "type": "string", "minLength": 1 },
+    "work_item_ref": { "type": "string", "minLength": 1 },
+    "session_ref": { "type": "string", "minLength": 1 },
+    "resource_ref": { "type": "string", "minLength": 1 },
+    "use_purpose": { "type": "string", "minLength": 1 },
+    "operation_type": {
+      "type": "string",
+      "enum": ["read", "local_write", "external_write", "dangerous"]
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": ["not_required", "pending", "approved", "rejected"]
+    },
+    "approval_ref": { "type": ["string", "null"] },
+    "execution_status": {
+      "type": "string",
+      "enum": ["planned", "executed", "blocked", "skipped"]
+    },
+    "output_artifact_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "risk_candidates": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "decision_candidates": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

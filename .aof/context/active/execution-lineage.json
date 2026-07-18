@@ -1,66 +1,20 @@
 {
   "snapshot_type": "execution-lineage",
-  "generated_at": "2026-07-14T01:47:29.157Z",
-  "source_parent_session_id": null,
-  "source_task_id": "TASK-095",
-  "stage_filter": null,
-  "role_result_count": 3,
+  "generated_at": "2026-07-18T12:06:47.490Z",
+  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
+  "source_task_id": "TASK-100",
+  "stage_filter": "planning",
+  "role_result_count": 0,
   "role_join_count": 0,
-  "team_output_count": 1,
-  "council_review_count": 1,
-  "decision_required_count": 4,
-  "blocking_signal_count": 3,
-  "stages_observed": [
-    "review",
-    "execution"
-  ],
-  "latest_stage": "review",
-  "recommended_next_step": "Run session-export-audit, release-state-audit, full tests, smoke, then tag v7.6.0 if green.",
-  "role_results": [
-    {
-      "role_result_id": null,
-      "role": "Visionary",
-      "stage": "review",
-      "status": "completed",
-      "decision_required": true,
-      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-095-VISIONARY.json"
-    },
-    {
-      "role_result_id": null,
-      "role": "Builder",
-      "stage": "execution",
-      "status": "completed",
-      "decision_required": true,
-      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-095-BUILDER.json"
-    },
-    {
-      "role_result_id": null,
-      "role": "Guardian",
-      "stage": "review",
-      "status": "completed",
-      "decision_required": true,
-      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-095-GUARDIAN.json"
-    }
-  ],
+  "team_output_count": 0,
+  "council_review_count": 0,
+  "decision_required_count": 0,
+  "blocking_signal_count": 0,
+  "stages_observed": [],
+  "latest_stage": null,
+  "recommended_next_step": "no execution packet recommendation is available yet",
+  "role_results": [],
   "role_joins": [],
-  "team_outputs": [
-    {
-      "team_output_id": "TOUT-MRJZQHWZ-3O4Q8V",
-      "team_id": "runtime-team",
-      "stage": "review",
-      "aggregate_state": "ready-for-council-review",
-      "decision_required": true,
-      "artifact_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-095-V76.json"
-    }
-  ],
-  "council_reviews": [
-    {
-      "review_packet_id": "CREV-MRJZQY3D-WAZLO4",
-      "council_id": "architecture-council",
-      "stage": "review",
-      "review_status": "approved",
-      "escalation_required": false,
-      "artifact_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-095-V76.json"
-    }
-  ]
+  "team_outputs": [],
+  "council_reviews": []
 }

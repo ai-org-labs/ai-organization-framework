@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-execution-packet",
+  "packet_id": "WEP-V80-DIRECTION",
+  "recorded_at": "2026-07-18T11:52:41.514Z",
+  "work_item_id": "TASK-099",
+  "work_item_ref": ".aof/tasks/done/TASK-099.json",
+  "execution_status": "completed",
+  "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-099.json",
+  "actor_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-099-GUARDIAN.json"
+  ],
+  "execution_lineage_ref": ".aof/context/active/execution-lineage.json",
+  "verification_evidence_refs": [
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json",
+    "docs/v8.0-direction-review.md"
+  ],
+  "stop_continue_decision": {
+    "decision": "continue",
+    "rationale": "Council approved a bounded v8.0 direction and opened TASK-100 for implementation.",
+    "decided_by": "architecture-council",
+    "evidence_refs": [
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+    ]
+  },
+  "not_proven": "Work execution packet proves direction closure only; it does not prove TASK-100 implementation, external provider execution, semantic truth, or operator acceptance.",
+  "source_task_id": "TASK-099",
+  "source_parent_session_id": "SESS-V80-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-099-V80-DIRECTION",
+  "notes": null
+}

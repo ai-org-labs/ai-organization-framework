@@ -433,21 +433,23 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v7.9.0`, advance `v8.0` as Externalized Organization Runtime.
+After `v8.0.0`, advance `v8.1` as External Reference And Provider Adapter Governance.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
 proof, session, context, release, and Archmap evidence can be projected from
 canonical runtime artifacts. The v7.9 Externalization Readiness Boundary then
 made externalized actor/tool/provider/reference claims auditable for
 source-of-truth, permission, freshness, availability, approval, provenance, and
-not-proven boundaries. The next proof is actual externalized runtime resource
-governance without turning provider adapters into hidden sources of truth.
+not-proven boundaries. v8.0 added actual external runtime resource and use
+contracts. The next proof is provider adapter governance: safe read adapter
+boundaries, approval policy checks, freshness verification, and explicit
+external-write escalation.
 
 Priority order:
 
-1. `v8.0`: Externalized Organization Runtime
-2. `v8.1`: External Reference And Provider Adapter Governance
-3. `v8.2`: Adoption Feedback And Operator Validation Loop
-4. `v8.3`: Mission Control Operator Acceptance Evidence
+1. `v8.1`: External Reference And Provider Adapter Governance
+2. `v8.2`: Adoption Feedback And Operator Validation Loop
+3. `v8.3`: Mission Control Operator Acceptance Evidence
+4. `v8.4`: Externalized Runtime Operator Safety Proof
 
 Canonical v7.x roadmap:
 
@@ -461,6 +463,6 @@ Reasoning:
   as bounded runtime evidence, then legible in Mission Control as coverage,
   forecast, blocked work, adoption proof, and evidence completeness, and finally
   bounded externalization claims before v8.
-- v8.0 through v8.3 externalize the organization runtime, govern adapters, and
+- v8.0 through v8.4 externalize the organization runtime, govern adapters, and
   add operator validation and acceptance loops without overclaiming semantic
   truth.

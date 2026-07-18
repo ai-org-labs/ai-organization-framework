@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-external-runtime-resource-record.schema.json",
+  "title": "AOF External Runtime Resource Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "resource_id",
+    "recorded_at",
+    "resource_kind",
+    "display_name",
+    "canonical_ref",
+    "source_system",
+    "owner_ref",
+    "source_of_truth",
+    "permission_boundary",
+    "freshness_boundary",
+    "availability_boundary",
+    "approval_boundary",
+    "side_effect_boundary",
+    "allowed_operations",
+    "readiness_status",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "external-runtime-resource-record" },
+    "resource_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "resource_kind": {
+      "type": "string",
+      "enum": ["actor", "tool", "provider", "reference"]
+    },
+    "display_name": { "type": "string", "minLength": 1 },
+    "canonical_ref": { "type": "string", "minLength": 1 },
+    "source_system": { "type": "string", "minLength": 1 },
+    "owner_ref": { "type": "string", "minLength": 1 },
+    "source_of_truth": { "type": "string", "minLength": 1 },
+    "permission_boundary": { "type": "string", "minLength": 1 },
+    "freshness_boundary": { "type": "string", "minLength": 1 },
+    "availability_boundary": { "type": "string", "minLength": 1 },
+    "approval_boundary": { "type": "string", "minLength": 1 },
+    "side_effect_boundary": { "type": "string", "minLength": 1 },
+    "allowed_operations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["read", "local_write", "external_write", "dangerous"]
+      }
+    },
+    "readiness_status": {
+      "type": "string",
+      "enum": ["ready", "warning", "blocked", "accepted_residual_risk"]
+    },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}
