@@ -13,6 +13,7 @@
     "adoption_proof_projection",
     "externalization_readiness_projection",
     "external_resource_projection",
+    "provider_adapter_projection",
     "evidence_completeness_projection"
   ],
   "properties": {
@@ -765,6 +766,49 @@
               "operation_type": { "type": "string" },
               "approval_status": { "type": "string" },
               "execution_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_adapter_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "adapter_count",
+        "ready_adapter_count",
+        "write_capable_adapter_count",
+        "blocked_adapter_count",
+        "missing_boundary_count",
+        "adapters",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "adapter_count": { "type": "integer" },
+        "ready_adapter_count": { "type": "integer" },
+        "write_capable_adapter_count": { "type": "integer" },
+        "blocked_adapter_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "adapters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["adapter_id", "display_name", "adapter_kind", "operation_modes", "readiness_status", "artifact_ref"],
+            "properties": {
+              "adapter_id": { "type": "string" },
+              "display_name": { "type": "string" },
+              "adapter_kind": { "type": "string" },
+              "operation_modes": { "type": "array", "items": { "type": "string" } },
+              "readiness_status": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

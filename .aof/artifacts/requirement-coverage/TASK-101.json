@@ -1,0 +1,82 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRQNZ4RN-ASYPGA",
+  "recorded_at": "2026-07-18T17:52:04.067Z",
+  "work_item_id": "TASK-101",
+  "work_item_ref": ".aof/tasks/done/TASK-101.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "V81-REQ-001",
+      "title": "Provider adapter records exist",
+      "requirement_type": "release_gate",
+      "status": "covered",
+      "source_ref": "docs/v8.1-release-definition.md",
+      "owner_ref": "runtime-team",
+      "acceptance_boundary": "provider-adapter-record writes schema-valid governed adapter artifacts",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-101.json"
+      ],
+      "evidence_refs": [
+        "schemas/aof-provider-adapter-record.schema.json",
+        "src/commands/provider-adapter-record.js",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
+      ],
+      "blocker_refs": []
+    },
+    {
+      "requirement_id": "V81-REQ-002",
+      "title": "Provider adapter audit gates release readiness",
+      "requirement_type": "release_gate",
+      "status": "covered",
+      "source_ref": "docs/v8.1-release-definition.md",
+      "owner_ref": "verification-team",
+      "acceptance_boundary": "provider-adapter-audit passes and release-state-audit includes it for v8.1+",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-101.json"
+      ],
+      "evidence_refs": [
+        "schemas/aof-provider-adapter-audit.schema.json",
+        "src/commands/provider-adapter-audit.js",
+        ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+      ],
+      "blocker_refs": []
+    },
+    {
+      "requirement_id": "V81-REQ-003",
+      "title": "Mission Control projects adapter readiness",
+      "requirement_type": "release_gate",
+      "status": "covered",
+      "source_ref": "docs/v8.1-release-definition.md",
+      "owner_ref": "runtime-team",
+      "acceptance_boundary": "visibility-export includes provider_adapter_projection from canonical audit artifact",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-101.json"
+      ],
+      "evidence_refs": [
+        "src/commands/visibility-export.js",
+        "schemas/aof-mission-control-view.schema.json"
+      ],
+      "blocker_refs": []
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 3,
+    "covered_count": 3,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "complete after verification",
+    "burndown_ref": null,
+    "forecast_boundary": "release forecast is local governance evidence, not delivery certainty"
+  },
+  "not_proven": "Coverage proves v8.1 release gates are represented, not provider semantic truth, credential safety, billing safety, production write safety, or operator acceptance.",
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-101-V81",
+  "notes": null
+}

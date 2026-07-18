@@ -1,0 +1,25 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRQNX3LY-SRX0SJ",
+  "recorded_at": "2026-07-18T17:50:29.254Z",
+  "work_item_id": "TASK-101",
+  "work_item_ref": ".aof/tasks/done/TASK-101.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V81-DIRECTION.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/v8.1-direction-review.md",
+    ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+    ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
+  ],
+  "required_context_refs": [
+    "docs/v8.1-release-definition.md",
+    ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared refs are present; it does not prove provider semantic correctness, credential safety, billing safety, production write safety, or operator acceptance.",
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-101-V81"
+}

@@ -1,0 +1,33 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRQNX2B2-866DDI",
+  "recorded_at": "2026-07-18T17:50:27.566Z",
+  "work_item_id": "TASK-101",
+  "work_item_ref": ".aof/tasks/done/TASK-101.json",
+  "readiness_status": "ready",
+  "goal": "Ship v8.1 Provider Adapter Governance.",
+  "risk": "AOF could treat provider adapters as hidden authority channels without read/write boundaries, freshness checks, approval policy, escalation, or not-proven limits.",
+  "loss_boundary": "No v8.1 release claim without provider adapter records, provider-adapter-audit, release-state integration, Mission Control projection, Council review, tests, and smoke.",
+  "acceptance_gates": [
+    "provider-adapter-audit passes",
+    "release-state-audit includes provider-adapter-audit for v8.1+"
+  ],
+  "evidence_plan": [
+    "schemas commands audit release-state Mission Control docs runtime evidence npm test smoke"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if provider-adapter-audit fails",
+    "stop if v8.1 claims provider semantic truth or external write safety"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-101-V81"
+}

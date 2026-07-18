@@ -1,20 +1,56 @@
 {
   "snapshot_type": "execution-lineage",
-  "generated_at": "2026-07-18T12:06:47.490Z",
-  "source_parent_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
-  "source_task_id": "TASK-100",
+  "generated_at": "2026-07-18T17:50:27.286Z",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_task_id": "TASK-101",
   "stage_filter": "planning",
-  "role_result_count": 0,
+  "role_result_count": 3,
   "role_join_count": 0,
-  "team_output_count": 0,
+  "team_output_count": 1,
   "council_review_count": 0,
   "decision_required_count": 0,
   "blocking_signal_count": 0,
-  "stages_observed": [],
-  "latest_stage": null,
-  "recommended_next_step": "no execution packet recommendation is available yet",
-  "role_results": [],
+  "stages_observed": [
+    "planning"
+  ],
+  "latest_stage": "planning",
+  "recommended_next_step": "Approve v8.1 after provider-adapter-audit, release-state-audit, npm test, and smoke pass.",
+  "role_results": [
+    {
+      "role_result_id": null,
+      "role": "visionary",
+      "stage": "planning",
+      "status": "completed",
+      "decision_required": false,
+      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-101-VISIONARY.json"
+    },
+    {
+      "role_result_id": null,
+      "role": "guardian",
+      "stage": "planning",
+      "status": "completed",
+      "decision_required": false,
+      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-101-GUARDIAN.json"
+    },
+    {
+      "role_result_id": null,
+      "role": "builder",
+      "stage": "planning",
+      "status": "completed",
+      "decision_required": false,
+      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-101-BUILDER.json"
+    }
+  ],
   "role_joins": [],
-  "team_outputs": [],
+  "team_outputs": [
+    {
+      "team_output_id": "TOUT-MRQNVR40-CN7R2V",
+      "team_id": "runtime-team",
+      "stage": "planning",
+      "aggregate_state": "ready-for-council-review",
+      "decision_required": false,
+      "artifact_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-101-V81.json"
+    }
+  ],
   "council_reviews": []
 }

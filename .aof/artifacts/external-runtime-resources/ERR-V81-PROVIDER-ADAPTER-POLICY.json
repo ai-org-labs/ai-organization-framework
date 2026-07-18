@@ -1,0 +1,25 @@
+{
+  "artifact_type": "external-runtime-resource-record",
+  "resource_id": "ERR-V81-PROVIDER-ADAPTER-POLICY",
+  "recorded_at": "2026-07-18T17:45:24.756Z",
+  "resource_kind": "provider",
+  "display_name": "AOF provider adapter governance policy",
+  "canonical_ref": "docs/v8.1-provider-adapter-policy.md",
+  "source_system": "local-repository",
+  "owner_ref": "runtime-team",
+  "source_of_truth": "docs/v8.1-provider-adapter-policy.md is the self-hosting adapter policy for v8.1.",
+  "permission_boundary": "Read-only local policy evidence; no external provider call is authorized by this record.",
+  "freshness_boundary": "Policy freshness is tied to the v8.1 release commit and must be reviewed before later adapter execution.",
+  "availability_boundary": "Local repository file must resolve before release sign-off.",
+  "approval_boundary": "Read does not require additional approval; write-capable provider adapters require Council or human approval.",
+  "side_effect_boundary": "This resource has no external side effects.",
+  "allowed_operations": [
+    "read"
+  ],
+  "readiness_status": "ready",
+  "not_proven": "This resource record does not prove external provider output correctness, credential safety, billing safety, or operator acceptance.",
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

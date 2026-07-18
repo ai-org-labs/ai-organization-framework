@@ -1010,6 +1010,37 @@ async function loadExternalResourceProjection(projectRoot) {
   };
 }
 
+async function loadProviderAdapterProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-adapters/provider-adapter-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider adapter audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      adapter_count: 0,
+      ready_adapter_count: 0,
+      write_capable_adapter_count: 0,
+      blocked_adapter_count: 0,
+      missing_boundary_count: null,
+      adapters: [],
+      not_proven: "No provider adapter audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    adapter_count: audit.summary?.adapter_count ?? 0,
+    ready_adapter_count: audit.summary?.ready_adapter_count ?? 0,
+    write_capable_adapter_count: audit.summary?.write_capable_adapter_count ?? 0,
+    blocked_adapter_count: audit.summary?.blocked_adapter_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    adapters: audit.adapters ?? [],
+    not_proven: "Provider adapter projection is structural/runtime evidence; it does not prove provider output correctness or external-write safety."
+  };
+}
+
 function buildEvidenceCompletenessProjection({
   requirementCoverageProjection,
   adoptionProofProjection,
@@ -1078,6 +1109,7 @@ function buildMissionControl({
   adoptionProofProjection = null,
   externalizationReadinessProjection = null,
   externalResourceProjection = null,
+  providerAdapterProjection = null,
   evidenceCompletenessProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
@@ -1296,6 +1328,18 @@ function buildMissionControl({
       uses: [],
       not_proven: "No external resource audit artifact is present."
     },
+    provider_adapter_projection: providerAdapterProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
+      audit_ok: null,
+      adapter_count: 0,
+      ready_adapter_count: 0,
+      write_capable_adapter_count: 0,
+      blocked_adapter_count: 0,
+      missing_boundary_count: null,
+      adapters: [],
+      not_proven: "No provider adapter audit artifact is present."
+    },
     evidence_completeness_projection: evidenceCompletenessProjection ?? {
       completeness_status: "incomplete",
       source_of_truth_boundary: "Mission Control is a read-only projection of canonical AOF artifacts.",
@@ -1313,7 +1357,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -1331,7 +1375,8 @@ export async function visibilityExportCommand(options) {
     loadRequirementCoverageProjection(projectRoot, aofRoot),
     loadAdoptionProofProjection(projectRoot),
     loadExternalizationReadinessProjection(projectRoot),
-    loadExternalResourceProjection(projectRoot)
+    loadExternalResourceProjection(projectRoot),
+    loadProviderAdapterProjection(projectRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -1380,6 +1425,7 @@ export async function visibilityExportCommand(options) {
     adoptionProofProjection,
     externalizationReadinessProjection,
     externalResourceProjection,
+    providerAdapterProjection,
     evidenceCompletenessProjection
   });
   const operatorBrief = buildOperatorBriefView({

@@ -1,0 +1,94 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRQNW7RK-XIEMGN",
+  "recorded_at": "2026-07-18T17:49:47.984Z",
+  "session_id": "SESS-V81-DIRECTION",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MRQNW7RK-MGOZQA",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-18T17:49:47.984Z",
+      "summary": "operator advanced AOF after v8.0 and asked to proceed",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRQNW7RK-TU2YPR",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-18T17:49:47.984Z",
+      "summary": "ran roadmap-status, situation-assess, provider-adapter-audit, external-resource-audit, release-state-refresh, and release-state-audit",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV3-MRQNW7RK-LIRWOB",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-18T17:49:47.984Z",
+      "summary": "wrote provider adapter schemas, commands, release docs, and self-hosting evidence",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV4-MRQNW7RK-Q7MPBP",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-18T17:49:47.984Z",
+      "summary": "provider-adapter-audit passed after correcting canonical external resource root",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV5-MRQNW7RK-AKK1CN",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-18T17:49:47.984Z",
+      "summary": "stop if adapter readiness is claimed as semantic truth or external write safety",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-101.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.1-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": []
+  },
+  "risk_candidates": [
+    "provider adapter readiness overclaimed as semantic truth"
+  ],
+  "decision_candidates": [
+    "provider-adapter-audit becomes v8.1 release gate"
+  ],
+  "release_ready_evidence": {
+    "claim": "v8.1 provider adapter governance is structurally ready after release audits pass",
+    "evidence_refs": [
+      ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    ],
+    "verdict": "structurally_ready"
+  },
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": null
+}

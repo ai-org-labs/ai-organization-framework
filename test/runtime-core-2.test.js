@@ -39,6 +39,8 @@ import { multiActorPilotAuditCommand } from "../src/commands/multi-actor-pilot-a
 import { multiActorPilotRecordCommand } from "../src/commands/multi-actor-pilot-record.js";
 import { parallelLaneAuditCommand } from "../src/commands/parallel-lane-audit.js";
 import { parallelLaneRecordCommand } from "../src/commands/parallel-lane-record.js";
+import { providerAdapterAuditCommand } from "../src/commands/provider-adapter-audit.js";
+import { providerAdapterRecordCommand } from "../src/commands/provider-adapter-record.js";
 import { requirementCoverageAuditCommand } from "../src/commands/requirement-coverage-audit.js";
 import { requirementCoverageRecordCommand } from "../src/commands/requirement-coverage-record.js";
 import { sessionExportAuditCommand } from "../src/commands/session-export-audit.js";
@@ -2527,6 +2529,8 @@ test("commandRegistryRefreshCommand writes the canonical command registry artifa
   assert.equal(registry.commands.some((entry) => entry.command === "external-runtime-resource-record"), true);
   assert.equal(registry.commands.some((entry) => entry.command === "external-resource-use-record"), true);
   assert.equal(registry.commands.some((entry) => entry.command === "external-resource-audit"), true);
+  assert.equal(registry.commands.some((entry) => entry.command === "provider-adapter-record"), true);
+  assert.equal(registry.commands.some((entry) => entry.command === "provider-adapter-audit"), true);
   assert.equal(typeof result.orientationPath, "string");
   const orientation = JSON.parse(await fs.readFile(result.orientationPath, "utf8"));
   const registryTopCommands = registry.commands.filter((entry) => entry.top_command).map((entry) => entry.command).sort();
@@ -2683,6 +2687,123 @@ test("externalResourceAuditCommand fails unapproved external writes", async (t) 
   const audit = await externalResourceAuditCommand({ project: projectRoot });
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("approval status")));
+});
+
+test("provider adapter commands write bounded adapter contracts and audit readiness", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "adapter-policy.md"), "# Adapter Policy\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Govern provider adapter",
+    description: "Fixture task for provider adapter governance.",
+    origin: "human"
+  });
+
+  const resourceResult = await externalRuntimeResourceRecordCommand({
+    project: projectRoot,
+    resourceId: "ERR-TEST-PROVIDER",
+    resourceKind: "provider",
+    displayName: "Test provider",
+    canonicalRef: "https://example.invalid/provider",
+    sourceSystem: "example",
+    ownerRef: "runtime-team",
+    sourceOfTruth: "fixture provider boundary",
+    permissionBoundary: "read-only provider adapter fixture",
+    freshnessBoundary: "freshness checked by adapter policy",
+    availabilityBoundary: "local test artifact",
+    approvalBoundary: "read does not require approval",
+    sideEffectBoundary: "read-only provider use has no external mutation",
+    allowedOperations: ["read"],
+    readinessStatus: "ready",
+    notProven: "This fixture does not prove provider semantic truth.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PROVIDER-ADAPTER"
+  });
+  const resourceRef = path.relative(projectRoot, resourceResult.artifactPath).replaceAll(path.sep, "/");
+
+  await providerAdapterRecordCommand({
+    project: projectRoot,
+    adapterId: "PAD-TEST-READ",
+    displayName: "Read-only provider adapter",
+    providerRef: "docs/adapter-policy.md",
+    resourceRef,
+    adapterKind: "read_only",
+    operationModes: ["read"],
+    readAuthorityBoundary: "Adapter may read provider output only for the linked work item.",
+    writeAuthorityBoundary: "Adapter has no write authority.",
+    freshnessCheck: "Operator must confirm provider context freshness before use.",
+    approvalPolicyRef: "docs/adapter-policy.md",
+    sideEffectBoundary: "No external side effects are allowed.",
+    escalationRequiredFor: [],
+    readinessStatus: "ready",
+    notProven: "Adapter readiness does not prove provider output correctness.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PROVIDER-ADAPTER"
+  });
+
+  const audit = await providerAdapterAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true);
+  assert.equal(audit.summary.summary.adapter_count, 1);
+  assert.equal(audit.summary.summary.ready_adapter_count, 1);
+});
+
+test("providerAdapterAuditCommand fails write-capable adapters without escalation", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "adapter-policy.md"), "# Adapter Policy\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Attempt write adapter",
+    description: "Fixture task for provider adapter escalation gate.",
+    origin: "human"
+  });
+
+  const resourceResult = await externalRuntimeResourceRecordCommand({
+    project: projectRoot,
+    resourceId: "ERR-TEST-WRITE-PROVIDER",
+    resourceKind: "provider",
+    displayName: "Test write provider",
+    canonicalRef: "https://example.invalid/provider",
+    sourceSystem: "example",
+    ownerRef: "runtime-team",
+    sourceOfTruth: "fixture provider boundary",
+    permissionBoundary: "external writes require approval",
+    freshnessBoundary: "freshness checked by adapter policy",
+    availabilityBoundary: "local test artifact",
+    approvalBoundary: "Council approval required for external_write",
+    sideEffectBoundary: "external write has side effects",
+    allowedOperations: ["external_write"],
+    readinessStatus: "ready",
+    notProven: "This fixture does not prove provider write safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PROVIDER-ADAPTER-WRITE"
+  });
+  const resourceRef = path.relative(projectRoot, resourceResult.artifactPath).replaceAll(path.sep, "/");
+
+  await providerAdapterRecordCommand({
+    project: projectRoot,
+    adapterId: "PAD-TEST-WRITE",
+    displayName: "Write-capable provider adapter",
+    providerRef: "docs/adapter-policy.md",
+    resourceRef,
+    adapterKind: "external_write",
+    operationModes: ["external_write"],
+    readAuthorityBoundary: "Adapter may inspect write preconditions.",
+    writeAuthorityBoundary: "Adapter may not write without explicit approval.",
+    freshnessCheck: "Operator must confirm provider state before write.",
+    approvalPolicyRef: "docs/adapter-policy.md",
+    sideEffectBoundary: "External writes mutate provider state.",
+    escalationRequiredFor: [],
+    readinessStatus: "ready",
+    notProven: "This fixture intentionally lacks write escalation.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PROVIDER-ADAPTER-WRITE"
+  });
+
+  const audit = await providerAdapterAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("write modes require escalation")));
 });
 
 test("commandRegisterCommand exposes command taxonomy and top commands", async (t) => {

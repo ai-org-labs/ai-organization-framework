@@ -1,0 +1,24 @@
+{
+  "artifact_type": "provider-adapter-record",
+  "adapter_id": "PAD-V81-SELF-HOSTING-READ",
+  "recorded_at": "2026-07-18T17:45:38.487Z",
+  "display_name": "AOF v8.1 self-hosting read adapter",
+  "provider_ref": "docs/v8.1-provider-adapter-policy.md",
+  "resource_ref": ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+  "adapter_kind": "read_only",
+  "operation_modes": [
+    "read"
+  ],
+  "read_authority_boundary": "Adapter may read local policy and release evidence for the linked v8.1 work item only.",
+  "write_authority_boundary": "Adapter has no write authority and cannot mutate external systems.",
+  "freshness_check": "Before reuse, confirm policy and release docs match the active release manifest.",
+  "approval_policy_ref": "docs/v8.1-provider-adapter-policy.md",
+  "side_effect_boundary": "Read-only adapter has no external side effects.",
+  "escalation_required_for": [],
+  "readiness_status": "ready",
+  "not_proven": "Adapter readiness does not prove provider output correctness, credential safety, billing safety, or operator acceptance.",
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

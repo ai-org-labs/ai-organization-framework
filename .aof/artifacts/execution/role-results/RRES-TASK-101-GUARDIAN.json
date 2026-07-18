@@ -1,0 +1,22 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-18T17:48:57.769Z",
+  "role": "guardian",
+  "stage": "planning",
+  "session_id": "SESS-V81-DIRECTION",
+  "status": "completed",
+  "recommendation": "Approve only if write-capable adapters fail without escalation and adapter readiness is bounded as structural/runtime evidence.",
+  "rationale": "Provider adapters can become hidden authority channels unless freshness, approval, side effects, and not-proven limits are audited.",
+  "signals": [],
+  "artifact_refs": [
+    ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
+    "test/runtime-core-2.test.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-101",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

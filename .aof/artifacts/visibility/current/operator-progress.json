@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-18T12:26:20.152Z",
+  "generated_at": "2026-07-18T18:00:14.832Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-100 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-100.json"
+    "summary": "TASK-101 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-101.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-100 completed: Implement v8.0 External Runtime Resource contract and audit",
-      "artifact_ref": ".aof/tasks/done/TASK-100.json"
+      "summary": "TASK-101 completed: Define v8.1 Provider Adapter Governance direction",
+      "artifact_ref": ".aof/tasks/done/TASK-101.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Run a runtime-backed v8.1 direction review before opening the first provider adapter governance implementation task.",
+      "summary": "Run a runtime-backed v8.2 direction review before opening the first operator validation feedback implementation task.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-100 completed: Implement v8.0 External Runtime Resource contract and audit Run a runtime-backed v8.1 direction review before opening the first provider adapter governance implementation task.",
+    "what_changed": "TASK-101 completed: Define v8.1 Provider Adapter Governance direction Run a runtime-backed v8.2 direction review before opening the first operator validation feedback implementation task.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.1 direction review before opening the first provider adapter governance implementation task."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.2 direction review before opening the first operator validation feedback implementation task."
   }
 }

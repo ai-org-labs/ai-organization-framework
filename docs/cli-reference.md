@@ -356,6 +356,67 @@ QIF boundary:
 - pass は external resource governance の structural/runtime evidence であり、外部 provider execution、semantic truth、operator acceptance、credential/billing/deploy safety を証明しない
 - release sign-off では `release-state-audit` が v8.0 以降この audit を release gate として実行する
 
+### `provider-adapter-record`
+
+provider adapter を external runtime resource へ接続する governed access-path contract として記録する。
+
+```bash
+node ./src/cli.js provider-adapter-record \
+  --project . \
+  --display-name "AOF v8.1 self-hosting read adapter" \
+  --provider-ref docs/v8.1-provider-adapter-policy.md \
+  --resource-ref .aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json \
+  --adapter-kind read_only \
+  --operation-mode read \
+  --read-authority-boundary "read only for the linked work item" \
+  --write-authority-boundary "no write authority" \
+  --freshness-check "confirm release docs match active manifest" \
+  --approval-policy-ref docs/v8.1-provider-adapter-policy.md \
+  --side-effect-boundary "no external side effects" \
+  --not-proven "does not prove provider output correctness" \
+  --source-task-id TASK-101 \
+  --source-parent-session-id SESS-V81-DIRECTION
+```
+
+主な記録項目:
+
+- provider/resource refs
+- adapter kind and operation modes
+- read/write authority boundaries
+- freshness check
+- approval policy ref
+- side-effect boundary
+- escalation-required operation modes
+- readiness status
+- runtime provenance
+- not-proven boundary
+
+### `provider-adapter-audit`
+
+provider adapter contract が境界・参照・鮮度・承認・escalation・provenance を満たすかを検査する。
+
+```bash
+node ./src/cli.js provider-adapter-audit --project . \
+  --write-artifact .aof/artifacts/provider-adapters/provider-adapter-audit.json
+```
+
+主な確認項目:
+
+- provider adapter presence
+- provider/resource/approval policy refs 解決
+- linked external runtime resource が audit 対象であること
+- read/write authority boundaries
+- freshness check
+- side-effect and not-proven boundary
+- write-capable operation modes は escalation 必須
+- dangerous adapter は `ready` にできない
+- runtime provenance があること
+
+QIF boundary:
+
+- pass は provider adapter governance の structural/runtime evidence であり、provider output correctness、operator acceptance、credential/billing/deploy safety、production write safety を証明しない
+- release sign-off では `release-state-audit` が v8.1 以降この audit を release gate として実行する
+
 ### `archmap-impact-audit`
 
 `TASK-071` 以降の implementation-grade work item が、Archmap への影響判断を持っているかを narrow に検査する。これは v6.7 の Verifiable Governance 用 command であり、release sign-off 前に「アーキテクチャ影響を見たことにしていないか」を機械的に落とすためのもの。

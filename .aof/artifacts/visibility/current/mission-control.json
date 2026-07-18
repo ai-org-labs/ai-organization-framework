@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-18T12:26:20.149Z",
+  "generated_at": "2026-07-18T18:00:14.829Z",
   "mission_overview": {
-    "mission": "Ship v8.0.0 as Externalized Organization Runtime.",
-    "release_version": "8.0.0",
-    "release_definition_ref": "docs/v8.0-release-definition.md",
-    "operating_goal": "Prepare v8.1 External Reference And Provider Adapter Governance: provider adapters become governed access paths with explicit read/write authority, freshness checks, approval policy gates, side-effect boundaries, and external-write escalation.",
-    "next_value_slice": "Run a runtime-backed v8.1 direction review before opening the first provider adapter governance implementation task.",
+    "mission": "Ship v8.1.0 as Provider Adapter Governance.",
+    "release_version": "8.1.0",
+    "release_definition_ref": "docs/v8.1-release-definition.md",
+    "operating_goal": "Prepare v8.2 Adoption Feedback And Operator Validation Loop: operator/adopter feedback becomes governed runtime evidence linked to release, work item, Mission Control view, comprehension, reproduction, acceptance, rejection, and clarification outcomes.",
+    "next_value_slice": "Run a runtime-backed v8.2 direction review before opening the first operator validation feedback implementation task.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.1 direction review before opening the first provider adapter governance implementation task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.2 direction review before opening the first operator validation feedback implementation task.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 30,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-100.json",
+    "impact_record_count": 31,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-101.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-100",
+    "latest_work_item_id": "TASK-101",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-100.json"
+      ".aof/artifacts/archmap/impact/TASK-101.json"
     ],
     "external_refs": []
   },
@@ -399,41 +399,38 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 16,
-    "latest_session_id": "SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V80-EXTERNAL-RESOURCE-RUNTIME.json",
+    "stream_count": 17,
+    "latest_session_id": "SESS-V81-DIRECTION",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V81-DIRECTION.json",
     "latest_actor_ref": "codex",
-    "latest_role_ref": "builder",
-    "latest_recorded_at": "2026-07-18T12:05:04.730Z",
-    "latest_event_count": 7,
+    "latest_role_ref": "orchestrator",
+    "latest_recorded_at": "2026-07-18T17:49:47.984Z",
+    "latest_event_count": 5,
     "latest_release_verdict": "structurally_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-100.json"
+      ".aof/tasks/done/TASK-101.json"
     ],
     "linked_requirement_refs": [
-      "docs/v8.0-direction-review.md"
+      "docs/v8.1-release-definition.md"
     ],
     "linked_test_evidence_refs": [
-      "test/runtime-core-2.test.js"
+      ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
     ],
-    "linked_artifact_refs": [
-      "docs/v8.0-direction-review.md",
-      "schemas/aof-external-runtime-resource-record.schema.json"
-    ],
+    "linked_artifact_refs": [],
     "risk_candidates": [
-      "external resource output overclaimed as semantic truth"
+      "provider adapter readiness overclaimed as semantic truth"
     ],
     "decision_candidates": [
-      "make external-resource-audit a v8.0 release gate"
+      "provider-adapter-audit becomes v8.1 release gate"
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Operator advanced AOF from v7.9 to v8.0 Externalized Organization Runtime.",
-        "occurred_at": "2026-07-18T12:05:04.730Z",
+        "summary": "operator advanced AOF after v8.0 and asked to proceed",
+        "occurred_at": "2026-07-18T17:49:47.984Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -441,49 +438,26 @@
       },
       {
         "event_type": "tool_call",
-        "summary": "Implemented external resource schemas, writers, audit, release-state gate, and Mission Control projection.",
-        "occurred_at": "2026-07-18T12:05:04.730Z",
-        "tool_name": "external-resource-audit",
-        "safety_level": "safe_local_write",
-        "approval_policy": "preapproved",
+        "summary": "ran roadmap-status, situation-assess, provider-adapter-audit, external-resource-audit, release-state-refresh, and release-state-audit",
+        "occurred_at": "2026-07-18T17:49:47.984Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
         "artifact_refs": []
       },
       {
         "event_type": "artifact_write",
-        "summary": "Wrote v8.0 external resource contract artifacts and direction review.",
-        "occurred_at": "2026-07-18T12:05:04.730Z",
+        "summary": "wrote provider adapter schemas, commands, release docs, and self-hosting evidence",
+        "occurred_at": "2026-07-18T17:49:47.984Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
-        "artifact_refs": [
-          "docs/v8.0-direction-review.md",
-          "schemas/aof-external-runtime-resource-record.schema.json",
-          "schemas/aof-external-resource-use-record.schema.json",
-          "schemas/aof-external-resource-audit.schema.json"
-        ]
+        "artifact_refs": []
       },
       {
         "event_type": "verification_result",
-        "summary": "Initial command help checks passed for the new v8.0 commands.",
-        "occurred_at": "2026-07-18T12:05:04.730Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "risk_candidate",
-        "summary": "External resource presence could be mistaken for semantic truth without explicit not-proven boundary.",
-        "occurred_at": "2026-07-18T12:05:04.730Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "decision_candidate",
-        "summary": "Promote external-resource-audit to release-state-audit for v8.0 and later.",
-        "occurred_at": "2026-07-18T12:05:04.730Z",
+        "summary": "provider-adapter-audit passed after correcting canonical external resource root",
+        "occurred_at": "2026-07-18T17:49:47.984Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -491,8 +465,8 @@
       },
       {
         "event_type": "stop_condition",
-        "summary": "Do not claim autonomous external execution, credentials, billing, deploy, or production write support in v8.0.",
-        "occurred_at": "2026-07-18T12:05:04.730Z",
+        "summary": "stop if adapter readiness is claimed as semantic truth or external write safety",
+        "occurred_at": "2026-07-18T17:49:47.984Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -501,10 +475,10 @@
     ],
     "latest_tool_calls": [
       {
-        "summary": "Implemented external resource schemas, writers, audit, release-state gate, and Mission Control projection.",
-        "tool_name": "external-resource-audit",
-        "safety_level": "safe_local_write",
-        "approval_policy": "preapproved"
+        "summary": "ran roadmap-status, situation-assess, provider-adapter-audit, external-resource-audit, release-state-refresh, and release-state-audit",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null
       }
     ]
   },
@@ -515,11 +489,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 11,
+    "context_record_count": 12,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-101.json",
+        "work_item_id": "TASK-101",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared refs are present; it does not prove provider semantic correctness, credential safety, billing safety, production write safety, or operator acceptance."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-100.json",
         "work_item_id": "TASK-100",
@@ -575,14 +557,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context refs prove what was consulted and bounded, not semantic correctness of the v7.5 direction."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-093.json",
-        "work_item_id": "TASK-093",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves declared local context for v7.4, not semantic correctness, autonomous scheduling, or speed improvement."
       }
     ],
     "latest_external_reference_records": [
@@ -607,9 +581,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-100.json",
-    "latest_work_item_id": "TASK-100",
-    "latest_recorded_at": "2026-07-18T12:10:01.115Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-101.json",
+    "latest_work_item_id": "TASK-101",
+    "latest_recorded_at": "2026-07-18T17:52:04.067Z",
     "coverage_status": "completed",
     "total_requirements": 3,
     "covered_count": 3,
@@ -627,48 +601,47 @@
     "forecast_boundary": "release forecast is local governance evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "V80-REQ-001",
-        "title": "External runtime resource records exist",
+        "requirement_id": "V81-REQ-001",
+        "title": "Provider adapter records exist",
         "status": "covered",
-        "source_ref": "docs/v8.0-direction-review.md",
+        "source_ref": "docs/v8.1-release-definition.md",
         "owner_ref": "runtime-team",
         "evidence_refs": [
-          "schemas/aof-external-runtime-resource-record.schema.json",
-          "src/commands/external-runtime-resource-record.js",
-          ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+          "schemas/aof-provider-adapter-record.schema.json",
+          "src/commands/provider-adapter-record.js",
+          ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "V80-REQ-002",
-        "title": "External resource use records link resources to governed work",
+        "requirement_id": "V81-REQ-002",
+        "title": "Provider adapter audit gates release readiness",
         "status": "covered",
-        "source_ref": "docs/v8.0-direction-review.md",
-        "owner_ref": "runtime-team",
-        "evidence_refs": [
-          "schemas/aof-external-resource-use-record.schema.json",
-          "src/commands/external-resource-use-record.js",
-          ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
-        ],
-        "blocker_refs": []
-      },
-      {
-        "requirement_id": "V80-REQ-003",
-        "title": "External resource audit gates v8 release readiness",
-        "status": "covered",
-        "source_ref": "docs/v8.0-direction-review.md",
+        "source_ref": "docs/v8.1-release-definition.md",
         "owner_ref": "verification-team",
         "evidence_refs": [
-          "src/commands/external-resource-audit.js",
-          "src/commands/release-state-audit.js",
-          ".aof/artifacts/external-resources/external-resource-audit.json"
+          "schemas/aof-provider-adapter-audit.schema.json",
+          "src/commands/provider-adapter-audit.js",
+          ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+        ],
+        "blocker_refs": []
+      },
+      {
+        "requirement_id": "V81-REQ-003",
+        "title": "Mission Control projects adapter readiness",
+        "status": "covered",
+        "source_ref": "docs/v8.1-release-definition.md",
+        "owner_ref": "runtime-team",
+        "evidence_refs": [
+          "src/commands/visibility-export.js",
+          "schemas/aof-mission-control-view.schema.json"
         ],
         "blocker_refs": []
       }
     ],
-    "not_proven": "Coverage proves v8.0 release gates are represented, not external provider execution, semantic truth, or operator acceptance.",
+    "not_proven": "Coverage proves v8.1 release gates are represented, not provider semantic truth, credential safety, billing safety, production write safety, or operator acceptance.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-100.json"
+      ".aof/artifacts/requirement-coverage/TASK-101.json"
     ]
   },
   "adoption_proof_projection": {
@@ -744,8 +717,8 @@
     "present": true,
     "audit_ref": ".aof/artifacts/external-resources/external-resource-audit.json",
     "audit_ok": true,
-    "resource_count": 1,
-    "ready_resource_count": 1,
+    "resource_count": 2,
+    "ready_resource_count": 2,
     "use_count": 1,
     "approved_or_not_required_use_count": 1,
     "blocked_use_count": 0,
@@ -756,6 +729,16 @@
         "resource_kind": "reference",
         "display_name": "QIF v0.3.0 release reference",
         "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+        "readiness_status": "ready",
+        "allowed_operations": [
+          "read"
+        ]
+      },
+      {
+        "resource_id": "ERR-V81-PROVIDER-ADAPTER-POLICY",
+        "resource_kind": "provider",
+        "display_name": "AOF provider adapter governance policy",
+        "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
         "readiness_status": "ready",
         "allowed_operations": [
           "read"
@@ -775,6 +758,29 @@
     ],
     "not_proven": "External resource projection is structural/runtime evidence; it does not prove semantic correctness of external output or operator acceptance."
   },
+  "provider_adapter_projection": {
+    "present": true,
+    "audit_ref": ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
+    "audit_ok": true,
+    "adapter_count": 1,
+    "ready_adapter_count": 1,
+    "write_capable_adapter_count": 0,
+    "blocked_adapter_count": 0,
+    "missing_boundary_count": 0,
+    "adapters": [
+      {
+        "adapter_id": "PAD-V81-SELF-HOSTING-READ",
+        "display_name": "AOF v8.1 self-hosting read adapter",
+        "adapter_kind": "read_only",
+        "operation_modes": [
+          "read"
+        ],
+        "readiness_status": "ready",
+        "artifact_ref": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
+      }
+    ],
+    "not_proven": "Provider adapter projection is structural/runtime evidence; it does not prove provider output correctness or external-write safety."
+  },
   "evidence_completeness_projection": {
     "completeness_status": "ready",
     "source_of_truth_boundary": "Mission Control is a read-only projection of canonical AOF artifacts; it must not invent coverage, forecast, adoption proof, session, context, or Archmap evidence.",
@@ -782,7 +788,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-100.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-101.json"
       },
       {
         "source_id": "adoption-proof",
@@ -792,27 +798,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V80-EXTERNAL-RESOURCE-RUNTIME.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V81-DIRECTION.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-100.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-101.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v8.0-release-definition.md"
+        "artifact_ref": "docs/v8.1-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-100.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-101.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-100.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-101.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V80-EXTERNAL-RESOURCE-RUNTIME.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V81-DIRECTION.json"
   }
 }

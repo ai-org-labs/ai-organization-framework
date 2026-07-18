@@ -1,0 +1,23 @@
+{
+  "artifact_type": "actor-roster",
+  "recorded_at": "2026-07-18T17:50:55.000Z",
+  "work_item_id": "TASK-101",
+  "actors": [
+    {
+      "actor_ref": "visionary",
+      "role": "visionary",
+      "assignment": "select the bounded v8.1 frontier"
+    },
+    {
+      "actor_ref": "builder",
+      "role": "builder",
+      "assignment": "implement provider adapter record, audit, release gate, projection, docs, and tests"
+    },
+    {
+      "actor_ref": "guardian",
+      "role": "guardian",
+      "assignment": "verify write escalation, not-proven boundaries, and release-state integration"
+    }
+  ],
+  "not_proven": "Actor roster records the governed composition; it does not prove autonomous parallel execution."
+}

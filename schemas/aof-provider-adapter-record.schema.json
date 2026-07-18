@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-adapter-record.schema.json",
+  "title": "AOF Provider Adapter Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "adapter_id",
+    "recorded_at",
+    "display_name",
+    "provider_ref",
+    "resource_ref",
+    "adapter_kind",
+    "operation_modes",
+    "read_authority_boundary",
+    "write_authority_boundary",
+    "freshness_check",
+    "approval_policy_ref",
+    "side_effect_boundary",
+    "escalation_required_for",
+    "readiness_status",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "provider-adapter-record" },
+    "adapter_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "display_name": { "type": "string", "minLength": 1 },
+    "provider_ref": { "type": "string", "minLength": 1 },
+    "resource_ref": { "type": "string", "minLength": 1 },
+    "adapter_kind": {
+      "type": "string",
+      "enum": ["read_only", "local_write", "external_write", "dangerous"]
+    },
+    "operation_modes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["read", "local_write", "external_write", "dangerous"]
+      }
+    },
+    "read_authority_boundary": { "type": "string", "minLength": 1 },
+    "write_authority_boundary": { "type": "string", "minLength": 1 },
+    "freshness_check": { "type": "string", "minLength": 1 },
+    "approval_policy_ref": { "type": "string", "minLength": 1 },
+    "side_effect_boundary": { "type": "string", "minLength": 1 },
+    "escalation_required_for": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["read", "local_write", "external_write", "dangerous"]
+      }
+    },
+    "readiness_status": {
+      "type": "string",
+      "enum": ["ready", "warning", "blocked", "accepted_residual_risk"]
+    },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-18T17:48:55.449Z",
+  "role": "visionary",
+  "stage": "planning",
+  "session_id": "SESS-V81-DIRECTION",
+  "status": "completed",
+  "recommendation": "Proceed with provider adapter governance as the next bounded v8.1 slice.",
+  "rationale": "After v8.0 external resources, the highest-risk gap is hidden adapter authority, not autonomous provider execution.",
+  "signals": [],
+  "artifact_refs": [
+    "docs/v8.1-direction-review.md",
+    "docs/v8.1-release-definition.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-101",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.82
+}

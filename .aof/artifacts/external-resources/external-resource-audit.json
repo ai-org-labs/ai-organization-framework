@@ -1,11 +1,11 @@
 {
   "ok": true,
   "artifact_type": "external-resource-audit",
-  "generated_at": "2026-07-18T12:17:43.733Z",
+  "generated_at": "2026-07-18T17:45:54.354Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "resource_count": 1,
-    "ready_resource_count": 1,
+    "resource_count": 2,
+    "ready_resource_count": 2,
     "use_count": 1,
     "approved_or_not_required_use_count": 1,
     "blocked_use_count": 0,
@@ -18,6 +18,16 @@
       "resource_kind": "reference",
       "display_name": "QIF v0.3.0 release reference",
       "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+      "readiness_status": "ready",
+      "allowed_operations": [
+        "read"
+      ]
+    },
+    {
+      "resource_id": "ERR-V81-PROVIDER-ADAPTER-POLICY",
+      "resource_kind": "provider",
+      "display_name": "AOF provider adapter governance policy",
+      "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
       "readiness_status": "ready",
       "allowed_operations": [
         "read"
@@ -39,9 +49,10 @@
     {
       "name": "external runtime resource presence",
       "status": "pass",
-      "detail": "1 resource(s) found",
+      "detail": "2 resource(s) found",
       "evidence_refs": [
-        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
       ]
     },
     {
@@ -130,6 +141,86 @@
       "detail": "source_task_id=TASK-100, source_parent_session_id=SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
       "evidence_refs": [
         ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY source-of-truth boundary",
+      "status": "pass",
+      "detail": "docs/v8.1-provider-adapter-policy.md is the self-hosting adapter policy for v8.1.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY permission boundary",
+      "status": "pass",
+      "detail": "Read-only local policy evidence; no external provider call is authorized by this record.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY freshness boundary",
+      "status": "pass",
+      "detail": "Policy freshness is tied to the v8.1 release commit and must be reviewed before later adapter execution.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY availability boundary",
+      "status": "pass",
+      "detail": "Local repository file must resolve before release sign-off.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY approval boundary",
+      "status": "pass",
+      "detail": "Read does not require additional approval; write-capable provider adapters require Council or human approval.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY side-effect boundary",
+      "status": "pass",
+      "detail": "This resource has no external side effects.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY allowed operations",
+      "status": "pass",
+      "detail": "read",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY readiness status",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY not-proven boundary",
+      "status": "pass",
+      "detail": "This resource record does not prove external provider output correctness, credential safety, billing safety, or operator acceptance.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
+      ]
+    },
+    {
+      "name": "ERR-V81-PROVIDER-ADAPTER-POLICY runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-101, source_parent_session_id=SESS-V81-DIRECTION",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
       ]
     },
     {

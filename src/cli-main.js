@@ -117,6 +117,8 @@ Usage:
   aof external-runtime-resource-record --project <path> --resource-kind <actor|tool|provider|reference> --display-name "<name>" --canonical-ref <path-or-ref> --source-system "<text>" --owner-ref <team-or-council> --source-of-truth "<text>" --permission-boundary "<text>" --freshness-boundary "<text>" --availability-boundary "<text>" --approval-boundary "<text>" --side-effect-boundary "<text>" --allowed-operation <read|local_write|external_write|dangerous> [--allowed-operation <...>] --readiness-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof external-resource-use-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> --resource-ref <path> --use-purpose "<text>" --operation-type <read|local_write|external_write|dangerous> --approval-status <not_required|pending|approved|rejected> [--approval-ref <path>] --execution-status <planned|executed|blocked|skipped> [--output-artifact-ref <path>] [--risk-candidate "<text>"] [--decision-candidate "<text>"] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof external-resource-audit [--project <path>] [--write-artifact <path>]
+  aof provider-adapter-record --project <path> --display-name "<name>" --provider-ref <path-or-ref> --resource-ref <path> --adapter-kind <read_only|local_write|external_write|dangerous> --operation-mode <read|local_write|external_write|dangerous> [--operation-mode <...>] --read-authority-boundary "<text>" --write-authority-boundary "<text>" --freshness-check "<text>" --approval-policy-ref <path-or-ref> --side-effect-boundary "<text>" [--escalation-required-for <read|local_write|external_write|dangerous>] --readiness-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof provider-adapter-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof value-hypothesis-record --project <path> --expected-value-creation "<text>" --beneficiary "<text>" --supporting-evidence "<text>" [--supporting-evidence "<text>"] --success-criterion "<text>" [--success-criterion "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof alternative-analysis-record --project <path> --subject-need "<text>" --alternative-solution "<text>" [--alternative-solution "<text>"] [--non-solution-option "<text>"] [--defer-option "<text>"] --stop-option "<text>" [--stop-option "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1302,6 +1304,34 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "external-resource-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "provider-adapter-record"
+            ? {
+                project: ".",
+                adapterId: "",
+                displayName: "",
+                providerRef: "",
+                resourceRef: "",
+                adapterKind: "read_only",
+                operationModes: [],
+                readAuthorityBoundary: "",
+                writeAuthorityBoundary: "",
+                freshnessCheck: "",
+                approvalPolicyRef: "",
+                sideEffectBoundary: "",
+                escalationRequiredFor: [],
+                readinessStatus: "ready",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "provider-adapter-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -2918,6 +2948,21 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--adapter-id") {
+      options.adapterId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--adapter-kind") {
+      options.adapterKind = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--provider-ref") {
+      options.providerRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--resource-id") {
       options.resourceId = rest[i + 1] ?? "";
       i += 1;
@@ -2969,6 +3014,44 @@ function parseArgs(argv) {
         throw new Error("Missing value after --allowed-operation.");
       }
       options.allowedOperations.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--operation-mode") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --operation-mode.");
+      }
+      options.operationModes.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--read-authority-boundary") {
+      options.readAuthorityBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--write-authority-boundary") {
+      options.writeAuthorityBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--freshness-check") {
+      options.freshnessCheck = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--approval-policy-ref") {
+      options.approvalPolicyRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--escalation-required-for") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --escalation-required-for.");
+      }
+      options.escalationRequiredFor.push(value);
       i += 1;
       continue;
     }
@@ -5757,6 +5840,48 @@ function parseArgs(argv) {
   if (command === "external-resource-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `external-resource-audit`.");
+    }
+  }
+
+  if (command === "provider-adapter-record") {
+    for (const [flag, value] of [
+      ["--display-name", options.displayName],
+      ["--provider-ref", options.providerRef],
+      ["--resource-ref", options.resourceRef],
+      ["--adapter-kind", options.adapterKind],
+      ["--read-authority-boundary", options.readAuthorityBoundary],
+      ["--write-authority-boundary", options.writeAuthorityBoundary],
+      ["--freshness-check", options.freshnessCheck],
+      ["--approval-policy-ref", options.approvalPolicyRef],
+      ["--side-effect-boundary", options.sideEffectBoundary],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`provider-adapter-record\`.`);
+      }
+    }
+    if (!["read_only", "local_write", "external_write", "dangerous"].includes(options.adapterKind)) {
+      throw new Error("Invalid --adapter-kind for `provider-adapter-record`.");
+    }
+    if (!Array.isArray(options.operationModes) || options.operationModes.length === 0) {
+      throw new Error("At least one --operation-mode is required for `provider-adapter-record`.");
+    }
+    if (!options.operationModes.every((mode) => ["read", "local_write", "external_write", "dangerous"].includes(mode))) {
+      throw new Error("Invalid --operation-mode for `provider-adapter-record`.");
+    }
+    if (!options.escalationRequiredFor.every((mode) => ["read", "local_write", "external_write", "dangerous"].includes(mode))) {
+      throw new Error("Invalid --escalation-required-for for `provider-adapter-record`.");
+    }
+    if (!["ready", "warning", "blocked", "accepted_residual_risk"].includes(options.readinessStatus)) {
+      throw new Error("Invalid --readiness-status for `provider-adapter-record`.");
+    }
+  }
+
+  if (command === "provider-adapter-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `provider-adapter-audit`.");
     }
   }
 

@@ -1,0 +1,35 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-18T17:49:26.400Z",
+  "team_output_id": "TOUT-MRQNVR40-CN7R2V",
+  "team_id": "runtime-team",
+  "stage": "planning",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve v8.1 after provider-adapter-audit, release-state-audit, npm test, and smoke pass.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-101-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-101-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-101-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v8.1-release-definition.md",
+    ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+  ],
+  "decision_required": false,
+  "summary": "Runtime team agrees v8.1 should ship provider adapter governance as a bounded adapter contract and audit gate.",
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": null
+}

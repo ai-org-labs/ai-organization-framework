@@ -1,0 +1,167 @@
+{
+  "ok": true,
+  "artifact_type": "provider-adapter-audit",
+  "generated_at": "2026-07-18T17:57:48.778Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "adapter_count": 1,
+    "ready_adapter_count": 1,
+    "write_capable_adapter_count": 0,
+    "blocked_adapter_count": 0,
+    "missing_boundary_count": 0,
+    "failing_check_count": 0
+  },
+  "adapters": [
+    {
+      "adapter_id": "PAD-V81-SELF-HOSTING-READ",
+      "display_name": "AOF v8.1 self-hosting read adapter",
+      "adapter_kind": "read_only",
+      "operation_modes": [
+        "read"
+      ],
+      "readiness_status": "ready",
+      "artifact_ref": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider adapter presence",
+      "status": "pass",
+      "detail": "1 adapter(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ provider ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.1-provider-adapter-policy.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ resource ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ approval policy ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.1-provider-adapter-policy.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ external resource is audited",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ read boundary",
+      "status": "pass",
+      "detail": "Adapter may read local policy and release evidence for the linked v8.1 work item only.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ write boundary",
+      "status": "pass",
+      "detail": "Adapter has no write authority and cannot mutate external systems.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ freshness check",
+      "status": "pass",
+      "detail": "Before reuse, confirm policy and release docs match the active release manifest.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ side-effect boundary",
+      "status": "pass",
+      "detail": "Read-only adapter has no external side effects.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ readiness status",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ not-proven boundary",
+      "status": "pass",
+      "detail": "Adapter readiness does not prove provider output correctness, credential safety, billing safety, or operator acceptance.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-101, source_parent_session_id=SESS-V81-DIRECTION",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ operation modes allowed by resource",
+      "status": "pass",
+      "detail": "read",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    },
+    {
+      "name": "PAD-V81-SELF-HOSTING-READ write modes require escalation",
+      "status": "pass",
+      "detail": "all write-capable modes are escalation-bound",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
+        "docs/v8.1-provider-adapter-policy.md"
+      ]
+    }
+  ],
+  "errors": []
+}

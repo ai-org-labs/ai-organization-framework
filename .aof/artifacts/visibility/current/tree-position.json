@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-18T12:26:20.152Z",
+  "generated_at": "2026-07-18T18:00:14.832Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "8.0.0",
-    "active_release_track": "v8.0",
-    "release_definition_ref": "docs/v8.0-release-definition.md"
+    "active_release_version": "8.1.0",
+    "active_release_track": "v8.1",
+    "release_definition_ref": "docs/v8.1-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Run a runtime-backed v8.1 direction review before opening the first provider adapter governance implementation task."
+    "branch_summary": "Run a runtime-backed v8.2 direction review before opening the first operator validation feedback implementation task."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v8.0",
+      "label": "v8.1",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v8.0 and the next concrete branch.",
-    "why_this_branch": "Prepare v8.1 External Reference And Provider Adapter Governance: provider adapters become governed access paths with explicit read/write authority, freshness checks, approval policy gates, side-effect boundaries, and external-write escalation.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.1 direction review before opening the first provider adapter governance implementation task."
+    "where_are_we": "The runtime is between v8.1 and the next concrete branch.",
+    "why_this_branch": "Prepare v8.2 Adoption Feedback And Operator Validation Loop: operator/adopter feedback becomes governed runtime evidence linked to release, work item, Mission Control view, comprehension, reproduction, acceptance, rejection, and clarification outcomes.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.2 direction review before opening the first operator validation feedback implementation task."
   }
 }

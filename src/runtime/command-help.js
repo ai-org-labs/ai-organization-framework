@@ -79,6 +79,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing exports, missing required event types, unresolved refs, missing source-of-truth boundary, missing redaction boundary, missing release-ready boundary, or absent not-proven statement.",
     verdict_boundary: "Export governance evidence only; not proof that session content is semantically correct, privacy-safe in every downstream context, or externally adopted."
   },
+  "provider-adapter-audit": {
+    quality_intent: "Provider adapters cannot be used as hidden authority channels.",
+    risk: "AOF treats external provider adapters as implementation details and silently grants read, write, freshness, approval, or side-effect authority without a governed contract.",
+    loss_boundary: "Do not claim provider adapter readiness when provider/resource refs, authority boundaries, freshness checks, approval policy, write escalation, provenance, or not-proven boundaries are missing.",
+    evidence_refs: ["provider adapter records", "external runtime resource records", "approval policy refs"],
+    acceptance_gate: "Audit fails missing adapter records, unresolved refs, missing boundaries, write-capable modes without escalation, ready dangerous adapters, or absent runtime provenance.",
+    verdict_boundary: "Adapter governance evidence only; not proof that a provider response is semantically correct or that external writes are safe in every context."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

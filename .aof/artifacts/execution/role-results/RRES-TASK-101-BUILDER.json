@@ -1,0 +1,24 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-18T17:49:04.716Z",
+  "role": "builder",
+  "stage": "planning",
+  "session_id": "SESS-V81-DIRECTION",
+  "status": "completed",
+  "recommendation": "Implement provider-adapter-record, provider-adapter-audit, release-state integration, Mission Control projection, docs, and focused tests.",
+  "rationale": "A narrow record/audit surface proves adapter governance before provider execution grows.",
+  "signals": [],
+  "artifact_refs": [
+    "src/commands/provider-adapter-record.js",
+    "src/commands/provider-adapter-audit.js",
+    "schemas/aof-provider-adapter-record.schema.json",
+    "schemas/aof-provider-adapter-audit.schema.json"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-101",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

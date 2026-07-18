@@ -1,0 +1,12 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-18T17:53:00.000Z",
+  "work_item_id": "TASK-101",
+  "work_item_ref": ".aof/tasks/done/TASK-101.json",
+  "status": "archmap_update_required",
+  "impact_summary": "v8.1 adds Provider Adapter Governance: provider adapters become governed access-path contracts with authority, freshness, approval, side-effect, escalation, provenance, and not-proven boundaries.",
+  "archmap_source_ref": "docs/v8.1-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-101-V81.json",
+  "not_proven": "This impact record states governance map semantics changed; it does not prove provider output correctness, credential safety, billing safety, production write safety, or operator acceptance."
+}

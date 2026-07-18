@@ -9,6 +9,7 @@ import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.
 import { externalizationReadinessAuditCommand } from "./externalization-readiness-audit.js";
 import { externalResourceAuditCommand } from "./external-resource-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
+import { providerAdapterAuditCommand } from "./provider-adapter-audit.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
 import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
@@ -155,6 +156,15 @@ function requiresExternalResourceAudit(releaseVersion) {
   return major >= 8;
 }
 
+function requiresProviderAdapterAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 8 || (major === 8 && minor >= 1);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -220,6 +230,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresExternalResourceAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("external-resource-audit", await externalResourceAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderAdapterAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-adapter-audit", await providerAdapterAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

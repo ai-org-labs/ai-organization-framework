@@ -1,0 +1,27 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRQNY41Q-XHN6X9",
+  "recorded_at": "2026-07-18T17:51:16.478Z",
+  "work_item_id": "TASK-101",
+  "work_item_ref": ".aof/tasks/done/TASK-101.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V81-DIRECTION.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/actor-rosters/TASK-101.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-101-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-101-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-101-V81.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-101.json",
+  "maker_checker_council_boundary": "Builder makes, Guardian checks, Council judges; provider adapter readiness is not accepted as provider truth or production write safety.",
+  "not_proven": "Multi-actor evidence does not prove autonomous provider execution, semantic correctness, credential safety, billing safety, or operator acceptance.",
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-101-V81",
+  "notes": null
+}

@@ -1,0 +1,66 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRQNYLJ0-D6732O",
+  "recorded_at": "2026-07-18T17:51:39.132Z",
+  "work_item_id": "TASK-101",
+  "work_item_ref": ".aof/tasks/done/TASK-101.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-101.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-101.json",
+  "lanes": [
+    {
+      "lane_id": "contract",
+      "goal": "define provider adapter schemas and writer",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v8.1-direction-review.md"
+      ],
+      "expected_output": "provider adapter record contract",
+      "output_refs": [
+        "schemas/aof-provider-adapter-record.schema.json",
+        "src/commands/provider-adapter-record.js"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
+      ],
+      "stop_condition": "stop if adapter record omits authority boundaries or provenance",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "audit",
+      "goal": "verify provider adapter governance",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
+      ],
+      "expected_output": "provider-adapter-audit and release-state gate",
+      "output_refs": [
+        "src/commands/provider-adapter-audit.js",
+        "src/commands/release-state-audit.js"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+      ],
+      "stop_condition": "stop if audit cannot fail write-capable adapters without escalation",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "contract",
+      "audit"
+    ],
+    "conflict_summary": "no unresolved lane conflict",
+    "blocker_summary": "no active blocker after provider-adapter-audit pass",
+    "merge_rationale": "contract and audit lanes are independently represented and Council-approved",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-101-V81.json",
+  "not_proven": "Parallel lane evidence does not prove autonomous scheduling, provider execution, semantic correctness, credential safety, billing safety, or operator acceptance.",
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-101-V81",
+  "notes": null
+}

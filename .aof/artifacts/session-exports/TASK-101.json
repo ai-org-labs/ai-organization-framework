@@ -1,0 +1,106 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRQO1UAD-H6JI22",
+  "recorded_at": "2026-07-18T17:54:10.453Z",
+  "work_item_id": "TASK-101",
+  "work_item_ref": ".aof/tasks/done/TASK-101.json",
+  "export_status": "ready",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V81-DIRECTION.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF session export normalizes local session evidence; provider stream is not canonical truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "operator advanced AOF toward v8.1 provider adapter governance",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-101.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "response",
+      "summary": "runtime selected provider adapter governance as the bounded v8.1 slice",
+      "artifact_refs": [
+        "docs/v8.1-direction-review.md"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "tool_call",
+      "summary": "ran provider-adapter-audit and release-state-audit",
+      "artifact_refs": [
+        ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "artifact_write",
+      "summary": "wrote v8.1 provider adapter artifacts and release docs",
+      "artifact_refs": [
+        "schemas/aof-provider-adapter-record.schema.json",
+        "src/commands/provider-adapter-audit.js",
+        "docs/v8.1-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "verification",
+      "summary": "provider-adapter-audit passed and detects write-capable adapter escalation failures in tests",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-6",
+      "event_type": "blocker",
+      "summary": "no active blocker after canonical root correction and adapter audit pass",
+      "artifact_refs": [
+        ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-7",
+      "event_type": "stop_condition",
+      "summary": "stop if adapter readiness is overclaimed as semantic truth or external write safety",
+      "artifact_refs": [
+        "docs/v8.1-release-definition.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-101.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.1-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    ],
+    "artifact_refs": [
+      "schemas/aof-provider-adapter-record.schema.json",
+      "schemas/aof-provider-adapter-audit.schema.json"
+    ],
+    "risk_candidates": [
+      "provider adapter evidence overclaimed as semantic truth"
+    ],
+    "decision_candidates": [
+      "provider-adapter-audit is a v8.1 release gate"
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    ]
+  },
+  "redaction_boundary": "summaries only; no secrets, credentials, billing, deploy, provider payloads, or production writes are exported",
+  "release_ready_boundary": "structural/runtime v8.1 provider adapter governance evidence only",
+  "not_proven": "Session export does not prove provider execution, semantic truth, credential safety, billing safety, production write safety, or operator acceptance.",
+  "source_task_id": "TASK-101",
+  "source_parent_session_id": "SESS-V81-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-101-V81",
+  "notes": null
+}

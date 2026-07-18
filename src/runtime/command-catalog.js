@@ -74,6 +74,8 @@ const COMMAND_SPECS = [
   ["external-runtime-resource-record", "./commands/external-runtime-resource-record.js", "externalRuntimeResourceRecordCommand"],
   ["external-resource-use-record", "./commands/external-resource-use-record.js", "externalResourceUseRecordCommand"],
   ["external-resource-audit", "./commands/external-resource-audit.js", "externalResourceAuditCommand"],
+  ["provider-adapter-record", "./commands/provider-adapter-record.js", "providerAdapterRecordCommand"],
+  ["provider-adapter-audit", "./commands/provider-adapter-audit.js", "providerAdapterAuditCommand"],
   ["problem-statement-record", "./commands/problem-statement-record.js", "problemStatementRecordCommand"],
   ["value-hypothesis-record", "./commands/value-hypothesis-record.js", "valueHypothesisRecordCommand"],
   ["alternative-analysis-record", "./commands/alternative-analysis-record.js", "alternativeAnalysisRecordCommand"],
