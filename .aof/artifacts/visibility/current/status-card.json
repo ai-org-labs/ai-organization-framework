@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-19T15:34:16.312Z",
+  "as_of": "2026-07-19T15:44:11.704Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
