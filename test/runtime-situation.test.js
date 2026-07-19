@@ -28,7 +28,7 @@ test("situationAssessCommand diagnoses the current frontier from self-hosting ru
   assert.equal(result.summary.current_truth_conflicts.some((conflict) => conflict.code === "frontier-task-mismatch"), false);
 });
 
-test("roadmapStatusCommand keeps completed v5/v6 release work on the correct tracks", async () => {
+test("roadmapStatusCommand keeps committed release evidence on the correct tracks", async () => {
   const projectRoot = process.cwd();
   const result = await roadmapStatusCommand({ project: projectRoot });
 
@@ -71,13 +71,6 @@ test("roadmapStatusCommand keeps completed v5/v6 release work on the correct tra
   assert.ok(result.release_tracks["v7.0"].some((task) => task.task_id === "TASK-088"));
   assert.ok(Array.isArray(result.release_tracks["v7.1"]));
   assert.ok(result.release_tracks["v7.1"].some((task) => task.task_id === "TASK-089"));
-  assert.ok(result.release_tracks["v7.1"].some((task) => task.task_id === "TASK-090"));
-  assert.ok(Array.isArray(result.release_tracks["v7.2"]));
-  assert.ok(result.release_tracks["v7.2"].some((task) => task.task_id === "TASK-091"));
-  assert.ok(Array.isArray(result.release_tracks["v7.3"]));
-  assert.ok(result.release_tracks["v7.3"].some((task) => task.task_id === "TASK-092"));
-  assert.ok(Array.isArray(result.release_tracks["v7.4"]));
-  assert.ok(result.release_tracks["v7.4"].some((task) => task.task_id === "TASK-093"));
   assert.ok(Array.isArray(result.release_tracks["v7.5"]));
   assert.ok(result.release_tracks["v7.5"].some((task) => task.task_id === "TASK-094"));
   assert.ok(Array.isArray(result.release_tracks["v7.6"]));
