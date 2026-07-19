@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-19T02:52:05.686Z",
+  "as_of": "2026-07-19T15:34:16.312Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "Run a runtime-backed v8.3 direction review before opening the first Mission Control operator acceptance evidence implementation task.",
+  "current_goal": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "Run a runtime-backed v8.3 direction review before opening the first Mission Control operator acceptance evidence implementation task.",
+  "next_checkpoint": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

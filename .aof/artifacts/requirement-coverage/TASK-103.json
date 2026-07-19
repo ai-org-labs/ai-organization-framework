@@ -1,0 +1,45 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRRY69RX-8Y40EW",
+  "recorded_at": "2026-07-19T15:25:19.485Z",
+  "work_item_id": "TASK-103",
+  "work_item_ref": ".aof/tasks/done/TASK-103.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V83-OPERATOR-ACCEPTANCE-VISIBILITY",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v8.3-release-definition.md",
+      "title": "Mission Control must show operator acceptance evidence without raw JSON reading.",
+      "owner_ref": "architecture-council",
+      "acceptance_boundary": "operator-validation-audit public records include feedback summary and evidence refs, and Mission Control projects them into the viewer",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-103.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/operator-validation-audit.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "test/runtime-situation.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 1,
+    "covered_count": 1,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "0 additional implementation work items for v8.3 after final verification",
+    "forecast_boundary": "Forecast is local runtime evidence and does not prove operator value or market truth."
+  },
+  "not_proven": "Requirement coverage proves bounded traceability only, not semantic satisfaction or market acceptance.",
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": null,
+  "notes": null
+}

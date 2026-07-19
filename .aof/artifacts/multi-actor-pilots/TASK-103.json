@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRRY6WKV-GZHPNR",
+  "recorded_at": "2026-07-19T15:25:49.039Z",
+  "work_item_id": "TASK-103",
+  "work_item_ref": ".aof/tasks/done/TASK-103.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-103-V83.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-103-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-103-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-103-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-103-V83.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-103.json",
+  "maker_checker_council_boundary": "Builder makes the visibility surface, Guardian verifies bounded evidence, Council approves release use.",
+  "not_proven": "Multi-actor pilot proves governed handoff structure only, not autonomous workforce performance or market truth.",
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": null,
+  "notes": null
+}

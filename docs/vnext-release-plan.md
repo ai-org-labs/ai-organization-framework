@@ -2,36 +2,37 @@
 
 ## Version
 
-Candidate: `v8.3.0`
+Candidate: `v8.4.0`
 
 ## Release Theme
 
-Mission Control Operator Acceptance Evidence.
+Externalized Runtime Operator Safety Proof.
 
-`v8.2.0` made operator/adopter feedback governable through operator validation records, audit, release-state integration, and Mission Control projection. The next bottleneck is acceptance evidence usability: Mission Control should make operator validation status obvious enough that a human can see acceptance, rejection, clarification need, and evidence path without reading raw JSON.
+`v8.3.0` made operator acceptance evidence visible in Mission Control without raw JSON reading. The next bottleneck is externalized runtime safety: before AOF advances toward external execution, the operator must be able to see permission, approval, risk, provenance, and not-proven boundaries clearly enough to decide whether externalized execution is safe to continue.
 
 Human-facing wording:
 
-> v8.3 should make operator acceptance evidence visible in Mission Control without raw artifact reading.
+> v8.4 should make externalized runtime safety visible before any external execution bridge advances.
 
 More explicit wording:
 
-> Operator acceptance should be legible as a live runtime state, not buried in audit JSON.
+> Externalized runtime safety should be legible as an operator decision surface, not buried in audit JSON.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/vnext-roadmap.md`
-- previous release: `v8.2.0`
-- v8.2 evidence: `docs/v8.2-release-definition.md`, `docs/v8.2.0-release-notes.md`, `.aof/artifacts/operator-validation/operator-validation-audit.json`, `.aof/context/active/release-state-audit.json`
-- current frontier candidate: `v8.3` Mission Control Operator Acceptance Evidence
+- previous release: `v8.3.0`
+- v8.3 evidence: `docs/v8.3-release-definition.md`, `docs/v8.3.0-release-notes.md`, `.aof/artifacts/operator-validation/operator-validation-audit.json`, `.aof/artifacts/visibility/current/mission-control.json`, `.aof/context/active/release-state-audit.json`
+- current frontier candidate: `v8.4` Externalized Runtime Operator Safety Proof
 
 ## Required Outcomes
 
 Required:
 
-- make Mission Control render operator validation status as first-class acceptance evidence
-- show acceptance, rejection, clarification, and reproduction outcomes without raw JSON reading
-- link visible acceptance state to release, task, evidence, and governance action
+- make Mission Control render externalized runtime safety status as first-class operator evidence
+- show permission, approval, provenance, freshness, risk, and not-proven boundaries without raw JSON reading
+- link visible externalization safety state to release, task, evidence, governance action, and provider/resource refs
+- keep operator acceptance visibility compatible from v8.3
 - keep operator-validation-audit compatible from v8.2
 - keep provider adapter governance compatible from v8.1
 
@@ -45,24 +46,25 @@ Deferred:
 
 ## Release Gates
 
-### Gate 1: Operator Acceptance Visibility
+### Gate 1: Externalized Runtime Safety Visibility
 
-- Mission Control shows operator validation status from canonical artifacts
-- accepted / rejected / needs-clarification / not-reproduced states are visually and semantically distinguishable
-- visible acceptance state links back to release, work item, and evidence refs
+- Mission Control shows externalized runtime safety status from canonical artifacts
+- safe / blocked / needs approval / stale / not-proven states are visually and semantically distinguishable
+- visible safety state links back to release, work item, provider/resource refs, and evidence refs
 
 ### Gate 2: Runtime Evidence
 
-- local runtime artifacts link to operator acceptance claims
-- Mission Control can show why a release is or is not operator-accepted
+- local runtime artifacts link to externalized runtime safety claims
+- Mission Control can show why externalized execution is or is not safe to advance
 - provider-neutral session export remains reconstructable
 
 ### Gate 3: Governance Boundary
 
-- missing acceptance evidence remains visible as incomplete
-- unclear feedback outcome requires governance review
-- rejected or context-mismatched feedback blocks release acceptance claims
-- operator feedback is not treated as market truth
+- missing safety evidence remains visible as incomplete
+- unclear provider/resource permission state requires governance review
+- unsafe, stale, unavailable, or approval-missing externalization evidence blocks external execution claims
+- externalized runtime safety evidence is not treated as semantic correctness or production-write authority
+- v8.3 Mission Control operator acceptance visibility still passes
 - v8.2 operator-validation-audit still passes
 - v8.1 provider-adapter-audit still passes
 - v8.0 external-resource-audit still passes
@@ -79,7 +81,7 @@ Deferred:
 
 - package version is updated to the selected release
 - active release manifest points at selected release docs
-- README and roadmap describe operator acceptance visibility without claiming semantic truth or market adoption
+- README and roadmap describe externalized runtime safety visibility without claiming semantic truth, production safety, or autonomous external execution
 
 ### Gate 5: Verification
 
@@ -107,20 +109,19 @@ Deferred:
 
 Release only if AOF now makes it harder to confuse:
 
-- an internally green release with an operator-accepted release
-- dashboard presence with visible acceptance evidence
-- feedback collection with validated product value
+- externalization readiness with external execution permission
+- provider adapter readiness with operator-approved execution safety
+- dashboard presence with visible safety evidence
+- safety evidence with semantic correctness
 - activity volume with adoption quality
-- provider adapter readiness with operator acceptance
 
-## Post-v8.2 Direction
+## Post-v8.3 Direction
 
 The next line should proceed in this order:
 
-1. `v8.3`: Mission Control Operator Acceptance Evidence
-2. `v8.4`: Externalized Runtime Operator Safety Proof
-3. `v8.5`: Provider Adapter Execution Pilot Boundary
-4. `v8.6`: External Runtime Execution Approval Bridge
+1. `v8.4`: Externalized Runtime Operator Safety Proof
+2. `v8.5`: Provider Adapter Execution Pilot Boundary
+3. `v8.6`: External Runtime Execution Approval Bridge
 
 Canonical planning reference:
 

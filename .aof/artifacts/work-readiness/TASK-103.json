@@ -1,0 +1,34 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRRY50B1-3STRIX",
+  "recorded_at": "2026-07-19T15:24:20.557Z",
+  "work_item_id": "TASK-103",
+  "work_item_ref": ".aof/tasks/done/TASK-103.json",
+  "readiness_status": "ready",
+  "goal": "Ship v8.3 operator acceptance evidence visibility.",
+  "risk": "AOF claims operator acceptance while Mission Control still hides the feedback summary or evidence path in raw JSON.",
+  "loss_boundary": "No v8.3 release claim unless Mission Control shows acceptance state, governance action, and evidence refs from operator-validation-audit.",
+  "acceptance_gates": [
+    "operator-validation-audit public records include human-readable evidence",
+    "Mission Control projection and viewer expose operator acceptance evidence",
+    "release-state-audit passes"
+  ],
+  "evidence_plan": [
+    "schema, viewer, focused tests, release-state audit, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if acceptance state is count-only",
+    "stop if release-state-audit fails"
+  ],
+  "qif_refs": [
+    "docs/v8.3-release-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": null
+}

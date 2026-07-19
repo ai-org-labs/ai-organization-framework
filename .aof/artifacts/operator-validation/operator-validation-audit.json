@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "operator-validation-audit",
-  "generated_at": "2026-07-19T01:50:58.121Z",
+  "generated_at": "2026-07-19T15:17:50.323Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
     "record_count": 1,
@@ -24,6 +24,16 @@
       "reproduction_outcome": "reproduced",
       "acceptance_outcome": "accepted_with_residual_risk",
       "governance_action": "none",
+      "feedback_summary": "Self-hosting operator can see that v8.2 adds governed operator validation records and audit gates, but this is still bounded runtime evidence rather than market validation.",
+      "blocking_reason": null,
+      "work_item_ref": ".aof/tasks/done/TASK-102.json",
+      "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ],
+      "not_proven": "This operator validation record proves only bounded self-hosting operator feedback, not market adoption, semantic truth, or broad user value.",
       "artifact_ref": ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json"
     }
   ],

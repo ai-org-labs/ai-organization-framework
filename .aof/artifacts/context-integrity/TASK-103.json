@@ -1,0 +1,24 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRRY50AB-3NFLAA",
+  "recorded_at": "2026-07-19T15:24:20.531Z",
+  "work_item_id": "TASK-103",
+  "work_item_ref": ".aof/tasks/done/TASK-103.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "required_context_refs": [
+    "docs/v8.3-release-definition.md",
+    ".aof/artifacts/operator-validation/operator-validation-audit.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared reference availability only, not semantic completeness or market truth.",
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": null
+}

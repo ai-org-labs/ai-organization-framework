@@ -2579,6 +2579,22 @@ export function buildVisibilityPageHtml(title) {
         return "-";
       }
 
+      function operatorAcceptanceState(projection) {
+        if (!projection?.present) return "missing";
+        if (projection.audit_ok === false) return "invalid";
+        if ((projection.rejected_count ?? 0) > 0) return "rejected";
+        if ((projection.not_reproduced_count ?? 0) > 0) return "not reproduced";
+        if ((projection.needs_clarification_count ?? 0) > 0) return "needs clarification";
+        if ((projection.accepted_count ?? 0) > 0) return "accepted";
+        return "not checked";
+      }
+
+      function operatorAcceptanceClass(state) {
+        if (state === "accepted") return "good";
+        if (state === "missing" || state === "invalid" || state === "rejected") return "warn";
+        return "attention";
+      }
+
       function stripRefToken(token) {
         let cleaned = String(token ?? "").trim();
         const leading = '"\\'(<[';
@@ -2745,6 +2761,10 @@ export function buildVisibilityPageHtml(title) {
         const progress = derived.operator_progress ?? {};
         const workGovernance = mission.work_governance ?? {};
         const workGovernanceItems = Array.isArray(workGovernance.work_items) ? workGovernance.work_items : [];
+        const operatorValidation = mission.operator_validation_projection ?? {};
+        const operatorValidationRecords = Array.isArray(operatorValidation.records) ? operatorValidation.records : [];
+        const operatorAcceptance = operatorAcceptanceState(operatorValidation);
+        const primaryOperatorValidation = operatorValidationRecords[0] ?? null;
         const organizationState = mission.organization_state ?? {};
         const sessionObservability = mission.agent_session_observability ?? {};
         const lastExecution = runtimeExecution.last_execution ?? {};
@@ -2794,6 +2814,7 @@ export function buildVisibilityPageHtml(title) {
               '<div class="summary-card ' + (riskCount > 0 ? "warn" : "good") + '"><div class="mission-label">Top blockers</div><div class="value">' + escapeHtml(riskCount > 0 ? firstText(blockers[0]?.summary, blockedTasks[0]?.title, "Review blocker list") : "No blocker") + '</div><div class="detail">' + escapeHtml(firstText(blockers[0]?.artifact_ref, blockedTasks[0]?.artifact_ref, "No blocking artifact surfaced")) + '</div></div>' +
               '<div class="summary-card"><div class="mission-label">Current frontier branch</div><div class="value">' + escapeHtml(firstText(tree.branch?.frontier_track, "not selected")) + '</div><div class="detail">' + escapeHtml(firstText(tree.branch?.branch_summary, mission.mission_overview?.next_value_slice)) + '</div></div>' +
               '<div class="summary-card"><div class="mission-label">Key risks</div><div class="value">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.claim, "No key risk claim")) + '</div><div class="detail">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.rationale, "Risk summary comes from evidence drill-down.")) + '</div></div>' +
+              '<div class="summary-card ' + operatorAcceptanceClass(operatorAcceptance) + '"><div class="mission-label">Operator acceptance</div><div class="value">' + escapeHtml(operatorAcceptance) + '</div><div class="detail">' + escapeHtml(firstText(primaryOperatorValidation?.feedback_summary, operatorValidation.not_proven, "No operator validation record is projected.")) + '</div></div>' +
             '</div></aside>' +
           '</section>' +
           '<section class="mission-lower">' +
@@ -2820,6 +2841,22 @@ export function buildVisibilityPageHtml(title) {
                 role.latest_artifact_ref,
                 role
               )).join("") : '<div class="mini-row"><strong>No role workload</strong><span>No execution role-result artifacts are visible.</span></div>') +
+            '</div></div>' +
+            '<div class="lower-panel"><div class="section-head"><h2>Operator Acceptance Evidence</h2><p>Acceptance, rejection, clarification, reproduction state, governance action, and proof refs from operator-validation-audit.</p></div><div class="lower-body">' +
+              '<div class="mini-row"><strong>Status: ' + escapeHtml(operatorAcceptance) + '</strong><span>Accepted: ' + escapeHtml(String(operatorValidation.accepted_count ?? 0)) + ' / Rejected: ' + escapeHtml(String(operatorValidation.rejected_count ?? 0)) + ' / Clarification: ' + escapeHtml(String(operatorValidation.needs_clarification_count ?? 0)) + ' / Not reproduced: ' + escapeHtml(String(operatorValidation.not_reproduced_count ?? 0)) + '</span></div>' +
+              (operatorValidationRecords.length > 0 ? operatorValidationRecords.map((record) => detailRow(
+                firstText(record.validation_id, "operator validation") + " / " + firstText(record.acceptance_outcome, "not checked"),
+                "Understanding: " + firstText(record.understanding_outcome, "-") + " / Reproduction: " + firstText(record.reproduction_outcome, "-") + " / Governance: " + firstText(record.governance_action, "-") + " / " + firstText(record.feedback_summary, record.not_proven, "-"),
+                record.artifact_ref,
+                record
+              )).join("") : '<div class="mini-row"><strong>No operator validation</strong><span>Mission Control cannot claim operator acceptance without a projected operator-validation-audit record.</span></div>') +
+              '<div class="mini-row detail-trigger"' + detailPayloadAttributes({
+                title: "Operator validation audit",
+                subtitle: "Audit ref",
+                body: firstText(operatorValidation.not_proven, "Operator validation audit boundary."),
+                ref: operatorValidation.audit_ref,
+                metadata: operatorValidation
+              }) + '><strong>Audit artifact</strong><span>' + escapeHtml(firstText(operatorValidation.audit_ref, "missing")) + '</span><div class="detail-hint">Click for audit detail</div></div>' +
             '</div></div>' +
             '<div class="lower-panel"><div class="section-head"><h2>Work Governance Chain</h2><p>Work item goal → actors → council output → Go/No-Go → Operational Map → Context Pack.</p></div><div class="lower-body">' +
               (workGovernanceItems.length > 0 ? workGovernanceItems.map((item) => detailRow(

@@ -58,6 +58,12 @@
           "reproduction_outcome",
           "acceptance_outcome",
           "governance_action",
+          "feedback_summary",
+          "blocking_reason",
+          "work_item_ref",
+          "mission_control_ref",
+          "evidence_refs",
+          "not_proven",
           "artifact_ref"
         ],
         "properties": {
@@ -70,6 +76,15 @@
           "reproduction_outcome": { "type": "string" },
           "acceptance_outcome": { "type": "string" },
           "governance_action": { "type": "string" },
+          "feedback_summary": { "type": "string" },
+          "blocking_reason": { "type": ["string", "null"] },
+          "work_item_ref": { "type": "string" },
+          "mission_control_ref": { "type": "string" },
+          "evidence_refs": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "not_proven": { "type": "string" },
           "artifact_ref": { "type": "string" }
         }
       }

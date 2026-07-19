@@ -1,0 +1,109 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRRYCQJ7-CAMYYT",
+  "recorded_at": "2026-07-19T15:30:21.139Z",
+  "work_item_id": "TASK-103",
+  "work_item_ref": ".aof/tasks/done/TASK-103.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "unspecified",
+    "source_format": "aof-runtime-artifacts",
+    "source_of_truth_boundary": "AOF runtime artifacts are the session source of truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "Proceed with v8.3 Mission Control Operator Acceptance Evidence.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-103.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "tool_call",
+      "summary": "Runtime commands refreshed operator validation audit and visibility export.",
+      "artifact_refs": [
+        ".aof/artifacts/operator-validation/operator-validation-audit.json",
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "response",
+      "summary": "The orchestrator reported v8.3 as bounded operator acceptance visibility, not semantic truth or market validation.",
+      "artifact_refs": [
+        "docs/v8.3-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "artifact_write",
+      "summary": "Schemas, viewer, tests, release docs, and TASK-103 runtime evidence were written.",
+      "artifact_refs": [
+        "schemas/aof-operator-validation-audit.schema.json",
+        "schemas/aof-mission-control-view.schema.json",
+        "src/commands/visibility-serve.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "verification",
+      "summary": "Focused tests and runtime audits validate the bounded acceptance visibility surface.",
+      "artifact_refs": [
+        "test/runtime-situation.test.js",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-6",
+      "event_type": "blocker",
+      "summary": "No active TASK-103 release blocker remains except final full verification at record time.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-7",
+      "event_type": "stop_condition",
+      "summary": "Stop when release-state-audit, npm test, and smoke pass for v8.3.0.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json",
+        "docs/v8.3-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-103.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.3-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-situation.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    ],
+    "risk_candidates": [
+      "Operator acceptance visibility can be overclaimed as market truth."
+    ],
+    "decision_candidates": [
+      "v8.3 acceptance visibility is release evidence only when linked to operator-validation-audit."
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    ]
+  },
+  "redaction_boundary": "No secrets or external provider payloads are included.",
+  "release_ready_boundary": "Runtime-ready only; not market truth.",
+  "not_proven": "Session export proves reconstructability only.",
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": null,
+  "notes": null
+}

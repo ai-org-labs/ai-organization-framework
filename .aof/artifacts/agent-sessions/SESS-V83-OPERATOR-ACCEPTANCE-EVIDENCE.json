@@ -1,0 +1,86 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRRY5HMN-6IBSQ6",
+  "recorded_at": "2026-07-19T15:24:43.007Z",
+  "session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-19T15:24:43.006Z",
+      "summary": "Proceed with v8.3 Mission Control Operator Acceptance Evidence.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-19T15:24:43.007Z",
+      "summary": "Runtime commands refreshed operator validation audit and visibility export.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-19T15:24:43.007Z",
+      "summary": "Schemas, viewer, tests, release docs, and TASK-103 evidence were written.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-19T15:24:43.007Z",
+      "summary": "Focused runtime tests passed; release-state initially blocked missing TASK-103 evidence and drove artifact completion.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-103.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.3-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-situation.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/visibility/current/mission-control.json"
+    ]
+  },
+  "risk_candidates": [
+    "Operator acceptance visibility can be overclaimed as market truth."
+  ],
+  "decision_candidates": [
+    "Mission Control operator acceptance state is release evidence only when linked to operator-validation-audit."
+  ],
+  "release_ready_evidence": {
+    "claim": "v8.3 is structurally and runtime ready pending final full verification.",
+    "evidence_refs": [
+      ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": null
+}

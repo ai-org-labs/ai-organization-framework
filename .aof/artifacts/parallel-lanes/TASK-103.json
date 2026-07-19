@@ -1,0 +1,67 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRRY6ZFX-CWW9RD",
+  "recorded_at": "2026-07-19T15:25:52.749Z",
+  "work_item_id": "TASK-103",
+  "work_item_ref": ".aof/tasks/done/TASK-103.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-103.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-103.json",
+  "lanes": [
+    {
+      "lane_id": "contract",
+      "goal": "Expand operator validation public evidence contract",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v8.3-release-definition.md"
+      ],
+      "expected_output": "schema and audit public record fields",
+      "output_refs": [
+        "schemas/aof-operator-validation-audit.schema.json",
+        "schemas/aof-mission-control-view.schema.json",
+        "src/commands/operator-validation-audit.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if feedback summary or evidence refs are absent",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "visibility",
+      "goal": "Expose operator acceptance evidence in Mission Control",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/artifacts/operator-validation/operator-validation-audit.json"
+      ],
+      "expected_output": "operator acceptance evidence panel and projection tests",
+      "output_refs": [
+        "src/commands/visibility-serve.js",
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "verification_refs": [
+        "test/runtime-situation.test.js"
+      ],
+      "stop_condition": "stop if acceptance remains count-only",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "contract",
+      "visibility"
+    ],
+    "conflict_summary": "No unresolved lane conflict.",
+    "blocker_summary": "No active blocker after focused tests.",
+    "merge_rationale": "Contract and visibility lanes agree that operator acceptance evidence is bounded runtime evidence.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-103-V83.json",
+  "not_proven": "Parallel lane evidence proves bounded local lane join only.",
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": null,
+  "notes": null
+}

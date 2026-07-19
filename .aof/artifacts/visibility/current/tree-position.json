@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-19T02:52:05.688Z",
+  "generated_at": "2026-07-19T15:34:16.319Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "8.2.0",
-    "active_release_track": "v8.2",
-    "release_definition_ref": "docs/v8.2-release-definition.md"
+    "active_release_version": "8.3.0",
+    "active_release_track": "v8.3",
+    "release_definition_ref": "docs/v8.3-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Run a runtime-backed v8.3 direction review before opening the first Mission Control operator acceptance evidence implementation task."
+    "branch_summary": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v8.2",
+      "label": "v8.3",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v8.2 and the next concrete branch.",
-    "why_this_branch": "Prepare v8.3 Mission Control Operator Acceptance Evidence: make operator acceptance, rejection, clarification need, reproduction state, evidence path, and governance action visible in Mission Control without raw artifact reading.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.3 direction review before opening the first Mission Control operator acceptance evidence implementation task."
+    "where_are_we": "The runtime is between v8.3 and the next concrete branch.",
+    "why_this_branch": "Prepare v8.4 Externalized Runtime Operator Safety Proof: make external runtime safety, permission, approval, risk, and not-proven boundaries visible enough for operators to judge before externalized execution advances.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task."
   }
 }

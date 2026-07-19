@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v8.3 Mission Control Operator Acceptance Evidence: make operator acceptance, rejection, clarification need, reproduction state, evidence path, and governance action visible in Mission Control without raw artifact reading.",
-  "updated_at": "2026-07-19T01:51:21.526Z",
+  "content": "Prepare v8.4 Externalized Runtime Operator Safety Proof: make external runtime safety, permission, approval, risk, and not-proven boundaries visible enough for operators to judge before externalized execution advances.",
+  "updated_at": "2026-07-19T15:26:30.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V82-OPERATOR-VALIDATION",
-  "source_decision_record_id": "CREV-TASK-102-V82",
+  "source_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": "CREV-TASK-103-V83",
   "declared_complete_at": null
 }

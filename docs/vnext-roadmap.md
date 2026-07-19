@@ -433,7 +433,7 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v8.2.0`, advance `v8.3` as Mission Control Operator Acceptance Evidence.
+After `v8.3.0`, advance `v8.4` as Externalized Runtime Operator Safety Proof.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
 proof, session, context, release, and Archmap evidence can be projected from
 canonical runtime artifacts. The v7.9 Externalization Readiness Boundary then
@@ -444,16 +444,18 @@ contracts. v8.1 added provider adapter governance: safe read adapter boundaries,
 approval policy checks, freshness verification, explicit external-write
 escalation, release-state gating, and Mission Control projection. v8.2 added
 operator validation: whether a real adopter or operator can understand,
-reproduce, and accept the governed work path. The next proof is acceptance
-visibility: whether Mission Control can show acceptance/rejection/clarification
-state without forcing operators to read raw JSON.
+reproduce, and accept the governed work path. v8.3 made that operator
+acceptance evidence visible in Mission Control without forcing operators to read
+raw JSON. The next proof is externalized runtime safety: whether permission,
+approval, risk, provenance, and not-proven boundaries are visible enough for an
+operator to judge before externalized execution advances.
 
 Priority order:
 
-1. `v8.3`: Mission Control Operator Acceptance Evidence
-2. `v8.4`: Externalized Runtime Operator Safety Proof
-3. `v8.5`: Provider Adapter Execution Pilot Boundary
-4. `v8.6`: External Runtime Execution Approval Bridge
+1. `v8.4`: Externalized Runtime Operator Safety Proof
+2. `v8.5`: Provider Adapter Execution Pilot Boundary
+3. `v8.6`: External Runtime Execution Approval Bridge
+4. `v8.7`: External Runtime Outcome Evidence and Learning Loop
 
 Canonical v7.x roadmap:
 

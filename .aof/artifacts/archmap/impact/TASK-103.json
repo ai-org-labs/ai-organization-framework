@@ -1,0 +1,20 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-19T15:26:10.000Z",
+  "work_item_id": "TASK-103",
+  "work_item_ref": ".aof/tasks/done/TASK-103.json",
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/v8.3-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-103-V83.json",
+  "affected_nodes": [
+    "mission-control",
+    "operator-validation",
+    "release-state-audit",
+    "runtime-cli"
+  ],
+  "impact_summary": "v8.3 expands operator validation from count-only audit projection into human-legible Mission Control operator acceptance evidence.",
+  "not_proven": "Archmap impact records describe intended architecture impact and do not prove semantic correctness, market adoption, or external execution safety."
+}

@@ -54,6 +54,12 @@ function publicRecord(record) {
     reproduction_outcome: payload.reproduction_outcome,
     acceptance_outcome: payload.acceptance_outcome,
     governance_action: payload.governance_action,
+    feedback_summary: payload.feedback_summary,
+    blocking_reason: payload.blocking_reason ?? null,
+    work_item_ref: payload.work_item_ref,
+    mission_control_ref: payload.mission_control_ref,
+    evidence_refs: payload.evidence_refs,
+    not_proven: payload.not_proven,
     artifact_ref: record.artifact_ref
   };
 }

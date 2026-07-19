@@ -2850,6 +2850,10 @@ test("operator validation commands write governed feedback and audit acceptance"
   assert.equal(audit.summary.summary.record_count, 1);
   assert.equal(audit.summary.summary.accepted_count, 1);
   assert.equal(audit.summary.summary.failing_check_count, 0);
+  assert.equal(audit.summary.records[0].feedback_summary, "Operator can understand and reproduce the governed path.");
+  assert.deepEqual(audit.summary.records[0].evidence_refs, ["docs/release.md", taskRef]);
+  assert.equal(audit.summary.records[0].mission_control_ref, missionRef);
+  assert.match(audit.summary.records[0].not_proven, /bounded operator validation/);
 });
 
 test("operatorValidationAuditCommand fails unclear feedback without governance action", async (t) => {

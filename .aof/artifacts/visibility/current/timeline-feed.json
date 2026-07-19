@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-19T02:52:05.686Z",
+      "at": "2026-07-19T15:34:16.312Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-19T02:52:05.680Z",
+      "at": "2026-07-19T15:34:16.306Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,14 +24,25 @@
       ]
     },
     {
-      "at": "2026-07-19T01:51:23.549Z",
+      "at": "2026-07-19T15:26:31.000Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "Run a runtime-backed v8.3 direction review before opening the first Mission Control operator acceptance evidence implementation task.",
+      "summary": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
         ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-07-19T15:23:51.354Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Ship v8.3 Mission Control Operator Acceptance Evidence",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-103.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-101.json"
-      ]
-    },
-    {
-      "at": "2026-07-18T12:14:22.154Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Implement v8.0 External Runtime Resource contract and audit",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-100.json"
       ]
     }
   ]

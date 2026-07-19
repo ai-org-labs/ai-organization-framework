@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-19T02:52:05.686Z",
+  "generated_at": "2026-07-19T15:34:16.312Z",
   "mission_overview": {
-    "mission": "Ship v8.2.0 as Adoption Feedback And Operator Validation Loop.",
-    "release_version": "8.2.0",
-    "release_definition_ref": "docs/v8.2-release-definition.md",
-    "operating_goal": "Prepare v8.3 Mission Control Operator Acceptance Evidence: make operator acceptance, rejection, clarification need, reproduction state, evidence path, and governance action visible in Mission Control without raw artifact reading.",
-    "next_value_slice": "Run a runtime-backed v8.3 direction review before opening the first Mission Control operator acceptance evidence implementation task.",
+    "mission": "Ship v8.3.0 as Mission Control Operator Acceptance Evidence.",
+    "release_version": "8.3.0",
+    "release_definition_ref": "docs/v8.3-release-definition.md",
+    "operating_goal": "Prepare v8.4 Externalized Runtime Operator Safety Proof: make external runtime safety, permission, approval, risk, and not-proven boundaries visible enough for operators to judge before externalized execution advances.",
+    "next_value_slice": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.3 direction review before opening the first Mission Control operator acceptance evidence implementation task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 32,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-102.json",
+    "impact_record_count": 33,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-103.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-102",
+    "latest_work_item_id": "TASK-103",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-102.json"
+      ".aof/artifacts/archmap/impact/TASK-103.json"
     ],
     "external_refs": []
   },
@@ -399,40 +399,40 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 18,
-    "latest_session_id": "SESS-V82-OPERATOR-VALIDATION",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V82-OPERATOR-VALIDATION.json",
+    "stream_count": 19,
+    "latest_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE.json",
     "latest_actor_ref": "codex",
-    "latest_role_ref": "builder",
-    "latest_recorded_at": "2026-07-19T01:44:35.711Z",
-    "latest_event_count": 3,
+    "latest_role_ref": "orchestrator",
+    "latest_recorded_at": "2026-07-19T15:24:43.007Z",
+    "latest_event_count": 4,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-102.json"
+      ".aof/tasks/done/TASK-103.json"
     ],
     "linked_requirement_refs": [
-      "docs/v8.2-release-definition.md"
+      "docs/v8.3-release-definition.md"
     ],
     "linked_test_evidence_refs": [
-      "test/runtime-core-2.test.js"
+      "test/runtime-situation.test.js"
     ],
     "linked_artifact_refs": [
-      ".aof/artifacts/operator-validation/operator-validation-audit.json"
+      ".aof/artifacts/visibility/current/mission-control.json"
     ],
     "risk_candidates": [
-      "Operator validation can be mistaken for market truth without not-proven boundary."
+      "Operator acceptance visibility can be overclaimed as market truth."
     ],
     "decision_candidates": [
-      "Make operator-validation-audit a v8.2 release gate."
+      "Mission Control operator acceptance state is release evidence only when linked to operator-validation-audit."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Heartbeat requested next roadmap release using AOF runtime.",
-        "occurred_at": "2026-07-19T01:44:35.710Z",
+        "summary": "Proceed with v8.3 Mission Control Operator Acceptance Evidence.",
+        "occurred_at": "2026-07-19T15:24:43.006Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -440,8 +440,17 @@
       },
       {
         "event_type": "tool_call",
-        "summary": "Created operator validation records, audit, docs, tests, and release gates.",
-        "occurred_at": "2026-07-19T01:44:35.711Z",
+        "summary": "Runtime commands refreshed operator validation audit and visibility export.",
+        "occurred_at": "2026-07-19T15:24:43.007Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
+      },
+      {
+        "event_type": "artifact_write",
+        "summary": "Schemas, viewer, tests, release docs, and TASK-103 evidence were written.",
+        "occurred_at": "2026-07-19T15:24:43.007Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -449,8 +458,8 @@
       },
       {
         "event_type": "verification_result",
-        "summary": "Focused runtime tests passed for operator validation.",
-        "occurred_at": "2026-07-19T01:44:35.711Z",
+        "summary": "Focused runtime tests passed; release-state initially blocked missing TASK-103 evidence and drove artifact completion.",
+        "occurred_at": "2026-07-19T15:24:43.007Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -459,7 +468,7 @@
     ],
     "latest_tool_calls": [
       {
-        "summary": "Created operator validation records, audit, docs, tests, and release gates.",
+        "summary": "Runtime commands refreshed operator validation audit and visibility export.",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null
@@ -473,11 +482,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 13,
+    "context_record_count": 14,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-103.json",
+        "work_item_id": "TASK-103",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared reference availability only, not semantic completeness or market truth."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-102.json",
         "work_item_id": "TASK-102",
@@ -533,14 +550,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves required refs were declared and linked; it does not prove external adoption or semantic product quality."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-095.json",
-        "work_item_id": "TASK-095",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves declared refs are tracked for TASK-095; it does not prove semantic correctness or external provider integration."
       }
     ],
     "latest_external_reference_records": [
@@ -565,9 +574,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-102.json",
-    "latest_work_item_id": "TASK-102",
-    "latest_recorded_at": "2026-07-19T01:45:45.753Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-103.json",
+    "latest_work_item_id": "TASK-103",
+    "latest_recorded_at": "2026-07-19T15:25:19.485Z",
     "coverage_status": "completed",
     "total_requirements": 1,
     "covered_count": 1,
@@ -578,27 +587,28 @@
     "coverage_ratio": null,
     "forecast": {
       "estimated_remaining_work_items": 0,
-      "estimated_token_cost_range": "0 additional implementation work items for v8.2 after verification",
-      "forecast_boundary": "Forecast is based on current local runtime artifacts and does not prove operator value."
+      "estimated_token_cost_range": "0 additional implementation work items for v8.3 after final verification",
+      "forecast_boundary": "Forecast is local runtime evidence and does not prove operator value or market truth."
     },
-    "forecast_boundary": "Forecast is based on current local runtime artifacts and does not prove operator value.",
+    "forecast_boundary": "Forecast is local runtime evidence and does not prove operator value or market truth.",
     "requirements": [
       {
-        "requirement_id": "REQ-V82-OPERATOR-VALIDATION",
-        "title": "Operator validation feedback must be governed runtime evidence.",
+        "requirement_id": "REQ-V83-OPERATOR-ACCEPTANCE-VISIBILITY",
+        "title": "Mission Control must show operator acceptance evidence without raw JSON reading.",
         "status": "covered",
-        "source_ref": "docs/v8.2-release-definition.md",
+        "source_ref": "docs/v8.3-release-definition.md",
         "owner_ref": "architecture-council",
         "evidence_refs": [
           ".aof/artifacts/operator-validation/operator-validation-audit.json",
-          "test/runtime-core-2.test.js"
+          ".aof/artifacts/visibility/current/mission-control.json",
+          "test/runtime-situation.test.js"
         ],
         "blocker_refs": []
       }
     ],
-    "not_proven": "Requirement coverage proves bounded contract coverage only, not semantic satisfaction.",
+    "not_proven": "Requirement coverage proves bounded traceability only, not semantic satisfaction or market acceptance.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-102.json"
+      ".aof/artifacts/requirement-coverage/TASK-103.json"
     ]
   },
   "adoption_proof_projection": {
@@ -759,6 +769,16 @@
         "reproduction_outcome": "reproduced",
         "acceptance_outcome": "accepted_with_residual_risk",
         "governance_action": "none",
+        "feedback_summary": "Self-hosting operator can see that v8.2 adds governed operator validation records and audit gates, but this is still bounded runtime evidence rather than market validation.",
+        "blocking_reason": null,
+        "work_item_ref": ".aof/tasks/done/TASK-102.json",
+        "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+        "evidence_refs": [
+          "docs/v8.2-release-definition.md",
+          "docs/v8.2-release-checklist.md",
+          "test/runtime-core-2.test.js"
+        ],
+        "not_proven": "This operator validation record proves only bounded self-hosting operator feedback, not market adoption, semantic truth, or broad user value.",
         "artifact_ref": ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json"
       }
     ],
@@ -771,7 +791,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-102.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-103.json"
       },
       {
         "source_id": "adoption-proof",
@@ -781,27 +801,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V82-OPERATOR-VALIDATION.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-102.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-103.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v8.2-release-definition.md"
+        "artifact_ref": "docs/v8.3-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-102.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-103.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-102.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-103.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V82-OPERATOR-VALIDATION.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE.json"
   }
 }
