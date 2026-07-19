@@ -1,6 +1,6 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-19T15:44:11.707Z",
+  "generated_at": "2026-07-19T15:45:57.153Z",
   "headline": "The next frontier is defined, but no aligned implementation task is open yet: Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
   "current_state": {
     "release_version": "8.3.0",
