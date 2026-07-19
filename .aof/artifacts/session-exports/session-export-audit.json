@@ -1,0 +1,1221 @@
+{
+  "ok": true,
+  "artifact_type": "session-export-audit",
+  "generated_at": "2026-07-19T01:53:55.367Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "cutoff_task_id": "TASK-095",
+  "audited_status_dirs": [
+    "open",
+    "assigned",
+    "done"
+  ],
+  "summary": {
+    "scoped_task_count": 8,
+    "export_count": 8,
+    "accepted_export_count": 8,
+    "missing_export_count": 0,
+    "failing_check_count": 0
+  },
+  "tasks": [
+    {
+      "task_id": "TASK-095",
+      "title": "Ship v7.6 Provider-Neutral Session Export",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-095.json"
+    },
+    {
+      "task_id": "TASK-096",
+      "title": "Ship v7.7 Adoption-Grade v7 Runtime",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-096.json"
+    },
+    {
+      "task_id": "TASK-097",
+      "title": "Ship v7.8 Mission Control Coverage Forecast Projection",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-097.json"
+    },
+    {
+      "task_id": "TASK-098",
+      "title": "Ship v7.9 Externalization Readiness Boundary",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-098.json"
+    },
+    {
+      "task_id": "TASK-099",
+      "title": "Define v8.0 Externalized Organization Runtime direction",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-099.json"
+    },
+    {
+      "task_id": "TASK-100",
+      "title": "Implement v8.0 External Runtime Resource contract and audit",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-100.json"
+    },
+    {
+      "task_id": "TASK-101",
+      "title": "Define v8.1 Provider Adapter Governance direction",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-101.json"
+    },
+    {
+      "task_id": "TASK-102",
+      "title": "Ship v8.2 Adoption Feedback And Operator Validation Loop",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-102.json"
+    }
+  ],
+  "exports": [
+    {
+      "task_id": "TASK-095",
+      "task_ref": ".aof/tasks/done/TASK-095.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-095.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-096",
+      "task_ref": ".aof/tasks/done/TASK-096.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-096.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-097",
+      "task_ref": ".aof/tasks/done/TASK-097.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-097.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-098",
+      "task_ref": ".aof/tasks/done/TASK-098.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-098.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-099",
+      "task_ref": ".aof/tasks/done/TASK-099.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-099.json",
+      "export_status": "ready",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-100",
+      "task_ref": ".aof/tasks/done/TASK-100.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-100.json",
+      "export_status": "ready",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-101",
+      "task_ref": ".aof/tasks/done/TASK-101.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-101.json",
+      "export_status": "ready",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-102",
+      "task_ref": ".aof/tasks/done/TASK-102.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-102.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    }
+  ],
+  "checks": [
+    {
+      "name": "scoped task discovery",
+      "status": "pass",
+      "detail": "8 task(s) at or after TASK-095 in open, assigned, done"
+    },
+    {
+      "name": "TASK-095 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-095.json"
+    },
+    {
+      "name": "TASK-095 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-095.json"
+    },
+    {
+      "name": "TASK-095 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-095, expected=TASK-095"
+    },
+    {
+      "name": "TASK-095 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-095 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-095 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "Provider-native streams are input evidence; the normalized AOF session export is the canonical portable package."
+    },
+    {
+      "name": "TASK-095 redaction boundary present",
+      "status": "pass",
+      "detail": "Export stores summaries and refs only; raw secrets, credentials, and private full prompt bodies are out of scope."
+    },
+    {
+      "name": "TASK-095 release-ready boundary present",
+      "status": "pass",
+      "detail": "Release-ready export evidence is structural/runtime evidence only."
+    },
+    {
+      "name": "TASK-095 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export does not prove semantic correctness, universal privacy safety, provider API integration, or external adoption."
+    },
+    {
+      "name": "TASK-095 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-095.json"
+    },
+    {
+      "name": "TASK-095 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V76-SESSION-EXPORT.json"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-001 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-095.json"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-002 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.6-release-definition.md"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-003 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V76-SESSION-EXPORT.json"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-004 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-session-export-record.schema.json"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-004 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/session-export-audit.js"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-004 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-005 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.6-release-checklist.md"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-005 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-006 artifact ref resolves",
+      "status": "pass",
+      "detail": "package.json"
+    },
+    {
+      "name": "TASK-095 event EVT-V76-007 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.6-release-checklist.md"
+    },
+    {
+      "name": "TASK-095 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-095.json"
+    },
+    {
+      "name": "TASK-095 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.6-release-definition.md"
+    },
+    {
+      "name": "TASK-095 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-095 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-session-export-record.schema.json"
+    },
+    {
+      "name": "TASK-095 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/session-export-record.js"
+    },
+    {
+      "name": "TASK-095 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/session-export-audit.js"
+    },
+    {
+      "name": "TASK-095 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.6-release-checklist.md"
+    },
+    {
+      "name": "TASK-096 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-096.json"
+    },
+    {
+      "name": "TASK-096 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-096.json"
+    },
+    {
+      "name": "TASK-096 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-096, expected=TASK-096"
+    },
+    {
+      "name": "TASK-096 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-096 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-096 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF export package is canonical runtime evidence; provider-native stream is input evidence only."
+    },
+    {
+      "name": "TASK-096 redaction boundary present",
+      "status": "pass",
+      "detail": "Session export stores summaries and artifact refs only; secrets and raw private prompts are out of scope."
+    },
+    {
+      "name": "TASK-096 release-ready boundary present",
+      "status": "pass",
+      "detail": "v7.7 is release-ready only as structural/runtime adoption evidence."
+    },
+    {
+      "name": "TASK-096 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export does not prove semantic correctness, operator acceptance, external adoption, or provider integration."
+    },
+    {
+      "name": "TASK-096 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-096.json"
+    },
+    {
+      "name": "TASK-096 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V77-ADOPTION-GRADE.json"
+    },
+    {
+      "name": "TASK-096 event V77-EVT-001 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-096.json"
+    },
+    {
+      "name": "TASK-096 event V77-EVT-002 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-096 event V77-EVT-003 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V77-ADOPTION-GRADE.json"
+    },
+    {
+      "name": "TASK-096 event V77-EVT-004 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/adoption-proof-benchmark.js"
+    },
+    {
+      "name": "TASK-096 event V77-EVT-004 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.7-release-definition.md"
+    },
+    {
+      "name": "TASK-096 event V77-EVT-005 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.7-release-checklist.md"
+    },
+    {
+      "name": "TASK-096 event V77-EVT-006 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-096-V77.json"
+    },
+    {
+      "name": "TASK-096 event V77-EVT-007 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.7-release-checklist.md"
+    },
+    {
+      "name": "TASK-096 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-096.json"
+    },
+    {
+      "name": "TASK-096 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.7-release-definition.md"
+    },
+    {
+      "name": "TASK-096 test evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+    },
+    {
+      "name": "TASK-096 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/work-governance-schema.test.js"
+    },
+    {
+      "name": "TASK-096 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-execution-packets/TASK-096.json"
+    },
+    {
+      "name": "TASK-096 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/requirement-coverage/TASK-096.json"
+    },
+    {
+      "name": "TASK-096 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/parallel-lanes/TASK-096.json"
+    },
+    {
+      "name": "TASK-096 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/multi-actor-pilots/TASK-096.json"
+    },
+    {
+      "name": "TASK-096 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.7-release-checklist.md"
+    },
+    {
+      "name": "TASK-097 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-097.json"
+    },
+    {
+      "name": "TASK-097 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-097.json"
+    },
+    {
+      "name": "TASK-097 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-097, expected=TASK-097"
+    },
+    {
+      "name": "TASK-097 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-097 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-097 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF export package is canonical runtime evidence; provider-native stream is input evidence only."
+    },
+    {
+      "name": "TASK-097 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets or provider-native raw transcript are included; local summary artifacts are canonical evidence."
+    },
+    {
+      "name": "TASK-097 release-ready boundary present",
+      "status": "pass",
+      "detail": "Release readiness requires audits and tests; session export alone is not a release-ready verdict."
+    },
+    {
+      "name": "TASK-097 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves reconstructable process summary, not semantic correctness or operator acceptance."
+    },
+    {
+      "name": "TASK-097 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-097.json"
+    },
+    {
+      "name": "TASK-097 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V78-MISSION-CONTROL-PROJECTION.json"
+    },
+    {
+      "name": "TASK-097 event V78-EVT-001 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-097 event V78-EVT-002 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-097.json"
+    },
+    {
+      "name": "TASK-097 event V78-EVT-003 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/mission-control-projection-audit.js"
+    },
+    {
+      "name": "TASK-097 event V78-EVT-004 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/requirement-coverage/TASK-097.json"
+    },
+    {
+      "name": "TASK-097 event V78-EVT-004 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-execution-packets/TASK-097.json"
+    },
+    {
+      "name": "TASK-097 event V78-EVT-005 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.8-release-checklist.md"
+    },
+    {
+      "name": "TASK-097 event V78-EVT-006 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-097 event V78-EVT-007 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/mission-control/mission-control-projection-audit.json"
+    },
+    {
+      "name": "TASK-097 event V78-EVT-007 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.8-release-checklist.md"
+    },
+    {
+      "name": "TASK-097 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-097.json"
+    },
+    {
+      "name": "TASK-097 requirement ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/requirement-coverage/TASK-097.json"
+    },
+    {
+      "name": "TASK-097 test evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/mission-control/mission-control-projection-audit.json"
+    },
+    {
+      "name": "TASK-097 test evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.8-release-checklist.md"
+    },
+    {
+      "name": "TASK-097 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-export.js"
+    },
+    {
+      "name": "TASK-097 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/mission-control-projection-audit.js"
+    },
+    {
+      "name": "TASK-097 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-mission-control-view.schema.json"
+    },
+    {
+      "name": "TASK-097 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.8-release-checklist.md"
+    },
+    {
+      "name": "TASK-097 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-097-V78.json"
+    },
+    {
+      "name": "TASK-098 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-098.json"
+    },
+    {
+      "name": "TASK-098 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-098.json"
+    },
+    {
+      "name": "TASK-098 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-098, expected=TASK-098"
+    },
+    {
+      "name": "TASK-098 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-098 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-098 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF export package is canonical runtime evidence; provider-native stream is input evidence only."
+    },
+    {
+      "name": "TASK-098 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets or provider-native raw transcript are included."
+    },
+    {
+      "name": "TASK-098 release-ready boundary present",
+      "status": "pass",
+      "detail": "Release readiness requires audits and tests; session export alone is not a release-ready verdict."
+    },
+    {
+      "name": "TASK-098 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves reconstructable process summary, not semantic correctness or operator acceptance."
+    },
+    {
+      "name": "TASK-098 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-098.json"
+    },
+    {
+      "name": "TASK-098 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V79-EXTERNALIZATION-READINESS.json"
+    },
+    {
+      "name": "TASK-098 event V79-EVT-001 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-098 event V79-EVT-002 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-098.json"
+    },
+    {
+      "name": "TASK-098 event V79-EVT-003 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/externalization-readiness-audit.js"
+    },
+    {
+      "name": "TASK-098 event V79-EVT-004 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-externalization-readiness-audit.schema.json"
+    },
+    {
+      "name": "TASK-098 event V79-EVT-004 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.9-release-definition.md"
+    },
+    {
+      "name": "TASK-098 event V79-EVT-005 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/externalization/externalization-readiness-audit.json"
+    },
+    {
+      "name": "TASK-098 event V79-EVT-006 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.9-release-checklist.md"
+    },
+    {
+      "name": "TASK-098 event V79-EVT-007 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/externalization/externalization-readiness-audit.json"
+    },
+    {
+      "name": "TASK-098 event V79-EVT-007 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.9-release-checklist.md"
+    },
+    {
+      "name": "TASK-098 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-098.json"
+    },
+    {
+      "name": "TASK-098 requirement ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/requirement-coverage/TASK-098.json"
+    },
+    {
+      "name": "TASK-098 test evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/externalization/externalization-readiness-audit.json"
+    },
+    {
+      "name": "TASK-098 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/externalization-readiness-audit.js"
+    },
+    {
+      "name": "TASK-098 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.9-release-checklist.md"
+    },
+    {
+      "name": "TASK-099 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-099.json"
+    },
+    {
+      "name": "TASK-099 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-099.json"
+    },
+    {
+      "name": "TASK-099 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-099, expected=TASK-099"
+    },
+    {
+      "name": "TASK-099 accepted export status",
+      "status": "pass",
+      "detail": "export_status=ready"
+    },
+    {
+      "name": "TASK-099 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-099 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF session export normalizes local direction evidence; provider stream is not canonical truth."
+    },
+    {
+      "name": "TASK-099 redaction boundary present",
+      "status": "pass",
+      "detail": "summaries only; no secrets, credentials, billing, deploy, or production writes are exported"
+    },
+    {
+      "name": "TASK-099 release-ready boundary present",
+      "status": "pass",
+      "detail": "direction evidence only; release readiness requires TASK-100 implementation and audits"
+    },
+    {
+      "name": "TASK-099 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export does not prove implementation completeness, external provider execution, semantic truth, or operator acceptance."
+    },
+    {
+      "name": "TASK-099 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-099.json"
+    },
+    {
+      "name": "TASK-099 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V80-DIRECTION.json"
+    },
+    {
+      "name": "TASK-099 event EVT-V80-DIR-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-099.json"
+    },
+    {
+      "name": "TASK-099 event EVT-V80-DIR-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-099 event EVT-V80-DIR-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-099-V80-DIRECTION.json"
+    },
+    {
+      "name": "TASK-099 event EVT-V80-DIR-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+    },
+    {
+      "name": "TASK-099 event EVT-V80-DIR-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-099 event EVT-V80-DIR-4 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-099-BUILDER.json"
+    },
+    {
+      "name": "TASK-099 event EVT-V80-DIR-5 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+    },
+    {
+      "name": "TASK-099 event EVT-V80-DIR-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+    },
+    {
+      "name": "TASK-099 event EVT-V80-DIR-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-099 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-099.json"
+    },
+    {
+      "name": "TASK-099 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-099 test evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+    },
+    {
+      "name": "TASK-099 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-099 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-099-V80-DIRECTION.json"
+    },
+    {
+      "name": "TASK-099 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-099-V80-DIRECTION.json"
+    },
+    {
+      "name": "TASK-100 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-100.json"
+    },
+    {
+      "name": "TASK-100 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-100.json"
+    },
+    {
+      "name": "TASK-100 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-100, expected=TASK-100"
+    },
+    {
+      "name": "TASK-100 accepted export status",
+      "status": "pass",
+      "detail": "export_status=ready"
+    },
+    {
+      "name": "TASK-100 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-100 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF session export normalizes local session evidence; provider stream is not canonical truth."
+    },
+    {
+      "name": "TASK-100 redaction boundary present",
+      "status": "pass",
+      "detail": "summaries only; no secrets, credentials, billing, deploy, or production writes are exported"
+    },
+    {
+      "name": "TASK-100 release-ready boundary present",
+      "status": "pass",
+      "detail": "structural/runtime v8 external resource governance evidence only"
+    },
+    {
+      "name": "TASK-100 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export does not prove external provider execution, semantic truth, or operator acceptance."
+    },
+    {
+      "name": "TASK-100 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-100.json"
+    },
+    {
+      "name": "TASK-100 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V80-EXTERNAL-RESOURCE-RUNTIME.json"
+    },
+    {
+      "name": "TASK-100 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-100.json"
+    },
+    {
+      "name": "TASK-100 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-100 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-resources/external-resource-audit.json"
+    },
+    {
+      "name": "TASK-100 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-runtime-resource-record.schema.json"
+    },
+    {
+      "name": "TASK-100 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/external-resource-audit.js"
+    },
+    {
+      "name": "TASK-100 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-resources/external-resource-audit.json"
+    },
+    {
+      "name": "TASK-100 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-100-V80.json"
+    },
+    {
+      "name": "TASK-100 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-100 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-100.json"
+    },
+    {
+      "name": "TASK-100 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-100 test evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-resources/external-resource-audit.json"
+    },
+    {
+      "name": "TASK-100 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-runtime-resource-record.schema.json"
+    },
+    {
+      "name": "TASK-100 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-resource-use-record.schema.json"
+    },
+    {
+      "name": "TASK-100 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-resources/external-resource-audit.json"
+    },
+    {
+      "name": "TASK-101 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-101.json"
+    },
+    {
+      "name": "TASK-101 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-101.json"
+    },
+    {
+      "name": "TASK-101 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-101, expected=TASK-101"
+    },
+    {
+      "name": "TASK-101 accepted export status",
+      "status": "pass",
+      "detail": "export_status=ready"
+    },
+    {
+      "name": "TASK-101 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-101 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF session export normalizes local session evidence; provider stream is not canonical truth."
+    },
+    {
+      "name": "TASK-101 redaction boundary present",
+      "status": "pass",
+      "detail": "summaries only; no secrets, credentials, billing, deploy, provider payloads, or production writes are exported"
+    },
+    {
+      "name": "TASK-101 release-ready boundary present",
+      "status": "pass",
+      "detail": "structural/runtime v8.1 provider adapter governance evidence only"
+    },
+    {
+      "name": "TASK-101 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export does not prove provider execution, semantic truth, credential safety, billing safety, production write safety, or operator acceptance."
+    },
+    {
+      "name": "TASK-101 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-101.json"
+    },
+    {
+      "name": "TASK-101 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V81-DIRECTION.json"
+    },
+    {
+      "name": "TASK-101 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-101.json"
+    },
+    {
+      "name": "TASK-101 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.1-direction-review.md"
+    },
+    {
+      "name": "TASK-101 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    },
+    {
+      "name": "TASK-101 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-adapter-record.schema.json"
+    },
+    {
+      "name": "TASK-101 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-adapter-audit.js"
+    },
+    {
+      "name": "TASK-101 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.1-release-definition.md"
+    },
+    {
+      "name": "TASK-101 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-101 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    },
+    {
+      "name": "TASK-101 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.1-release-definition.md"
+    },
+    {
+      "name": "TASK-101 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-101.json"
+    },
+    {
+      "name": "TASK-101 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.1-release-definition.md"
+    },
+    {
+      "name": "TASK-101 test evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    },
+    {
+      "name": "TASK-101 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-adapter-record.schema.json"
+    },
+    {
+      "name": "TASK-101 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-adapter-audit.schema.json"
+    },
+    {
+      "name": "TASK-101 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    },
+    {
+      "name": "TASK-102 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-102.json"
+    },
+    {
+      "name": "TASK-102 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-102.json"
+    },
+    {
+      "name": "TASK-102 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-102, expected=TASK-102"
+    },
+    {
+      "name": "TASK-102 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-102 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, tool_call, response, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-102 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF runtime artifacts are the session source of truth."
+    },
+    {
+      "name": "TASK-102 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets or external provider payloads are included."
+    },
+    {
+      "name": "TASK-102 release-ready boundary present",
+      "status": "pass",
+      "detail": "Runtime-ready only; not market truth."
+    },
+    {
+      "name": "TASK-102 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves reconstructability only."
+    },
+    {
+      "name": "TASK-102 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-102.json"
+    },
+    {
+      "name": "TASK-102 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V82-OPERATOR-VALIDATION.json"
+    },
+    {
+      "name": "TASK-102 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-102.json"
+    },
+    {
+      "name": "TASK-102 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-102 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.2-release-definition.md"
+    },
+    {
+      "name": "TASK-102 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-operator-validation-record.schema.json"
+    },
+    {
+      "name": "TASK-102 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-operator-validation-audit.schema.json"
+    },
+    {
+      "name": "TASK-102 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/operator-validation-record.js"
+    },
+    {
+      "name": "TASK-102 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/operator-validation-audit.js"
+    },
+    {
+      "name": "TASK-102 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-102 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-102 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-102.json"
+    },
+    {
+      "name": "TASK-102 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-102 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-102.json"
+    },
+    {
+      "name": "TASK-102 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.2-release-definition.md"
+    },
+    {
+      "name": "TASK-102 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-102 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-102 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    }
+  ],
+  "errors": []
+}

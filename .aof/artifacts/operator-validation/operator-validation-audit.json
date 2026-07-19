@@ -1,0 +1,184 @@
+{
+  "ok": true,
+  "artifact_type": "operator-validation-audit",
+  "generated_at": "2026-07-19T01:50:58.121Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "record_count": 1,
+    "accepted_count": 1,
+    "rejected_count": 0,
+    "needs_clarification_count": 0,
+    "not_reproduced_count": 0,
+    "missing_link_count": 0,
+    "blocking_record_count": 0,
+    "failing_check_count": 0
+  },
+  "records": [
+    {
+      "validation_id": "OVR-TASK-102-SELF-HOSTING",
+      "operator_ref": "operator:self-hosting",
+      "feedback_source": "self_hosting_operator",
+      "release_ref": "docs/v8.2-release-definition.md",
+      "work_item_id": "TASK-102",
+      "understanding_outcome": "understood",
+      "reproduction_outcome": "reproduced",
+      "acceptance_outcome": "accepted_with_residual_risk",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "operator validation presence",
+      "status": "pass",
+      "detail": "1 record(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING release ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-102.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.2-release-checklist.md",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING feedback summary",
+      "status": "pass",
+      "detail": "Self-hosting operator can see that v8.2 adds governed operator validation records and audit gates, but this is still bounded runtime evidence rather than market validation.",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING not-proven boundary",
+      "status": "pass",
+      "detail": "This operator validation record proves only bounded self-hosting operator feedback, not market adoption, semantic truth, or broad user value.",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-102, source_parent_session_id=SESS-V82-OPERATOR-VALIDATION",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING unclear or negative feedback escalates",
+      "status": "pass",
+      "detail": "governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "OVR-TASK-102-SELF-HOSTING blocking reason when blocked",
+      "status": "pass",
+      "detail": "not required",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v8.2-release-definition.md",
+        "docs/v8.2-release-checklist.md",
+        "test/runtime-core-2.test.js"
+      ]
+    }
+  ],
+  "errors": []
+}

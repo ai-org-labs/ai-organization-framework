@@ -87,6 +87,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing adapter records, unresolved refs, missing boundaries, write-capable modes without escalation, ready dangerous adapters, or absent runtime provenance.",
     verdict_boundary: "Adapter governance evidence only; not proof that a provider response is semantically correct or that external writes are safe in every context."
   },
+  "operator-validation-audit": {
+    quality_intent: "AOF distinguishes internally green work from operator-understood, reproducible, and accepted work.",
+    risk: "AOF claims adoption or release acceptance from tests, dashboards, or artifact volume while the operator cannot understand, reproduce, or accept the governed work path.",
+    loss_boundary: "Do not claim operator acceptance when feedback records, release/work/Mission Control/evidence refs, outcome boundaries, governance action, provenance, or not-proven limits are missing.",
+    evidence_refs: ["operator validation records", "Mission Control payload", "work item refs", "release refs", "verification evidence refs"],
+    acceptance_gate: "Audit fails missing feedback records, unresolved refs, unclear or negative outcomes without escalation, blocked feedback without blocking reason, or absent runtime provenance.",
+    verdict_boundary: "Operator validation evidence only; not proof of market truth, broad adoption, semantic correctness, or product value."
+  },
   "adoption-proof-benchmark": {
     quality_intent: "A fresh project can reach first governed work without opaque setup magic.",
     risk: "AOF claims adoption readiness while first-time operators cannot reproduce or understand the governed work path.",

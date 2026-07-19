@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRR4UQSB-CV986I",
+  "recorded_at": "2026-07-19T01:44:32.795Z",
+  "work_item_id": "TASK-102",
+  "work_item_ref": ".aof/tasks/done/TASK-102.json",
+  "readiness_status": "ready",
+  "goal": "Ship v8.2 operator validation governance.",
+  "risk": "AOF claims acceptance from internal green status without operator validation.",
+  "loss_boundary": "No operator acceptance claim without linked operator validation evidence and audit.",
+  "acceptance_gates": [
+    "operator-validation-audit passes",
+    "release-state-audit includes operator-validation-audit"
+  ],
+  "evidence_plan": [
+    "schema, command, tests, Mission Control projection, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "audit passes or release stops"
+  ],
+  "qif_refs": [
+    "docs/v8.2-release-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-102",
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "source_decision_record_id": null
+}

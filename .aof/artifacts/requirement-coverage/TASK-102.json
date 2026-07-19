@@ -1,0 +1,44 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRR4WB2X-OWABDK",
+  "recorded_at": "2026-07-19T01:45:45.753Z",
+  "work_item_id": "TASK-102",
+  "work_item_ref": ".aof/tasks/done/TASK-102.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V82-OPERATOR-VALIDATION",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v8.2-release-definition.md",
+      "title": "Operator validation feedback must be governed runtime evidence.",
+      "owner_ref": "architecture-council",
+      "acceptance_boundary": "operator-validation-audit passes and release-state-audit includes it for v8.2+",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-102.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/operator-validation-audit.json",
+        "test/runtime-core-2.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 1,
+    "covered_count": 1,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "0 additional implementation work items for v8.2 after verification",
+    "forecast_boundary": "Forecast is based on current local runtime artifacts and does not prove operator value."
+  },
+  "not_proven": "Requirement coverage proves bounded contract coverage only, not semantic satisfaction.",
+  "source_task_id": "TASK-102",
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

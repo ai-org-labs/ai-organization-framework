@@ -1,0 +1,107 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRR4WF98-5JGKSV",
+  "recorded_at": "2026-07-19T01:45:51.164Z",
+  "work_item_id": "TASK-102",
+  "work_item_ref": ".aof/tasks/done/TASK-102.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V82-OPERATOR-VALIDATION.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "unspecified",
+    "source_format": "aof-runtime-artifacts",
+    "source_of_truth_boundary": "AOF runtime artifacts are the session source of truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "Heartbeat requested next release.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-102.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "tool_call",
+      "summary": "Runtime artifacts and commands created v8.2 operator validation.",
+      "artifact_refs": [
+        ".aof/artifacts/operator-validation/operator-validation-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "response",
+      "summary": "The orchestrator reported that operator validation is bounded runtime evidence, not market validation.",
+      "artifact_refs": [
+        "docs/v8.2-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "artifact_write",
+      "summary": "Schemas, runtime commands, docs, and committed self-hosting evidence were written.",
+      "artifact_refs": [
+        "schemas/aof-operator-validation-record.schema.json",
+        "schemas/aof-operator-validation-audit.schema.json",
+        "src/commands/operator-validation-record.js",
+        "src/commands/operator-validation-audit.js"
+      ]
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "verification",
+      "summary": "Operator validation focused tests passed.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-6",
+      "event_type": "blocker",
+      "summary": "No release blocker remains after operator-validation-audit and release-state-audit are green.",
+      "artifact_refs": [
+        ".aof/artifacts/operator-validation/operator-validation-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-7",
+      "event_type": "stop_condition",
+      "summary": "Stop when v8.2 release gates pass, TASK-102 is done, and the next v8.3 frontier is recorded.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-102.json",
+        ".aof/goals/next-value-slice.json"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-102.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.2-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    ],
+    "risk_candidates": [
+      "Operator feedback can be overclaimed."
+    ],
+    "decision_candidates": [
+      "Operator validation audit is a release gate."
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    ]
+  },
+  "redaction_boundary": "No secrets or external provider payloads are included.",
+  "release_ready_boundary": "Runtime-ready only; not market truth.",
+  "not_proven": "Session export proves reconstructability only.",
+  "source_task_id": "TASK-102",
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

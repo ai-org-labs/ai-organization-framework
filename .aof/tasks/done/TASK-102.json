@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-102",
+  "title": "Ship v8.2 Adoption Feedback And Operator Validation Loop",
+  "description": "Implement governed operator validation feedback records, audit gates, Mission Control projection, release-state integration, and self-hosting evidence so AOF can distinguish internally green work from operator-understood, reproducible, accepted, rejected, or clarification-needed work.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "assigned_session_ids": [
+    "SESS-V82-OPERATOR-VALIDATION"
+  ],
+  "related_decision_record_id": "CREV-TASK-102-V82",
+  "operating_goal_ref": "v8.2-adoption-feedback-operator-validation",
+  "created_at": "2026-07-19T01:31:33.120Z",
+  "updated_at": "2026-07-19T01:47:58.543Z",
+  "assigned_at": null,
+  "done_at": "2026-07-19T01:47:58.543Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v8.2 operator validation governance implementation, audit gate, Mission Control projection, self-hosting evidence, and focused regression tests."
+}

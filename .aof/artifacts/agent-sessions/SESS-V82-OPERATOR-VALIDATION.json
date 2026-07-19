@@ -1,0 +1,76 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRR4UT1B-0U9OGO",
+  "recorded_at": "2026-07-19T01:44:35.711Z",
+  "session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "ASEV1-MRR4UT1B-TXU0OV",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-19T01:44:35.710Z",
+      "summary": "Heartbeat requested next roadmap release using AOF runtime.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRR4UT1B-E3IA3K",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-19T01:44:35.711Z",
+      "summary": "Created operator validation records, audit, docs, tests, and release gates.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV3-MRR4UT1B-H4MDHN",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-19T01:44:35.711Z",
+      "summary": "Focused runtime tests passed for operator validation.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-102.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.2-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    ]
+  },
+  "risk_candidates": [
+    "Operator validation can be mistaken for market truth without not-proven boundary."
+  ],
+  "decision_candidates": [
+    "Make operator-validation-audit a v8.2 release gate."
+  ],
+  "release_ready_evidence": {
+    "claim": "v8.2 operator validation is structurally and runtime ready after audit and focused tests.",
+    "evidence_refs": [
+      ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-102",
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "source_decision_record_id": null
+}

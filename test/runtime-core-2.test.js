@@ -51,6 +51,8 @@ import { dependencyGraphCommand } from "../src/commands/dependency-graph.js";
 import { organizationAuditCommand } from "../src/commands/organization-audit.js";
 import { organizationStatusCommand } from "../src/commands/organization-status.js";
 import { organizationAnalyticsSnapshotCommand } from "../src/commands/organization-analytics-snapshot.js";
+import { operatorValidationAuditCommand } from "../src/commands/operator-validation-audit.js";
+import { operatorValidationRecordCommand } from "../src/commands/operator-validation-record.js";
 import { outcomeReportCommand } from "../src/commands/outcome-report.js";
 import { policyEvaluationReportCommand } from "../src/commands/policy-evaluation-report.js";
 import { problemStatementRecordCommand } from "../src/commands/problem-statement-record.js";
@@ -2531,6 +2533,8 @@ test("commandRegistryRefreshCommand writes the canonical command registry artifa
   assert.equal(registry.commands.some((entry) => entry.command === "external-resource-audit"), true);
   assert.equal(registry.commands.some((entry) => entry.command === "provider-adapter-record"), true);
   assert.equal(registry.commands.some((entry) => entry.command === "provider-adapter-audit"), true);
+  assert.equal(registry.commands.some((entry) => entry.command === "operator-validation-record"), true);
+  assert.equal(registry.commands.some((entry) => entry.command === "operator-validation-audit"), true);
   assert.equal(typeof result.orientationPath, "string");
   const orientation = JSON.parse(await fs.readFile(result.orientationPath, "utf8"));
   const registryTopCommands = registry.commands.filter((entry) => entry.top_command).map((entry) => entry.command).sort();
@@ -2804,6 +2808,88 @@ test("providerAdapterAuditCommand fails write-capable adapters without escalatio
   const audit = await providerAdapterAuditCommand({ project: projectRoot });
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("write modes require escalation")));
+});
+
+test("operator validation commands write governed feedback and audit acceptance", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "release.md"), "# Release\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Validate operator comprehension",
+    description: "Fixture task for operator validation governance.",
+    origin: "human"
+  });
+  const taskRef = ".aof/tasks/open/TASK-001.json";
+  const missionRef = ".aof/artifacts/visibility/current/mission-control.json";
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "visibility", "current"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, missionRef), "{}\n", "utf8");
+
+  await operatorValidationRecordCommand({
+    project: projectRoot,
+    validationId: "OVR-TEST-ACCEPTED",
+    operatorRef: "operator:self-hosting",
+    feedbackSource: "self_hosting_operator",
+    releaseRef: "docs/release.md",
+    workItemId: "TASK-001",
+    workItemRef: taskRef,
+    missionControlRef: missionRef,
+    evidenceRefs: ["docs/release.md", taskRef],
+    understandingOutcome: "understood",
+    reproductionOutcome: "reproduced",
+    acceptanceOutcome: "accepted",
+    feedbackSummary: "Operator can understand and reproduce the governed path.",
+    governanceAction: "none",
+    notProven: "This feedback proves only bounded operator validation, not market truth.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-OPERATOR-VALIDATION"
+  });
+
+  const audit = await operatorValidationAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true);
+  assert.equal(audit.summary.summary.record_count, 1);
+  assert.equal(audit.summary.summary.accepted_count, 1);
+  assert.equal(audit.summary.summary.failing_check_count, 0);
+});
+
+test("operatorValidationAuditCommand fails unclear feedback without governance action", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "release.md"), "# Release\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Validate unclear operator feedback",
+    description: "Fixture task for operator validation escalation.",
+    origin: "human"
+  });
+  const taskRef = ".aof/tasks/open/TASK-001.json";
+  const missionRef = ".aof/artifacts/visibility/current/mission-control.json";
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "visibility", "current"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, missionRef), "{}\n", "utf8");
+
+  await operatorValidationRecordCommand({
+    project: projectRoot,
+    validationId: "OVR-TEST-UNCLEAR",
+    operatorRef: "operator:self-hosting",
+    feedbackSource: "self_hosting_operator",
+    releaseRef: "docs/release.md",
+    workItemId: "TASK-001",
+    workItemRef: taskRef,
+    missionControlRef: missionRef,
+    evidenceRefs: ["docs/release.md", taskRef],
+    understandingOutcome: "needs_clarification",
+    reproductionOutcome: "not_checked",
+    acceptanceOutcome: "not_checked",
+    feedbackSummary: "Operator cannot yet tell what was validated.",
+    governanceAction: "none",
+    notProven: "This fixture intentionally lacks escalation for unclear feedback.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-OPERATOR-VALIDATION"
+  });
+
+  const audit = await operatorValidationAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("unclear or negative feedback escalates")));
 });
 
 test("commandRegisterCommand exposes command taxonomy and top commands", async (t) => {

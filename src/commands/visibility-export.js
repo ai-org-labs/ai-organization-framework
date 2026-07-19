@@ -1041,6 +1041,39 @@ async function loadProviderAdapterProjection(projectRoot) {
   };
 }
 
+async function loadOperatorValidationProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/operator-validation/operator-validation-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "operator validation audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      record_count: 0,
+      accepted_count: 0,
+      rejected_count: 0,
+      needs_clarification_count: 0,
+      not_reproduced_count: 0,
+      blocking_record_count: 0,
+      records: [],
+      not_proven: "No operator validation audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    record_count: audit.summary?.record_count ?? 0,
+    accepted_count: audit.summary?.accepted_count ?? 0,
+    rejected_count: audit.summary?.rejected_count ?? 0,
+    needs_clarification_count: audit.summary?.needs_clarification_count ?? 0,
+    not_reproduced_count: audit.summary?.not_reproduced_count ?? 0,
+    blocking_record_count: audit.summary?.blocking_record_count ?? 0,
+    records: audit.records ?? [],
+    not_proven: "Operator validation projection is adoption feedback evidence; it does not prove market truth, product value, or semantic correctness."
+  };
+}
+
 function buildEvidenceCompletenessProjection({
   requirementCoverageProjection,
   adoptionProofProjection,
@@ -1110,6 +1143,7 @@ function buildMissionControl({
   externalizationReadinessProjection = null,
   externalResourceProjection = null,
   providerAdapterProjection = null,
+  operatorValidationProjection = null,
   evidenceCompletenessProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
@@ -1340,6 +1374,19 @@ function buildMissionControl({
       adapters: [],
       not_proven: "No provider adapter audit artifact is present."
     },
+    operator_validation_projection: operatorValidationProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/operator-validation/operator-validation-audit.json",
+      audit_ok: null,
+      record_count: 0,
+      accepted_count: 0,
+      rejected_count: 0,
+      needs_clarification_count: 0,
+      not_reproduced_count: 0,
+      blocking_record_count: 0,
+      records: [],
+      not_proven: "No operator validation audit artifact is present."
+    },
     evidence_completeness_projection: evidenceCompletenessProjection ?? {
       completeness_status: "incomplete",
       source_of_truth_boundary: "Mission Control is a read-only projection of canonical AOF artifacts.",
@@ -1357,7 +1404,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, operatorValidationProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -1376,7 +1423,8 @@ export async function visibilityExportCommand(options) {
     loadAdoptionProofProjection(projectRoot),
     loadExternalizationReadinessProjection(projectRoot),
     loadExternalResourceProjection(projectRoot),
-    loadProviderAdapterProjection(projectRoot)
+    loadProviderAdapterProjection(projectRoot),
+    loadOperatorValidationProjection(projectRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -1426,6 +1474,7 @@ export async function visibilityExportCommand(options) {
     externalizationReadinessProjection,
     externalResourceProjection,
     providerAdapterProjection,
+    operatorValidationProjection,
     evidenceCompletenessProjection
   });
   const operatorBrief = buildOperatorBriefView({

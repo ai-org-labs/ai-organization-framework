@@ -1,0 +1,27 @@
+{
+  "artifact_type": "operator-validation-record",
+  "validation_id": "OVR-TASK-102-SELF-HOSTING",
+  "recorded_at": "2026-07-19T01:42:20.395Z",
+  "operator_ref": "operator:self-hosting",
+  "feedback_source": "self_hosting_operator",
+  "release_ref": "docs/v8.2-release-definition.md",
+  "work_item_id": "TASK-102",
+  "work_item_ref": ".aof/tasks/done/TASK-102.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "evidence_refs": [
+    "docs/v8.2-release-definition.md",
+    "docs/v8.2-release-checklist.md",
+    "test/runtime-core-2.test.js"
+  ],
+  "understanding_outcome": "understood",
+  "reproduction_outcome": "reproduced",
+  "acceptance_outcome": "accepted_with_residual_risk",
+  "feedback_summary": "Self-hosting operator can see that v8.2 adds governed operator validation records and audit gates, but this is still bounded runtime evidence rather than market validation.",
+  "blocking_reason": null,
+  "governance_action": "none",
+  "not_proven": "This operator validation record proves only bounded self-hosting operator feedback, not market adoption, semantic truth, or broad user value.",
+  "source_task_id": "TASK-102",
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

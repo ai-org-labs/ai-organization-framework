@@ -8,6 +8,7 @@ import { contextReferenceIntegrityAuditCommand } from "./context-reference-integ
 import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
 import { externalizationReadinessAuditCommand } from "./externalization-readiness-audit.js";
 import { externalResourceAuditCommand } from "./external-resource-audit.js";
+import { operatorValidationAuditCommand } from "./operator-validation-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { providerAdapterAuditCommand } from "./provider-adapter-audit.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
@@ -165,6 +166,15 @@ function requiresProviderAdapterAudit(releaseVersion) {
   return major > 8 || (major === 8 && minor >= 1);
 }
 
+function requiresOperatorValidationAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 8 || (major === 8 && minor >= 2);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -235,6 +245,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderAdapterAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-adapter-audit", await providerAdapterAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresOperatorValidationAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("operator-validation-audit", await operatorValidationAuditCommand({ project: projectRoot }))
     );
   }
   return auditResults;

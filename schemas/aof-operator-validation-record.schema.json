@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-operator-validation-record.schema.json",
+  "title": "AOF Operator Validation Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "validation_id",
+    "recorded_at",
+    "operator_ref",
+    "feedback_source",
+    "release_ref",
+    "work_item_id",
+    "work_item_ref",
+    "mission_control_ref",
+    "evidence_refs",
+    "understanding_outcome",
+    "reproduction_outcome",
+    "acceptance_outcome",
+    "feedback_summary",
+    "blocking_reason",
+    "governance_action",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "operator-validation-record" },
+    "validation_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "operator_ref": { "type": "string", "minLength": 1 },
+    "feedback_source": {
+      "type": "string",
+      "enum": ["human_operator", "adopter", "expert_reviewer", "self_hosting_operator", "simulated_operator"]
+    },
+    "release_ref": { "type": "string", "minLength": 1 },
+    "work_item_id": { "type": "string", "minLength": 1 },
+    "work_item_ref": { "type": "string", "minLength": 1 },
+    "mission_control_ref": { "type": "string", "minLength": 1 },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "understanding_outcome": {
+      "type": "string",
+      "enum": ["understood", "partially_understood", "not_understood", "needs_clarification", "not_checked"]
+    },
+    "reproduction_outcome": {
+      "type": "string",
+      "enum": ["reproduced", "partially_reproduced", "not_reproduced", "needs_clarification", "not_checked"]
+    },
+    "acceptance_outcome": {
+      "type": "string",
+      "enum": ["accepted", "accepted_with_residual_risk", "rejected", "needs_clarification", "not_checked"]
+    },
+    "feedback_summary": { "type": "string", "minLength": 1 },
+    "blocking_reason": { "type": ["string", "null"] },
+    "governance_action": {
+      "type": "string",
+      "enum": ["none", "request_clarification", "request_reproduction", "block_release_claim", "escalate_review"]
+    },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

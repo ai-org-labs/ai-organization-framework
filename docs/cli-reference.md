@@ -1992,6 +1992,62 @@ QIF / governance boundary:
 
 - adoption proof は structural/runtime evidence であり、外部市場採用、operator acceptance、semantic quality の証明ではない。
 
+### `operator-validation-record`
+
+operator / adopter の理解・再現・受容フィードバックを、release / work item / Mission Control / evidence refs に紐づく governed artifact として保存する。
+
+```bash
+node ./src/cli.js operator-validation-record \
+  --project . \
+  --operator-ref operator:self-hosting \
+  --feedback-source self_hosting_operator \
+  --release-ref docs/v8.2-release-definition.md \
+  --work-item-id TASK-102 \
+  --work-item-ref .aof/tasks/done/TASK-102.json \
+  --mission-control-ref .aof/artifacts/visibility/current/mission-control.json \
+  --evidence-ref docs/v8.2-release-definition.md \
+  --understanding-outcome understood \
+  --reproduction-outcome reproduced \
+  --acceptance-outcome accepted \
+  --feedback-summary "Operator can understand and reproduce the governed path." \
+  --governance-action none \
+  --not-proven "Operator validation is not market truth." \
+  --source-task-id TASK-102 \
+  --source-parent-session-id SESS-V82-OPERATOR-VALIDATION
+```
+
+主な outcome:
+
+- `understanding-outcome`: `understood`, `partially_understood`, `not_understood`, `needs_clarification`, `not_checked`
+- `reproduction-outcome`: `reproduced`, `partially_reproduced`, `not_reproduced`, `needs_clarification`, `not_checked`
+- `acceptance-outcome`: `accepted`, `accepted_with_residual_risk`, `rejected`, `needs_clarification`, `not_checked`
+
+QIF / governance boundary:
+
+- operator validation は adoption feedback evidence であり、market truth、semantic correctness、product value の証明ではない。
+
+### `operator-validation-audit`
+
+operator validation record が release / work item / Mission Control / evidence refs に解決でき、unclear / rejected / not reproduced feedback が governance action に上がっているかを検証する。
+
+```bash
+node ./src/cli.js operator-validation-audit \
+  --project . \
+  --write-artifact .aof/artifacts/operator-validation/operator-validation-audit.json
+```
+
+主な check:
+
+- operator validation record presence
+- work item ref / Mission Control ref / evidence ref resolution
+- feedback summary / not-proven / runtime provenance
+- unclear or negative feedback escalation
+- blocking reason for blocked feedback
+
+QIF / governance boundary:
+
+- audit pass は operator validation artifact の構造・参照・governance escalation を示す。人間が本当に価値を感じたことや市場採用は証明しない。
+
 ### AI Command Help Surface
 
 v6.3 以降、CLI help は full reference ではなく AI-oriented command discovery surface として使う。

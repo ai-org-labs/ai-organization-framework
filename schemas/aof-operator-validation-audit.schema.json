@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-operator-validation-audit.schema.json",
+  "title": "AOF Operator Validation Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "summary",
+    "records",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "operator-validation-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_count",
+        "accepted_count",
+        "rejected_count",
+        "needs_clarification_count",
+        "not_reproduced_count",
+        "missing_link_count",
+        "blocking_record_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "record_count": { "type": "integer", "minimum": 0 },
+        "accepted_count": { "type": "integer", "minimum": 0 },
+        "rejected_count": { "type": "integer", "minimum": 0 },
+        "needs_clarification_count": { "type": "integer", "minimum": 0 },
+        "not_reproduced_count": { "type": "integer", "minimum": 0 },
+        "missing_link_count": { "type": "integer", "minimum": 0 },
+        "blocking_record_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "validation_id",
+          "operator_ref",
+          "feedback_source",
+          "release_ref",
+          "work_item_id",
+          "understanding_outcome",
+          "reproduction_outcome",
+          "acceptance_outcome",
+          "governance_action",
+          "artifact_ref"
+        ],
+        "properties": {
+          "validation_id": { "type": "string" },
+          "operator_ref": { "type": "string" },
+          "feedback_source": { "type": "string" },
+          "release_ref": { "type": "string" },
+          "work_item_id": { "type": "string" },
+          "understanding_outcome": { "type": "string" },
+          "reproduction_outcome": { "type": "string" },
+          "acceptance_outcome": { "type": "string" },
+          "governance_action": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail", "evidence_refs"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" },
+          "evidence_refs": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

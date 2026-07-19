@@ -2,38 +2,38 @@
 
 ## Version
 
-Candidate: `v8.2.0`
+Candidate: `v8.3.0`
 
 ## Release Theme
 
-Adoption Feedback And Operator Validation Loop.
+Mission Control Operator Acceptance Evidence.
 
-`v8.1.0` made provider adapters governable through adapter records, adapter audit, release-state integration, and Mission Control projection. The next bottleneck is operator validation: AOF should record whether a real adopter or operator could understand, reproduce, and accept the governed work path.
+`v8.2.0` made operator/adopter feedback governable through operator validation records, audit, release-state integration, and Mission Control projection. The next bottleneck is acceptance evidence usability: Mission Control should make operator validation status obvious enough that a human can see acceptance, rejection, clarification need, and evidence path without reading raw JSON.
 
 Human-facing wording:
 
-> v8.2 should let AOF collect adoption feedback as governed runtime evidence, not as loose chat impressions.
+> v8.3 should make operator acceptance evidence visible in Mission Control without raw artifact reading.
 
 More explicit wording:
 
-> Operator validation should become a release input, not a post-release surprise.
+> Operator acceptance should be legible as a live runtime state, not buried in audit JSON.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/vnext-roadmap.md`
-- previous release: `v8.1.0`
-- v8.1 evidence: `docs/v8.1-release-definition.md`, `docs/v8.1.0-release-notes.md`, `.aof/artifacts/provider-adapters/provider-adapter-audit.json`, `.aof/context/active/release-state-audit.json`
-- current frontier candidate: `v8.2` Adoption Feedback And Operator Validation Loop
+- previous release: `v8.2.0`
+- v8.2 evidence: `docs/v8.2-release-definition.md`, `docs/v8.2.0-release-notes.md`, `.aof/artifacts/operator-validation/operator-validation-audit.json`, `.aof/context/active/release-state-audit.json`
+- current frontier candidate: `v8.3` Mission Control Operator Acceptance Evidence
 
 ## Required Outcomes
 
 Required:
 
-- define operator validation feedback records
-- link feedback to task, release, Mission Control view, and evidence refs
-- distinguish understood, reproducible, accepted, rejected, and needs-clarification outcomes
+- make Mission Control render operator validation status as first-class acceptance evidence
+- show acceptance, rejection, clarification, and reproduction outcomes without raw JSON reading
+- link visible acceptance state to release, task, evidence, and governance action
+- keep operator-validation-audit compatible from v8.2
 - keep provider adapter governance compatible from v8.1
-- project operator validation status into Mission Control from canonical artifacts
 
 Deferred:
 
@@ -45,24 +45,25 @@ Deferred:
 
 ## Release Gates
 
-### Gate 1: Operator Validation Contract
+### Gate 1: Operator Acceptance Visibility
 
-- operator/adopter feedback is represented as a governed artifact
-- feedback is linked to the work item, release, and evidence it evaluates
-- feedback is not treated as semantic truth without evidence boundary
+- Mission Control shows operator validation status from canonical artifacts
+- accepted / rejected / needs-clarification / not-reproduced states are visually and semantically distinguishable
+- visible acceptance state links back to release, work item, and evidence refs
 
 ### Gate 2: Runtime Evidence
 
-- local runtime artifacts link to operator validation claims
-- Mission Control can show whether a release was understood and accepted
+- local runtime artifacts link to operator acceptance claims
+- Mission Control can show why a release is or is not operator-accepted
 - provider-neutral session export remains reconstructable
 
 ### Gate 3: Governance Boundary
 
-- missing operator feedback links fail the audit
+- missing acceptance evidence remains visible as incomplete
 - unclear feedback outcome requires governance review
 - rejected or context-mismatched feedback blocks release acceptance claims
 - operator feedback is not treated as market truth
+- v8.2 operator-validation-audit still passes
 - v8.1 provider-adapter-audit still passes
 - v8.0 external-resource-audit still passes
 - v7.9 externalization readiness audit still passes
@@ -78,11 +79,12 @@ Deferred:
 
 - package version is updated to the selected release
 - active release manifest points at selected release docs
-- README and roadmap describe Mission Control projection without claiming semantic truth or delivery certainty
+- README and roadmap describe operator acceptance visibility without claiming semantic truth or market adoption
 
 ### Gate 5: Verification
 
 - Mission Control projection audit
+- operator validation audit
 - adoption-proof benchmark
 - provider-neutral session export audit
 - requirement coverage audit
@@ -106,19 +108,19 @@ Deferred:
 Release only if AOF now makes it harder to confuse:
 
 - an internally green release with an operator-accepted release
-- dashboard presence with human comprehension
+- dashboard presence with visible acceptance evidence
 - feedback collection with validated product value
 - activity volume with adoption quality
 - provider adapter readiness with operator acceptance
 
-## Post-v8.1 Direction
+## Post-v8.2 Direction
 
 The next line should proceed in this order:
 
-1. `v8.2`: Adoption Feedback And Operator Validation Loop
-2. `v8.3`: Mission Control Operator Acceptance Evidence
-3. `v8.4`: Externalized Runtime Operator Safety Proof
-4. `v8.4`: Externalized Runtime Operator Safety Proof
+1. `v8.3`: Mission Control Operator Acceptance Evidence
+2. `v8.4`: Externalized Runtime Operator Safety Proof
+3. `v8.5`: Provider Adapter Execution Pilot Boundary
+4. `v8.6`: External Runtime Execution Approval Bridge
 
 Canonical planning reference:
 

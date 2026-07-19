@@ -1,0 +1,23 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRR4URBM-XCB1UV",
+  "recorded_at": "2026-07-19T01:44:33.490Z",
+  "work_item_id": "TASK-102",
+  "work_item_ref": ".aof/tasks/done/TASK-102.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V82-OPERATOR-VALIDATION.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "required_context_refs": [
+    "docs/v8.2-release-definition.md"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared references only, not semantic completeness.",
+  "source_task_id": "TASK-102",
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "source_decision_record_id": null
+}

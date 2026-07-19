@@ -119,6 +119,8 @@ Usage:
   aof external-resource-audit [--project <path>] [--write-artifact <path>]
   aof provider-adapter-record --project <path> --display-name "<name>" --provider-ref <path-or-ref> --resource-ref <path> --adapter-kind <read_only|local_write|external_write|dangerous> --operation-mode <read|local_write|external_write|dangerous> [--operation-mode <...>] --read-authority-boundary "<text>" --write-authority-boundary "<text>" --freshness-check "<text>" --approval-policy-ref <path-or-ref> --side-effect-boundary "<text>" [--escalation-required-for <read|local_write|external_write|dangerous>] --readiness-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-adapter-audit [--project <path>] [--write-artifact <path>]
+  aof operator-validation-record --project <path> --operator-ref <ref> --feedback-source <human_operator|adopter|expert_reviewer|self_hosting_operator|simulated_operator> --release-ref <ref> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --evidence-ref <path> [--evidence-ref <path>] --understanding-outcome <understood|partially_understood|not_understood|needs_clarification|not_checked> --reproduction-outcome <reproduced|partially_reproduced|not_reproduced|needs_clarification|not_checked> --acceptance-outcome <accepted|accepted_with_residual_risk|rejected|needs_clarification|not_checked> --feedback-summary "<text>" [--blocking-reason "<text>"] --governance-action <none|request_clarification|request_reproduction|block_release_claim|escalate_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof operator-validation-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof value-hypothesis-record --project <path> --expected-value-creation "<text>" --beneficiary "<text>" --supporting-evidence "<text>" [--supporting-evidence "<text>"] --success-criterion "<text>" [--success-criterion "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof alternative-analysis-record --project <path> --subject-need "<text>" --alternative-solution "<text>" [--alternative-solution "<text>"] [--non-solution-option "<text>"] [--defer-option "<text>"] --stop-option "<text>" [--stop-option "<text>"] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1332,6 +1334,35 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "provider-adapter-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "operator-validation-record"
+            ? {
+                project: ".",
+                validationId: "",
+                operatorRef: "",
+                feedbackSource: "self_hosting_operator",
+                releaseRef: "",
+                workItemId: "",
+                workItemRef: "",
+                missionControlRef: "",
+                evidenceRefs: [],
+                understandingOutcome: "not_checked",
+                reproductionOutcome: "not_checked",
+                acceptanceOutcome: "not_checked",
+                feedbackSummary: "",
+                blockingReason: "",
+                governanceAction: "none",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "operator-validation-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -2950,6 +2981,61 @@ function parseArgs(argv) {
     }
     if (part === "--adapter-id") {
       options.adapterId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--validation-id") {
+      options.validationId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--operator-ref") {
+      options.operatorRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--feedback-source") {
+      options.feedbackSource = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--release-ref") {
+      options.releaseRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--mission-control-ref") {
+      options.missionControlRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--understanding-outcome") {
+      options.understandingOutcome = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--reproduction-outcome") {
+      options.reproductionOutcome = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--acceptance-outcome") {
+      options.acceptanceOutcome = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--feedback-summary") {
+      options.feedbackSummary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--blocking-reason") {
+      options.blockingReason = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--governance-action") {
+      options.governanceAction = rest[i + 1] ?? "";
       i += 1;
       continue;
     }
@@ -5882,6 +5968,50 @@ function parseArgs(argv) {
   if (command === "provider-adapter-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `provider-adapter-audit`.");
+    }
+  }
+
+  if (command === "operator-validation-record") {
+    for (const [flag, value] of [
+      ["--operator-ref", options.operatorRef],
+      ["--feedback-source", options.feedbackSource],
+      ["--release-ref", options.releaseRef],
+      ["--work-item-id", options.workItemId],
+      ["--work-item-ref", options.workItemRef],
+      ["--mission-control-ref", options.missionControlRef],
+      ["--feedback-summary", options.feedbackSummary],
+      ["--governance-action", options.governanceAction],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`operator-validation-record\`.`);
+      }
+    }
+    if (!["human_operator", "adopter", "expert_reviewer", "self_hosting_operator", "simulated_operator"].includes(options.feedbackSource)) {
+      throw new Error("Invalid --feedback-source for `operator-validation-record`.");
+    }
+    if (!Array.isArray(options.evidenceRefs) || options.evidenceRefs.length === 0) {
+      throw new Error("At least one --evidence-ref is required for `operator-validation-record`.");
+    }
+    if (!["understood", "partially_understood", "not_understood", "needs_clarification", "not_checked"].includes(options.understandingOutcome)) {
+      throw new Error("Invalid --understanding-outcome for `operator-validation-record`.");
+    }
+    if (!["reproduced", "partially_reproduced", "not_reproduced", "needs_clarification", "not_checked"].includes(options.reproductionOutcome)) {
+      throw new Error("Invalid --reproduction-outcome for `operator-validation-record`.");
+    }
+    if (!["accepted", "accepted_with_residual_risk", "rejected", "needs_clarification", "not_checked"].includes(options.acceptanceOutcome)) {
+      throw new Error("Invalid --acceptance-outcome for `operator-validation-record`.");
+    }
+    if (!["none", "request_clarification", "request_reproduction", "block_release_claim", "escalate_review"].includes(options.governanceAction)) {
+      throw new Error("Invalid --governance-action for `operator-validation-record`.");
+    }
+  }
+
+  if (command === "operator-validation-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `operator-validation-audit`.");
     }
   }
 

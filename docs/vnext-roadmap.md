@@ -433,7 +433,7 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v8.1.0`, advance `v8.2` as Adoption Feedback And Operator Validation Loop.
+After `v8.2.0`, advance `v8.3` as Mission Control Operator Acceptance Evidence.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
 proof, session, context, release, and Archmap evidence can be projected from
 canonical runtime artifacts. The v7.9 Externalization Readiness Boundary then
@@ -442,16 +442,18 @@ source-of-truth, permission, freshness, availability, approval, provenance, and
 not-proven boundaries. v8.0 added actual external runtime resource and use
 contracts. v8.1 added provider adapter governance: safe read adapter boundaries,
 approval policy checks, freshness verification, explicit external-write
-escalation, release-state gating, and Mission Control projection. The next proof
-is operator validation: whether a real adopter or operator can understand,
-reproduce, and accept the governed work path.
+escalation, release-state gating, and Mission Control projection. v8.2 added
+operator validation: whether a real adopter or operator can understand,
+reproduce, and accept the governed work path. The next proof is acceptance
+visibility: whether Mission Control can show acceptance/rejection/clarification
+state without forcing operators to read raw JSON.
 
 Priority order:
 
-1. `v8.2`: Adoption Feedback And Operator Validation Loop
-2. `v8.3`: Mission Control Operator Acceptance Evidence
-3. `v8.4`: Externalized Runtime Operator Safety Proof
-4. `v8.5`: Provider Adapter Execution Pilot Boundary
+1. `v8.3`: Mission Control Operator Acceptance Evidence
+2. `v8.4`: Externalized Runtime Operator Safety Proof
+3. `v8.5`: Provider Adapter Execution Pilot Boundary
+4. `v8.6`: External Runtime Execution Approval Bridge
 
 Canonical v7.x roadmap:
 
@@ -465,6 +467,6 @@ Reasoning:
   as bounded runtime evidence, then legible in Mission Control as coverage,
   forecast, blocked work, adoption proof, and evidence completeness, and finally
   bounded externalization claims before v8.
-- v8.0 through v8.4 externalize the organization runtime, govern adapters, and
-  add operator validation and acceptance loops without overclaiming semantic
-  truth.
+- v8.0 through v8.6 externalize the organization runtime, govern adapters, add
+  operator validation, make acceptance visible, and pilot external execution
+  only behind approval boundaries without overclaiming semantic truth.

@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Run a runtime-backed v8.2 direction review before opening the first operator validation feedback implementation task.",
-  "updated_at": "2026-07-18T17:55:25.843Z",
+  "content": "Run a runtime-backed v8.3 direction review before opening the first Mission Control operator acceptance evidence implementation task.",
+  "updated_at": "2026-07-19T01:51:23.549Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V81-DIRECTION",
-  "source_decision_record_id": "CREV-TASK-101-V81",
+  "source_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "source_decision_record_id": "CREV-TASK-102-V82",
   "declared_complete_at": null
 }

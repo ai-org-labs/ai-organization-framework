@@ -14,6 +14,7 @@
     "externalization_readiness_projection",
     "external_resource_projection",
     "provider_adapter_projection",
+    "operator_validation_projection",
     "evidence_completeness_projection"
   ],
   "properties": {
@@ -809,6 +810,66 @@
               "adapter_kind": { "type": "string" },
               "operation_modes": { "type": "array", "items": { "type": "string" } },
               "readiness_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "operator_validation_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "record_count",
+        "accepted_count",
+        "rejected_count",
+        "needs_clarification_count",
+        "not_reproduced_count",
+        "blocking_record_count",
+        "records",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "record_count": { "type": "integer" },
+        "accepted_count": { "type": "integer" },
+        "rejected_count": { "type": "integer" },
+        "needs_clarification_count": { "type": "integer" },
+        "not_reproduced_count": { "type": "integer" },
+        "blocking_record_count": { "type": "integer" },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "validation_id",
+              "operator_ref",
+              "feedback_source",
+              "release_ref",
+              "work_item_id",
+              "understanding_outcome",
+              "reproduction_outcome",
+              "acceptance_outcome",
+              "governance_action",
+              "artifact_ref"
+            ],
+            "properties": {
+              "validation_id": { "type": "string" },
+              "operator_ref": { "type": "string" },
+              "feedback_source": { "type": "string" },
+              "release_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "understanding_outcome": { "type": "string" },
+              "reproduction_outcome": { "type": "string" },
+              "acceptance_outcome": { "type": "string" },
+              "governance_action": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false
