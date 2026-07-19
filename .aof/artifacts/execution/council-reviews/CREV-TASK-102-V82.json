@@ -1,0 +1,37 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-19T01:43:57.423Z",
+  "review_packet_id": "CREV-MRR4TZHR-JPRP48",
+  "council_id": "architecture-council",
+  "stage": "planning",
+  "review_status": "approved",
+  "decision_summary": "Approve v8.2 operator validation governance for release.",
+  "rationale": "The new audit blocks missing or unclear operator feedback and keeps operator validation bounded from market truth.",
+  "recommendation": "Release v8.2.0 after verification stays green.",
+  "target_audience": null,
+  "expected_user_reaction": null,
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-102-V82.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-102-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-102-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-102-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/operator-validation/operator-validation-audit.json",
+    "test/runtime-core-2.test.js"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-102",
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "source_decision_record_id": null
+}

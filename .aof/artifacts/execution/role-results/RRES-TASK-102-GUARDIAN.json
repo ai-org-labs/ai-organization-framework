@@ -1,0 +1,21 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-19T01:43:06.593Z",
+  "role": "guardian",
+  "stage": "planning",
+  "session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "status": "completed",
+  "recommendation": "Require audit gates and not-proven boundaries before acceptance claims.",
+  "rationale": "Operator validation must not be confused with market truth or semantic correctness.",
+  "signals": [],
+  "artifact_refs": [
+    ".aof/artifacts/operator-validation/operator-validation-audit.json"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-102",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": null
+}

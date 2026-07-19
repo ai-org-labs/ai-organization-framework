@@ -1,0 +1,22 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-19T01:42:54.394Z",
+  "role": "builder",
+  "stage": "planning",
+  "session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "status": "completed",
+  "recommendation": "Implement operator-validation-record and operator-validation-audit.",
+  "rationale": "A narrow record/audit surface creates a release-grade contract without over-scoping external execution.",
+  "signals": [],
+  "artifact_refs": [
+    "src/commands/operator-validation-record.js",
+    "src/commands/operator-validation-audit.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-102",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": null
+}

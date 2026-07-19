@@ -1,0 +1,24 @@
+{
+  "artifact_type": "actor-roster",
+  "recorded_at": "2026-07-19T01:46:00.000Z",
+  "work_item_id": "TASK-102",
+  "source_task_id": "TASK-102",
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "actors": [
+    {
+      "actor_ref": "visionary",
+      "role_ref": "visionary",
+      "assignment": "Frame operator validation as a governance frontier."
+    },
+    {
+      "actor_ref": "builder",
+      "role_ref": "builder",
+      "assignment": "Implement operator validation records, audits, and projection."
+    },
+    {
+      "actor_ref": "guardian",
+      "role_ref": "guardian",
+      "assignment": "Verify not-proven boundaries and release gate behavior."
+    }
+  ]
+}

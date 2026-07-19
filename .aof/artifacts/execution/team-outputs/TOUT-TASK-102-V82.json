@@ -1,0 +1,35 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-19T01:43:27.539Z",
+  "team_output_id": "TOUT-MRR4TCFN-0YYX37",
+  "team_id": "runtime-team",
+  "stage": "planning",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve v8.2 operator validation governance and run release gates.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-102-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-102-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-102-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v8.2-release-definition.md",
+    ".aof/artifacts/operator-validation/operator-validation-audit.json"
+  ],
+  "decision_required": true,
+  "summary": "v8.2 operator validation contract, audit, projection, and bounded evidence are ready for Council review.",
+  "source_task_id": "TASK-102",
+  "source_parent_session_id": "SESS-V82-OPERATOR-VALIDATION",
+  "source_decision_record_id": null
+}
