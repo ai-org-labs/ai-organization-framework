@@ -7,6 +7,11 @@ node_modules/
 .aof/decisions/DEC-*.json
 .aof/decisions/DEC-*.md
 .aof/artifacts/execution/**/*.json
+!.aof/artifacts/execution/role-results/RRES-TASK-103-VISIONARY.json
+!.aof/artifacts/execution/role-results/RRES-TASK-103-BUILDER.json
+!.aof/artifacts/execution/role-results/RRES-TASK-103-GUARDIAN.json
+!.aof/artifacts/execution/team-outputs/TOUT-TASK-103-V83.json
+!.aof/artifacts/execution/council-reviews/CREV-TASK-103-V83.json
 !.aof/artifacts/execution/role-results/RRES-TASK-047-VISIONARY.json
 !.aof/artifacts/execution/role-results/RRES-TASK-047-BUILDER.json
 !.aof/artifacts/execution/role-results/RRES-TASK-047-GUARDIAN.json

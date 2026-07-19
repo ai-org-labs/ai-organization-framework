@@ -1,0 +1,35 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-19T15:23:14.876Z",
+  "team_output_id": "TOUT-MRRY3LMK-BERFZT",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve v8.3 after release-state, npm test, and smoke are green.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-103-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-103-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-103-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v8.3-release-definition.md",
+    ".aof/artifacts/visibility/current/mission-control.json"
+  ],
+  "decision_required": false,
+  "summary": "Visionary, Builder, and Guardian agree that v8.3 should ship bounded operator acceptance visibility from canonical runtime artifacts.",
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": null
+}

@@ -1,0 +1,37 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-19T15:23:35.390Z",
+  "review_packet_id": "CREV-MRRY41GE-W85U40",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "v8.3 is approved as bounded Mission Control Operator Acceptance Evidence.",
+  "rationale": "The release makes operator acceptance evidence human-legible from canonical audit artifacts, preserves not-proven boundaries, and keeps external execution authority out of scope.",
+  "recommendation": "Ship v8.3 after final verification is green.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "Operator can see acceptance state and proof refs without opening raw JSON first.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-103-V83.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-103-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-103-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/operator-validation/operator-validation-audit.json",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    "test/runtime-situation.test.js"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-103",
+  "source_parent_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "source_decision_record_id": null
+}
