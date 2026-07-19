@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-103",
+  "title": "Ship v8.3 Mission Control Operator Acceptance Evidence",
+  "description": "Make operator validation acceptance, rejection, clarification, reproduction state, governance action, and evidence refs legible in Mission Control without raw JSON reading.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
+  "assigned_session_ids": [],
+  "related_decision_record_id": "CREV-TASK-103-V83",
+  "operating_goal_ref": null,
+  "created_at": "2026-07-19T15:19:07.952Z",
+  "updated_at": "2026-07-19T15:23:51.354Z",
+  "assigned_at": null,
+  "done_at": "2026-07-19T15:23:51.354Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v8.3 operator acceptance evidence projection, viewer panel, schema, docs, and focused verification are complete."
+}
