@@ -1,0 +1,34 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-104-V84",
+  "recorded_at": "2026-07-20T01:40:10.000Z",
+  "work_item_id": "TASK-104",
+  "work_item_ref": ".aof/tasks/done/TASK-104.json",
+  "readiness_status": "ready",
+  "goal": "Ship v8.4 externalized runtime safety visibility.",
+  "risk": "AOF advances toward external execution while permission, approval, provenance, freshness, risk, or not-proven boundaries remain buried in raw audit JSON.",
+  "loss_boundary": "No v8.4 release claim unless Mission Control shows external runtime safety as a first-class operator decision surface.",
+  "acceptance_gates": [
+    "Mission Control projects external_runtime_safety_projection from canonical artifacts",
+    "safe, blocked, needs_approval, stale, and not_proven states are schema-visible",
+    "release-state-audit passes"
+  ],
+  "evidence_plan": [
+    "visibility-export projection, Mission Control viewer panel, focused tests, release-state audit, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if safety visibility implies autonomous external-write permission",
+    "stop if release-state-audit fails"
+  ],
+  "qif_refs": [
+    "docs/v8.4-release-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-104",
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "source_decision_record_id": null
+}

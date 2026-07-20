@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
-  "updated_at": "2026-07-19T15:26:31.000Z",
+  "content": "Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task.",
+  "updated_at": "2026-07-20T01:56:01.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
-  "source_decision_record_id": "CREV-TASK-103-V83",
+  "source_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "source_decision_record_id": "CREV-TASK-104-V84",
   "declared_complete_at": null
 }

@@ -2,68 +2,66 @@
 
 ## Version
 
-Candidate: `v8.4.0`
+Candidate: `v8.5.0`
 
 ## Release Theme
 
-Externalized Runtime Operator Safety Proof.
+Provider Adapter Execution Pilot Boundary.
 
-`v8.3.0` made operator acceptance evidence visible in Mission Control without raw JSON reading. The next bottleneck is externalized runtime safety: before AOF advances toward external execution, the operator must be able to see permission, approval, risk, provenance, and not-proven boundaries clearly enough to decide whether externalized execution is safe to continue.
+`v8.4.0` made externalized runtime safety visible before externalized execution advances. The next bottleneck is the execution pilot boundary: before provider adapters are used for real external work, AOF must prove that a pilot can be bounded by approval, dry-run, provenance, rollback, redaction, and no-production-write constraints.
 
 Human-facing wording:
 
-> v8.4 should make externalized runtime safety visible before any external execution bridge advances.
+> v8.5 should prove the boundary for provider adapter execution pilots before any real external write path is trusted.
 
 More explicit wording:
 
-> Externalized runtime safety should be legible as an operator decision surface, not buried in audit JSON.
+> Provider adapter execution pilots should be governed experiments, not quiet automation.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/vnext-roadmap.md`
-- previous release: `v8.3.0`
-- v8.3 evidence: `docs/v8.3-release-definition.md`, `docs/v8.3.0-release-notes.md`, `.aof/artifacts/operator-validation/operator-validation-audit.json`, `.aof/artifacts/visibility/current/mission-control.json`, `.aof/context/active/release-state-audit.json`
-- current frontier candidate: `v8.4` Externalized Runtime Operator Safety Proof
+- previous release: `v8.4.0`
+- v8.4 evidence: `docs/v8.4-release-definition.md`, `docs/v8.4.0-release-notes.md`, `.aof/artifacts/visibility/current/mission-control.json`, `.aof/context/active/release-state-audit.json`
+- current frontier candidate: `v8.5` Provider Adapter Execution Pilot Boundary
 
 ## Required Outcomes
 
 Required:
 
-- make Mission Control render externalized runtime safety status as first-class operator evidence
-- show permission, approval, provenance, freshness, risk, and not-proven boundaries without raw JSON reading
-- link visible externalization safety state to release, task, evidence, governance action, and provider/resource refs
-- keep operator acceptance visibility compatible from v8.3
-- keep operator-validation-audit compatible from v8.2
-- keep provider adapter governance compatible from v8.1
+- define a provider adapter execution pilot as a bounded experiment
+- require explicit approval, dry-run/default-deny, provenance, redaction, rollback, and no-production-write boundaries
+- record pilot inputs, expected external effect, allowed commands, denied commands, evidence refs, and stop conditions
+- show pilot readiness in Mission Control without implying autonomous production execution
+- keep v8.4 external runtime safety visibility compatible
 
 Deferred:
 
-- autonomous external provider execution
+- autonomous production provider execution
 - production deployment automation
 - credential or billing management
 - hosted multi-tenant runtime
-- semantic correctness of external tool outputs
+- semantic correctness of provider output
 
 ## Release Gates
 
-### Gate 1: Externalized Runtime Safety Visibility
+### Gate 1: Provider Adapter Pilot Boundary
 
-- Mission Control shows externalized runtime safety status from canonical artifacts
-- safe / blocked / needs approval / stale / not-proven states are visually and semantically distinguishable
-- visible safety state links back to release, work item, provider/resource refs, and evidence refs
+- provider adapter pilot records explicit allowed/denied external actions
+- pilot is default-deny and dry-run unless approved otherwise
+- no production write, billing, deploy, secret, or irreversible action is allowed without a separate approval artifact
 
 ### Gate 2: Runtime Evidence
 
-- local runtime artifacts link to externalized runtime safety claims
-- Mission Control can show why externalized execution is or is not safe to advance
-- provider-neutral session export remains reconstructable
+- runtime artifacts link pilot claim, provider refs, resource refs, approval refs, and verification refs
+- Mission Control can show pilot readiness and blocking reason
+- provider-neutral session export remains reconstructable for pilot events
 
 ### Gate 3: Governance Boundary
 
-- missing safety evidence remains visible as incomplete
-- unclear provider/resource permission state requires governance review
-- unsafe, stale, unavailable, or approval-missing externalization evidence blocks external execution claims
-- externalized runtime safety evidence is not treated as semantic correctness or production-write authority
+- missing approval, missing redaction, missing rollback, missing provenance, or unclear external effect blocks pilot execution claims
+- pilot readiness is not treated as production safety, semantic truth, or credential authority
+- v8.4 external runtime safety visibility still passes
 - v8.3 Mission Control operator acceptance visibility still passes
 - v8.2 operator-validation-audit still passes
 - v8.1 provider-adapter-audit still passes
@@ -109,19 +107,19 @@ Deferred:
 
 Release only if AOF now makes it harder to confuse:
 
-- externalization readiness with external execution permission
-- provider adapter readiness with operator-approved execution safety
-- dashboard presence with visible safety evidence
-- safety evidence with semantic correctness
-- activity volume with adoption quality
+- provider adapter existence with safe execution
+- dry-run pilot with production authority
+- approval metadata with human governance approval
+- execution traceability with semantic correctness
+- activity volume with accepted external work quality
 
-## Post-v8.3 Direction
+## Post-v8.4 Direction
 
 The next line should proceed in this order:
 
-1. `v8.4`: Externalized Runtime Operator Safety Proof
-2. `v8.5`: Provider Adapter Execution Pilot Boundary
-3. `v8.6`: External Runtime Execution Approval Bridge
+1. `v8.5`: Provider Adapter Execution Pilot Boundary
+2. `v8.6`: External Runtime Execution Approval Bridge
+3. `v8.7`: External Runtime Reproduction and Rollback Proof
 
 Canonical planning reference:
 

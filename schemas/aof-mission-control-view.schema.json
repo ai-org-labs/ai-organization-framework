@@ -14,6 +14,7 @@
     "externalization_readiness_projection",
     "external_resource_projection",
     "provider_adapter_projection",
+    "external_runtime_safety_projection",
     "operator_validation_projection",
     "evidence_completeness_projection"
   ],
@@ -816,6 +817,57 @@
           }
         },
         "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "external_runtime_safety_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "safety_status",
+        "safety_summary",
+        "release_ref",
+        "work_item_ref",
+        "provider_refs",
+        "resource_refs",
+        "evidence_refs",
+        "governance_action",
+        "permission_boundary",
+        "approval_boundary",
+        "risk_boundary",
+        "not_proven",
+        "checks"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "safety_status": {
+          "enum": ["safe", "needs_approval", "blocked", "stale", "not_proven"]
+        },
+        "safety_summary": { "type": "string" },
+        "release_ref": { "type": ["string", "null"] },
+        "work_item_ref": { "type": ["string", "null"] },
+        "provider_refs": { "type": "array", "items": { "type": "string" } },
+        "resource_refs": { "type": "array", "items": { "type": "string" } },
+        "evidence_refs": { "type": "array", "items": { "type": "string" } },
+        "governance_action": { "type": "string" },
+        "permission_boundary": { "type": "string" },
+        "approval_boundary": { "type": "string" },
+        "risk_boundary": { "type": "string" },
+        "not_proven": { "type": "string" },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["check_id", "status", "summary", "evidence_ref"],
+            "properties": {
+              "check_id": { "type": "string" },
+              "status": { "enum": ["pass", "fail", "needs_approval", "stale", "not_proven"] },
+              "summary": { "type": "string" },
+              "evidence_ref": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          }
+        }
       },
       "additionalProperties": false
     },

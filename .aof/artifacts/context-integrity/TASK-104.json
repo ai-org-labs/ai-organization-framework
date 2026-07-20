@@ -1,0 +1,26 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-104-V84",
+  "recorded_at": "2026-07-20T01:40:11.000Z",
+  "work_item_id": "TASK-104",
+  "work_item_ref": ".aof/tasks/done/TASK-104.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V84-EXTERNAL-RUNTIME-SAFETY.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "required_context_refs": [
+    "docs/v8.4-release-definition.md",
+    ".aof/artifacts/externalization/externalization-readiness-audit.json",
+    ".aof/artifacts/external-resources/external-resource-audit.json",
+    ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared reference availability only, not semantic completeness, provider correctness, or production safety.",
+  "source_task_id": "TASK-104",
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "source_decision_record_id": null
+}

@@ -1,0 +1,50 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-104-V84",
+  "recorded_at": "2026-07-20T01:50:00.000Z",
+  "work_item_id": "TASK-104",
+  "work_item_ref": ".aof/tasks/done/TASK-104.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V84-EXTERNAL-RUNTIME-SAFETY-VISIBILITY",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v8.4-release-definition.md",
+      "title": "Mission Control must show externalized runtime safety before externalized execution advances.",
+      "owner_ref": "architecture-council",
+      "acceptance_boundary": "external_runtime_safety_projection is derived from canonical audits and visible in Mission Control with not-proven boundaries.",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-104.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/externalization/externalization-readiness-audit.json",
+        ".aof/artifacts/external-resources/external-resource-audit.json",
+        ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "schemas/aof-mission-control-view.schema.json",
+        "src/commands/visibility-export.js",
+        "src/commands/visibility-serve.js",
+        "test/runtime-situation.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 1,
+    "covered_count": 1,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "0 additional implementation work items for v8.4 after final verification",
+    "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, production safety, or market value."
+  },
+  "not_proven": "Requirement coverage proves bounded traceability only, not autonomous external execution safety.",
+  "source_task_id": "TASK-104",
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "source_decision_record_id": null,
+  "notes": null
+}

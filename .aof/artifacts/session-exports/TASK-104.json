@@ -1,0 +1,113 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-104-V84",
+  "recorded_at": "2026-07-20T01:51:00.000Z",
+  "work_item_id": "TASK-104",
+  "work_item_ref": ".aof/tasks/done/TASK-104.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V84-EXTERNAL-RUNTIME-SAFETY.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "unspecified",
+    "source_format": "aof-runtime-artifacts",
+    "source_of_truth_boundary": "AOF runtime artifacts are the session source of truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "Proceed with v8.4 Externalized Runtime Operator Safety Proof.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-104.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "tool_call",
+      "summary": "Runtime commands assessed roadmap and refreshed Mission Control visibility.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "response",
+      "summary": "The orchestrator reported v8.4 as bounded externalized runtime safety visibility, not autonomous external execution permission.",
+      "artifact_refs": [
+        "docs/v8.4-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "artifact_write",
+      "summary": "Mission Control export, viewer, schema, tests, release docs, and TASK-104 evidence were written.",
+      "artifact_refs": [
+        "src/commands/visibility-export.js",
+        "src/commands/visibility-serve.js",
+        "schemas/aof-mission-control-view.schema.json",
+        "test/runtime-situation.test.js",
+        "docs/v8.4-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "verification",
+      "summary": "Focused runtime tests validate the bounded externalized runtime safety visibility surface.",
+      "artifact_refs": [
+        "test/runtime-situation.test.js",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-6",
+      "event_type": "blocker",
+      "summary": "No active TASK-104 blocker remains except final full verification at record time.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-7",
+      "event_type": "stop_condition",
+      "summary": "Stop when release-state-audit, npm test, and smoke pass for v8.4.0.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json",
+        "docs/v8.4-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-104.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.4-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-situation.test.js",
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/visibility/current/mission-control.json",
+      ".aof/artifacts/externalization/externalization-readiness-audit.json",
+      ".aof/artifacts/external-resources/external-resource-audit.json",
+      ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    ],
+    "risk_candidates": [
+      "Externalized runtime safety visibility can be overclaimed as autonomous external execution permission."
+    ],
+    "decision_candidates": [
+      "v8.4 safety is release evidence only when linked to canonical audits and explicit not-proven boundaries."
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/visibility/current/mission-control.json"
+    ]
+  },
+  "redaction_boundary": "No secrets, credentials, or external provider payloads are included.",
+  "release_ready_boundary": "Runtime-ready visibility only; not autonomous execution authority.",
+  "not_proven": "Session export proves reconstructability only.",
+  "source_task_id": "TASK-104",
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,114 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-TASK-104-V84",
+  "recorded_at": "2026-07-20T01:53:00.000Z",
+  "session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-20T01:30:51.140Z",
+      "summary": "Heartbeat requested current roadmap review, nearest release implementation, and release completion using AOF runtime.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md",
+        ".aof/tasks/done/TASK-104.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-20T01:34:00.000Z",
+      "summary": "AOF runtime commands roadmap-status and situation-assess selected v8.4 as the nearest frontier.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ],
+      "tool_name": "roadmap-status / situation-assess",
+      "safety_level": "safe_read",
+      "approval_policy": "allowed"
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-20T01:38:37.765Z",
+      "summary": "AOF runtime task-open created TASK-104 for v8.4 release execution.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-104.json"
+      ],
+      "tool_name": "task-open",
+      "safety_level": "safe_local_write",
+      "approval_policy": "allowed"
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-20T01:45:00.000Z",
+      "summary": "Mission Control export, viewer, schema, tests, docs, and TASK-104 evidence were updated.",
+      "artifact_refs": [
+        "src/commands/visibility-export.js",
+        "src/commands/visibility-serve.js",
+        "schemas/aof-mission-control-view.schema.json",
+        "test/runtime-situation.test.js",
+        "docs/v8.4-release-definition.md"
+      ],
+      "tool_name": null,
+      "safety_level": "project_write",
+      "approval_policy": "allowed"
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-20T01:55:00.000Z",
+      "summary": "Focused tests validated the external runtime safety projection and baseline runtime surface.",
+      "artifact_refs": [
+        "test/runtime-situation.test.js",
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": "node --test",
+      "safety_level": "safe_read",
+      "approval_policy": "allowed"
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-104.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.4-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-situation.test.js",
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/visibility/current/mission-control.json"
+    ]
+  },
+  "risk_candidates": [
+    "Visible safety status can be misread as permission for autonomous external writes."
+  ],
+  "decision_candidates": [
+    "Externalized runtime work can advance only when safety visibility preserves permission, approval, risk, freshness, and not-proven boundaries."
+  ],
+  "release_ready_evidence": {
+    "claim": "v8.4 is structurally and runtime ready pending final full verification.",
+    "evidence_refs": [
+      ".aof/artifacts/visibility/current/mission-control.json",
+      "test/runtime-situation.test.js"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-104",
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "source_decision_record_id": null
+}

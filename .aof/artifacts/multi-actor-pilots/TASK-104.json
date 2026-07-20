@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-TASK-104-V84",
+  "recorded_at": "2026-07-20T01:40:13.000Z",
+  "work_item_id": "TASK-104",
+  "work_item_ref": ".aof/tasks/done/TASK-104.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V84-EXTERNAL-RUNTIME-SAFETY.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-104-V84.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-104-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-104-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-104-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-104-V84.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-104.json",
+  "maker_checker_council_boundary": "Builder makes the safety projection, Guardian verifies bounded not-proven evidence, Council approves release use.",
+  "not_proven": "Multi-actor pilot proves governed handoff structure only, not autonomous workforce performance or external provider correctness.",
+  "source_task_id": "TASK-104",
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-19T15:45:57.153Z",
+  "generated_at": "2026-07-20T01:54:07.789Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "8.3.0",
-    "active_release_track": "v8.3",
-    "release_definition_ref": "docs/v8.3-release-definition.md"
+    "active_release_version": "8.4.0",
+    "active_release_track": "v8.4",
+    "release_definition_ref": "docs/v8.4-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task."
+    "branch_summary": "Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v8.3",
+      "label": "v8.4",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v8.3 and the next concrete branch.",
-    "why_this_branch": "Prepare v8.4 Externalized Runtime Operator Safety Proof: make external runtime safety, permission, approval, risk, and not-proven boundaries visible enough for operators to judge before externalized execution advances.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task."
+    "where_are_we": "The runtime is between v8.4 and the next concrete branch.",
+    "why_this_branch": "Prepare v8.5 Provider Adapter Execution Pilot Boundary: prove that provider adapter execution pilots are approved, dry-run/default-deny, redacted, reversible, provenance-backed, and not confused with production automation.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task."
   }
 }

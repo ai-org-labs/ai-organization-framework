@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v8.4 Externalized Runtime Operator Safety Proof: make external runtime safety, permission, approval, risk, and not-proven boundaries visible enough for operators to judge before externalized execution advances.",
-  "updated_at": "2026-07-19T15:26:30.000Z",
+  "content": "Prepare v8.5 Provider Adapter Execution Pilot Boundary: prove that provider adapter execution pilots are approved, dry-run/default-deny, redacted, reversible, provenance-backed, and not confused with production automation.",
+  "updated_at": "2026-07-20T01:56:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE",
-  "source_decision_record_id": "CREV-TASK-103-V83",
+  "source_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "source_decision_record_id": "CREV-TASK-104-V84",
   "declared_complete_at": null
 }

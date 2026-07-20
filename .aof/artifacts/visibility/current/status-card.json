@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-19T15:45:57.148Z",
+  "as_of": "2026-07-20T01:54:07.786Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
+  "current_goal": "Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
+  "next_checkpoint": "Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

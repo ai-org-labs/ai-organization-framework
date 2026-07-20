@@ -1,0 +1,24 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-20T01:40:01.000Z",
+  "role": "builder",
+  "stage": "execution",
+  "session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "status": "completed",
+  "recommendation": "Implement external_runtime_safety_projection in Mission Control and test it as a release-grade visibility contract.",
+  "rationale": "The implementation composes existing externalization, external resource, provider adapter, and context freshness evidence into one operator-facing safety decision surface.",
+  "signals": [],
+  "artifact_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json",
+    "test/runtime-situation.test.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-104",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": null
+}

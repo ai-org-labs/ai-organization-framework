@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-20T01:40:00.000Z",
+  "role": "visionary",
+  "stage": "execution",
+  "session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "status": "completed",
+  "recommendation": "Ship v8.4 as externalized runtime safety visibility before any execution bridge advances.",
+  "rationale": "The next leap is not more external execution. It is making permission, approval, provenance, freshness, risk, and not-proven boundaries legible enough for an operator to judge externalization safety.",
+  "signals": [],
+  "artifact_refs": [
+    "docs/vnext-release-plan.md",
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-104",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": null
+}

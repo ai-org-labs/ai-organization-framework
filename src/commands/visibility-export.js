@@ -1041,6 +1041,112 @@ async function loadProviderAdapterProjection(projectRoot) {
   };
 }
 
+function buildExternalRuntimeSafetyProjection({
+  externalizationReadinessProjection,
+  externalResourceProjection,
+  providerAdapterProjection,
+  contextReferenceIntegrityProjection,
+  roadmapStatus
+}) {
+  const firstExternalUseWorkItemId = externalResourceProjection?.uses?.[0]?.work_item_id ?? null;
+  const evidenceRefs = [
+    externalizationReadinessProjection?.audit_ref,
+    externalResourceProjection?.audit_ref,
+    providerAdapterProjection?.audit_ref,
+    contextReferenceIntegrityProjection?.audit_ref,
+    roadmapStatus?.roadmap_refs?.current_release_definition
+  ].filter(Boolean);
+  const providerRefs = (providerAdapterProjection?.adapters ?? []).map((adapter) => adapter.artifact_ref).filter(Boolean);
+  const resourceRefs = [
+    ...(externalResourceProjection?.resources ?? []).map((resource) => resource.artifact_ref),
+    ...(externalResourceProjection?.uses ?? []).map((use) => use.artifact_ref)
+  ].filter(Boolean);
+  const missingEvidence = [
+    !externalizationReadinessProjection?.present ? "externalization-readiness" : null,
+    !externalResourceProjection?.present ? "external-resource" : null,
+    !providerAdapterProjection?.present ? "provider-adapter" : null
+  ].filter(Boolean);
+  const blockedCount = (externalizationReadinessProjection?.blocked_claim_count ?? 0)
+    + (externalResourceProjection?.blocked_use_count ?? 0)
+    + (providerAdapterProjection?.blocked_adapter_count ?? 0);
+  const missingBoundaryCount = (externalizationReadinessProjection?.missing_boundary_count ?? 0)
+    + (externalResourceProjection?.missing_boundary_count ?? 0)
+    + (providerAdapterProjection?.missing_boundary_count ?? 0);
+  const useCount = externalResourceProjection?.use_count ?? 0;
+  const approvedUseCount = externalResourceProjection?.approved_or_not_required_use_count ?? 0;
+  const approvalGapCount = Math.max(0, useCount - approvedUseCount);
+  const staleCount = contextReferenceIntegrityProjection?.stale_external_reference_count ?? 0;
+  const auditOk = Boolean(
+    externalizationReadinessProjection?.audit_ok
+    && externalResourceProjection?.audit_ok
+    && providerAdapterProjection?.audit_ok
+    && contextReferenceIntegrityProjection?.audit_ok !== false
+  );
+
+  let safetyStatus = "safe";
+  let governanceAction = "operator-review-allowed";
+  let safetySummary = "Externalized runtime safety evidence is present and no blocking boundary is active.";
+  if (missingEvidence.length > 0) {
+    safetyStatus = "not_proven";
+    governanceAction = "collect-missing-safety-evidence";
+    safetySummary = `Missing safety evidence: ${missingEvidence.join(", ")}.`;
+  } else if (staleCount > 0) {
+    safetyStatus = "stale";
+    governanceAction = "refresh-external-reference-evidence";
+    safetySummary = `${staleCount} external reference integrity record(s) are stale.`;
+  } else if (!auditOk || blockedCount > 0 || missingBoundaryCount > 0) {
+    safetyStatus = "blocked";
+    governanceAction = "block-externalized-execution-claim";
+    safetySummary = "Externalized runtime safety is blocked by failed audits, blocked states, or missing boundaries.";
+  } else if (approvalGapCount > 0) {
+    safetyStatus = "needs_approval";
+    governanceAction = "request-operator-approval-before-advance";
+    safetySummary = `${approvalGapCount} external resource use(s) require approval before externalized execution can advance.`;
+  }
+
+  return {
+    present: missingEvidence.length === 0,
+    safety_status: safetyStatus,
+    safety_summary: safetySummary,
+    release_ref: roadmapStatus?.roadmap_refs?.current_release_definition ?? null,
+    work_item_ref: firstExternalUseWorkItemId ? `.aof/tasks/done/${firstExternalUseWorkItemId}.json` : null,
+    provider_refs: providerRefs,
+    resource_refs: resourceRefs,
+    evidence_refs: [...new Set([...evidenceRefs, ...providerRefs, ...resourceRefs])],
+    governance_action: governanceAction,
+    permission_boundary: "Externalized execution cannot advance unless resource, provider, approval, provenance, freshness, and not-proven boundaries are visible and pass governance checks.",
+    approval_boundary: "Approved or approval-not-required resource use is required before externalized execution claims can advance.",
+    risk_boundary: "This projection blocks unsafe externalization claims; it does not prove semantic correctness, production safety, billing safety, or secret safety.",
+    not_proven: "External runtime safety projection is structural/runtime evidence. It is not permission for autonomous external writes and does not prove external provider output correctness.",
+    checks: [
+      {
+        check_id: "externalization-readiness",
+        status: externalizationReadinessProjection?.audit_ok ? "pass" : "fail",
+        summary: `${externalizationReadinessProjection?.ready_claim_count ?? 0} ready claim(s), ${externalizationReadinessProjection?.blocked_claim_count ?? 0} blocked claim(s).`,
+        evidence_ref: externalizationReadinessProjection?.audit_ref ?? null
+      },
+      {
+        check_id: "external-resource-use",
+        status: externalResourceProjection?.audit_ok && approvalGapCount === 0 ? "pass" : "needs_approval",
+        summary: `${approvedUseCount}/${useCount} external resource use(s) approved or not required.`,
+        evidence_ref: externalResourceProjection?.audit_ref ?? null
+      },
+      {
+        check_id: "provider-adapter-boundary",
+        status: providerAdapterProjection?.audit_ok ? "pass" : "fail",
+        summary: `${providerAdapterProjection?.ready_adapter_count ?? 0} ready adapter(s), ${providerAdapterProjection?.write_capable_adapter_count ?? 0} write-capable adapter(s).`,
+        evidence_ref: providerAdapterProjection?.audit_ref ?? null
+      },
+      {
+        check_id: "external-reference-freshness",
+        status: staleCount === 0 ? "pass" : "stale",
+        summary: `${staleCount} stale external reference record(s).`,
+        evidence_ref: contextReferenceIntegrityProjection?.audit_ref ?? null
+      }
+    ]
+  };
+}
+
 async function loadOperatorValidationProjection(projectRoot) {
   const auditRef = ".aof/artifacts/operator-validation/operator-validation-audit.json";
   const audit = await maybeReadJsonByRef(projectRoot, auditRef, "operator validation audit");
@@ -1143,6 +1249,7 @@ function buildMissionControl({
   externalizationReadinessProjection = null,
   externalResourceProjection = null,
   providerAdapterProjection = null,
+  externalRuntimeSafetyProjection = null,
   operatorValidationProjection = null,
   evidenceCompletenessProjection = null
 }) {
@@ -1374,6 +1481,22 @@ function buildMissionControl({
       adapters: [],
       not_proven: "No provider adapter audit artifact is present."
     },
+    external_runtime_safety_projection: externalRuntimeSafetyProjection ?? {
+      present: false,
+      safety_status: "not_proven",
+      safety_summary: "No external runtime safety projection is present.",
+      release_ref: null,
+      work_item_ref: null,
+      provider_refs: [],
+      resource_refs: [],
+      evidence_refs: [],
+      governance_action: "collect-missing-safety-evidence",
+      permission_boundary: "Externalized execution cannot advance without visible safety evidence.",
+      approval_boundary: "Externalized execution cannot advance without visible approval state.",
+      risk_boundary: "External runtime safety is not semantic truth or production-write authority.",
+      not_proven: "No external runtime safety projection is present.",
+      checks: []
+    },
     operator_validation_projection: operatorValidationProjection ?? {
       present: false,
       audit_ref: ".aof/artifacts/operator-validation/operator-validation-audit.json",
@@ -1449,6 +1572,13 @@ export async function visibilityExportCommand(options) {
     })
   };
   const flowSnapshot = buildFlowSnapshot(Boolean(currentTask));
+  const externalRuntimeSafetyProjection = buildExternalRuntimeSafetyProjection({
+    externalizationReadinessProjection,
+    externalResourceProjection,
+    providerAdapterProjection,
+    contextReferenceIntegrityProjection,
+    roadmapStatus
+  });
   const evidenceCompletenessProjection = buildEvidenceCompletenessProjection({
     requirementCoverageProjection,
     adoptionProofProjection,
@@ -1474,6 +1604,7 @@ export async function visibilityExportCommand(options) {
     externalizationReadinessProjection,
     externalResourceProjection,
     providerAdapterProjection,
+    externalRuntimeSafetyProjection,
     operatorValidationProjection,
     evidenceCompletenessProjection
   });

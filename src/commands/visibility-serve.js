@@ -2595,6 +2595,12 @@ export function buildVisibilityPageHtml(title) {
         return "attention";
       }
 
+      function externalSafetyClass(state) {
+        if (state === "safe") return "good";
+        if (state === "blocked" || state === "stale" || state === "not_proven") return "warn";
+        return "attention";
+      }
+
       function stripRefToken(token) {
         let cleaned = String(token ?? "").trim();
         const leading = '"\\'(<[';
@@ -2765,6 +2771,8 @@ export function buildVisibilityPageHtml(title) {
         const operatorValidationRecords = Array.isArray(operatorValidation.records) ? operatorValidation.records : [];
         const operatorAcceptance = operatorAcceptanceState(operatorValidation);
         const primaryOperatorValidation = operatorValidationRecords[0] ?? null;
+        const externalSafety = mission.external_runtime_safety_projection ?? {};
+        const externalSafetyChecks = Array.isArray(externalSafety.checks) ? externalSafety.checks : [];
         const organizationState = mission.organization_state ?? {};
         const sessionObservability = mission.agent_session_observability ?? {};
         const lastExecution = runtimeExecution.last_execution ?? {};
@@ -2815,6 +2823,7 @@ export function buildVisibilityPageHtml(title) {
               '<div class="summary-card"><div class="mission-label">Current frontier branch</div><div class="value">' + escapeHtml(firstText(tree.branch?.frontier_track, "not selected")) + '</div><div class="detail">' + escapeHtml(firstText(tree.branch?.branch_summary, mission.mission_overview?.next_value_slice)) + '</div></div>' +
               '<div class="summary-card"><div class="mission-label">Key risks</div><div class="value">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.claim, "No key risk claim")) + '</div><div class="detail">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.rationale, "Risk summary comes from evidence drill-down.")) + '</div></div>' +
               '<div class="summary-card ' + operatorAcceptanceClass(operatorAcceptance) + '"><div class="mission-label">Operator acceptance</div><div class="value">' + escapeHtml(operatorAcceptance) + '</div><div class="detail">' + escapeHtml(firstText(primaryOperatorValidation?.feedback_summary, operatorValidation.not_proven, "No operator validation record is projected.")) + '</div></div>' +
+              '<div class="summary-card ' + externalSafetyClass(externalSafety.safety_status) + '"><div class="mission-label">External runtime safety</div><div class="value">' + escapeHtml(firstText(externalSafety.safety_status, "not_proven")) + '</div><div class="detail">' + escapeHtml(firstText(externalSafety.safety_summary, externalSafety.not_proven, "No external safety projection.")) + '</div></div>' +
             '</div></aside>' +
           '</section>' +
           '<section class="mission-lower">' +
@@ -2841,6 +2850,22 @@ export function buildVisibilityPageHtml(title) {
                 role.latest_artifact_ref,
                 role
               )).join("") : '<div class="mini-row"><strong>No role workload</strong><span>No execution role-result artifacts are visible.</span></div>') +
+            '</div></div>' +
+            '<div class="lower-panel"><div class="section-head"><h2>External Runtime Safety</h2><p>Permission, approval, provenance, freshness, risk, and not-proven boundaries before externalized execution advances.</p></div><div class="lower-body">' +
+              '<div class="mini-row ' + externalSafetyClass(externalSafety.safety_status) + '"><strong>Status: ' + escapeHtml(firstText(externalSafety.safety_status, "not_proven")) + '</strong><span>' + escapeHtml(firstText(externalSafety.safety_summary, externalSafety.not_proven, "No external runtime safety evidence is projected.")) + '</span></div>' +
+              '<div class="mini-row detail-trigger"' + detailPayloadAttributes({
+                title: "External runtime safety boundary",
+                subtitle: firstText(externalSafety.governance_action, "governance action missing"),
+                body: firstText(externalSafety.permission_boundary, externalSafety.approval_boundary, externalSafety.risk_boundary, externalSafety.not_proven),
+                ref: externalSafety.evidence_refs?.[0] ?? null,
+                metadata: externalSafety
+              }) + '><strong>Governance action</strong><span>' + escapeHtml(firstText(externalSafety.governance_action, "collect-missing-safety-evidence")) + '</span><div class="detail-hint">Click for boundaries</div></div>' +
+              (externalSafetyChecks.length > 0 ? externalSafetyChecks.map((check) => detailRow(
+                firstText(check.check_id, "safety check") + " / " + firstText(check.status, "not_proven"),
+                firstText(check.summary, "-"),
+                check.evidence_ref,
+                check
+              )).join("") : '<div class="mini-row"><strong>No safety checks</strong><span>No external runtime safety checks are currently projected.</span></div>') +
             '</div></div>' +
             '<div class="lower-panel"><div class="section-head"><h2>Operator Acceptance Evidence</h2><p>Acceptance, rejection, clarification, reproduction state, governance action, and proof refs from operator-validation-audit.</p></div><div class="lower-body">' +
               '<div class="mini-row"><strong>Status: ' + escapeHtml(operatorAcceptance) + '</strong><span>Accepted: ' + escapeHtml(String(operatorValidation.accepted_count ?? 0)) + ' / Rejected: ' + escapeHtml(String(operatorValidation.rejected_count ?? 0)) + ' / Clarification: ' + escapeHtml(String(operatorValidation.needs_clarification_count ?? 0)) + ' / Not reproduced: ' + escapeHtml(String(operatorValidation.not_reproduced_count ?? 0)) + '</span></div>' +

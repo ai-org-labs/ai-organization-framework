@@ -1,0 +1,22 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-20T01:52:00.000Z",
+  "work_item_id": "TASK-104",
+  "work_item_ref": ".aof/tasks/done/TASK-104.json",
+  "source_task_id": "TASK-104",
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/v8.4-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-104-V84.json",
+  "affected_nodes": [
+    "mission-control",
+    "visibility-export",
+    "externalization-readiness",
+    "external-resource-governance",
+    "provider-adapter-governance",
+    "release-state-audit"
+  ],
+  "impact_summary": "v8.4 adds an external runtime safety projection that turns existing externalization, resource, provider, and freshness evidence into a human-legible Mission Control decision surface.",
+  "not_proven": "Archmap impact records describe intended architecture impact and do not prove semantic correctness or external execution safety."
+}

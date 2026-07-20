@@ -1,0 +1,65 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-TASK-104-V84",
+  "recorded_at": "2026-07-20T01:40:14.000Z",
+  "work_item_id": "TASK-104",
+  "work_item_ref": ".aof/tasks/done/TASK-104.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-104.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-104.json",
+  "lanes": [
+    {
+      "lane_id": "contract",
+      "goal": "Add external runtime safety projection contract",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v8.4-release-definition.md"
+      ],
+      "expected_output": "schema and visibility-export projection fields",
+      "output_refs": [
+        "schemas/aof-mission-control-view.schema.json",
+        "src/commands/visibility-export.js"
+      ],
+      "verification_refs": [
+        "test/runtime-situation.test.js"
+      ],
+      "stop_condition": "stop if safety projection omits not-proven boundary",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "viewer",
+      "goal": "Expose external runtime safety in Mission Control",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "expected_output": "summary card and detailed safety panel",
+      "output_refs": [
+        "src/commands/visibility-serve.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if viewer hides approval or permission boundary",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "contract",
+      "viewer"
+    ],
+    "conflict_summary": "No unresolved lane conflict.",
+    "blocker_summary": "No active blocker after focused tests.",
+    "merge_rationale": "Contract and viewer lanes agree that external runtime safety is bounded operator evidence, not execution authority.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-104-V84.json",
+  "not_proven": "Parallel lane evidence proves bounded local lane join only.",
+  "source_task_id": "TASK-104",
+  "source_parent_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
+  "source_decision_record_id": null,
+  "notes": null
+}

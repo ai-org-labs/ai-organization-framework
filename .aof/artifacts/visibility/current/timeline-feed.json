@@ -2,7 +2,18 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-19T15:45:57.148Z",
+      "at": "2026-07-20T01:56:01.000Z",
+      "actor": "AOF Runtime",
+      "event_type": "next_value_slice_updated",
+      "summary": "Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task.",
+      "rationale": "Project memory was updated to reflect the current operating focus.",
+      "next": "Project the current slice into operator visibility outputs.",
+      "refs": [
+        ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-07-20T01:54:07.786Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +24,7 @@
       ]
     },
     {
-      "at": "2026-07-19T15:45:57.142Z",
+      "at": "2026-07-20T01:54:07.778Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,14 +35,14 @@
       ]
     },
     {
-      "at": "2026-07-19T15:26:31.000Z",
+      "at": "2026-07-20T01:48:37.081Z",
       "actor": "AOF Runtime",
-      "event_type": "next_value_slice_updated",
-      "summary": "Run a runtime-backed v8.4 direction review before opening the first Externalized Runtime Operator Safety Proof implementation task.",
-      "rationale": "Project memory was updated to reflect the current operating focus.",
-      "next": "Project the current slice into operator visibility outputs.",
+      "event_type": "task_completed",
+      "summary": "Ship v8.4 Externalized Runtime Operator Safety Proof",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
       "refs": [
-        ".aof/goals/next-value-slice.json"
+        ".aof/tasks/done/TASK-104.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-102.json"
-      ]
-    },
-    {
-      "at": "2026-07-18T17:46:49.972Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Define v8.1 Provider Adapter Governance direction",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-101.json"
       ]
     }
   ]
