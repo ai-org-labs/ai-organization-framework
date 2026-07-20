@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task.",
-  "updated_at": "2026-07-20T04:45:44.528Z",
+  "content": "Run a runtime-backed v8.7 direction review before opening the first External Runtime Reproduction and Rollback Proof implementation task.",
+  "updated_at": "2026-07-20T06:19:41.304Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
-  "source_decision_record_id": "CREV-TASK-105-V85",
+  "source_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": "CREV-TASK-106-V86",
   "declared_complete_at": null
 }

@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-execution-approval-audit.schema.json",
+  "title": "AOF Provider Execution Approval Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "summary",
+    "approvals",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "provider-execution-approval-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approval_count",
+        "approved_count",
+        "pending_count",
+        "blocked_count",
+        "external_write_authorized_count",
+        "production_executed_count",
+        "missing_boundary_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "approval_count": { "type": "integer", "minimum": 0 },
+        "approved_count": { "type": "integer", "minimum": 0 },
+        "pending_count": { "type": "integer", "minimum": 0 },
+        "blocked_count": { "type": "integer", "minimum": 0 },
+        "external_write_authorized_count": { "type": "integer", "minimum": 0 },
+        "production_executed_count": { "type": "integer", "minimum": 0 },
+        "missing_boundary_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "approval_id",
+          "pilot_ref",
+          "adapter_ref",
+          "work_item_id",
+          "approval_decision",
+          "approved_execution_mode",
+          "external_write_authorized",
+          "production_execution_status",
+          "artifact_ref"
+        ],
+        "properties": {
+          "approval_id": { "type": "string" },
+          "pilot_ref": { "type": "string" },
+          "adapter_ref": { "type": "string" },
+          "work_item_id": { "type": "string" },
+          "approval_decision": { "type": "string" },
+          "approved_execution_mode": { "type": "string" },
+          "external_write_authorized": { "type": "boolean" },
+          "production_execution_status": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" },
+          "evidence_refs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "errors": { "type": "array", "items": { "type": "string" } }
+  }
+}

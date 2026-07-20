@@ -1,7 +1,7 @@
 {
   "organization_type": "aof-organization",
   "organization_format_version": 1,
-  "mission": "Ship v8.5.1 as a release-surface consistency and operator wording patch for v8.5 without expanding external execution authority.",
+  "mission": "Ship v8.6 Provider Execution Approval Bridge: require bounded approval, scope, redaction, rollback, credential, budget, provenance, verification, and stop conditions before any real provider side effect is treated as authorized.",
   "project_ref": ".aof/context/active/project-orientation.json",
   "skills_ref": ".aof/skills.json",
   "capability_registry_ref": ".aof/capability-registry.json",
@@ -174,7 +174,7 @@
       "name": "Governance To Release Contract",
       "owner_team_ref": "governance-team",
       "contract_type": "release-definition",
-      "artifact_ref": "docs/v8.5-release-definition.md"
+      "artifact_ref": "docs/v8.6-release-definition.md"
     },
     {
       "contract_id": "contract-verification-to-runtime",
@@ -287,5 +287,5 @@
       "archive"
     ]
   },
-  "updated_at": "2026-07-20T05:37:24.579Z"
+  "updated_at": "2026-07-20T06:11:11.927Z"
 }

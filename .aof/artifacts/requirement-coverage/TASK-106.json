@@ -1,0 +1,51 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRSU2GE5-37QYGL",
+  "recorded_at": "2026-07-20T06:18:09.149Z",
+  "work_item_id": "TASK-106",
+  "work_item_ref": ".aof/tasks/done/TASK-106.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V86-PROVIDER-EXECUTION-APPROVAL-BRIDGE",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v8.6-release-definition.md",
+      "title": "Provider execution approval bridge must gate any real provider side effect before execution.",
+      "owner_ref": "architecture-council",
+      "acceptance_boundary": "provider-execution-approval-audit passes, missing human approval fails, Mission Control shows bridge readiness, and production execution remains not executed by v8.6.",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-106.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "schemas/aof-provider-execution-approval-record.schema.json",
+        "schemas/aof-provider-execution-approval-audit.schema.json",
+        "src/commands/provider-execution-approval-record.js",
+        "src/commands/provider-execution-approval-audit.js",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 1,
+    "covered_count": 1,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "0 additional implementation work items for v8.6 after final verification",
+    "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, production safety, or market value."
+  },
+  "not_proven": "Requirement coverage proves bounded traceability only, not production provider execution safety or semantic correctness.",
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": "CREV-TASK-106-V86",
+  "notes": null
+}

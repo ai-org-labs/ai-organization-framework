@@ -1081,6 +1081,41 @@ async function loadProviderAdapterPilotProjection(projectRoot) {
   };
 }
 
+async function loadProviderExecutionApprovalProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider execution approval audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      approval_count: 0,
+      approved_count: 0,
+      pending_count: 0,
+      blocked_count: 0,
+      external_write_authorized_count: 0,
+      production_executed_count: 0,
+      missing_boundary_count: null,
+      approvals: [],
+      not_proven: "No provider execution approval audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    approval_count: audit.summary?.approval_count ?? 0,
+    approved_count: audit.summary?.approved_count ?? 0,
+    pending_count: audit.summary?.pending_count ?? 0,
+    blocked_count: audit.summary?.blocked_count ?? 0,
+    external_write_authorized_count: audit.summary?.external_write_authorized_count ?? 0,
+    production_executed_count: audit.summary?.production_executed_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    approvals: audit.approvals ?? [],
+    not_proven: "Provider execution approval projection is preflight governance evidence; it does not prove production execution happened, provider correctness, billing safety, or credential safety."
+  };
+}
+
 function buildProviderAdapterPilotReadinessProjection({
   providerAdapterProjection,
   providerAdapterPilotProjection,
@@ -1135,16 +1170,19 @@ function buildExternalRuntimeSafetyProjection({
   externalResourceProjection,
   providerAdapterProjection,
   providerAdapterPilotProjection,
+  providerExecutionApprovalProjection,
   contextReferenceIntegrityProjection,
   roadmapStatus
 }) {
   const requiresProviderPilot = releaseAtLeast(roadmapStatus?.active_release?.release_version, 8, 5);
+  const requiresProviderApproval = releaseAtLeast(roadmapStatus?.active_release?.release_version, 8, 6);
   const firstExternalUseWorkItemId = externalResourceProjection?.uses?.[0]?.work_item_id ?? null;
   const evidenceRefs = [
     externalizationReadinessProjection?.audit_ref,
     externalResourceProjection?.audit_ref,
     providerAdapterProjection?.audit_ref,
     requiresProviderPilot ? providerAdapterPilotProjection?.audit_ref : null,
+    requiresProviderApproval ? providerExecutionApprovalProjection?.audit_ref : null,
     contextReferenceIntegrityProjection?.audit_ref,
     roadmapStatus?.roadmap_refs?.current_release_definition
   ].filter(Boolean);
@@ -1157,16 +1195,19 @@ function buildExternalRuntimeSafetyProjection({
     !externalizationReadinessProjection?.present ? "externalization-readiness" : null,
     !externalResourceProjection?.present ? "external-resource" : null,
     !providerAdapterProjection?.present ? "provider-adapter" : null,
-    requiresProviderPilot && !providerAdapterPilotProjection?.present ? "provider-adapter-pilot" : null
+    requiresProviderPilot && !providerAdapterPilotProjection?.present ? "provider-adapter-pilot" : null,
+    requiresProviderApproval && !providerExecutionApprovalProjection?.present ? "provider-execution-approval" : null
   ].filter(Boolean);
   const blockedCount = (externalizationReadinessProjection?.blocked_claim_count ?? 0)
     + (externalResourceProjection?.blocked_use_count ?? 0)
     + (providerAdapterProjection?.blocked_adapter_count ?? 0)
-    + (requiresProviderPilot ? (providerAdapterPilotProjection?.blocked_pilot_count ?? 0) : 0);
+    + (requiresProviderPilot ? (providerAdapterPilotProjection?.blocked_pilot_count ?? 0) : 0)
+    + (requiresProviderApproval ? (providerExecutionApprovalProjection?.blocked_count ?? 0) : 0);
   const missingBoundaryCount = (externalizationReadinessProjection?.missing_boundary_count ?? 0)
     + (externalResourceProjection?.missing_boundary_count ?? 0)
     + (providerAdapterProjection?.missing_boundary_count ?? 0)
-    + (requiresProviderPilot ? (providerAdapterPilotProjection?.missing_boundary_count ?? 0) : 0);
+    + (requiresProviderPilot ? (providerAdapterPilotProjection?.missing_boundary_count ?? 0) : 0)
+    + (requiresProviderApproval ? (providerExecutionApprovalProjection?.missing_boundary_count ?? 0) : 0);
   const useCount = externalResourceProjection?.use_count ?? 0;
   const approvedUseCount = externalResourceProjection?.approved_or_not_required_use_count ?? 0;
   const approvalGapCount = Math.max(0, useCount - approvedUseCount);
@@ -1176,6 +1217,7 @@ function buildExternalRuntimeSafetyProjection({
     && externalResourceProjection?.audit_ok
     && providerAdapterProjection?.audit_ok
     && (!requiresProviderPilot || providerAdapterPilotProjection?.audit_ok === true)
+    && (!requiresProviderApproval || providerExecutionApprovalProjection?.audit_ok === true)
     && contextReferenceIntegrityProjection?.audit_ok !== false
   );
 
@@ -1241,6 +1283,12 @@ function buildExternalRuntimeSafetyProjection({
         status: providerAdapterPilotProjection?.audit_ok ? "pass" : "fail",
         summary: `${providerAdapterPilotProjection?.ready_pilot_count ?? 0} ready pilot(s), ${providerAdapterPilotProjection?.external_write_pilot_count ?? 0} write-mode pilot(s).`,
         evidence_ref: providerAdapterPilotProjection?.audit_ref ?? null
+      },
+      {
+        check_id: "provider-execution-approval-bridge",
+        status: !requiresProviderApproval || providerExecutionApprovalProjection?.audit_ok ? "pass" : "fail",
+        summary: `${providerExecutionApprovalProjection?.approved_count ?? 0} approved bridge(s), ${providerExecutionApprovalProjection?.external_write_authorized_count ?? 0} external-write preflight authorization(s), ${providerExecutionApprovalProjection?.production_executed_count ?? 0} production execution(s).`,
+        evidence_ref: providerExecutionApprovalProjection?.audit_ref ?? null
       },
       {
         check_id: "external-reference-freshness",
@@ -1355,6 +1403,7 @@ function buildMissionControl({
   externalResourceProjection = null,
   providerAdapterProjection = null,
   providerAdapterPilotProjection = null,
+  providerExecutionApprovalProjection = null,
   providerAdapterPilotReadinessProjection = null,
   externalRuntimeSafetyProjection = null,
   operatorValidationProjection = null,
@@ -1600,6 +1649,20 @@ function buildMissionControl({
       pilots: [],
       not_proven: "No provider adapter pilot audit artifact is present."
     },
+    provider_execution_approval_projection: providerExecutionApprovalProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+      audit_ok: null,
+      approval_count: 0,
+      approved_count: 0,
+      pending_count: 0,
+      blocked_count: 0,
+      external_write_authorized_count: 0,
+      production_executed_count: 0,
+      missing_boundary_count: null,
+      approvals: [],
+      not_proven: "No provider execution approval audit artifact is present."
+    },
     provider_adapter_pilot_readiness_projection: providerAdapterPilotReadinessProjection ?? {
       present: false,
       readiness_status: "not_proven",
@@ -1661,7 +1724,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, operatorValidationProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, operatorValidationProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -1682,6 +1745,7 @@ export async function visibilityExportCommand(options) {
     loadExternalResourceProjection(projectRoot),
     loadProviderAdapterProjection(projectRoot),
     loadProviderAdapterPilotProjection(projectRoot),
+    loadProviderExecutionApprovalProjection(projectRoot),
     loadOperatorValidationProjection(projectRoot)
   ]);
 
@@ -1712,6 +1776,7 @@ export async function visibilityExportCommand(options) {
     externalResourceProjection,
     providerAdapterProjection,
     providerAdapterPilotProjection,
+    providerExecutionApprovalProjection,
     contextReferenceIntegrityProjection,
     roadmapStatus
   });
@@ -1746,6 +1811,7 @@ export async function visibilityExportCommand(options) {
     externalResourceProjection,
     providerAdapterProjection,
     providerAdapterPilotProjection,
+    providerExecutionApprovalProjection,
     providerAdapterPilotReadinessProjection,
     externalRuntimeSafetyProjection,
     operatorValidationProjection,

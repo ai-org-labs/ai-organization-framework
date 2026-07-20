@@ -1,0 +1,25 @@
+{
+  "artifact_type": "role-result",
+  "result_id": "RRES-TASK-106-GUARDIAN",
+  "recorded_at": "2026-07-20T06:15:02.000Z",
+  "role": "Guardian",
+  "stage": "review",
+  "session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "status": "completed",
+  "recommendation": "Approve only if the audit fails missing human approval evidence and the bridge never claims production execution safety.",
+  "rationale": "The main risk is overclaiming preflight approval as safe provider execution.",
+  "signals": [
+    "production_execution_status must remain non-executed in v8.6 evidence",
+    "dangerous operations must be explicitly denied"
+  ],
+  "artifact_refs": [
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+    "docs/v8.6.0-release-notes.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": null,
+  "notes": null
+}

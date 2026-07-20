@@ -1,0 +1,23 @@
+{
+  "artifact_type": "role-result",
+  "result_id": "RRES-TASK-106-VISIONARY",
+  "recorded_at": "2026-07-20T06:15:00.000Z",
+  "role": "Visionary",
+  "stage": "planning",
+  "session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "status": "completed",
+  "recommendation": "Ship v8.6 as the boundary between approval and execution.",
+  "rationale": "AOF must prevent adapter readiness and pilot simulation from becoming hidden permission for provider side effects.",
+  "signals": [
+    "next frontier should prove reproduction and rollback before production execution"
+  ],
+  "artifact_refs": [
+    "docs/v8.6-release-definition.md",
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": null,
+  "notes": null
+}

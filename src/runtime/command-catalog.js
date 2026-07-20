@@ -78,6 +78,8 @@ const COMMAND_SPECS = [
   ["provider-adapter-audit", "./commands/provider-adapter-audit.js", "providerAdapterAuditCommand"],
   ["provider-adapter-pilot-record", "./commands/provider-adapter-pilot-record.js", "providerAdapterPilotRecordCommand"],
   ["provider-adapter-pilot-audit", "./commands/provider-adapter-pilot-audit.js", "providerAdapterPilotAuditCommand"],
+  ["provider-execution-approval-record", "./commands/provider-execution-approval-record.js", "providerExecutionApprovalRecordCommand"],
+  ["provider-execution-approval-audit", "./commands/provider-execution-approval-audit.js", "providerExecutionApprovalAuditCommand"],
   ["operator-validation-record", "./commands/operator-validation-record.js", "operatorValidationRecordCommand"],
   ["operator-validation-audit", "./commands/operator-validation-audit.js", "operatorValidationAuditCommand"],
   ["problem-statement-record", "./commands/problem-statement-record.js", "problemStatementRecordCommand"],

@@ -1,0 +1,112 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRSU32WU-YZ25JF",
+  "recorded_at": "2026-07-20T06:18:38.334Z",
+  "work_item_id": "TASK-106",
+  "work_item_ref": ".aof/tasks/done/TASK-106.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "unspecified",
+    "source_format": "aof-runtime-artifacts",
+    "source_of_truth_boundary": "AOF runtime artifacts are the session source of truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "Proceed with v8.6 Provider Execution Approval Bridge.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-106.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "tool_call",
+      "summary": "Runtime commands selected v8.6 and opened the approval bridge work item.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "artifact_write",
+      "summary": "Provider execution approval schemas, CLI commands, Mission Control projection, tests, and release docs were written.",
+      "artifact_refs": [
+        "src/commands/provider-execution-approval-record.js",
+        "src/commands/provider-execution-approval-audit.js",
+        "src/commands/visibility-export.js",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "verification",
+      "summary": "Focused runtime tests validate approval bridge pass and missing-human-approval failure.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "response",
+      "summary": "The orchestrator reported v8.6 as bounded approval bridge governance, not production external execution permission.",
+      "artifact_refs": [
+        "docs/v8.6-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-6",
+      "event_type": "blocker",
+      "summary": "No active TASK-106 blocker remains except final full verification at record time.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-7",
+      "event_type": "stop_condition",
+      "summary": "Stop when provider-execution-approval-audit, release-state-audit, npm test, and smoke pass for v8.6.0.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        ".aof/context/active/release-state-audit.json",
+        "docs/v8.6-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-106.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.6-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js",
+      "test/runtime-situation.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+      ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+      ".aof/artifacts/visibility/current/mission-control.json"
+    ],
+    "risk_candidates": [
+      "Provider execution approval bridge readiness can be overclaimed as production execution safety."
+    ],
+    "decision_candidates": [
+      "v8.6 approval bridge is release evidence only when linked to canonical audits and explicit not-proven boundaries."
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    ]
+  },
+  "redaction_boundary": "No secrets, credentials, or external provider payloads are included.",
+  "release_ready_boundary": "Runtime-ready approval bridge only; not autonomous execution authority.",
+  "not_proven": "Session export proves reconstructability only.",
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": "CREV-TASK-106-V86",
+  "notes": null
+}

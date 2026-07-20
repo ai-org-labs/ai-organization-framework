@@ -1,0 +1,45 @@
+{
+  "artifact_type": "council-review-packet",
+  "packet_id": "CREV-TASK-106-V86",
+  "recorded_at": "2026-07-20T06:07:01.160Z",
+  "council_id": "architecture-council",
+  "stage": "release-review",
+  "review_status": "approved",
+  "decision_summary": "Approve v8.6 as a Provider Execution Approval Bridge release, provided production provider execution remains out of scope.",
+  "rationale": "The bridge turns provider side-effect permission into explicit preflight evidence instead of inheriting authority from adapter readiness or pilot simulation.",
+  "recommendation": "Ship after provider-execution-approval-audit, release-state-audit, npm test, smoke, and GitHub Actions are green.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "The operator should see that v8.6 adds approval readiness, not real provider execution.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Expose approval bridge status in Mission Control.",
+    "Keep not-proven boundaries explicit in release notes."
+  ],
+  "organization_change_recommendations": [
+    "Require approval bridge evidence before any future provider execution task can claim external side-effect permission."
+  ],
+  "diagnosis": {
+    "category": "external-execution-authority-boundary",
+    "confidence": 0.86,
+    "evidence_refs": [
+      "docs/v8.6-release-definition.md",
+      "schemas/aof-provider-execution-approval-record.schema.json",
+      "src/commands/provider-execution-approval-audit.js"
+    ]
+  },
+  "human_override_signal": null,
+  "team_output_ref": null,
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-106-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-106-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-106-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v8.6-release-checklist.md",
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+  ],
+  "follow_up_task_ids": []
+}

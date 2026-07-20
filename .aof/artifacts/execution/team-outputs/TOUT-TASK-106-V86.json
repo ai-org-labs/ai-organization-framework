@@ -1,0 +1,30 @@
+{
+  "artifact_type": "team-output",
+  "output_id": "TOUT-TASK-106-V86",
+  "recorded_at": "2026-07-20T06:15:03.000Z",
+  "team_id": "runtime-team",
+  "stage": "release-ready",
+  "expected_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "aggregate_state": "ready-for-council",
+  "recommended_next_step": "Approve v8.6 after provider-execution-approval-audit, release-state-audit, npm test, smoke, and GitHub Actions are green.",
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-106-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-106-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-106-GUARDIAN.json"
+  ],
+  "blocking_signals": [],
+  "summary": "Visionary, Builder, and Guardian agree that v8.6 should ship provider execution approval bridge evidence as bounded preflight governance, not production provider execution.",
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": null,
+  "notes": null
+}

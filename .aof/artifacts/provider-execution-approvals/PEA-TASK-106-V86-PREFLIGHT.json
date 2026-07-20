@@ -1,0 +1,50 @@
+{
+  "artifact_type": "provider-execution-approval-record",
+  "approval_id": "PEA-TASK-106-V86-PREFLIGHT",
+  "recorded_at": "2026-07-20T06:09:04.634Z",
+  "pilot_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+  "adapter_ref": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+  "work_item_id": "TASK-106",
+  "work_item_ref": ".aof/tasks/done/TASK-106.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+  "approval_decision": "approved",
+  "approved_execution_mode": "bounded_external_write",
+  "external_write_authorized": true,
+  "human_approval_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+  "execution_scope": "Future provider side-effect execution may proceed only for a separately approved bounded provider target; this v8.6 record is preflight evidence and executes no provider call.",
+  "allowed_operations": [
+    "external_write"
+  ],
+  "denied_operations": [
+    "dangerous operation",
+    "billing operation",
+    "secret access",
+    "deploy",
+    "irreversible production mutation"
+  ],
+  "side_effect_boundary": "No side effect occurs in v8.6; later execution must stay within the approved provider target and operation scope.",
+  "redaction_boundary": "No secrets, credentials, provider payload bodies, billing data, or production response bodies are persisted.",
+  "rollback_plan": "Do not execute if rollback cannot be defined; later execution must include a rollback artifact and stop on rollback failure.",
+  "credential_boundary": "The bridge does not read credentials; any later provider execution must receive scoped credentials after approval.",
+  "budget_boundary": "The bridge performs no billable provider operation; later execution must declare a bounded budget before invocation.",
+  "provenance_refs": [
+    "docs/v8.6-release-definition.md",
+    ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+    ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
+  ],
+  "verification_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v8.6-release-checklist.md"
+  ],
+  "stop_conditions": [
+    "stop if human approval is missing",
+    "stop if execution scope changes",
+    "stop if rollback, credential, or budget boundary is unclear"
+  ],
+  "production_execution_status": "preflight_approved",
+  "not_proven": "The approval bridge proves bounded preflight authorization only; it does not prove production provider execution safety, credential safety, billing safety, provider output correctness, or autonomous external execution.",
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": "CREV-TASK-106-V86",
+  "notes": null
+}

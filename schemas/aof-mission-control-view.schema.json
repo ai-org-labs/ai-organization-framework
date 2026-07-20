@@ -15,6 +15,7 @@
     "external_resource_projection",
     "provider_adapter_projection",
     "provider_adapter_pilot_projection",
+    "provider_execution_approval_projection",
     "provider_adapter_pilot_readiness_projection",
     "external_runtime_safety_projection",
     "operator_validation_projection",
@@ -857,6 +858,66 @@
               "pilot_mode": { "type": "string" },
               "approval_status": { "type": "string" },
               "execution_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_execution_approval_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "approval_count",
+        "approved_count",
+        "pending_count",
+        "blocked_count",
+        "external_write_authorized_count",
+        "production_executed_count",
+        "missing_boundary_count",
+        "approvals",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "approval_count": { "type": "integer" },
+        "approved_count": { "type": "integer" },
+        "pending_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "external_write_authorized_count": { "type": "integer" },
+        "production_executed_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "approvals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "approval_id",
+              "pilot_ref",
+              "adapter_ref",
+              "work_item_id",
+              "approval_decision",
+              "approved_execution_mode",
+              "external_write_authorized",
+              "production_execution_status",
+              "artifact_ref"
+            ],
+            "properties": {
+              "approval_id": { "type": "string" },
+              "pilot_ref": { "type": "string" },
+              "adapter_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "approval_decision": { "type": "string" },
+              "approved_execution_mode": { "type": "string" },
+              "external_write_authorized": { "type": "boolean" },
+              "production_execution_status": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

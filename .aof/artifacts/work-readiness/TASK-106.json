@@ -1,0 +1,35 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRSU0C1M-1UUEYW",
+  "recorded_at": "2026-07-20T06:16:30.202Z",
+  "work_item_id": "TASK-106",
+  "work_item_ref": ".aof/tasks/done/TASK-106.json",
+  "readiness_status": "ready",
+  "goal": "Ship v8.6 Provider Execution Approval Bridge.",
+  "risk": "AOF treats provider approval metadata as permission for unsafe external execution.",
+  "loss_boundary": "No v8.6 release claim unless provider execution approval is bounded, auditable, and explicitly not production execution safety.",
+  "acceptance_gates": [
+    "provider-execution-approval-record writes schema-valid bridge evidence",
+    "provider-execution-approval-audit fails missing human approval evidence",
+    "release-state-audit gates v8.6 on provider execution approval audit"
+  ],
+  "evidence_plan": [
+    "approval bridge record, approval audit, Mission Control projection, focused tests, release-state audit, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if preflight approval implies production execution safety",
+    "stop if external write can pass without human approval evidence",
+    "stop if release-state-audit fails"
+  ],
+  "qif_refs": [
+    "docs/v8.6-release-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": null
+}

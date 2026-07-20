@@ -1,0 +1,69 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRSU209T-5PNU9N",
+  "recorded_at": "2026-07-20T06:17:48.257Z",
+  "work_item_id": "TASK-106",
+  "work_item_ref": ".aof/tasks/done/TASK-106.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-106.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-106.json",
+  "lanes": [
+    {
+      "lane_id": "approval-contract",
+      "goal": "Add provider execution approval record and audit contract",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v8.6-release-definition.md"
+      ],
+      "expected_output": "schemas and CLI commands",
+      "output_refs": [
+        "schemas/aof-provider-execution-approval-record.schema.json",
+        "schemas/aof-provider-execution-approval-audit.schema.json",
+        "src/commands/provider-execution-approval-record.js",
+        "src/commands/provider-execution-approval-audit.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if external write can pass without human approval evidence",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "visibility-release-gate",
+      "goal": "Expose approval bridge readiness in Mission Control and release-state audit",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+      ],
+      "expected_output": "Mission Control approval projection and v8.6 release gate",
+      "output_refs": [
+        "src/commands/visibility-export.js",
+        "schemas/aof-mission-control-view.schema.json",
+        "src/commands/release-state-audit.js"
+      ],
+      "verification_refs": [
+        "test/runtime-situation.test.js"
+      ],
+      "stop_condition": "stop if production execution safety is overclaimed",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "approval-contract",
+      "visibility-release-gate"
+    ],
+    "conflict_summary": "No unresolved lane conflict.",
+    "blocker_summary": "No active blocker after focused approval bridge tests.",
+    "merge_rationale": "Contract and visibility lanes agree that approval bridge readiness is preflight governance evidence, not production execution authority.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+  "not_proven": "Parallel lane evidence proves bounded local lane join only.",
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": "CREV-TASK-106-V86",
+  "notes": null
+}

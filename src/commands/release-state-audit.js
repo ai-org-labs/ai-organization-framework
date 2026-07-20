@@ -12,6 +12,7 @@ import { operatorValidationAuditCommand } from "./operator-validation-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { providerAdapterAuditCommand } from "./provider-adapter-audit.js";
 import { providerAdapterPilotAuditCommand } from "./provider-adapter-pilot-audit.js";
+import { providerExecutionApprovalAuditCommand } from "./provider-execution-approval-audit.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
 import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
@@ -176,6 +177,15 @@ function requiresProviderAdapterPilotAudit(releaseVersion) {
   return major > 8 || (major === 8 && minor >= 5);
 }
 
+function requiresProviderExecutionApprovalAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 8 || (major === 8 && minor >= 6);
+}
+
 function requiresOperatorValidationAudit(releaseVersion) {
   const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
   if (!match) {
@@ -260,6 +270,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderAdapterPilotAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-adapter-pilot-audit", await providerAdapterPilotAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderExecutionApprovalAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-execution-approval-audit", await providerExecutionApprovalAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

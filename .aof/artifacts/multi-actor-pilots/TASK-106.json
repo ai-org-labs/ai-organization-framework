@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRSU1KXL-OCDC9B",
+  "recorded_at": "2026-07-20T06:17:28.377Z",
+  "work_item_id": "TASK-106",
+  "work_item_ref": ".aof/tasks/done/TASK-106.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-106-V86.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-106-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-106-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-106-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-106.json",
+  "maker_checker_council_boundary": "Builder implements the approval bridge, Guardian verifies external-write approval boundaries, Council approves release use.",
+  "not_proven": "Multi-actor pilot proves governed handoff structure only, not autonomous workforce performance or external provider correctness.",
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": "CREV-TASK-106-V86",
+  "notes": null
+}

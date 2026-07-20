@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-19T01:57:45.372Z",
+  "generated_at": "2026-07-20T06:11:27.374Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2491,6 +2491,84 @@
       "detail_ref": "docs/cli-reference.md"
     },
     {
+      "command": "provider-adapter-pilot-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify provider adapter execution pilots are governed experiments rather than hidden production automation.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider adapter pilot audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-adapter-pilot-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a bounded provider adapter execution pilot record with dry-run/default-deny, approval, provenance, redaction, rollback, stop condition, and not-proven boundaries.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "adapter-ref",
+        "work-item-id",
+        "work-item-ref",
+        "session-ref",
+        "pilot-mode",
+        "approval-status",
+        "expected-external-effect",
+        "allowed-action",
+        "denied-action",
+        "redaction-boundary",
+        "rollback-plan",
+        "provenance-ref",
+        "verification-ref",
+        "stop-condition",
+        "execution-status",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider adapter pilot artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
       "command": "provider-adapter-record",
       "category": "write",
       "safety_level": "safe_local_write",
@@ -2560,6 +2638,88 @@
       ],
       "outputs": [
         "provider check summary"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-execution-approval-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify provider execution approval bridge records do not authorize external writes without explicit approval, bounded scope, denied dangerous operations, rollback, credentials, budget, provenance, verification, and stop conditions.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider execution approval audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-execution-approval-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a bounded provider execution approval bridge record that links pilot, adapter, human approval, scope, redaction, rollback, credential, budget, provenance, verification, and stop-condition evidence before any external write.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "pilot-ref",
+        "adapter-ref",
+        "work-item-id",
+        "work-item-ref",
+        "session-ref",
+        "approval-decision",
+        "approved-execution-mode",
+        "execution-scope",
+        "allowed-operation",
+        "denied-operation",
+        "side-effect-boundary",
+        "redaction-boundary",
+        "rollback-plan",
+        "credential-boundary",
+        "budget-boundary",
+        "provenance-ref",
+        "verification-ref",
+        "stop-condition",
+        "production-execution-status",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider execution approval artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

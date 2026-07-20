@@ -2,126 +2,64 @@
 
 ## Version
 
-Candidate: `v8.6.0`
+Candidate: `v8.7.0`
 
 ## Release Theme
 
-External Runtime Execution Approval Bridge.
+External Runtime Reproduction and Rollback Proof.
 
-`v8.5.0` made provider adapter execution pilots governed dry-run/default-deny experiments. The next bottleneck is the approval bridge: before any external runtime execution step is allowed to create a real provider side effect, AOF must prove that approval, scope, redaction, rollback, provenance, and stop conditions are explicit and auditable.
+`v8.6.0` added the approval bridge that must exist before any real provider side effect can be treated as authorized. The next bottleneck is proof after approval: AOF must be able to reconstruct what would happen, replay the evidence path, and prove rollback readiness before a later external execution claim is trusted.
 
 Human-facing wording:
 
-> v8.6 should prove the approval bridge for external runtime execution before any real external write path is trusted.
-
-More explicit wording:
-
-> External runtime execution should require a visible approval bridge, not hidden permission metadata.
+> v8.7 should prove that an approved external runtime action can be reproduced and rolled back from evidence, not just approved on paper.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/vnext-roadmap.md`
-- previous release: `v8.5.0`
-- v8.5 evidence: `docs/v8.5-release-definition.md`, `docs/v8.5.0-release-notes.md`, `.aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json`, `.aof/context/active/release-state-audit.json`
-- current frontier candidate: `v8.6` External Runtime Execution Approval Bridge
+- previous release: `v8.6.0`
+- v8.6 evidence: `docs/v8.6-release-definition.md`, `docs/v8.6.0-release-notes.md`, `.aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json`, `.aof/context/active/release-state-audit.json`
+- current frontier candidate: `v8.7` External Runtime Reproduction and Rollback Proof
 
 ## Required Outcomes
 
 Required:
 
-- define an external runtime execution approval bridge as a bounded precondition for any real provider side effect
-- require explicit operator or Council approval artifact before external writes
-- bind approval to one work item, one provider adapter, one expected effect, one rollback plan, and one stop condition set
-- show approval bridge state in Mission Control without implying broad production authority
-- keep v8.5 provider adapter pilot boundaries compatible
+- define a reproduction proof record for approved provider execution plans
+- bind reproduction to provider execution approval, adapter, work item, session, inputs, expected side effect, and verification refs
+- define rollback proof evidence before production execution is trusted
+- make Mission Control show reproduction and rollback readiness without implying provider correctness
+- keep v8.6 approval bridge and v8.5 pilot boundaries compatible
 
 Deferred:
 
 - autonomous production provider execution
-- production deployment automation
+- hosted provider orchestration
 - credential or billing management
-- hosted multi-tenant runtime
 - semantic correctness of provider output
+- market or operator value proof beyond bounded feedback evidence
 
 ## Release Gates
 
-### Gate 1: External Runtime Execution Approval Bridge
-
-- approval bridge records explicit authorized external action scope
-- approval is single-use or explicitly bounded by work item and provider adapter
-- no production write, billing, deploy, secret, or irreversible action is allowed without approval evidence and rollback plan
-
-### Gate 2: Runtime Evidence
-
-- runtime artifacts link execution approval, provider refs, resource refs, pilot refs, rollback refs, and verification refs
-- Mission Control can show approval bridge readiness and blocking reason
-- provider-neutral session export remains reconstructable for pilot events
-
-### Gate 3: Governance Boundary
-
-- missing approval, missing redaction, missing rollback, missing provenance, or unclear external effect blocks external execution claims
-- approval bridge readiness is not treated as production safety, semantic truth, or credential authority
-- v8.5 provider adapter pilot boundary still passes
-- v8.4 external runtime safety visibility still passes
-- v8.3 Mission Control operator acceptance visibility still passes
-- v8.2 operator-validation-audit still passes
-- v8.1 provider-adapter-audit still passes
-- v8.0 external-resource-audit still passes
-- v7.9 externalization readiness audit still passes
-- v7.8 Mission Control projection audit still passes
-- v7.7 Adoption Proof benchmark still passes
-- v7.6 Session Export audit still passes
-- v7.5 Requirement Coverage audit still passes
-- v7.4 Parallel Lane audit still passes
-- v7.3 Multi-Actor Pilot audit still passes
-- v7.2 Work Execution Packet audit still passes
-
-### Gate 4: Release Surface
-
-- package version is updated to the selected release
-- active release manifest points at selected release docs
-- README and roadmap describe the external runtime approval bridge without claiming semantic truth, production safety, or autonomous external execution
-
-### Gate 5: Verification
-
-- Mission Control projection audit
-- operator validation audit
-- adoption-proof benchmark
-- provider-neutral session export audit
-- requirement coverage audit
-- parallel lane audit
-- multi-actor pilot audit
-- work execution packet audit
-- context/reference integrity audit
-- work readiness audit
-- governance audits
-- command routing audit
-- CLI help benchmark
-- organization verification
-- release-state audit
-- decision verification
-- focused runtime tests
-- `npm test`
-- `npm run smoke`
+- reproduction proof audit passes
+- rollback proof audit passes or is explicitly represented as blocking
+- release-state audit includes the new v8.7 gates
+- Mission Control shows approval, reproduction, rollback, blocker, and not-proven boundaries
+- existing v8.6 provider execution approval audit remains green
 
 ## Release Decision
 
-Release only if AOF now makes it harder to confuse:
+Release only if AOF makes it harder to confuse:
 
-- pilot readiness with external write approval
-- approval metadata with bounded human/Council approval
-- single-use approval with broad production authority
+- approval with reproducibility
+- replay metadata with actual provider truth
+- rollback plan text with rollback proof
 - execution traceability with semantic correctness
-- activity volume with accepted external work quality
+- green audit with production safety
 
-## Post-v8.5 Direction
+## Forward Path
 
-The next line should proceed in this order:
-
-1. `v8.6`: External Runtime Execution Approval Bridge
-2. `v8.7`: External Runtime Reproduction and Rollback Proof
-3. `v8.8`: External Runtime Outcome Evidence and Learning Loop
-
-Canonical planning reference:
-
-- `docs/vnext-roadmap.md`
+1. `v8.7`: External Runtime Reproduction and Rollback Proof
+2. `v8.8`: External Runtime Outcome Evidence and Learning Loop
+3. `v8.9`: External Runtime Operator Acceptance and Safety Drill
+4. `v9.0`: External Runtime Production Boundary Candidate

@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-20T05:38:46.514Z",
+  "generated_at": "2026-07-20T06:25:07.317Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-105 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-105.json"
+    "summary": "TASK-106 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-106.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-105 completed: Ship v8.5 Provider Adapter Execution Pilot Boundary",
-      "artifact_ref": ".aof/tasks/done/TASK-105.json"
+      "summary": "TASK-106 completed: Ship v8.6 Provider Execution Approval Bridge",
+      "artifact_ref": ".aof/tasks/done/TASK-106.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task.",
+      "summary": "Run a runtime-backed v8.7 direction review before opening the first External Runtime Reproduction and Rollback Proof implementation task.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-105 completed: Ship v8.5 Provider Adapter Execution Pilot Boundary Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task.",
+    "what_changed": "TASK-106 completed: Ship v8.6 Provider Execution Approval Bridge Run a runtime-backed v8.7 direction review before opening the first External Runtime Reproduction and Rollback Proof implementation task.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.7 direction review before opening the first External Runtime Reproduction and Rollback Proof implementation task."
   }
 }

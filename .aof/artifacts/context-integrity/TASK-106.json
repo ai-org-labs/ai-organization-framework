@@ -1,0 +1,27 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRSU0ODL-L26XX2",
+  "recorded_at": "2026-07-20T06:16:46.185Z",
+  "work_item_id": "TASK-106",
+  "work_item_ref": ".aof/tasks/done/TASK-106.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "required_context_refs": [
+    "docs/v8.6-release-definition.md",
+    ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+    ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+    ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared reference availability only, not provider correctness, production execution safety, credential safety, or billing safety.",
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": null
+}

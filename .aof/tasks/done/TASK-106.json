@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-106",
+  "title": "Ship v8.6 Provider Execution Approval Bridge",
+  "description": "Prove provider execution approval bridge records gate any real provider side effect behind bounded approval, scope, redaction, rollback, credential, budget, provenance, verification, and stop-condition evidence before execution.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "assigned_session_ids": [
+    "SESS-V86-PROVIDER-EXECUTION-APPROVAL"
+  ],
+  "related_decision_record_id": "CREV-TASK-106-V86",
+  "operating_goal_ref": null,
+  "created_at": "2026-07-20T06:07:01.160Z",
+  "updated_at": "2026-07-20T06:19:08.278Z",
+  "assigned_at": null,
+  "done_at": "2026-07-20T06:19:08.278Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v8.6 provider execution approval bridge implementation, runtime artifacts, focused verification, and release surface are complete."
+}

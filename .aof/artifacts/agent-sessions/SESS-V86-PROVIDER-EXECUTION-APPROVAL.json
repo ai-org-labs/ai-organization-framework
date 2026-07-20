@@ -1,0 +1,103 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-TASK-106-V86",
+  "recorded_at": "2026-07-20T06:12:00.000Z",
+  "session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "EVT-V86-1",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-20T06:07:01.160Z",
+      "summary": "Operator advanced AOF to v8.6 after v8.5.1 release-surface cleanup.",
+      "artifact_refs": [
+        ".aof/tasks/open/TASK-106.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V86-2",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-20T06:07:01.160Z",
+      "summary": "Ran situation-assess and opened TASK-106 through AOF runtime.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json",
+        ".aof/tasks/open/TASK-106.json"
+      ],
+      "tool_name": "situation-assess / task-open",
+      "safety_level": "safe_local_write",
+      "approval_policy": "allowed"
+    },
+    {
+      "event_id": "EVT-V86-3",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-20T06:09:04.634Z",
+      "summary": "Implemented Provider Execution Approval Bridge as a preflight governance boundary, not production provider execution.",
+      "artifact_refs": [
+        "docs/v8.6-release-definition.md",
+        "schemas/aof-provider-execution-approval-record.schema.json",
+        "src/commands/provider-execution-approval-audit.js"
+      ],
+      "tool_name": null,
+      "safety_level": "project_write",
+      "approval_policy": "allowed"
+    },
+    {
+      "event_id": "EVT-V86-4",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-20T06:09:18.380Z",
+      "summary": "provider-execution-approval-audit passed with one approved preflight bridge and zero production executions.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+      ],
+      "tool_name": "provider-execution-approval-audit",
+      "safety_level": "safe_local_write",
+      "approval_policy": "allowed"
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/open/TASK-106.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.6-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "schemas/aof-provider-execution-approval-record.schema.json",
+      "schemas/aof-provider-execution-approval-audit.schema.json",
+      "src/commands/provider-execution-approval-record.js",
+      "src/commands/provider-execution-approval-audit.js",
+      ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+    ]
+  },
+  "risk_candidates": [
+    "preflight approval could be mistaken for proof of production execution safety"
+  ],
+  "decision_candidates": [
+    "provider-execution-approval-audit is a v8.6 release gate"
+  ],
+  "release_ready_evidence": {
+    "claim": "v8.6 is structurally/runtime ready when approval bridge audit, release-state audit, tests, and smoke pass.",
+    "evidence_refs": [
+      "docs/v8.6-release-checklist.md",
+      ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-106",
+  "source_parent_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+  "source_decision_record_id": "CREV-TASK-106-V86",
+  "notes": "No secrets, credentials, provider payload bodies, billing details, or production writes are recorded. This session does not prove production provider execution safety or external provider correctness."
+}

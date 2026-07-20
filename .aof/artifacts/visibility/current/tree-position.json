@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-20T05:38:46.514Z",
+  "generated_at": "2026-07-20T06:25:07.317Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "8.5.1",
-    "active_release_track": "v8.5",
-    "release_definition_ref": "docs/v8.5-release-definition.md"
+    "active_release_version": "8.6.0",
+    "active_release_track": "v8.6",
+    "release_definition_ref": "docs/v8.6-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task."
+    "branch_summary": "Run a runtime-backed v8.7 direction review before opening the first External Runtime Reproduction and Rollback Proof implementation task."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v8.5",
+      "label": "v8.6",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v8.5 and the next concrete branch.",
-    "why_this_branch": "Prepare v8.6 External Runtime Execution Approval Bridge: prove that any real provider side effect is authorized by bounded approval, scope, redaction, rollback, provenance, and stop conditions before execution.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task."
+    "where_are_we": "The runtime is between v8.6 and the next concrete branch.",
+    "why_this_branch": "Prepare v8.7 External Runtime Reproduction and Rollback Proof: prove that an approved external runtime action can be reconstructed, replayed, and rollback-checked from canonical evidence before any production execution claim is trusted.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.7 direction review before opening the first External Runtime Reproduction and Rollback Proof implementation task."
   }
 }

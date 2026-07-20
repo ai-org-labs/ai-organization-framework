@@ -1,0 +1,544 @@
+{
+  "ok": true,
+  "artifact_type": "provider-execution-approval-audit",
+  "generated_at": "2026-07-20T06:24:24.354Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "approval_count": 1,
+    "approved_count": 1,
+    "pending_count": 0,
+    "blocked_count": 0,
+    "external_write_authorized_count": 1,
+    "production_executed_count": 0,
+    "missing_boundary_count": 0,
+    "failing_check_count": 0
+  },
+  "approvals": [
+    {
+      "approval_id": "PEA-TASK-106-V86-PREFLIGHT",
+      "pilot_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+      "adapter_ref": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+      "work_item_id": "TASK-106",
+      "approval_decision": "approved",
+      "approved_execution_mode": "bounded_external_write",
+      "external_write_authorized": true,
+      "production_execution_status": "preflight_approved",
+      "artifact_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider execution approval presence",
+      "status": "pass",
+      "detail": "1 approval(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT pilot ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT adapter ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-106.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT provenance ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT provenance ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT provenance ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT verification ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT verification ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.6-release-checklist.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT linked pilot exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT linked adapter exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT pilot adapter alignment",
+      "status": "pass",
+      "detail": "pilot.adapter_ref=.aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json, approval.adapter_ref=.aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT execution scope",
+      "status": "pass",
+      "detail": "Future provider side-effect execution may proceed only for a separately approved bounded provider target; this v8.6 record is preflight evidence and executes no provider call.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT side-effect boundary",
+      "status": "pass",
+      "detail": "No side effect occurs in v8.6; later execution must stay within the approved provider target and operation scope.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT redaction boundary",
+      "status": "pass",
+      "detail": "No secrets, credentials, provider payload bodies, billing data, or production response bodies are persisted.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT rollback plan",
+      "status": "pass",
+      "detail": "Do not execute if rollback cannot be defined; later execution must include a rollback artifact and stop on rollback failure.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT credential boundary",
+      "status": "pass",
+      "detail": "The bridge does not read credentials; any later provider execution must receive scoped credentials after approval.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT budget boundary",
+      "status": "pass",
+      "detail": "The bridge performs no billable provider operation; later execution must declare a bounded budget before invocation.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT stop conditions",
+      "status": "pass",
+      "detail": "stop if human approval is missing, stop if execution scope changes, stop if rollback, credential, or budget boundary is unclear",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT not-proven boundary",
+      "status": "pass",
+      "detail": "The approval bridge proves bounded preflight authorization only; it does not prove production provider execution safety, credential safety, billing safety, provider output correctness, or autonomous external execution.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-106, source_parent_session_id=SESS-V86-PROVIDER-EXECUTION-APPROVAL",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT production not executed by bridge",
+      "status": "pass",
+      "detail": "production_execution_status=preflight_approved",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT human approval ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT external write approval decision",
+      "status": "pass",
+      "detail": "approval_decision=approved",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT bounded external write mode",
+      "status": "pass",
+      "detail": "approved_execution_mode=bounded_external_write",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT external write explicitly allowed",
+      "status": "pass",
+      "detail": "external_write",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT dangerous operations denied",
+      "status": "pass",
+      "detail": "dangerous operation, billing operation, secret access, deploy, irreversible production mutation",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT preflight only",
+      "status": "pass",
+      "detail": "production_execution_status=preflight_approved",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    }
+  ],
+  "errors": []
+}
