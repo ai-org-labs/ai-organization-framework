@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-execution-reproduction-record.schema.json",
+  "title": "AOF Provider Execution Reproduction Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "reproduction_id",
+    "recorded_at",
+    "approval_ref",
+    "adapter_ref",
+    "target_operation_ref",
+    "work_item_id",
+    "work_item_ref",
+    "session_ref",
+    "replay_mode",
+    "input_fingerprint",
+    "expected_side_effect",
+    "reconstructed_steps",
+    "replay_evidence_refs",
+    "verification_refs",
+    "result_status",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "provider-execution-reproduction-record" },
+    "reproduction_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "approval_ref": { "type": "string", "minLength": 1 },
+    "adapter_ref": { "type": "string", "minLength": 1 },
+    "target_operation_ref": { "type": "string", "minLength": 1 },
+    "work_item_id": { "type": "string", "minLength": 1 },
+    "work_item_ref": { "type": "string", "minLength": 1 },
+    "session_ref": { "type": "string", "minLength": 1 },
+    "replay_mode": { "type": "string", "enum": ["local_reconstruction", "dry_run_replay", "blocked"] },
+    "input_fingerprint": { "type": "string", "minLength": 1 },
+    "expected_side_effect": { "type": "string", "minLength": 1 },
+    "reconstructed_steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "replay_evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "verification_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "result_status": { "type": "string", "enum": ["reproduced", "blocked", "mismatch"] },
+    "mismatch_reason": { "type": ["string", "null"] },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

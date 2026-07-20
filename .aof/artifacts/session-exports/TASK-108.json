@@ -1,0 +1,110 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-108-V88",
+  "recorded_at": "2026-07-20T10:45:00.000Z",
+  "work_item_id": "TASK-108",
+  "work_item_ref": ".aof/tasks/done/TASK-108.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "unspecified",
+    "source_format": "aof-runtime-artifacts",
+    "source_of_truth_boundary": "AOF runtime artifacts are the session source of truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "Proceed from v8.7 approval authenticity to v8.8 reproduction and rollback proof.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "event_id": "EVT-1B",
+      "event_type": "response",
+      "summary": "Runtime selected a bounded v8.8 implementation: reproduction proof plus rollback readiness proof, not production execution.",
+      "artifact_refs": [
+        "docs/v8.8-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-1C",
+      "event_type": "tool_call",
+      "summary": "AOF runtime opened and completed TASK-108, generated proof artifacts, and executed release-state audit.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-108.json",
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "artifact_write",
+      "summary": "Reproduction and rollback proof schemas, commands, tests, docs, and self-hosting proof artifacts were written.",
+      "artifact_refs": [
+        "src/commands/provider-execution-reproduction-audit.js",
+        "src/commands/provider-rollback-proof-audit.js",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "verification",
+      "summary": "Focused tests and audits validate reproduction and rollback proof boundaries.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-3B",
+      "event_type": "blocker",
+      "summary": "No active blocker remains after reproduction and rollback audits pass; production execution remains explicitly out of scope.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "stop_condition",
+      "summary": "Stop if reproduction or rollback proof is confused with production provider execution safety.",
+      "artifact_refs": [
+        "docs/v8.8-release-definition.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-108.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.8-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+      ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json"
+    ],
+    "risk_candidates": [
+      "Reconstruction evidence can be overclaimed as provider truth unless not-proven boundaries are visible."
+    ],
+    "decision_candidates": [
+      "v8.8 is release evidence only when it remains local reconstruction and simulated rollback readiness."
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+      ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+    ]
+  },
+  "redaction_boundary": "No secrets, credentials, or external provider payload bodies are included.",
+  "release_ready_boundary": "Runtime-ready reproduction and rollback proof only; not autonomous execution authority.",
+  "not_proven": "Session export proves reconstructability only.",
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": "CREV-TASK-108-V88",
+  "notes": null
+}

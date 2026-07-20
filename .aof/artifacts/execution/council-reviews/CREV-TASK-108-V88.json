@@ -1,0 +1,50 @@
+{
+  "artifact_type": "council-review-packet",
+  "packet_id": "CREV-TASK-108-V88",
+  "recorded_at": "2026-07-20T10:45:00.000Z",
+  "council_id": "architecture-council",
+  "stage": "release-review",
+  "review_status": "approved",
+  "decision_summary": "Approve v8.8 as External Runtime Reproduction and Rollback Proof, provided no production external execution is claimed.",
+  "rationale": "The release adds auditable reconstruction and rollback readiness checks after v8.7 approval authenticity, while preserving explicit not-proven boundaries.",
+  "recommendation": "Ship after provider-execution-reproduction-audit, provider-rollback-proof-audit, release-state-audit, npm test, smoke, and GitHub Actions are green.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "The operator should see that v8.8 verifies reconstructability and rollback readiness, not that it performed a provider write.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep v8.8 release notes explicit that production execution is not proven.",
+    "Keep rollback proof described as simulated readiness evidence."
+  ],
+  "organization_change_recommendations": [
+    "Require reproduction and rollback proof before future production execution readiness claims."
+  ],
+  "diagnosis": {
+    "category": "external-runtime-reproduction-and-rollback-proof",
+    "confidence": 0.88,
+    "evidence_refs": [
+      "docs/v8.8-release-definition.md",
+      "schemas/aof-provider-execution-reproduction-record.schema.json",
+      "schemas/aof-provider-rollback-proof-record.schema.json",
+      "src/commands/provider-execution-reproduction-audit.js",
+      "src/commands/provider-rollback-proof-audit.js"
+    ]
+  },
+  "human_override_signal": null,
+  "team_output_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-108-V88.json",
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-108-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-108-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-108-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v8.8-release-checklist.md",
+    ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+    ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+    ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+    ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+  ],
+  "follow_up_task_ids": []
+}

@@ -1,0 +1,323 @@
+{
+  "ok": true,
+  "artifact_type": "provider-rollback-proof-audit",
+  "generated_at": "2026-07-20T10:43:22.953Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "rollback_count": 1,
+    "ready_count": 1,
+    "blocked_count": 0,
+    "mismatch_count": 0,
+    "missing_boundary_count": 0,
+    "failing_check_count": 0
+  },
+  "rollback_proofs": [
+    {
+      "rollback_id": "PRB-TASK-108-GITHUB-ISSUE",
+      "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "reproduction_ref": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+      "target_operation_ref": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "result_status": "rollback_ready",
+      "artifact_ref": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider rollback proof presence",
+      "status": "pass",
+      "detail": "1 rollback proof(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE approval ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE reproduction ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE target operation ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE rollback evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE rollback evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE rollback evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE verification ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE verification ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE linked approval exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE linked reproduction exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE rollback target matches approval",
+      "status": "pass",
+      "detail": "approval.target_operation_ref=.aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json, rollback.target_operation_ref=.aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE rollback target matches reproduction",
+      "status": "pass",
+      "detail": "reproduction.target_operation_ref=.aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json, rollback.target_operation_ref=.aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE reproduction is reproduced",
+      "status": "pass",
+      "detail": "result_status=reproduced",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE rollback supported",
+      "status": "pass",
+      "detail": "rollback_supported=true",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE rollback operation",
+      "status": "pass",
+      "detail": "close_or_delete_created_issue",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE rollback ready",
+      "status": "pass",
+      "detail": "result_status=rollback_ready",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE stop conditions",
+      "status": "pass",
+      "detail": "stop if created issue id cannot be deterministically linked to the approved target, stop if rollback credential scope is missing, stop if rollback operation would affect any resource outside the approved target",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "name": "PRB-TASK-108-GITHUB-ISSUE not-proven boundary",
+      "status": "pass",
+      "detail": "This is simulated rollback readiness evidence; it does not prove a production issue was created, that rollback executed, or that provider state changed safely.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        "docs/vnext-release-plan.md"
+      ]
+    }
+  ],
+  "errors": []
+}

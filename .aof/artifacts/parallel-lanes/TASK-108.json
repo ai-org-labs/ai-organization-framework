@@ -1,0 +1,68 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-TASK-108-V88",
+  "recorded_at": "2026-07-20T10:45:00.000Z",
+  "work_item_id": "TASK-108",
+  "work_item_ref": ".aof/tasks/done/TASK-108.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-108.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-108.json",
+  "lanes": [
+    {
+      "lane_id": "reproduction-proof",
+      "goal": "Add reconstruction proof contract and audit.",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v8.8-release-definition.md"
+      ],
+      "expected_output": "schema, writer, audit, self-hosting reproduction artifact",
+      "output_refs": [
+        "schemas/aof-provider-execution-reproduction-record.schema.json",
+        "src/commands/provider-execution-reproduction-audit.js",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if approval can pass as reproduction without replay evidence",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "rollback-proof",
+      "goal": "Add rollback readiness proof contract and audit.",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "docs/v8.8-release-definition.md"
+      ],
+      "expected_output": "schema, writer, audit, self-hosting rollback proof artifact",
+      "output_refs": [
+        "schemas/aof-provider-rollback-proof-record.schema.json",
+        "src/commands/provider-rollback-proof-audit.js",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if rollback plan text can pass without rollback proof",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "reproduction-proof",
+      "rollback-proof"
+    ],
+    "conflict_summary": "No unresolved lane conflict.",
+    "blocker_summary": "No active blocker after focused tests and audits.",
+    "merge_rationale": "Reproduction and rollback proof lanes jointly close the post-approval evidence gap without claiming production execution.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-108-V88.json",
+  "not_proven": "Parallel lane evidence proves bounded local lane join only.",
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": "CREV-TASK-108-V88",
+  "notes": null
+}

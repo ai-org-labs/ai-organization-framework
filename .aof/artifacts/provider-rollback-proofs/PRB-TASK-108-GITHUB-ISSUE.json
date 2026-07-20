@@ -1,0 +1,32 @@
+{
+  "artifact_type": "provider-rollback-proof-record",
+  "rollback_id": "PRB-TASK-108-GITHUB-ISSUE",
+  "recorded_at": "2026-07-20T10:43:22.932Z",
+  "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+  "reproduction_ref": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+  "target_operation_ref": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+  "rollback_operation": "close_or_delete_created_issue",
+  "rollback_mode": "simulated",
+  "rollback_supported": true,
+  "rollback_evidence_refs": [
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+    ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+    ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json"
+  ],
+  "verification_refs": [
+    ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+    "docs/vnext-release-plan.md"
+  ],
+  "stop_conditions": [
+    "stop if created issue id cannot be deterministically linked to the approved target",
+    "stop if rollback credential scope is missing",
+    "stop if rollback operation would affect any resource outside the approved target"
+  ],
+  "result_status": "rollback_ready",
+  "blocking_reason": null,
+  "not_proven": "This is simulated rollback readiness evidence; it does not prove a production issue was created, that rollback executed, or that provider state changed safely.",
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": null,
+  "notes": null
+}

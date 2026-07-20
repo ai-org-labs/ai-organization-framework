@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-20T09:52:56.355Z",
+  "generated_at": "2026-07-20T10:55:33.157Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "8.7.2",
-    "active_release_track": "v8.7",
-    "release_definition_ref": "docs/v8.7-release-definition.md"
+    "active_release_version": "8.8.0",
+    "active_release_track": "v8.8",
+    "release_definition_ref": "docs/v8.8-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Run a runtime-backed v8.8 direction review and open the first External Runtime Reproduction and Rollback Proof implementation task."
+    "branch_summary": "Run a runtime-backed v8.9 direction review and open the first External Runtime Outcome Evidence and Learning Loop implementation task."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v8.7",
+      "label": "v8.8",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v8.7 and the next concrete branch.",
-    "why_this_branch": "Prepare v8.8 External Runtime Reproduction and Rollback Proof: prove that an approved external runtime action can be reconstructed, replayed, and rollback-checked from canonical evidence before any production execution claim is trusted.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.8 direction review and open the first External Runtime Reproduction and Rollback Proof implementation task."
+    "where_are_we": "The runtime is between v8.8 and the next concrete branch.",
+    "why_this_branch": "Prepare v8.9 External Runtime Outcome Evidence and Learning Loop: connect approved/reproduced/rollback-ready external runtime actions to observed outcome evidence, acceptance or correction judgment, and learning-loop updates without claiming semantic or market truth from traceability alone.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.9 direction review and open the first External Runtime Outcome Evidence and Learning Loop implementation task."
   }
 }

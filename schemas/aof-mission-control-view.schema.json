@@ -16,6 +16,8 @@
     "provider_adapter_projection",
     "provider_adapter_pilot_projection",
     "provider_execution_approval_projection",
+    "provider_execution_reproduction_projection",
+    "provider_rollback_proof_projection",
     "provider_adapter_pilot_readiness_projection",
     "external_runtime_safety_projection",
     "operator_validation_projection",
@@ -918,6 +920,106 @@
               "approved_execution_mode": { "type": "string" },
               "external_write_authorized": { "type": "boolean" },
               "production_execution_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_execution_reproduction_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "reproduction_count",
+        "reproduced_count",
+        "blocked_count",
+        "mismatch_count",
+        "missing_boundary_count",
+        "reproductions",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "reproduction_count": { "type": "integer" },
+        "reproduced_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "mismatch_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "reproductions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "reproduction_id",
+              "approval_ref",
+              "target_operation_ref",
+              "work_item_id",
+              "result_status",
+              "artifact_ref"
+            ],
+            "properties": {
+              "reproduction_id": { "type": "string" },
+              "approval_ref": { "type": "string" },
+              "target_operation_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "result_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_rollback_proof_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "rollback_count",
+        "ready_count",
+        "blocked_count",
+        "mismatch_count",
+        "missing_boundary_count",
+        "rollback_proofs",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "rollback_count": { "type": "integer" },
+        "ready_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "mismatch_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "rollback_proofs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "rollback_id",
+              "approval_ref",
+              "reproduction_ref",
+              "target_operation_ref",
+              "result_status",
+              "artifact_ref"
+            ],
+            "properties": {
+              "rollback_id": { "type": "string" },
+              "approval_ref": { "type": "string" },
+              "reproduction_ref": { "type": "string" },
+              "target_operation_ref": { "type": "string" },
+              "result_status": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

@@ -1116,6 +1116,68 @@ async function loadProviderExecutionApprovalProjection(projectRoot) {
   };
 }
 
+async function loadProviderExecutionReproductionProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider execution reproduction audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      reproduction_count: 0,
+      reproduced_count: 0,
+      blocked_count: 0,
+      mismatch_count: 0,
+      missing_boundary_count: null,
+      reproductions: [],
+      not_proven: "No provider execution reproduction audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    reproduction_count: audit.summary?.reproduction_count ?? 0,
+    reproduced_count: audit.summary?.reproduced_count ?? 0,
+    blocked_count: audit.summary?.blocked_count ?? 0,
+    mismatch_count: audit.summary?.mismatch_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    reproductions: audit.reproductions ?? [],
+    not_proven: "Provider execution reproduction projection proves local reconstruction only; it does not prove production execution, provider truth, credential safety, billing safety, or rollback execution."
+  };
+}
+
+async function loadProviderRollbackProofProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider rollback proof audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      rollback_count: 0,
+      ready_count: 0,
+      blocked_count: 0,
+      mismatch_count: 0,
+      missing_boundary_count: null,
+      rollback_proofs: [],
+      not_proven: "No provider rollback proof audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    rollback_count: audit.summary?.rollback_count ?? 0,
+    ready_count: audit.summary?.ready_count ?? 0,
+    blocked_count: audit.summary?.blocked_count ?? 0,
+    mismatch_count: audit.summary?.mismatch_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    rollback_proofs: audit.rollback_proofs ?? [],
+    not_proven: "Provider rollback proof projection proves simulated rollback readiness only; it does not prove production rollback has executed or provider state changed safely."
+  };
+}
+
 function buildProviderAdapterPilotReadinessProjection({
   providerAdapterProjection,
   providerAdapterPilotProjection,
@@ -1417,6 +1479,8 @@ function buildMissionControl({
   providerAdapterProjection = null,
   providerAdapterPilotProjection = null,
   providerExecutionApprovalProjection = null,
+  providerExecutionReproductionProjection = null,
+  providerRollbackProofProjection = null,
   providerAdapterPilotReadinessProjection = null,
   externalRuntimeSafetyProjection = null,
   operatorValidationProjection = null,
@@ -1676,6 +1740,30 @@ function buildMissionControl({
       approvals: [],
       not_proven: "No provider execution approval audit artifact is present."
     },
+    provider_execution_reproduction_projection: providerExecutionReproductionProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+      audit_ok: null,
+      reproduction_count: 0,
+      reproduced_count: 0,
+      blocked_count: 0,
+      mismatch_count: 0,
+      missing_boundary_count: null,
+      reproductions: [],
+      not_proven: "No provider execution reproduction audit artifact is present."
+    },
+    provider_rollback_proof_projection: providerRollbackProofProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json",
+      audit_ok: null,
+      rollback_count: 0,
+      ready_count: 0,
+      blocked_count: 0,
+      mismatch_count: 0,
+      missing_boundary_count: null,
+      rollback_proofs: [],
+      not_proven: "No provider rollback proof audit artifact is present."
+    },
     provider_adapter_pilot_readiness_projection: providerAdapterPilotReadinessProjection ?? {
       present: false,
       readiness_status: "not_proven",
@@ -1737,7 +1825,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, operatorValidationProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, operatorValidationProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -1759,6 +1847,8 @@ export async function visibilityExportCommand(options) {
     loadProviderAdapterProjection(projectRoot),
     loadProviderAdapterPilotProjection(projectRoot),
     loadProviderExecutionApprovalProjection(projectRoot),
+    loadProviderExecutionReproductionProjection(projectRoot),
+    loadProviderRollbackProofProjection(projectRoot),
     loadOperatorValidationProjection(projectRoot)
   ]);
 
@@ -1826,6 +1916,8 @@ export async function visibilityExportCommand(options) {
     providerAdapterProjection,
     providerAdapterPilotProjection,
     providerExecutionApprovalProjection,
+    providerExecutionReproductionProjection,
+    providerRollbackProofProjection,
     providerAdapterPilotReadinessProjection,
     externalRuntimeSafetyProjection,
     operatorValidationProjection,

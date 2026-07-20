@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-20T09:24:27.473Z",
+  "generated_at": "2026-07-20T10:53:56.890Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2765,6 +2765,82 @@
       "detail_ref": "docs/cli-reference.md"
     },
     {
+      "command": "provider-execution-reproduction-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify provider execution reproduction proofs can reconstruct approved external runtime actions without implying production execution or provider truth.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider execution reproduction audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-execution-reproduction-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a provider execution reproduction proof record that reconstructs an approved external runtime action from approval, adapter, target, work item, session, input fingerprint, replay evidence, and verification refs.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "approval-ref",
+        "adapter-ref",
+        "target-operation-ref",
+        "work-item-id",
+        "work-item-ref",
+        "session-ref",
+        "replay-mode",
+        "input-fingerprint",
+        "expected-side-effect",
+        "reconstructed-step",
+        "replay-evidence-ref",
+        "verification-ref",
+        "result-status",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider execution reproduction artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
       "command": "provider-operation-target-record",
       "category": "write",
       "safety_level": "safe_local_write",
@@ -2800,6 +2876,79 @@
       ],
       "outputs": [
         "provider operation target artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-rollback-proof-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify rollback proof records establish rollback readiness or explicit blocking before production execution claims are trusted.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider rollback proof audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-rollback-proof-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a provider rollback proof record that binds rollback readiness to an approval, reproduction proof, target operation, evidence refs, stop conditions, and not-proven boundary.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "approval-ref",
+        "reproduction-ref",
+        "target-operation-ref",
+        "rollback-operation",
+        "rollback-mode",
+        "rollback-supported",
+        "rollback-evidence-ref",
+        "verification-ref",
+        "stop-condition",
+        "result-status",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider rollback proof artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

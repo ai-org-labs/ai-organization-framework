@@ -433,7 +433,7 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v8.7.0`, advance `v8.8` as External Runtime Reproduction and Rollback Proof.
+After `v8.8.0`, advance `v8.9` as External Runtime Outcome Evidence and Learning Loop.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
 proof, session, context, release, and Archmap evidence can be projected from
 canonical runtime artifacts. The v7.9 Externalization Readiness Boundary then
@@ -454,17 +454,19 @@ adapter execution pilots governed dry-run/default-deny experiments. v8.6 shipped
 the first approval bridge, then v8.7 corrected the approval authenticity gap by
 requiring adapter capability alignment, independent human approval, concrete
 target operation binding, credential scope, budget, rollback, and stop
-conditions before external write can be authorized. The next proof is
-reproduction and rollback: whether a bounded external execution claim can be
-replayed and reversed from recorded evidence without trusting hidden provider
-state.
+conditions before external write can be authorized. v8.8 added local
+reconstruction and simulated rollback proof so approval is not confused with
+reproducibility. The next proof is outcome and learning: whether a bounded
+external runtime action can connect expected outcome, observed result,
+acceptance/correction/rollback judgment, and learning-loop update without
+claiming semantic or market truth from traceability alone.
 
 Priority order:
 
-1. `v8.8`: External Runtime Reproduction and Rollback Proof
-2. `v8.9`: External Runtime Outcome Evidence and Learning Loop
-3. `v9.0`: External Runtime Operator Acceptance and Safety Drill
-4. `v9.1`: External Runtime Production Boundary Candidate
+1. `v8.9`: External Runtime Outcome Evidence and Learning Loop
+2. `v9.0`: External Runtime Operator Acceptance and Safety Drill
+3. `v9.1`: External Runtime Production Boundary Candidate
+4. `v9.2`: Provider-backed Controlled Execution Candidate
 
 Canonical v7.x roadmap:
 
@@ -478,6 +480,6 @@ Reasoning:
   as bounded runtime evidence, then legible in Mission Control as coverage,
   forecast, blocked work, adoption proof, and evidence completeness, and finally
   bounded externalization claims before v8.
-- v8.0 through v9.1 externalize the organization runtime, govern adapters, add
+- v8.0 through v9.2 externalize the organization runtime, govern adapters, add
   operator validation, make acceptance visible, and pilot external execution
   only behind approval boundaries without overclaiming semantic truth.

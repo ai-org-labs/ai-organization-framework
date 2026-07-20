@@ -1,0 +1,26 @@
+{
+  "artifact_type": "role-result",
+  "result_id": "RRES-TASK-108-VISIONARY",
+  "recorded_at": "2026-07-20T10:45:00.000Z",
+  "role": "Visionary",
+  "stage": "direction",
+  "session_id": "SESS-V88-REPRO-ROLLBACK",
+  "status": "completed",
+  "recommendation": "Ship v8.8 as reproduction and rollback proof, not production external execution.",
+  "rationale": "v8.7 created approval authenticity; the next bottleneck is reconstructability and rollback readiness before any future execution claim is trusted.",
+  "signals": [
+    "approval alone is not reproducibility",
+    "rollback text is not rollback proof",
+    "production safety remains not proven"
+  ],
+  "artifact_refs": [
+    "docs/v8.8-release-definition.md",
+    "docs/vnext-release-plan.md",
+    ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": null,
+  "notes": null
+}

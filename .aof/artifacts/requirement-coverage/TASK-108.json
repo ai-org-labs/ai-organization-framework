@@ -1,0 +1,47 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-108-V88",
+  "recorded_at": "2026-07-20T10:45:00.000Z",
+  "work_item_id": "TASK-108",
+  "work_item_ref": ".aof/tasks/done/TASK-108.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V88-REPRO-ROLLBACK",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v8.8-release-definition.md",
+      "title": "Approved external runtime actions must be reconstructable and rollback-ready from canonical evidence before production execution claims are trusted.",
+      "owner_ref": "architecture-council",
+      "acceptance_boundary": "provider-execution-reproduction-audit and provider-rollback-proof-audit pass; unsupported rollback fails focused negative coverage.",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-108.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+        ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json",
+        "test/runtime-core-2.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 1,
+    "covered_count": 1,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "0 additional implementation work items for v8.8 after final verification",
+    "forecast_boundary": "Forecast is local runtime evidence and does not prove production safety or market value."
+  },
+  "not_proven": "Requirement coverage proves bounded traceability only.",
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": "CREV-TASK-108-V88",
+  "notes": null
+}

@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-TASK-108-V88",
+  "recorded_at": "2026-07-20T10:45:00.000Z",
+  "work_item_id": "TASK-108",
+  "work_item_ref": ".aof/tasks/done/TASK-108.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-108-V88.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-108-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-108-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-108-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-108-V88.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-108.json",
+  "maker_checker_council_boundary": "Builder implements proof contracts, Guardian verifies reproduction and rollback boundaries, Council approves release use.",
+  "not_proven": "Multi-actor pilot proves governed handoff structure only, not autonomous workforce performance or production provider execution.",
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": "CREV-TASK-108-V88",
+  "notes": null
+}

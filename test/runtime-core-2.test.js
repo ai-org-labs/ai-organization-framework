@@ -45,6 +45,10 @@ import { providerAdapterPilotRecordCommand } from "../src/commands/provider-adap
 import { providerAdapterRecordCommand } from "../src/commands/provider-adapter-record.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
+import { providerExecutionReproductionAuditCommand } from "../src/commands/provider-execution-reproduction-audit.js";
+import { providerExecutionReproductionRecordCommand } from "../src/commands/provider-execution-reproduction-record.js";
+import { providerRollbackProofAuditCommand } from "../src/commands/provider-rollback-proof-audit.js";
+import { providerRollbackProofRecordCommand } from "../src/commands/provider-rollback-proof-record.js";
 import { humanApprovalRecordCommand } from "../src/commands/human-approval-record.js";
 import { providerOperationTargetRecordCommand } from "../src/commands/provider-operation-target-record.js";
 import { requirementCoverageAuditCommand } from "../src/commands/requirement-coverage-audit.js";
@@ -3418,6 +3422,254 @@ test("providerExecutionApprovalAuditCommand fails external write approval agains
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("allowed operations align with adapter capability")));
   assert.ok(audit.summary.errors.some((entry) => entry.includes("adapter supports external write")));
+});
+
+async function writeApprovedProviderExecutionFixture(t, sessionId = "SESS-V88-REPRO") {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "adapter-policy.md"), "# Adapter Policy\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "approval-verification.md"), "# Approval Verification\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "reproduction-proof.md"), "# Reproduction Proof\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "rollback-proof.md"), "# Rollback Proof\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Reproduce approved provider execution",
+    description: "Fixture task for v8.8 reproduction and rollback proof.",
+    origin: "human"
+  });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "agent-sessions"), { recursive: true });
+  await fs.writeFile(
+    path.join(projectRoot, ".aof", "artifacts", "agent-sessions", `${sessionId}.json`),
+    JSON.stringify({ artifact_type: "fixture-session", session_id: sessionId }, null, 2),
+    "utf8"
+  );
+
+  const resourceResult = await externalRuntimeResourceRecordCommand({
+    project: projectRoot,
+    resourceId: "ERR-TEST-V88-PROVIDER",
+    resourceKind: "provider",
+    displayName: "v8.8 provider",
+    canonicalRef: "https://example.invalid/provider",
+    sourceSystem: "example",
+    ownerRef: "runtime-team",
+    sourceOfTruth: "fixture provider boundary",
+    permissionBoundary: "external writes require explicit approval",
+    freshnessBoundary: "freshness checked immediately before write",
+    availabilityBoundary: "local test artifact",
+    approvalBoundary: "human approval required for bounded external_write",
+    sideEffectBoundary: "external write mutates provider state",
+    allowedOperations: ["external_write"],
+    readinessStatus: "ready",
+    notProven: "This fixture does not prove production provider safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const resourceRef = path.relative(projectRoot, resourceResult.artifactPath).replaceAll(path.sep, "/");
+  const adapterResult = await providerAdapterRecordCommand({
+    project: projectRoot,
+    adapterId: "PAD-TEST-V88",
+    displayName: "v8.8 provider adapter",
+    providerRef: "docs/adapter-policy.md",
+    resourceRef,
+    adapterKind: "external_write",
+    operationModes: ["external_write"],
+    readAuthorityBoundary: "Adapter may inspect write preconditions.",
+    writeAuthorityBoundary: "Adapter may not write without execution approval bridge.",
+    freshnessCheck: "Policy fixture is local and current.",
+    approvalPolicyRef: "docs/adapter-policy.md",
+    sideEffectBoundary: "External writes mutate provider state.",
+    escalationRequiredFor: ["external_write"],
+    readinessStatus: "warning",
+    notProven: "Adapter readiness does not prove write safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const adapterRef = path.relative(projectRoot, adapterResult.artifactPath).replaceAll(path.sep, "/");
+  const pilotResult = await providerAdapterPilotRecordCommand({
+    project: projectRoot,
+    pilotId: "PAP-TEST-V88",
+    adapterRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    pilotMode: "approved_write_simulation",
+    approvalStatus: "approved",
+    approvalRef: "docs/approval-verification.md",
+    expectedExternalEffect: "Bounded provider write would mutate only the approved fixture target.",
+    allowedActions: ["simulate approved write payload locally"],
+    deniedActions: ["production external write outside approved scope", "billing, secret, deploy, or irreversible action"],
+    redactionBoundary: "No secrets or provider payloads are included.",
+    rollbackPlan: "Revert the approved fixture target if the write is later executed.",
+    provenanceRefs: [adapterRef, "docs/adapter-policy.md"],
+    verificationRefs: ["docs/approval-verification.md"],
+    stopConditions: ["stop if approval evidence disappears"],
+    executionStatus: "simulated",
+    notProven: "Approval bridge fixture does not prove production provider safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const pilotRef = path.relative(projectRoot, pilotResult.artifactPath).replaceAll(path.sep, "/");
+  const targetResult = await providerOperationTargetRecordCommand({
+    project: projectRoot,
+    targetId: "POT-TEST-V88",
+    provider: "github",
+    resource: "ai-org-labs/example",
+    operation: "create_issue",
+    endpoint: "/repos/ai-org-labs/example/issues",
+    payloadHash: "sha256:v88-reproduction-payload",
+    payloadSummary: "Create one bounded fixture issue with fixed title/body hash.",
+    maximumCalls: 1,
+    expiresAt: "2026-12-31T00:00:00.000Z",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const targetRef = path.relative(projectRoot, targetResult.artifactPath).replaceAll(path.sep, "/");
+  const humanApprovalResult = await humanApprovalRecordCommand({
+    project: projectRoot,
+    approvalId: "HAPR-TEST-V88",
+    approverId: "user:test-operator",
+    decision: "approved",
+    approvedScopeHash: "sha256:v88-reproduction-payload",
+    authenticationMethod: "local-test-explicit-approval",
+    revocationStatus: "active",
+    targetOperationRef: targetRef,
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const humanApprovalRef = path.relative(projectRoot, humanApprovalResult.artifactPath).replaceAll(path.sep, "/");
+  const approvalResult = await providerExecutionApprovalRecordCommand({
+    project: projectRoot,
+    approvalId: "PEA-TEST-V88",
+    pilotRef,
+    adapterRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    approvalDecision: "approved",
+    approvedExecutionMode: "bounded_external_write",
+    externalWriteAuthorized: true,
+    humanApprovalRef,
+    targetOperationRef: targetRef,
+    executionScope: "Only the approved fixture provider target may be mutated.",
+    allowedOperations: ["external_write"],
+    deniedOperations: ["dangerous operation", "billing operation", "secret access", "deploy", "irreversible production mutation"],
+    sideEffectBoundary: "Only the approved fixture target can change.",
+    redactionBoundary: "No secrets or provider payload bodies are persisted.",
+    rollbackPlan: "Revert the approved fixture target and record the rollback artifact.",
+    credentialBoundary: "No credentials are read by the bridge.",
+    budgetBoundary: "No billable operation is executed by this bridge.",
+    credentialScope: ["issues:write"],
+    budget: { currency: "USD", maximum: 0 },
+    rollback: { operation: "delete_created_issue", supported: true, artifact_ref: null },
+    provenanceRefs: [pilotRef, adapterRef, humanApprovalRef, targetRef],
+    verificationRefs: ["docs/approval-verification.md"],
+    stopConditions: ["stop if scope changes", "stop if rollback cannot be executed"],
+    productionExecutionStatus: "preflight_approved",
+    notProven: "The approval bridge proves bounded preflight authorization only, not production execution safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const approvalRef = path.relative(projectRoot, approvalResult.artifactPath).replaceAll(path.sep, "/");
+  return { projectRoot, sessionId, adapterRef, targetRef, approvalRef };
+}
+
+test("provider execution reproduction and rollback proof audits pass for an approved preflight", async (t) => {
+  const { projectRoot, sessionId, adapterRef, targetRef, approvalRef } = await writeApprovedProviderExecutionFixture(t);
+  const reproductionResult = await providerExecutionReproductionRecordCommand({
+    project: projectRoot,
+    reproductionId: "PERP-TEST-V88",
+    approvalRef,
+    adapterRef,
+    targetOperationRef: targetRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    replayMode: "local_reconstruction",
+    inputFingerprint: "sha256:v88-reproduction-payload",
+    expectedSideEffect: "One issue creation would occur only against the approved target.",
+    reconstructedSteps: ["load approval bridge", "load adapter", "load target", "match payload hash", "simulate provider call"],
+    replayEvidenceRefs: [approvalRef, adapterRef, targetRef, "docs/reproduction-proof.md"],
+    verificationRefs: ["docs/approval-verification.md", "docs/reproduction-proof.md"],
+    resultStatus: "reproduced",
+    notProven: "Reproduction proves trace reconstruction only, not provider truth or production execution safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const reproductionRef = path.relative(projectRoot, reproductionResult.artifactPath).replaceAll(path.sep, "/");
+  await providerRollbackProofRecordCommand({
+    project: projectRoot,
+    rollbackId: "PRB-TEST-V88",
+    approvalRef,
+    reproductionRef,
+    targetOperationRef: targetRef,
+    rollbackOperation: "delete_created_issue",
+    rollbackMode: "simulated",
+    rollbackSupported: true,
+    rollbackEvidenceRefs: [approvalRef, reproductionRef, "docs/rollback-proof.md"],
+    verificationRefs: ["docs/rollback-proof.md"],
+    stopConditions: ["stop if rollback target cannot be identified", "stop if rollback credential scope is unavailable"],
+    resultStatus: "rollback_ready",
+    notProven: "Rollback proof is simulated readiness evidence, not proof that production rollback has executed.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+
+  const reproductionAudit = await providerExecutionReproductionAuditCommand({ project: projectRoot });
+  assert.equal(reproductionAudit.ok, true);
+  assert.equal(reproductionAudit.summary.summary.reproduction_count, 1);
+  assert.equal(reproductionAudit.summary.summary.reproduced_count, 1);
+  const rollbackAudit = await providerRollbackProofAuditCommand({ project: projectRoot });
+  assert.equal(rollbackAudit.ok, true);
+  assert.equal(rollbackAudit.summary.summary.rollback_count, 1);
+  assert.equal(rollbackAudit.summary.summary.ready_count, 1);
+});
+
+test("provider rollback proof audit fails when rollback is not ready", async (t) => {
+  const { projectRoot, sessionId, adapterRef, targetRef, approvalRef } = await writeApprovedProviderExecutionFixture(t, "SESS-V88-ROLLBACK-BLOCKED");
+  const reproductionResult = await providerExecutionReproductionRecordCommand({
+    project: projectRoot,
+    reproductionId: "PERP-TEST-V88-BLOCKED",
+    approvalRef,
+    adapterRef,
+    targetOperationRef: targetRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    replayMode: "local_reconstruction",
+    inputFingerprint: "sha256:v88-reproduction-payload",
+    expectedSideEffect: "One issue creation would occur only against the approved target.",
+    reconstructedSteps: ["load approval bridge", "load adapter", "load target"],
+    replayEvidenceRefs: [approvalRef, adapterRef, targetRef, "docs/reproduction-proof.md"],
+    verificationRefs: ["docs/reproduction-proof.md"],
+    resultStatus: "reproduced",
+    notProven: "Reproduction proves trace reconstruction only.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const reproductionRef = path.relative(projectRoot, reproductionResult.artifactPath).replaceAll(path.sep, "/");
+  await providerRollbackProofRecordCommand({
+    project: projectRoot,
+    rollbackId: "PRB-TEST-V88-BLOCKED",
+    approvalRef,
+    reproductionRef,
+    targetOperationRef: targetRef,
+    rollbackOperation: "delete_created_issue",
+    rollbackMode: "blocked",
+    rollbackSupported: false,
+    rollbackEvidenceRefs: [approvalRef, reproductionRef, "docs/rollback-proof.md"],
+    verificationRefs: ["docs/rollback-proof.md"],
+    stopConditions: ["stop because rollback is not supported"],
+    resultStatus: "blocked",
+    blockingReason: "Rollback support is not proven.",
+    notProven: "Rollback proof is blocked and cannot support production execution claims.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+
+  const rollbackAudit = await providerRollbackProofAuditCommand({ project: projectRoot });
+  assert.equal(rollbackAudit.ok, false);
+  assert.ok(rollbackAudit.summary.errors.some((entry) => entry.includes("rollback supported")));
+  assert.ok(rollbackAudit.summary.errors.some((entry) => entry.includes("rollback ready")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

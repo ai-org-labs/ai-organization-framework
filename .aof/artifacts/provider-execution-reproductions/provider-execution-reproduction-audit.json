@@ -1,0 +1,434 @@
+{
+  "ok": true,
+  "artifact_type": "provider-execution-reproduction-audit",
+  "generated_at": "2026-07-20T10:43:22.950Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "reproduction_count": 1,
+    "reproduced_count": 1,
+    "blocked_count": 0,
+    "mismatch_count": 0,
+    "missing_boundary_count": 0,
+    "failing_check_count": 0
+  },
+  "reproductions": [
+    {
+      "reproduction_id": "PERP-TASK-108-GITHUB-ISSUE",
+      "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "target_operation_ref": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "work_item_id": "TASK-107",
+      "result_status": "reproduced",
+      "artifact_ref": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider execution reproduction presence",
+      "status": "pass",
+      "detail": "1 reproduction(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE approval ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE adapter ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE target operation ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-107.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE replay evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE replay evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE replay evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE replay evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE verification ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE verification ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7-approval-authenticity.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE linked approval exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE approval target alignment",
+      "status": "pass",
+      "detail": "approval.target_operation_ref=.aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json, reproduction.target_operation_ref=.aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE approval adapter alignment",
+      "status": "pass",
+      "detail": "approval.adapter_ref=.aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json, reproduction.adapter_ref=.aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE approval work item alignment",
+      "status": "pass",
+      "detail": "approval.work_item_id=TASK-107, reproduction.work_item_id=TASK-107",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE approval session alignment",
+      "status": "pass",
+      "detail": "approval.session_ref=.aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json, reproduction.session_ref=.aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE approval is reconstructable preflight",
+      "status": "pass",
+      "detail": "external_write_authorized=true, production_execution_status=preflight_approved",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE input fingerprint",
+      "status": "pass",
+      "detail": "sha256:v87-github-issue-create-preflight",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE reconstructed steps",
+      "status": "pass",
+      "detail": "5 step(s)",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE result reproduced",
+      "status": "pass",
+      "detail": "result_status=reproduced",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PERP-TASK-108-GITHUB-ISSUE not-proven boundary",
+      "status": "pass",
+      "detail": "This proves local reconstruction of the approved preflight path only; it does not prove provider truth, credential safety, billing safety, production execution, or real rollback execution.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    }
+  ],
+  "errors": []
+}

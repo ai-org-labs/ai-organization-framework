@@ -1,0 +1,28 @@
+{
+  "artifact_type": "role-result",
+  "result_id": "RRES-TASK-108-BUILDER",
+  "recorded_at": "2026-07-20T10:45:00.000Z",
+  "role": "Builder",
+  "stage": "implementation",
+  "session_id": "SESS-V88-REPRO-ROLLBACK",
+  "status": "completed",
+  "recommendation": "Add reproduction and rollback proof schemas, writers, audits, release-state gates, and self-hosting proof artifacts.",
+  "rationale": "The smallest release-grade implementation is local artifact reconstruction plus rollback readiness verification.",
+  "signals": [
+    "provider-execution-reproduction-record added",
+    "provider-rollback-proof-record added",
+    "release-state-audit includes v8.8 gates"
+  ],
+  "artifact_refs": [
+    "schemas/aof-provider-execution-reproduction-record.schema.json",
+    "schemas/aof-provider-rollback-proof-record.schema.json",
+    "src/commands/provider-execution-reproduction-audit.js",
+    "src/commands/provider-rollback-proof-audit.js",
+    "test/runtime-core-2.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": null,
+  "notes": null
+}

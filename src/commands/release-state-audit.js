@@ -13,6 +13,8 @@ import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { providerAdapterAuditCommand } from "./provider-adapter-audit.js";
 import { providerAdapterPilotAuditCommand } from "./provider-adapter-pilot-audit.js";
 import { providerExecutionApprovalAuditCommand } from "./provider-execution-approval-audit.js";
+import { providerExecutionReproductionAuditCommand } from "./provider-execution-reproduction-audit.js";
+import { providerRollbackProofAuditCommand } from "./provider-rollback-proof-audit.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
 import { reviewProvenanceAuditCommand } from "./review-provenance-audit.js";
@@ -186,6 +188,24 @@ function requiresProviderExecutionApprovalAudit(releaseVersion) {
   return major > 8 || (major === 8 && minor >= 6);
 }
 
+function requiresProviderExecutionReproductionAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 8 || (major === 8 && minor >= 8);
+}
+
+function requiresProviderRollbackProofAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 8 || (major === 8 && minor >= 8);
+}
+
 function requiresOperatorValidationAudit(releaseVersion) {
   const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
   if (!match) {
@@ -275,6 +295,16 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderExecutionApprovalAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-execution-approval-audit", await providerExecutionApprovalAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderExecutionReproductionAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-execution-reproduction-audit", await providerExecutionReproductionAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderRollbackProofAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-rollback-proof-audit", await providerRollbackProofAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

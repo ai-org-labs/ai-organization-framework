@@ -1,0 +1,27 @@
+{
+  "artifact_type": "role-result",
+  "result_id": "RRES-TASK-108-GUARDIAN",
+  "recorded_at": "2026-07-20T10:45:00.000Z",
+  "role": "Guardian",
+  "stage": "verification",
+  "session_id": "SESS-V88-REPRO-ROLLBACK",
+  "status": "completed",
+  "recommendation": "Approve only if reproduction and rollback audits pass and the release keeps production execution safety explicitly not proven.",
+  "rationale": "Focused tests cover positive reproduction/rollback readiness and negative unsupported rollback. Release-state audit must include both v8.8 gates.",
+  "signals": [
+    "reproduction audit green",
+    "rollback audit green",
+    "negative rollback test rejects unsupported rollback"
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+    ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json",
+    "test/runtime-core-2.test.js",
+    "docs/v8.8-release-checklist.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": null,
+  "notes": null
+}

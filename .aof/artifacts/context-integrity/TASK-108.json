@@ -1,0 +1,29 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-108-V88",
+  "recorded_at": "2026-07-20T10:45:00.000Z",
+  "work_item_id": "TASK-108",
+  "work_item_ref": ".aof/tasks/done/TASK-108.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md",
+    "docs/v8.8-release-definition.md"
+  ],
+  "required_context_refs": [
+    "docs/v8.8-release-definition.md",
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+    ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+    ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+    ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+    ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves reference availability only, not provider correctness or production rollback execution.",
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": null
+}

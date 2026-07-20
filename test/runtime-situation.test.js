@@ -19,10 +19,10 @@ test("situationAssessCommand diagnoses the current frontier from self-hosting ru
 
   assert.equal(result.ok, true);
   assert.equal(result.summary.artifact_type, "situation-assessment");
-  assert.equal(result.summary.active_release_version, "8.7.2");
+  assert.equal(result.summary.active_release_version, "8.8.0");
   assert.equal(result.summary.primary_frontier_task, null);
   assert.equal(result.summary.current_runtime_stage, "frontier-definition-needed");
-  assert.match(result.summary.recommended_action.recommended_action, /v8\.8|External Runtime Reproduction and Rollback Proof|frontier/i);
+  assert.match(result.summary.recommended_action.recommended_action, /v8\.9|External Runtime Outcome Evidence and Learning Loop|frontier/i);
   assert.deepEqual(result.summary.operator_alignment.prioritized_task_ids, []);
   assert.equal(result.summary.current_truth_conflicts.some((conflict) => conflict.code === "stale-alignment-pulse"), false);
   assert.equal(result.summary.current_truth_conflicts.some((conflict) => conflict.code === "frontier-task-mismatch"), false);
@@ -34,7 +34,7 @@ test("roadmapStatusCommand keeps committed release evidence on the correct track
 
   assert.equal(result.ok, true);
   assert.deepEqual(result.alignment.prioritized_task_ids, []);
-  assert.match(result.alignment.answer, /v8\.8|External Runtime Reproduction and Rollback Proof|frontier/i);
+  assert.match(result.alignment.answer, /v8\.9|External Runtime Outcome Evidence and Learning Loop|frontier/i);
   assert.ok(Array.isArray(result.release_tracks["v5.0"]));
   assert.ok(result.release_tracks["v5.0"].some((task) => task.task_id === "TASK-048"));
   assert.ok(Array.isArray(result.release_tracks["v6.0"]));
@@ -105,19 +105,19 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   const result = await visibilityExportCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.payloads.mission_control.mission_overview.release_version, "8.7.2");
+  assert.equal(result.payloads.mission_control.mission_overview.release_version, "8.8.0");
   assert.equal(result.payloads.mission_control.mission_overview.current_runtime_stage, "frontier-definition-needed");
-  assert.match(result.payloads.mission_control.next_action.recommended_action, /v8\.8|External Runtime Reproduction and Rollback Proof|frontier/i);
+  assert.match(result.payloads.mission_control.next_action.recommended_action, /v8\.9|External Runtime Outcome Evidence and Learning Loop|frontier/i);
   assert.doesNotMatch(result.payloads.mission_control.next_action.recommended_action, /Mission Control visibility slice/i);
   assert.equal(result.payloads.mission_control.blockers.some((blocker) => /alignment pulse/i.test(blocker.summary)), false);
   assert.equal(result.payloads.mission_control.blockers.some((blocker) => /frontier task/i.test(blocker.summary)), false);
-  assert.match(result.payloads.operator_brief.headline, /frontier|implementation task|v8\.8|External Runtime Reproduction and Rollback Proof/i);
-  assert.match(result.payloads.operator_brief.next_action.recommended_action, /v8\.8|External Runtime Reproduction and Rollback Proof|frontier/i);
+  assert.match(result.payloads.operator_brief.headline, /frontier|implementation task|v8\.9|External Runtime Outcome Evidence and Learning Loop/i);
+  assert.match(result.payloads.operator_brief.next_action.recommended_action, /v8\.9|External Runtime Outcome Evidence and Learning Loop|frontier/i);
   assert.equal(result.payloads.mission_control.work_governance.present, true);
   assert.ok(result.payloads.mission_control.work_governance.work_items.length >= 2);
   assert.equal(result.payloads.mission_control.archmap.present, true);
   assert.equal(result.payloads.mission_control.archmap.current_source_ref, "docs/archmaps/aof-runtime-current.archmap");
-  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-107");
+  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-108");
   assert.ok(result.payloads.mission_control.archmap.pending_impact_count >= 0);
   assert.equal(result.payloads.mission_control.organization_state.present, true);
   assert.equal(result.payloads.mission_control.organization_state.council_count, 3);
@@ -151,6 +151,14 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.equal(result.payloads.mission_control.provider_execution_approval_projection.approved_count, 1);
   assert.equal(result.payloads.mission_control.provider_execution_approval_projection.external_write_authorized_count, 1);
   assert.equal(result.payloads.mission_control.provider_execution_approval_projection.production_executed_count, 0);
+  assert.equal(result.payloads.mission_control.provider_execution_reproduction_projection.present, true);
+  assert.equal(result.payloads.mission_control.provider_execution_reproduction_projection.audit_ok, true);
+  assert.equal(result.payloads.mission_control.provider_execution_reproduction_projection.reproduction_count, 1);
+  assert.equal(result.payloads.mission_control.provider_execution_reproduction_projection.reproduced_count, 1);
+  assert.equal(result.payloads.mission_control.provider_rollback_proof_projection.present, true);
+  assert.equal(result.payloads.mission_control.provider_rollback_proof_projection.audit_ok, true);
+  assert.equal(result.payloads.mission_control.provider_rollback_proof_projection.rollback_count, 1);
+  assert.equal(result.payloads.mission_control.provider_rollback_proof_projection.ready_count, 1);
   assert.equal(result.payloads.mission_control.provider_adapter_pilot_readiness_projection.present, true);
   assert.equal(result.payloads.mission_control.provider_adapter_pilot_readiness_projection.readiness_status, "ready");
   assert.equal(result.payloads.mission_control.external_runtime_safety_projection.present, true);
@@ -183,20 +191,20 @@ test("operatorBriefCommand compresses runtime situation judgment into one operat
 
   assert.equal(result.ok, true);
   assert.equal(result.brief.view_type, "operator_brief");
-  assert.equal(result.brief.current_state.release_version, "8.7.2");
+  assert.equal(result.brief.current_state.release_version, "8.8.0");
   assert.equal(result.brief.current_state.current_runtime_stage, "frontier-definition-needed");
   assert.equal(result.brief.current_state.primary_frontier_task, null);
   assert.equal(result.brief.current_state.skillful_actor_projection?.projection_id, "SAHRI-TASK-054-PROOF");
-  assert.match(result.brief.operator_answers.what_should_happen_next, /v8\.8|External Runtime Reproduction and Rollback Proof|frontier/i);
+  assert.match(result.brief.operator_answers.what_should_happen_next, /v8\.9|External Runtime Outcome Evidence and Learning Loop|frontier/i);
 });
 
-test("organizationStatusCommand exposes the post-v8.7 direction goal and next value slice", async () => {
+test("organizationStatusCommand exposes the post-v8.8 direction goal and next value slice", async () => {
   const projectRoot = process.cwd();
   const result = await organizationStatusCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.match(result.goals.operating_goal, /v8\.8|External Runtime Reproduction and Rollback Proof/i);
-  assert.match(result.goals.next_value_slice, /v8\.8|runtime-backed direction review|External Runtime Reproduction and Rollback Proof/i);
+  assert.match(result.goals.operating_goal, /v8\.9|External Runtime Outcome Evidence and Learning Loop/i);
+  assert.match(result.goals.next_value_slice, /v8\.9|runtime-backed direction review|External Runtime Outcome Evidence and Learning Loop/i);
 });
 
 test("operatorProgressCommand explains what changed since the last checkpoint", async () => {
@@ -205,7 +213,7 @@ test("operatorProgressCommand explains what changed since the last checkpoint", 
 
   assert.equal(result.ok, true);
   assert.equal(result.progress.view_type, "operator_progress");
-  assert.match(result.progress.progress_answer.what_changed, /TASK-107|v8\.7|Approval Authenticity|v8\.8/i);
+  assert.match(result.progress.progress_answer.what_changed, /TASK-108|v8\.8|External Runtime Reproduction and Rollback Proof|v8\.9/i);
 });
 
 test("treePositionCommand explains the current release trunk and frontier branch", async () => {
@@ -214,7 +222,7 @@ test("treePositionCommand explains the current release trunk and frontier branch
 
   assert.equal(result.ok, true);
   assert.equal(result.tree.view_type, "tree_position");
-  assert.equal(result.tree.trunk.active_release_version, "8.7.2");
+  assert.equal(result.tree.trunk.active_release_version, "8.8.0");
   assert.equal(result.tree.branch.frontier_task_id, null);
   assert.equal(result.tree.branch.frontier_track, null);
   assert.match(result.tree.tree_answer.where_are_we, /between v8\.7 and the next concrete branch|v8\.7\.0|v8\.8/i);
@@ -225,7 +233,7 @@ test("releaseStateAuditCommand includes the v8.7 provider execution approval rel
   const result = await releaseStateAuditCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.summary.active_release.release_version, "8.7.2");
+  assert.equal(result.summary.active_release.release_version, "8.8.0");
   const externalResourceAudit = result.summary.governance_audits.find((audit) => audit.name === "external-resource-audit");
   assert.equal(externalResourceAudit.ok, true);
   const providerAdapterAudit = result.summary.governance_audits.find((audit) => audit.name === "provider-adapter-audit");

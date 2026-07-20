@@ -1,0 +1,38 @@
+{
+  "artifact_type": "provider-execution-reproduction-record",
+  "reproduction_id": "PERP-TASK-108-GITHUB-ISSUE",
+  "recorded_at": "2026-07-20T10:43:22.924Z",
+  "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+  "adapter_ref": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+  "target_operation_ref": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+  "work_item_id": "TASK-107",
+  "work_item_ref": ".aof/tasks/done/TASK-107.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "replay_mode": "local_reconstruction",
+  "input_fingerprint": "sha256:v87-github-issue-create-preflight",
+  "expected_side_effect": "One GitHub issue creation would occur only against the approved ai-org-labs/ai-organization-framework target; no production execution is performed by this proof.",
+  "reconstructed_steps": [
+    "load provider execution approval bridge",
+    "load explicit human approval and target operation",
+    "verify target payload hash matches approved scope",
+    "load adapter capability and confirm external_write support",
+    "reconstruct the provider call plan without sending it"
+  ],
+  "replay_evidence_refs": [
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+    ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+    ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+    ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json"
+  ],
+  "verification_refs": [
+    ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+    "docs/v8.7-approval-authenticity.md"
+  ],
+  "result_status": "reproduced",
+  "mismatch_reason": null,
+  "not_proven": "This proves local reconstruction of the approved preflight path only; it does not prove provider truth, credential safety, billing safety, production execution, or real rollback execution.",
+  "source_task_id": "TASK-108",
+  "source_parent_session_id": "SESS-V88-REPRO-ROLLBACK",
+  "source_decision_record_id": null,
+  "notes": null
+}
