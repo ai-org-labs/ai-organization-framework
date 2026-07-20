@@ -1179,9 +1179,10 @@ function buildExternalRuntimeSafetyProjection({
     && contextReferenceIntegrityProjection?.audit_ok !== false
   );
 
-  let safetyStatus = "safe";
+  let safetyStatus = "governance_boundary_ready";
+  let productionExecutionSafetyStatus = "not_proven";
   let governanceAction = "operator-review-allowed";
-  let safetySummary = "Externalized runtime safety evidence is present and no blocking boundary is active.";
+  let safetySummary = "Externalized runtime governance boundary evidence is present and no blocking boundary is active. Production external execution safety is not proven.";
   if (missingEvidence.length > 0) {
     safetyStatus = "not_proven";
     governanceAction = "collect-missing-safety-evidence";
@@ -1203,6 +1204,8 @@ function buildExternalRuntimeSafetyProjection({
   return {
     present: missingEvidence.length === 0,
     safety_status: safetyStatus,
+    governance_boundary_status: safetyStatus,
+    production_execution_safety_status: productionExecutionSafetyStatus,
     safety_summary: safetySummary,
     release_ref: roadmapStatus?.roadmap_refs?.current_release_definition ?? null,
     work_item_ref: firstExternalUseWorkItemId ? `.aof/tasks/done/${firstExternalUseWorkItemId}.json` : null,
@@ -1212,7 +1215,7 @@ function buildExternalRuntimeSafetyProjection({
     governance_action: governanceAction,
     permission_boundary: "Externalized execution cannot advance unless resource, provider, approval, provenance, freshness, and not-proven boundaries are visible and pass governance checks.",
     approval_boundary: "Approved or approval-not-required resource use is required before externalized execution claims can advance.",
-    risk_boundary: "This projection blocks unsafe externalization claims; it does not prove semantic correctness, production safety, billing safety, or secret safety.",
+    risk_boundary: "This projection blocks unsafe externalization governance claims; it does not prove semantic correctness, production execution safety, billing safety, or secret safety.",
     not_proven: "External runtime safety projection is structural/runtime evidence. It is not permission for autonomous external writes and does not prove external provider output correctness.",
     checks: [
       {
@@ -1613,6 +1616,8 @@ function buildMissionControl({
     external_runtime_safety_projection: externalRuntimeSafetyProjection ?? {
       present: false,
       safety_status: "not_proven",
+      governance_boundary_status: "not_proven",
+      production_execution_safety_status: "not_proven",
       safety_summary: "No external runtime safety projection is present.",
       release_ref: null,
       work_item_ref: null,

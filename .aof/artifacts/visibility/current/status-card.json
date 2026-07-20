@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-20T04:49:40.062Z",
+  "as_of": "2026-07-20T05:38:46.512Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task.",

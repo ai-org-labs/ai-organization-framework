@@ -1,9 +1,9 @@
 {
   "view_type": "evidence_drill_down",
-  "generated_at": "2026-07-20T04:49:40.066Z",
+  "generated_at": "2026-07-20T05:38:46.514Z",
   "brief_ref": ".aof/artifacts/visibility/current/operator-brief.json",
   "current_state": {
-    "release_version": "8.5.0",
+    "release_version": "8.5.1",
     "active_release_track": "v8.5",
     "release_definition_ref": "docs/v8.5-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",

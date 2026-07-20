@@ -903,6 +903,8 @@
       "required": [
         "present",
         "safety_status",
+        "governance_boundary_status",
+        "production_execution_safety_status",
         "safety_summary",
         "release_ref",
         "work_item_ref",
@@ -919,7 +921,13 @@
       "properties": {
         "present": { "type": "boolean" },
         "safety_status": {
-          "enum": ["safe", "needs_approval", "blocked", "stale", "not_proven"]
+          "enum": ["governance_boundary_ready", "needs_approval", "blocked", "stale", "not_proven"]
+        },
+        "governance_boundary_status": {
+          "enum": ["governance_boundary_ready", "needs_approval", "blocked", "stale", "not_proven"]
+        },
+        "production_execution_safety_status": {
+          "enum": ["not_proven", "blocked", "approved_for_bounded_execution"]
         },
         "safety_summary": { "type": "string" },
         "release_ref": { "type": ["string", "null"] },

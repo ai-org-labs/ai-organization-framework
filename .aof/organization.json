@@ -1,7 +1,7 @@
 {
   "organization_type": "aof-organization",
   "organization_format_version": 1,
-  "mission": "Ship v8.5.0 as Provider Adapter Execution Pilot Boundary while preserving the boundary that pilot readiness is not production external execution authority.",
+  "mission": "Ship v8.5.1 as a release-surface consistency and operator wording patch for v8.5 without expanding external execution authority.",
   "project_ref": ".aof/context/active/project-orientation.json",
   "skills_ref": ".aof/skills.json",
   "capability_registry_ref": ".aof/capability-registry.json",
@@ -287,5 +287,5 @@
       "archive"
     ]
   },
-  "updated_at": "2026-07-20T04:45:21.116Z"
+  "updated_at": "2026-07-20T05:37:24.579Z"
 }

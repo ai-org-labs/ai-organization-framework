@@ -1,9 +1,9 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-20T04:49:40.062Z",
+  "generated_at": "2026-07-20T05:38:46.512Z",
   "mission_overview": {
-    "mission": "Ship v8.5.0 as Provider Adapter Execution Pilot Boundary while preserving the boundary that pilot readiness is not production external execution authority.",
-    "release_version": "8.5.0",
+    "mission": "Ship v8.5.1 as a release-surface consistency and operator wording patch for v8.5 without expanding external execution authority.",
+    "release_version": "8.5.1",
     "release_definition_ref": "docs/v8.5-release-definition.md",
     "operating_goal": "Prepare v8.6 External Runtime Execution Approval Bridge: prove that any real provider side effect is authorized by bounded approval, scope, redaction, rollback, provenance, and stop conditions before execution.",
     "next_value_slice": "Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task.",
@@ -816,8 +816,10 @@
   },
   "external_runtime_safety_projection": {
     "present": true,
-    "safety_status": "safe",
-    "safety_summary": "Externalized runtime safety evidence is present and no blocking boundary is active.",
+    "safety_status": "governance_boundary_ready",
+    "governance_boundary_status": "governance_boundary_ready",
+    "production_execution_safety_status": "not_proven",
+    "safety_summary": "Externalized runtime governance boundary evidence is present and no blocking boundary is active. Production external execution safety is not proven.",
     "release_ref": "docs/v8.5-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
@@ -843,7 +845,7 @@
     "governance_action": "operator-review-allowed",
     "permission_boundary": "Externalized execution cannot advance unless resource, provider, approval, provenance, freshness, and not-proven boundaries are visible and pass governance checks.",
     "approval_boundary": "Approved or approval-not-required resource use is required before externalized execution claims can advance.",
-    "risk_boundary": "This projection blocks unsafe externalization claims; it does not prove semantic correctness, production safety, billing safety, or secret safety.",
+    "risk_boundary": "This projection blocks unsafe externalization governance claims; it does not prove semantic correctness, production execution safety, billing safety, or secret safety.",
     "not_proven": "External runtime safety projection is structural/runtime evidence. It is not permission for autonomous external writes and does not prove external provider output correctness.",
     "checks": [
       {

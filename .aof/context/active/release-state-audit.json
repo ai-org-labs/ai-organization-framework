@@ -1,15 +1,15 @@
 {
   "ok": true,
   "artifact_type": "release-state-audit",
-  "generated_at": "2026-07-20T04:49:21.026Z",
+  "generated_at": "2026-07-20T05:38:39.383Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "active_release": {
     "artifact_type": "active-release-manifest",
-    "recorded_at": "2026-07-20T04:45:21.116Z",
-    "release_version": "8.5.0",
-    "release_tag": "v8.5.0",
+    "recorded_at": "2026-07-20T05:37:24.579Z",
+    "release_version": "8.5.1",
+    "release_tag": "v8.5.1",
     "release_definition_ref": "docs/v8.5-release-definition.md",
-    "release_notes_ref": "docs/v8.5.0-release-notes.md",
+    "release_notes_ref": "docs/v8.5.1-release-notes.md",
     "release_checklist_ref": "docs/v8.5-release-checklist.md",
     "roadmap_ref": "docs/vnext-roadmap.md",
     "release_plan_ref": "docs/vnext-release-plan.md"
@@ -188,7 +188,7 @@
     {
       "name": "release notes ref",
       "status": "pass",
-      "detail": "docs/v8.5.0-release-notes.md"
+      "detail": "docs/v8.5.1-release-notes.md"
     },
     {
       "name": "release checklist ref",
@@ -208,7 +208,7 @@
     {
       "name": "bootstrap version alignment",
       "status": "pass",
-      "detail": "bootstrap.aof_version=8.5.0, manifest.release_version=8.5.0"
+      "detail": "bootstrap.aof_version=8.5.1, manifest.release_version=8.5.1"
     },
     {
       "name": "governance release contract alignment",
