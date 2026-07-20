@@ -125,6 +125,10 @@ Usage:
   aof human-approval-record --project <path> --approver-id <id> --decision <approved|rejected|revoked> --approved-scope-hash <hash> --authentication-method "<text>" --target-operation-ref <path> --source-task-id <TASK-id> --source-parent-session-id <id> [--revocation-status <active|revoked|expired>] [--write-artifact <path>]
   aof provider-execution-approval-record --project <path> --pilot-ref <path> --adapter-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> --approval-decision <approved|pending|rejected|blocked> --approved-execution-mode <dry_run|read_only|bounded_external_write> [--external-write-authorized] [--human-approval-ref <path>] [--target-operation-ref <path>] --execution-scope "<text>" --allowed-operation <read|local_write|external_write|dangerous> [--allowed-operation <...>] --denied-operation "<text>" [--denied-operation "<text>"] --side-effect-boundary "<text>" --redaction-boundary "<text>" --rollback-plan "<text>" --credential-boundary "<text>" --budget-boundary "<text>" [--credential-scope "<text>"] [--budget-json '<json>'] [--rollback-json '<json>'] --provenance-ref <path> [--provenance-ref <path>] --verification-ref <path> [--verification-ref <path>] --stop-condition "<text>" [--stop-condition "<text>"] --production-execution-status <not_executed|preflight_approved|blocked|executed> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-execution-approval-audit [--project <path>] [--write-artifact <path>]
+  aof provider-outcome-evidence-record --project <path> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --target-operation-ref <path> --work-item-id <TASK-id> --session-ref <path> --expected-outcome "<text>" --observed-result "<text>" --outcome-status <accepted|corrected|rollback_recommended|blocked> --evidence-ref <path> [--evidence-ref <path>] --verification-ref <path> [--verification-ref <path>] --semantic-truth-boundary "<text>" --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--outcome-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof provider-outcome-evidence-audit [--project <path>] [--write-artifact <path>]
+  aof provider-learning-loop-record --project <path> --outcome-ref <path> --learning-summary "<text>" --decision <accept|correct|rollback|escalate|defer> --next-action "<text>" --update-status <updated|escalated|blocked|deferred> --learning-ref <path> [--learning-ref <path>] --evidence-ref <path> [--evidence-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--learning-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof provider-learning-loop-audit [--project <path>] [--write-artifact <path>]
   aof operator-validation-record --project <path> --operator-ref <ref> --feedback-source <human_operator|adopter|expert_reviewer|self_hosting_operator|simulated_operator> --release-ref <ref> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --evidence-ref <path> [--evidence-ref <path>] --understanding-outcome <understood|partially_understood|not_understood|needs_clarification|not_checked> --reproduction-outcome <reproduced|partially_reproduced|not_reproduced|needs_clarification|not_checked> --acceptance-outcome <accepted|accepted_with_residual_risk|rejected|needs_clarification|not_checked> --feedback-summary "<text>" [--blocking-reason "<text>"] --governance-action <none|request_clarification|request_reproduction|block_release_claim|escalate_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-validation-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1448,6 +1452,57 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "provider-execution-approval-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "provider-outcome-evidence-record"
+            ? {
+                project: ".",
+                outcomeId: "",
+                approvalRef: "",
+                reproductionRef: "",
+                rollbackRef: "",
+                targetOperationRef: "",
+                workItemId: "",
+                sessionRef: "",
+                expectedOutcome: "",
+                observedResult: "",
+                outcomeStatus: "blocked",
+                evidenceRefs: [],
+                verificationRefs: [],
+                semanticTruthBoundary: "",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "provider-outcome-evidence-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "provider-learning-loop-record"
+            ? {
+                project: ".",
+                learningId: "",
+                outcomeRef: "",
+                learningSummary: "",
+                decision: "defer",
+                nextAction: "",
+                updateStatus: "blocked",
+                learningRefs: [],
+                evidenceRefs: [],
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "provider-learning-loop-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -3113,6 +3168,16 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--outcome-id") {
+      options.outcomeId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--learning-id") {
+      options.learningId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--validation-id") {
       options.validationId = rest[i + 1] ?? "";
       i += 1;
@@ -3489,6 +3554,40 @@ function parseArgs(argv) {
     }
     if (part === "--approval-ref") {
       options.approvalRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--reproduction-ref") {
+      options.reproductionRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--rollback-ref") {
+      options.rollbackRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--outcome-ref") {
+      options.outcomeRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--learning-summary") {
+      options.learningSummary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--update-status") {
+      options.updateStatus = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--learning-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --learning-ref.");
+      }
+      options.learningRefs.push(value);
       i += 1;
       continue;
     }
@@ -4433,7 +4532,38 @@ function parseArgs(argv) {
       if (!value) {
         throw new Error("Missing value after --expected-outcome.");
       }
-      options.expectedOutcomes.push(value);
+      if (Array.isArray(options.expectedOutcomes)) {
+        options.expectedOutcomes.push(value);
+      } else {
+        options.expectedOutcome = value;
+      }
+      i += 1;
+      continue;
+    }
+    if (part === "--observed-result") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --observed-result.");
+      }
+      options.observedResult = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--outcome-status") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --outcome-status.");
+      }
+      options.outcomeStatus = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--semantic-truth-boundary") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --semantic-truth-boundary.");
+      }
+      options.semanticTruthBoundary = value;
       i += 1;
       continue;
     }
@@ -6497,6 +6627,78 @@ function parseArgs(argv) {
   if (command === "provider-execution-approval-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `provider-execution-approval-audit`.");
+    }
+  }
+
+  if (command === "provider-outcome-evidence-record") {
+    for (const [flag, value] of [
+      ["--approval-ref", options.approvalRef],
+      ["--reproduction-ref", options.reproductionRef],
+      ["--rollback-ref", options.rollbackRef],
+      ["--target-operation-ref", options.targetOperationRef],
+      ["--work-item-id", options.workItemId],
+      ["--session-ref", options.sessionRef],
+      ["--expected-outcome", options.expectedOutcome],
+      ["--observed-result", options.observedResult],
+      ["--outcome-status", options.outcomeStatus],
+      ["--semantic-truth-boundary", options.semanticTruthBoundary],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`provider-outcome-evidence-record\`.`);
+      }
+    }
+    if (!["accepted", "corrected", "rollback_recommended", "blocked"].includes(options.outcomeStatus)) {
+      throw new Error("Invalid --outcome-status for `provider-outcome-evidence-record`.");
+    }
+    if (!Array.isArray(options.evidenceRefs) || options.evidenceRefs.length === 0) {
+      throw new Error("At least one --evidence-ref is required for `provider-outcome-evidence-record`.");
+    }
+    if (!Array.isArray(options.verificationRefs) || options.verificationRefs.length === 0) {
+      throw new Error("At least one --verification-ref is required for `provider-outcome-evidence-record`.");
+    }
+  }
+
+  if (command === "provider-outcome-evidence-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `provider-outcome-evidence-audit`.");
+    }
+  }
+
+  if (command === "provider-learning-loop-record") {
+    for (const [flag, value] of [
+      ["--outcome-ref", options.outcomeRef],
+      ["--learning-summary", options.learningSummary],
+      ["--decision", options.decision],
+      ["--next-action", options.nextAction],
+      ["--update-status", options.updateStatus],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`provider-learning-loop-record\`.`);
+      }
+    }
+    if (!["accept", "correct", "rollback", "escalate", "defer"].includes(options.decision)) {
+      throw new Error("Invalid --decision for `provider-learning-loop-record`.");
+    }
+    if (!["updated", "escalated", "blocked", "deferred"].includes(options.updateStatus)) {
+      throw new Error("Invalid --update-status for `provider-learning-loop-record`.");
+    }
+    if (!Array.isArray(options.learningRefs) || options.learningRefs.length === 0) {
+      throw new Error("At least one --learning-ref is required for `provider-learning-loop-record`.");
+    }
+    if (!Array.isArray(options.evidenceRefs) || options.evidenceRefs.length === 0) {
+      throw new Error("At least one --evidence-ref is required for `provider-learning-loop-record`.");
+    }
+  }
+
+  if (command === "provider-learning-loop-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `provider-learning-loop-audit`.");
     }
   }
 

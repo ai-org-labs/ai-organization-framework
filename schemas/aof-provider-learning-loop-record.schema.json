@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-learning-loop-record.schema.json",
+  "title": "AOF Provider Learning Loop Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "learning_id",
+    "recorded_at",
+    "outcome_ref",
+    "learning_summary",
+    "decision",
+    "next_action",
+    "update_status",
+    "learning_refs",
+    "evidence_refs",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "provider-learning-loop-record" },
+    "learning_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "outcome_ref": { "type": "string", "minLength": 1 },
+    "learning_summary": { "type": "string", "minLength": 1 },
+    "decision": {
+      "type": "string",
+      "enum": ["accept", "correct", "rollback", "escalate", "defer"]
+    },
+    "next_action": { "type": "string", "minLength": 1 },
+    "update_status": {
+      "type": "string",
+      "enum": ["updated", "escalated", "blocked"]
+    },
+    "learning_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

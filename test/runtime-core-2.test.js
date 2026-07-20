@@ -47,6 +47,10 @@ import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
 import { providerExecutionReproductionAuditCommand } from "../src/commands/provider-execution-reproduction-audit.js";
 import { providerExecutionReproductionRecordCommand } from "../src/commands/provider-execution-reproduction-record.js";
+import { providerLearningLoopAuditCommand } from "../src/commands/provider-learning-loop-audit.js";
+import { providerLearningLoopRecordCommand } from "../src/commands/provider-learning-loop-record.js";
+import { providerOutcomeEvidenceAuditCommand } from "../src/commands/provider-outcome-evidence-audit.js";
+import { providerOutcomeEvidenceRecordCommand } from "../src/commands/provider-outcome-evidence-record.js";
 import { providerRollbackProofAuditCommand } from "../src/commands/provider-rollback-proof-audit.js";
 import { providerRollbackProofRecordCommand } from "../src/commands/provider-rollback-proof-record.js";
 import { humanApprovalRecordCommand } from "../src/commands/human-approval-record.js";
@@ -3670,6 +3674,119 @@ test("provider rollback proof audit fails when rollback is not ready", async (t)
   assert.equal(rollbackAudit.ok, false);
   assert.ok(rollbackAudit.summary.errors.some((entry) => entry.includes("rollback supported")));
   assert.ok(rollbackAudit.summary.errors.some((entry) => entry.includes("rollback ready")));
+});
+
+test("provider outcome evidence and learning loop audits pass for reproduced rollback-ready paths", async (t) => {
+  const { projectRoot, sessionId, adapterRef, targetRef, approvalRef } = await writeApprovedProviderExecutionFixture(t, "SESS-V89-OUTCOME");
+  await fs.writeFile(path.join(projectRoot, "docs", "outcome-evidence.md"), "# Outcome Evidence\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "learning-loop.md"), "# Learning Loop\n", "utf8");
+  const reproductionResult = await providerExecutionReproductionRecordCommand({
+    project: projectRoot,
+    reproductionId: "PERP-TEST-V89",
+    approvalRef,
+    adapterRef,
+    targetOperationRef: targetRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    replayMode: "local_reconstruction",
+    inputFingerprint: "sha256:v88-reproduction-payload",
+    expectedSideEffect: "One issue creation would occur only against the approved target.",
+    reconstructedSteps: ["load approval", "load target", "reconstruct provider call"],
+    replayEvidenceRefs: [approvalRef, adapterRef, targetRef, "docs/reproduction-proof.md"],
+    verificationRefs: ["docs/reproduction-proof.md"],
+    resultStatus: "reproduced",
+    notProven: "Reproduction proves trace reconstruction only.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const reproductionRef = path.relative(projectRoot, reproductionResult.artifactPath).replaceAll(path.sep, "/");
+  const rollbackResult = await providerRollbackProofRecordCommand({
+    project: projectRoot,
+    rollbackId: "PRB-TEST-V89",
+    approvalRef,
+    reproductionRef,
+    targetOperationRef: targetRef,
+    rollbackOperation: "delete_created_issue",
+    rollbackMode: "simulated",
+    rollbackSupported: true,
+    rollbackEvidenceRefs: [approvalRef, reproductionRef, "docs/rollback-proof.md"],
+    verificationRefs: ["docs/rollback-proof.md"],
+    stopConditions: ["stop if rollback target cannot be linked"],
+    resultStatus: "rollback_ready",
+    notProven: "Rollback readiness is simulated only.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const rollbackRef = path.relative(projectRoot, rollbackResult.artifactPath).replaceAll(path.sep, "/");
+  const outcomeResult = await providerOutcomeEvidenceRecordCommand({
+    project: projectRoot,
+    outcomeId: "POE-TEST-V89",
+    approvalRef,
+    reproductionRef,
+    rollbackRef,
+    targetOperationRef: targetRef,
+    workItemId: "TASK-001",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    expectedOutcome: "The approved provider call plan remains bounded, reconstructable, and rollback-ready.",
+    observedResult: "Local outcome evidence confirms no production side effect occurred and the bounded plan remains internally consistent.",
+    outcomeStatus: "accepted",
+    evidenceRefs: [approvalRef, reproductionRef, rollbackRef, "docs/outcome-evidence.md"],
+    verificationRefs: ["docs/outcome-evidence.md"],
+    semanticTruthBoundary: "This outcome accepts only local trace consistency; it does not prove provider truth or user value.",
+    notProven: "No production provider mutation, semantic truth, market truth, or rollback execution is proven.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const outcomeRef = path.relative(projectRoot, outcomeResult.artifactPath).replaceAll(path.sep, "/");
+  await providerLearningLoopRecordCommand({
+    project: projectRoot,
+    learningId: "PLL-TEST-V89",
+    outcomeRef,
+    learningSummary: "Approval, reproduction, rollback, and outcome evidence are distinct gates and should remain separately visible.",
+    decision: "accept",
+    nextAction: "Use the outcome evidence contract as the baseline before any controlled provider execution candidate.",
+    updateStatus: "updated",
+    learningRefs: ["docs/learning-loop.md"],
+    evidenceRefs: [outcomeRef, "docs/outcome-evidence.md"],
+    notProven: "The learning update records governance interpretation only; it does not prove the lesson is commercially or semantically correct.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+
+  const outcomeAudit = await providerOutcomeEvidenceAuditCommand({ project: projectRoot });
+  assert.equal(outcomeAudit.ok, true);
+  assert.equal(outcomeAudit.summary.summary.outcome_count, 1);
+  assert.equal(outcomeAudit.summary.summary.accepted_count, 1);
+  const learningAudit = await providerLearningLoopAuditCommand({ project: projectRoot });
+  assert.equal(learningAudit.ok, true);
+  assert.equal(learningAudit.summary.summary.learning_count, 1);
+  assert.equal(learningAudit.summary.summary.updated_count, 1);
+});
+
+test("provider learning loop audit fails when linked outcome evidence is missing", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "learning-loop.md"), "# Learning Loop\n", "utf8");
+  await providerLearningLoopRecordCommand({
+    project: projectRoot,
+    learningId: "PLL-TEST-V89-MISSING",
+    outcomeRef: ".aof/artifacts/provider-outcome-evidence/POE-MISSING.json",
+    learningSummary: "Learning cannot be accepted without outcome evidence.",
+    decision: "accept",
+    nextAction: "Block the learning update until outcome evidence exists.",
+    updateStatus: "updated",
+    learningRefs: ["docs/learning-loop.md"],
+    evidenceRefs: ["docs/learning-loop.md"],
+    notProven: "Missing outcome evidence prevents release-quality learning.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-V89-MISSING"
+  });
+
+  const learningAudit = await providerLearningLoopAuditCommand({ project: projectRoot });
+  assert.equal(learningAudit.ok, false);
+  assert.ok(learningAudit.summary.errors.some((entry) => entry.includes("outcome ref resolves")));
+  assert.ok(learningAudit.summary.errors.some((entry) => entry.includes("linked outcome exists")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

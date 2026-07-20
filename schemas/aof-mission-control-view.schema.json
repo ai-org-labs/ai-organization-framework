@@ -18,6 +18,8 @@
     "provider_execution_approval_projection",
     "provider_execution_reproduction_projection",
     "provider_rollback_proof_projection",
+    "provider_outcome_evidence_projection",
+    "provider_learning_loop_projection",
     "provider_adapter_pilot_readiness_projection",
     "external_runtime_safety_projection",
     "operator_validation_projection",
@@ -1020,6 +1022,104 @@
               "reproduction_ref": { "type": "string" },
               "target_operation_ref": { "type": "string" },
               "result_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_outcome_evidence_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "outcome_count",
+        "accepted_count",
+        "corrected_count",
+        "rollback_recommended_count",
+        "blocked_count",
+        "missing_boundary_count",
+        "outcomes",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "outcome_count": { "type": "integer" },
+        "accepted_count": { "type": "integer" },
+        "corrected_count": { "type": "integer" },
+        "rollback_recommended_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "outcomes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "outcome_id",
+              "approval_ref",
+              "reproduction_ref",
+              "rollback_ref",
+              "target_operation_ref",
+              "work_item_id",
+              "outcome_status",
+              "artifact_ref"
+            ],
+            "properties": {
+              "outcome_id": { "type": "string" },
+              "approval_ref": { "type": "string" },
+              "reproduction_ref": { "type": "string" },
+              "rollback_ref": { "type": "string" },
+              "target_operation_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "outcome_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_learning_loop_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "learning_count",
+        "updated_count",
+        "escalated_count",
+        "blocked_count",
+        "missing_boundary_count",
+        "learning_updates",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "learning_count": { "type": "integer" },
+        "updated_count": { "type": "integer" },
+        "escalated_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "learning_updates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["learning_id", "outcome_ref", "decision", "update_status", "artifact_ref"],
+            "properties": {
+              "learning_id": { "type": "string" },
+              "outcome_ref": { "type": "string" },
+              "decision": { "type": "string" },
+              "update_status": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

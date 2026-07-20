@@ -1,0 +1,69 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRTDE618-KO0WZG",
+  "recorded_at": "2026-07-20T15:19:08.300Z",
+  "work_item_id": "TASK-109",
+  "work_item_ref": ".aof/tasks/done/TASK-109.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-109.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-109.json",
+  "lanes": [
+    {
+      "lane_id": "outcome-evidence",
+      "goal": "define observed outcome contract",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v8.9-release-definition.md",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json"
+      ],
+      "expected_output": "provider outcome evidence record and audit",
+      "output_refs": [
+        "schemas/aof-provider-outcome-evidence-record.schema.json",
+        "src/commands/provider-outcome-evidence-audit.js",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if accepted outcome can exist without approval, reproduction, rollback, and target refs",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "learning-loop",
+      "goal": "define learning update contract",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json"
+      ],
+      "expected_output": "provider learning-loop record and audit",
+      "output_refs": [
+        "schemas/aof-provider-learning-loop-record.schema.json",
+        "src/commands/provider-learning-loop-audit.js",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if learning update can advance without linked usable outcome evidence",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "outcome-evidence",
+      "learning-loop"
+    ],
+    "conflict_summary": "no unresolved lane conflict",
+    "blocker_summary": "no active blocker after parser support and audits passed",
+    "merge_rationale": "Outcome evidence and learning-loop update are complementary gates and both are Council-approved.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-109-V89.json",
+  "not_proven": "Parallel lane evidence does not prove autonomous parallel execution speed or production provider correctness.",
+  "source_task_id": "TASK-109",
+  "source_parent_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING",
+  "notes": null
+}

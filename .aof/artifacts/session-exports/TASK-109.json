@@ -1,0 +1,112 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRTDJLOP-KR80DH",
+  "recorded_at": "2026-07-20T15:23:21.865Z",
+  "work_item_id": "TASK-109",
+  "work_item_ref": ".aof/tasks/done/TASK-109.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-runtime-artifacts",
+    "source_of_truth_boundary": "AOF runtime artifacts are the release session source of truth; raw provider streams are not included."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "Proceed from v8.8 reproduction and rollback proof to v8.9 external runtime outcome evidence and learning-loop update.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md",
+        ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "response",
+      "summary": "Runtime selected a bounded v8.9 implementation: outcome evidence plus learning-loop update, not production provider execution.",
+      "artifact_refs": [
+        "docs/v8.9-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime opened TASK-109 and generated provider outcome evidence and learning-loop audit artifacts.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-109.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "artifact_write",
+      "summary": "Outcome evidence and learning-loop schemas, commands, parser support, tests, docs, and self-hosting proof artifacts were written.",
+      "artifact_refs": [
+        "src/commands/provider-outcome-evidence-record.js",
+        "src/commands/provider-learning-loop-record.js",
+        "schemas/aof-provider-outcome-evidence-record.schema.json",
+        "schemas/aof-provider-learning-loop-record.schema.json"
+      ]
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "verification",
+      "summary": "Focused tests cover positive outcome/learning path and negative missing linked outcome failure.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-6",
+      "event_type": "blocker",
+      "summary": "No active blocker remains after parser support, outcome audit, and learning-loop audit pass; production execution remains explicitly out of scope.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-7",
+      "event_type": "stop_condition",
+      "summary": "Stop if outcome evidence or learning update is overclaimed as production provider execution, semantic truth, or market truth.",
+      "artifact_refs": [
+        "docs/v8.9-release-definition.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-109.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.9-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+      ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json"
+    ],
+    "risk_candidates": [
+      "Outcome evidence can be overclaimed as external provider truth unless not-proven boundaries are visible."
+    ],
+    "decision_candidates": [
+      "v9.0 should require operator acceptance and safety drill before controlled provider execution."
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+      ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+    ]
+  },
+  "redaction_boundary": "No secrets, credentials, raw provider responses, or external payload bodies are included.",
+  "release_ready_boundary": "Runtime-ready outcome and learning-loop evidence only; not production external execution authority.",
+  "not_proven": "Session export proves traceable release evidence only, not semantic correctness or external execution value.",
+  "source_task_id": "TASK-109",
+  "source_parent_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "source_decision_record_id": "CREV-TASK-109-V89",
+  "notes": null
+}

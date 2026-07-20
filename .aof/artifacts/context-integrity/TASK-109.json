@@ -1,0 +1,26 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRTDDIKW-KB9BQQ",
+  "recorded_at": "2026-07-20T15:18:37.904Z",
+  "work_item_id": "TASK-109",
+  "work_item_ref": ".aof/tasks/done/TASK-109.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/v8.9-release-definition.md",
+    "docs/v8.9-release-checklist.md",
+    ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json"
+  ],
+  "required_context_refs": [
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+    ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+    ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared local refs exist; it does not prove semantic truth, provider truth, or production execution safety.",
+  "source_task_id": "TASK-109",
+  "source_parent_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING"
+}

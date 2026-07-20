@@ -1,0 +1,20 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-20T15:20:30.000Z",
+  "work_item_id": "TASK-109",
+  "work_item_ref": ".aof/tasks/done/TASK-109.json",
+  "source_task_id": "TASK-109",
+  "source_parent_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/v8.9-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-109-V89.json",
+  "affected_nodes": [
+    "provider-outcome-evidence",
+    "provider-learning-loop",
+    "release-state-audit",
+    "mission-control-provider-outcome-learning"
+  ],
+  "impact_summary": "v8.9 adds outcome evidence and learning-loop update gates after approved, reproduced, and rollback-ready external runtime paths.",
+  "not_proven": "Archmap impact records describe intended architecture impact and do not prove semantic correctness, production execution, provider truth, or market value."
+}

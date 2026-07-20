@@ -1,0 +1,45 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-20T15:18:01.497Z",
+  "review_packet_id": "CREV-MRTDCQHL-IDLKDR",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v8.9 as External Runtime Outcome Evidence and Learning Loop, bounded to local outcome and learning evidence.",
+  "rationale": "The release extends v8.8 reproduction and rollback readiness with audited outcome evidence and learning-loop update evidence while explicitly excluding production provider execution and semantic truth claims.",
+  "recommendation": "Ship after release-state-audit, focused runtime tests, npm test, organization-verify, smoke, fresh clone verification, and GitHub Actions are green.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "The operator should see what changed after the approved/reproduced/rollback-ready provider path and what AOF learned, without mistaking it for production execution.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep not-proven boundaries visible in release definition and release notes."
+  ],
+  "organization_change_recommendations": [
+    "Make operator acceptance and safety drill the next frontier before controlled provider execution."
+  ],
+  "diagnosis_category": "external-runtime-outcome-learning-loop",
+  "diagnosis_confidence": 0.88,
+  "diagnosis_evidence_refs": [
+    "docs/v8.9-release-definition.md",
+    ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+    ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-109-V89.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-109-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-109-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-109-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v8.9-release-checklist.md"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-109",
+  "source_parent_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING"
+}

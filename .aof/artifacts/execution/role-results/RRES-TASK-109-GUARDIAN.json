@@ -1,0 +1,25 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-20T15:18:01.221Z",
+  "role": "Guardian",
+  "stage": "review",
+  "session_id": "SESS-V89-OUTCOME-LEARNING",
+  "status": "completed",
+  "recommendation": "Approve only if outcome audit and learning-loop audit pass and the release continues to state that semantic truth, provider truth, market truth, and production side effects are not proven.",
+  "rationale": "The new gates prevent AOF from treating preflight traceability as final value or external execution safety.",
+  "signals": [
+    "Release-state audit must include v8.9 gates and tests must cover missing linked outcome failure."
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+    ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json",
+    "test/runtime-core-2.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-109",
+  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING",
+  "source_parent_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.9
+}

@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRTDE5XA-0S2ZPU",
+  "recorded_at": "2026-07-20T15:19:08.158Z",
+  "work_item_id": "TASK-109",
+  "work_item_ref": ".aof/tasks/done/TASK-109.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-109-V89.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-109-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-109-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-109-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-109-V89.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-109.json",
+  "maker_checker_council_boundary": "Builder makes runtime commands and artifacts, Guardian checks outcome/learning boundaries, Visionary frames the external runtime value, and Council judges release readiness.",
+  "not_proven": "Multi-actor evidence proves local role separation only; it does not prove autonomous workforce scheduling, external provider value, or semantic truth.",
+  "source_task_id": "TASK-109",
+  "source_parent_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING",
+  "notes": null
+}

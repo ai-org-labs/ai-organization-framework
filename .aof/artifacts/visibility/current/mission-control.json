@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-20T10:55:33.153Z",
+  "generated_at": "2026-07-20T15:26:53.986Z",
   "mission_overview": {
-    "mission": "Ship v8.8 External Runtime Reproduction and Rollback Proof: approved external runtime actions must be reconstructable and rollback-checkable from canonical evidence before production execution claims are trusted.",
-    "release_version": "8.8.0",
-    "release_definition_ref": "docs/v8.8-release-definition.md",
-    "operating_goal": "Prepare v8.9 External Runtime Outcome Evidence and Learning Loop: connect approved/reproduced/rollback-ready external runtime actions to observed outcome evidence, acceptance or correction judgment, and learning-loop updates without claiming semantic or market truth from traceability alone.",
-    "next_value_slice": "Run a runtime-backed v8.9 direction review and open the first External Runtime Outcome Evidence and Learning Loop implementation task.",
+    "mission": "Ship v8.9 External Runtime Outcome Evidence and Learning Loop: external runtime claims must connect approval, reproduction, rollback readiness, observed outcome, and learning-loop update before they are trusted.",
+    "release_version": "8.9.0",
+    "release_definition_ref": "docs/v8.9-release-definition.md",
+    "operating_goal": "Prepare v9.0 External Runtime Operator Acceptance and Safety Drill: prove a human operator can inspect the approved, reproduced, rollback-ready, outcome, and learning chain and decide accept, stop, rollback, or escalate before controlled provider execution.",
+    "next_value_slice": "Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.9 direction review and open the first External Runtime Outcome Evidence and Learning Loop implementation task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 38,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-108.json",
+    "impact_record_count": 39,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-109.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-108",
+    "latest_work_item_id": "TASK-109",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-108.json"
+      ".aof/artifacts/archmap/impact/TASK-109.json"
     ],
     "external_refs": []
   },
@@ -455,11 +455,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 19,
+    "context_record_count": 20,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-109.json",
+        "work_item_id": "TASK-109",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared local refs exist; it does not prove semantic truth, provider truth, or production execution safety."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-108.json",
         "work_item_id": "TASK-108",
@@ -515,14 +523,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves declared references only, not semantic completeness."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-101.json",
-        "work_item_id": "TASK-101",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves declared refs are present; it does not prove provider semantic correctness, credential safety, billing safety, production write safety, or operator acceptance."
       }
     ],
     "latest_external_reference_records": [
@@ -547,12 +547,12 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-108.json",
-    "latest_work_item_id": "TASK-108",
-    "latest_recorded_at": "2026-07-20T10:45:00.000Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-109.json",
+    "latest_work_item_id": "TASK-109",
+    "latest_recorded_at": "2026-07-20T15:20:04.671Z",
     "coverage_status": "completed",
-    "total_requirements": 1,
-    "covered_count": 1,
+    "total_requirements": 2,
+    "covered_count": 2,
     "partial_count": 0,
     "blocked_count": 0,
     "at_risk_count": 0,
@@ -560,30 +560,38 @@
     "coverage_ratio": null,
     "forecast": {
       "estimated_remaining_work_items": 0,
-      "estimated_token_cost_range": "0 additional implementation work items for v8.8 after final verification",
-      "forecast_boundary": "Forecast is local runtime evidence and does not prove production safety or market value."
+      "estimated_token_cost_range": "bounded release verification only",
+      "burndown_ref": "docs/v8.9-release-checklist.md",
+      "forecast_boundary": "forecast is release governance evidence, not delivery certainty or external execution proof"
     },
-    "forecast_boundary": "Forecast is local runtime evidence and does not prove production safety or market value.",
+    "forecast_boundary": "forecast is release governance evidence, not delivery certainty or external execution proof",
     "requirements": [
       {
-        "requirement_id": "REQ-V88-REPRO-ROLLBACK",
-        "title": "Approved external runtime actions must be reconstructable and rollback-ready from canonical evidence before production execution claims are trusted.",
+        "requirement_id": "REQ-V89-001",
+        "title": "record external runtime outcome evidence",
         "status": "covered",
-        "source_ref": "docs/v8.8-release-definition.md",
-        "owner_ref": "architecture-council",
+        "source_ref": "docs/v8.9-release-definition.md",
+        "owner_ref": "builder",
         "evidence_refs": [
-          ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
-          ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
-          ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
-          ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json",
-          "test/runtime-core-2.test.js"
+          ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+        ],
+        "blocker_refs": []
+      },
+      {
+        "requirement_id": "REQ-V89-002",
+        "title": "record learning-loop update from usable outcome evidence",
+        "status": "covered",
+        "source_ref": "docs/v8.9-release-definition.md",
+        "owner_ref": "guardian",
+        "evidence_refs": [
+          ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
         ],
         "blocker_refs": []
       }
     ],
-    "not_proven": "Requirement coverage proves bounded traceability only.",
+    "not_proven": "Requirement coverage proves trace coverage only; it does not prove semantic truth, external provider execution, operator acceptance, or market value.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-108.json"
+      ".aof/artifacts/requirement-coverage/TASK-109.json"
     ]
   },
   "adoption_proof_projection": {
@@ -853,11 +861,55 @@
     ],
     "not_proven": "Provider rollback proof projection proves simulated rollback readiness only; it does not prove production rollback has executed or provider state changed safely."
   },
+  "provider_outcome_evidence_projection": {
+    "present": true,
+    "audit_ref": ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+    "audit_ok": true,
+    "outcome_count": 1,
+    "accepted_count": 1,
+    "corrected_count": 0,
+    "rollback_recommended_count": 0,
+    "blocked_count": 0,
+    "missing_boundary_count": 0,
+    "outcomes": [
+      {
+        "outcome_id": "POE-TASK-109-GITHUB-ISSUE",
+        "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        "reproduction_ref": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        "rollback_ref": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        "target_operation_ref": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "work_item_id": "TASK-107",
+        "outcome_status": "accepted",
+        "artifact_ref": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json"
+      }
+    ],
+    "not_proven": "Provider outcome evidence projection proves bounded outcome traceability only; it does not prove semantic truth, market truth, production safety, or provider correctness."
+  },
+  "provider_learning_loop_projection": {
+    "present": true,
+    "audit_ref": ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json",
+    "audit_ok": true,
+    "learning_count": 1,
+    "updated_count": 1,
+    "escalated_count": 0,
+    "blocked_count": 0,
+    "missing_boundary_count": 0,
+    "learning_updates": [
+      {
+        "learning_id": "PLL-TASK-109-GITHUB-ISSUE",
+        "outcome_ref": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "decision": "accept",
+        "update_status": "updated",
+        "artifact_ref": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json"
+      }
+    ],
+    "not_proven": "Provider learning-loop projection proves that learning was recorded from outcome evidence only; it does not prove the lesson is semantically or commercially correct."
+  },
   "provider_adapter_pilot_readiness_projection": {
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v8.8-release-definition.md",
+    "release_ref": "docs/v8.9-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -881,7 +933,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v8.8-release-definition.md",
+    "release_ref": "docs/v8.9-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -900,7 +952,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v8.8-release-definition.md",
+      "docs/v8.9-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -995,7 +1047,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-108.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-109.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1010,21 +1062,21 @@
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-108.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-109.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v8.8-release-definition.md"
+        "artifact_ref": "docs/v8.9-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-108.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-109.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-108.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-109.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
     "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json"
   }

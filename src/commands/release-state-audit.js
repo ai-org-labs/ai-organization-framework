@@ -14,6 +14,8 @@ import { providerAdapterAuditCommand } from "./provider-adapter-audit.js";
 import { providerAdapterPilotAuditCommand } from "./provider-adapter-pilot-audit.js";
 import { providerExecutionApprovalAuditCommand } from "./provider-execution-approval-audit.js";
 import { providerExecutionReproductionAuditCommand } from "./provider-execution-reproduction-audit.js";
+import { providerLearningLoopAuditCommand } from "./provider-learning-loop-audit.js";
+import { providerOutcomeEvidenceAuditCommand } from "./provider-outcome-evidence-audit.js";
 import { providerRollbackProofAuditCommand } from "./provider-rollback-proof-audit.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
@@ -206,6 +208,24 @@ function requiresProviderRollbackProofAudit(releaseVersion) {
   return major > 8 || (major === 8 && minor >= 8);
 }
 
+function requiresProviderOutcomeEvidenceAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 8 || (major === 8 && minor >= 9);
+}
+
+function requiresProviderLearningLoopAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 8 || (major === 8 && minor >= 9);
+}
+
 function requiresOperatorValidationAudit(releaseVersion) {
   const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
   if (!match) {
@@ -305,6 +325,16 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderRollbackProofAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-rollback-proof-audit", await providerRollbackProofAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderOutcomeEvidenceAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-outcome-evidence-audit", await providerOutcomeEvidenceAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderLearningLoopAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-learning-loop-audit", await providerLearningLoopAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

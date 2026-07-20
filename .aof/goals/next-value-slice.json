@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Run a runtime-backed v8.9 direction review and open the first External Runtime Outcome Evidence and Learning Loop implementation task.",
-  "updated_at": "2026-07-20T10:53:56.760Z",
+  "content": "Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task.",
+  "updated_at": "2026-07-20T15:20:46.969Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V88-REPRO-ROLLBACK",
-  "source_decision_record_id": "DEC-V88-REPRO-ROLLBACK",
+  "source_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING",
   "declared_complete_at": null
 }

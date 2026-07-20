@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-20T10:55:33.157Z",
+  "generated_at": "2026-07-20T15:26:53.991Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-108 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-108.json"
+    "summary": "TASK-109 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-109.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-108 completed: Ship v8.8 External Runtime Reproduction and Rollback Proof",
-      "artifact_ref": ".aof/tasks/done/TASK-108.json"
+      "summary": "TASK-109 completed: Ship v8.9 External Runtime Outcome Evidence and Learning Loop",
+      "artifact_ref": ".aof/tasks/done/TASK-109.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Run a runtime-backed v8.9 direction review and open the first External Runtime Outcome Evidence and Learning Loop implementation task.",
+      "summary": "Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-108 completed: Ship v8.8 External Runtime Reproduction and Rollback Proof Run a runtime-backed v8.9 direction review and open the first External Runtime Outcome Evidence and Learning Loop implementation task.",
+    "what_changed": "TASK-109 completed: Ship v8.9 External Runtime Outcome Evidence and Learning Loop Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.9 direction review and open the first External Runtime Outcome Evidence and Learning Loop implementation task."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task."
   }
 }

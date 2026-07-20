@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v8.9 External Runtime Outcome Evidence and Learning Loop: connect approved/reproduced/rollback-ready external runtime actions to observed outcome evidence, acceptance or correction judgment, and learning-loop updates without claiming semantic or market truth from traceability alone.",
-  "updated_at": "2026-07-20T10:53:56.613Z",
+  "content": "Prepare v9.0 External Runtime Operator Acceptance and Safety Drill: prove a human operator can inspect the approved, reproduced, rollback-ready, outcome, and learning chain and decide accept, stop, rollback, or escalate before controlled provider execution.",
+  "updated_at": "2026-07-20T15:20:46.831Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V88-REPRO-ROLLBACK",
-  "source_decision_record_id": "DEC-V88-REPRO-ROLLBACK",
+  "source_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING",
   "declared_complete_at": null
 }

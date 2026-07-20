@@ -1,7 +1,7 @@
 {
   "organization_type": "aof-organization",
   "organization_format_version": 1,
-  "mission": "Ship v8.8 External Runtime Reproduction and Rollback Proof: approved external runtime actions must be reconstructable and rollback-checkable from canonical evidence before production execution claims are trusted.",
+  "mission": "Ship v8.9 External Runtime Outcome Evidence and Learning Loop: external runtime claims must connect approval, reproduction, rollback readiness, observed outcome, and learning-loop update before they are trusted.",
   "project_ref": ".aof/context/active/project-orientation.json",
   "skills_ref": ".aof/skills.json",
   "capability_registry_ref": ".aof/capability-registry.json",
@@ -174,7 +174,7 @@
       "name": "Governance To Release Contract",
       "owner_team_ref": "governance-team",
       "contract_type": "release-definition",
-      "artifact_ref": "docs/v8.8-release-definition.md"
+      "artifact_ref": "docs/v8.9-release-definition.md"
     },
     {
       "contract_id": "contract-verification-to-runtime",
@@ -287,5 +287,5 @@
       "archive"
     ]
   },
-  "updated_at": "2026-07-20T10:44:33.760Z"
+  "updated_at": "2026-07-20T15:20:46.694Z"
 }

@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-20T10:55:33.153Z",
+      "at": "2026-07-20T15:26:53.986Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-20T10:55:33.147Z",
+      "at": "2026-07-20T15:26:53.978Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,14 +24,25 @@
       ]
     },
     {
-      "at": "2026-07-20T10:53:56.760Z",
+      "at": "2026-07-20T15:20:46.969Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "Run a runtime-backed v8.9 direction review and open the first External Runtime Outcome Evidence and Learning Loop implementation task.",
+      "summary": "Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
         ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-07-20T15:20:46.555Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Ship v8.9 External Runtime Outcome Evidence and Learning Loop",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-109.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-107.json"
-      ]
-    },
-    {
-      "at": "2026-07-20T06:19:08.278Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Ship v8.6 Provider Execution Approval Bridge",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-106.json"
       ]
     }
   ]

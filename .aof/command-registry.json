@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-20T10:53:56.890Z",
+  "generated_at": "2026-07-20T15:22:14.503Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2841,6 +2841,76 @@
       "detail_ref": "docs/cli-reference.md"
     },
     {
+      "command": "provider-learning-loop-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify provider learning-loop updates resolve to outcome evidence and record non-blocked learning decisions without hiding uncertainty.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider learning loop audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-learning-loop-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a provider learning-loop update that links an outcome to an accepted, corrected, rollback, escalation, or defer decision and next action.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "outcome-ref",
+        "learning-summary",
+        "decision",
+        "next-action",
+        "update-status",
+        "learning-ref",
+        "evidence-ref",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider learning loop artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
       "command": "provider-operation-target-record",
       "category": "write",
       "safety_level": "safe_local_write",
@@ -2876,6 +2946,81 @@
       ],
       "outputs": [
         "provider operation target artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-outcome-evidence-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify provider outcome evidence is linked to approval, reproduction, rollback readiness, target operation, and evidence without treating observed outcome as semantic or market truth.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider outcome evidence audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-outcome-evidence-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write bounded provider outcome evidence that links approval, reproduction, rollback readiness, target operation, observed result, verification, semantic truth boundary, and not-proven boundary.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "approval-ref",
+        "reproduction-ref",
+        "rollback-ref",
+        "target-operation-ref",
+        "work-item-id",
+        "session-ref",
+        "expected-outcome",
+        "observed-result",
+        "outcome-status",
+        "evidence-ref",
+        "verification-ref",
+        "semantic-truth-boundary",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider outcome evidence artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

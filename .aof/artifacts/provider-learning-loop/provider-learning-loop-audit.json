@@ -1,0 +1,177 @@
+{
+  "ok": true,
+  "artifact_type": "provider-learning-loop-audit",
+  "generated_at": "2026-07-20T15:15:21.109Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "learning_count": 1,
+    "updated_count": 1,
+    "escalated_count": 0,
+    "blocked_count": 0,
+    "missing_boundary_count": 0,
+    "failing_check_count": 0
+  },
+  "learning_updates": [
+    {
+      "learning_id": "PLL-TASK-109-GITHUB-ISSUE",
+      "outcome_ref": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+      "decision": "accept",
+      "update_status": "updated",
+      "artifact_ref": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider learning loop presence",
+      "status": "pass",
+      "detail": "1 learning update(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE outcome ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE learning ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE learning ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE linked outcome exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE linked outcome is usable",
+      "status": "pass",
+      "detail": "outcome_status=accepted",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE update not blocked",
+      "status": "pass",
+      "detail": "update_status=updated",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE learning summary",
+      "status": "pass",
+      "detail": "AOF can now separate external runtime approval, local reproduction, rollback readiness, observed outcome judgment, and learning-loop update instead of treating preflight traceability as final product truth.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE next action",
+      "status": "pass",
+      "detail": "Move the next frontier to operator acceptance and safety drill: a human operator must inspect the full chain and decide accept, stop, rollback, or escalate before controlled provider execution.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    },
+    {
+      "name": "PLL-TASK-109-GITHUB-ISSUE not-proven boundary",
+      "status": "pass",
+      "detail": "The learning-loop update proves governed trace update only; it does not prove external execution value, third-party usability, or semantic/market correctness.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        "docs/v8.9-release-definition.md",
+        "docs/vnext-roadmap.md",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+      ]
+    }
+  ],
+  "errors": []
+}

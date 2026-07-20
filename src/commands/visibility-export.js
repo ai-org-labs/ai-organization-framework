@@ -1178,6 +1178,70 @@ async function loadProviderRollbackProofProjection(projectRoot) {
   };
 }
 
+async function loadProviderOutcomeEvidenceProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider outcome evidence audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      outcome_count: 0,
+      accepted_count: 0,
+      corrected_count: 0,
+      rollback_recommended_count: 0,
+      blocked_count: 0,
+      missing_boundary_count: null,
+      outcomes: [],
+      not_proven: "No provider outcome evidence audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    outcome_count: audit.summary?.outcome_count ?? 0,
+    accepted_count: audit.summary?.accepted_count ?? 0,
+    corrected_count: audit.summary?.corrected_count ?? 0,
+    rollback_recommended_count: audit.summary?.rollback_recommended_count ?? 0,
+    blocked_count: audit.summary?.blocked_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    outcomes: audit.outcomes ?? [],
+    not_proven: "Provider outcome evidence projection proves bounded outcome traceability only; it does not prove semantic truth, market truth, production safety, or provider correctness."
+  };
+}
+
+async function loadProviderLearningLoopProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider learning loop audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      learning_count: 0,
+      updated_count: 0,
+      escalated_count: 0,
+      blocked_count: 0,
+      missing_boundary_count: null,
+      learning_updates: [],
+      not_proven: "No provider learning-loop audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    learning_count: audit.summary?.learning_count ?? 0,
+    updated_count: audit.summary?.updated_count ?? 0,
+    escalated_count: audit.summary?.escalated_count ?? 0,
+    blocked_count: audit.summary?.blocked_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    learning_updates: audit.learning_updates ?? [],
+    not_proven: "Provider learning-loop projection proves that learning was recorded from outcome evidence only; it does not prove the lesson is semantically or commercially correct."
+  };
+}
+
 function buildProviderAdapterPilotReadinessProjection({
   providerAdapterProjection,
   providerAdapterPilotProjection,
@@ -1481,6 +1545,8 @@ function buildMissionControl({
   providerExecutionApprovalProjection = null,
   providerExecutionReproductionProjection = null,
   providerRollbackProofProjection = null,
+  providerOutcomeEvidenceProjection = null,
+  providerLearningLoopProjection = null,
   providerAdapterPilotReadinessProjection = null,
   externalRuntimeSafetyProjection = null,
   operatorValidationProjection = null,
@@ -1764,6 +1830,31 @@ function buildMissionControl({
       rollback_proofs: [],
       not_proven: "No provider rollback proof audit artifact is present."
     },
+    provider_outcome_evidence_projection: providerOutcomeEvidenceProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+      audit_ok: null,
+      outcome_count: 0,
+      accepted_count: 0,
+      corrected_count: 0,
+      rollback_recommended_count: 0,
+      blocked_count: 0,
+      missing_boundary_count: null,
+      outcomes: [],
+      not_proven: "No provider outcome evidence audit artifact is present."
+    },
+    provider_learning_loop_projection: providerLearningLoopProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json",
+      audit_ok: null,
+      learning_count: 0,
+      updated_count: 0,
+      escalated_count: 0,
+      blocked_count: 0,
+      missing_boundary_count: null,
+      learning_updates: [],
+      not_proven: "No provider learning-loop audit artifact is present."
+    },
     provider_adapter_pilot_readiness_projection: providerAdapterPilotReadinessProjection ?? {
       present: false,
       readiness_status: "not_proven",
@@ -1825,7 +1916,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, operatorValidationProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, operatorValidationProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -1849,6 +1940,8 @@ export async function visibilityExportCommand(options) {
     loadProviderExecutionApprovalProjection(projectRoot),
     loadProviderExecutionReproductionProjection(projectRoot),
     loadProviderRollbackProofProjection(projectRoot),
+    loadProviderOutcomeEvidenceProjection(projectRoot),
+    loadProviderLearningLoopProjection(projectRoot),
     loadOperatorValidationProjection(projectRoot)
   ]);
 
@@ -1918,6 +2011,8 @@ export async function visibilityExportCommand(options) {
     providerExecutionApprovalProjection,
     providerExecutionReproductionProjection,
     providerRollbackProofProjection,
+    providerOutcomeEvidenceProjection,
+    providerLearningLoopProjection,
     providerAdapterPilotReadinessProjection,
     externalRuntimeSafetyProjection,
     operatorValidationProjection,

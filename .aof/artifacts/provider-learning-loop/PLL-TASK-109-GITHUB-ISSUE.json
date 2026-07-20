@@ -1,0 +1,23 @@
+{
+  "artifact_type": "provider-learning-loop-record",
+  "learning_id": "PLL-TASK-109-GITHUB-ISSUE",
+  "recorded_at": "2026-07-20T15:15:20.975Z",
+  "outcome_ref": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+  "learning_summary": "AOF can now separate external runtime approval, local reproduction, rollback readiness, observed outcome judgment, and learning-loop update instead of treating preflight traceability as final product truth.",
+  "decision": "accept",
+  "next_action": "Move the next frontier to operator acceptance and safety drill: a human operator must inspect the full chain and decide accept, stop, rollback, or escalate before controlled provider execution.",
+  "update_status": "updated",
+  "learning_refs": [
+    "docs/v8.9-release-definition.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+    ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+  ],
+  "not_proven": "The learning-loop update proves governed trace update only; it does not prove external execution value, third-party usability, or semantic/market correctness.",
+  "source_task_id": "TASK-109",
+  "source_parent_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING",
+  "notes": null
+}

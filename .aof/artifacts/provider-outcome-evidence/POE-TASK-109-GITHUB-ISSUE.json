@@ -1,0 +1,29 @@
+{
+  "artifact_type": "provider-outcome-evidence-record",
+  "outcome_id": "POE-TASK-109-GITHUB-ISSUE",
+  "recorded_at": "2026-07-20T15:15:20.674Z",
+  "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+  "reproduction_ref": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+  "rollback_ref": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+  "target_operation_ref": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+  "work_item_id": "TASK-107",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "expected_outcome": "The approved GitHub issue external write path is traceable through approval, reproduction, rollback readiness, and bounded outcome judgment before advancing to a learning-loop update.",
+  "observed_result": "The self-hosting runtime can reconstruct the approved TASK-107 GitHub issue preflight path, confirm rollback readiness, and record an accepted bounded outcome without executing a production provider write.",
+  "outcome_status": "accepted",
+  "evidence_refs": [
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+    ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+    ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json"
+  ],
+  "verification_refs": [
+    ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json",
+    ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+  ],
+  "semantic_truth_boundary": "Outcome evidence proves trace continuity and bounded runtime judgment only; it does not prove semantic correctness of issue content, market value, provider reliability, credential safety, or production side effects.",
+  "not_proven": "No live GitHub issue creation, provider response truth, third-party operator acceptance, billing safety, or production rollback execution is proven by this v8.9 outcome evidence.",
+  "source_task_id": "TASK-109",
+  "source_parent_session_id": "SESS-V89-OUTCOME-LEARNING",
+  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING",
+  "notes": null
+}
