@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v8.7 External Runtime Reproduction and Rollback Proof: prove that an approved external runtime action can be reconstructed, replayed, and rollback-checked from canonical evidence before any production execution claim is trusted.",
-  "updated_at": "2026-07-20T06:19:23.070Z",
+  "content": "Prepare v8.8 External Runtime Reproduction and Rollback Proof: prove that an approved external runtime action can be reconstructed, replayed, and rollback-checked from canonical evidence before any production execution claim is trusted.",
+  "updated_at": "2026-07-20T09:25:05.159Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
-  "source_decision_record_id": "CREV-TASK-106-V86",
+  "source_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": "CREV-TASK-107-V87",
   "declared_complete_at": null
 }

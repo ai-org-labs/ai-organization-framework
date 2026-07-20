@@ -1,0 +1,17 @@
+{
+  "artifact_type": "provider-operation-target-record",
+  "target_id": "POT-TASK-107-GITHUB-ISSUE",
+  "recorded_at": "2026-07-20T07:41:30.739Z",
+  "provider": "github",
+  "resource": "ai-org-labs/ai-organization-framework",
+  "operation": "create_issue",
+  "endpoint": "/repos/ai-org-labs/ai-organization-framework/issues",
+  "payload_hash": "sha256:v87-github-issue-create-preflight",
+  "payload_summary": "Create one GitHub issue describing the bounded external execution reproduction proof request.",
+  "maximum_calls": 1,
+  "expires_at": "2026-12-31T00:00:00.000Z",
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": null,
+  "notes": null
+}

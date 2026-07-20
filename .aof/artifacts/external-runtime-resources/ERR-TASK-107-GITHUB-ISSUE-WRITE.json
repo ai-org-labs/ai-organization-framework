@@ -1,0 +1,25 @@
+{
+  "artifact_type": "external-runtime-resource-record",
+  "resource_id": "ERR-TASK-107-GITHUB-ISSUE-WRITE",
+  "recorded_at": "2026-07-20T07:39:06.726Z",
+  "resource_kind": "provider",
+  "display_name": "GitHub issue write provider preflight",
+  "canonical_ref": "https://github.com/ai-org-labs/ai-organization-framework/issues",
+  "source_system": "github",
+  "owner_ref": "runtime-team",
+  "source_of_truth": "GitHub repository issues API",
+  "permission_boundary": "Only one bounded issue creation may be considered, and only after human approval record, target hash, scoped credential, budget, rollback, and stop conditions resolve.",
+  "freshness_boundary": "Target operation expires and must be regenerated before use.",
+  "availability_boundary": "No live provider call is made in this v8.7 proof.",
+  "approval_boundary": "Independent human-approval-record required before external_write can be authorized.",
+  "side_effect_boundary": "Would create at most one GitHub issue matching the approved payload hash.",
+  "allowed_operations": [
+    "external_write"
+  ],
+  "readiness_status": "ready",
+  "not_proven": "This resource record is ready only as bounded preflight governance evidence. It does not prove live GitHub execution safety, credential validity, provider output correctness, billing safety, or rollback execution success.",
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": "CREV-TASK-107-V87",
+  "notes": "Preflight boundary is ready; live provider execution remains out of scope for v8.7."
+}

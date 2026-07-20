@@ -1,0 +1,56 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRSX002E-BQBQNC",
+  "recorded_at": "2026-07-20T07:40:13.526Z",
+  "session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MRSX002E-2QCAHS",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-20T07:40:13.525Z",
+      "summary": "Created v8.7 approval authenticity and adapter capability alignment evidence.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-107.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.7-approval-authenticity.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "docs/v8.7-approval-authenticity.md"
+    ]
+  },
+  "risk_candidates": [
+    "read-only adapters must not receive external_write authorization"
+  ],
+  "decision_candidates": [
+    "separate human approval records from council review packets"
+  ],
+  "release_ready_evidence": {
+    "claim": "v8.7 approval authenticity chain is structurally test-covered.",
+    "evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "verdict": "structurally_ready"
+  },
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": null
+}

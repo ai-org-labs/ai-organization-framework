@@ -1,11 +1,11 @@
 {
   "ok": true,
   "artifact_type": "external-resource-audit",
-  "generated_at": "2026-07-18T17:45:54.354Z",
+  "generated_at": "2026-07-20T09:31:21.473Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "resource_count": 2,
-    "ready_resource_count": 2,
+    "resource_count": 3,
+    "ready_resource_count": 3,
     "use_count": 1,
     "approved_or_not_required_use_count": 1,
     "blocked_use_count": 0,
@@ -21,6 +21,16 @@
       "readiness_status": "ready",
       "allowed_operations": [
         "read"
+      ]
+    },
+    {
+      "resource_id": "ERR-TASK-107-GITHUB-ISSUE-WRITE",
+      "resource_kind": "provider",
+      "display_name": "GitHub issue write provider preflight",
+      "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "readiness_status": "ready",
+      "allowed_operations": [
+        "external_write"
       ]
     },
     {
@@ -49,9 +59,10 @@
     {
       "name": "external runtime resource presence",
       "status": "pass",
-      "detail": "2 resource(s) found",
+      "detail": "3 resource(s) found",
       "evidence_refs": [
         ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
         ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
       ]
     },
@@ -141,6 +152,86 @@
       "detail": "source_task_id=TASK-100, source_parent_session_id=SESS-V80-EXTERNAL-RESOURCE-RUNTIME",
       "evidence_refs": [
         ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE source-of-truth boundary",
+      "status": "pass",
+      "detail": "GitHub repository issues API",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE permission boundary",
+      "status": "pass",
+      "detail": "Only one bounded issue creation may be considered, and only after human approval record, target hash, scoped credential, budget, rollback, and stop conditions resolve.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE freshness boundary",
+      "status": "pass",
+      "detail": "Target operation expires and must be regenerated before use.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE availability boundary",
+      "status": "pass",
+      "detail": "No live provider call is made in this v8.7 proof.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE approval boundary",
+      "status": "pass",
+      "detail": "Independent human-approval-record required before external_write can be authorized.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE side-effect boundary",
+      "status": "pass",
+      "detail": "Would create at most one GitHub issue matching the approved payload hash.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE allowed operations",
+      "status": "pass",
+      "detail": "external_write",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE readiness status",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE not-proven boundary",
+      "status": "pass",
+      "detail": "This resource record is ready only as bounded preflight governance evidence. It does not prove live GitHub execution safety, credential validity, provider output correctness, billing safety, or rollback execution success.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-107, source_parent_session_id=SESS-V87-APPROVAL-AUTHENTICITY",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
       ]
     },
     {

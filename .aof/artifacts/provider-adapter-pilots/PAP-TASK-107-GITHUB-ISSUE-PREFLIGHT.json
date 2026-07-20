@@ -1,0 +1,43 @@
+{
+  "artifact_type": "provider-adapter-pilot-record",
+  "pilot_id": "PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT",
+  "recorded_at": "2026-07-20T09:10:36.344Z",
+  "adapter_ref": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+  "work_item_id": "TASK-107",
+  "work_item_ref": ".aof/tasks/done/TASK-107.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "pilot_mode": "approved_write_simulation",
+  "approval_status": "approved",
+  "approval_ref": ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+  "expected_external_effect": "Would create exactly one GitHub issue matching payload hash sha256:v87-github-issue-create-preflight.",
+  "allowed_actions": [
+    "simulate approved GitHub issue creation payload locally",
+    "bind approval to provider operation target hash"
+  ],
+  "denied_actions": [
+    "execute live GitHub create_issue in v8.7 preflight",
+    "billing, secret, deploy, dangerous, or irreversible operation"
+  ],
+  "redaction_boundary": "No credential, token, raw private payload, or provider response body is persisted.",
+  "rollback_plan": "If later execution creates the issue, rollback is delete_created_issue and must be recorded as a separate artifact.",
+  "provenance_refs": [
+    ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+    ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+    ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json"
+  ],
+  "verification_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v8.7-approval-authenticity.md"
+  ],
+  "stop_conditions": [
+    "stop if target payload hash changes",
+    "stop if human approval is revoked or expired",
+    "stop if adapter operation modes do not include external_write"
+  ],
+  "execution_status": "simulated",
+  "not_proven": "This pilot proves bounded approval preflight only, not live GitHub execution safety or rollback success.",
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": null,
+  "notes": null
+}

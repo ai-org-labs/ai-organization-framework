@@ -45,6 +45,8 @@ import { providerAdapterPilotRecordCommand } from "../src/commands/provider-adap
 import { providerAdapterRecordCommand } from "../src/commands/provider-adapter-record.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
+import { humanApprovalRecordCommand } from "../src/commands/human-approval-record.js";
+import { providerOperationTargetRecordCommand } from "../src/commands/provider-operation-target-record.js";
 import { requirementCoverageAuditCommand } from "../src/commands/requirement-coverage-audit.js";
 import { requirementCoverageRecordCommand } from "../src/commands/requirement-coverage-record.js";
 import { sessionExportAuditCommand } from "../src/commands/session-export-audit.js";
@@ -3079,6 +3081,34 @@ test("providerExecutionApproval commands write bounded approval bridge evidence 
     sourceParentSessionId: "SESS-APPROVAL"
   });
   const pilotRef = path.relative(projectRoot, pilotResult.artifactPath).replaceAll(path.sep, "/");
+  const targetResult = await providerOperationTargetRecordCommand({
+    project: projectRoot,
+    targetId: "POT-TEST-APPROVAL",
+    provider: "github",
+    resource: "ai-org-labs/example",
+    operation: "create_issue",
+    endpoint: "/repos/ai-org-labs/example/issues",
+    payloadHash: "sha256:test-approval-payload",
+    payloadSummary: "Create one bounded fixture issue with fixed title/body hash.",
+    maximumCalls: 1,
+    expiresAt: "2026-12-31T00:00:00.000Z",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-APPROVAL"
+  });
+  const targetRef = path.relative(projectRoot, targetResult.artifactPath).replaceAll(path.sep, "/");
+  const humanApprovalResult = await humanApprovalRecordCommand({
+    project: projectRoot,
+    approvalId: "HAPR-TEST-APPROVAL",
+    approverId: "user:test-operator",
+    decision: "approved",
+    approvedScopeHash: "sha256:test-approval-payload",
+    authenticationMethod: "local-test-explicit-approval",
+    revocationStatus: "active",
+    targetOperationRef: targetRef,
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-APPROVAL"
+  });
+  const humanApprovalRef = path.relative(projectRoot, humanApprovalResult.artifactPath).replaceAll(path.sep, "/");
 
   await providerExecutionApprovalRecordCommand({
     project: projectRoot,
@@ -3091,7 +3121,8 @@ test("providerExecutionApproval commands write bounded approval bridge evidence 
     approvalDecision: "approved",
     approvedExecutionMode: "bounded_external_write",
     externalWriteAuthorized: true,
-    humanApprovalRef: "docs/approval.md",
+    humanApprovalRef,
+    targetOperationRef: targetRef,
     executionScope: "Only the approved fixture provider target may be mutated.",
     allowedOperations: ["external_write"],
     deniedOperations: ["dangerous operation", "billing operation", "secret access", "deploy", "irreversible production mutation"],
@@ -3100,7 +3131,10 @@ test("providerExecutionApproval commands write bounded approval bridge evidence 
     rollbackPlan: "Revert the approved fixture target and record the rollback artifact.",
     credentialBoundary: "No credentials are read by the bridge; execution must receive credentials separately after approval.",
     budgetBoundary: "No billable operation is executed by this bridge.",
-    provenanceRefs: [pilotRef, adapterRef, "docs/approval.md"],
+    credentialScope: ["issues:write"],
+    budget: { currency: "USD", maximum: 0 },
+    rollback: { operation: "delete_created_issue", supported: true, artifact_ref: null },
+    provenanceRefs: [pilotRef, adapterRef, humanApprovalRef, targetRef],
     verificationRefs: ["docs/approval-verification.md"],
     stopConditions: ["stop if scope changes", "stop if rollback cannot be executed"],
     productionExecutionStatus: "preflight_approved",
@@ -3235,6 +3269,155 @@ test("providerExecutionApprovalAuditCommand fails external write approval withou
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("human approval ref resolves")));
   assert.ok(audit.summary.errors.some((entry) => entry.includes("external write approval decision")));
+});
+
+test("providerExecutionApprovalAuditCommand fails external write approval against a read-only adapter", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "adapter-policy.md"), "# Adapter Policy\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "approval-verification.md"), "# Approval Verification\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Unsafe read-only adapter approval",
+    description: "Fixture task for adapter capability alignment failure.",
+    origin: "human"
+  });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "agent-sessions"), { recursive: true });
+  await fs.writeFile(
+    path.join(projectRoot, ".aof", "artifacts", "agent-sessions", "SESS-READONLY-APPROVAL.json"),
+    JSON.stringify({ artifact_type: "fixture-session", session_id: "SESS-READONLY-APPROVAL" }, null, 2),
+    "utf8"
+  );
+
+  const resourceResult = await externalRuntimeResourceRecordCommand({
+    project: projectRoot,
+    resourceId: "ERR-TEST-READONLY-APPROVAL",
+    resourceKind: "provider",
+    displayName: "Read-only approval provider",
+    canonicalRef: "https://example.invalid/provider",
+    sourceSystem: "example",
+    ownerRef: "runtime-team",
+    sourceOfTruth: "fixture provider boundary",
+    permissionBoundary: "read-only fixture",
+    freshnessBoundary: "freshness checked by policy",
+    availabilityBoundary: "local test artifact",
+    approvalBoundary: "read does not require approval",
+    sideEffectBoundary: "no external write allowed",
+    allowedOperations: ["read"],
+    readinessStatus: "ready",
+    notProven: "This fixture does not prove provider write safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-READONLY-APPROVAL"
+  });
+  const resourceRef = path.relative(projectRoot, resourceResult.artifactPath).replaceAll(path.sep, "/");
+  const adapterResult = await providerAdapterRecordCommand({
+    project: projectRoot,
+    adapterId: "PAD-TEST-READONLY-APPROVAL",
+    displayName: "Read-only approval adapter",
+    providerRef: "docs/adapter-policy.md",
+    resourceRef,
+    adapterKind: "read_only",
+    operationModes: ["read"],
+    readAuthorityBoundary: "Adapter may read fixture metadata.",
+    writeAuthorityBoundary: "Adapter has no write authority.",
+    freshnessCheck: "Policy fixture is local and current.",
+    approvalPolicyRef: "docs/adapter-policy.md",
+    sideEffectBoundary: "No external side effects are allowed.",
+    escalationRequiredFor: [],
+    readinessStatus: "ready",
+    notProven: "Adapter readiness does not prove write safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-READONLY-APPROVAL"
+  });
+  const adapterRef = path.relative(projectRoot, adapterResult.artifactPath).replaceAll(path.sep, "/");
+  const pilotResult = await providerAdapterPilotRecordCommand({
+    project: projectRoot,
+    pilotId: "PAP-TEST-READONLY-APPROVAL",
+    adapterRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: ".aof/artifacts/agent-sessions/SESS-READONLY-APPROVAL.json",
+    pilotMode: "dry_run",
+    approvalStatus: "not_required",
+    expectedExternalEffect: "No external write; read-only adapter cannot mutate provider state.",
+    allowedActions: ["read provider metadata"],
+    deniedActions: ["external write"],
+    redactionBoundary: "No secrets are included.",
+    rollbackPlan: "No external side effect exists.",
+    provenanceRefs: [adapterRef, "docs/adapter-policy.md"],
+    verificationRefs: ["docs/approval-verification.md"],
+    stopConditions: ["stop if external write is requested"],
+    executionStatus: "simulated",
+    notProven: "Read-only pilot does not prove write safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-READONLY-APPROVAL"
+  });
+  const pilotRef = path.relative(projectRoot, pilotResult.artifactPath).replaceAll(path.sep, "/");
+  const targetResult = await providerOperationTargetRecordCommand({
+    project: projectRoot,
+    targetId: "POT-TEST-READONLY-APPROVAL",
+    provider: "github",
+    resource: "ai-org-labs/example",
+    operation: "create_issue",
+    endpoint: "/repos/ai-org-labs/example/issues",
+    payloadHash: "sha256:readonly-approval-payload",
+    payloadSummary: "Create one issue, which a read-only adapter cannot do.",
+    maximumCalls: 1,
+    expiresAt: "2026-12-31T00:00:00.000Z",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-READONLY-APPROVAL"
+  });
+  const targetRef = path.relative(projectRoot, targetResult.artifactPath).replaceAll(path.sep, "/");
+  const humanApprovalResult = await humanApprovalRecordCommand({
+    project: projectRoot,
+    approvalId: "HAPR-TEST-READONLY-APPROVAL",
+    approverId: "user:test-operator",
+    decision: "approved",
+    approvedScopeHash: "sha256:readonly-approval-payload",
+    authenticationMethod: "local-test-explicit-approval",
+    revocationStatus: "active",
+    targetOperationRef: targetRef,
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-READONLY-APPROVAL"
+  });
+  const humanApprovalRef = path.relative(projectRoot, humanApprovalResult.artifactPath).replaceAll(path.sep, "/");
+  await providerExecutionApprovalRecordCommand({
+    project: projectRoot,
+    approvalId: "PEA-TEST-READONLY-APPROVAL",
+    pilotRef,
+    adapterRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: ".aof/artifacts/agent-sessions/SESS-READONLY-APPROVAL.json",
+    approvalDecision: "approved",
+    approvedExecutionMode: "bounded_external_write",
+    externalWriteAuthorized: true,
+    humanApprovalRef,
+    targetOperationRef: targetRef,
+    executionScope: "Attempt to create one fixture issue.",
+    allowedOperations: ["external_write"],
+    deniedOperations: ["dangerous operation", "billing operation", "secret access", "deploy", "irreversible production mutation"],
+    sideEffectBoundary: "Only approved fixture issue creation would be allowed if adapter supported it.",
+    redactionBoundary: "No secrets are included.",
+    rollbackPlan: "Delete created issue if execution occurs.",
+    credentialBoundary: "Use scoped issue credential only.",
+    budgetBoundary: "No billable operation.",
+    credentialScope: ["issues:write"],
+    budget: { currency: "USD", maximum: 0 },
+    rollback: { operation: "delete_created_issue", supported: true, artifact_ref: null },
+    provenanceRefs: [pilotRef, adapterRef, humanApprovalRef, targetRef],
+    verificationRefs: ["docs/approval-verification.md"],
+    stopConditions: ["stop if adapter is read-only"],
+    productionExecutionStatus: "preflight_approved",
+    notProven: "This fixture intentionally proves adapter capability mismatch detection.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-READONLY-APPROVAL"
+  });
+
+  const audit = await providerExecutionApprovalAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("allowed operations align with adapter capability")));
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("adapter supports external write")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

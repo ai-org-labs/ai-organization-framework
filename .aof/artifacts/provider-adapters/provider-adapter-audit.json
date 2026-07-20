@@ -1,17 +1,27 @@
 {
   "ok": true,
   "artifact_type": "provider-adapter-audit",
-  "generated_at": "2026-07-18T17:57:48.778Z",
+  "generated_at": "2026-07-20T09:31:16.655Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "adapter_count": 1,
-    "ready_adapter_count": 1,
-    "write_capable_adapter_count": 0,
+    "adapter_count": 2,
+    "ready_adapter_count": 2,
+    "write_capable_adapter_count": 1,
     "blocked_adapter_count": 0,
     "missing_boundary_count": 0,
     "failing_check_count": 0
   },
   "adapters": [
+    {
+      "adapter_id": "PAD-TASK-107-GITHUB-ISSUE-WRITE",
+      "display_name": "GitHub issue write adapter preflight",
+      "adapter_kind": "external_write",
+      "operation_modes": [
+        "external_write"
+      ],
+      "readiness_status": "ready",
+      "artifact_ref": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json"
+    },
     {
       "adapter_id": "PAD-V81-SELF-HOSTING-READ",
       "display_name": "AOF v8.1 self-hosting read adapter",
@@ -27,9 +37,140 @@
     {
       "name": "provider adapter presence",
       "status": "pass",
-      "detail": "1 adapter(s) found",
+      "detail": "2 adapter(s) found",
       "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
         ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE provider ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7-approval-authenticity.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE resource ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE approval policy ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7-approval-authenticity.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE external resource is audited",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE read boundary",
+      "status": "pass",
+      "detail": "Adapter may inspect the approved operation target and issue payload hash only.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE write boundary",
+      "status": "pass",
+      "detail": "Adapter may not execute unless approval audit passes and a later execution command receives scoped credentials.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE freshness check",
+      "status": "pass",
+      "detail": "Reject if target_operation.expires_at has passed or payload hash changes.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE side-effect boundary",
+      "status": "pass",
+      "detail": "At most one GitHub issue creation matching the approved payload hash.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE readiness status",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE not-proven boundary",
+      "status": "pass",
+      "detail": "Adapter capability alignment is ready only as bounded preflight governance evidence. It does not prove live GitHub execution safety, credential validity, provider output correctness, billing safety, or rollback execution success.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-107, source_parent_session_id=SESS-V87-APPROVAL-AUTHENTICITY",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE operation modes allowed by resource",
+      "status": "pass",
+      "detail": "external_write",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PAD-TASK-107-GITHUB-ISSUE-WRITE write modes require escalation",
+      "status": "pass",
+      "detail": "all write-capable modes are escalation-bound",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "docs/v8.7-approval-authenticity.md"
       ]
     },
     {

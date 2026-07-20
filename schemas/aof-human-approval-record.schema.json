@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-human-approval-record.schema.json",
+  "title": "AOF Human Approval Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "approval_id",
+    "recorded_at",
+    "approver_type",
+    "approver_id",
+    "decision",
+    "approved_scope_hash",
+    "approved_at",
+    "authentication_method",
+    "revocation_status",
+    "target_operation_ref",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "human-approval-record" },
+    "approval_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "approver_type": { "type": "string", "enum": ["human"] },
+    "approver_id": { "type": "string", "minLength": 1 },
+    "decision": { "type": "string", "enum": ["approved", "rejected", "revoked"] },
+    "approved_scope_hash": { "type": "string", "minLength": 1 },
+    "approved_at": { "type": "string", "format": "date-time" },
+    "authentication_method": { "type": "string", "minLength": 1 },
+    "revocation_status": { "type": "string", "enum": ["active", "revoked", "expired"] },
+    "target_operation_ref": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-20T06:11:27.374Z",
+  "generated_at": "2026-07-20T09:24:27.473Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -1582,6 +1582,43 @@
       "detail_ref": "docs/cli-reference.md"
     },
     {
+      "command": "human-approval-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write an explicit human approval artifact with approver identity, approved scope hash, authentication method, active revocation status, and target operation linkage.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "approver-id",
+        "decision",
+        "approved-scope-hash",
+        "authentication-method",
+        "target-operation-ref",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "human approval artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
       "command": "init",
       "category": "execute",
       "safety_level": "project_write",
@@ -2701,6 +2738,7 @@
         "session-ref",
         "approval-decision",
         "approved-execution-mode",
+        "target-operation-ref",
         "execution-scope",
         "allowed-operation",
         "denied-operation",
@@ -2709,6 +2747,9 @@
         "rollback-plan",
         "credential-boundary",
         "budget-boundary",
+        "credential-scope",
+        "budget-json",
+        "rollback-json",
         "provenance-ref",
         "verification-ref",
         "stop-condition",
@@ -2720,6 +2761,45 @@
       ],
       "outputs": [
         "provider execution approval artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-operation-target-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write the concrete provider operation target that approval is bound to, including provider, resource, operation, payload hash, maximum calls, and expiration.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "provider",
+        "resource",
+        "operation",
+        "payload-hash",
+        "payload-summary",
+        "maximum-calls",
+        "expires-at",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider operation target artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

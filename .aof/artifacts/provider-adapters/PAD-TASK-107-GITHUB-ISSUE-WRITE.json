@@ -1,0 +1,26 @@
+{
+  "artifact_type": "provider-adapter-record",
+  "adapter_id": "PAD-TASK-107-GITHUB-ISSUE-WRITE",
+  "recorded_at": "2026-07-20T07:39:25.860Z",
+  "display_name": "GitHub issue write adapter preflight",
+  "provider_ref": "docs/v8.7-approval-authenticity.md",
+  "resource_ref": ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+  "adapter_kind": "external_write",
+  "operation_modes": [
+    "external_write"
+  ],
+  "read_authority_boundary": "Adapter may inspect the approved operation target and issue payload hash only.",
+  "write_authority_boundary": "Adapter may not execute unless approval audit passes and a later execution command receives scoped credentials.",
+  "freshness_check": "Reject if target_operation.expires_at has passed or payload hash changes.",
+  "approval_policy_ref": "docs/v8.7-approval-authenticity.md",
+  "side_effect_boundary": "At most one GitHub issue creation matching the approved payload hash.",
+  "escalation_required_for": [
+    "external_write"
+  ],
+  "readiness_status": "ready",
+  "not_proven": "Adapter capability alignment is ready only as bounded preflight governance evidence. It does not prove live GitHub execution safety, credential validity, provider output correctness, billing safety, or rollback execution success.",
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": "CREV-TASK-107-V87",
+  "notes": "Preflight boundary is ready; live provider execution remains out of scope for v8.7."
+}

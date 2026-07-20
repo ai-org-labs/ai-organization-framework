@@ -1,13 +1,13 @@
 {
   "ok": true,
   "artifact_type": "provider-execution-approval-audit",
-  "generated_at": "2026-07-20T06:24:24.354Z",
+  "generated_at": "2026-07-20T09:36:44.665Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "approval_count": 1,
+    "approval_count": 2,
     "approved_count": 1,
     "pending_count": 0,
-    "blocked_count": 0,
+    "blocked_count": 1,
     "external_write_authorized_count": 1,
     "production_executed_count": 0,
     "missing_boundary_count": 0,
@@ -19,20 +19,32 @@
       "pilot_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       "adapter_ref": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       "work_item_id": "TASK-106",
+      "approval_decision": "blocked",
+      "approved_execution_mode": "read_only",
+      "external_write_authorized": false,
+      "production_execution_status": "blocked",
+      "artifact_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+    },
+    {
+      "approval_id": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT",
+      "pilot_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "adapter_ref": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "work_item_id": "TASK-107",
       "approval_decision": "approved",
       "approved_execution_mode": "bounded_external_write",
       "external_write_authorized": true,
       "production_execution_status": "preflight_approved",
-      "artifact_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+      "artifact_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
     }
   ],
   "checks": [
     {
       "name": "provider execution approval presence",
       "status": "pass",
-      "detail": "1 approval(s) found",
+      "detail": "2 approval(s) found",
       "evidence_refs": [
-        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
       ]
     },
     {
@@ -252,6 +264,24 @@
       ]
     },
     {
+      "name": "PEA-TASK-106-V86-PREFLIGHT allowed operations align with adapter capability",
+      "status": "pass",
+      "detail": "adapter.operation_modes=read",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
       "name": "PEA-TASK-106-V86-PREFLIGHT execution scope",
       "status": "pass",
       "detail": "Future provider side-effect execution may proceed only for a separately approved bounded provider target; this v8.6 record is preflight evidence and executes no provider call.",
@@ -380,7 +410,7 @@
     {
       "name": "PEA-TASK-106-V86-PREFLIGHT not-proven boundary",
       "status": "pass",
-      "detail": "The approval bridge proves bounded preflight authorization only; it does not prove production provider execution safety, credential safety, billing safety, provider output correctness, or autonomous external execution.",
+      "detail": "The v8.6 bridge artifact is retained as a corrected blocked preflight because the linked adapter is read-only and the original council review is not an independent human approval record. It does not authorize external writes.",
       "evidence_refs": [
         ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
         ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
@@ -416,127 +446,837 @@
     {
       "name": "PEA-TASK-106-V86-PREFLIGHT production not executed by bridge",
       "status": "pass",
+      "detail": "production_execution_status=blocked",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-106-V86-PREFLIGHT non-write bridge does not claim approval",
+      "status": "pass",
+      "detail": "approved_execution_mode=read_only",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-106.json",
+        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+        "docs/v8.6-release-definition.md",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.6-release-checklist.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT pilot ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT adapter ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-107.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT target operation ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT provenance ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT provenance ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT provenance ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT provenance ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT verification ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT verification ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7-approval-authenticity.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT linked pilot exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT linked adapter exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT pilot adapter alignment",
+      "status": "pass",
+      "detail": "pilot.adapter_ref=.aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json, approval.adapter_ref=.aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT allowed operations align with adapter capability",
+      "status": "pass",
+      "detail": "adapter.operation_modes=external_write",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT execution scope",
+      "status": "pass",
+      "detail": "Exactly one GitHub create_issue operation for ai-org-labs/ai-organization-framework matching payload hash sha256:v87-github-issue-create-preflight; no other provider target, payload, credential scope, or operation is approved.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT side-effect boundary",
+      "status": "pass",
+      "detail": "At most one issue creation matching the approved payload hash; no live call occurs in this preflight.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT redaction boundary",
+      "status": "pass",
+      "detail": "No credentials, tokens, raw private payload, or provider response bodies are persisted.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT rollback plan",
+      "status": "pass",
+      "detail": "If later execution creates the issue, rollback operation is delete_created_issue and must be verified by a separate rollback artifact.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT credential boundary",
+      "status": "pass",
+      "detail": "Only a scoped GitHub issues:write credential may be used by a later execution command; this bridge does not read credentials.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT budget boundary",
+      "status": "pass",
+      "detail": "Maximum approved budget is USD 0 and maximum provider calls is 1.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT stop conditions",
+      "status": "pass",
+      "detail": "stop if approved scope hash changes, stop if human approval is revoked or expired, stop if adapter capability no longer includes external_write, stop if rollback support is not available",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT not-proven boundary",
+      "status": "pass",
+      "detail": "This approval bridge proves only bounded preflight authorization; it does not prove live GitHub execution, credential validity, provider correctness, rollback success, or autonomous external execution safety.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-107, source_parent_session_id=SESS-V87-APPROVAL-AUTHENTICITY",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT production not executed by bridge",
+      "status": "pass",
       "detail": "production_execution_status=preflight_approved",
       "evidence_refs": [
-        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
-        ".aof/tasks/done/TASK-106.json",
-        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
-        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
-        "docs/v8.6-release-definition.md",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
         "test/runtime-core-2.test.js",
-        "docs/v8.6-release-checklist.md"
+        "docs/v8.7-approval-authenticity.md"
       ]
     },
     {
-      "name": "PEA-TASK-106-V86-PREFLIGHT human approval ref resolves",
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT human approval ref resolves",
       "status": "pass",
-      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
+      "detail": ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
       "evidence_refs": [
-        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
-        ".aof/tasks/done/TASK-106.json",
-        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
-        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
-        "docs/v8.6-release-definition.md",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
         "test/runtime-core-2.test.js",
-        "docs/v8.6-release-checklist.md"
+        "docs/v8.7-approval-authenticity.md"
       ]
     },
     {
-      "name": "PEA-TASK-106-V86-PREFLIGHT external write approval decision",
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT human approval record authenticity",
+      "status": "pass",
+      "detail": "approver_type=human",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT human approval decision active",
+      "status": "pass",
+      "detail": "decision=approved, revocation_status=active",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT target operation presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT human approval target alignment",
+      "status": "pass",
+      "detail": "human.target_operation_ref=.aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json, approval.target_operation_ref=.aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT human approval scope hash alignment",
+      "status": "pass",
+      "detail": "human.approved_scope_hash=sha256:v87-github-issue-create-preflight, target.payload_hash=sha256:v87-github-issue-create-preflight",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT external write approval decision",
       "status": "pass",
       "detail": "approval_decision=approved",
       "evidence_refs": [
-        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
-        ".aof/tasks/done/TASK-106.json",
-        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
-        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
-        "docs/v8.6-release-definition.md",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
         "test/runtime-core-2.test.js",
-        "docs/v8.6-release-checklist.md"
+        "docs/v8.7-approval-authenticity.md"
       ]
     },
     {
-      "name": "PEA-TASK-106-V86-PREFLIGHT bounded external write mode",
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT bounded external write mode",
       "status": "pass",
       "detail": "approved_execution_mode=bounded_external_write",
       "evidence_refs": [
-        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
-        ".aof/tasks/done/TASK-106.json",
-        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
-        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
-        "docs/v8.6-release-definition.md",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
         "test/runtime-core-2.test.js",
-        "docs/v8.6-release-checklist.md"
+        "docs/v8.7-approval-authenticity.md"
       ]
     },
     {
-      "name": "PEA-TASK-106-V86-PREFLIGHT external write explicitly allowed",
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT external write explicitly allowed",
       "status": "pass",
       "detail": "external_write",
       "evidence_refs": [
-        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
-        ".aof/tasks/done/TASK-106.json",
-        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
-        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
-        "docs/v8.6-release-definition.md",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
         "test/runtime-core-2.test.js",
-        "docs/v8.6-release-checklist.md"
+        "docs/v8.7-approval-authenticity.md"
       ]
     },
     {
-      "name": "PEA-TASK-106-V86-PREFLIGHT dangerous operations denied",
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT adapter supports external write",
+      "status": "pass",
+      "detail": "adapter.operation_modes=external_write",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT credential scope structured",
+      "status": "pass",
+      "detail": "issues:write",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT budget structured",
+      "status": "pass",
+      "detail": "USD 0",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT rollback structured and supported",
+      "status": "pass",
+      "detail": "delete_created_issue, supported=true",
+      "evidence_refs": [
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-approval-authenticity.md"
+      ]
+    },
+    {
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT dangerous operations denied",
       "status": "pass",
       "detail": "dangerous operation, billing operation, secret access, deploy, irreversible production mutation",
       "evidence_refs": [
-        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
-        ".aof/tasks/done/TASK-106.json",
-        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
-        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
-        "docs/v8.6-release-definition.md",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
         "test/runtime-core-2.test.js",
-        "docs/v8.6-release-checklist.md"
+        "docs/v8.7-approval-authenticity.md"
       ]
     },
     {
-      "name": "PEA-TASK-106-V86-PREFLIGHT preflight only",
+      "name": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT preflight only",
       "status": "pass",
       "detail": "production_execution_status=preflight_approved",
       "evidence_refs": [
-        ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
-        ".aof/tasks/done/TASK-106.json",
-        ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
-        ".aof/artifacts/execution/council-reviews/CREV-TASK-106-V86.json",
-        "docs/v8.6-release-definition.md",
-        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
-        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
         "test/runtime-core-2.test.js",
-        "docs/v8.6-release-checklist.md"
+        "docs/v8.7-approval-authenticity.md"
       ]
     }
   ],

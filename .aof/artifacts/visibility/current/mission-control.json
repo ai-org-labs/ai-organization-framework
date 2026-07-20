@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-20T06:25:07.314Z",
+  "generated_at": "2026-07-20T09:36:49.997Z",
   "mission_overview": {
-    "mission": "Ship v8.6 Provider Execution Approval Bridge: require bounded approval, scope, redaction, rollback, credential, budget, provenance, verification, and stop conditions before any real provider side effect is treated as authorized.",
-    "release_version": "8.6.0",
-    "release_definition_ref": "docs/v8.6-release-definition.md",
-    "operating_goal": "Prepare v8.7 External Runtime Reproduction and Rollback Proof: prove that an approved external runtime action can be reconstructed, replayed, and rollback-checked from canonical evidence before any production execution claim is trusted.",
-    "next_value_slice": "Run a runtime-backed v8.7 direction review before opening the first External Runtime Reproduction and Rollback Proof implementation task.",
+    "mission": "Ship v8.7 Approval Authenticity and Adapter Capability Alignment: correct v8.6 approval bridge overclaim and require adapter capability, independent human approval, concrete target, structured credential/budget/rollback, and stop conditions before external-write authorization.",
+    "release_version": "8.7.0",
+    "release_definition_ref": "docs/v8.7-release-definition.md",
+    "operating_goal": "Prepare v8.8 External Runtime Reproduction and Rollback Proof: prove that an approved external runtime action can be reconstructed, replayed, and rollback-checked from canonical evidence before any production execution claim is trusted.",
+    "next_value_slice": "Run a runtime-backed v8.8 direction review and open the first External Runtime Reproduction and Rollback Proof implementation task.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.7 direction review before opening the first External Runtime Reproduction and Rollback Proof implementation task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.8 direction review and open the first External Runtime Reproduction and Rollback Proof implementation task.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 36,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-106.json",
+    "impact_record_count": 37,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-107.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-106",
+    "latest_work_item_id": "TASK-107",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-106.json"
+      ".aof/artifacts/archmap/impact/TASK-107.json"
     ],
     "external_refs": []
   },
@@ -399,94 +399,52 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 22,
-    "latest_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json",
+    "stream_count": 23,
+    "latest_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
     "latest_actor_ref": "codex",
-    "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-20T06:12:00.000Z",
-    "latest_event_count": 4,
-    "latest_release_verdict": "runtime_ready",
+    "latest_role_ref": "builder",
+    "latest_recorded_at": "2026-07-20T07:40:13.526Z",
+    "latest_event_count": 1,
+    "latest_release_verdict": "structurally_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/open/TASK-106.json"
+      ".aof/tasks/done/TASK-107.json"
     ],
     "linked_requirement_refs": [
-      "docs/v8.6-release-definition.md"
+      "docs/v8.7-approval-authenticity.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js"
     ],
     "linked_artifact_refs": [
-      "schemas/aof-provider-execution-approval-record.schema.json",
-      "schemas/aof-provider-execution-approval-audit.schema.json",
-      "src/commands/provider-execution-approval-record.js",
-      "src/commands/provider-execution-approval-audit.js",
-      ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+      "docs/v8.7-approval-authenticity.md"
     ],
     "risk_candidates": [
-      "preflight approval could be mistaken for proof of production execution safety"
+      "read-only adapters must not receive external_write authorization"
     ],
     "decision_candidates": [
-      "provider-execution-approval-audit is a v8.6 release gate"
+      "separate human approval records from council review packets"
     ],
     "latest_events": [
       {
-        "event_type": "prompt",
-        "summary": "Operator advanced AOF to v8.6 after v8.5.1 release-surface cleanup.",
-        "occurred_at": "2026-07-20T06:07:01.160Z",
+        "event_type": "tool_call",
+        "summary": "Created v8.7 approval authenticity and adapter capability alignment evidence.",
+        "occurred_at": "2026-07-20T07:40:13.525Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
-        "artifact_refs": [
-          ".aof/tasks/open/TASK-106.json"
-        ]
-      },
-      {
-        "event_type": "tool_call",
-        "summary": "Ran situation-assess and opened TASK-106 through AOF runtime.",
-        "occurred_at": "2026-07-20T06:07:01.160Z",
-        "tool_name": "situation-assess / task-open",
-        "safety_level": "safe_local_write",
-        "approval_policy": "allowed",
-        "artifact_refs": [
-          ".aof/goals/next-value-slice.json",
-          ".aof/tasks/open/TASK-106.json"
-        ]
-      },
-      {
-        "event_type": "artifact_write",
-        "summary": "Implemented Provider Execution Approval Bridge as a preflight governance boundary, not production provider execution.",
-        "occurred_at": "2026-07-20T06:09:04.634Z",
-        "tool_name": null,
-        "safety_level": "project_write",
-        "approval_policy": "allowed",
-        "artifact_refs": [
-          "docs/v8.6-release-definition.md",
-          "schemas/aof-provider-execution-approval-record.schema.json",
-          "src/commands/provider-execution-approval-audit.js"
-        ]
-      },
-      {
-        "event_type": "verification_result",
-        "summary": "provider-execution-approval-audit passed with one approved preflight bridge and zero production executions.",
-        "occurred_at": "2026-07-20T06:09:18.380Z",
-        "tool_name": "provider-execution-approval-audit",
-        "safety_level": "safe_local_write",
-        "approval_policy": "allowed",
-        "artifact_refs": [
-          ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
-        ]
+        "artifact_refs": []
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "Ran situation-assess and opened TASK-106 through AOF runtime.",
-        "tool_name": "situation-assess / task-open",
-        "safety_level": "safe_local_write",
-        "approval_policy": "allowed"
+        "summary": "Created v8.7 approval authenticity and adapter capability alignment evidence.",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null
       }
     ]
   },
@@ -497,11 +455,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 17,
+    "context_record_count": 18,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-107.json",
+        "work_item_id": "TASK-107",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared reference availability only, not live provider execution, provider correctness, credential safety, billing safety, or rollback execution success."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-106.json",
         "work_item_id": "TASK-106",
@@ -557,14 +523,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves declared refs are present; it does not prove external semantic correctness or operator acceptance."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-099.json",
-        "work_item_id": "TASK-099",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves TASK-099 direction evidence is present; it does not prove implementation completeness, external provider execution, semantic truth, or operator acceptance."
       }
     ],
     "latest_external_reference_records": [
@@ -589,9 +547,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-106.json",
-    "latest_work_item_id": "TASK-106",
-    "latest_recorded_at": "2026-07-20T06:18:09.149Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-107.json",
+    "latest_work_item_id": "TASK-107",
+    "latest_recorded_at": "2026-07-20T09:22:00.000Z",
     "coverage_status": "completed",
     "total_requirements": 1,
     "covered_count": 1,
@@ -602,34 +560,34 @@
     "coverage_ratio": null,
     "forecast": {
       "estimated_remaining_work_items": 0,
-      "estimated_token_cost_range": "0 additional implementation work items for v8.6 after final verification",
-      "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, production safety, or market value."
+      "estimated_token_cost_range": "0 additional implementation work items for v8.7 after final verification",
+      "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, live provider execution, rollback execution, or market value."
     },
-    "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, production safety, or market value.",
+    "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, live provider execution, rollback execution, or market value.",
     "requirements": [
       {
-        "requirement_id": "REQ-V86-PROVIDER-EXECUTION-APPROVAL-BRIDGE",
-        "title": "Provider execution approval bridge must gate any real provider side effect before execution.",
+        "requirement_id": "REQ-V87-APPROVAL-AUTHENTICITY",
+        "title": "External-write preflight approval must require adapter capability alignment, independent human approval, concrete target binding, credential scope, budget, rollback, and stop boundaries.",
         "status": "covered",
-        "source_ref": "docs/v8.6-release-definition.md",
+        "source_ref": "docs/v8.7-release-definition.md",
         "owner_ref": "architecture-council",
         "evidence_refs": [
-          ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json",
+          ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+          ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+          ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
           ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
-          ".aof/artifacts/visibility/current/mission-control.json",
+          "schemas/aof-provider-operation-target-record.schema.json",
+          "schemas/aof-human-approval-record.schema.json",
           "schemas/aof-provider-execution-approval-record.schema.json",
-          "schemas/aof-provider-execution-approval-audit.schema.json",
-          "src/commands/provider-execution-approval-record.js",
           "src/commands/provider-execution-approval-audit.js",
-          "test/runtime-core-2.test.js",
-          "test/runtime-situation.test.js"
+          "test/runtime-core-2.test.js"
         ],
         "blocker_refs": []
       }
     ],
-    "not_proven": "Requirement coverage proves bounded traceability only, not production provider execution safety or semantic correctness.",
+    "not_proven": "Requirement coverage proves bounded traceability only, not live provider execution safety or semantic correctness.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-106.json"
+      ".aof/artifacts/requirement-coverage/TASK-107.json"
     ]
   },
   "adoption_proof_projection": {
@@ -705,8 +663,8 @@
     "present": true,
     "audit_ref": ".aof/artifacts/external-resources/external-resource-audit.json",
     "audit_ok": true,
-    "resource_count": 2,
-    "ready_resource_count": 2,
+    "resource_count": 3,
+    "ready_resource_count": 3,
     "use_count": 1,
     "approved_or_not_required_use_count": 1,
     "blocked_use_count": 0,
@@ -720,6 +678,16 @@
         "readiness_status": "ready",
         "allowed_operations": [
           "read"
+        ]
+      },
+      {
+        "resource_id": "ERR-TASK-107-GITHUB-ISSUE-WRITE",
+        "resource_kind": "provider",
+        "display_name": "GitHub issue write provider preflight",
+        "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "readiness_status": "ready",
+        "allowed_operations": [
+          "external_write"
         ]
       },
       {
@@ -750,12 +718,22 @@
     "present": true,
     "audit_ref": ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
     "audit_ok": true,
-    "adapter_count": 1,
-    "ready_adapter_count": 1,
-    "write_capable_adapter_count": 0,
+    "adapter_count": 2,
+    "ready_adapter_count": 2,
+    "write_capable_adapter_count": 1,
     "blocked_adapter_count": 0,
     "missing_boundary_count": 0,
     "adapters": [
+      {
+        "adapter_id": "PAD-TASK-107-GITHUB-ISSUE-WRITE",
+        "display_name": "GitHub issue write adapter preflight",
+        "adapter_kind": "external_write",
+        "operation_modes": [
+          "external_write"
+        ],
+        "readiness_status": "ready",
+        "artifact_ref": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json"
+      },
       {
         "adapter_id": "PAD-V81-SELF-HOSTING-READ",
         "display_name": "AOF v8.1 self-hosting read adapter",
@@ -773,10 +751,10 @@
     "present": true,
     "audit_ref": ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
     "audit_ok": true,
-    "pilot_count": 1,
-    "ready_pilot_count": 1,
+    "pilot_count": 2,
+    "ready_pilot_count": 2,
     "blocked_pilot_count": 0,
-    "external_write_pilot_count": 0,
+    "external_write_pilot_count": 1,
     "missing_boundary_count": 0,
     "pilots": [
       {
@@ -787,6 +765,15 @@
         "approval_status": "not_required",
         "execution_status": "simulated",
         "artifact_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+      },
+      {
+        "pilot_id": "PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT",
+        "adapter_ref": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "work_item_id": "TASK-107",
+        "pilot_mode": "approved_write_simulation",
+        "approval_status": "approved",
+        "execution_status": "simulated",
+        "artifact_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
       }
     ],
     "not_proven": "Provider adapter pilot projection is dry-run/default-deny governance evidence; it does not prove production execution safety, credential safety, billing safety, or semantic provider correctness."
@@ -795,10 +782,10 @@
     "present": true,
     "audit_ref": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
     "audit_ok": true,
-    "approval_count": 1,
+    "approval_count": 2,
     "approved_count": 1,
     "pending_count": 0,
-    "blocked_count": 0,
+    "blocked_count": 1,
     "external_write_authorized_count": 1,
     "production_executed_count": 0,
     "missing_boundary_count": 0,
@@ -808,11 +795,22 @@
         "pilot_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
         "adapter_ref": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
         "work_item_id": "TASK-106",
+        "approval_decision": "blocked",
+        "approved_execution_mode": "read_only",
+        "external_write_authorized": false,
+        "production_execution_status": "blocked",
+        "artifact_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+      },
+      {
+        "approval_id": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT",
+        "pilot_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        "adapter_ref": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+        "work_item_id": "TASK-107",
         "approval_decision": "approved",
         "approved_execution_mode": "bounded_external_write",
         "external_write_authorized": true,
         "production_execution_status": "preflight_approved",
-        "artifact_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+        "artifact_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
       }
     ],
     "not_proven": "Provider execution approval projection is preflight governance evidence; it does not prove production execution happened, provider correctness, billing safety, or credential safety."
@@ -820,15 +818,18 @@
   "provider_adapter_pilot_readiness_projection": {
     "present": true,
     "readiness_status": "ready",
-    "readiness_summary": "Provider adapter pilot evidence is present, bounded, and default-deny.",
-    "release_ref": "docs/v8.6-release-definition.md",
+    "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
+    "release_ref": "docs/v8.7-release-definition.md",
     "pilot_refs": [
-      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
     ],
     "evidence_refs": [
       ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
-      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+      ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
     ],
     "governance_action": "allow-dry-run-pilot-claim",
     "default_mode_boundary": "Provider adapter execution pilots are dry-run/default-deny unless an explicit approval artifact authorizes a narrower mode.",
@@ -838,17 +839,19 @@
   },
   "external_runtime_safety_projection": {
     "present": true,
-    "safety_status": "governance_boundary_ready",
+    "safety_status": "blocked",
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
-    "safety_summary": "Externalized runtime governance boundary evidence is present and no blocking boundary is active. Production external execution safety is not proven.",
-    "release_ref": "docs/v8.6-release-definition.md",
+    "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
+    "release_ref": "docs/v8.7-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
+      ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
     ],
     "resource_refs": [
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+      ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
       ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
     ],
@@ -859,9 +862,11 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v8.6-release-definition.md",
+      "docs/v8.7-release-definition.md",
+      ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+      ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
       ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
     ],
@@ -886,13 +891,13 @@
       {
         "check_id": "provider-adapter-boundary",
         "status": "pass",
-        "summary": "1 ready adapter(s), 0 write-capable adapter(s).",
+        "summary": "2 ready adapter(s), 1 write-capable adapter(s).",
         "evidence_ref": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
       },
       {
         "check_id": "provider-adapter-pilot-boundary",
         "status": "pass",
-        "summary": "1 ready pilot(s), 0 write-mode pilot(s).",
+        "summary": "2 ready pilot(s), 1 write-mode pilot(s).",
         "evidence_ref": ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json"
       },
       {
@@ -952,7 +957,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-106.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-107.json"
       },
       {
         "source_id": "adoption-proof",
@@ -962,27 +967,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-106.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-107.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v8.6-release-definition.md"
+        "artifact_ref": "docs/v8.7-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-106.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-107.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-106.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-107.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json"
   }
 }

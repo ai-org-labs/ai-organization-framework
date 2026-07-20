@@ -1,0 +1,37 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-107-V87",
+  "recorded_at": "2026-07-20T09:21:00.000Z",
+  "work_item_id": "TASK-107",
+  "work_item_ref": ".aof/tasks/done/TASK-107.json",
+  "readiness_status": "ready",
+  "goal": "Ship v8.7 Approval Authenticity and Adapter Capability Alignment.",
+  "risk": "AOF could treat approval-shaped evidence as permission for external write even when the adapter is read-only or the human approval is not authentic.",
+  "loss_boundary": "No v8.7 release claim unless external-write approval requires adapter capability, independent human approval, concrete target, credential scope, budget, rollback, and stop boundaries.",
+  "acceptance_gates": [
+    "provider-operation-target-record writes concrete target evidence",
+    "human-approval-record writes independent human approval evidence",
+    "provider-execution-approval-audit rejects read-only adapter external-write overclaims",
+    "v8.6 overclaim is corrected to blocked/read-only on main"
+  ],
+  "evidence_plan": [
+    "approval authenticity docs, target record, human approval record, approval audit, focused tests, release-state audit, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if Council review is treated as human approval",
+    "stop if read-only adapter can authorize external_write",
+    "stop if production execution safety is implied",
+    "stop if release-state-audit fails"
+  ],
+  "qif_refs": [
+    "docs/v8.7-release-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": null
+}

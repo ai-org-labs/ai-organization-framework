@@ -1,0 +1,65 @@
+{
+  "artifact_type": "provider-execution-approval-record",
+  "approval_id": "PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT",
+  "recorded_at": "2026-07-20T09:11:06.134Z",
+  "pilot_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+  "adapter_ref": ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+  "work_item_id": "TASK-107",
+  "work_item_ref": ".aof/tasks/done/TASK-107.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "approval_decision": "approved",
+  "approved_execution_mode": "bounded_external_write",
+  "external_write_authorized": true,
+  "human_approval_ref": ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+  "execution_scope": "Exactly one GitHub create_issue operation for ai-org-labs/ai-organization-framework matching payload hash sha256:v87-github-issue-create-preflight; no other provider target, payload, credential scope, or operation is approved.",
+  "target_operation_ref": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+  "allowed_operations": [
+    "external_write"
+  ],
+  "denied_operations": [
+    "dangerous operation",
+    "billing operation",
+    "secret access",
+    "deploy",
+    "irreversible production mutation"
+  ],
+  "side_effect_boundary": "At most one issue creation matching the approved payload hash; no live call occurs in this preflight.",
+  "redaction_boundary": "No credentials, tokens, raw private payload, or provider response bodies are persisted.",
+  "rollback_plan": "If later execution creates the issue, rollback operation is delete_created_issue and must be verified by a separate rollback artifact.",
+  "credential_boundary": "Only a scoped GitHub issues:write credential may be used by a later execution command; this bridge does not read credentials.",
+  "budget_boundary": "Maximum approved budget is USD 0 and maximum provider calls is 1.",
+  "credential_scope": [
+    "issues:write"
+  ],
+  "budget": {
+    "currency": "USD",
+    "maximum": 0
+  },
+  "rollback": {
+    "operation": "delete_created_issue",
+    "supported": true,
+    "artifact_ref": null
+  },
+  "provenance_refs": [
+    ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+    ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
+    ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+    ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json"
+  ],
+  "verification_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v8.7-approval-authenticity.md"
+  ],
+  "stop_conditions": [
+    "stop if approved scope hash changes",
+    "stop if human approval is revoked or expired",
+    "stop if adapter capability no longer includes external_write",
+    "stop if rollback support is not available"
+  ],
+  "production_execution_status": "preflight_approved",
+  "not_proven": "This approval bridge proves only bounded preflight authorization; it does not prove live GitHub execution, credential validity, provider correctness, rollback success, or autonomous external execution safety.",
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": null,
+  "notes": null
+}

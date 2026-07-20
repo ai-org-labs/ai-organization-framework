@@ -1119,6 +1119,7 @@ async function loadProviderExecutionApprovalProjection(projectRoot) {
 function buildProviderAdapterPilotReadinessProjection({
   providerAdapterProjection,
   providerAdapterPilotProjection,
+  providerExecutionApprovalProjection,
   roadmapStatus
 }) {
   const missingEvidence = [
@@ -1128,6 +1129,7 @@ function buildProviderAdapterPilotReadinessProjection({
   const blockedPilotCount = providerAdapterPilotProjection?.blocked_pilot_count ?? 0;
   const missingBoundaryCount = providerAdapterPilotProjection?.missing_boundary_count ?? 0;
   const externalWritePilotCount = providerAdapterPilotProjection?.external_write_pilot_count ?? 0;
+  const externalWriteAuthorizedCount = providerExecutionApprovalProjection?.external_write_authorized_count ?? 0;
   const auditOk = Boolean(providerAdapterProjection?.audit_ok && providerAdapterPilotProjection?.audit_ok);
   let readinessStatus = "ready";
   let governanceAction = "allow-dry-run-pilot-claim";
@@ -1140,10 +1142,12 @@ function buildProviderAdapterPilotReadinessProjection({
     readinessStatus = "blocked";
     governanceAction = "block-provider-pilot-readiness-claim";
     readinessSummary = "Provider adapter pilot readiness is blocked by failed audits, blocked pilots, or missing boundaries.";
-  } else if (externalWritePilotCount > 0) {
+  } else if (externalWritePilotCount > 0 && externalWriteAuthorizedCount < externalWritePilotCount) {
     readinessStatus = "needs_approval";
     governanceAction = "require-explicit-operator-approval-before-any-external-write-pilot";
-    readinessSummary = `${externalWritePilotCount} write-mode pilot(s) require explicit approval evidence.`;
+    readinessSummary = `${externalWritePilotCount} write-mode pilot(s) require explicit approval evidence; ${externalWriteAuthorizedCount} have bounded preflight authorization.`;
+  } else if (externalWritePilotCount > 0) {
+    readinessSummary = `${externalWritePilotCount} write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.`;
   }
 
   return {
@@ -1155,6 +1159,7 @@ function buildProviderAdapterPilotReadinessProjection({
     evidence_refs: [
       providerAdapterProjection?.audit_ref,
       providerAdapterPilotProjection?.audit_ref,
+      providerExecutionApprovalProjection?.audit_ref,
       ...(providerAdapterPilotProjection?.pilots ?? []).map((pilot) => pilot.artifact_ref)
     ].filter(Boolean),
     governance_action: governanceAction,
@@ -1222,31 +1227,39 @@ function buildExternalRuntimeSafetyProjection({
   );
 
   let safetyStatus = "governance_boundary_ready";
+  let governanceBoundaryStatus = "governance_boundary_ready";
   let productionExecutionSafetyStatus = "not_proven";
   let governanceAction = "operator-review-allowed";
   let safetySummary = "Externalized runtime governance boundary evidence is present and no blocking boundary is active. Production external execution safety is not proven.";
   if (missingEvidence.length > 0) {
     safetyStatus = "not_proven";
+    governanceBoundaryStatus = "not_proven";
     governanceAction = "collect-missing-safety-evidence";
     safetySummary = `Missing safety evidence: ${missingEvidence.join(", ")}.`;
   } else if (staleCount > 0) {
     safetyStatus = "stale";
+    governanceBoundaryStatus = "stale";
     governanceAction = "refresh-external-reference-evidence";
     safetySummary = `${staleCount} external reference integrity record(s) are stale.`;
-  } else if (!auditOk || blockedCount > 0 || missingBoundaryCount > 0) {
+  } else if (!auditOk || missingBoundaryCount > 0) {
     safetyStatus = "blocked";
+    governanceBoundaryStatus = "blocked";
     governanceAction = "block-externalized-execution-claim";
     safetySummary = "Externalized runtime safety is blocked by failed audits, blocked states, or missing boundaries.";
   } else if (approvalGapCount > 0) {
     safetyStatus = "needs_approval";
+    governanceBoundaryStatus = "needs_approval";
     governanceAction = "request-operator-approval-before-advance";
     safetySummary = `${approvalGapCount} external resource use(s) require approval before externalized execution can advance.`;
+  } else if (blockedCount > 0) {
+    safetyStatus = "blocked";
+    safetySummary = `${blockedCount} contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.`;
   }
 
   return {
     present: missingEvidence.length === 0,
     safety_status: safetyStatus,
-    governance_boundary_status: safetyStatus,
+    governance_boundary_status: governanceBoundaryStatus,
     production_execution_safety_status: productionExecutionSafetyStatus,
     safety_summary: safetySummary,
     release_ref: roadmapStatus?.roadmap_refs?.current_release_definition ?? null,
@@ -1783,6 +1796,7 @@ export async function visibilityExportCommand(options) {
   const providerAdapterPilotReadinessProjection = buildProviderAdapterPilotReadinessProjection({
     providerAdapterProjection,
     providerAdapterPilotProjection,
+    providerExecutionApprovalProjection,
     roadmapStatus
   });
   const evidenceCompletenessProjection = buildEvidenceCompletenessProjection({

@@ -1,0 +1,114 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-107-V87",
+  "recorded_at": "2026-07-20T09:22:10.000Z",
+  "work_item_id": "TASK-107",
+  "work_item_ref": ".aof/tasks/done/TASK-107.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "unspecified",
+    "source_format": "aof-runtime-artifacts",
+    "source_of_truth_boundary": "AOF runtime artifacts are the session source of truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "Proceed with v8.7 after review found v8.6 external-write approval overclaim.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-107.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "response",
+      "summary": "Scope v8.7 to approval authenticity and adapter capability alignment before reproduction or rollback proof.",
+      "artifact_refs": [
+        "docs/v8.7-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "tool_call",
+      "summary": "AOF runtime commands opened and completed TASK-107, refreshed release state, regenerated command registry, and executed provider execution approval audit.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-107.json",
+        ".aof/context/active/active-release-manifest.json",
+        ".aof/command-registry.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "artifact_write",
+      "summary": "Target operation, human approval, approval audit, schemas, CLI commands, tests, and release docs were written.",
+      "artifact_refs": [
+        "src/commands/provider-operation-target-record.js",
+        "src/commands/human-approval-record.js",
+        "src/commands/provider-execution-approval-audit.js",
+        "test/runtime-core-2.test.js",
+        "docs/v8.7-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "verification",
+      "summary": "Focused runtime tests validate positive v8.7 preflight and read-only adapter external-write rejection.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-6",
+      "event_type": "blocker",
+      "summary": "No active TASK-107 blocker remains except final full release verification at record time.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-7",
+      "event_type": "stop_condition",
+      "summary": "Stop if external-write authorization can pass without adapter capability, human approval authenticity, concrete target, credential scope, budget, rollback, and explicit not-proven boundaries.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "docs/v8.7-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-107.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.7-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+      ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+      ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    ],
+    "risk_candidates": [
+      "Approval-shaped records can overclaim external-write authority unless adapter capability and human approval authenticity are audited."
+    ],
+    "decision_candidates": [
+      "v8.7 is release evidence only when it remains preflight-only and does not claim live provider execution."
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    ]
+  },
+  "redaction_boundary": "No secrets, credentials, or external provider payload bodies are included.",
+  "release_ready_boundary": "Runtime-ready approval authenticity only; not autonomous execution authority.",
+  "not_proven": "Session export proves reconstructability only.",
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": "CREV-TASK-107-V87",
+  "notes": null
+}

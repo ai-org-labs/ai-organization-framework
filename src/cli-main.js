@@ -121,7 +121,9 @@ Usage:
   aof provider-adapter-audit [--project <path>] [--write-artifact <path>]
   aof provider-adapter-pilot-record --project <path> --adapter-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> --pilot-mode <dry_run|read_only|approved_write_simulation|approved_external_write> --approval-status <not_required|approved|pending|rejected> [--approval-ref <path>] --expected-external-effect "<text>" --allowed-action "<text>" [--allowed-action "<text>"] --denied-action "<text>" [--denied-action "<text>"] --redaction-boundary "<text>" --rollback-plan "<text>" --provenance-ref <path> [--provenance-ref <path>] --verification-ref <path> [--verification-ref <path>] --stop-condition "<text>" [--stop-condition "<text>"] --execution-status <planned|simulated|executed|blocked|skipped> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-adapter-pilot-audit [--project <path>] [--write-artifact <path>]
-  aof provider-execution-approval-record --project <path> --pilot-ref <path> --adapter-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> --approval-decision <approved|pending|rejected|blocked> --approved-execution-mode <dry_run|read_only|bounded_external_write> [--external-write-authorized] [--human-approval-ref <path>] --execution-scope "<text>" --allowed-operation <read|local_write|external_write|dangerous> [--allowed-operation <...>] --denied-operation "<text>" [--denied-operation "<text>"] --side-effect-boundary "<text>" --redaction-boundary "<text>" --rollback-plan "<text>" --credential-boundary "<text>" --budget-boundary "<text>" --provenance-ref <path> [--provenance-ref <path>] --verification-ref <path> [--verification-ref <path>] --stop-condition "<text>" [--stop-condition "<text>"] --production-execution-status <not_executed|preflight_approved|blocked|executed> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof provider-operation-target-record --project <path> --provider <name> --resource <ref> --operation <name> --payload-hash <hash> --payload-summary "<text>" --maximum-calls <n> --expires-at <date-time> --source-task-id <TASK-id> --source-parent-session-id <id> [--endpoint <path>] [--write-artifact <path>]
+  aof human-approval-record --project <path> --approver-id <id> --decision <approved|rejected|revoked> --approved-scope-hash <hash> --authentication-method "<text>" --target-operation-ref <path> --source-task-id <TASK-id> --source-parent-session-id <id> [--revocation-status <active|revoked|expired>] [--write-artifact <path>]
+  aof provider-execution-approval-record --project <path> --pilot-ref <path> --adapter-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> --approval-decision <approved|pending|rejected|blocked> --approved-execution-mode <dry_run|read_only|bounded_external_write> [--external-write-authorized] [--human-approval-ref <path>] [--target-operation-ref <path>] --execution-scope "<text>" --allowed-operation <read|local_write|external_write|dangerous> [--allowed-operation <...>] --denied-operation "<text>" [--denied-operation "<text>"] --side-effect-boundary "<text>" --redaction-boundary "<text>" --rollback-plan "<text>" --credential-boundary "<text>" --budget-boundary "<text>" [--credential-scope "<text>"] [--budget-json '<json>'] [--rollback-json '<json>'] --provenance-ref <path> [--provenance-ref <path>] --verification-ref <path> [--verification-ref <path>] --stop-condition "<text>" [--stop-condition "<text>"] --production-execution-status <not_executed|preflight_approved|blocked|executed> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-execution-approval-audit [--project <path>] [--write-artifact <path>]
   aof operator-validation-record --project <path> --operator-ref <ref> --feedback-source <human_operator|adopter|expert_reviewer|self_hosting_operator|simulated_operator> --release-ref <ref> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --evidence-ref <path> [--evidence-ref <path>] --understanding-outcome <understood|partially_understood|not_understood|needs_clarification|not_checked> --reproduction-outcome <reproduced|partially_reproduced|not_reproduced|needs_clarification|not_checked> --acceptance-outcome <accepted|accepted_with_residual_risk|rejected|needs_clarification|not_checked> --feedback-summary "<text>" [--blocking-reason "<text>"] --governance-action <none|request_clarification|request_reproduction|block_release_claim|escalate_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-validation-audit [--project <path>] [--write-artifact <path>]
@@ -1374,6 +1376,41 @@ function parseArgs(argv) {
                 project: ".",
                 artifactPath: ""
               }
+          : command === "provider-operation-target-record"
+            ? {
+                project: ".",
+                targetId: "",
+                provider: "",
+                resource: "",
+                operation: "",
+                endpoint: "",
+                payloadHash: "",
+                payloadSummary: "",
+                maximumCalls: 1,
+                expiresAt: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "human-approval-record"
+            ? {
+                project: ".",
+                approvalId: "",
+                approverId: "",
+                decision: "approved",
+                approvedScopeHash: "",
+                approvedAt: "",
+                authenticationMethod: "",
+                revocationStatus: "active",
+                targetOperationRef: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
           : command === "provider-execution-approval-record"
             ? {
                 project: ".",
@@ -1387,6 +1424,7 @@ function parseArgs(argv) {
                 approvedExecutionMode: "dry_run",
                 externalWriteAuthorized: false,
                 humanApprovalRef: "",
+                targetOperationRef: "",
                 executionScope: "",
                 allowedOperations: [],
                 deniedOperations: [],
@@ -1395,6 +1433,9 @@ function parseArgs(argv) {
                 rollbackPlan: "",
                 credentialBoundary: "",
                 budgetBoundary: "",
+                credentialScope: [],
+                budget: { currency: "none", maximum: 0 },
+                rollback: { operation: "not_defined", supported: false, artifact_ref: null },
                 provenanceRefs: [],
                 verificationRefs: [],
                 stopConditions: [],
@@ -3062,6 +3103,11 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--target-id") {
+      options.targetId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--approval-id") {
       options.approvalId = rest[i + 1] ?? "";
       i += 1;
@@ -3223,6 +3269,15 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--decision") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --decision.");
+      }
+      options.decision = value;
+      i += 1;
+      continue;
+    }
     if (part === "--approved-execution-mode") {
       const value = rest[i + 1];
       if (!value) {
@@ -3238,6 +3293,76 @@ function parseArgs(argv) {
     }
     if (part === "--human-approval-ref") {
       options.humanApprovalRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--target-operation-ref") {
+      options.targetOperationRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--approver-id") {
+      options.approverId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--approved-scope-hash") {
+      options.approvedScopeHash = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--approved-at") {
+      options.approvedAt = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--authentication-method") {
+      options.authenticationMethod = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--revocation-status") {
+      options.revocationStatus = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--provider") {
+      options.provider = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--resource") {
+      options.resource = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--operation") {
+      options.operation = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--endpoint") {
+      options.endpoint = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--payload-hash") {
+      options.payloadHash = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--payload-summary") {
+      options.payloadSummary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--maximum-calls") {
+      options.maximumCalls = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--expires-at") {
+      options.expiresAt = rest[i + 1] ?? "";
       i += 1;
       continue;
     }
@@ -3374,6 +3499,33 @@ function parseArgs(argv) {
     }
     if (part === "--budget-boundary") {
       options.budgetBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--credential-scope") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --credential-scope.");
+      }
+      options.credentialScope.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--budget-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --budget-json.");
+      }
+      options.budget = JSON.parse(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--rollback-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --rollback-json.");
+      }
+      options.rollback = JSON.parse(value);
       i += 1;
       continue;
     }
@@ -6282,6 +6434,63 @@ function parseArgs(argv) {
       if (!Array.isArray(values) || values.length === 0) {
         throw new Error(`At least one ${flag} is required for \`provider-execution-approval-record\`.`);
       }
+    }
+    if (options.externalWriteAuthorized) {
+      if (!options.humanApprovalRef) {
+        throw new Error("Missing --human-approval-ref for external-write `provider-execution-approval-record`.");
+      }
+      if (!options.targetOperationRef) {
+        throw new Error("Missing --target-operation-ref for external-write `provider-execution-approval-record`.");
+      }
+      if (!Array.isArray(options.credentialScope) || options.credentialScope.length === 0) {
+        throw new Error("At least one --credential-scope is required for external-write `provider-execution-approval-record`.");
+      }
+      if (!options.budget || typeof options.budget !== "object") {
+        throw new Error("Missing --budget-json for external-write `provider-execution-approval-record`.");
+      }
+      if (!options.rollback || typeof options.rollback !== "object") {
+        throw new Error("Missing --rollback-json for external-write `provider-execution-approval-record`.");
+      }
+    }
+  }
+
+  if (command === "provider-operation-target-record") {
+    for (const [flag, value] of [
+      ["--provider", options.provider],
+      ["--resource", options.resource],
+      ["--operation", options.operation],
+      ["--payload-hash", options.payloadHash],
+      ["--payload-summary", options.payloadSummary],
+      ["--maximum-calls", options.maximumCalls],
+      ["--expires-at", options.expiresAt],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`provider-operation-target-record\`.`);
+      }
+    }
+  }
+
+  if (command === "human-approval-record") {
+    for (const [flag, value] of [
+      ["--approver-id", options.approverId],
+      ["--decision", options.decision],
+      ["--approved-scope-hash", options.approvedScopeHash],
+      ["--authentication-method", options.authenticationMethod],
+      ["--target-operation-ref", options.targetOperationRef],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`human-approval-record\`.`);
+      }
+    }
+    if (!["approved", "rejected", "revoked"].includes(options.decision)) {
+      throw new Error("Invalid --decision for `human-approval-record`.");
+    }
+    if (!["active", "revoked", "expired"].includes(options.revocationStatus)) {
+      throw new Error("Invalid --revocation-status for `human-approval-record`.");
     }
   }
 

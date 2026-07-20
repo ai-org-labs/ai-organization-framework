@@ -1,0 +1,51 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-107-V87",
+  "recorded_at": "2026-07-20T09:22:00.000Z",
+  "work_item_id": "TASK-107",
+  "work_item_ref": ".aof/tasks/done/TASK-107.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V87-APPROVAL-AUTHENTICITY",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v8.7-release-definition.md",
+      "title": "External-write preflight approval must require adapter capability alignment, independent human approval, concrete target binding, credential scope, budget, rollback, and stop boundaries.",
+      "owner_ref": "architecture-council",
+      "acceptance_boundary": "provider-execution-approval-audit passes with the corrected v8.6 blocked record and the bounded v8.7 preflight approval; read-only adapter external-write overclaim fails focused regression coverage.",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-107.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+        "schemas/aof-provider-operation-target-record.schema.json",
+        "schemas/aof-human-approval-record.schema.json",
+        "schemas/aof-provider-execution-approval-record.schema.json",
+        "src/commands/provider-execution-approval-audit.js",
+        "test/runtime-core-2.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 1,
+    "covered_count": 1,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "0 additional implementation work items for v8.7 after final verification",
+    "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, live provider execution, rollback execution, or market value."
+  },
+  "not_proven": "Requirement coverage proves bounded traceability only, not live provider execution safety or semantic correctness.",
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": "CREV-TASK-107-V87",
+  "notes": null
+}

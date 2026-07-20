@@ -17,6 +17,7 @@
     "approved_execution_mode",
     "external_write_authorized",
     "execution_scope",
+    "target_operation_ref",
     "allowed_operations",
     "denied_operations",
     "side_effect_boundary",
@@ -24,6 +25,9 @@
     "rollback_plan",
     "credential_boundary",
     "budget_boundary",
+    "credential_scope",
+    "budget",
+    "rollback",
     "provenance_refs",
     "verification_refs",
     "stop_conditions",
@@ -52,6 +56,7 @@
     "external_write_authorized": { "type": "boolean" },
     "human_approval_ref": { "type": ["string", "null"] },
     "execution_scope": { "type": "string", "minLength": 1 },
+    "target_operation_ref": { "type": ["string", "null"], "minLength": 1 },
     "allowed_operations": {
       "type": "array",
       "minItems": 1,
@@ -67,6 +72,29 @@
     "rollback_plan": { "type": "string", "minLength": 1 },
     "credential_boundary": { "type": "string", "minLength": 1 },
     "budget_boundary": { "type": "string", "minLength": 1 },
+    "credential_scope": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["currency", "maximum"],
+      "properties": {
+        "currency": { "type": "string", "minLength": 1 },
+        "maximum": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "rollback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation", "supported"],
+      "properties": {
+        "operation": { "type": "string", "minLength": 1 },
+        "supported": { "type": "boolean" },
+        "artifact_ref": { "type": ["string", "null"] }
+      }
+    },
     "provenance_refs": {
       "type": "array",
       "minItems": 1,

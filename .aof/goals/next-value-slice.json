@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Run a runtime-backed v8.7 direction review before opening the first External Runtime Reproduction and Rollback Proof implementation task.",
-  "updated_at": "2026-07-20T06:19:41.304Z",
+  "content": "Run a runtime-backed v8.8 direction review and open the first External Runtime Reproduction and Rollback Proof implementation task.",
+  "updated_at": "2026-07-20T09:25:05.143Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V86-PROVIDER-EXECUTION-APPROVAL",
-  "source_decision_record_id": "CREV-TASK-106-V86",
+  "source_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": "CREV-TASK-107-V87",
   "declared_complete_at": null
 }

@@ -417,6 +417,154 @@ QIF boundary:
 - pass は provider adapter governance の structural/runtime evidence であり、provider output correctness、operator acceptance、credential/billing/deploy safety、production write safety を証明しない
 - release sign-off では `release-state-audit` が v8.1 以降この audit を release gate として実行する
 
+### `provider-adapter-pilot-record`
+
+provider adapter を実行する前の pilot evidence を記録する。`v8.5` 以降は dry-run / default-deny が基本であり、write-mode pilot は approval evidence がない限り production execution ではない。
+
+```bash
+node ./src/cli.js provider-adapter-pilot-record \
+  --project . \
+  --adapter-ref .aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json \
+  --work-item-id TASK-105 \
+  --pilot-mode dry_run \
+  --approval-status not_required \
+  --execution-status simulated \
+  --source-task-id TASK-105 \
+  --source-parent-session-id SESS-V85-PROVIDER-ADAPTER-PILOT
+```
+
+主な記録項目:
+
+- linked adapter / work item / session
+- pilot mode
+- approval status
+- execution status
+- side-effect / credential / budget / rollback / not-proven boundaries
+
+### `provider-adapter-pilot-audit`
+
+provider adapter pilot が default-deny、approval、boundary、provenance を満たしているかを検査する。
+
+```bash
+node ./src/cli.js provider-adapter-pilot-audit --project . \
+  --write-artifact .aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json
+```
+
+QIF boundary:
+
+- pass は pilot governance の structural/runtime evidence であり、production execution、provider correctness、credential safety、billing safety を証明しない
+- release sign-off では `release-state-audit` が v8.5 以降この audit を release gate として実行する
+
+### `provider-operation-target-record`
+
+human approval と provider execution approval が束縛される concrete target operation を記録する。`v8.7` 以降、external-write approval は抽象的な「GitHub へ書く」ではなく、provider/resource/operation/payload hash/max calls/expiration を持つ target に紐づく。
+
+```bash
+node ./src/cli.js provider-operation-target-record \
+  --project . \
+  --provider github \
+  --resource ai-org-labs/ai-organization-framework \
+  --operation create_issue \
+  --payload-hash sha256:v87-github-issue-create-preflight \
+  --payload-summary "Create one bounded reproduction issue for v8.7 preflight proof" \
+  --maximum-calls 1 \
+  --expires-at 2026-12-31T00:00:00.000Z \
+  --source-task-id TASK-107 \
+  --source-parent-session-id SESS-V87-APPROVAL-AUTHENTICITY
+```
+
+主な記録項目:
+
+- provider / resource / operation / endpoint
+- payload hash and summary
+- maximum calls
+- expiration
+- runtime provenance
+
+### `human-approval-record`
+
+external-write approval に必要な独立 human approval evidence を記録する。Council review は human approval の代替ではない。
+
+```bash
+node ./src/cli.js human-approval-record \
+  --project . \
+  --approver-id operator \
+  --decision approved \
+  --approved-scope-hash sha256:v87-github-issue-create-preflight \
+  --authentication-method "conversation approval" \
+  --target-operation-ref .aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json \
+  --source-task-id TASK-107 \
+  --source-parent-session-id SESS-V87-APPROVAL-AUTHENTICITY
+```
+
+主な記録項目:
+
+- approver type / approver id
+- approved/rejected/revoked decision
+- approved scope hash
+- authentication method
+- active/revoked/expired revocation status
+- target operation ref
+
+### `provider-execution-approval-record`
+
+provider execution approval bridge を記録する。`v8.7` 以降、external write を承認済みと扱うには adapter capability、human approval、target operation、credential scope、budget、rollback、stop condition が揃っている必要がある。
+
+```bash
+node ./src/cli.js provider-execution-approval-record \
+  --project . \
+  --pilot-ref .aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json \
+  --adapter-ref .aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json \
+  --work-item-id TASK-107 \
+  --work-item-ref .aof/tasks/done/TASK-107.json \
+  --session-ref .aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json \
+  --approval-decision approved \
+  --approved-execution-mode bounded_external_write \
+  --external-write-authorized \
+  --human-approval-ref .aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json \
+  --target-operation-ref .aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json \
+  --credential-scope issues:write \
+  --budget-json '{"currency":"USD","maximum":0}' \
+  --rollback-json '{"supported":true,"strategy":"delete_created_issue"}' \
+  --production-execution-status preflight_approved \
+  --not-proven "preflight only; production execution is not proven" \
+  --source-task-id TASK-107 \
+  --source-parent-session-id SESS-V87-APPROVAL-AUTHENTICITY
+```
+
+主な記録項目:
+
+- pilot / adapter / work item / session refs
+- approval decision and approved execution mode
+- human approval ref and target operation ref
+- allowed / denied operations
+- credential / budget / rollback / stop boundaries
+- production execution status
+- not-proven boundary
+
+### `provider-execution-approval-audit`
+
+provider execution approval が adapter capability、human approval authenticity、target alignment、scope hash、credential/budget/rollback、production execution boundary を満たすかを検査する。
+
+```bash
+node ./src/cli.js provider-execution-approval-audit --project . \
+  --write-artifact .aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json
+```
+
+主な確認項目:
+
+- approval records exist and refs resolve
+- allowed operations are a subset of adapter operation modes
+- external write requires independent `human-approval-record`
+- human approval target and scope hash match provider operation target
+- credential scope, budget, rollback, stop condition are structured
+- production execution is explicitly separated from preflight approval
+
+QIF boundary:
+
+- pass は approval bridge governance の structural/runtime evidence であり、実 provider 実行、rollback 実行、credential safety、billing safety、provider output correctness を証明しない
+- release sign-off では `release-state-audit` が v8.6 以降この audit を release gate として実行する
+
 ### `archmap-impact-audit`
 
 `TASK-071` 以降の implementation-grade work item が、Archmap への影響判断を持っているかを narrow に検査する。これは v6.7 の Verifiable Governance 用 command であり、release sign-off 前に「アーキテクチャ影響を見たことにしていないか」を機械的に落とすためのもの。

@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-operation-target-record.schema.json",
+  "title": "AOF Provider Operation Target Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "target_id",
+    "recorded_at",
+    "provider",
+    "resource",
+    "operation",
+    "payload_hash",
+    "payload_summary",
+    "maximum_calls",
+    "expires_at",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "provider-operation-target-record" },
+    "target_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "provider": { "type": "string", "minLength": 1 },
+    "resource": { "type": "string", "minLength": 1 },
+    "operation": { "type": "string", "minLength": 1 },
+    "endpoint": { "type": ["string", "null"] },
+    "payload_hash": { "type": "string", "minLength": 1 },
+    "payload_summary": { "type": "string", "minLength": 1 },
+    "maximum_calls": { "type": "integer", "minimum": 1 },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}
