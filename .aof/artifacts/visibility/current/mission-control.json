@@ -1,6 +1,6 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-20T09:52:00.216Z",
+  "generated_at": "2026-07-20T09:52:56.352Z",
   "mission_overview": {
     "mission": "Ship v8.7 Approval Authenticity and Adapter Capability Alignment: correct v8.6 approval bridge overclaim and require adapter capability, independent human approval, concrete target, structured credential/budget/rollback, and stop conditions before external-write authorization.",
     "release_version": "8.7.2",

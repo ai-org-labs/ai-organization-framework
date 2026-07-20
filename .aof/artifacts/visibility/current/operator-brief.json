@@ -1,6 +1,6 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-20T09:52:00.221Z",
+  "generated_at": "2026-07-20T09:52:56.355Z",
   "headline": "The next frontier is defined, but no aligned implementation task is open yet: Run a runtime-backed v8.8 direction review and open the first External Runtime Reproduction and Rollback Proof implementation task.",
   "current_state": {
     "release_version": "8.7.2",
