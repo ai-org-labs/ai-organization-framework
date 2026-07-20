@@ -1,9 +1,9 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-20T09:36:49.997Z",
+  "generated_at": "2026-07-20T09:43:51.466Z",
   "mission_overview": {
     "mission": "Ship v8.7 Approval Authenticity and Adapter Capability Alignment: correct v8.6 approval bridge overclaim and require adapter capability, independent human approval, concrete target, structured credential/budget/rollback, and stop conditions before external-write authorization.",
-    "release_version": "8.7.0",
+    "release_version": "8.7.1",
     "release_definition_ref": "docs/v8.7-release-definition.md",
     "operating_goal": "Prepare v8.8 External Runtime Reproduction and Rollback Proof: prove that an approved external runtime action can be reconstructed, replayed, and rollback-checked from canonical evidence before any production execution claim is trusted.",
     "next_value_slice": "Run a runtime-backed v8.8 direction review and open the first External Runtime Reproduction and Rollback Proof implementation task.",
