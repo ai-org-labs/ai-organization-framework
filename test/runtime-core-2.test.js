@@ -40,6 +40,8 @@ import { multiActorPilotRecordCommand } from "../src/commands/multi-actor-pilot-
 import { parallelLaneAuditCommand } from "../src/commands/parallel-lane-audit.js";
 import { parallelLaneRecordCommand } from "../src/commands/parallel-lane-record.js";
 import { providerAdapterAuditCommand } from "../src/commands/provider-adapter-audit.js";
+import { providerAdapterPilotAuditCommand } from "../src/commands/provider-adapter-pilot-audit.js";
+import { providerAdapterPilotRecordCommand } from "../src/commands/provider-adapter-pilot-record.js";
 import { providerAdapterRecordCommand } from "../src/commands/provider-adapter-record.js";
 import { requirementCoverageAuditCommand } from "../src/commands/requirement-coverage-audit.js";
 import { requirementCoverageRecordCommand } from "../src/commands/requirement-coverage-record.js";
@@ -2808,6 +2810,185 @@ test("providerAdapterAuditCommand fails write-capable adapters without escalatio
   const audit = await providerAdapterAuditCommand({ project: projectRoot });
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("write modes require escalation")));
+});
+
+test("providerAdapterPilot commands write dry-run pilot evidence and audit pass", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "adapter-policy.md"), "# Adapter Policy\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "pilot-verification.md"), "# Pilot Verification\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Pilot provider adapter",
+    description: "Fixture task for provider adapter pilot governance.",
+    origin: "human"
+  });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "agent-sessions"), { recursive: true });
+  await fs.writeFile(
+    path.join(projectRoot, ".aof", "artifacts", "agent-sessions", "SESS-PILOT.json"),
+    JSON.stringify({ artifact_type: "fixture-session", session_id: "SESS-PILOT" }, null, 2),
+    "utf8"
+  );
+
+  const resourceResult = await externalRuntimeResourceRecordCommand({
+    project: projectRoot,
+    resourceId: "ERR-TEST-PILOT-PROVIDER",
+    resourceKind: "provider",
+    displayName: "Pilot provider",
+    canonicalRef: "https://example.invalid/provider",
+    sourceSystem: "example",
+    ownerRef: "runtime-team",
+    sourceOfTruth: "fixture provider boundary",
+    permissionBoundary: "read-only pilot fixture",
+    freshnessBoundary: "freshness checked by pilot policy",
+    availabilityBoundary: "local test artifact",
+    approvalBoundary: "dry-run does not require approval",
+    sideEffectBoundary: "dry-run has no external mutation",
+    allowedOperations: ["read"],
+    readinessStatus: "ready",
+    notProven: "This fixture does not prove provider semantic truth.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PILOT"
+  });
+  const resourceRef = path.relative(projectRoot, resourceResult.artifactPath).replaceAll(path.sep, "/");
+
+  const adapterResult = await providerAdapterRecordCommand({
+    project: projectRoot,
+    adapterId: "PAD-TEST-PILOT",
+    displayName: "Pilot provider adapter",
+    providerRef: "docs/adapter-policy.md",
+    resourceRef,
+    adapterKind: "read_only",
+    operationModes: ["read"],
+    readAuthorityBoundary: "Adapter may read metadata for pilot planning.",
+    writeAuthorityBoundary: "Adapter has no write authority.",
+    freshnessCheck: "Policy fixture is local and current.",
+    approvalPolicyRef: "docs/adapter-policy.md",
+    sideEffectBoundary: "No external side effects are allowed.",
+    escalationRequiredFor: [],
+    readinessStatus: "ready",
+    notProven: "Adapter readiness does not prove provider output correctness.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PILOT"
+  });
+  const adapterRef = path.relative(projectRoot, adapterResult.artifactPath).replaceAll(path.sep, "/");
+
+  await providerAdapterPilotRecordCommand({
+    project: projectRoot,
+    pilotId: "PAP-TEST-DRYRUN",
+    adapterRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: ".aof/artifacts/agent-sessions/SESS-PILOT.json",
+    pilotMode: "dry_run",
+    approvalStatus: "not_required",
+    expectedExternalEffect: "No external write; dry-run validates only the pilot boundary.",
+    allowedActions: ["read provider adapter metadata", "simulate provider execution plan locally"],
+    deniedActions: ["production external write", "billing, secret, deploy, or irreversible action"],
+    redactionBoundary: "No secrets or provider payloads are included.",
+    rollbackPlan: "No external side effect exists; discard local pilot artifact if needed.",
+    provenanceRefs: [adapterRef, "docs/adapter-policy.md"],
+    verificationRefs: ["docs/pilot-verification.md"],
+    stopConditions: ["stop if a write action becomes necessary", "stop if approval evidence is missing"],
+    executionStatus: "simulated",
+    notProven: "Dry-run pilot does not prove production execution safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PILOT"
+  });
+
+  const audit = await providerAdapterPilotAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true);
+  assert.equal(audit.summary.summary.pilot_count, 1);
+  assert.equal(audit.summary.summary.ready_pilot_count, 1);
+});
+
+test("providerAdapterPilotAuditCommand fails write pilots without approval evidence", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "adapter-policy.md"), "# Adapter Policy\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "pilot-verification.md"), "# Pilot Verification\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Unsafe provider adapter pilot",
+    description: "Fixture task for provider adapter pilot approval failure.",
+    origin: "human"
+  });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "agent-sessions"), { recursive: true });
+  await fs.writeFile(
+    path.join(projectRoot, ".aof", "artifacts", "agent-sessions", "SESS-PILOT-WRITE.json"),
+    JSON.stringify({ artifact_type: "fixture-session", session_id: "SESS-PILOT-WRITE" }, null, 2),
+    "utf8"
+  );
+
+  const resourceResult = await externalRuntimeResourceRecordCommand({
+    project: projectRoot,
+    resourceId: "ERR-TEST-PILOT-WRITE",
+    resourceKind: "provider",
+    displayName: "Pilot write provider",
+    canonicalRef: "https://example.invalid/provider",
+    sourceSystem: "example",
+    ownerRef: "runtime-team",
+    sourceOfTruth: "fixture provider boundary",
+    permissionBoundary: "external writes require approval",
+    freshnessBoundary: "freshness checked by pilot policy",
+    availabilityBoundary: "local test artifact",
+    approvalBoundary: "Council approval required for write pilot",
+    sideEffectBoundary: "write pilot can mutate external state",
+    allowedOperations: ["external_write"],
+    readinessStatus: "ready",
+    notProven: "This fixture does not prove provider write safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PILOT-WRITE"
+  });
+  const resourceRef = path.relative(projectRoot, resourceResult.artifactPath).replaceAll(path.sep, "/");
+
+  const adapterResult = await providerAdapterRecordCommand({
+    project: projectRoot,
+    adapterId: "PAD-TEST-PILOT-WRITE",
+    displayName: "Write pilot provider adapter",
+    providerRef: "docs/adapter-policy.md",
+    resourceRef,
+    adapterKind: "external_write",
+    operationModes: ["external_write"],
+    readAuthorityBoundary: "Adapter may inspect write preconditions.",
+    writeAuthorityBoundary: "Adapter may not write without explicit approval.",
+    freshnessCheck: "Policy fixture is local and current.",
+    approvalPolicyRef: "docs/adapter-policy.md",
+    sideEffectBoundary: "External writes mutate provider state.",
+    escalationRequiredFor: ["external_write"],
+    readinessStatus: "warning",
+    notProven: "Adapter readiness does not prove write safety.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PILOT-WRITE"
+  });
+  const adapterRef = path.relative(projectRoot, adapterResult.artifactPath).replaceAll(path.sep, "/");
+
+  await providerAdapterPilotRecordCommand({
+    project: projectRoot,
+    pilotId: "PAP-TEST-WRITE",
+    adapterRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: ".aof/artifacts/agent-sessions/SESS-PILOT-WRITE.json",
+    pilotMode: "approved_write_simulation",
+    approvalStatus: "pending",
+    expectedExternalEffect: "No production write yet; write simulation would require approval.",
+    allowedActions: ["simulate write payload locally"],
+    deniedActions: ["production external write", "billing, secret, deploy, or irreversible action"],
+    redactionBoundary: "No secrets or provider payloads are included.",
+    rollbackPlan: "No external side effect exists while pending approval.",
+    provenanceRefs: [adapterRef, "docs/adapter-policy.md"],
+    verificationRefs: ["docs/pilot-verification.md"],
+    stopConditions: ["stop until approval evidence exists"],
+    executionStatus: "planned",
+    notProven: "Write pilot readiness is not proven without approval evidence.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PILOT-WRITE"
+  });
+
+  const audit = await providerAdapterPilotAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("write pilot approval")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

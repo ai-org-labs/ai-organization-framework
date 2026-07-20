@@ -21,6 +21,15 @@ function taskNumber(taskId) {
   return match ? Number.parseInt(match[1], 10) : Number.NaN;
 }
 
+function releaseAtLeast(releaseVersion, requiredMajor, requiredMinor) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > requiredMajor || (major === requiredMajor && minor >= requiredMinor);
+}
+
 async function readJson(filePath, label) {
   const text = await fs.readFile(filePath, "utf8");
   try {
@@ -1041,18 +1050,101 @@ async function loadProviderAdapterProjection(projectRoot) {
   };
 }
 
+async function loadProviderAdapterPilotProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider adapter pilot audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      pilot_count: 0,
+      ready_pilot_count: 0,
+      blocked_pilot_count: 0,
+      external_write_pilot_count: 0,
+      missing_boundary_count: null,
+      pilots: [],
+      not_proven: "No provider adapter pilot audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    pilot_count: audit.summary?.pilot_count ?? 0,
+    ready_pilot_count: audit.summary?.ready_pilot_count ?? 0,
+    blocked_pilot_count: audit.summary?.blocked_pilot_count ?? 0,
+    external_write_pilot_count: audit.summary?.external_write_pilot_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    pilots: audit.pilots ?? [],
+    not_proven: "Provider adapter pilot projection is dry-run/default-deny governance evidence; it does not prove production execution safety, credential safety, billing safety, or semantic provider correctness."
+  };
+}
+
+function buildProviderAdapterPilotReadinessProjection({
+  providerAdapterProjection,
+  providerAdapterPilotProjection,
+  roadmapStatus
+}) {
+  const missingEvidence = [
+    !providerAdapterProjection?.present ? "provider-adapter-contract" : null,
+    !providerAdapterPilotProjection?.present ? "provider-adapter-pilot-audit" : null
+  ].filter(Boolean);
+  const blockedPilotCount = providerAdapterPilotProjection?.blocked_pilot_count ?? 0;
+  const missingBoundaryCount = providerAdapterPilotProjection?.missing_boundary_count ?? 0;
+  const externalWritePilotCount = providerAdapterPilotProjection?.external_write_pilot_count ?? 0;
+  const auditOk = Boolean(providerAdapterProjection?.audit_ok && providerAdapterPilotProjection?.audit_ok);
+  let readinessStatus = "ready";
+  let governanceAction = "allow-dry-run-pilot-claim";
+  let readinessSummary = "Provider adapter pilot evidence is present, bounded, and default-deny.";
+  if (missingEvidence.length > 0) {
+    readinessStatus = "not_proven";
+    governanceAction = "collect-provider-pilot-evidence";
+    readinessSummary = `Missing provider pilot evidence: ${missingEvidence.join(", ")}.`;
+  } else if (!auditOk || blockedPilotCount > 0 || missingBoundaryCount > 0) {
+    readinessStatus = "blocked";
+    governanceAction = "block-provider-pilot-readiness-claim";
+    readinessSummary = "Provider adapter pilot readiness is blocked by failed audits, blocked pilots, or missing boundaries.";
+  } else if (externalWritePilotCount > 0) {
+    readinessStatus = "needs_approval";
+    governanceAction = "require-explicit-operator-approval-before-any-external-write-pilot";
+    readinessSummary = `${externalWritePilotCount} write-mode pilot(s) require explicit approval evidence.`;
+  }
+
+  return {
+    present: missingEvidence.length === 0,
+    readiness_status: readinessStatus,
+    readiness_summary: readinessSummary,
+    release_ref: roadmapStatus?.roadmap_refs?.current_release_definition ?? null,
+    pilot_refs: (providerAdapterPilotProjection?.pilots ?? []).map((pilot) => pilot.artifact_ref).filter(Boolean),
+    evidence_refs: [
+      providerAdapterProjection?.audit_ref,
+      providerAdapterPilotProjection?.audit_ref,
+      ...(providerAdapterPilotProjection?.pilots ?? []).map((pilot) => pilot.artifact_ref)
+    ].filter(Boolean),
+    governance_action: governanceAction,
+    default_mode_boundary: "Provider adapter execution pilots are dry-run/default-deny unless an explicit approval artifact authorizes a narrower mode.",
+    approval_boundary: "Write-mode provider pilots require approval evidence and remain non-production by default.",
+    risk_boundary: "This projection governs pilot readiness only; it is not permission for production external writes.",
+    not_proven: "Provider adapter pilot readiness does not prove provider output correctness, credential safety, billing safety, production safety, or autonomous external execution readiness."
+  };
+}
+
 function buildExternalRuntimeSafetyProjection({
   externalizationReadinessProjection,
   externalResourceProjection,
   providerAdapterProjection,
+  providerAdapterPilotProjection,
   contextReferenceIntegrityProjection,
   roadmapStatus
 }) {
+  const requiresProviderPilot = releaseAtLeast(roadmapStatus?.active_release?.release_version, 8, 5);
   const firstExternalUseWorkItemId = externalResourceProjection?.uses?.[0]?.work_item_id ?? null;
   const evidenceRefs = [
     externalizationReadinessProjection?.audit_ref,
     externalResourceProjection?.audit_ref,
     providerAdapterProjection?.audit_ref,
+    requiresProviderPilot ? providerAdapterPilotProjection?.audit_ref : null,
     contextReferenceIntegrityProjection?.audit_ref,
     roadmapStatus?.roadmap_refs?.current_release_definition
   ].filter(Boolean);
@@ -1064,14 +1156,17 @@ function buildExternalRuntimeSafetyProjection({
   const missingEvidence = [
     !externalizationReadinessProjection?.present ? "externalization-readiness" : null,
     !externalResourceProjection?.present ? "external-resource" : null,
-    !providerAdapterProjection?.present ? "provider-adapter" : null
+    !providerAdapterProjection?.present ? "provider-adapter" : null,
+    requiresProviderPilot && !providerAdapterPilotProjection?.present ? "provider-adapter-pilot" : null
   ].filter(Boolean);
   const blockedCount = (externalizationReadinessProjection?.blocked_claim_count ?? 0)
     + (externalResourceProjection?.blocked_use_count ?? 0)
-    + (providerAdapterProjection?.blocked_adapter_count ?? 0);
+    + (providerAdapterProjection?.blocked_adapter_count ?? 0)
+    + (requiresProviderPilot ? (providerAdapterPilotProjection?.blocked_pilot_count ?? 0) : 0);
   const missingBoundaryCount = (externalizationReadinessProjection?.missing_boundary_count ?? 0)
     + (externalResourceProjection?.missing_boundary_count ?? 0)
-    + (providerAdapterProjection?.missing_boundary_count ?? 0);
+    + (providerAdapterProjection?.missing_boundary_count ?? 0)
+    + (requiresProviderPilot ? (providerAdapterPilotProjection?.missing_boundary_count ?? 0) : 0);
   const useCount = externalResourceProjection?.use_count ?? 0;
   const approvedUseCount = externalResourceProjection?.approved_or_not_required_use_count ?? 0;
   const approvalGapCount = Math.max(0, useCount - approvedUseCount);
@@ -1080,6 +1175,7 @@ function buildExternalRuntimeSafetyProjection({
     externalizationReadinessProjection?.audit_ok
     && externalResourceProjection?.audit_ok
     && providerAdapterProjection?.audit_ok
+    && (!requiresProviderPilot || providerAdapterPilotProjection?.audit_ok === true)
     && contextReferenceIntegrityProjection?.audit_ok !== false
   );
 
@@ -1136,6 +1232,12 @@ function buildExternalRuntimeSafetyProjection({
         status: providerAdapterProjection?.audit_ok ? "pass" : "fail",
         summary: `${providerAdapterProjection?.ready_adapter_count ?? 0} ready adapter(s), ${providerAdapterProjection?.write_capable_adapter_count ?? 0} write-capable adapter(s).`,
         evidence_ref: providerAdapterProjection?.audit_ref ?? null
+      },
+      {
+        check_id: "provider-adapter-pilot-boundary",
+        status: providerAdapterPilotProjection?.audit_ok ? "pass" : "fail",
+        summary: `${providerAdapterPilotProjection?.ready_pilot_count ?? 0} ready pilot(s), ${providerAdapterPilotProjection?.external_write_pilot_count ?? 0} write-mode pilot(s).`,
+        evidence_ref: providerAdapterPilotProjection?.audit_ref ?? null
       },
       {
         check_id: "external-reference-freshness",
@@ -1249,6 +1351,8 @@ function buildMissionControl({
   externalizationReadinessProjection = null,
   externalResourceProjection = null,
   providerAdapterProjection = null,
+  providerAdapterPilotProjection = null,
+  providerAdapterPilotReadinessProjection = null,
   externalRuntimeSafetyProjection = null,
   operatorValidationProjection = null,
   evidenceCompletenessProjection = null
@@ -1481,6 +1585,31 @@ function buildMissionControl({
       adapters: [],
       not_proven: "No provider adapter audit artifact is present."
     },
+    provider_adapter_pilot_projection: providerAdapterPilotProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
+      audit_ok: null,
+      pilot_count: 0,
+      ready_pilot_count: 0,
+      blocked_pilot_count: 0,
+      external_write_pilot_count: 0,
+      missing_boundary_count: null,
+      pilots: [],
+      not_proven: "No provider adapter pilot audit artifact is present."
+    },
+    provider_adapter_pilot_readiness_projection: providerAdapterPilotReadinessProjection ?? {
+      present: false,
+      readiness_status: "not_proven",
+      readiness_summary: "No provider adapter pilot readiness projection is present.",
+      release_ref: null,
+      pilot_refs: [],
+      evidence_refs: [],
+      governance_action: "collect-provider-pilot-evidence",
+      default_mode_boundary: "Provider adapter execution pilots are dry-run/default-deny unless explicitly approved.",
+      approval_boundary: "Write-mode provider pilots require approval evidence and remain non-production by default.",
+      risk_boundary: "Provider adapter pilot readiness is not production external write permission.",
+      not_proven: "No provider adapter pilot readiness projection is present."
+    },
     external_runtime_safety_projection: externalRuntimeSafetyProjection ?? {
       present: false,
       safety_status: "not_proven",
@@ -1527,7 +1656,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, operatorValidationProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, operatorValidationProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -1547,6 +1676,7 @@ export async function visibilityExportCommand(options) {
     loadExternalizationReadinessProjection(projectRoot),
     loadExternalResourceProjection(projectRoot),
     loadProviderAdapterProjection(projectRoot),
+    loadProviderAdapterPilotProjection(projectRoot),
     loadOperatorValidationProjection(projectRoot)
   ]);
 
@@ -1576,7 +1706,13 @@ export async function visibilityExportCommand(options) {
     externalizationReadinessProjection,
     externalResourceProjection,
     providerAdapterProjection,
+    providerAdapterPilotProjection,
     contextReferenceIntegrityProjection,
+    roadmapStatus
+  });
+  const providerAdapterPilotReadinessProjection = buildProviderAdapterPilotReadinessProjection({
+    providerAdapterProjection,
+    providerAdapterPilotProjection,
     roadmapStatus
   });
   const evidenceCompletenessProjection = buildEvidenceCompletenessProjection({
@@ -1604,6 +1740,8 @@ export async function visibilityExportCommand(options) {
     externalizationReadinessProjection,
     externalResourceProjection,
     providerAdapterProjection,
+    providerAdapterPilotProjection,
+    providerAdapterPilotReadinessProjection,
     externalRuntimeSafetyProjection,
     operatorValidationProjection,
     evidenceCompletenessProjection

@@ -1,0 +1,41 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-20T04:40:04.000Z",
+  "review_packet_id": "CREV-TASK-105-V85",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "v8.5 is approved as bounded Provider Adapter Execution Pilot Boundary.",
+  "rationale": "The release adds a narrow provider adapter pilot contract and audit that blocks missing pilot evidence, unapproved write-mode pilots, unclear external effects, missing redaction/rollback/provenance/stop conditions, and production-write confusion.",
+  "recommendation": "Ship v8.5 after final verification is green.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "Operator can distinguish adapter contract readiness from pilot readiness and can see that pilot readiness is not production execution approval.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-105-V85.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-105-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-105-GUARDIAN.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-105-VISIONARY.json"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
+    ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+    ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    "test/runtime-core-2.test.js",
+    "test/runtime-situation.test.js"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-105",
+  "source_parent_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "source_decision_record_id": null
+}

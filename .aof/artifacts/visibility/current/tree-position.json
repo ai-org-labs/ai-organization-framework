@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-20T01:54:07.789Z",
+  "generated_at": "2026-07-20T04:49:40.066Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "8.4.0",
-    "active_release_track": "v8.4",
-    "release_definition_ref": "docs/v8.4-release-definition.md"
+    "active_release_version": "8.5.0",
+    "active_release_track": "v8.5",
+    "release_definition_ref": "docs/v8.5-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task."
+    "branch_summary": "Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v8.4",
+      "label": "v8.5",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v8.4 and the next concrete branch.",
-    "why_this_branch": "Prepare v8.5 Provider Adapter Execution Pilot Boundary: prove that provider adapter execution pilots are approved, dry-run/default-deny, redacted, reversible, provenance-backed, and not confused with production automation.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task."
+    "where_are_we": "The runtime is between v8.5 and the next concrete branch.",
+    "why_this_branch": "Prepare v8.6 External Runtime Execution Approval Bridge: prove that any real provider side effect is authorized by bounded approval, scope, redaction, rollback, provenance, and stop conditions before execution.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task."
   }
 }

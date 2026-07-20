@@ -1,0 +1,321 @@
+{
+  "ok": true,
+  "artifact_type": "provider-adapter-pilot-audit",
+  "generated_at": "2026-07-20T04:48:58.731Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "pilot_count": 1,
+    "ready_pilot_count": 1,
+    "blocked_pilot_count": 0,
+    "external_write_pilot_count": 0,
+    "missing_boundary_count": 0,
+    "failing_check_count": 0
+  },
+  "pilots": [
+    {
+      "pilot_id": "PAP-TASK-105-V85-DRYRUN",
+      "adapter_ref": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+      "work_item_id": "TASK-105",
+      "pilot_mode": "dry_run",
+      "approval_status": "not_required",
+      "execution_status": "simulated",
+      "artifact_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider adapter pilot presence",
+      "status": "pass",
+      "detail": "1 pilot(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN adapter ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-105.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN provenance ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN provenance ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.5-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN verification ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN verification ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN adapter is audited",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN expected external effect",
+      "status": "pass",
+      "detail": "No external write; dry-run pilot validates boundary visibility only.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN allowed actions",
+      "status": "pass",
+      "detail": "read provider adapter metadata, simulate provider execution plan locally",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN denied actions",
+      "status": "pass",
+      "detail": "production external write, billing, secret, deploy, or irreversible action",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN redaction boundary",
+      "status": "pass",
+      "detail": "No secrets or provider payloads are included.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN rollback plan",
+      "status": "pass",
+      "detail": "No external side effect exists; rollback is discard local pilot artifact and stop execution claim.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN stop conditions",
+      "status": "pass",
+      "detail": "stop if any write action becomes required, stop if approval or rollback evidence is missing",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN not-proven boundary",
+      "status": "pass",
+      "detail": "Pilot boundary evidence does not prove production execution safety, credential safety, billing safety, provider correctness, or autonomous external execution readiness.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-105, source_parent_session_id=SESS-V85-PROVIDER-ADAPTER-PILOT",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN execution status",
+      "status": "pass",
+      "detail": "execution_status=simulated",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN write pilot approval",
+      "status": "pass",
+      "detail": "non-write pilot",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "name": "PAP-TASK-105-V85-DRYRUN production write remains denied",
+      "status": "pass",
+      "detail": "production external write, billing, secret, deploy, or irreversible action",
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        ".aof/tasks/done/TASK-105.json",
+        ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+        ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "docs/v8.5-release-definition.md",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    }
+  ],
+  "errors": []
+}

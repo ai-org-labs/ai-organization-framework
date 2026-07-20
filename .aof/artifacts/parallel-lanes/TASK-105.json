@@ -1,0 +1,68 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-TASK-105-V85",
+  "recorded_at": "2026-07-20T04:40:14.000Z",
+  "work_item_id": "TASK-105",
+  "work_item_ref": ".aof/tasks/done/TASK-105.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-105.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-105.json",
+  "lanes": [
+    {
+      "lane_id": "pilot-contract",
+      "goal": "Add provider adapter pilot record and audit contract",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v8.5-release-definition.md"
+      ],
+      "expected_output": "schemas and CLI commands",
+      "output_refs": [
+        "schemas/aof-provider-adapter-pilot-record.schema.json",
+        "schemas/aof-provider-adapter-pilot-audit.schema.json",
+        "src/commands/provider-adapter-pilot-record.js",
+        "src/commands/provider-adapter-pilot-audit.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if write-mode pilot can pass without approval evidence",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "mission-control",
+      "goal": "Expose provider adapter pilot readiness in Mission Control",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json"
+      ],
+      "expected_output": "Mission Control pilot projection and compatibility check",
+      "output_refs": [
+        "src/commands/visibility-export.js",
+        "schemas/aof-mission-control-view.schema.json"
+      ],
+      "verification_refs": [
+        "test/runtime-situation.test.js"
+      ],
+      "stop_condition": "stop if v8.4 external safety projection regresses",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "pilot-contract",
+      "mission-control"
+    ],
+    "conflict_summary": "No unresolved lane conflict.",
+    "blocker_summary": "No active blocker after focused tests.",
+    "merge_rationale": "Contract and Mission Control lanes agree that provider pilot readiness is bounded experiment evidence, not production execution authority.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-105-V85.json",
+  "not_proven": "Parallel lane evidence proves bounded local lane join only.",
+  "source_task_id": "TASK-105",
+  "source_parent_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "source_decision_record_id": null,
+  "notes": null
+}

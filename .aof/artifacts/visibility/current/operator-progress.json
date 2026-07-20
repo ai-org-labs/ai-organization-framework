@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-20T01:54:07.789Z",
+  "generated_at": "2026-07-20T04:49:40.066Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-104 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-104.json"
+    "summary": "TASK-105 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-105.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-104 completed: Ship v8.4 Externalized Runtime Operator Safety Proof",
-      "artifact_ref": ".aof/tasks/done/TASK-104.json"
+      "summary": "TASK-105 completed: Ship v8.5 Provider Adapter Execution Pilot Boundary",
+      "artifact_ref": ".aof/tasks/done/TASK-105.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task.",
+      "summary": "Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-104 completed: Ship v8.4 Externalized Runtime Operator Safety Proof Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task.",
+    "what_changed": "TASK-105 completed: Ship v8.5 Provider Adapter Execution Pilot Boundary Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task."
   }
 }

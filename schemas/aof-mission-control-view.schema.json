@@ -14,6 +14,8 @@
     "externalization_readiness_projection",
     "external_resource_projection",
     "provider_adapter_projection",
+    "provider_adapter_pilot_projection",
+    "provider_adapter_pilot_readiness_projection",
     "external_runtime_safety_projection",
     "operator_validation_projection",
     "evidence_completeness_projection"
@@ -816,6 +818,82 @@
             "additionalProperties": false
           }
         },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_adapter_pilot_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "pilot_count",
+        "ready_pilot_count",
+        "blocked_pilot_count",
+        "external_write_pilot_count",
+        "missing_boundary_count",
+        "pilots",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "pilot_count": { "type": "integer" },
+        "ready_pilot_count": { "type": "integer" },
+        "blocked_pilot_count": { "type": "integer" },
+        "external_write_pilot_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "pilots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["pilot_id", "adapter_ref", "work_item_id", "pilot_mode", "approval_status", "execution_status", "artifact_ref"],
+            "properties": {
+              "pilot_id": { "type": "string" },
+              "adapter_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "pilot_mode": { "type": "string" },
+              "approval_status": { "type": "string" },
+              "execution_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_adapter_pilot_readiness_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "readiness_status",
+        "readiness_summary",
+        "release_ref",
+        "pilot_refs",
+        "evidence_refs",
+        "governance_action",
+        "default_mode_boundary",
+        "approval_boundary",
+        "risk_boundary",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "readiness_status": {
+          "enum": ["ready", "needs_approval", "blocked", "not_proven"]
+        },
+        "readiness_summary": { "type": "string" },
+        "release_ref": { "type": ["string", "null"] },
+        "pilot_refs": { "type": "array", "items": { "type": "string" } },
+        "evidence_refs": { "type": "array", "items": { "type": "string" } },
+        "governance_action": { "type": "string" },
+        "default_mode_boundary": { "type": "string" },
+        "approval_boundary": { "type": "string" },
+        "risk_boundary": { "type": "string" },
         "not_proven": { "type": "string" }
       },
       "additionalProperties": false

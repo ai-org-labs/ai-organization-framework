@@ -1,0 +1,41 @@
+{
+  "artifact_type": "provider-adapter-pilot-record",
+  "pilot_id": "PAP-TASK-105-V85-DRYRUN",
+  "recorded_at": "2026-07-20T04:43:09.098Z",
+  "adapter_ref": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+  "work_item_id": "TASK-105",
+  "work_item_ref": ".aof/tasks/done/TASK-105.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+  "pilot_mode": "dry_run",
+  "approval_status": "not_required",
+  "approval_ref": null,
+  "expected_external_effect": "No external write; dry-run pilot validates boundary visibility only.",
+  "allowed_actions": [
+    "read provider adapter metadata",
+    "simulate provider execution plan locally"
+  ],
+  "denied_actions": [
+    "production external write",
+    "billing, secret, deploy, or irreversible action"
+  ],
+  "redaction_boundary": "No secrets or provider payloads are included.",
+  "rollback_plan": "No external side effect exists; rollback is discard local pilot artifact and stop execution claim.",
+  "provenance_refs": [
+    ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+    "docs/v8.5-release-definition.md"
+  ],
+  "verification_refs": [
+    "test/runtime-core-2.test.js",
+    "test/runtime-situation.test.js"
+  ],
+  "stop_conditions": [
+    "stop if any write action becomes required",
+    "stop if approval or rollback evidence is missing"
+  ],
+  "execution_status": "simulated",
+  "not_proven": "Pilot boundary evidence does not prove production execution safety, credential safety, billing safety, provider correctness, or autonomous external execution readiness.",
+  "source_task_id": "TASK-105",
+  "source_parent_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "source_decision_record_id": "CREV-TASK-105-V85",
+  "notes": null
+}

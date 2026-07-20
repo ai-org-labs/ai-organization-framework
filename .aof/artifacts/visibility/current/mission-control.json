@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-20T01:54:07.786Z",
+  "generated_at": "2026-07-20T04:49:40.062Z",
   "mission_overview": {
-    "mission": "Ship v8.4.0 as Externalized Runtime Operator Safety Proof while preserving the boundary that visible safety is not autonomous external execution authority.",
-    "release_version": "8.4.0",
-    "release_definition_ref": "docs/v8.4-release-definition.md",
-    "operating_goal": "Prepare v8.5 Provider Adapter Execution Pilot Boundary: prove that provider adapter execution pilots are approved, dry-run/default-deny, redacted, reversible, provenance-backed, and not confused with production automation.",
-    "next_value_slice": "Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task.",
+    "mission": "Ship v8.5.0 as Provider Adapter Execution Pilot Boundary while preserving the boundary that pilot readiness is not production external execution authority.",
+    "release_version": "8.5.0",
+    "release_definition_ref": "docs/v8.5-release-definition.md",
+    "operating_goal": "Prepare v8.6 External Runtime Execution Approval Bridge: prove that any real provider side effect is authorized by bounded approval, scope, redaction, rollback, provenance, and stop conditions before execution.",
+    "next_value_slice": "Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.5 direction review before opening the first Provider Adapter Execution Pilot Boundary implementation task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v8.6 direction review before opening the first External Runtime Execution Approval Bridge implementation task.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 34,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-104.json",
+    "impact_record_count": 35,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-105.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-104",
+    "latest_work_item_id": "TASK-105",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-104.json"
+      ".aof/artifacts/archmap/impact/TASK-105.json"
     ],
     "external_refs": []
   },
@@ -399,53 +399,55 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 20,
-    "latest_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V84-EXTERNAL-RUNTIME-SAFETY.json",
+    "stream_count": 21,
+    "latest_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
     "latest_actor_ref": "codex",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-20T01:53:00.000Z",
-    "latest_event_count": 5,
+    "latest_recorded_at": "2026-07-20T04:45:00.000Z",
+    "latest_event_count": 4,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-104.json"
+      ".aof/tasks/done/TASK-105.json"
     ],
     "linked_requirement_refs": [
-      "docs/v8.4-release-definition.md"
+      "docs/v8.5-release-definition.md"
     ],
     "linked_test_evidence_refs": [
-      "test/runtime-situation.test.js",
-      "test/runtime-core-2.test.js"
+      "test/runtime-core-2.test.js",
+      "test/runtime-situation.test.js"
     ],
     "linked_artifact_refs": [
+      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+      ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/visibility/current/mission-control.json"
     ],
     "risk_candidates": [
-      "Visible safety status can be misread as permission for autonomous external writes."
+      "Provider adapter pilot readiness can be misread as production external execution authority."
     ],
     "decision_candidates": [
-      "Externalized runtime work can advance only when safety visibility preserves permission, approval, risk, freshness, and not-proven boundaries."
+      "Provider adapter pilots must remain dry-run/default-deny unless explicit approval evidence authorizes a narrower write-mode experiment."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Heartbeat requested current roadmap review, nearest release implementation, and release completion using AOF runtime.",
-        "occurred_at": "2026-07-20T01:30:51.140Z",
+        "summary": "Operator requested GitHub Actions resolution and continuation toward the nearest AOF release.",
+        "occurred_at": "2026-07-20T04:30:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
           "docs/vnext-release-plan.md",
-          ".aof/tasks/done/TASK-104.json"
+          ".aof/tasks/done/TASK-105.json"
         ]
       },
       {
         "event_type": "tool_call",
-        "summary": "AOF runtime commands roadmap-status and situation-assess selected v8.4 as the nearest frontier.",
-        "occurred_at": "2026-07-20T01:34:00.000Z",
+        "summary": "AOF runtime roadmap-status and situation-assess selected v8.5 Provider Adapter Execution Pilot Boundary as the next frontier.",
+        "occurred_at": "2026-07-20T04:33:00.000Z",
         "tool_name": "roadmap-status / situation-assess",
         "safety_level": "safe_read",
         "approval_policy": "allowed",
@@ -454,55 +456,40 @@
         ]
       },
       {
-        "event_type": "tool_call",
-        "summary": "AOF runtime task-open created TASK-104 for v8.4 release execution.",
-        "occurred_at": "2026-07-20T01:38:37.765Z",
-        "tool_name": "task-open",
-        "safety_level": "safe_local_write",
-        "approval_policy": "allowed",
-        "artifact_refs": [
-          ".aof/tasks/done/TASK-104.json"
-        ]
-      },
-      {
         "event_type": "artifact_write",
-        "summary": "Mission Control export, viewer, schema, tests, docs, and TASK-104 evidence were updated.",
-        "occurred_at": "2026-07-20T01:45:00.000Z",
+        "summary": "Provider adapter pilot schemas, CLI commands, audit gate, Mission Control projection, focused tests, and release docs were added.",
+        "occurred_at": "2026-07-20T04:41:00.000Z",
         "tool_name": null,
         "safety_level": "project_write",
         "approval_policy": "allowed",
         "artifact_refs": [
+          "schemas/aof-provider-adapter-pilot-record.schema.json",
+          "schemas/aof-provider-adapter-pilot-audit.schema.json",
+          "src/commands/provider-adapter-pilot-record.js",
+          "src/commands/provider-adapter-pilot-audit.js",
           "src/commands/visibility-export.js",
-          "src/commands/visibility-serve.js",
-          "schemas/aof-mission-control-view.schema.json",
-          "test/runtime-situation.test.js",
-          "docs/v8.4-release-definition.md"
+          "test/runtime-core-2.test.js",
+          "docs/v8.5-release-definition.md"
         ]
       },
       {
         "event_type": "verification_result",
-        "summary": "Focused tests validated the external runtime safety projection and baseline runtime surface.",
-        "occurred_at": "2026-07-20T01:55:00.000Z",
+        "summary": "Focused runtime tests passed for provider adapter pilot pass/fail checks and v8.4 compatibility.",
+        "occurred_at": "2026-07-20T04:43:00.000Z",
         "tool_name": "node --test",
         "safety_level": "safe_read",
         "approval_policy": "allowed",
         "artifact_refs": [
-          "test/runtime-situation.test.js",
-          "test/runtime-core-2.test.js"
+          "test/runtime-core-2.test.js",
+          "test/runtime-situation.test.js"
         ]
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "AOF runtime commands roadmap-status and situation-assess selected v8.4 as the nearest frontier.",
+        "summary": "AOF runtime roadmap-status and situation-assess selected v8.5 Provider Adapter Execution Pilot Boundary as the next frontier.",
         "tool_name": "roadmap-status / situation-assess",
         "safety_level": "safe_read",
-        "approval_policy": "allowed"
-      },
-      {
-        "summary": "AOF runtime task-open created TASK-104 for v8.4 release execution.",
-        "tool_name": "task-open",
-        "safety_level": "safe_local_write",
         "approval_policy": "allowed"
       }
     ]
@@ -514,11 +501,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 15,
+    "context_record_count": 16,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-105.json",
+        "work_item_id": "TASK-105",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared reference availability only, not provider correctness or production execution safety."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-104.json",
         "work_item_id": "TASK-104",
@@ -574,14 +569,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves declared refs are linked; it does not prove semantic truth, external provider correctness, or operator acceptance."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-097.json",
-        "work_item_id": "TASK-097",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves declared references are linked; it does not prove semantic truth, operator acceptance, or forecast accuracy."
       }
     ],
     "latest_external_reference_records": [
@@ -606,9 +593,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-104.json",
-    "latest_work_item_id": "TASK-104",
-    "latest_recorded_at": "2026-07-20T01:50:00.000Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-105.json",
+    "latest_work_item_id": "TASK-105",
+    "latest_recorded_at": "2026-07-20T04:50:00.000Z",
     "coverage_status": "completed",
     "total_requirements": 1,
     "covered_count": 1,
@@ -619,25 +606,26 @@
     "coverage_ratio": null,
     "forecast": {
       "estimated_remaining_work_items": 0,
-      "estimated_token_cost_range": "0 additional implementation work items for v8.4 after final verification",
+      "estimated_token_cost_range": "0 additional implementation work items for v8.5 after final verification",
       "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, production safety, or market value."
     },
     "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, production safety, or market value.",
     "requirements": [
       {
-        "requirement_id": "REQ-V84-EXTERNAL-RUNTIME-SAFETY-VISIBILITY",
-        "title": "Mission Control must show externalized runtime safety before externalized execution advances.",
+        "requirement_id": "REQ-V85-PROVIDER-ADAPTER-PILOT-BOUNDARY",
+        "title": "Provider adapter execution pilots must be governed dry-run/default-deny experiments.",
         "status": "covered",
-        "source_ref": "docs/v8.4-release-definition.md",
+        "source_ref": "docs/v8.5-release-definition.md",
         "owner_ref": "architecture-council",
         "evidence_refs": [
-          ".aof/artifacts/externalization/externalization-readiness-audit.json",
-          ".aof/artifacts/external-resources/external-resource-audit.json",
-          ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
+          ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+          ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
           ".aof/artifacts/visibility/current/mission-control.json",
-          "schemas/aof-mission-control-view.schema.json",
-          "src/commands/visibility-export.js",
-          "src/commands/visibility-serve.js",
+          "schemas/aof-provider-adapter-pilot-record.schema.json",
+          "schemas/aof-provider-adapter-pilot-audit.schema.json",
+          "src/commands/provider-adapter-pilot-record.js",
+          "src/commands/provider-adapter-pilot-audit.js",
+          "test/runtime-core-2.test.js",
           "test/runtime-situation.test.js"
         ],
         "blocker_refs": []
@@ -645,7 +633,7 @@
     ],
     "not_proven": "Requirement coverage proves bounded traceability only, not autonomous external execution safety.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-104.json"
+      ".aof/artifacts/requirement-coverage/TASK-105.json"
     ]
   },
   "adoption_proof_projection": {
@@ -785,11 +773,52 @@
     ],
     "not_proven": "Provider adapter projection is structural/runtime evidence; it does not prove provider output correctness or external-write safety."
   },
+  "provider_adapter_pilot_projection": {
+    "present": true,
+    "audit_ref": ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
+    "audit_ok": true,
+    "pilot_count": 1,
+    "ready_pilot_count": 1,
+    "blocked_pilot_count": 0,
+    "external_write_pilot_count": 0,
+    "missing_boundary_count": 0,
+    "pilots": [
+      {
+        "pilot_id": "PAP-TASK-105-V85-DRYRUN",
+        "adapter_ref": ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+        "work_item_id": "TASK-105",
+        "pilot_mode": "dry_run",
+        "approval_status": "not_required",
+        "execution_status": "simulated",
+        "artifact_ref": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+      }
+    ],
+    "not_proven": "Provider adapter pilot projection is dry-run/default-deny governance evidence; it does not prove production execution safety, credential safety, billing safety, or semantic provider correctness."
+  },
+  "provider_adapter_pilot_readiness_projection": {
+    "present": true,
+    "readiness_status": "ready",
+    "readiness_summary": "Provider adapter pilot evidence is present, bounded, and default-deny.",
+    "release_ref": "docs/v8.5-release-definition.md",
+    "pilot_refs": [
+      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+    ],
+    "evidence_refs": [
+      ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
+      ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
+      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+    ],
+    "governance_action": "allow-dry-run-pilot-claim",
+    "default_mode_boundary": "Provider adapter execution pilots are dry-run/default-deny unless an explicit approval artifact authorizes a narrower mode.",
+    "approval_boundary": "Write-mode provider pilots require approval evidence and remain non-production by default.",
+    "risk_boundary": "This projection governs pilot readiness only; it is not permission for production external writes.",
+    "not_proven": "Provider adapter pilot readiness does not prove provider output correctness, credential safety, billing safety, production safety, or autonomous external execution readiness."
+  },
   "external_runtime_safety_projection": {
     "present": true,
     "safety_status": "safe",
     "safety_summary": "Externalized runtime safety evidence is present and no blocking boundary is active.",
-    "release_ref": "docs/v8.4-release-definition.md",
+    "release_ref": "docs/v8.5-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json"
@@ -803,8 +832,9 @@
       ".aof/artifacts/externalization/externalization-readiness-audit.json",
       ".aof/artifacts/external-resources/external-resource-audit.json",
       ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
+      ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v8.4-release-definition.md",
+      "docs/v8.5-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
       ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
@@ -833,6 +863,12 @@
         "status": "pass",
         "summary": "1 ready adapter(s), 0 write-capable adapter(s).",
         "evidence_ref": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+      },
+      {
+        "check_id": "provider-adapter-pilot-boundary",
+        "status": "pass",
+        "summary": "1 ready pilot(s), 0 write-mode pilot(s).",
+        "evidence_ref": ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json"
       },
       {
         "check_id": "external-reference-freshness",
@@ -885,7 +921,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-104.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-105.json"
       },
       {
         "source_id": "adoption-proof",
@@ -895,27 +931,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V84-EXTERNAL-RUNTIME-SAFETY.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-104.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-105.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v8.4-release-definition.md"
+        "artifact_ref": "docs/v8.5-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-104.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-105.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-104.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-105.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V84-EXTERNAL-RUNTIME-SAFETY.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json"
   }
 }

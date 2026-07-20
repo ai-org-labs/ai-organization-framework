@@ -1,0 +1,26 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-105-V85",
+  "recorded_at": "2026-07-20T04:38:11.000Z",
+  "work_item_id": "TASK-105",
+  "work_item_ref": ".aof/tasks/done/TASK-105.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "required_context_refs": [
+    "docs/v8.5-release-definition.md",
+    ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
+    ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+    ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared reference availability only, not provider correctness or production execution safety.",
+  "source_task_id": "TASK-105",
+  "source_parent_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "source_decision_record_id": null
+}

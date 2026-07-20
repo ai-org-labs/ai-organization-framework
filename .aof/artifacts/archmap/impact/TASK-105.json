@@ -1,0 +1,20 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-20T04:52:00.000Z",
+  "work_item_id": "TASK-105",
+  "work_item_ref": ".aof/tasks/done/TASK-105.json",
+  "source_task_id": "TASK-105",
+  "source_parent_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/v8.5-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-105-V85.json",
+  "affected_nodes": [
+    "provider-adapter-governance",
+    "provider-adapter-pilot-governance",
+    "mission-control",
+    "release-state-audit"
+  ],
+  "impact_summary": "v8.5 adds a provider adapter execution pilot boundary that separates adapter contract readiness from dry-run/default-deny pilot readiness and blocks hidden production execution claims.",
+  "not_proven": "Archmap impact records describe intended architecture impact and do not prove semantic correctness or external execution safety."
+}

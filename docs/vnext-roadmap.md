@@ -433,7 +433,7 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v8.4.0`, advance `v8.5` as Provider Adapter Execution Pilot Boundary.
+After `v8.5.0`, advance `v8.6` as External Runtime Execution Approval Bridge.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
 proof, session, context, release, and Archmap evidence can be projected from
 canonical runtime artifacts. The v7.9 Externalization Readiness Boundary then
@@ -449,17 +449,18 @@ acceptance evidence visible in Mission Control without forcing operators to read
 raw JSON. The next proof is externalized runtime safety: whether permission,
 approval, risk, provenance, and not-proven boundaries are visible enough for an
 operator to judge before externalized execution advances. v8.4 made that
-externalized runtime safety state visible in Mission Control. The next proof is
-the pilot boundary: whether provider adapter execution can be run as an
-approved, dry-run/default-deny, reversible, redacted, provenance-backed
-experiment without being confused with production automation.
+externalized runtime safety state visible in Mission Control. v8.5 made provider
+adapter execution pilots governed dry-run/default-deny experiments. The next
+proof is the approval bridge: whether an external runtime execution step can be
+authorized, bounded, redacted, reversible, and audited before any real provider
+side effect is allowed.
 
 Priority order:
 
-1. `v8.5`: Provider Adapter Execution Pilot Boundary
-2. `v8.6`: External Runtime Execution Approval Bridge
-3. `v8.7`: External Runtime Reproduction and Rollback Proof
-4. `v8.8`: External Runtime Outcome Evidence and Learning Loop
+1. `v8.6`: External Runtime Execution Approval Bridge
+2. `v8.7`: External Runtime Reproduction and Rollback Proof
+3. `v8.8`: External Runtime Outcome Evidence and Learning Loop
+4. `v8.9`: External Runtime Operator Acceptance and Safety Drill
 
 Canonical v7.x roadmap:
 

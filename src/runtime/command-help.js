@@ -87,6 +87,14 @@ const QIF_MAPPING_BY_COMMAND = {
     acceptance_gate: "Audit fails missing adapter records, unresolved refs, missing boundaries, write-capable modes without escalation, ready dangerous adapters, or absent runtime provenance.",
     verdict_boundary: "Adapter governance evidence only; not proof that a provider response is semantically correct or that external writes are safe in every context."
   },
+  "provider-adapter-pilot-audit": {
+    quality_intent: "Provider adapter execution pilots are bounded experiments, not hidden production automation.",
+    risk: "AOF treats provider pilot activity as safe execution while approval, dry-run/default-deny, redaction, rollback, provenance, or stop conditions are missing.",
+    loss_boundary: "Do not claim provider adapter pilot readiness when pilot records are absent, refs are unresolved, write pilots lack approval, production/billing/secret/deploy actions are not denied, or not-proven boundaries are missing.",
+    evidence_refs: ["provider adapter pilot records", "provider adapter records", "work item refs", "session refs", "verification refs"],
+    acceptance_gate: "Audit fails missing pilots, unresolved refs, absent execution boundaries, unapproved write pilots, executable external writes by default, or absent runtime provenance.",
+    verdict_boundary: "Pilot boundary evidence only; not proof that provider execution is production-safe, credential-safe, billing-safe, autonomous, or semantically correct."
+  },
   "operator-validation-audit": {
     quality_intent: "AOF distinguishes internally green work from operator-understood, reproducible, and accepted work.",
     risk: "AOF claims adoption or release acceptance from tests, dashboards, or artifact volume while the operator cannot understand, reproduce, or accept the governed work path.",

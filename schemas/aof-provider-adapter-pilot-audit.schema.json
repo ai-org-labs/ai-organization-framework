@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-adapter-pilot-audit.schema.json",
+  "title": "AOF Provider Adapter Pilot Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "summary",
+    "pilots",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "provider-adapter-pilot-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pilot_count",
+        "ready_pilot_count",
+        "blocked_pilot_count",
+        "external_write_pilot_count",
+        "missing_boundary_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "pilot_count": { "type": "integer", "minimum": 0 },
+        "ready_pilot_count": { "type": "integer", "minimum": 0 },
+        "blocked_pilot_count": { "type": "integer", "minimum": 0 },
+        "external_write_pilot_count": { "type": "integer", "minimum": 0 },
+        "missing_boundary_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "pilots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pilot_id",
+          "adapter_ref",
+          "work_item_id",
+          "pilot_mode",
+          "approval_status",
+          "execution_status",
+          "artifact_ref"
+        ],
+        "properties": {
+          "pilot_id": { "type": "string" },
+          "adapter_ref": { "type": "string" },
+          "work_item_id": { "type": "string" },
+          "pilot_mode": { "type": "string" },
+          "approval_status": { "type": "string" },
+          "execution_status": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" },
+          "evidence_refs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "errors": { "type": "array", "items": { "type": "string" } }
+  }
+}

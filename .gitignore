@@ -55,6 +55,7 @@ node_modules/
 !.aof/artifacts/execution/team-outputs/TOUT-TASK-062-WORK-GOVERNANCE-EXAMPLES.json
 !.aof/artifacts/execution/team-outputs/TOUT-TASK-063-V61-RELEASE.json
 !.aof/artifacts/execution/team-outputs/TOUT-TASK-064-V62-ADOPTION-PROOF.json
+!.aof/artifacts/execution/team-outputs/TOUT-TASK-105-V85.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-047-V50-DIRECTION.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-056-V60-PUBLIC-READINESS.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-057-WORK-GOVERNANCE.json
@@ -66,6 +67,7 @@ node_modules/
 !.aof/artifacts/execution/council-reviews/CRP-TASK-063-V61-RELEASE.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-064-V62-ADOPTION-PROOF.json
 !.aof/artifacts/execution/council-reviews/CRP-TASK-071-V66-ARCHMAP.json
+!.aof/artifacts/execution/council-reviews/CREV-TASK-105-V85.json
 .aof/artifacts/need-validation/**/*.json
 .aof/artifacts/discovery/**/*.json
 .aof/artifacts/allocation/**/*.json
@@ -74,6 +76,9 @@ node_modules/
 .aof/artifacts/actor-execution-gates/*.json
 .aof/artifacts/skillful-actor/hri-projections/*.json
 !.aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json
+!.aof/artifacts/execution/role-results/RRES-TASK-105-VISIONARY.json
+!.aof/artifacts/execution/role-results/RRES-TASK-105-BUILDER.json
+!.aof/artifacts/execution/role-results/RRES-TASK-105-GUARDIAN.json
 .aof/artifacts/runtime-loop-proofs/*.json
 .aof/tasks/done/TASK-*.json
 !.aof/tasks/done/TASK-046.json
@@ -90,6 +95,7 @@ node_modules/
 !.aof/tasks/done/TASK-057.json
 !.aof/tasks/done/TASK-103.json
 !.aof/tasks/done/TASK-104.json
+!.aof/tasks/done/TASK-105.json
 !.aof/tasks/done/TASK-058.json
 !.aof/tasks/done/TASK-059.json
 !.aof/tasks/done/TASK-060.json

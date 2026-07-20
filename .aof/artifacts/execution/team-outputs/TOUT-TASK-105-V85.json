@@ -1,0 +1,36 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-20T04:40:03.000Z",
+  "team_output_id": "TOUT-TASK-105-V85",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Approve v8.5 after provider-adapter-pilot-audit, release-state-audit, npm test, smoke, and GitHub Actions are green.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-105-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-105-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-105-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v8.5-release-definition.md",
+    ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
+    ".aof/artifacts/visibility/current/mission-control.json"
+  ],
+  "decision_required": false,
+  "summary": "Visionary, Builder, and Guardian agree that v8.5 should ship provider adapter execution pilots as governed dry-run/default-deny experiments, not production automation.",
+  "source_task_id": "TASK-105",
+  "source_parent_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "source_decision_record_id": null
+}

@@ -1,0 +1,51 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-105-V85",
+  "recorded_at": "2026-07-20T04:50:00.000Z",
+  "work_item_id": "TASK-105",
+  "work_item_ref": ".aof/tasks/done/TASK-105.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V85-PROVIDER-ADAPTER-PILOT-BOUNDARY",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v8.5-release-definition.md",
+      "title": "Provider adapter execution pilots must be governed dry-run/default-deny experiments.",
+      "owner_ref": "architecture-council",
+      "acceptance_boundary": "provider-adapter-pilot-audit passes and Mission Control shows pilot readiness without production execution authority.",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-105.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+        ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "schemas/aof-provider-adapter-pilot-record.schema.json",
+        "schemas/aof-provider-adapter-pilot-audit.schema.json",
+        "src/commands/provider-adapter-pilot-record.js",
+        "src/commands/provider-adapter-pilot-audit.js",
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 1,
+    "covered_count": 1,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "0 additional implementation work items for v8.5 after final verification",
+    "forecast_boundary": "Forecast is local runtime evidence and does not prove semantic truth, production safety, or market value."
+  },
+  "not_proven": "Requirement coverage proves bounded traceability only, not autonomous external execution safety.",
+  "source_task_id": "TASK-105",
+  "source_parent_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "source_decision_record_id": null,
+  "notes": null
+}

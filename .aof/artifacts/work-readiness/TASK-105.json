@@ -1,0 +1,35 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-105-V85",
+  "recorded_at": "2026-07-20T04:38:10.000Z",
+  "work_item_id": "TASK-105",
+  "work_item_ref": ".aof/tasks/done/TASK-105.json",
+  "readiness_status": "ready",
+  "goal": "Ship v8.5 provider adapter execution pilot boundary.",
+  "risk": "AOF treats provider adapter pilot activity as safe execution while approval, dry-run/default-deny, redaction, rollback, provenance, stop conditions, or not-proven boundaries are missing.",
+  "loss_boundary": "No v8.5 release claim unless provider adapter pilots are auditable bounded experiments and Mission Control exposes pilot readiness.",
+  "acceptance_gates": [
+    "provider-adapter-pilot-record writes schema-valid pilot evidence",
+    "provider-adapter-pilot-audit fails missing or unsafe pilot evidence",
+    "release-state-audit gates v8.5 on provider adapter pilot audit"
+  ],
+  "evidence_plan": [
+    "provider adapter pilot record, provider adapter pilot audit, Mission Control projection, focused tests, release-state audit, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if pilot readiness implies production execution authority",
+    "stop if write-mode pilot can pass without approval evidence",
+    "stop if release-state-audit fails"
+  ],
+  "qif_refs": [
+    "docs/v8.5-release-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-105",
+  "source_parent_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "source_decision_record_id": null
+}

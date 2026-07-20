@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v8.5 Provider Adapter Execution Pilot Boundary: prove that provider adapter execution pilots are approved, dry-run/default-deny, redacted, reversible, provenance-backed, and not confused with production automation.",
-  "updated_at": "2026-07-20T01:56:00.000Z",
+  "content": "Prepare v8.6 External Runtime Execution Approval Bridge: prove that any real provider side effect is authorized by bounded approval, scope, redaction, rollback, provenance, and stop conditions before execution.",
+  "updated_at": "2026-07-20T04:45:32.704Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V84-EXTERNAL-RUNTIME-SAFETY",
-  "source_decision_record_id": "CREV-TASK-104-V84",
+  "source_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "source_decision_record_id": "CREV-TASK-105-V85",
   "declared_complete_at": null
 }

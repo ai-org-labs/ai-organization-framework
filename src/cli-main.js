@@ -119,6 +119,8 @@ Usage:
   aof external-resource-audit [--project <path>] [--write-artifact <path>]
   aof provider-adapter-record --project <path> --display-name "<name>" --provider-ref <path-or-ref> --resource-ref <path> --adapter-kind <read_only|local_write|external_write|dangerous> --operation-mode <read|local_write|external_write|dangerous> [--operation-mode <...>] --read-authority-boundary "<text>" --write-authority-boundary "<text>" --freshness-check "<text>" --approval-policy-ref <path-or-ref> --side-effect-boundary "<text>" [--escalation-required-for <read|local_write|external_write|dangerous>] --readiness-status <ready|warning|blocked|accepted_residual_risk> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-adapter-audit [--project <path>] [--write-artifact <path>]
+  aof provider-adapter-pilot-record --project <path> --adapter-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --session-ref <path> --pilot-mode <dry_run|read_only|approved_write_simulation|approved_external_write> --approval-status <not_required|approved|pending|rejected> [--approval-ref <path>] --expected-external-effect "<text>" --allowed-action "<text>" [--allowed-action "<text>"] --denied-action "<text>" [--denied-action "<text>"] --redaction-boundary "<text>" --rollback-plan "<text>" --provenance-ref <path> [--provenance-ref <path>] --verification-ref <path> [--verification-ref <path>] --stop-condition "<text>" [--stop-condition "<text>"] --execution-status <planned|simulated|executed|blocked|skipped> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof provider-adapter-pilot-audit [--project <path>] [--write-artifact <path>]
   aof operator-validation-record --project <path> --operator-ref <ref> --feedback-source <human_operator|adopter|expert_reviewer|self_hosting_operator|simulated_operator> --release-ref <ref> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --evidence-ref <path> [--evidence-ref <path>] --understanding-outcome <understood|partially_understood|not_understood|needs_clarification|not_checked> --reproduction-outcome <reproduced|partially_reproduced|not_reproduced|needs_clarification|not_checked> --acceptance-outcome <accepted|accepted_with_residual_risk|rejected|needs_clarification|not_checked> --feedback-summary "<text>" [--blocking-reason "<text>"] --governance-action <none|request_clarification|request_reproduction|block_release_claim|escalate_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-validation-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1334,6 +1336,38 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "provider-adapter-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "provider-adapter-pilot-record"
+            ? {
+                project: ".",
+                pilotId: "",
+                adapterRef: "",
+                workItemId: "",
+                workItemRef: "",
+                sessionRef: "",
+                pilotMode: "dry_run",
+                approvalStatus: "not_required",
+                approvalRef: "",
+                expectedExternalEffect: "",
+                allowedActions: [],
+                deniedActions: [],
+                redactionBoundary: "",
+                rollbackPlan: "",
+                provenanceRefs: [],
+                verificationRefs: [],
+                stopConditions: [],
+                executionStatus: "planned",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "provider-adapter-pilot-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -2984,6 +3018,11 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--pilot-id") {
+      options.pilotId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--validation-id") {
       options.validationId = rest[i + 1] ?? "";
       i += 1;
@@ -3049,6 +3088,11 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--adapter-ref") {
+      options.adapterRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--resource-id") {
       options.resourceId = rest[i + 1] ?? "";
       i += 1;
@@ -3109,6 +3153,69 @@ function parseArgs(argv) {
         throw new Error("Missing value after --operation-mode.");
       }
       options.operationModes.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--pilot-mode") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --pilot-mode.");
+      }
+      options.pilotMode = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--expected-external-effect") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --expected-external-effect.");
+      }
+      options.expectedExternalEffect = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--allowed-action") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --allowed-action.");
+      }
+      options.allowedActions.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--denied-action") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --denied-action.");
+      }
+      options.deniedActions.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--rollback-plan") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --rollback-plan.");
+      }
+      options.rollbackPlan = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--provenance-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --provenance-ref.");
+      }
+      options.provenanceRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--verification-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --verification-ref.");
+      }
+      options.verificationRefs.push(value);
       i += 1;
       continue;
     }
@@ -5968,6 +6075,54 @@ function parseArgs(argv) {
   if (command === "provider-adapter-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `provider-adapter-audit`.");
+    }
+  }
+
+  if (command === "provider-adapter-pilot-record") {
+    for (const [flag, value] of [
+      ["--adapter-ref", options.adapterRef],
+      ["--work-item-id", options.workItemId],
+      ["--work-item-ref", options.workItemRef],
+      ["--session-ref", options.sessionRef],
+      ["--pilot-mode", options.pilotMode],
+      ["--approval-status", options.approvalStatus],
+      ["--expected-external-effect", options.expectedExternalEffect],
+      ["--redaction-boundary", options.redactionBoundary],
+      ["--rollback-plan", options.rollbackPlan],
+      ["--execution-status", options.executionStatus],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`provider-adapter-pilot-record\`.`);
+      }
+    }
+    if (!["dry_run", "read_only", "approved_write_simulation", "approved_external_write"].includes(options.pilotMode)) {
+      throw new Error("Invalid --pilot-mode for `provider-adapter-pilot-record`.");
+    }
+    if (!["not_required", "approved", "pending", "rejected"].includes(options.approvalStatus)) {
+      throw new Error("Invalid --approval-status for `provider-adapter-pilot-record`.");
+    }
+    if (!["planned", "simulated", "executed", "blocked", "skipped"].includes(options.executionStatus)) {
+      throw new Error("Invalid --execution-status for `provider-adapter-pilot-record`.");
+    }
+    for (const [flag, values] of [
+      ["--allowed-action", options.allowedActions],
+      ["--denied-action", options.deniedActions],
+      ["--provenance-ref", options.provenanceRefs],
+      ["--verification-ref", options.verificationRefs],
+      ["--stop-condition", options.stopConditions]
+    ]) {
+      if (!Array.isArray(values) || values.length === 0) {
+        throw new Error(`At least one ${flag} is required for \`provider-adapter-pilot-record\`.`);
+      }
+    }
+  }
+
+  if (command === "provider-adapter-pilot-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `provider-adapter-pilot-audit`.");
     }
   }
 

@@ -1,0 +1,113 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-105-V85",
+  "recorded_at": "2026-07-20T04:51:00.000Z",
+  "work_item_id": "TASK-105",
+  "work_item_ref": ".aof/tasks/done/TASK-105.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "unspecified",
+    "source_format": "aof-runtime-artifacts",
+    "source_of_truth_boundary": "AOF runtime artifacts are the session source of truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "Proceed with v8.5 Provider Adapter Execution Pilot Boundary.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-105.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "tool_call",
+      "summary": "Runtime commands selected v8.5 and opened the provider adapter pilot work item.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "artifact_write",
+      "summary": "Provider adapter pilot schemas, CLI commands, Mission Control projection, tests, and release docs were written.",
+      "artifact_refs": [
+        "src/commands/provider-adapter-pilot-record.js",
+        "src/commands/provider-adapter-pilot-audit.js",
+        "src/commands/visibility-export.js",
+        "test/runtime-core-2.test.js",
+        "docs/v8.5-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "verification",
+      "summary": "Focused runtime tests validate dry-run pilot pass, write-mode approval failure, and Mission Control compatibility.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "response",
+      "summary": "The orchestrator reported v8.5 as bounded provider adapter pilot governance, not production external execution permission.",
+      "artifact_refs": [
+        "docs/v8.5-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-6",
+      "event_type": "blocker",
+      "summary": "No active TASK-105 blocker remains except final full verification at record time.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-7",
+      "event_type": "stop_condition",
+      "summary": "Stop when provider-adapter-pilot-audit, release-state-audit, npm test, and smoke pass for v8.5.0.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
+        ".aof/context/active/release-state-audit.json",
+        "docs/v8.5-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-105.json"
+    ],
+    "requirement_refs": [
+      "docs/v8.5-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js",
+      "test/runtime-situation.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
+      ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
+      ".aof/artifacts/visibility/current/mission-control.json"
+    ],
+    "risk_candidates": [
+      "Provider adapter pilot readiness can be overclaimed as production execution authority."
+    ],
+    "decision_candidates": [
+      "v8.5 pilot readiness is release evidence only when linked to canonical audits and explicit not-proven boundaries."
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json"
+    ]
+  },
+  "redaction_boundary": "No secrets, credentials, or external provider payloads are included.",
+  "release_ready_boundary": "Runtime-ready pilot boundary only; not autonomous execution authority.",
+  "not_proven": "Session export proves reconstructability only.",
+  "source_task_id": "TASK-105",
+  "source_parent_session_id": "SESS-V85-PROVIDER-ADAPTER-PILOT",
+  "source_decision_record_id": null,
+  "notes": null
+}
