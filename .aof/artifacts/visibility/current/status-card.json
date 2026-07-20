@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-20T09:43:51.466Z",
+  "as_of": "2026-07-20T09:52:00.216Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "Run a runtime-backed v8.8 direction review and open the first External Runtime Reproduction and Rollback Proof implementation task.",

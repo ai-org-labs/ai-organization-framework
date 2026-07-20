@@ -1,0 +1,30 @@
+{
+  "artifact_type": "team-output",
+  "output_id": "TOUT-TASK-107-V87",
+  "recorded_at": "2026-07-20T09:20:30.000Z",
+  "team_id": "runtime-team",
+  "stage": "release-ready",
+  "expected_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "aggregate_state": "ready-for-council",
+  "recommended_next_step": "Approve v8.7 after provider-execution-approval-audit, release-state-audit, npm test, smoke, and GitHub Actions are green.",
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-107-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-107-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-107-GUARDIAN.json"
+  ],
+  "blocking_signals": [],
+  "summary": "Visionary, Builder, and Guardian agree that v8.7 should ship approval authenticity and adapter capability alignment as bounded preflight governance, not live provider execution.",
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": null,
+  "notes": null
+}

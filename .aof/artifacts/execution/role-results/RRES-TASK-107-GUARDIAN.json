@@ -1,0 +1,26 @@
+{
+  "artifact_type": "role-result",
+  "result_id": "RRES-TASK-107-GUARDIAN",
+  "recorded_at": "2026-07-20T09:20:20.000Z",
+  "role": "Guardian",
+  "stage": "verification",
+  "session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "status": "completed",
+  "recommendation": "Approve v8.7 only as preflight governance proof; do not claim live provider execution, rollback execution, or production safety.",
+  "rationale": "The corrected v8.6 record is blocked/read-only and the new v8.7 chain is bounded. Negative regression coverage confirms a read-only adapter cannot pass external-write authorization.",
+  "signals": [
+    "v8.6 overclaim corrected to blocked/read-only",
+    "read-only adapter external-write overclaim fails focused test",
+    "production execution count remains zero"
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
+    "test/runtime-core-2.test.js",
+    "docs/v8.7-release-checklist.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "source_decision_record_id": null,
+  "notes": null
+}

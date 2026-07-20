@@ -1,0 +1,48 @@
+{
+  "artifact_type": "council-review-packet",
+  "packet_id": "CREV-TASK-107-V87",
+  "recorded_at": "2026-07-20T09:20:40.000Z",
+  "council_id": "architecture-council",
+  "stage": "release-review",
+  "review_status": "approved",
+  "decision_summary": "Approve v8.7 as Approval Authenticity and Adapter Capability Alignment, provided no live external provider write is claimed.",
+  "rationale": "The release corrects v8.6's approval overclaim and makes external-write authorization depend on adapter capability, independent human approval, concrete target binding, credential scope, budget, rollback, and stop boundaries.",
+  "recommendation": "Ship after provider-execution-approval-audit, release-state-audit, npm test, smoke, and GitHub Actions are green.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "The operator should see that v8.7 prevents invalid external-write authorization, not that it executed a provider action.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep v8.6 corrected record as blocked/read-only evidence.",
+    "Keep v8.7 release notes explicit that production execution is not proven."
+  ],
+  "organization_change_recommendations": [
+    "Require human approval records and provider operation targets before any future write-class provider execution approval can pass."
+  ],
+  "diagnosis": {
+    "category": "approval-authenticity-and-adapter-capability-alignment",
+    "confidence": 0.88,
+    "evidence_refs": [
+      "docs/v8.7-release-definition.md",
+      "docs/v8.7-approval-authenticity.md",
+      "schemas/aof-human-approval-record.schema.json",
+      "schemas/aof-provider-operation-target-record.schema.json",
+      "src/commands/provider-execution-approval-audit.js"
+    ]
+  },
+  "human_override_signal": null,
+  "team_output_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-107-V87.json",
+  "source_task_id": "TASK-107",
+  "source_parent_session_id": "SESS-V87-APPROVAL-AUTHENTICITY",
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-107-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-107-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-107-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v8.7-release-checklist.md",
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+    ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+  ],
+  "follow_up_task_ids": []
+}
