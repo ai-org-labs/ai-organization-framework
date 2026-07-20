@@ -20,6 +20,7 @@
     "provider_rollback_proof_projection",
     "provider_outcome_evidence_projection",
     "provider_learning_loop_projection",
+    "operator_acceptance_drill_projection",
     "provider_adapter_pilot_readiness_projection",
     "external_runtime_safety_projection",
     "operator_validation_projection",
@@ -1120,6 +1121,52 @@
               "outcome_ref": { "type": "string" },
               "decision": { "type": "string" },
               "update_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "operator_acceptance_drill_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "drill_count",
+        "accept_count",
+        "stop_count",
+        "rollback_count",
+        "escalate_count",
+        "defer_count",
+        "missing_boundary_count",
+        "drills",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "drill_count": { "type": "integer" },
+        "accept_count": { "type": "integer" },
+        "stop_count": { "type": "integer" },
+        "rollback_count": { "type": "integer" },
+        "escalate_count": { "type": "integer" },
+        "defer_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "drills": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["drill_id", "operator_ref", "work_item_id", "decision", "artifact_ref"],
+            "properties": {
+              "drill_id": { "type": "string" },
+              "operator_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "decision": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

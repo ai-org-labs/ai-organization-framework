@@ -1,0 +1,59 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRTJ3UBS-6V9ZYE",
+  "recorded_at": "2026-07-20T17:59:04.264Z",
+  "work_item_id": "TASK-110",
+  "work_item_ref": ".aof/tasks/done/TASK-110.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V90-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v9.0-release-definition.md",
+      "title": "record operator acceptance drill decision",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered only when drill links approval, reproduction, rollback, outcome, learning, Mission Control, decision rationale, risk, blockers, safety, and not-proven refs",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-110.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V90-002",
+      "requirement_type": "functional",
+      "source_ref": "docs/v9.0-release-definition.md",
+      "title": "make release-state audit require operator acceptance from v9.0 onward",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered only when release-state-audit includes operator-acceptance-drill-audit for v9.0+ releases",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-110.json"
+      ],
+      "evidence_refs": [
+        "src/commands/release-state-audit.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded release verification only",
+    "burndown_ref": "docs/v9.0-release-checklist.md",
+    "forecast_boundary": "forecast is release governance evidence, not delivery certainty or external execution proof"
+  },
+  "not_proven": "Requirement coverage proves trace coverage only; it does not prove production safety, semantic truth, market truth, or third-party adoption.",
+  "source_task_id": "TASK-110",
+  "source_parent_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "source_decision_record_id": "CREV-TASK-110-V90",
+  "notes": null
+}

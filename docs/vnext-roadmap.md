@@ -433,7 +433,7 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v8.9.0`, advance `v9.0` as External Runtime Operator Acceptance and Safety Drill.
+After `v9.0.0`, advance `v9.1` as External Runtime Production Boundary Candidate.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
 proof, session, context, release, and Archmap evidence can be projected from
 canonical runtime artifacts. The v7.9 Externalization Readiness Boundary then
@@ -458,17 +458,20 @@ conditions before external write can be authorized. v8.8 added local
 reconstruction and simulated rollback proof so approval is not confused with
 reproducibility. v8.9 added outcome evidence and learning-loop update evidence,
 so reproduction and rollback readiness are not confused with observed outcome,
-accepted result, or learned next action. The next proof is operator acceptance
-and safety drill: whether a human operator can inspect the approval,
-reproduction, rollback, outcome, and learning chain and decide accept, stop,
-rollback, or escalate before controlled provider execution advances.
+accepted result, or learned next action. v9.0 added operator acceptance drill
+evidence, so accept / stop / rollback / escalate / defer judgment can be made
+against the full external runtime chain before controlled provider execution
+advances. The next proof is production-boundary eligibility: whether AOF can
+state the exact credential, budget, revocation, rollback, monitoring, incident,
+and human approval preconditions required before any real provider-side
+execution can be considered.
 
 Priority order:
 
-1. `v9.0`: External Runtime Operator Acceptance and Safety Drill
-2. `v9.1`: External Runtime Production Boundary Candidate
-3. `v9.2`: Provider-backed Controlled Execution Candidate
-4. `v9.3`: External Runtime Incident Drill and Recovery Evidence
+1. `v9.1`: External Runtime Production Boundary Candidate
+2. `v9.2`: Provider-backed Controlled Execution Candidate
+3. `v9.3`: External Runtime Incident Drill and Recovery Evidence
+4. `v9.4`: Provider Execution Cost and Quota Boundary
 
 Canonical v7.x roadmap:
 
@@ -482,6 +485,6 @@ Reasoning:
   as bounded runtime evidence, then legible in Mission Control as coverage,
   forecast, blocked work, adoption proof, and evidence completeness, and finally
   bounded externalization claims before v8.
-- v8.0 through v9.2 externalize the organization runtime, govern adapters, add
+- v8.0 through v9.4 externalize the organization runtime, govern adapters, add
   operator validation, make acceptance visible, and pilot external execution
   only behind approval boundaries without overclaiming semantic truth.

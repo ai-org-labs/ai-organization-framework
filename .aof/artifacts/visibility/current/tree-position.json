@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-20T15:26:53.991Z",
+  "generated_at": "2026-07-20T18:11:54.757Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "8.9.0",
-    "active_release_track": "v8.9",
-    "release_definition_ref": "docs/v8.9-release-definition.md"
+    "active_release_version": "9.0.0",
+    "active_release_track": "v9.0",
+    "release_definition_ref": "docs/v9.0-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task."
+    "branch_summary": "Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v8.9",
+      "label": "v9.0",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v8.9 and the next concrete branch.",
-    "why_this_branch": "Prepare v9.0 External Runtime Operator Acceptance and Safety Drill: prove a human operator can inspect the approved, reproduced, rollback-ready, outcome, and learning chain and decide accept, stop, rollback, or escalate before controlled provider execution.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task."
+    "where_are_we": "The runtime is between v9.0 and the next concrete branch.",
+    "why_this_branch": "Prepare v9.1 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, and human go/no-go preconditions required before any controlled provider execution is eligible.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task."
   }
 }

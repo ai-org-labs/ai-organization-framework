@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Run a runtime-backed v9.0 direction review and open the first External Runtime Operator Acceptance and Safety Drill implementation task.",
-  "updated_at": "2026-07-20T15:20:46.969Z",
-  "agreed_with_human": true,
-  "source_session_id": "SESS-V89-OUTCOME-LEARNING",
-  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING",
+  "content": "Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task.",
+  "updated_at": "2026-07-20T18:07:08.169Z",
+  "agreed_with_human": null,
+  "source_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "source_decision_record_id": "CREV-TASK-110-V90",
   "declared_complete_at": null
 }

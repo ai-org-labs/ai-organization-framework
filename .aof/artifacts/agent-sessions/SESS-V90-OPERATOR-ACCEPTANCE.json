@@ -1,0 +1,136 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRTJ2A54-I930I9",
+  "recorded_at": "2026-07-20T17:57:51.448Z",
+  "session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "ASEV1-MRTJ2A54-58YZML",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-20T17:57:51.448Z",
+      "summary": "Continue from v8.9 to v9.0 and close the operator acceptance gap.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRTJ2A54-JJZR9V",
+      "event_type": "response",
+      "occurred_at": "2026-07-20T17:57:51.448Z",
+      "summary": "Selected a bounded operator acceptance and safety drill rather than production provider execution.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV3-MRTJ2A54-S5HTC1",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-20T17:57:51.448Z",
+      "summary": "Ran AOF runtime commands to create alignment, self-audit, TASK-110, operator drill record, audit, registry, and visibility projection.",
+      "artifact_refs": [],
+      "tool_name": "aof runtime",
+      "safety_level": "safe_local_write",
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV4-MRTJ2A54-NK17DF",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-20T17:57:51.448Z",
+      "summary": "Wrote operator acceptance drill schema, commands, tests, docs, and self-hosting artifacts.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV5-MRTJ2A54-E6AD40",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-20T17:57:51.448Z",
+      "summary": "Focused operator acceptance drill tests pass.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV6-MRTJ2A54-TRJO4F",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-07-20T17:57:51.448Z",
+      "summary": "Operator acceptance can be overclaimed as production safety unless boundaries remain visible.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV7-MRTJ2A54-QGSTY0",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-07-20T17:57:51.448Z",
+      "summary": "v9.0 release-state audit should require operator-acceptance-drill-audit.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV8-MRTJ2A54-YQE5NL",
+      "event_type": "council_review",
+      "occurred_at": "2026-07-20T17:57:51.448Z",
+      "summary": "Council approved the bounded v9.0 operator acceptance drill release path.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV9-MRTJ2A54-BETABI",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-20T17:57:51.448Z",
+      "summary": "Stop if operator acceptance is overclaimed as production safety or market truth.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-110.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.0-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json"
+    ]
+  },
+  "risk_candidates": [
+    "Operator acceptance can be overclaimed as production safety unless not-proven boundaries remain visible."
+  ],
+  "decision_candidates": [
+    "v9.0 release-state audit should require operator-acceptance-drill-audit."
+  ],
+  "release_ready_evidence": {
+    "claim": "Operator acceptance drill contract and audit are runtime-ready for self-hosting evidence.",
+    "evidence_refs": [
+      ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-110",
+  "source_parent_session_id": "SESS-V90-DIRECTION",
+  "source_decision_record_id": null
+}

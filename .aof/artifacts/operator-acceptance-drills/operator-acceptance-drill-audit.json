@@ -1,0 +1,404 @@
+{
+  "ok": true,
+  "artifact_type": "operator-acceptance-drill-audit",
+  "generated_at": "2026-07-20T18:09:14.275Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "drill_count": 1,
+    "accept_count": 1,
+    "stop_count": 0,
+    "rollback_count": 0,
+    "escalate_count": 0,
+    "defer_count": 0,
+    "missing_boundary_count": 0,
+    "failing_check_count": 0
+  },
+  "drills": [
+    {
+      "drill_id": "OAD-TASK-110-V90-SELF-HOSTING",
+      "operator_ref": "self-hosting-operator",
+      "work_item_id": "TASK-110",
+      "decision": "accept",
+      "artifact_ref": ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "operator acceptance drill presence",
+      "status": "pass",
+      "detail": "1 operator acceptance drill record(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING approval ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING reproduction ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING rollback ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING outcome ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING learning ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING mission control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING linked approval exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING linked reproduction exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING linked rollback exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING linked outcome exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING linked learning exists",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING approval is not rejected",
+      "status": "pass",
+      "detail": "approval_decision=approved",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING reproduction is reproduced",
+      "status": "pass",
+      "detail": "result_status=reproduced",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING rollback readiness is explicit",
+      "status": "pass",
+      "detail": "result_status=rollback_ready",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING outcome is not blocked",
+      "status": "pass",
+      "detail": "outcome_status=accepted",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING learning is not blocked",
+      "status": "pass",
+      "detail": "update_status=updated",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING decision rationale",
+      "status": "pass",
+      "detail": "The local external-runtime chain is approved, reproduced, rollback-ready, outcome-recorded, learning-updated, and bounded as non-production evidence; it is acceptable as a v9.0 self-hosting operator drill, not as production provider authority.",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING accepted risk",
+      "status": "pass",
+      "detail": "Self-hosting operator acceptance is not third-party acceptance, semantic truth, market truth, credential safety, or production execution safety.",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING blocker summary",
+      "status": "pass",
+      "detail": "No runtime blocker for the bounded self-hosting drill; production execution remains blocked until a separate controlled provider boundary is approved.",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING safety boundary",
+      "status": "pass",
+      "detail": "This drill authorizes documentation and runtime-gate progression only; it does not authorize live external writes, billing, secrets access, or production mutation.",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    },
+    {
+      "name": "OAD-TASK-110-V90-SELF-HOSTING not-proven boundary",
+      "status": "pass",
+      "detail": "The drill does not prove live provider behavior, independent operator adoption, external user value, semantic correctness, market validation, or production rollback execution.",
+      "evidence_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+        ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+      ]
+    }
+  ],
+  "errors": []
+}

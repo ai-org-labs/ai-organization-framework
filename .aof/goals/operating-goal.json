@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v9.0 External Runtime Operator Acceptance and Safety Drill: prove a human operator can inspect the approved, reproduced, rollback-ready, outcome, and learning chain and decide accept, stop, rollback, or escalate before controlled provider execution.",
-  "updated_at": "2026-07-20T15:20:46.831Z",
-  "agreed_with_human": true,
-  "source_session_id": "SESS-V89-OUTCOME-LEARNING",
-  "source_decision_record_id": "DEC-V89-OUTCOME-LEARNING",
+  "content": "Prepare v9.1 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, and human go/no-go preconditions required before any controlled provider execution is eligible.",
+  "updated_at": "2026-07-20T18:07:04.719Z",
+  "agreed_with_human": null,
+  "source_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "source_decision_record_id": "CREV-TASK-110-V90",
   "declared_complete_at": null
 }

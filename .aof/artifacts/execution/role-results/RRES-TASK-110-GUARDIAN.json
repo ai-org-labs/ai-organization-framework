@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-20T17:57:26.616Z",
+  "role": "Guardian",
+  "stage": "review",
+  "session_id": "SESS-V90-GUARDIAN",
+  "status": "completed",
+  "recommendation": "approve with explicit not-proven boundaries",
+  "rationale": "Audit requires approval, reproduction, rollback, outcome, learning, Mission Control, decision rationale, risk, blocker, safety, and not-proven refs.",
+  "signals": [
+    "production execution remains blocked"
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-110",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": null
+}

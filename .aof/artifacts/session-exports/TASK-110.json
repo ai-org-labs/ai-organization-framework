@@ -1,0 +1,107 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRTJ4FEP-1RQDIB",
+  "recorded_at": "2026-07-20T17:59:31.585Z",
+  "work_item_id": "TASK-110",
+  "work_item_ref": ".aof/tasks/done/TASK-110.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V90-OPERATOR-ACCEPTANCE.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-runtime-artifacts",
+    "source_of_truth_boundary": "AOF runtime artifacts are the release session source of truth; raw provider streams are not included."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-1",
+      "event_type": "prompt",
+      "summary": "Proceed from v8.9 outcome/learning evidence to v9.0 operator acceptance drill.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md",
+        ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "event_id": "EVT-2",
+      "event_type": "response",
+      "summary": "Runtime selected a bounded v9.0 operator acceptance drill rather than production provider execution.",
+      "artifact_refs": [
+        "docs/v9.0-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime opened TASK-110 and generated operator acceptance drill audit artifacts.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-110.json",
+        ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-4",
+      "event_type": "artifact_write",
+      "summary": "Operator acceptance drill schemas, commands, parser support, tests, docs, and self-hosting proof artifacts were written.",
+      "artifact_refs": [
+        "src/commands/operator-acceptance-drill-record.js",
+        "src/commands/operator-acceptance-drill-audit.js",
+        "schemas/aof-operator-acceptance-drill-record.schema.json"
+      ]
+    },
+    {
+      "event_id": "EVT-5",
+      "event_type": "verification",
+      "summary": "Focused tests cover positive drill path and negative missing learning evidence failure.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-6",
+      "event_type": "blocker",
+      "summary": "No runtime blocker remains for bounded v9.0 drill; production execution remains explicitly out of scope.",
+      "artifact_refs": [
+        ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-7",
+      "event_type": "stop_condition",
+      "summary": "Stop if operator acceptance drill is overclaimed as production execution safety or market truth.",
+      "artifact_refs": [
+        "docs/v9.0-release-definition.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-110.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.0-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json"
+    ],
+    "risk_candidates": [
+      "Operator acceptance can be overclaimed as production safety unless not-proven boundaries are visible."
+    ],
+    "decision_candidates": [
+      "v9.0 should gate release readiness on operator-acceptance-drill-audit."
+    ],
+    "release_ready_evidence_refs": [
+      ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+    ]
+  },
+  "redaction_boundary": "No secrets, credentials, raw provider responses, or external payload bodies are included.",
+  "release_ready_boundary": "Runtime-ready operator acceptance drill evidence only; not production external execution authority.",
+  "not_proven": "Session export proves traceable release evidence only, not semantic correctness, production safety, or external execution value.",
+  "source_task_id": "TASK-110",
+  "source_parent_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "source_decision_record_id": "CREV-TASK-110-V90",
+  "notes": null
+}

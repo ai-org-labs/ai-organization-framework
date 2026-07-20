@@ -1,0 +1,44 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-20T17:57:26.883Z",
+  "review_packet_id": "CREV-MRTJ1R6R-MLQAOZ",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v9.0 operator acceptance drill as bounded runtime gate.",
+  "rationale": "The release adds operator decision evidence over the existing approval, reproduction, rollback, outcome, and learning chain without authorizing production execution.",
+  "recommendation": "Proceed to v9.0 release verification.",
+  "target_audience": "release operator",
+  "expected_user_reaction": "understands accept/stop/rollback/escalate/defer boundary",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "keep operator acceptance projection visible in Mission Control"
+  ],
+  "organization_change_recommendations": [
+    "require operator acceptance drill before controlled provider execution advances"
+  ],
+  "diagnosis_category": "release-gate-complete",
+  "diagnosis_confidence": 0.88,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-110-V90.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-110-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-110-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-110-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+  ],
+  "follow_up_task_ids": [
+    "TASK-110"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-110",
+  "source_parent_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "source_decision_record_id": null
+}

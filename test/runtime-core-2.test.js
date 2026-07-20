@@ -67,6 +67,8 @@ import { organizationStatusCommand } from "../src/commands/organization-status.j
 import { organizationAnalyticsSnapshotCommand } from "../src/commands/organization-analytics-snapshot.js";
 import { operatorValidationAuditCommand } from "../src/commands/operator-validation-audit.js";
 import { operatorValidationRecordCommand } from "../src/commands/operator-validation-record.js";
+import { operatorAcceptanceDrillAuditCommand } from "../src/commands/operator-acceptance-drill-audit.js";
+import { operatorAcceptanceDrillRecordCommand } from "../src/commands/operator-acceptance-drill-record.js";
 import { outcomeReportCommand } from "../src/commands/outcome-report.js";
 import { policyEvaluationReportCommand } from "../src/commands/policy-evaluation-report.js";
 import { problemStatementRecordCommand } from "../src/commands/problem-statement-record.js";
@@ -3787,6 +3789,217 @@ test("provider learning loop audit fails when linked outcome evidence is missing
   assert.equal(learningAudit.ok, false);
   assert.ok(learningAudit.summary.errors.some((entry) => entry.includes("outcome ref resolves")));
   assert.ok(learningAudit.summary.errors.some((entry) => entry.includes("linked outcome exists")));
+});
+
+test("operator acceptance drill commands link full external runtime chain", async (t) => {
+  const { projectRoot, sessionId, adapterRef, targetRef, approvalRef } = await writeApprovedProviderExecutionFixture(t, "SESS-V90-DRILL");
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "reproduction-proof.md"), "# Reproduction\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "rollback-proof.md"), "# Rollback\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "outcome-evidence.md"), "# Outcome\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "learning-loop.md"), "# Learning\n", "utf8");
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "visibility", "current"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "visibility", "current", "mission-control.json"), "{}\n", "utf8");
+
+  const reproduction = await providerExecutionReproductionRecordCommand({
+    project: projectRoot,
+    reproductionId: "PERP-TEST-V90",
+    approvalRef,
+    adapterRef,
+    targetOperationRef: targetRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    replayMode: "local_reconstruction",
+    inputFingerprint: "sha256:v90-drill-payload",
+    expectedSideEffect: "A bounded provider call would occur only after operator acceptance.",
+    reconstructedSteps: ["load approval", "load target", "reconstruct provider call"],
+    replayEvidenceRefs: [approvalRef, adapterRef, targetRef, "docs/reproduction-proof.md"],
+    verificationRefs: ["docs/reproduction-proof.md"],
+    resultStatus: "reproduced",
+    notProven: "No live provider operation is reproduced.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const reproductionRef = path.relative(projectRoot, reproduction.artifactPath).replaceAll(path.sep, "/");
+
+  const rollback = await providerRollbackProofRecordCommand({
+    project: projectRoot,
+    rollbackId: "PRB-TEST-V90",
+    approvalRef,
+    reproductionRef,
+    targetOperationRef: targetRef,
+    rollbackOperation: "delete_created_issue",
+    rollbackMode: "simulated",
+    rollbackSupported: true,
+    rollbackEvidenceRefs: [approvalRef, reproductionRef, "docs/rollback-proof.md"],
+    verificationRefs: ["docs/rollback-proof.md"],
+    stopConditions: ["stop if rollback target cannot be linked"],
+    resultStatus: "rollback_ready",
+    notProven: "Rollback readiness is simulated.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const rollbackRef = path.relative(projectRoot, rollback.artifactPath).replaceAll(path.sep, "/");
+
+  const outcome = await providerOutcomeEvidenceRecordCommand({
+    project: projectRoot,
+    outcomeId: "POE-TEST-V90",
+    approvalRef,
+    reproductionRef,
+    rollbackRef,
+    targetOperationRef: targetRef,
+    workItemId: "TASK-001",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    expectedOutcome: "Operator can inspect the external runtime chain before execution advances.",
+    observedResult: "The local chain is approval-backed, reproducible, rollback-ready, and non-production.",
+    outcomeStatus: "accepted",
+    evidenceRefs: [approvalRef, reproductionRef, rollbackRef, "docs/outcome-evidence.md"],
+    verificationRefs: ["docs/outcome-evidence.md"],
+    semanticTruthBoundary: "Only chain traceability is accepted.",
+    notProven: "No live provider safety or semantic truth is proven.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const outcomeRef = path.relative(projectRoot, outcome.artifactPath).replaceAll(path.sep, "/");
+
+  const learning = await providerLearningLoopRecordCommand({
+    project: projectRoot,
+    learningId: "PLL-TEST-V90",
+    outcomeRef,
+    learningSummary: "Operator acceptance must be a separate gate after outcome and learning evidence.",
+    decision: "accept",
+    nextAction: "Run operator acceptance drill before controlled execution.",
+    updateStatus: "updated",
+    learningRefs: ["docs/learning-loop.md"],
+    evidenceRefs: [outcomeRef, "docs/outcome-evidence.md"],
+    notProven: "Learning is governance interpretation only.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const learningRef = path.relative(projectRoot, learning.artifactPath).replaceAll(path.sep, "/");
+
+  await operatorAcceptanceDrillRecordCommand({
+    project: projectRoot,
+    drillId: "OAD-TEST-V90",
+    operatorRef: "operator:self-hosting",
+    workItemId: "TASK-001",
+    approvalRef,
+    reproductionRef,
+    rollbackRef,
+    outcomeRef,
+    learningRef,
+    missionControlRef: ".aof/artifacts/visibility/current/mission-control.json",
+    decision: "accept",
+    decisionRationale: "The bounded chain is complete enough for a drill, not production execution.",
+    acceptedRisk: "Self-hosting operator acceptance is not independent user acceptance.",
+    blockerSummary: "No drill blocker; production execution remains blocked.",
+    nextAction: "Keep production execution behind a separate controlled boundary.",
+    safetyBoundary: "The drill does not authorize live external writes.",
+    notProven: "No provider behavior, semantic truth, market truth, or production rollback is proven.",
+    evidenceRefs: [outcomeRef, learningRef],
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+
+  const audit = await operatorAcceptanceDrillAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.drill_count, 1);
+  assert.equal(audit.summary.summary.accept_count, 1);
+  assert.equal(audit.summary.summary.failing_check_count, 0);
+});
+
+test("operator acceptance drill audit fails when learning evidence is missing", async (t) => {
+  const { projectRoot, sessionId, adapterRef, targetRef, approvalRef } = await writeApprovedProviderExecutionFixture(t, "SESS-V90-DRILL-MISSING");
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "evidence.md"), "# Evidence\n", "utf8");
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "visibility", "current"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "visibility", "current", "mission-control.json"), "{}\n", "utf8");
+
+  const reproduction = await providerExecutionReproductionRecordCommand({
+    project: projectRoot,
+    approvalRef,
+    adapterRef,
+    targetOperationRef: targetRef,
+    workItemId: "TASK-001",
+    workItemRef: ".aof/tasks/open/TASK-001.json",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    replayMode: "local_reconstruction",
+    inputFingerprint: "sha256:v90-missing-learning",
+    expectedSideEffect: "none",
+    reconstructedSteps: ["load approval"],
+    replayEvidenceRefs: [approvalRef, adapterRef, targetRef, "docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    resultStatus: "reproduced",
+    notProven: "local only",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const reproductionRef = path.relative(projectRoot, reproduction.artifactPath).replaceAll(path.sep, "/");
+  const rollback = await providerRollbackProofRecordCommand({
+    project: projectRoot,
+    approvalRef,
+    reproductionRef,
+    targetOperationRef: targetRef,
+    rollbackOperation: "delete_created_issue",
+    rollbackMode: "simulated",
+    rollbackSupported: true,
+    rollbackEvidenceRefs: [approvalRef, reproductionRef, "docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    stopConditions: ["stop if missing target"],
+    resultStatus: "rollback_ready",
+    notProven: "local only",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const rollbackRef = path.relative(projectRoot, rollback.artifactPath).replaceAll(path.sep, "/");
+  const outcome = await providerOutcomeEvidenceRecordCommand({
+    project: projectRoot,
+    approvalRef,
+    reproductionRef,
+    rollbackRef,
+    targetOperationRef: targetRef,
+    workItemId: "TASK-001",
+    sessionRef: `.aof/artifacts/agent-sessions/${sessionId}.json`,
+    expectedOutcome: "bounded chain",
+    observedResult: "chain exists",
+    outcomeStatus: "accepted",
+    evidenceRefs: [approvalRef, reproductionRef, rollbackRef, "docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    semanticTruthBoundary: "trace only",
+    notProven: "no production truth",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+  const outcomeRef = path.relative(projectRoot, outcome.artifactPath).replaceAll(path.sep, "/");
+
+  await operatorAcceptanceDrillRecordCommand({
+    project: projectRoot,
+    drillId: "OAD-TEST-V90-MISSING",
+    operatorRef: "operator:self-hosting",
+    workItemId: "TASK-001",
+    approvalRef,
+    reproductionRef,
+    rollbackRef,
+    outcomeRef,
+    learningRef: ".aof/artifacts/provider-learning-loop/PLL-MISSING.json",
+    missionControlRef: ".aof/artifacts/visibility/current/mission-control.json",
+    decision: "accept",
+    decisionRationale: "Should fail because learning is missing.",
+    acceptedRisk: "risk accepted for negative test",
+    blockerSummary: "missing learning evidence",
+    nextAction: "block",
+    safetyBoundary: "no live writes",
+    notProven: "negative test",
+    evidenceRefs: [outcomeRef, "docs/evidence.md"],
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: sessionId
+  });
+
+  const audit = await operatorAcceptanceDrillAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("learning ref resolves")));
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("linked learning exists")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

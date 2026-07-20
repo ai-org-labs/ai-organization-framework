@@ -1,0 +1,67 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRTJ3U87-QILNQI",
+  "recorded_at": "2026-07-20T17:59:04.135Z",
+  "work_item_id": "TASK-110",
+  "work_item_ref": ".aof/tasks/done/TASK-110.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-110.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-110.json",
+  "lanes": [
+    {
+      "lane_id": "operator-drill-contract",
+      "goal": "define operator acceptance drill record and schema",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v9.0-release-definition.md"
+      ],
+      "expected_output": "operator acceptance drill schema and writer",
+      "output_refs": [
+        "schemas/aof-operator-acceptance-drill-record.schema.json",
+        "src/commands/operator-acceptance-drill-record.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if drill record omits approval, reproduction, rollback, outcome, learning, Mission Control, risk, safety, or not-proven boundaries",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "operator-drill-audit",
+      "goal": "verify drill chain and Mission Control projection",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json"
+      ],
+      "expected_output": "operator acceptance drill audit and release-state gate",
+      "output_refs": [
+        "src/commands/operator-acceptance-drill-audit.js",
+        ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js",
+        "test/runtime-situation.test.js"
+      ],
+      "stop_condition": "stop if missing learning, outcome, rollback, reproduction, approval, or safety boundary can pass",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "operator-drill-contract",
+      "operator-drill-audit"
+    ],
+    "conflict_summary": "no unresolved lane conflict",
+    "blocker_summary": "production provider execution remains intentionally blocked outside v9.0 scope",
+    "merge_rationale": "Contract and audit lanes jointly define a bounded operator acceptance gate.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-110-V90.json",
+  "not_proven": "Parallel lane evidence does not prove autonomous parallel execution speed, production provider correctness, or independent operator adoption.",
+  "source_task_id": "TASK-110",
+  "source_parent_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "source_decision_record_id": "CREV-TASK-110-V90",
+  "notes": null
+}

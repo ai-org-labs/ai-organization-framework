@@ -1,0 +1,20 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-20T18:00:00.000Z",
+  "work_item_id": "TASK-110",
+  "work_item_ref": ".aof/tasks/done/TASK-110.json",
+  "source_task_id": "TASK-110",
+  "source_parent_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/v9.0-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-110-V90.json",
+  "affected_nodes": [
+    "operator-acceptance-drill",
+    "external-runtime-safety-boundary",
+    "release-state-audit",
+    "mission-control-operator-acceptance"
+  ],
+  "impact_summary": "v9.0 adds an operator acceptance and safety drill gate after approval, reproduction, rollback, outcome evidence, and learning-loop update, before any controlled provider execution advances.",
+  "not_proven": "Archmap impact records describe intended architecture impact and do not prove production execution safety, semantic truth, provider behavior, or market value."
+}

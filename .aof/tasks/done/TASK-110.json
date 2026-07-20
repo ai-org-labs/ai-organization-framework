@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-110",
+  "title": "Ship v9.0 External Runtime Operator Acceptance and Safety Drill",
+  "description": "Implement the v9.0 operator acceptance drill: a canonical operator decision record for external runtime chains, audit coverage for accept/stop/rollback/escalate/defer states, Mission Control projection of operator decision and unresolved blockers, release-state gate integration, docs, tests, and release closure.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V90-DIRECTION",
+  "assigned_session_ids": [
+    "SESS-V90-OPERATOR-ACCEPTANCE"
+  ],
+  "related_decision_record_id": "CREV-TASK-110-V90",
+  "operating_goal_ref": ".aof/context/active/goals/operating-goal.json",
+  "created_at": "2026-07-20T17:43:15.736Z",
+  "updated_at": "2026-07-20T18:05:54.021Z",
+  "assigned_at": null,
+  "done_at": "2026-07-20T18:05:54.021Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v9.0 operator acceptance drill release evidence completed and Council-approved."
+}

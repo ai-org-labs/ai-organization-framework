@@ -53,6 +53,9 @@ function classifyEvidenceRef(ref) {
   if (/release-state-audit|smoke|npm test/i.test(normalized)) {
     return "release-check";
   }
+  if (normalized.startsWith(".aof/artifacts/") && /audit/i.test(normalized)) {
+    return "release-check";
+  }
   if (normalized.startsWith("src/")) {
     return "maker-authored";
   }

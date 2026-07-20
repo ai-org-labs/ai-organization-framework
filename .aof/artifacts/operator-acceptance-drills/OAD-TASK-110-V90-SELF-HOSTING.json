@@ -1,0 +1,28 @@
+{
+  "artifact_type": "operator-acceptance-drill-record",
+  "drill_id": "OAD-TASK-110-V90-SELF-HOSTING",
+  "recorded_at": "2026-07-20T17:50:56.442Z",
+  "operator_ref": "self-hosting-operator",
+  "work_item_id": "TASK-110",
+  "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+  "reproduction_ref": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+  "rollback_ref": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+  "outcome_ref": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+  "learning_ref": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "decision": "accept",
+  "decision_rationale": "The local external-runtime chain is approved, reproduced, rollback-ready, outcome-recorded, learning-updated, and bounded as non-production evidence; it is acceptable as a v9.0 self-hosting operator drill, not as production provider authority.",
+  "accepted_risk": "Self-hosting operator acceptance is not third-party acceptance, semantic truth, market truth, credential safety, or production execution safety.",
+  "blocker_summary": "No runtime blocker for the bounded self-hosting drill; production execution remains blocked until a separate controlled provider boundary is approved.",
+  "next_action": "Promote operator acceptance drill audit into the v9.0 release-state gate and Mission Control projection.",
+  "safety_boundary": "This drill authorizes documentation and runtime-gate progression only; it does not authorize live external writes, billing, secrets access, or production mutation.",
+  "not_proven": "The drill does not prove live provider behavior, independent operator adoption, external user value, semantic correctness, market validation, or production rollback execution.",
+  "evidence_refs": [
+    ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json",
+    ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+  ],
+  "source_task_id": "TASK-110",
+  "source_parent_session_id": "SESS-V90-DIRECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -129,6 +129,8 @@ Usage:
   aof provider-outcome-evidence-audit [--project <path>] [--write-artifact <path>]
   aof provider-learning-loop-record --project <path> --outcome-ref <path> --learning-summary "<text>" --decision <accept|correct|rollback|escalate|defer> --next-action "<text>" --update-status <updated|escalated|blocked|deferred> --learning-ref <path> [--learning-ref <path>] --evidence-ref <path> [--evidence-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--learning-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-learning-loop-audit [--project <path>] [--write-artifact <path>]
+  aof operator-acceptance-drill-record --project <path> --operator-ref <ref> --work-item-id <TASK-id> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --mission-control-ref <path> --decision <accept|stop|rollback|escalate|defer> --decision-rationale "<text>" --accepted-risk "<text>" --blocker-summary "<text>" --next-action "<text>" --safety-boundary "<text>" --not-proven "<text>" --evidence-ref <path> [--evidence-ref <path>] --source-task-id <TASK-id> --source-parent-session-id <id> [--drill-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof operator-acceptance-drill-audit [--project <path>] [--write-artifact <path>]
   aof operator-validation-record --project <path> --operator-ref <ref> --feedback-source <human_operator|adopter|expert_reviewer|self_hosting_operator|simulated_operator> --release-ref <ref> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --evidence-ref <path> [--evidence-ref <path>] --understanding-outcome <understood|partially_understood|not_understood|needs_clarification|not_checked> --reproduction-outcome <reproduced|partially_reproduced|not_reproduced|needs_clarification|not_checked> --acceptance-outcome <accepted|accepted_with_residual_risk|rejected|needs_clarification|not_checked> --feedback-summary "<text>" [--blocking-reason "<text>"] --governance-action <none|request_clarification|request_reproduction|block_release_claim|escalate_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-validation-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1503,6 +1505,37 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "provider-learning-loop-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "operator-acceptance-drill-record"
+            ? {
+                project: ".",
+                drillId: "",
+                operatorRef: "",
+                workItemId: "",
+                approvalRef: "",
+                reproductionRef: "",
+                rollbackRef: "",
+                outcomeRef: "",
+                learningRef: "",
+                missionControlRef: "",
+                decision: "defer",
+                decisionRationale: "",
+                acceptedRisk: "",
+                blockerSummary: "",
+                nextAction: "",
+                safetyBoundary: "",
+                notProven: "",
+                evidenceRefs: [],
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "operator-acceptance-drill-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -3178,6 +3211,11 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--drill-id") {
+      options.drillId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--validation-id") {
       options.validationId = rest[i + 1] ?? "";
       i += 1;
@@ -3587,7 +3625,11 @@ function parseArgs(argv) {
       if (!value) {
         throw new Error("Missing value after --learning-ref.");
       }
-      options.learningRefs.push(value);
+      if (Array.isArray(options.learningRefs)) {
+        options.learningRefs.push(value);
+      } else {
+        options.learningRef = value;
+      }
       i += 1;
       continue;
     }
@@ -3877,6 +3919,33 @@ function parseArgs(argv) {
         throw new Error("Missing value after --blocker-summary.");
       }
       options.blockerSummary = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--decision-rationale") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --decision-rationale.");
+      }
+      options.decisionRationale = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--accepted-risk") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --accepted-risk.");
+      }
+      options.acceptedRisk = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--safety-boundary") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --safety-boundary.");
+      }
+      options.safetyBoundary = value;
       i += 1;
       continue;
     }
@@ -6699,6 +6768,44 @@ function parseArgs(argv) {
   if (command === "provider-learning-loop-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `provider-learning-loop-audit`.");
+    }
+  }
+
+  if (command === "operator-acceptance-drill-record") {
+    for (const [flag, value] of [
+      ["--operator-ref", options.operatorRef],
+      ["--work-item-id", options.workItemId],
+      ["--approval-ref", options.approvalRef],
+      ["--reproduction-ref", options.reproductionRef],
+      ["--rollback-ref", options.rollbackRef],
+      ["--outcome-ref", options.outcomeRef],
+      ["--learning-ref", options.learningRef],
+      ["--mission-control-ref", options.missionControlRef],
+      ["--decision", options.decision],
+      ["--decision-rationale", options.decisionRationale],
+      ["--accepted-risk", options.acceptedRisk],
+      ["--blocker-summary", options.blockerSummary],
+      ["--next-action", options.nextAction],
+      ["--safety-boundary", options.safetyBoundary],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`operator-acceptance-drill-record\`.`);
+      }
+    }
+    if (!["accept", "stop", "rollback", "escalate", "defer"].includes(options.decision)) {
+      throw new Error("Invalid --decision for `operator-acceptance-drill-record`.");
+    }
+    if (!Array.isArray(options.evidenceRefs) || options.evidenceRefs.length === 0) {
+      throw new Error("At least one --evidence-ref is required for `operator-acceptance-drill-record`.");
+    }
+  }
+
+  if (command === "operator-acceptance-drill-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `operator-acceptance-drill-audit`.");
     }
   }
 

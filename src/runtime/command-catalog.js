@@ -90,6 +90,8 @@ const COMMAND_SPECS = [
   ["provider-outcome-evidence-audit", "./commands/provider-outcome-evidence-audit.js", "providerOutcomeEvidenceAuditCommand"],
   ["provider-learning-loop-record", "./commands/provider-learning-loop-record.js", "providerLearningLoopRecordCommand"],
   ["provider-learning-loop-audit", "./commands/provider-learning-loop-audit.js", "providerLearningLoopAuditCommand"],
+  ["operator-acceptance-drill-record", "./commands/operator-acceptance-drill-record.js", "operatorAcceptanceDrillRecordCommand"],
+  ["operator-acceptance-drill-audit", "./commands/operator-acceptance-drill-audit.js", "operatorAcceptanceDrillAuditCommand"],
   ["operator-validation-record", "./commands/operator-validation-record.js", "operatorValidationRecordCommand"],
   ["operator-validation-audit", "./commands/operator-validation-audit.js", "operatorValidationAuditCommand"],
   ["problem-statement-record", "./commands/problem-statement-record.js", "problemStatementRecordCommand"],

@@ -1,0 +1,32 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-20T17:57:51.580Z",
+  "team_output_id": "TOUT-MRTJ2A8S-PAE49V",
+  "team_id": "runtime-team",
+  "stage": "execution",
+  "expected_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Council should approve the v9.0 operator acceptance drill boundary.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-110-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-110-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-110-GUARDIAN.json"
+  ],
+  "artifact_refs": [],
+  "decision_required": false,
+  "summary": null,
+  "source_task_id": "TASK-110",
+  "source_parent_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "source_decision_record_id": null
+}

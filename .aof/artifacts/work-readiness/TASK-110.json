@@ -1,0 +1,34 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRTJ2YK2-SD7FB5",
+  "recorded_at": "2026-07-20T17:58:23.090Z",
+  "work_item_id": "TASK-110",
+  "work_item_ref": ".aof/tasks/done/TASK-110.json",
+  "readiness_status": "ready",
+  "goal": "Ship v9.0 External Runtime Operator Acceptance and Safety Drill.",
+  "risk": "AOF could treat outcome evidence, learning-loop update, or green audits as production execution safety without an explicit operator acceptance decision.",
+  "loss_boundary": "No v9.0 release claim unless operator-acceptance-drill-audit passes and not-proven boundaries remain explicit.",
+  "acceptance_gates": [
+    "operator-acceptance-drill-audit passes",
+    "release-state-audit includes the v9.0 operator acceptance gate",
+    "Mission Control projects operator acceptance drill status"
+  ],
+  "evidence_plan": [
+    "schema, commands, parser support, focused tests, self-hosting proof artifact, Council review, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "stop if drill can pass without approval, reproduction, rollback, outcome, or learning refs",
+    "stop if operator acceptance is overclaimed as production safety"
+  ],
+  "qif_refs": [
+    "docs/v9.0-release-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-110",
+  "source_parent_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
+  "source_decision_record_id": "CREV-TASK-110-V90"
+}

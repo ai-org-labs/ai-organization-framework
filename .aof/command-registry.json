@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-20T15:22:14.503Z",
+  "generated_at": "2026-07-20T17:54:46.976Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2020,6 +2020,84 @@
       ],
       "outputs": [
         "operational map change log artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "operator-acceptance-drill-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify operator acceptance drills link approval, reproduction, rollback readiness, outcome evidence, learning update, Mission Control, decision rationale, risk, blockers, and not-proven boundaries.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "operator acceptance drill audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "operator-acceptance-drill-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write an operator acceptance and safety drill decision over the full external runtime chain before controlled provider execution advances.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "operator-ref",
+        "work-item-id",
+        "approval-ref",
+        "reproduction-ref",
+        "rollback-ref",
+        "outcome-ref",
+        "learning-ref",
+        "mission-control-ref",
+        "decision",
+        "decision-rationale",
+        "accepted-risk",
+        "blocker-summary",
+        "next-action",
+        "safety-boundary",
+        "not-proven",
+        "evidence-ref",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "operator acceptance drill artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

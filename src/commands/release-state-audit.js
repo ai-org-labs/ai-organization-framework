@@ -8,6 +8,7 @@ import { contextReferenceIntegrityAuditCommand } from "./context-reference-integ
 import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
 import { externalizationReadinessAuditCommand } from "./externalization-readiness-audit.js";
 import { externalResourceAuditCommand } from "./external-resource-audit.js";
+import { operatorAcceptanceDrillAuditCommand } from "./operator-acceptance-drill-audit.js";
 import { operatorValidationAuditCommand } from "./operator-validation-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { providerAdapterAuditCommand } from "./provider-adapter-audit.js";
@@ -235,6 +236,15 @@ function requiresOperatorValidationAudit(releaseVersion) {
   return major > 8 || (major === 8 && minor >= 2);
 }
 
+function requiresOperatorAcceptanceDrillAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major] = match.map(Number);
+  return major >= 9;
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -335,6 +345,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderLearningLoopAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-learning-loop-audit", await providerLearningLoopAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresOperatorAcceptanceDrillAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("operator-acceptance-drill-audit", await operatorAcceptanceDrillAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {
