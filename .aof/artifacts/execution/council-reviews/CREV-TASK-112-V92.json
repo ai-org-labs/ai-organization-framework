@@ -1,0 +1,43 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-21T01:55:38.292Z",
+  "review_packet_id": "CREV-MRU04PMC-98ILRM",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v9.2 as a production-boundary candidate only; production execution remains unauthorized.",
+  "rationale": "The artifact/audit pair checks the exact pre-production boundaries and rejects overclaims.",
+  "recommendation": "Proceed to release validation after provider-production-boundary-audit, product-value-evidence-audit, release-state-audit, npm test, and smoke are green.",
+  "target_audience": null,
+  "expected_user_reaction": null,
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Add provider-production-boundary record/audit and Mission Control projection."
+  ],
+  "organization_change_recommendations": [
+    "Keep production go/no-go as a human-controlled gate."
+  ],
+  "diagnosis_category": "Production Boundary Overclaim Prevention",
+  "diagnosis_confidence": 0.88,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-112-V92.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-112-V92.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-112-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-112-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-112-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v9.2-release-definition.md",
+    "test/runtime-core-2.test.js"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-112",
+  "source_parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_decision_record_id": null
+}
