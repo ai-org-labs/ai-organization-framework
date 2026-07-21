@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-112",
+  "title": "Ship v9.2 External Runtime Production Boundary Candidate",
+  "description": "Define and audit the pre-production boundary required before controlled provider execution is eligible: credential, budget, revocation, rollback, monitoring, incident, human go/no-go, product-value comprehension, and not-proven boundaries. Do not implement live provider execution.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "assigned_session_ids": [
+    "SESS-V92-PRODUCTION-BOUNDARY"
+  ],
+  "related_decision_record_id": "CREV-TASK-112-V92",
+  "operating_goal_ref": "v9.2-external-runtime-production-boundary",
+  "created_at": "2026-07-21T01:34:59.318Z",
+  "updated_at": "2026-07-21T02:01:49.825Z",
+  "assigned_at": null,
+  "done_at": "2026-07-21T02:01:49.825Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v9.2 implementation, runtime proof, production-boundary audit, product value evidence, and release docs are ready for release validation."
+}
