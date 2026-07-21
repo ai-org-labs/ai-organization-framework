@@ -1,0 +1,59 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRU0F2HZ-863VSL",
+  "recorded_at": "2026-07-21T02:03:41.543Z",
+  "work_item_id": "TASK-112",
+  "work_item_ref": ".aof/tasks/done/TASK-112.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V92-001",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v9.2-release-definition.md",
+      "title": "Provider production boundary candidate audit",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered only when provider-production-boundary-audit passes and production execution authorization remains false",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-112.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V92-002",
+      "requirement_type": "qif_quality_intent",
+      "source_ref": "docs/v9.2-release-definition.md",
+      "title": "Product value comprehension remains gated",
+      "owner_ref": "product-council",
+      "acceptance_boundary": "covered only when product-value-evidence-audit stays green",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-112.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded release verification only",
+    "burndown_ref": "docs/v9.2-release-checklist.md",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves traceability only, not production safety or semantic truth.",
+  "source_task_id": "TASK-112",
+  "source_parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
-  "updated_at": "2026-07-20T23:59:30.000Z",
-  "agreed_with_human": null,
-  "source_session_id": "SESS-V91-VALUE-DIRECTION",
-  "source_decision_record_id": "CREV-TASK-111-V91",
+  "content": "After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
+  "updated_at": "2026-07-21T02:15:03.970Z",
+  "agreed_with_human": true,
+  "source_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_decision_record_id": "CREV-TASK-112-V92",
   "declared_complete_at": null
 }

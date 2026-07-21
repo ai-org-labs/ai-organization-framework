@@ -51,6 +51,8 @@ import { providerLearningLoopAuditCommand } from "../src/commands/provider-learn
 import { providerLearningLoopRecordCommand } from "../src/commands/provider-learning-loop-record.js";
 import { providerOutcomeEvidenceAuditCommand } from "../src/commands/provider-outcome-evidence-audit.js";
 import { providerOutcomeEvidenceRecordCommand } from "../src/commands/provider-outcome-evidence-record.js";
+import { providerProductionBoundaryAuditCommand } from "../src/commands/provider-production-boundary-audit.js";
+import { providerProductionBoundaryRecordCommand } from "../src/commands/provider-production-boundary-record.js";
 import { providerRollbackProofAuditCommand } from "../src/commands/provider-rollback-proof-audit.js";
 import { providerRollbackProofRecordCommand } from "../src/commands/provider-rollback-proof-record.js";
 import { humanApprovalRecordCommand } from "../src/commands/human-approval-record.js";
@@ -4094,6 +4096,131 @@ test("product value evidence audit fails when unclear value does not escalate", 
   const audit = await productValueEvidenceAuditCommand({ project: projectRoot });
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("missing understanding escalates")));
+});
+
+test("provider production boundary commands write candidate pre-production gates and audit pass", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const refs = [
+    "docs/v9.2-release-definition.md",
+    ".aof/tasks/open/TASK-112.json",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    ".aof/artifacts/product-value-evidence/PVE-TEST.json",
+    "docs/evidence.md"
+  ];
+  for (const ref of refs) {
+    await fs.mkdir(path.dirname(path.join(projectRoot, ref)), { recursive: true });
+    await fs.writeFile(path.join(projectRoot, ref), "{}\n", "utf8");
+  }
+
+  await providerProductionBoundaryRecordCommand({
+    project: projectRoot,
+    boundaryId: "PPB-TEST-V92",
+    releaseRef: "docs/v9.2-release-definition.md",
+    workItemId: "TASK-112",
+    workItemRef: ".aof/tasks/open/TASK-112.json",
+    missionControlRef: ".aof/artifacts/visibility/current/mission-control.json",
+    approvalRef: ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    reproductionRef: ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    rollbackRef: ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    outcomeRef: ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    learningRef: ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    operatorAcceptanceRef: ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    productValueEvidenceRef: ".aof/artifacts/product-value-evidence/PVE-TEST.json",
+    providerScope: "pre-production candidate only; no live provider execution",
+    allowedOperationClass: "controlled_write_candidate",
+    executionEligibility: "candidate",
+    productionExecutionAuthorized: false,
+    credentialBoundary: "credential source, scope, storage, rotation, and redaction are defined before execution",
+    budgetBoundary: "maximum cost and call count are defined before execution",
+    revocationBoundary: "human approval can be revoked before execution",
+    rollbackBoundary: "rollback proof must be ready before execution",
+    monitoringBoundary: "operator can observe attempt, result, and failure signal",
+    incidentBoundary: "incident owner and stop condition are defined",
+    humanGoNoGoBoundary: "human operator must make an explicit go/no-go decision",
+    productValueComprehensionBoundary: "release capability and user value must be understandable before execution advances",
+    goNoGoStatus: "not_authorized",
+    governanceAction: "block_production_execution",
+    stopConditions: ["missing human go/no-go", "missing production monitoring", "operator does not understand value"],
+    provenanceRefs: ["docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    notProven: "This proves pre-production boundary completeness only, not production execution safety.",
+    sourceTaskId: "TASK-112",
+    sourceParentSessionId: "SESS-V92-TEST"
+  });
+
+  const audit = await providerProductionBoundaryAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.boundary_count, 1);
+  assert.equal(audit.summary.summary.candidate_count, 1);
+  assert.equal(audit.summary.summary.production_authorized_count, 0);
+});
+
+test("provider production boundary audit rejects production authorization claims", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const refs = [
+    "docs/v9.2-release-definition.md",
+    ".aof/tasks/open/TASK-112.json",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    ".aof/artifacts/product-value-evidence/PVE-TEST.json",
+    "docs/evidence.md"
+  ];
+  for (const ref of refs) {
+    await fs.mkdir(path.dirname(path.join(projectRoot, ref)), { recursive: true });
+    await fs.writeFile(path.join(projectRoot, ref), "{}\n", "utf8");
+  }
+
+  await providerProductionBoundaryRecordCommand({
+    project: projectRoot,
+    boundaryId: "PPB-TEST-V92-BAD",
+    releaseRef: "docs/v9.2-release-definition.md",
+    workItemId: "TASK-112",
+    workItemRef: ".aof/tasks/open/TASK-112.json",
+    missionControlRef: ".aof/artifacts/visibility/current/mission-control.json",
+    approvalRef: ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    reproductionRef: ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    rollbackRef: ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    outcomeRef: ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    learningRef: ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    operatorAcceptanceRef: ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    productValueEvidenceRef: ".aof/artifacts/product-value-evidence/PVE-TEST.json",
+    providerScope: "bad negative test",
+    allowedOperationClass: "production_write",
+    executionEligibility: "candidate",
+    productionExecutionAuthorized: true,
+    credentialBoundary: "defined",
+    budgetBoundary: "defined",
+    revocationBoundary: "defined",
+    rollbackBoundary: "defined",
+    monitoringBoundary: "defined",
+    incidentBoundary: "defined",
+    humanGoNoGoBoundary: "defined",
+    productValueComprehensionBoundary: "defined",
+    goNoGoStatus: "authorized",
+    governanceAction: "allow_preproduction_review",
+    stopConditions: ["stop"],
+    provenanceRefs: ["docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    notProven: "negative test",
+    sourceTaskId: "TASK-112",
+    sourceParentSessionId: "SESS-V92-TEST"
+  });
+
+  const audit = await providerProductionBoundaryAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("production execution not authorized")));
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("go/no-go blocks production")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

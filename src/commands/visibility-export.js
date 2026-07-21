@@ -1242,6 +1242,37 @@ async function loadProviderLearningLoopProjection(projectRoot) {
   };
 }
 
+async function loadProviderProductionBoundaryProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider production boundary audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      boundary_count: 0,
+      candidate_count: 0,
+      blocked_count: 0,
+      production_authorized_count: 0,
+      missing_boundary_count: null,
+      boundaries: [],
+      not_proven: "No provider production boundary audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    boundary_count: audit.summary?.boundary_count ?? 0,
+    candidate_count: audit.summary?.candidate_count ?? 0,
+    blocked_count: audit.summary?.blocked_count ?? 0,
+    production_authorized_count: audit.summary?.production_authorized_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    boundaries: audit.boundaries ?? [],
+    not_proven: "Provider production boundary projection proves pre-production eligibility boundaries only; it does not prove production execution safety, provider correctness, credential safety, billing safety, or market value."
+  };
+}
+
 async function loadOperatorAcceptanceDrillProjection(projectRoot) {
   const auditRef = ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json";
   const audit = await maybeReadJsonByRef(projectRoot, auditRef, "operator acceptance drill audit");
@@ -1613,6 +1644,7 @@ function buildMissionControl({
   providerRollbackProofProjection = null,
   providerOutcomeEvidenceProjection = null,
   providerLearningLoopProjection = null,
+  providerProductionBoundaryProjection = null,
   operatorAcceptanceDrillProjection = null,
   productValueEvidenceProjection = null,
   providerAdapterPilotReadinessProjection = null,
@@ -1923,6 +1955,18 @@ function buildMissionControl({
       learning_updates: [],
       not_proven: "No provider learning-loop audit artifact is present."
     },
+    provider_production_boundary_projection: providerProductionBoundaryProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json",
+      audit_ok: null,
+      boundary_count: 0,
+      candidate_count: 0,
+      blocked_count: 0,
+      production_authorized_count: 0,
+      missing_boundary_count: null,
+      boundaries: [],
+      not_proven: "No provider production boundary audit artifact is present."
+    },
     operator_acceptance_drill_projection: operatorAcceptanceDrillProjection ?? {
       present: false,
       audit_ref: ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json",
@@ -2010,7 +2054,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, operatorAcceptanceDrillProjection, productValueEvidenceProjection, operatorValidationProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, providerProductionBoundaryProjection, operatorAcceptanceDrillProjection, productValueEvidenceProjection, operatorValidationProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -2036,6 +2080,7 @@ export async function visibilityExportCommand(options) {
     loadProviderRollbackProofProjection(projectRoot),
     loadProviderOutcomeEvidenceProjection(projectRoot),
     loadProviderLearningLoopProjection(projectRoot),
+    loadProviderProductionBoundaryProjection(projectRoot),
     loadOperatorAcceptanceDrillProjection(projectRoot),
     loadProductValueEvidenceProjection(projectRoot),
     loadOperatorValidationProjection(projectRoot)
@@ -2109,6 +2154,7 @@ export async function visibilityExportCommand(options) {
     providerRollbackProofProjection,
     providerOutcomeEvidenceProjection,
     providerLearningLoopProjection,
+    providerProductionBoundaryProjection,
     operatorAcceptanceDrillProjection,
     productValueEvidenceProjection,
     providerAdapterPilotReadinessProjection,

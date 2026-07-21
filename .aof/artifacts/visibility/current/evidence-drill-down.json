@@ -1,20 +1,20 @@
 {
   "view_type": "evidence_drill_down",
-  "generated_at": "2026-07-21T00:13:11.557Z",
+  "generated_at": "2026-07-21T02:16:51.792Z",
   "brief_ref": ".aof/artifacts/visibility/current/operator-brief.json",
   "current_state": {
-    "release_version": "9.1.0",
-    "active_release_track": "v9.1",
-    "release_definition_ref": "docs/v9.1-release-definition.md",
+    "release_version": "9.2.0",
+    "active_release_track": "v9.2",
+    "release_definition_ref": "docs/v9.2-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
     "primary_frontier_task": null
   },
   "answer_to_proof": {
     "headline": {
-      "claim": "The next frontier is defined, but no aligned implementation task is open yet: Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
+      "claim": "The next frontier is defined, but no aligned implementation task is open yet: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
       "rationale": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
       "evidence_refs": [
-        "docs/v9.1-release-definition.md",
+        "docs/v9.2-release-definition.md",
         ".aof/context/active/active-release-manifest.json",
         ".aof/goals/operating-goal.json",
         ".aof/goals/next-value-slice.json",
@@ -22,7 +22,7 @@
       ],
       "evidence_items": [
         {
-          "artifact_ref": "docs/v9.1-release-definition.md",
+          "artifact_ref": "docs/v9.2-release-definition.md",
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         },
         {
@@ -63,13 +63,13 @@
       ]
     },
     "next_action": {
-      "claim": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
-      "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
+      "claim": "Open an implementation task for the current frontier: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
+      "rationale": "No current open implementation task is aligned to the current operating goal.",
       "artifact_ref": ".aof/goals/next-value-slice.json",
       "evidence_refs": [
         ".aof/goals/next-value-slice.json",
         ".aof/goals/operating-goal.json",
-        "docs/v9.1-release-definition.md"
+        "docs/v9.2-release-definition.md"
       ],
       "evidence_items": [
         {
@@ -81,7 +81,7 @@
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
         },
         {
-          "artifact_ref": "docs/v9.1-release-definition.md",
+          "artifact_ref": "docs/v9.2-release-definition.md",
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
         }
       ]
@@ -117,6 +117,6 @@
   "operator_questions": {
     "why_headline_true": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_proves_blockers": "No blocker is currently strong enough to displace the live frontier.",
-    "what_proves_next_action": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work."
+    "what_proves_next_action": "No current open implementation task is aligned to the current operating goal."
   }
 }

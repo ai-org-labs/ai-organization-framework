@@ -1,0 +1,77 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRU0F4GK-CE8598",
+  "recorded_at": "2026-07-21T02:03:44.084Z",
+  "session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MRU0F4GK-99F0P7",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-21T02:03:44.084Z",
+      "summary": "Heartbeat requested latest-roadmap release advancement using AOF runtime.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRU0F4GK-RLZ0UJ",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-21T02:03:44.084Z",
+      "summary": "Ran roadmap-status, organization-status, alignment-pulse, task-open, and runtime artifact writers.",
+      "artifact_refs": [],
+      "tool_name": "aof runtime",
+      "safety_level": "safe_local_write",
+      "approval_policy": "preapproved"
+    },
+    {
+      "event_id": "ASEV3-MRU0F4GK-E91VX2",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-21T02:03:44.084Z",
+      "summary": "Implemented provider production boundary record/audit, schemas, tests, release docs, and projections.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-112.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.2-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "docs/v9.2-release-definition.md",
+      "src/commands/provider-production-boundary-audit.js"
+    ]
+  },
+  "risk_candidates": [
+    "Production boundary evidence may be mistaken for production safety."
+  ],
+  "decision_candidates": [
+    "Block production execution authorization in v9.2 candidate boundary."
+  ],
+  "release_ready_evidence": {
+    "claim": "v9.2 can be release-ready only as a pre-production boundary candidate.",
+    "evidence_refs": [
+      "docs/v9.2-release-checklist.md"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-112",
+  "source_parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_decision_record_id": null
+}

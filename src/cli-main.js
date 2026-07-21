@@ -129,6 +129,8 @@ Usage:
   aof provider-outcome-evidence-audit [--project <path>] [--write-artifact <path>]
   aof provider-learning-loop-record --project <path> --outcome-ref <path> --learning-summary "<text>" --decision <accept|correct|rollback|escalate|defer> --next-action "<text>" --update-status <updated|escalated|blocked|deferred> --learning-ref <path> [--learning-ref <path>] --evidence-ref <path> [--evidence-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--learning-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-learning-loop-audit [--project <path>] [--write-artifact <path>]
+  aof provider-production-boundary-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --operator-acceptance-ref <path> --product-value-evidence-ref <path> --provider-scope "<text>" --allowed-operation-class <read_only|write_preflight|controlled_write_candidate|production_write> --execution-eligibility <candidate|blocked|not_assessed> --credential-boundary "<text>" --budget-boundary "<text>" --revocation-boundary "<text>" --rollback-boundary "<text>" --monitoring-boundary "<text>" --incident-boundary "<text>" --human-go-no-go-boundary "<text>" --product-value-comprehension-boundary "<text>" --go-no-go-status <authorized|not_authorized|blocked|escalated> --governance-action <block_production_execution|allow_preproduction_review|escalate_production_review> --stop-condition "<text>" [--stop-condition "<text>"] --provenance-ref <path> [--provenance-ref <path>] --verification-ref <path> [--verification-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--boundary-id <id>] [--production-execution-authorized] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof provider-production-boundary-audit [--project <path>] [--write-artifact <path>]
   aof operator-acceptance-drill-record --project <path> --operator-ref <ref> --work-item-id <TASK-id> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --mission-control-ref <path> --decision <accept|stop|rollback|escalate|defer> --decision-rationale "<text>" --accepted-risk "<text>" --blocker-summary "<text>" --next-action "<text>" --safety-boundary "<text>" --not-proven "<text>" --evidence-ref <path> [--evidence-ref <path>] --source-task-id <TASK-id> --source-parent-session-id <id> [--drill-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-acceptance-drill-audit [--project <path>] [--write-artifact <path>]
   aof product-value-evidence-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --capability-statement "<text>" --before-state "<text>" --after-state "<text>" --scenario "<text>" --five-minute-demo "<text>" --time-saved-or-work-reduced "<text>" --cognitive-load-removed "<text>" --capability-row-json '<json>' [--capability-row-json '<json>'] --understanding-outcome <understood|partially_understood|not_understood|not_checked> --evidence-ref <path> [--evidence-ref <path>] --governance-action <none|improve_release_explanation|reopen_need|block_release_claim|escalate_product_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--value-evidence-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1507,6 +1509,50 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "provider-learning-loop-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "provider-production-boundary-record"
+            ? {
+                project: ".",
+                boundaryId: "",
+                releaseRef: "",
+                workItemId: "",
+                workItemRef: "",
+                missionControlRef: "",
+                approvalRef: "",
+                reproductionRef: "",
+                rollbackRef: "",
+                outcomeRef: "",
+                learningRef: "",
+                operatorAcceptanceRef: "",
+                productValueEvidenceRef: "",
+                providerScope: "",
+                allowedOperationClass: "controlled_write_candidate",
+                executionEligibility: "blocked",
+                productionExecutionAuthorized: false,
+                credentialBoundary: "",
+                budgetBoundary: "",
+                revocationBoundary: "",
+                rollbackBoundary: "",
+                monitoringBoundary: "",
+                incidentBoundary: "",
+                humanGoNoGoBoundary: "",
+                productValueComprehensionBoundary: "",
+                goNoGoStatus: "not_authorized",
+                governanceAction: "block_production_execution",
+                stopConditions: [],
+                provenanceRefs: [],
+                verificationRefs: [],
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "provider-production-boundary-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -3715,6 +3761,55 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--operator-acceptance-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --operator-acceptance-ref.");
+      }
+      options.operatorAcceptanceRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--product-value-evidence-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --product-value-evidence-ref.");
+      }
+      options.productValueEvidenceRef = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--provider-scope") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --provider-scope.");
+      }
+      options.providerScope = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--allowed-operation-class") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --allowed-operation-class.");
+      }
+      options.allowedOperationClass = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--execution-eligibility") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --execution-eligibility.");
+      }
+      options.executionEligibility = value;
+      i += 1;
+      continue;
+    }
+    if (part === "--production-execution-authorized") {
+      options.productionExecutionAuthorized = true;
+      continue;
+    }
     if (part === "--credential-boundary") {
       options.credentialBoundary = rest[i + 1] ?? "";
       i += 1;
@@ -3722,6 +3817,46 @@ function parseArgs(argv) {
     }
     if (part === "--budget-boundary") {
       options.budgetBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--revocation-boundary") {
+      options.revocationBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--rollback-boundary") {
+      options.rollbackBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--monitoring-boundary") {
+      options.monitoringBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--incident-boundary") {
+      options.incidentBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--human-go-no-go-boundary") {
+      options.humanGoNoGoBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--product-value-comprehension-boundary") {
+      options.productValueComprehensionBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--go-no-go-status") {
+      options.goNoGoStatus = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--boundary-id") {
+      options.boundaryId = rest[i + 1] ?? "";
       i += 1;
       continue;
     }
@@ -6850,6 +6985,72 @@ function parseArgs(argv) {
   if (command === "provider-learning-loop-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `provider-learning-loop-audit`.");
+    }
+  }
+
+  if (command === "provider-production-boundary-record") {
+    for (const [flag, value] of [
+      ["--release-ref", options.releaseRef],
+      ["--work-item-id", options.workItemId],
+      ["--work-item-ref", options.workItemRef],
+      ["--mission-control-ref", options.missionControlRef],
+      ["--approval-ref", options.approvalRef],
+      ["--reproduction-ref", options.reproductionRef],
+      ["--rollback-ref", options.rollbackRef],
+      ["--outcome-ref", options.outcomeRef],
+      ["--learning-ref", options.learningRef],
+      ["--operator-acceptance-ref", options.operatorAcceptanceRef],
+      ["--product-value-evidence-ref", options.productValueEvidenceRef],
+      ["--provider-scope", options.providerScope],
+      ["--allowed-operation-class", options.allowedOperationClass],
+      ["--execution-eligibility", options.executionEligibility],
+      ["--credential-boundary", options.credentialBoundary],
+      ["--budget-boundary", options.budgetBoundary],
+      ["--revocation-boundary", options.revocationBoundary],
+      ["--rollback-boundary", options.rollbackBoundary],
+      ["--monitoring-boundary", options.monitoringBoundary],
+      ["--incident-boundary", options.incidentBoundary],
+      ["--human-go-no-go-boundary", options.humanGoNoGoBoundary],
+      ["--product-value-comprehension-boundary", options.productValueComprehensionBoundary],
+      ["--go-no-go-status", options.goNoGoStatus],
+      ["--governance-action", options.governanceAction],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`provider-production-boundary-record\`.`);
+      }
+    }
+    if (!["read_only", "write_preflight", "controlled_write_candidate", "production_write"].includes(options.allowedOperationClass)) {
+      throw new Error("Invalid --allowed-operation-class for `provider-production-boundary-record`.");
+    }
+    if (!["candidate", "blocked", "not_assessed"].includes(options.executionEligibility)) {
+      throw new Error("Invalid --execution-eligibility for `provider-production-boundary-record`.");
+    }
+    if (!["authorized", "not_authorized", "blocked", "escalated"].includes(options.goNoGoStatus)) {
+      throw new Error("Invalid --go-no-go-status for `provider-production-boundary-record`.");
+    }
+    if (!["block_production_execution", "allow_preproduction_review", "escalate_production_review"].includes(options.governanceAction)) {
+      throw new Error("Invalid --governance-action for `provider-production-boundary-record`.");
+    }
+    if (options.productionExecutionAuthorized) {
+      throw new Error("`provider-production-boundary-record` cannot authorize production execution in the v9.2 candidate boundary.");
+    }
+    if (!Array.isArray(options.stopConditions) || options.stopConditions.length === 0) {
+      throw new Error("At least one --stop-condition is required for `provider-production-boundary-record`.");
+    }
+    if (!Array.isArray(options.provenanceRefs) || options.provenanceRefs.length === 0) {
+      throw new Error("At least one --provenance-ref is required for `provider-production-boundary-record`.");
+    }
+    if (!Array.isArray(options.verificationRefs) || options.verificationRefs.length === 0) {
+      throw new Error("At least one --verification-ref is required for `provider-production-boundary-record`.");
+    }
+  }
+
+  if (command === "provider-production-boundary-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `provider-production-boundary-audit`.");
     }
   }
 

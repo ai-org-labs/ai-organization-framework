@@ -1,0 +1,20 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-21T02:01:00.000Z",
+  "work_item_id": "TASK-112",
+  "work_item_ref": ".aof/tasks/done/TASK-112.json",
+  "source_task_id": "TASK-112",
+  "source_parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/v9.2-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-112-V92.json",
+  "affected_nodes": [
+    "provider-production-boundary",
+    "provider-execution-governance",
+    "mission-control-provider-state",
+    "release-state-audit"
+  ],
+  "impact_summary": "v9.2 adds a production-boundary candidate node above provider approval, reproduction, rollback, outcome, learning, operator acceptance, and product value evidence so pre-production eligibility is not confused with production safety.",
+  "not_proven": "Archmap impact records describe intended architecture impact and do not prove production provider safety, market value, semantic truth, credential safety, billing safety, or actual rollback execution."
+}

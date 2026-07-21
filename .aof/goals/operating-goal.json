@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v9.2 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, human go/no-go, and product-value comprehension preconditions required before any controlled provider execution is eligible.",
-  "updated_at": "2026-07-20T23:59:30.000Z",
-  "agreed_with_human": null,
-  "source_session_id": "SESS-V91-VALUE-DIRECTION",
-  "source_decision_record_id": "CREV-TASK-111-V91",
+  "content": "Prepare the post-v9.2 frontier: define v9.3 as a controlled provider preflight execution readiness model that remains non-production until explicit go/no-go evidence exists.",
+  "updated_at": "2026-07-21T02:14:57.593Z",
+  "agreed_with_human": true,
+  "source_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_decision_record_id": "CREV-TASK-112-V92",
   "declared_complete_at": null
 }

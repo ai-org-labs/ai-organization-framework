@@ -1,0 +1,66 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRU0GPJ1-0UWDZ8",
+  "recorded_at": "2026-07-21T02:04:58.045Z",
+  "work_item_id": "TASK-112",
+  "work_item_ref": ".aof/tasks/done/TASK-112.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-112.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-112.json",
+  "lanes": [
+    {
+      "lane_id": "runtime-contract",
+      "goal": "define and verify production-boundary schema and audit",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v9.2-release-definition.md"
+      ],
+      "expected_output": "record/audit command and tests",
+      "output_refs": [
+        "src/commands/provider-production-boundary-audit.js",
+        "schemas/aof-provider-production-boundary-record.schema.json"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if audit cannot reject production authorization",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "operator-value",
+      "goal": "explain v9.2 as user-visible production-boundary eligibility",
+      "owner_actor_ref": "visionary",
+      "input_refs": [
+        "docs/vnext-release-plan.md"
+      ],
+      "expected_output": "release definition, notes, and product value evidence",
+      "output_refs": [
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+      ],
+      "stop_condition": "stop if users cannot tell what became possible",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "runtime-contract",
+      "operator-value"
+    ],
+    "conflict_summary": "No unresolved lane conflict; both lanes keep production execution unauthorized.",
+    "blocker_summary": "No active blocker after provider-production-boundary-audit passes.",
+    "merge_rationale": "Runtime contract and operator value evidence are linked by release-state and Mission Control projections.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-112-V92.json",
+  "not_proven": "Parallel lane evidence does not prove autonomous scheduling, production execution, or provider truth.",
+  "source_task_id": "TASK-112",
+  "source_parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_decision_record_id": null,
+  "notes": null
+}

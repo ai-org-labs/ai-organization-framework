@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-production-boundary-audit.schema.json",
+  "title": "AOF Provider Production Boundary Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "summary",
+    "boundaries",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "provider-production-boundary-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundary_count",
+        "candidate_count",
+        "blocked_count",
+        "production_authorized_count",
+        "missing_boundary_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "boundary_count": { "type": "integer", "minimum": 0 },
+        "candidate_count": { "type": "integer", "minimum": 0 },
+        "blocked_count": { "type": "integer", "minimum": 0 },
+        "production_authorized_count": { "type": "integer", "minimum": 0 },
+        "missing_boundary_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "boundaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "boundary_id",
+          "release_ref",
+          "work_item_id",
+          "execution_eligibility",
+          "production_execution_authorized",
+          "go_no_go_status",
+          "governance_action",
+          "artifact_ref"
+        ],
+        "properties": {
+          "boundary_id": { "type": "string" },
+          "release_ref": { "type": "string" },
+          "work_item_id": { "type": "string" },
+          "execution_eligibility": { "type": "string" },
+          "production_execution_authorized": { "type": "boolean" },
+          "go_no_go_status": { "type": "string" },
+          "governance_action": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" },
+          "evidence_refs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "errors": { "type": "array", "items": { "type": "string" } }
+  }
+}

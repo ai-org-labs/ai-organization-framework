@@ -1,0 +1,24 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRU0DUUH-1Y4NSQ",
+  "recorded_at": "2026-07-21T02:02:44.969Z",
+  "work_item_id": "TASK-112",
+  "work_item_ref": ".aof/tasks/done/TASK-112.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V92-PRODUCTION-BOUNDARY.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-release-plan.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "required_context_refs": [
+    "docs/v9.1-release-definition.md",
+    ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves read/reference boundaries only, not semantic truth or production safety.",
+  "source_task_id": "TASK-112",
+  "source_parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_decision_record_id": null
+}

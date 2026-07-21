@@ -1,0 +1,104 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRU0G3PW-GPGM88",
+  "recorded_at": "2026-07-21T02:04:29.780Z",
+  "work_item_id": "TASK-112",
+  "work_item_ref": ".aof/tasks/done/TASK-112.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V92-PRODUCTION-BOUNDARY.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF agent session is summarized runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V92-1",
+      "event_type": "prompt",
+      "summary": "Heartbeat requested v9.2 release advancement with AOF runtime.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-112.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V92-2",
+      "event_type": "artifact_write",
+      "summary": "Generated production-boundary candidate and audit evidence.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V92-3",
+      "event_type": "response",
+      "summary": "AOF runtime selected v9.2 as a bounded pre-production provider boundary release, not a live execution release.",
+      "artifact_refs": [
+        "docs/v9.2-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V92-4",
+      "event_type": "tool_call",
+      "summary": "Runtime commands wrote provider boundary, product value, visibility, and release audit artifacts.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/runtime-execution.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V92-5",
+      "event_type": "verification",
+      "summary": "Provider production boundary audit and product value evidence audit passed for TASK-112.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json",
+        ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V92-6",
+      "event_type": "blocker",
+      "summary": "Production execution remains blocked because v9.2 only proves candidate boundary readiness.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V92-7",
+      "event_type": "stop_condition",
+      "summary": "Stop if any claim authorizes live provider execution before a later controlled execution release.",
+      "artifact_refs": [
+        "docs/v9.2-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-112.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.2-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+    ],
+    "risk_candidates": [
+      "Pre-production boundary may be mistaken for production safety."
+    ],
+    "decision_candidates": [
+      "Keep production execution unauthorized until v9.3+ controlled execution proof."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v9.2-release-checklist.md"
+    ]
+  },
+  "redaction_boundary": "No secrets or provider credentials were accessed or exported.",
+  "release_ready_boundary": "Release readiness is structural/runtime only; production safety remains not proven.",
+  "not_proven": "Session export does not prove semantic correctness, production safety, or market value.",
+  "source_task_id": "TASK-112",
+  "source_parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -20,6 +20,7 @@
     "provider_rollback_proof_projection",
     "provider_outcome_evidence_projection",
     "provider_learning_loop_projection",
+    "provider_production_boundary_projection",
     "operator_acceptance_drill_projection",
     "product_value_evidence_projection",
     "provider_adapter_pilot_readiness_projection",
@@ -1122,6 +1123,60 @@
               "outcome_ref": { "type": "string" },
               "decision": { "type": "string" },
               "update_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_production_boundary_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "boundary_count",
+        "candidate_count",
+        "blocked_count",
+        "production_authorized_count",
+        "missing_boundary_count",
+        "boundaries",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "boundary_count": { "type": "integer" },
+        "candidate_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "production_authorized_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "boundaries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "boundary_id",
+              "release_ref",
+              "work_item_id",
+              "execution_eligibility",
+              "production_execution_authorized",
+              "go_no_go_status",
+              "governance_action",
+              "artifact_ref"
+            ],
+            "properties": {
+              "boundary_id": { "type": "string" },
+              "release_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "execution_eligibility": { "type": "string" },
+              "production_execution_authorized": { "type": "boolean" },
+              "go_no_go_status": { "type": "string" },
+              "governance_action": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

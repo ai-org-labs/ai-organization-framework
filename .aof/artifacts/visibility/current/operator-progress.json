@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-21T00:13:11.557Z",
+  "generated_at": "2026-07-21T02:16:51.792Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-111 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-111.json"
+    "summary": "TASK-112 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-112.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-111 completed: Ship v9.1 Product Value Comprehension Gate",
-      "artifact_ref": ".aof/tasks/done/TASK-111.json"
+      "summary": "TASK-112 completed: Ship v9.2 External Runtime Production Boundary Candidate",
+      "artifact_ref": ".aof/tasks/done/TASK-112.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
+      "summary": "After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-111 completed: Ship v9.1 Product Value Comprehension Gate Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
+    "what_changed": "TASK-112 completed: Ship v9.2 External Runtime Production Boundary Candidate After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate."
+    "next_checkpoint": "Open an implementation task for the current frontier: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence."
   }
 }

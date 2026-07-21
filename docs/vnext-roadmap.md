@@ -433,7 +433,7 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v9.1.0`, advance `v9.2` as External Runtime Production Boundary Candidate.
+After `v9.2.0`, advance `v9.3` as Provider-backed Controlled Execution Candidate.
 
 `v9.1.0` was inserted before the production-boundary track because user feedback exposed a product-level failure: AOF releases could be internally auditable while users could not understand what became possible. Product Value Comprehension is now a release gate, so future external runtime releases must explain capability, before/after change, demo path, user benefit, and understanding outcome instead of only listing internal artifacts.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
@@ -463,10 +463,22 @@ so reproduction and rollback readiness are not confused with observed outcome,
 accepted result, or learned next action. v9.0 added operator acceptance drill
 evidence, so accept / stop / rollback / escalate / defer judgment can be made
 against the full external runtime chain before controlled provider execution
-advances. The next proof is production-boundary eligibility: whether AOF can
+advances. v9.2 added production-boundary eligibility: whether AOF can
 state the exact credential, budget, revocation, rollback, monitoring, incident,
 and human approval preconditions required before any real provider-side
 execution can be considered.
+
+The next proof is controlled execution without hidden autonomy: whether AOF can
+run a bounded provider-backed operation only after the v9.2 production boundary,
+human go/no-go, rollback, monitoring, incident, and product-value comprehension
+conditions are satisfied.
+
+Forward path:
+
+1. `v9.3`: Provider-backed Controlled Execution Candidate
+2. `v9.4`: External Runtime Incident Drill and Recovery Evidence
+3. `v9.5`: Provider Execution Cost and Quota Boundary
+4. `v9.6`: Third-party Operator Validation for External Runtime Claims
 
 Priority order:
 

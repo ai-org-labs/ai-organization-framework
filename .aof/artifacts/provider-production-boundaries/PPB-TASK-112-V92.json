@@ -1,0 +1,47 @@
+{
+  "artifact_type": "provider-production-boundary-record",
+  "boundary_id": "PPB-TASK-112-V92",
+  "recorded_at": "2026-07-21T02:03:37.953Z",
+  "release_ref": "docs/v9.2-release-definition.md",
+  "work_item_id": "TASK-112",
+  "work_item_ref": ".aof/tasks/done/TASK-112.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+  "reproduction_ref": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+  "rollback_ref": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+  "outcome_ref": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+  "learning_ref": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+  "operator_acceptance_ref": ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+  "product_value_evidence_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+  "provider_scope": "pre-production candidate boundary for controlled provider execution; no live provider write in v9.2",
+  "allowed_operation_class": "controlled_write_candidate",
+  "execution_eligibility": "candidate",
+  "production_execution_authorized": false,
+  "credential_boundary": "Credential source, scope, storage, redaction, expiry, and rotation must be reviewed before any provider execution.",
+  "budget_boundary": "Maximum call count, maximum spend, timeout, and quota owner must be set before any provider execution.",
+  "revocation_boundary": "Human approval can be revoked before execution; stale or revoked approval blocks execution.",
+  "rollback_boundary": "Rollback proof must be ready and linked before execution; rollback readiness is not rollback execution.",
+  "monitoring_boundary": "Operator must be able to observe start, target, result, failure, and stop signals.",
+  "incident_boundary": "Incident owner, escalation route, stop condition, and recovery evidence must be defined.",
+  "human_go_no_go_boundary": "A human operator must explicitly decide go/no-go against the full boundary packet.",
+  "product_value_comprehension_boundary": "Release value must be understandable; unclear value blocks production execution claims.",
+  "go_no_go_status": "not_authorized",
+  "governance_action": "block_production_execution",
+  "stop_conditions": [
+    "Stop if production execution authorization is claimed by v9.2.",
+    "Stop if any credential, budget, revocation, rollback, monitoring, incident, human go/no-go, or product-value boundary is missing."
+  ],
+  "provenance_refs": [
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-112-V92.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json"
+  ],
+  "verification_refs": [
+    "test/runtime-core-2.test.js",
+    "docs/v9.2-release-checklist.md"
+  ],
+  "not_proven": "This boundary proves pre-production eligibility structure only, not production execution safety, provider correctness, credential safety, billing safety, market value, or actual rollback execution.",
+  "source_task_id": "TASK-112",
+  "source_parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_decision_record_id": null,
+  "notes": null
+}

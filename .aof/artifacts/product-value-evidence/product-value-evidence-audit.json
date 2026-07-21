@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "product-value-evidence-audit",
-  "generated_at": "2026-07-20T23:59:39.833Z",
+  "generated_at": "2026-07-21T02:07:35.380Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "record_count": 1,
-    "understood_count": 1,
+    "record_count": 2,
+    "understood_count": 2,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 3,
+    "capability_row_count": 4,
     "missing_link_count": 0,
     "failing_check_count": 0
   },
@@ -25,15 +25,29 @@
       "understanding_outcome": "understood",
       "governance_action": "none",
       "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json"
+    },
+    {
+      "value_evidence_id": "PVE-TASK-112-V92",
+      "release_ref": "docs/v9.2-release-definition.md",
+      "work_item_id": "TASK-112",
+      "capability_statement": "Operators can inspect whether provider production execution is merely a candidate, blocked, or missing required pre-production boundaries before any real provider operation is considered.",
+      "before_state": "AOF had approval, reproduction, rollback, outcome, learning, operator acceptance, and value evidence, but no single boundary packet explained whether production execution was eligible.",
+      "after_state": "AOF has a provider production boundary candidate packet and audit that bundles upstream evidence and blocks production execution authorization in v9.2.",
+      "scenario": "Before attempting a real GitHub/Jira/Slack/OpenAI provider write, an operator runs provider-production-boundary-audit and sees credential, budget, revocation, rollback, monitoring, incident, human go/no-go, and value-comprehension boundaries.",
+      "five_minute_demo": "Open docs/v9.2-release-definition.md, then run provider-production-boundary-audit and release-state-audit; confirm production_execution_authorized_count is 0.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json"
     }
   ],
   "checks": [
     {
       "name": "product value evidence presence",
       "status": "pass",
-      "detail": "1 record(s) found",
+      "detail": "2 record(s) found",
       "evidence_refs": [
-        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json"
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json"
       ]
     },
     {
@@ -258,6 +272,201 @@
         "docs/v9.1-product-value-comprehension.md",
         "docs/v9.1-release-definition.md",
         "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-112.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 capability statement",
+      "status": "pass",
+      "detail": "Operators can inspect whether provider production execution is merely a candidate, blocked, or missing required pre-production boundaries before any real provider operation is considered.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 before state",
+      "status": "pass",
+      "detail": "AOF had approval, reproduction, rollback, outcome, learning, operator acceptance, and value evidence, but no single boundary packet explained whether production execution was eligible.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 after state",
+      "status": "pass",
+      "detail": "AOF has a provider production boundary candidate packet and audit that bundles upstream evidence and blocks production execution authorization in v9.2.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 product scenario",
+      "status": "pass",
+      "detail": "Before attempting a real GitHub/Jira/Slack/OpenAI provider write, an operator runs provider-production-boundary-audit and sees credential, budget, revocation, rollback, monitoring, incident, human go/no-go, and value-comprehension boundaries.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 five minute demo",
+      "status": "pass",
+      "detail": "Open docs/v9.2-release-definition.md, then run provider-production-boundary-audit and release-state-audit; confirm production_execution_authorized_count is 0.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 capability matrix",
+      "status": "pass",
+      "detail": "1 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 not-proven boundary",
+      "status": "pass",
+      "detail": "This proves release value explanation structure only, not production safety or market adoption.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-112, source_parent_session_id=SESS-V92-PRODUCTION-BOUNDARY",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-112-V92 missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/tasks/done/TASK-112.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.2-release-definition.md",
+        ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
       ]
     }
   ],

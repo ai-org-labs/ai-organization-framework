@@ -1,65 +1,49 @@
 {
   "snapshot_type": "execution-lineage",
-  "generated_at": "2026-07-20T23:50:49.430Z",
-  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
-  "source_task_id": "TASK-111",
-  "stage_filter": "planning",
-  "role_result_count": 3,
+  "generated_at": "2026-07-21T01:56:13.790Z",
+  "source_parent_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
+  "source_task_id": "TASK-112",
+  "stage_filter": "review",
+  "role_result_count": 1,
   "role_join_count": 0,
   "team_output_count": 1,
   "council_review_count": 1,
-  "decision_required_count": 4,
-  "blocking_signal_count": 3,
+  "decision_required_count": 0,
+  "blocking_signal_count": 0,
   "stages_observed": [
-    "planning"
+    "review"
   ],
-  "latest_stage": "planning",
-  "recommended_next_step": "Release v9.1 after full validation; keep production-boundary work as the next frontier.",
+  "latest_stage": "review",
+  "recommended_next_step": "Proceed to release validation after provider-production-boundary-audit, product-value-evidence-audit, release-state-audit, npm test, and smoke are green.",
   "role_results": [
     {
       "role_result_id": null,
-      "role": "Visionary",
-      "stage": "planning",
+      "role": "guardian",
+      "stage": "review",
       "status": "completed",
-      "decision_required": true,
-      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-111-VISIONARY.json"
-    },
-    {
-      "role_result_id": null,
-      "role": "Builder",
-      "stage": "planning",
-      "status": "completed",
-      "decision_required": true,
-      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-111-BUILDER.json"
-    },
-    {
-      "role_result_id": null,
-      "role": "Guardian",
-      "stage": "planning",
-      "status": "completed",
-      "decision_required": true,
-      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-111-GUARDIAN.json"
+      "decision_required": false,
+      "artifact_ref": ".aof/artifacts/execution/role-results/RRES-TASK-112-GUARDIAN.json"
     }
   ],
   "role_joins": [],
   "team_outputs": [
     {
-      "team_output_id": "TOUT-MRTVN2KI-R6V65M",
+      "team_output_id": "TOUT-MRU046SC-DCNR6B",
       "team_id": "runtime-team",
-      "stage": "planning",
+      "stage": "review",
       "aggregate_state": "ready-for-council-review",
-      "decision_required": true,
-      "artifact_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-111-V91.json"
+      "decision_required": false,
+      "artifact_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-112-V92.json"
     }
   ],
   "council_reviews": [
     {
-      "review_packet_id": "CREV-MRTVNP3K-MF6YS9",
-      "council_id": "product-council",
-      "stage": "planning",
+      "review_packet_id": "CREV-MRU04PMC-98ILRM",
+      "council_id": "architecture-council",
+      "stage": "review",
       "review_status": "approved",
       "escalation_required": false,
-      "artifact_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-111-V91.json"
+      "artifact_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-112-V92.json"
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-21T00:13:11.557Z",
-  "headline": "The next frontier is defined, but no aligned implementation task is open yet: Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
+  "generated_at": "2026-07-21T02:16:51.792Z",
+  "headline": "The next frontier is defined, but no aligned implementation task is open yet: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
   "current_state": {
-    "release_version": "9.1.0",
-    "active_release_track": "v9.1",
-    "release_definition_ref": "docs/v9.1-release-definition.md",
+    "release_version": "9.2.0",
+    "active_release_track": "v9.2",
+    "release_definition_ref": "docs/v9.2-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
-    "operating_goal": "Prepare v9.2 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, human go/no-go, and product-value comprehension preconditions required before any controlled provider execution is eligible.",
-    "next_value_slice": "Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
+    "operating_goal": "Prepare the post-v9.2 frontier: define v9.3 as a controlled provider preflight execution readiness model that remains non-production until explicit go/no-go evidence exists.",
+    "next_value_slice": "After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
     "primary_frontier_task": null,
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
@@ -65,11 +65,11 @@
   "why_now": {
     "summary": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "reasons": [
-      "The active release baseline is 9.1.0 and the runtime is now targeting the next track.",
+      "The active release baseline is 9.2.0 and the runtime is now targeting the next track.",
       "The current operating goal and next value slice both reinforce the current frontier as the next bounded operating move."
     ],
     "evidence_refs": [
-      "docs/v9.1-release-definition.md",
+      "docs/v9.2-release-definition.md",
       ".aof/goals/operating-goal.json",
       ".aof/goals/next-value-slice.json",
       ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json"
@@ -77,14 +77,14 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
-    "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
+    "recommended_action": "Open an implementation task for the current frontier: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
+    "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "operator_answers": {
     "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
     "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate."
+    "what_should_happen_next": "Open an implementation task for the current frontier: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence."
   }
 }

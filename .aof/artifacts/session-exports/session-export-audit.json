@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "session-export-audit",
-  "generated_at": "2026-07-19T01:53:55.367Z",
+  "generated_at": "2026-07-21T02:11:03.161Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "cutoff_task_id": "TASK-095",
   "audited_status_dirs": [
@@ -10,9 +10,9 @@
     "done"
   ],
   "summary": {
-    "scoped_task_count": 8,
-    "export_count": 8,
-    "accepted_export_count": 8,
+    "scoped_task_count": 18,
+    "export_count": 18,
+    "accepted_export_count": 18,
     "missing_export_count": 0,
     "failing_check_count": 0
   },
@@ -72,6 +72,76 @@
       "status": "done",
       "status_dir": "done",
       "artifact_ref": ".aof/tasks/done/TASK-102.json"
+    },
+    {
+      "task_id": "TASK-103",
+      "title": "Ship v8.3 Mission Control Operator Acceptance Evidence",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-103.json"
+    },
+    {
+      "task_id": "TASK-104",
+      "title": "Ship v8.4 Externalized Runtime Operator Safety Proof",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-104.json"
+    },
+    {
+      "task_id": "TASK-105",
+      "title": "Ship v8.5 Provider Adapter Execution Pilot Boundary",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-105.json"
+    },
+    {
+      "task_id": "TASK-106",
+      "title": "Ship v8.6 Provider Execution Approval Bridge",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-106.json"
+    },
+    {
+      "task_id": "TASK-107",
+      "title": "Ship v8.7 Approval Authenticity and Adapter Capability Alignment",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-107.json"
+    },
+    {
+      "task_id": "TASK-108",
+      "title": "Ship v8.8 External Runtime Reproduction and Rollback Proof",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-108.json"
+    },
+    {
+      "task_id": "TASK-109",
+      "title": "Ship v8.9 External Runtime Outcome Evidence and Learning Loop",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-109.json"
+    },
+    {
+      "task_id": "TASK-110",
+      "title": "Ship v9.0 External Runtime Operator Acceptance and Safety Drill",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-110.json"
+    },
+    {
+      "task_id": "TASK-111",
+      "title": "Ship v9.1 Product Value Comprehension Gate",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-111.json"
+    },
+    {
+      "task_id": "TASK-112",
+      "title": "Ship v9.2 External Runtime Production Boundary Candidate",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-112.json"
     }
   ],
   "exports": [
@@ -138,13 +208,93 @@
       "export_status": "completed",
       "event_count": 7,
       "provider": "local"
+    },
+    {
+      "task_id": "TASK-103",
+      "task_ref": ".aof/tasks/done/TASK-103.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-103.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-104",
+      "task_ref": ".aof/tasks/done/TASK-104.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-104.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-105",
+      "task_ref": ".aof/tasks/done/TASK-105.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-105.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-106",
+      "task_ref": ".aof/tasks/done/TASK-106.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-106.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-107",
+      "task_ref": ".aof/tasks/done/TASK-107.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-107.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-108",
+      "task_ref": ".aof/tasks/done/TASK-108.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-108.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-109",
+      "task_ref": ".aof/tasks/done/TASK-109.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-109.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-110",
+      "task_ref": ".aof/tasks/done/TASK-110.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-110.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-111",
+      "task_ref": ".aof/tasks/done/TASK-111.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-111.json",
+      "export_status": "ready",
+      "event_count": 7,
+      "provider": "local"
+    },
+    {
+      "task_id": "TASK-112",
+      "task_ref": ".aof/tasks/done/TASK-112.json",
+      "export_ref": ".aof/artifacts/session-exports/TASK-112.json",
+      "export_status": "completed",
+      "event_count": 7,
+      "provider": "local"
     }
   ],
   "checks": [
     {
       "name": "scoped task discovery",
       "status": "pass",
-      "detail": "8 task(s) at or after TASK-095 in open, assigned, done"
+      "detail": "18 task(s) at or after TASK-095 in open, assigned, done"
     },
     {
       "name": "TASK-095 session export presence",
@@ -1215,6 +1365,1526 @@
       "name": "TASK-102 release-ready evidence ref resolves",
       "status": "pass",
       "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-103 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-103.json"
+    },
+    {
+      "name": "TASK-103 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-103.json"
+    },
+    {
+      "name": "TASK-103 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-103, expected=TASK-103"
+    },
+    {
+      "name": "TASK-103 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-103 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, tool_call, response, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-103 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF runtime artifacts are the session source of truth."
+    },
+    {
+      "name": "TASK-103 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets or external provider payloads are included."
+    },
+    {
+      "name": "TASK-103 release-ready boundary present",
+      "status": "pass",
+      "detail": "Runtime-ready only; not market truth."
+    },
+    {
+      "name": "TASK-103 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves reconstructability only."
+    },
+    {
+      "name": "TASK-103 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-103.json"
+    },
+    {
+      "name": "TASK-103 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V83-OPERATOR-ACCEPTANCE-EVIDENCE.json"
+    },
+    {
+      "name": "TASK-103 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-103.json"
+    },
+    {
+      "name": "TASK-103 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-103 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-103 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.3-release-definition.md"
+    },
+    {
+      "name": "TASK-103 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-operator-validation-audit.schema.json"
+    },
+    {
+      "name": "TASK-103 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-mission-control-view.schema.json"
+    },
+    {
+      "name": "TASK-103 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-serve.js"
+    },
+    {
+      "name": "TASK-103 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-103 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-103 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-103 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-103 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-103 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.3-release-checklist.md"
+    },
+    {
+      "name": "TASK-103 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-103.json"
+    },
+    {
+      "name": "TASK-103 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.3-release-definition.md"
+    },
+    {
+      "name": "TASK-103 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-103 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-103 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-104 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-104.json"
+    },
+    {
+      "name": "TASK-104 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-104.json"
+    },
+    {
+      "name": "TASK-104 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-104, expected=TASK-104"
+    },
+    {
+      "name": "TASK-104 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-104 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, tool_call, response, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-104 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF runtime artifacts are the session source of truth."
+    },
+    {
+      "name": "TASK-104 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets, credentials, or external provider payloads are included."
+    },
+    {
+      "name": "TASK-104 release-ready boundary present",
+      "status": "pass",
+      "detail": "Runtime-ready visibility only; not autonomous execution authority."
+    },
+    {
+      "name": "TASK-104 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves reconstructability only."
+    },
+    {
+      "name": "TASK-104 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-104.json"
+    },
+    {
+      "name": "TASK-104 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V84-EXTERNAL-RUNTIME-SAFETY.json"
+    },
+    {
+      "name": "TASK-104 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-104.json"
+    },
+    {
+      "name": "TASK-104 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-104 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.4-release-definition.md"
+    },
+    {
+      "name": "TASK-104 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-export.js"
+    },
+    {
+      "name": "TASK-104 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-serve.js"
+    },
+    {
+      "name": "TASK-104 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-mission-control-view.schema.json"
+    },
+    {
+      "name": "TASK-104 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-104 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.4-release-definition.md"
+    },
+    {
+      "name": "TASK-104 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-104 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-104 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-104 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-104 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.4-release-checklist.md"
+    },
+    {
+      "name": "TASK-104 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-104.json"
+    },
+    {
+      "name": "TASK-104 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.4-release-definition.md"
+    },
+    {
+      "name": "TASK-104 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-104 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-104 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-104 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/externalization/externalization-readiness-audit.json"
+    },
+    {
+      "name": "TASK-104 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-resources/external-resource-audit.json"
+    },
+    {
+      "name": "TASK-104 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    },
+    {
+      "name": "TASK-104 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-105 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-105.json"
+    },
+    {
+      "name": "TASK-105 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-105.json"
+    },
+    {
+      "name": "TASK-105 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-105, expected=TASK-105"
+    },
+    {
+      "name": "TASK-105 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-105 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, tool_call, artifact_write, verification, response, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-105 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF runtime artifacts are the session source of truth."
+    },
+    {
+      "name": "TASK-105 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets, credentials, or external provider payloads are included."
+    },
+    {
+      "name": "TASK-105 release-ready boundary present",
+      "status": "pass",
+      "detail": "Runtime-ready pilot boundary only; not autonomous execution authority."
+    },
+    {
+      "name": "TASK-105 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves reconstructability only."
+    },
+    {
+      "name": "TASK-105 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-105.json"
+    },
+    {
+      "name": "TASK-105 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V85-PROVIDER-ADAPTER-PILOT.json"
+    },
+    {
+      "name": "TASK-105 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-105.json"
+    },
+    {
+      "name": "TASK-105 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-105 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-adapter-pilot-record.js"
+    },
+    {
+      "name": "TASK-105 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-adapter-pilot-audit.js"
+    },
+    {
+      "name": "TASK-105 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-export.js"
+    },
+    {
+      "name": "TASK-105 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-105 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.5-release-definition.md"
+    },
+    {
+      "name": "TASK-105 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-105 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-105 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.5-release-definition.md"
+    },
+    {
+      "name": "TASK-105 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-105 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json"
+    },
+    {
+      "name": "TASK-105 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-105 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.5-release-checklist.md"
+    },
+    {
+      "name": "TASK-105 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-105.json"
+    },
+    {
+      "name": "TASK-105 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.5-release-definition.md"
+    },
+    {
+      "name": "TASK-105 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-105 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-105 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+    },
+    {
+      "name": "TASK-105 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json"
+    },
+    {
+      "name": "TASK-105 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-105 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json"
+    },
+    {
+      "name": "TASK-106 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-106.json"
+    },
+    {
+      "name": "TASK-106 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-106.json"
+    },
+    {
+      "name": "TASK-106 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-106, expected=TASK-106"
+    },
+    {
+      "name": "TASK-106 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-106 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, tool_call, artifact_write, verification, response, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-106 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF runtime artifacts are the session source of truth."
+    },
+    {
+      "name": "TASK-106 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets, credentials, or external provider payloads are included."
+    },
+    {
+      "name": "TASK-106 release-ready boundary present",
+      "status": "pass",
+      "detail": "Runtime-ready approval bridge only; not autonomous execution authority."
+    },
+    {
+      "name": "TASK-106 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves reconstructability only."
+    },
+    {
+      "name": "TASK-106 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-106.json"
+    },
+    {
+      "name": "TASK-106 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V86-PROVIDER-EXECUTION-APPROVAL.json"
+    },
+    {
+      "name": "TASK-106 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-106.json"
+    },
+    {
+      "name": "TASK-106 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-106 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-execution-approval-record.js"
+    },
+    {
+      "name": "TASK-106 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-execution-approval-audit.js"
+    },
+    {
+      "name": "TASK-106 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-export.js"
+    },
+    {
+      "name": "TASK-106 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-106 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.6-release-definition.md"
+    },
+    {
+      "name": "TASK-106 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-106 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.6-release-definition.md"
+    },
+    {
+      "name": "TASK-106 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-106 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    },
+    {
+      "name": "TASK-106 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-106 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.6-release-checklist.md"
+    },
+    {
+      "name": "TASK-106 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-106.json"
+    },
+    {
+      "name": "TASK-106 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.6-release-definition.md"
+    },
+    {
+      "name": "TASK-106 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-106 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-106 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+    },
+    {
+      "name": "TASK-106 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    },
+    {
+      "name": "TASK-106 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-106 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    },
+    {
+      "name": "TASK-107 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-107.json"
+    },
+    {
+      "name": "TASK-107 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-107.json"
+    },
+    {
+      "name": "TASK-107 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-107, expected=TASK-107"
+    },
+    {
+      "name": "TASK-107 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-107 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-107 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF runtime artifacts are the session source of truth."
+    },
+    {
+      "name": "TASK-107 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets, credentials, or external provider payload bodies are included."
+    },
+    {
+      "name": "TASK-107 release-ready boundary present",
+      "status": "pass",
+      "detail": "Runtime-ready approval authenticity only; not autonomous execution authority."
+    },
+    {
+      "name": "TASK-107 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves reconstructability only."
+    },
+    {
+      "name": "TASK-107 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-107.json"
+    },
+    {
+      "name": "TASK-107 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json"
+    },
+    {
+      "name": "TASK-107 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-107.json"
+    },
+    {
+      "name": "TASK-107 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7-release-definition.md"
+    },
+    {
+      "name": "TASK-107 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-107.json"
+    },
+    {
+      "name": "TASK-107 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/active-release-manifest.json"
+    },
+    {
+      "name": "TASK-107 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/command-registry.json"
+    },
+    {
+      "name": "TASK-107 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    },
+    {
+      "name": "TASK-107 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-operation-target-record.js"
+    },
+    {
+      "name": "TASK-107 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/human-approval-record.js"
+    },
+    {
+      "name": "TASK-107 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-execution-approval-audit.js"
+    },
+    {
+      "name": "TASK-107 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-107 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7-release-definition.md"
+    },
+    {
+      "name": "TASK-107 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-107 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-107 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    },
+    {
+      "name": "TASK-107 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7-release-checklist.md"
+    },
+    {
+      "name": "TASK-107 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-107.json"
+    },
+    {
+      "name": "TASK-107 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7-release-definition.md"
+    },
+    {
+      "name": "TASK-107 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-107 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json"
+    },
+    {
+      "name": "TASK-107 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/human-approvals/HAPR-TASK-107-GITHUB-ISSUE.json"
+    },
+    {
+      "name": "TASK-107 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
+    },
+    {
+      "name": "TASK-107 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    },
+    {
+      "name": "TASK-107 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    },
+    {
+      "name": "TASK-108 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-108.json"
+    },
+    {
+      "name": "TASK-108 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-108.json"
+    },
+    {
+      "name": "TASK-108 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-108, expected=TASK-108"
+    },
+    {
+      "name": "TASK-108 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-108 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-108 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF runtime artifacts are the session source of truth."
+    },
+    {
+      "name": "TASK-108 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets, credentials, or external provider payload bodies are included."
+    },
+    {
+      "name": "TASK-108 release-ready boundary present",
+      "status": "pass",
+      "detail": "Runtime-ready reproduction and rollback proof only; not autonomous execution authority."
+    },
+    {
+      "name": "TASK-108 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves reconstructability only."
+    },
+    {
+      "name": "TASK-108 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-108.json"
+    },
+    {
+      "name": "TASK-108 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json"
+    },
+    {
+      "name": "TASK-108 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-108 event EVT-1B artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.8-release-definition.md"
+    },
+    {
+      "name": "TASK-108 event EVT-1C artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-108.json"
+    },
+    {
+      "name": "TASK-108 event EVT-1C artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/release-state-audit.json"
+    },
+    {
+      "name": "TASK-108 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-execution-reproduction-audit.js"
+    },
+    {
+      "name": "TASK-108 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-rollback-proof-audit.js"
+    },
+    {
+      "name": "TASK-108 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-108 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json"
+    },
+    {
+      "name": "TASK-108 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+    },
+    {
+      "name": "TASK-108 event EVT-3B artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json"
+    },
+    {
+      "name": "TASK-108 event EVT-3B artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+    },
+    {
+      "name": "TASK-108 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.8-release-definition.md"
+    },
+    {
+      "name": "TASK-108 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-108.json"
+    },
+    {
+      "name": "TASK-108 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.8-release-definition.md"
+    },
+    {
+      "name": "TASK-108 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-108 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json"
+    },
+    {
+      "name": "TASK-108 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json"
+    },
+    {
+      "name": "TASK-108 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json"
+    },
+    {
+      "name": "TASK-108 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+    },
+    {
+      "name": "TASK-109 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-109.json"
+    },
+    {
+      "name": "TASK-109 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-109.json"
+    },
+    {
+      "name": "TASK-109 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-109, expected=TASK-109"
+    },
+    {
+      "name": "TASK-109 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-109 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-109 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF runtime artifacts are the release session source of truth; raw provider streams are not included."
+    },
+    {
+      "name": "TASK-109 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets, credentials, raw provider responses, or external payload bodies are included."
+    },
+    {
+      "name": "TASK-109 release-ready boundary present",
+      "status": "pass",
+      "detail": "Runtime-ready outcome and learning-loop evidence only; not production external execution authority."
+    },
+    {
+      "name": "TASK-109 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves traceable release evidence only, not semantic correctness or external execution value."
+    },
+    {
+      "name": "TASK-109 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-109.json"
+    },
+    {
+      "name": "TASK-109 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V87-APPROVAL-AUTHENTICITY.json"
+    },
+    {
+      "name": "TASK-109 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-109 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-109 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.9-release-definition.md"
+    },
+    {
+      "name": "TASK-109 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-109.json"
+    },
+    {
+      "name": "TASK-109 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+    },
+    {
+      "name": "TASK-109 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+    },
+    {
+      "name": "TASK-109 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-outcome-evidence-record.js"
+    },
+    {
+      "name": "TASK-109 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-learning-loop-record.js"
+    },
+    {
+      "name": "TASK-109 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-outcome-evidence-record.schema.json"
+    },
+    {
+      "name": "TASK-109 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-learning-loop-record.schema.json"
+    },
+    {
+      "name": "TASK-109 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-109 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+    },
+    {
+      "name": "TASK-109 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+    },
+    {
+      "name": "TASK-109 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.9-release-definition.md"
+    },
+    {
+      "name": "TASK-109 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-109.json"
+    },
+    {
+      "name": "TASK-109 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.9-release-definition.md"
+    },
+    {
+      "name": "TASK-109 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-109 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json"
+    },
+    {
+      "name": "TASK-109 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json"
+    },
+    {
+      "name": "TASK-109 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-outcome-evidence/provider-outcome-evidence-audit.json"
+    },
+    {
+      "name": "TASK-109 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-learning-loop/provider-learning-loop-audit.json"
+    },
+    {
+      "name": "TASK-110 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-110.json"
+    },
+    {
+      "name": "TASK-110 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-110.json"
+    },
+    {
+      "name": "TASK-110 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-110, expected=TASK-110"
+    },
+    {
+      "name": "TASK-110 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-110 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-110 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF runtime artifacts are the release session source of truth; raw provider streams are not included."
+    },
+    {
+      "name": "TASK-110 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets, credentials, raw provider responses, or external payload bodies are included."
+    },
+    {
+      "name": "TASK-110 release-ready boundary present",
+      "status": "pass",
+      "detail": "Runtime-ready operator acceptance drill evidence only; not production external execution authority."
+    },
+    {
+      "name": "TASK-110 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export proves traceable release evidence only, not semantic correctness, production safety, or external execution value."
+    },
+    {
+      "name": "TASK-110 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-110.json"
+    },
+    {
+      "name": "TASK-110 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V90-OPERATOR-ACCEPTANCE.json"
+    },
+    {
+      "name": "TASK-110 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-110 event EVT-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-110 event EVT-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.0-release-definition.md"
+    },
+    {
+      "name": "TASK-110 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-110.json"
+    },
+    {
+      "name": "TASK-110 event EVT-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+    },
+    {
+      "name": "TASK-110 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/operator-acceptance-drill-record.js"
+    },
+    {
+      "name": "TASK-110 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/operator-acceptance-drill-audit.js"
+    },
+    {
+      "name": "TASK-110 event EVT-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-operator-acceptance-drill-record.schema.json"
+    },
+    {
+      "name": "TASK-110 event EVT-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-110 event EVT-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+    },
+    {
+      "name": "TASK-110 event EVT-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.0-release-definition.md"
+    },
+    {
+      "name": "TASK-110 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-110.json"
+    },
+    {
+      "name": "TASK-110 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.0-release-definition.md"
+    },
+    {
+      "name": "TASK-110 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-110 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json"
+    },
+    {
+      "name": "TASK-110 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+    },
+    {
+      "name": "TASK-111 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-111.json"
+    },
+    {
+      "name": "TASK-111 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-111.json"
+    },
+    {
+      "name": "TASK-111 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-111, expected=TASK-111"
+    },
+    {
+      "name": "TASK-111 accepted export status",
+      "status": "pass",
+      "detail": "export_status=ready"
+    },
+    {
+      "name": "TASK-111 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, response, tool_call, artifact_write, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-111 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF normalized session record is canonical."
+    },
+    {
+      "name": "TASK-111 redaction boundary present",
+      "status": "pass",
+      "detail": "Summaries only; no private prompt bodies or secrets exported."
+    },
+    {
+      "name": "TASK-111 release-ready boundary present",
+      "status": "pass",
+      "detail": "Release readiness is runtime evidence, not market proof."
+    },
+    {
+      "name": "TASK-111 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export does not prove broad user understanding, semantic truth, market value, or production provider safety."
+    },
+    {
+      "name": "TASK-111 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-111.json"
+    },
+    {
+      "name": "TASK-111 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V91-VALUE-DIRECTION.json"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/context/active/alignment-pulse.json"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-111.json"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-release-definition.md"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-2 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-product-value-comprehension.md"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-111.json"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-3 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-product-value-evidence-record.schema.json"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "src/commands/product-value-evidence-audit.js"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-4 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1.0-release-notes.md"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-5 artifact ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-5 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-6 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-release-definition.md"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-release-definition.md"
+    },
+    {
+      "name": "TASK-111 event EVT-V91-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1.0-release-notes.md"
+    },
+    {
+      "name": "TASK-111 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-111.json"
+    },
+    {
+      "name": "TASK-111 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-release-definition.md"
+    },
+    {
+      "name": "TASK-111 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-111 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-111 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-release-checklist.md"
+    },
+    {
+      "name": "TASK-112 session export presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-112.json"
+    },
+    {
+      "name": "TASK-112 session export schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-exports/TASK-112.json"
+    },
+    {
+      "name": "TASK-112 export links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-112, expected=TASK-112"
+    },
+    {
+      "name": "TASK-112 accepted export status",
+      "status": "pass",
+      "detail": "export_status=completed"
+    },
+    {
+      "name": "TASK-112 required event types present",
+      "status": "pass",
+      "detail": "types=prompt, artifact_write, response, tool_call, verification, blocker, stop_condition"
+    },
+    {
+      "name": "TASK-112 source-of-truth boundary present",
+      "status": "pass",
+      "detail": "AOF agent session is summarized runtime evidence, not raw provider transcript truth."
+    },
+    {
+      "name": "TASK-112 redaction boundary present",
+      "status": "pass",
+      "detail": "No secrets or provider credentials were accessed or exported."
+    },
+    {
+      "name": "TASK-112 release-ready boundary present",
+      "status": "pass",
+      "detail": "Release readiness is structural/runtime only; production safety remains not proven."
+    },
+    {
+      "name": "TASK-112 not-proven boundary present",
+      "status": "pass",
+      "detail": "Session export does not prove semantic correctness, production safety, or market value."
+    },
+    {
+      "name": "TASK-112 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-112.json"
+    },
+    {
+      "name": "TASK-112 source session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V92-PRODUCTION-BOUNDARY.json"
+    },
+    {
+      "name": "TASK-112 event EVT-V92-1 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-112.json"
+    },
+    {
+      "name": "TASK-112 event EVT-V92-2 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json"
+    },
+    {
+      "name": "TASK-112 event EVT-V92-3 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2-release-definition.md"
+    },
+    {
+      "name": "TASK-112 event EVT-V92-4 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/runtime-execution.json"
+    },
+    {
+      "name": "TASK-112 event EVT-V92-5 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+    },
+    {
+      "name": "TASK-112 event EVT-V92-5 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-112 event EVT-V92-6 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json"
+    },
+    {
+      "name": "TASK-112 event EVT-V92-7 artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2-release-checklist.md"
+    },
+    {
+      "name": "TASK-112 task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-112.json"
+    },
+    {
+      "name": "TASK-112 requirement ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2-release-definition.md"
+    },
+    {
+      "name": "TASK-112 test evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-112 artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+    },
+    {
+      "name": "TASK-112 release-ready evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2-release-checklist.md"
     }
   ],
   "errors": []

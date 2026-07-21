@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-20T23:57:00.632Z",
+  "generated_at": "2026-07-21T02:08:02.729Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -3171,6 +3171,96 @@
       ],
       "outputs": [
         "provider outcome evidence artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-production-boundary-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify provider production boundary candidates have resolvable upstream evidence and explicit pre-production limits, while blocking production execution authorization in the candidate release.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider production boundary audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-production-boundary-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write the pre-production boundary candidate that binds approval, reproduction, rollback, outcome, learning, operator acceptance, product value comprehension, credentials, budget, revocation, monitoring, incident, and human go/no-go limits before production execution can be considered.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "release-ref",
+        "work-item-id",
+        "work-item-ref",
+        "mission-control-ref",
+        "approval-ref",
+        "reproduction-ref",
+        "rollback-ref",
+        "outcome-ref",
+        "learning-ref",
+        "operator-acceptance-ref",
+        "product-value-evidence-ref",
+        "provider-scope",
+        "allowed-operation-class",
+        "execution-eligibility",
+        "credential-boundary",
+        "budget-boundary",
+        "revocation-boundary",
+        "rollback-boundary",
+        "monitoring-boundary",
+        "incident-boundary",
+        "human-go-no-go-boundary",
+        "product-value-comprehension-boundary",
+        "go-no-go-status",
+        "governance-action",
+        "stop-condition",
+        "provenance-ref",
+        "verification-ref",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider production boundary artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },
