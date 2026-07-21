@@ -1,0 +1,27 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MRTVQETC-E309U8",
+  "recorded_at": "2026-07-20T23:52:32.640Z",
+  "work_item_id": "TASK-111",
+  "work_item_ref": ".aof/tasks/done/TASK-111.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V91-VALUE-DIRECTION.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/agent-sessions/SESS-V91-VALUE-DIRECTION.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-111-V91.json",
+    ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-111-V91.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-111.json",
+  "maker_checker_council_boundary": "Builder implements product value evidence, Guardian verifies boundaries, Product Council judges release value readiness.",
+  "not_proven": "Multi-actor evidence is a governed self-hosting work structure, not independent user validation.",
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,7 +1,7 @@
 {
   "organization_type": "aof-organization",
   "organization_format_version": 1,
-  "mission": "Ship v9.0 as the operator acceptance drill gate for external runtime chains before moving toward production-boundary eligibility.",
+  "mission": "Ship v9.1 as the Product Value Comprehension Gate so release value is explained, evidenced, and audited before more provider execution layers advance.",
   "project_ref": ".aof/context/active/project-orientation.json",
   "skills_ref": ".aof/skills.json",
   "capability_registry_ref": ".aof/capability-registry.json",
@@ -174,7 +174,7 @@
       "name": "Governance To Release Contract",
       "owner_team_ref": "governance-team",
       "contract_type": "release-definition",
-      "artifact_ref": "docs/v9.0-release-definition.md"
+      "artifact_ref": "docs/v9.1-release-definition.md"
     },
     {
       "contract_id": "contract-verification-to-runtime",
@@ -287,5 +287,5 @@
       "archive"
     ]
   },
-  "updated_at": "2026-07-20T18:07:05.450Z"
+  "updated_at": "2026-07-20T23:58:43.086Z"
 }

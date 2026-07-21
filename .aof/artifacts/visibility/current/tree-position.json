@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-20T18:11:54.757Z",
+  "generated_at": "2026-07-21T00:02:43.883Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "9.0.0",
-    "active_release_track": "v9.0",
-    "release_definition_ref": "docs/v9.0-release-definition.md"
+    "active_release_version": "9.1.0",
+    "active_release_track": "v9.1",
+    "release_definition_ref": "docs/v9.1-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task."
+    "branch_summary": "Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v9.0",
+      "label": "v9.1",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v9.0 and the next concrete branch.",
-    "why_this_branch": "Prepare v9.1 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, and human go/no-go preconditions required before any controlled provider execution is eligible.",
-    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task."
+    "where_are_we": "The runtime is between v9.1 and the next concrete branch.",
+    "why_this_branch": "Prepare v9.2 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, human go/no-go, and product-value comprehension preconditions required before any controlled provider execution is eligible.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate."
   }
 }

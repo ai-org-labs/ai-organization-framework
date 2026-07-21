@@ -131,6 +131,8 @@ Usage:
   aof provider-learning-loop-audit [--project <path>] [--write-artifact <path>]
   aof operator-acceptance-drill-record --project <path> --operator-ref <ref> --work-item-id <TASK-id> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --mission-control-ref <path> --decision <accept|stop|rollback|escalate|defer> --decision-rationale "<text>" --accepted-risk "<text>" --blocker-summary "<text>" --next-action "<text>" --safety-boundary "<text>" --not-proven "<text>" --evidence-ref <path> [--evidence-ref <path>] --source-task-id <TASK-id> --source-parent-session-id <id> [--drill-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-acceptance-drill-audit [--project <path>] [--write-artifact <path>]
+  aof product-value-evidence-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --capability-statement "<text>" --before-state "<text>" --after-state "<text>" --scenario "<text>" --five-minute-demo "<text>" --time-saved-or-work-reduced "<text>" --cognitive-load-removed "<text>" --capability-row-json '<json>' [--capability-row-json '<json>'] --understanding-outcome <understood|partially_understood|not_understood|not_checked> --evidence-ref <path> [--evidence-ref <path>] --governance-action <none|improve_release_explanation|reopen_need|block_release_claim|escalate_product_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--value-evidence-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof product-value-evidence-audit [--project <path>] [--write-artifact <path>]
   aof operator-validation-record --project <path> --operator-ref <ref> --feedback-source <human_operator|adopter|expert_reviewer|self_hosting_operator|simulated_operator> --release-ref <ref> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --evidence-ref <path> [--evidence-ref <path>] --understanding-outcome <understood|partially_understood|not_understood|needs_clarification|not_checked> --reproduction-outcome <reproduced|partially_reproduced|not_reproduced|needs_clarification|not_checked> --acceptance-outcome <accepted|accepted_with_residual_risk|rejected|needs_clarification|not_checked> --feedback-summary "<text>" [--blocking-reason "<text>"] --governance-action <none|request_clarification|request_reproduction|block_release_claim|escalate_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-validation-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1536,6 +1538,37 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "operator-acceptance-drill-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "product-value-evidence-record"
+            ? {
+                project: ".",
+                valueEvidenceId: "",
+                releaseRef: "",
+                workItemId: "",
+                workItemRef: "",
+                missionControlRef: "",
+                capabilityStatement: "",
+                beforeState: "",
+                afterState: "",
+                scenario: "",
+                fiveMinuteDemo: "",
+                timeSavedOrWorkReduced: "",
+                cognitiveLoadRemoved: "",
+                capabilityRows: [],
+                understandingOutcome: "not_checked",
+                evidenceRefs: [],
+                governanceAction: "none",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "product-value-evidence-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -3221,6 +3254,11 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--value-evidence-id") {
+      options.valueEvidenceId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--operator-ref") {
       options.operatorRef = rest[i + 1] ?? "";
       i += 1;
@@ -3238,6 +3276,50 @@ function parseArgs(argv) {
     }
     if (part === "--mission-control-ref") {
       options.missionControlRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--capability-statement") {
+      options.capabilityStatement = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--before-state") {
+      options.beforeState = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--after-state") {
+      options.afterState = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--scenario") {
+      options.scenario = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--five-minute-demo") {
+      options.fiveMinuteDemo = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--time-saved-or-work-reduced") {
+      options.timeSavedOrWorkReduced = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--cognitive-load-removed") {
+      options.cognitiveLoadRemoved = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--capability-row-json") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --capability-row-json.");
+      }
+      options.capabilityRows.push(value);
       i += 1;
       continue;
     }
@@ -6806,6 +6888,49 @@ function parseArgs(argv) {
   if (command === "operator-acceptance-drill-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `operator-acceptance-drill-audit`.");
+    }
+  }
+
+  if (command === "product-value-evidence-record") {
+    for (const [flag, value] of [
+      ["--release-ref", options.releaseRef],
+      ["--work-item-id", options.workItemId],
+      ["--work-item-ref", options.workItemRef],
+      ["--mission-control-ref", options.missionControlRef],
+      ["--capability-statement", options.capabilityStatement],
+      ["--before-state", options.beforeState],
+      ["--after-state", options.afterState],
+      ["--scenario", options.scenario],
+      ["--five-minute-demo", options.fiveMinuteDemo],
+      ["--time-saved-or-work-reduced", options.timeSavedOrWorkReduced],
+      ["--cognitive-load-removed", options.cognitiveLoadRemoved],
+      ["--understanding-outcome", options.understandingOutcome],
+      ["--governance-action", options.governanceAction],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`product-value-evidence-record\`.`);
+      }
+    }
+    if (!["understood", "partially_understood", "not_understood", "not_checked"].includes(options.understandingOutcome)) {
+      throw new Error("Invalid --understanding-outcome for `product-value-evidence-record`.");
+    }
+    if (!["none", "improve_release_explanation", "reopen_need", "block_release_claim", "escalate_product_review"].includes(options.governanceAction)) {
+      throw new Error("Invalid --governance-action for `product-value-evidence-record`.");
+    }
+    if (!Array.isArray(options.capabilityRows) || options.capabilityRows.length === 0) {
+      throw new Error("At least one --capability-row-json is required for `product-value-evidence-record`.");
+    }
+    if (!Array.isArray(options.evidenceRefs) || options.evidenceRefs.length === 0) {
+      throw new Error("At least one --evidence-ref is required for `product-value-evidence-record`.");
+    }
+  }
+
+  if (command === "product-value-evidence-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `product-value-evidence-audit`.");
     }
   }
 

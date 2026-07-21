@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-111",
+  "title": "Ship v9.1 Product Value Comprehension Gate",
+  "description": "Make AOF releases capability-first: add product value evidence, capability matrix, before/after product benchmark, Mission Control understanding projection, and release-state gate so user value comprehension is treated as a governed outcome rather than an after-the-fact summary.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V91-VALUE-DIRECTION",
+  "assigned_session_ids": [
+    "SESS-V91-VALUE-DIRECTION"
+  ],
+  "related_decision_record_id": "CREV-TASK-111-V91",
+  "operating_goal_ref": null,
+  "created_at": "2026-07-20T23:32:46.874Z",
+  "updated_at": "2026-07-20T23:57:21.628Z",
+  "assigned_at": null,
+  "done_at": "2026-07-20T23:57:21.628Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v9.1 Product Value Comprehension Gate implemented with product value evidence record/audit, Mission Control projection, release-state gate, docs, and runtime proof artifacts."
+}

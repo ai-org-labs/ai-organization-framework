@@ -1,0 +1,265 @@
+{
+  "ok": true,
+  "artifact_type": "product-value-evidence-audit",
+  "generated_at": "2026-07-20T23:59:39.833Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "record_count": 1,
+    "understood_count": 1,
+    "not_understood_count": 0,
+    "blocking_record_count": 0,
+    "capability_row_count": 3,
+    "missing_link_count": 0,
+    "failing_check_count": 0
+  },
+  "records": [
+    {
+      "value_evidence_id": "PVE-TASK-111-V91",
+      "release_ref": "docs/v9.1-release-definition.md",
+      "work_item_id": "TASK-111",
+      "capability_statement": "AOF can now make release value comprehension itself a governed runtime outcome instead of relying on after-the-fact AI summaries.",
+      "before_state": "Users had to infer value from records, audits, schemas, gates, projections, and long release histories.",
+      "after_state": "Users can read capability-first release value evidence, a before/after comparison, a five-minute demo, and Mission Control understanding projection.",
+      "scenario": "A user asks what changed from v9.0 to v9.1 and can answer from the capability matrix before reading implementation details.",
+      "five_minute_demo": "Open docs/v9.1-product-value-comprehension.md, read the capability matrix, then run product-value-evidence-audit to verify the value evidence exists.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "product value evidence presence",
+      "status": "pass",
+      "detail": "1 record(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-111.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-product-value-comprehension.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 capability statement",
+      "status": "pass",
+      "detail": "AOF can now make release value comprehension itself a governed runtime outcome instead of relying on after-the-fact AI summaries.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 before state",
+      "status": "pass",
+      "detail": "Users had to infer value from records, audits, schemas, gates, projections, and long release histories.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 after state",
+      "status": "pass",
+      "detail": "Users can read capability-first release value evidence, a before/after comparison, a five-minute demo, and Mission Control understanding projection.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 product scenario",
+      "status": "pass",
+      "detail": "A user asks what changed from v9.0 to v9.1 and can answer from the capability matrix before reading implementation details.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 five minute demo",
+      "status": "pass",
+      "detail": "Open docs/v9.1-product-value-comprehension.md, read the capability matrix, then run product-value-evidence-audit to verify the value evidence exists.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 capability matrix",
+      "status": "pass",
+      "detail": "3 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 not-proven boundary",
+      "status": "pass",
+      "detail": "This evidence proves bounded release value explanation and local understanding structure only; it does not prove market adoption, broad user satisfaction, semantic correctness, or production provider safety.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-111, source_parent_session_id=SESS-V91-VALUE-DIRECTION",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-111-V91 missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
+        "docs/v9.1-release-definition.md",
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,90 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRTVLOPV-IS398M",
+  "recorded_at": "2026-07-20T23:48:52.195Z",
+  "session_id": "SESS-V91-VALUE-DIRECTION",
+  "parent_session_id": null,
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MRTVLOPV-P0YS96",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-20T23:48:52.194Z",
+      "summary": "User reported that v7-v9 release value is not understandable from a product perspective.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRTVLOPV-GJ95J6",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-07-20T23:48:52.195Z",
+      "summary": "Prioritize v9.1 Product Value Comprehension Gate before provider production-boundary work.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV3-MRTVLOPV-4QDM0X",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-20T23:48:52.195Z",
+      "summary": "Created Product Value Evidence runtime surface and v9.1 capability-first release docs.",
+      "artifact_refs": [
+        "docs/v9.1-product-value-comprehension.md",
+        "schemas/aof-product-value-evidence-record.schema.json",
+        "src/commands/product-value-evidence-audit.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV4-MRTVLOPV-96ADLW",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-20T23:48:52.195Z",
+      "summary": "Focused product value evidence tests passed.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-111.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.1-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    ]
+  },
+  "risk_candidates": [
+    "AOF can still overclaim value if product evidence is only self-hosting and not third-party validated."
+  ],
+  "decision_candidates": [
+    "Make product value comprehension a v9.1 release-state gate."
+  ],
+  "release_ready_evidence": {
+    "claim": "v9.1 product value evidence is structurally and runtime ready for release validation.",
+    "evidence_refs": [
+      "docs/v9.1-release-checklist.md"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": null
+}

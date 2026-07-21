@@ -433,7 +433,9 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v9.0.0`, advance `v9.1` as External Runtime Production Boundary Candidate.
+After `v9.1.0`, advance `v9.2` as External Runtime Production Boundary Candidate.
+
+`v9.1.0` was inserted before the production-boundary track because user feedback exposed a product-level failure: AOF releases could be internally auditable while users could not understand what became possible. Product Value Comprehension is now a release gate, so future external runtime releases must explain capability, before/after change, demo path, user benefit, and understanding outcome instead of only listing internal artifacts.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
 proof, session, context, release, and Archmap evidence can be projected from
 canonical runtime artifacts. The v7.9 Externalization Readiness Boundary then
@@ -468,10 +470,10 @@ execution can be considered.
 
 Priority order:
 
-1. `v9.1`: External Runtime Production Boundary Candidate
-2. `v9.2`: Provider-backed Controlled Execution Candidate
-3. `v9.3`: External Runtime Incident Drill and Recovery Evidence
-4. `v9.4`: Provider Execution Cost and Quota Boundary
+1. `v9.2`: External Runtime Production Boundary Candidate
+2. `v9.3`: Provider-backed Controlled Execution Candidate
+3. `v9.4`: External Runtime Incident Drill and Recovery Evidence
+4. `v9.5`: Provider Execution Cost and Quota Boundary
 
 Canonical v7.x roadmap:
 

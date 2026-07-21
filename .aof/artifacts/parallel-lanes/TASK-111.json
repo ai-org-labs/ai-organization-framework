@@ -1,0 +1,65 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRTVQFG9-5EQ0Q5",
+  "recorded_at": "2026-07-20T23:52:33.465Z",
+  "work_item_id": "TASK-111",
+  "work_item_ref": ".aof/tasks/done/TASK-111.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-111.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-111.json",
+  "lanes": [
+    {
+      "lane_id": "runtime-surface",
+      "goal": "add product value evidence command and audit",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v9.1-release-definition.md"
+      ],
+      "expected_output": "schema and runtime commands",
+      "output_refs": [
+        "schemas/aof-product-value-evidence-record.schema.json",
+        "src/commands/product-value-evidence-audit.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if unclear understanding cannot fail audit",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "product-language",
+      "goal": "make release value capability-first",
+      "owner_actor_ref": "visionary",
+      "input_refs": [
+        ".aof/context/active/framework-self-audit.json"
+      ],
+      "expected_output": "capability matrix and five-minute demo",
+      "output_refs": [
+        "docs/v9.1-product-value-comprehension.md"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+      ],
+      "stop_condition": "stop if before/after user capability is missing",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "runtime-surface",
+      "product-language"
+    ],
+    "conflict_summary": "No conflict: runtime gate and product-facing language reinforce the same value comprehension requirement.",
+    "blocker_summary": "No active blocker after product value evidence audit passed.",
+    "merge_rationale": "Both lanes are linked by Product Value Evidence record and Council review.",
+    "council_authority": "product-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-111-V91.json",
+  "not_proven": "Parallel lane evidence does not prove broad user understanding or market value.",
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

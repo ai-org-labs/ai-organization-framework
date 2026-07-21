@@ -1,0 +1,41 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-20T23:50:26.000Z",
+  "review_packet_id": "CREV-MRTVNP3K-MF6YS9",
+  "council_id": "product-council",
+  "stage": "planning",
+  "review_status": "approved",
+  "decision_summary": "Approve v9.1 Product Value Comprehension Gate as the next release because user value understanding is a product outcome, not a documentation afterthought.",
+  "rationale": "The implementation adds a capability-first product value record, audit, Mission Control projection, tests, release docs, and bounded not-proven claims.",
+  "recommendation": "Release v9.1 after full validation; keep production-boundary work as the next frontier.",
+  "target_audience": "AOF adopters and operators",
+  "expected_user_reaction": "Users should be able to say what v9.1 changed before reading internal implementation details.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": "Audience Context Failure",
+  "diagnosis_confidence": 0.92,
+  "diagnosis_evidence_refs": [
+    ".aof/context/active/framework-self-audit.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-111-V91.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-111-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-111-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-111-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json",
+    "docs/v9.1-product-value-comprehension.md"
+  ],
+  "follow_up_task_ids": [
+    "TASK-111"
+  ],
+  "escalation_required": false,
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": null
+}

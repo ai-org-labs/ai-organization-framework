@@ -1,0 +1,25 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRTVO7IN-H8W2EF",
+  "recorded_at": "2026-07-20T23:50:49.871Z",
+  "work_item_id": "TASK-111",
+  "work_item_ref": ".aof/tasks/done/TASK-111.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V91-VALUE-DIRECTION.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/v9.1-release-definition.md",
+    "docs/v9.1-product-value-comprehension.md",
+    ".aof/context/active/framework-self-audit.json"
+  ],
+  "required_context_refs": [
+    "docs/v9.0-release-definition.md",
+    "docs/vnext-roadmap.md"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves referenced material was available locally; it does not prove the value claim is broadly understood.",
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": null
+}

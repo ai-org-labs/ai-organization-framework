@@ -1,0 +1,33 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRTVO6DZ-PIVT0C",
+  "recorded_at": "2026-07-20T23:50:48.407Z",
+  "work_item_id": "TASK-111",
+  "work_item_ref": ".aof/tasks/done/TASK-111.json",
+  "readiness_status": "ready",
+  "goal": "Make AOF release value understandable as capability-first product evidence.",
+  "risk": "AOF continues shipping internal audit surfaces that users cannot translate into value.",
+  "loss_boundary": "No v9.1 release claim without product value evidence, capability matrix, five-minute demo, and understanding boundary.",
+  "acceptance_gates": [
+    "product-value-evidence-audit passes",
+    "release-state-audit includes the v9.1 product value gate"
+  ],
+  "evidence_plan": [
+    "schema, writer, audit, Mission Control projection, tests, release docs, Council review"
+  ],
+  "maker_role": "Builder",
+  "checker_role": "Guardian",
+  "council_ref": "product-council",
+  "stop_conditions": [
+    "Stop if product value evidence cannot explain before/after user capability",
+    "Stop if unclear understanding does not escalate"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": null
+}

@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-20T23:48:53.240Z",
+  "role": "Guardian",
+  "stage": "planning",
+  "session_id": "SESS-V91-VALUE-DIRECTION",
+  "status": "completed",
+  "recommendation": "Require Product Value Evidence audit and keep not-proven boundaries explicit.",
+  "rationale": "Capability-first wording can still overclaim market value unless audit and not-proven boundaries are release gates.",
+  "signals": [
+    "guard against activity-as-quality"
+  ],
+  "artifact_refs": [
+    "test/runtime-core-2.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-111",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

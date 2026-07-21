@@ -2196,6 +2196,62 @@ QIF / governance boundary:
 
 - audit pass は operator validation artifact の構造・参照・governance escalation を示す。人間が本当に価値を感じたことや市場採用は証明しない。
 
+### `product-value-evidence-record`
+
+release の価値を、内部 artifact 名ではなく利用者が認識できる capability / before-after / 5分デモ / 削減される作業 / understanding outcome として保存する。
+
+```bash
+node ./src/cli.js product-value-evidence-record \
+  --project . \
+  --value-evidence-id PVE-TASK-111-V91 \
+  --release-ref docs/v9.1-release-definition.md \
+  --work-item-id TASK-111 \
+  --work-item-ref .aof/tasks/done/TASK-111.json \
+  --mission-control-ref .aof/artifacts/visibility/current/mission-control.json \
+  --capability-statement "AOF can make release value comprehension a governed runtime outcome." \
+  --before-state "Users inferred value from internal runtime terms." \
+  --after-state "Users can inspect a capability-first release value answer." \
+  --scenario "A user asks what changed in this release." \
+  --five-minute-demo "Read the capability matrix and run product-value-evidence-audit." \
+  --time-saved-or-work-reduced "Release comparison no longer requires reading the full artifact inventory." \
+  --cognitive-load-removed "Users no longer need to translate record/audit/schema terms into product value." \
+  --capability-row-json '{"capability":"Release value recognition","before":"manual summary","after":"governed evidence","user_value":"understand what changed"}' \
+  --understanding-outcome understood \
+  --governance-action none \
+  --evidence-ref docs/v9.1-product-value-comprehension.md \
+  --not-proven "This does not prove market adoption." \
+  --source-task-id TASK-111 \
+  --source-parent-session-id SESS-V91-VALUE-DIRECTION
+```
+
+QIF / governance boundary:
+
+- product value evidence is release comprehension evidence. It does not prove market value, broad adoption, semantic truth, or production provider safety.
+
+### `product-value-evidence-audit`
+
+product value evidence が存在し、release / work item / Mission Control / evidence refs に解決でき、capability-first説明と理解不能時の governance escalation を持つか検証する。
+
+```bash
+node ./src/cli.js product-value-evidence-audit \
+  --project . \
+  --write-artifact .aof/artifacts/product-value-evidence/product-value-evidence-audit.json
+```
+
+主な check:
+
+- product value evidence record presence
+- release / work item / Mission Control / evidence refs resolution
+- capability statement / before state / after state / product scenario / five-minute demo
+- capability matrix rows
+- user benefit statement
+- not-proven boundary
+- unclear or missing understanding escalates to governance
+
+QIF / governance boundary:
+
+- audit pass は利用者価値説明の構造・参照・governance escalation を示す。実際の市場価値、広範な利用者理解、semantic correctness は証明しない。
+
 ### AI Command Help Surface
 
 v6.3 以降、CLI help は full reference ではなく AI-oriented command discovery surface として使う。

@@ -21,6 +21,7 @@
     "provider_outcome_evidence_projection",
     "provider_learning_loop_projection",
     "operator_acceptance_drill_projection",
+    "product_value_evidence_projection",
     "provider_adapter_pilot_readiness_projection",
     "external_runtime_safety_projection",
     "operator_validation_projection",
@@ -1167,6 +1168,66 @@
               "operator_ref": { "type": "string" },
               "work_item_id": { "type": "string" },
               "decision": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "product_value_evidence_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "record_count",
+        "understood_count",
+        "not_understood_count",
+        "blocking_record_count",
+        "capability_row_count",
+        "records",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "record_count": { "type": "integer" },
+        "understood_count": { "type": "integer" },
+        "not_understood_count": { "type": "integer" },
+        "blocking_record_count": { "type": "integer" },
+        "capability_row_count": { "type": "integer" },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "value_evidence_id",
+              "release_ref",
+              "work_item_id",
+              "capability_statement",
+              "before_state",
+              "after_state",
+              "scenario",
+              "five_minute_demo",
+              "understanding_outcome",
+              "governance_action",
+              "artifact_ref"
+            ],
+            "properties": {
+              "value_evidence_id": { "type": "string" },
+              "release_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "capability_statement": { "type": "string" },
+              "before_state": { "type": "string" },
+              "after_state": { "type": "string" },
+              "scenario": { "type": "string" },
+              "five_minute_demo": { "type": "string" },
+              "understanding_outcome": { "type": "string" },
+              "governance_action": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

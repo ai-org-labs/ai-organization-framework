@@ -69,6 +69,8 @@ import { operatorValidationAuditCommand } from "../src/commands/operator-validat
 import { operatorValidationRecordCommand } from "../src/commands/operator-validation-record.js";
 import { operatorAcceptanceDrillAuditCommand } from "../src/commands/operator-acceptance-drill-audit.js";
 import { operatorAcceptanceDrillRecordCommand } from "../src/commands/operator-acceptance-drill-record.js";
+import { productValueEvidenceAuditCommand } from "../src/commands/product-value-evidence-audit.js";
+import { productValueEvidenceRecordCommand } from "../src/commands/product-value-evidence-record.js";
 import { outcomeReportCommand } from "../src/commands/outcome-report.js";
 import { policyEvaluationReportCommand } from "../src/commands/policy-evaluation-report.js";
 import { problemStatementRecordCommand } from "../src/commands/problem-statement-record.js";
@@ -4000,6 +4002,98 @@ test("operator acceptance drill audit fails when learning evidence is missing", 
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("learning ref resolves")));
   assert.ok(audit.summary.errors.some((entry) => entry.includes("linked learning exists")));
+});
+
+test("product value evidence commands require capability-first release explanation", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "tasks", "open"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "visibility", "current"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "v9.1-release-definition.md"), "# v9.1\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "v9.1-capability-matrix.md"), "# Capability Matrix\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, ".aof", "tasks", "open", "TASK-111.json"), "{}\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "visibility", "current", "mission-control.json"), "{}\n", "utf8");
+
+  await productValueEvidenceRecordCommand({
+    project: projectRoot,
+    valueEvidenceId: "PVE-TEST-V91",
+    releaseRef: "docs/v9.1-release-definition.md",
+    workItemId: "TASK-111",
+    workItemRef: ".aof/tasks/open/TASK-111.json",
+    missionControlRef: ".aof/artifacts/visibility/current/mission-control.json",
+    capabilityStatement: "Users can compare release capability before reading internal audit details.",
+    beforeState: "Release notes list records, audits, schemas, gates, and projections first.",
+    afterState: "Release notes start with what a user can now do, then link the runtime proof.",
+    scenario: "An adopter asks what changed between v9.0 and v9.1 and can answer from the capability matrix.",
+    fiveMinuteDemo: "Open the capability matrix, identify the new capability, run product-value-evidence-audit.",
+    timeSavedOrWorkReduced: "Users no longer need an AI summary just to understand the release delta.",
+    cognitiveLoadRemoved: "Users do not need to map schemas and audits to product capability manually.",
+    capabilityRows: [
+      {
+        capability: "Release value recognition",
+        before: "manual interpretation",
+        after: "capability-first matrix",
+        user_value: "release delta is readable"
+      }
+    ],
+    understandingOutcome: "understood",
+    evidenceRefs: ["docs/v9.1-capability-matrix.md"],
+    governanceAction: "none",
+    notProven: "This proves local release explanation structure only, not broad market adoption.",
+    sourceTaskId: "TASK-111",
+    sourceParentSessionId: "SESS-V91-VALUE"
+  });
+
+  const audit = await productValueEvidenceAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.record_count, 1);
+  assert.equal(audit.summary.summary.understood_count, 1);
+  assert.equal(audit.summary.summary.capability_row_count, 1);
+});
+
+test("product value evidence audit fails when unclear value does not escalate", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "tasks", "open"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "visibility", "current"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "v9.1-release-definition.md"), "# v9.1\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "v9.1-capability-matrix.md"), "# Capability Matrix\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, ".aof", "tasks", "open", "TASK-111.json"), "{}\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, ".aof", "artifacts", "visibility", "current", "mission-control.json"), "{}\n", "utf8");
+
+  await productValueEvidenceRecordCommand({
+    project: projectRoot,
+    valueEvidenceId: "PVE-TEST-V91-BLOCK",
+    releaseRef: "docs/v9.1-release-definition.md",
+    workItemId: "TASK-111",
+    workItemRef: ".aof/tasks/open/TASK-111.json",
+    missionControlRef: ".aof/artifacts/visibility/current/mission-control.json",
+    capabilityStatement: "Users can compare release capability.",
+    beforeState: "The release value is unclear.",
+    afterState: "The release value should be clearer.",
+    scenario: "A user asks what changed.",
+    fiveMinuteDemo: "Read the matrix.",
+    timeSavedOrWorkReduced: "Less explanation work.",
+    cognitiveLoadRemoved: "Less mapping from internals to value.",
+    capabilityRows: [
+      {
+        capability: "Release value recognition",
+        before: "unclear",
+        after: "clearer",
+        user_value: "understanding"
+      }
+    ],
+    understandingOutcome: "not_understood",
+    evidenceRefs: ["docs/v9.1-capability-matrix.md"],
+    governanceAction: "none",
+    notProven: "No broad adoption proof.",
+    sourceTaskId: "TASK-111",
+    sourceParentSessionId: "SESS-V91-VALUE"
+  });
+
+  const audit = await productValueEvidenceAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("missing understanding escalates")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

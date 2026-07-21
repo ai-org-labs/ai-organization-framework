@@ -1,0 +1,20 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "recorded_at": "2026-07-21T00:05:00.000Z",
+  "work_item_id": "TASK-111",
+  "work_item_ref": ".aof/tasks/done/TASK-111.json",
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/v9.1-release-definition.md",
+  "council_review_status": "approved",
+  "council_review_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-111-V91.json",
+  "affected_nodes": [
+    "release-value-comprehension",
+    "product-value-evidence",
+    "mission-control-operator-understanding",
+    "release-state-audit"
+  ],
+  "impact_summary": "v9.1 adds product value comprehension as a release gate so AOF can detect and govern the failure mode where internal runtime artifacts pass but users cannot understand what changed.",
+  "not_proven": "Archmap impact records describe intended architecture impact and do not prove market value, broad user understanding, semantic truth, or production provider safety."
+}

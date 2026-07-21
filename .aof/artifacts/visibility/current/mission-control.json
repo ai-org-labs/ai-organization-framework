@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-20T18:11:54.754Z",
+  "generated_at": "2026-07-21T00:02:43.880Z",
   "mission_overview": {
-    "mission": "Ship v9.0 as the operator acceptance drill gate for external runtime chains before moving toward production-boundary eligibility.",
-    "release_version": "9.0.0",
-    "release_definition_ref": "docs/v9.0-release-definition.md",
-    "operating_goal": "Prepare v9.1 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, and human go/no-go preconditions required before any controlled provider execution is eligible.",
-    "next_value_slice": "Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task.",
+    "mission": "Ship v9.1 as the Product Value Comprehension Gate so release value is explained, evidenced, and audited before more provider execution layers advance.",
+    "release_version": "9.1.0",
+    "release_definition_ref": "docs/v9.1-release-definition.md",
+    "operating_goal": "Prepare v9.2 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, human go/no-go, and product-value comprehension preconditions required before any controlled provider execution is eligible.",
+    "next_value_slice": "Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task.",
+    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
     "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 40,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-110.json",
+    "impact_record_count": 41,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-111.json",
     "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-110",
+    "latest_work_item_id": "TASK-111",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-110.json"
+      ".aof/artifacts/archmap/impact/TASK-111.json"
     ],
     "external_refs": []
   },
@@ -399,76 +399,40 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 24,
-    "latest_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V90-OPERATOR-ACCEPTANCE.json",
+    "stream_count": 25,
+    "latest_session_id": "SESS-V91-VALUE-DIRECTION",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V91-VALUE-DIRECTION.json",
     "latest_actor_ref": "codex",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-20T17:57:51.448Z",
-    "latest_event_count": 9,
+    "latest_recorded_at": "2026-07-20T23:48:52.195Z",
+    "latest_event_count": 4,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-110.json"
+      ".aof/tasks/done/TASK-111.json"
     ],
     "linked_requirement_refs": [
-      "docs/v9.0-release-definition.md"
+      "docs/v9.1-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js"
     ],
     "linked_artifact_refs": [
-      ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json"
+      ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
     ],
     "risk_candidates": [
-      "Operator acceptance can be overclaimed as production safety unless not-proven boundaries remain visible."
+      "AOF can still overclaim value if product evidence is only self-hosting and not third-party validated."
     ],
     "decision_candidates": [
-      "v9.0 release-state audit should require operator-acceptance-drill-audit."
+      "Make product value comprehension a v9.1 release-state gate."
     ],
     "latest_events": [
       {
-        "event_type": "response",
-        "summary": "Selected a bounded operator acceptance and safety drill rather than production provider execution.",
-        "occurred_at": "2026-07-20T17:57:51.448Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "tool_call",
-        "summary": "Ran AOF runtime commands to create alignment, self-audit, TASK-110, operator drill record, audit, registry, and visibility projection.",
-        "occurred_at": "2026-07-20T17:57:51.448Z",
-        "tool_name": "aof runtime",
-        "safety_level": "safe_local_write",
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "artifact_write",
-        "summary": "Wrote operator acceptance drill schema, commands, tests, docs, and self-hosting artifacts.",
-        "occurred_at": "2026-07-20T17:57:51.448Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "verification_result",
-        "summary": "Focused operator acceptance drill tests pass.",
-        "occurred_at": "2026-07-20T17:57:51.448Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "risk_candidate",
-        "summary": "Operator acceptance can be overclaimed as production safety unless boundaries remain visible.",
-        "occurred_at": "2026-07-20T17:57:51.448Z",
+        "event_type": "prompt",
+        "summary": "User reported that v7-v9 release value is not understandable from a product perspective.",
+        "occurred_at": "2026-07-20T23:48:52.194Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -476,40 +440,37 @@
       },
       {
         "event_type": "decision_candidate",
-        "summary": "v9.0 release-state audit should require operator-acceptance-drill-audit.",
-        "occurred_at": "2026-07-20T17:57:51.448Z",
+        "summary": "Prioritize v9.1 Product Value Comprehension Gate before provider production-boundary work.",
+        "occurred_at": "2026-07-20T23:48:52.195Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": []
       },
       {
-        "event_type": "council_review",
-        "summary": "Council approved the bounded v9.0 operator acceptance drill release path.",
-        "occurred_at": "2026-07-20T17:57:51.448Z",
+        "event_type": "artifact_write",
+        "summary": "Created Product Value Evidence runtime surface and v9.1 capability-first release docs.",
+        "occurred_at": "2026-07-20T23:48:52.195Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
-        "artifact_refs": []
+        "artifact_refs": [
+          "docs/v9.1-product-value-comprehension.md",
+          "schemas/aof-product-value-evidence-record.schema.json",
+          "src/commands/product-value-evidence-audit.js"
+        ]
       },
       {
-        "event_type": "stop_condition",
-        "summary": "Stop if operator acceptance is overclaimed as production safety or market truth.",
-        "occurred_at": "2026-07-20T17:57:51.448Z",
+        "event_type": "verification_result",
+        "summary": "Focused product value evidence tests passed.",
+        "occurred_at": "2026-07-20T23:48:52.195Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": []
       }
     ],
-    "latest_tool_calls": [
-      {
-        "summary": "Ran AOF runtime commands to create alignment, self-audit, TASK-110, operator drill record, audit, registry, and visibility projection.",
-        "tool_name": "aof runtime",
-        "safety_level": "safe_local_write",
-        "approval_policy": null
-      }
-    ]
+    "latest_tool_calls": []
   },
   "context_reference_integrity": {
     "present": true,
@@ -518,11 +479,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 21,
+    "context_record_count": 22,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-111.json",
+        "work_item_id": "TASK-111",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves referenced material was available locally; it does not prove the value claim is broadly understood."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-110.json",
         "work_item_id": "TASK-110",
@@ -578,14 +547,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves declared reference availability only, not semantic completeness, provider correctness, or production safety."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-103.json",
-        "work_item_id": "TASK-103",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves declared reference availability only, not semantic completeness or market truth."
       }
     ],
     "latest_external_reference_records": [
@@ -610,9 +571,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-110.json",
-    "latest_work_item_id": "TASK-110",
-    "latest_recorded_at": "2026-07-20T17:59:04.264Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-111.json",
+    "latest_work_item_id": "TASK-111",
+    "latest_recorded_at": "2026-07-20T23:52:02.370Z",
     "coverage_status": "completed",
     "total_requirements": 2,
     "covered_count": 2,
@@ -624,27 +585,27 @@
     "forecast": {
       "estimated_remaining_work_items": 0,
       "estimated_token_cost_range": "bounded release verification only",
-      "burndown_ref": "docs/v9.0-release-checklist.md",
-      "forecast_boundary": "forecast is release governance evidence, not delivery certainty or external execution proof"
+      "burndown_ref": "docs/v9.1-release-checklist.md",
+      "forecast_boundary": "forecast is planning evidence, not delivery certainty"
     },
-    "forecast_boundary": "forecast is release governance evidence, not delivery certainty or external execution proof",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V90-001",
-        "title": "record operator acceptance drill decision",
+        "requirement_id": "REQ-V91-001",
+        "title": "Capability-first release value evidence",
         "status": "covered",
-        "source_ref": "docs/v9.0-release-definition.md",
-        "owner_ref": "builder",
+        "source_ref": "docs/v9.1-release-definition.md",
+        "owner_ref": "product-council",
         "evidence_refs": [
-          ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+          ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V90-002",
-        "title": "make release-state audit require operator acceptance from v9.0 onward",
+        "requirement_id": "REQ-V91-002",
+        "title": "Product value evidence release-state gate",
         "status": "covered",
-        "source_ref": "docs/v9.0-release-definition.md",
+        "source_ref": "docs/v9.1-release-definition.md",
         "owner_ref": "guardian",
         "evidence_refs": [
           "src/commands/release-state-audit.js"
@@ -652,9 +613,9 @@
         "blocker_refs": []
       }
     ],
-    "not_proven": "Requirement coverage proves trace coverage only; it does not prove production safety, semantic truth, market truth, or third-party adoption.",
+    "not_proven": "Requirement coverage proves traceability of product value requirements only, not actual market value.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-110.json"
+      ".aof/artifacts/requirement-coverage/TASK-111.json"
     ]
   },
   "adoption_proof_projection": {
@@ -990,11 +951,37 @@
     ],
     "not_proven": "Operator acceptance drill projection proves a bounded operator decision was recorded only; it does not prove production safety, semantic truth, market truth, or actual provider execution."
   },
+  "product_value_evidence_projection": {
+    "present": true,
+    "audit_ref": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json",
+    "audit_ok": true,
+    "record_count": 1,
+    "understood_count": 1,
+    "not_understood_count": 0,
+    "blocking_record_count": 0,
+    "capability_row_count": 3,
+    "records": [
+      {
+        "value_evidence_id": "PVE-TASK-111-V91",
+        "release_ref": "docs/v9.1-release-definition.md",
+        "work_item_id": "TASK-111",
+        "capability_statement": "AOF can now make release value comprehension itself a governed runtime outcome instead of relying on after-the-fact AI summaries.",
+        "before_state": "Users had to infer value from records, audits, schemas, gates, projections, and long release histories.",
+        "after_state": "Users can read capability-first release value evidence, a before/after comparison, a five-minute demo, and Mission Control understanding projection.",
+        "scenario": "A user asks what changed from v9.0 to v9.1 and can answer from the capability matrix before reading implementation details.",
+        "five_minute_demo": "Open docs/v9.1-product-value-comprehension.md, read the capability matrix, then run product-value-evidence-audit to verify the value evidence exists.",
+        "understanding_outcome": "understood",
+        "governance_action": "none",
+        "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json"
+      }
+    ],
+    "not_proven": "Product value evidence projection proves a bounded capability explanation and understanding check exists; it does not prove market value, broad adoption, or semantic correctness."
+  },
   "provider_adapter_pilot_readiness_projection": {
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v9.0-release-definition.md",
+    "release_ref": "docs/v9.1-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1018,7 +1005,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v9.0-release-definition.md",
+    "release_ref": "docs/v9.1-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1037,7 +1024,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v9.0-release-definition.md",
+      "docs/v9.1-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1132,7 +1119,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-110.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-111.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1142,27 +1129,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V90-OPERATOR-ACCEPTANCE.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V91-VALUE-DIRECTION.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-110.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-111.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v9.0-release-definition.md"
+        "artifact_ref": "docs/v9.1-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-110.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-111.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-110.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-111.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V90-OPERATOR-ACCEPTANCE.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V91-VALUE-DIRECTION.json"
   }
 }

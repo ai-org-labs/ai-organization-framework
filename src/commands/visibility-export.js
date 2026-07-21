@@ -1507,6 +1507,37 @@ async function loadOperatorValidationProjection(projectRoot) {
   };
 }
 
+async function loadProductValueEvidenceProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "product value evidence audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      record_count: 0,
+      understood_count: 0,
+      not_understood_count: 0,
+      blocking_record_count: 0,
+      capability_row_count: 0,
+      records: [],
+      not_proven: "No product value evidence audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    record_count: audit.summary?.record_count ?? 0,
+    understood_count: audit.summary?.understood_count ?? 0,
+    not_understood_count: audit.summary?.not_understood_count ?? 0,
+    blocking_record_count: audit.summary?.blocking_record_count ?? 0,
+    capability_row_count: audit.summary?.capability_row_count ?? 0,
+    records: audit.records ?? [],
+    not_proven: "Product value evidence projection proves a bounded capability explanation and understanding check exists; it does not prove market value, broad adoption, or semantic correctness."
+  };
+}
+
 function buildEvidenceCompletenessProjection({
   requirementCoverageProjection,
   adoptionProofProjection,
@@ -1583,6 +1614,7 @@ function buildMissionControl({
   providerOutcomeEvidenceProjection = null,
   providerLearningLoopProjection = null,
   operatorAcceptanceDrillProjection = null,
+  productValueEvidenceProjection = null,
   providerAdapterPilotReadinessProjection = null,
   externalRuntimeSafetyProjection = null,
   operatorValidationProjection = null,
@@ -1905,6 +1937,18 @@ function buildMissionControl({
       drills: [],
       not_proven: "No operator acceptance drill audit artifact is present."
     },
+    product_value_evidence_projection: productValueEvidenceProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json",
+      audit_ok: null,
+      record_count: 0,
+      understood_count: 0,
+      not_understood_count: 0,
+      blocking_record_count: 0,
+      capability_row_count: 0,
+      records: [],
+      not_proven: "No product value evidence audit artifact is present."
+    },
     provider_adapter_pilot_readiness_projection: providerAdapterPilotReadinessProjection ?? {
       present: false,
       readiness_status: "not_proven",
@@ -1966,7 +2010,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, operatorAcceptanceDrillProjection, operatorValidationProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, operatorAcceptanceDrillProjection, productValueEvidenceProjection, operatorValidationProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -1993,6 +2037,7 @@ export async function visibilityExportCommand(options) {
     loadProviderOutcomeEvidenceProjection(projectRoot),
     loadProviderLearningLoopProjection(projectRoot),
     loadOperatorAcceptanceDrillProjection(projectRoot),
+    loadProductValueEvidenceProjection(projectRoot),
     loadOperatorValidationProjection(projectRoot)
   ]);
 
@@ -2065,6 +2110,7 @@ export async function visibilityExportCommand(options) {
     providerOutcomeEvidenceProjection,
     providerLearningLoopProjection,
     operatorAcceptanceDrillProjection,
+    productValueEvidenceProjection,
     providerAdapterPilotReadinessProjection,
     externalRuntimeSafetyProjection,
     operatorValidationProjection,

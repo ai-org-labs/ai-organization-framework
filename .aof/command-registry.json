@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-20T17:54:46.976Z",
+  "generated_at": "2026-07-20T23:57:00.632Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2541,6 +2541,78 @@
       ],
       "outputs": [
         "problem statement record artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "product-value-evidence-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify release value evidence exists and does not confuse internal artifacts, tests, schemas, or dashboards with user-understandable capability value.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "product value evidence audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "product-value-evidence-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write release value evidence that states what a user can now do, before/after capability, a concrete scenario, a five-minute demo, reduced work, removed cognitive load, and understanding outcome.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "release-ref",
+        "work-item-id",
+        "work-item-ref",
+        "mission-control-ref",
+        "capability-statement",
+        "before-state",
+        "after-state",
+        "scenario",
+        "five-minute-demo",
+        "capability-row-json",
+        "evidence-ref",
+        "not-proven",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "product value evidence artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

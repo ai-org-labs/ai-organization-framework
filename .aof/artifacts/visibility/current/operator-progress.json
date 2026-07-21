@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-20T18:11:54.757Z",
+  "generated_at": "2026-07-21T00:02:43.883Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-110 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-110.json"
+    "summary": "TASK-111 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-111.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-110 completed: Ship v9.0 External Runtime Operator Acceptance and Safety Drill",
-      "artifact_ref": ".aof/tasks/done/TASK-110.json"
+      "summary": "TASK-111 completed: Ship v9.1 Product Value Comprehension Gate",
+      "artifact_ref": ".aof/tasks/done/TASK-111.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task.",
+      "summary": "Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-110 completed: Ship v9.0 External Runtime Operator Acceptance and Safety Drill Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task.",
+    "what_changed": "TASK-111 completed: Ship v9.1 Product Value Comprehension Gate Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate."
   }
 }

@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-20T23:48:23.194Z",
+  "role": "Visionary",
+  "stage": "planning",
+  "session_id": "SESS-V91-VALUE-DIRECTION",
+  "status": "completed",
+  "recommendation": "Reframe v9.1 around user-visible capability comprehension before continuing provider production-boundary work.",
+  "rationale": "The user feedback is an outcome failure: AOF was internally auditable but not product-legible.",
+  "signals": [
+    "capability-first release language required"
+  ],
+  "artifact_refs": [
+    "docs/v9.1-product-value-comprehension.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-111",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.88
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-product-value-evidence-record.schema.json",
+  "title": "AOF Product Value Evidence Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "value_evidence_id",
+    "recorded_at",
+    "release_ref",
+    "work_item_id",
+    "work_item_ref",
+    "mission_control_ref",
+    "capability_statement",
+    "before_state",
+    "after_state",
+    "scenario",
+    "five_minute_demo",
+    "time_saved_or_work_reduced",
+    "cognitive_load_removed",
+    "capability_matrix",
+    "understanding_outcome",
+    "value_evidence_refs",
+    "governance_action",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "product-value-evidence-record" },
+    "value_evidence_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "release_ref": { "type": "string", "minLength": 1 },
+    "work_item_id": { "type": "string", "minLength": 1 },
+    "work_item_ref": { "type": "string", "minLength": 1 },
+    "mission_control_ref": { "type": "string", "minLength": 1 },
+    "capability_statement": { "type": "string", "minLength": 1 },
+    "before_state": { "type": "string", "minLength": 1 },
+    "after_state": { "type": "string", "minLength": 1 },
+    "scenario": { "type": "string", "minLength": 1 },
+    "five_minute_demo": { "type": "string", "minLength": 1 },
+    "time_saved_or_work_reduced": { "type": "string", "minLength": 1 },
+    "cognitive_load_removed": { "type": "string", "minLength": 1 },
+    "capability_matrix": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["capability", "before", "after", "user_value"],
+        "properties": {
+          "capability": { "type": "string", "minLength": 1 },
+          "before": { "type": "string", "minLength": 1 },
+          "after": { "type": "string", "minLength": 1 },
+          "user_value": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "understanding_outcome": {
+      "type": "string",
+      "enum": ["understood", "partially_understood", "not_understood", "not_checked"]
+    },
+    "value_evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "governance_action": {
+      "type": "string",
+      "enum": ["none", "improve_release_explanation", "reopen_need", "block_release_claim", "escalate_product_review"]
+    },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "source_decision_record_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

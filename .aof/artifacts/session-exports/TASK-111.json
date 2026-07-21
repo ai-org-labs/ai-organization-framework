@@ -1,0 +1,110 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRTW13XZ-V95H4B",
+  "recorded_at": "2026-07-21T00:00:51.767Z",
+  "work_item_id": "TASK-111",
+  "work_item_ref": ".aof/tasks/done/TASK-111.json",
+  "export_status": "ready",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V91-VALUE-DIRECTION.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF normalized session record is canonical."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V91-1",
+      "event_type": "prompt",
+      "summary": "User reported that v7-v9 releases were internally auditable but product value was not understandable.",
+      "artifact_refs": [
+        ".aof/context/active/framework-self-audit.json",
+        ".aof/tasks/done/TASK-111.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V91-2",
+      "event_type": "response",
+      "summary": "Runtime selected v9.1 Product Value Comprehension Gate instead of continuing directly to provider production-boundary work.",
+      "artifact_refs": [
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1-product-value-comprehension.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V91-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime opened TASK-111, generated product value evidence, and audited the value evidence chain.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-111.json",
+        ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V91-4",
+      "event_type": "artifact_write",
+      "summary": "Product value evidence schemas, commands, Mission Control projection, release-state gate, docs, and runtime proof artifacts were written.",
+      "artifact_refs": [
+        "schemas/aof-product-value-evidence-record.schema.json",
+        "src/commands/product-value-evidence-audit.js",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V91-5",
+      "event_type": "verification",
+      "summary": "Focused tests cover positive product value evidence and negative unclear-understanding-without-escalation failure.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js",
+        ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V91-6",
+      "event_type": "blocker",
+      "summary": "No runtime blocker remains for v9.1; broad user validation and market value remain explicitly not proven.",
+      "artifact_refs": [
+        "docs/v9.1-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V91-7",
+      "event_type": "stop_condition",
+      "summary": "Stop if product value evidence is overclaimed as market adoption, broad user satisfaction, semantic correctness, or production provider safety.",
+      "artifact_refs": [
+        "docs/v9.1-release-definition.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-111.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.1-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    ],
+    "risk_candidates": [
+      "Self-hosting understanding evidence can be mistaken for broad user validation."
+    ],
+    "decision_candidates": [
+      "Promote product value evidence to release-state gate for v9.1+."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v9.1-release-checklist.md"
+    ]
+  },
+  "redaction_boundary": "Summaries only; no private prompt bodies or secrets exported.",
+  "release_ready_boundary": "Release readiness is runtime evidence, not market proof.",
+  "not_proven": "Session export does not prove broad user understanding, semantic truth, market value, or production provider safety.",
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-111-V91",
+  "notes": null
+}

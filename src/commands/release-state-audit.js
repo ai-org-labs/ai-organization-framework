@@ -11,6 +11,7 @@ import { externalResourceAuditCommand } from "./external-resource-audit.js";
 import { operatorAcceptanceDrillAuditCommand } from "./operator-acceptance-drill-audit.js";
 import { operatorValidationAuditCommand } from "./operator-validation-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
+import { productValueEvidenceAuditCommand } from "./product-value-evidence-audit.js";
 import { providerAdapterAuditCommand } from "./provider-adapter-audit.js";
 import { providerAdapterPilotAuditCommand } from "./provider-adapter-pilot-audit.js";
 import { providerExecutionApprovalAuditCommand } from "./provider-execution-approval-audit.js";
@@ -245,6 +246,15 @@ function requiresOperatorAcceptanceDrillAudit(releaseVersion) {
   return major >= 9;
 }
 
+function requiresProductValueEvidenceAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 9 || (major === 9 && minor >= 1);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -350,6 +360,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresOperatorAcceptanceDrillAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("operator-acceptance-drill-audit", await operatorAcceptanceDrillAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProductValueEvidenceAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("product-value-evidence-audit", await productValueEvidenceAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

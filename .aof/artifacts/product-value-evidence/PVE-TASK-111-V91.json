@@ -1,0 +1,48 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-111-V91",
+  "recorded_at": "2026-07-20T23:46:59.485Z",
+  "release_ref": "docs/v9.1-release-definition.md",
+  "work_item_id": "TASK-111",
+  "work_item_ref": ".aof/tasks/done/TASK-111.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "AOF can now make release value comprehension itself a governed runtime outcome instead of relying on after-the-fact AI summaries.",
+  "before_state": "Users had to infer value from records, audits, schemas, gates, projections, and long release histories.",
+  "after_state": "Users can read capability-first release value evidence, a before/after comparison, a five-minute demo, and Mission Control understanding projection.",
+  "scenario": "A user asks what changed from v9.0 to v9.1 and can answer from the capability matrix before reading implementation details.",
+  "five_minute_demo": "Open docs/v9.1-product-value-comprehension.md, read the capability matrix, then run product-value-evidence-audit to verify the value evidence exists.",
+  "time_saved_or_work_reduced": "Users no longer need a custom AI summary just to understand the release delta.",
+  "cognitive_load_removed": "Users do not need to mentally translate record/audit/schema/gate/projection names into product capability.",
+  "capability_matrix": [
+    {
+      "capability": "Release value recognition",
+      "before": "manual interpretation of internal artifacts",
+      "after": "capability-first value evidence and audit",
+      "user_value": "release delta is understandable"
+    },
+    {
+      "capability": "Product benchmark",
+      "before": "technical verification could pass without before/after scenario",
+      "after": "scenario, five-minute demo, work reduction, and cognitive-load reduction are required",
+      "user_value": "release claims describe experience change"
+    },
+    {
+      "capability": "Product review loop",
+      "before": "unclear value feedback stayed outside runtime",
+      "after": "unclear value can trigger self-audit, task, evidence, and release gate",
+      "user_value": "AOF can improve when users do not understand it"
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    "docs/v9.1-product-value-comprehension.md",
+    "docs/v9.1-release-definition.md",
+    "docs/v9.1.0-release-notes.md"
+  ],
+  "governance_action": "none",
+  "not_proven": "This evidence proves bounded release value explanation and local understanding structure only; it does not prove market adoption, broad user satisfaction, semantic correctness, or production provider safety.",
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

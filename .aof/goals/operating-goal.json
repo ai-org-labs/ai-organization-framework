@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v9.1 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, and human go/no-go preconditions required before any controlled provider execution is eligible.",
-  "updated_at": "2026-07-20T18:07:04.719Z",
+  "content": "Prepare v9.2 External Runtime Production Boundary Candidate: define the exact proof, approval, credential, budget, revocation, rollback, monitoring, incident, human go/no-go, and product-value comprehension preconditions required before any controlled provider execution is eligible.",
+  "updated_at": "2026-07-20T23:59:30.000Z",
   "agreed_with_human": null,
-  "source_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
-  "source_decision_record_id": "CREV-TASK-110-V90",
+  "source_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-111-V91",
   "declared_complete_at": null
 }

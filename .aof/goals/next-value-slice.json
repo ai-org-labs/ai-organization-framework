@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "Run a runtime-backed v9.1 direction review and open the first External Runtime Production Boundary Candidate implementation task.",
-  "updated_at": "2026-07-20T18:07:08.169Z",
+  "content": "Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
+  "updated_at": "2026-07-20T23:59:30.000Z",
   "agreed_with_human": null,
-  "source_session_id": "SESS-V90-OPERATOR-ACCEPTANCE",
-  "source_decision_record_id": "CREV-TASK-110-V90",
+  "source_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": "CREV-TASK-111-V91",
   "declared_complete_at": null
 }

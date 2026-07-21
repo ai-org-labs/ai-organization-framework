@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-product-value-evidence-audit.schema.json",
+  "title": "AOF Product Value Evidence Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ok", "artifact_type", "generated_at", "project_root", "summary", "records", "checks", "errors"],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "product-value-evidence-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_count",
+        "understood_count",
+        "not_understood_count",
+        "blocking_record_count",
+        "capability_row_count",
+        "missing_link_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "record_count": { "type": "integer", "minimum": 0 },
+        "understood_count": { "type": "integer", "minimum": 0 },
+        "not_understood_count": { "type": "integer", "minimum": 0 },
+        "blocking_record_count": { "type": "integer", "minimum": 0 },
+        "capability_row_count": { "type": "integer", "minimum": 0 },
+        "missing_link_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "value_evidence_id",
+          "release_ref",
+          "work_item_id",
+          "capability_statement",
+          "before_state",
+          "after_state",
+          "scenario",
+          "five_minute_demo",
+          "understanding_outcome",
+          "governance_action",
+          "artifact_ref"
+        ],
+        "properties": {
+          "value_evidence_id": { "type": "string" },
+          "release_ref": { "type": "string" },
+          "work_item_id": { "type": "string" },
+          "capability_statement": { "type": "string" },
+          "before_state": { "type": "string" },
+          "after_state": { "type": "string" },
+          "scenario": { "type": "string" },
+          "five_minute_demo": { "type": "string" },
+          "understanding_outcome": { "type": "string" },
+          "governance_action": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail", "evidence_refs"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" },
+          "evidence_refs": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

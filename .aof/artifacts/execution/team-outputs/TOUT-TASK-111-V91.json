@@ -1,0 +1,35 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-20T23:49:56.802Z",
+  "team_output_id": "TOUT-MRTVN2KI-R6V65M",
+  "team_id": "runtime-team",
+  "stage": "planning",
+  "expected_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "received_roles": [
+    "Visionary",
+    "Builder",
+    "Guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v9.1 product value comprehension gate to Council review and release validation.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-111-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-111-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-111-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json",
+    "docs/v9.1-product-value-comprehension.md"
+  ],
+  "decision_required": true,
+  "summary": "v9.1 converts unclear release value into a governed product-value evidence gate.",
+  "source_task_id": "TASK-111",
+  "source_parent_session_id": "SESS-V91-VALUE-DIRECTION",
+  "source_decision_record_id": null
+}
