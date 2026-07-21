@@ -9,7 +9,7 @@
   "declared_context_refs": [
     "docs/v9.1-release-definition.md",
     "docs/v9.1-product-value-comprehension.md",
-    ".aof/context/active/framework-self-audit.json"
+    ".aof/context/active/alignment-pulse.json"
   ],
   "required_context_refs": [
     "docs/v9.0-release-definition.md",

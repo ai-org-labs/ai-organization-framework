@@ -31,7 +31,7 @@
       "goal": "make release value capability-first",
       "owner_actor_ref": "visionary",
       "input_refs": [
-        ".aof/context/active/framework-self-audit.json"
+        ".aof/context/active/alignment-pulse.json"
       ],
       "expected_output": "capability matrix and five-minute demo",
       "output_refs": [
