@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-21T02:22:14.107Z",
+      "at": "2026-07-21T14:41:58.038Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-21T02:22:14.094Z",
+      "at": "2026-07-21T14:41:58.032Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,10 +24,21 @@
       ]
     },
     {
-      "at": "2026-07-21T02:15:03.970Z",
+      "at": "2026-07-21T14:33:53.194Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Ship v9.3 Capability-First Release Comprehension",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-113.json"
+      ]
+    },
+    {
+      "at": "2026-07-21T14:25:45.944Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
+      "summary": "After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-111.json"
-      ]
-    },
-    {
-      "at": "2026-07-20T18:05:54.021Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Ship v9.0 External Runtime Operator Acceptance and Safety Drill",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-110.json"
       ]
     }
   ]

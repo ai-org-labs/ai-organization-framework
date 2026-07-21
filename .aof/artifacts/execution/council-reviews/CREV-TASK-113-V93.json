@@ -1,0 +1,43 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-21T14:31:12.574Z",
+  "review_packet_id": "CREV-MRUR4DRY-QTIBQA",
+  "council_id": "product-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v9.3 Capability-First Release Comprehension as the current release gate.",
+  "rationale": "The release directly addresses user feedback that versions were not understandable as capability and adds runtime verification for the fix.",
+  "recommendation": "Release after full verification passes; resume provider execution candidate in v9.4.",
+  "target_audience": "AOF adopter",
+  "expected_user_reaction": "User can explain v9.3 in 30 seconds as capability-first release governance.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Keep release notes capability-first before mechanism details."
+  ],
+  "organization_change_recommendations": [
+    "Treat unclear release delta feedback as product review trigger."
+  ],
+  "diagnosis_category": "product-comprehension-gap",
+  "diagnosis_confidence": 0.9,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-113-V93.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-113-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-113-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-113-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/capability-release-deltas/capability-first-release-audit.json",
+    ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null
+}

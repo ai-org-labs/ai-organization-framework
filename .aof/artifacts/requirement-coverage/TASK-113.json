@@ -1,0 +1,59 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRUR1NTF-M8PVZ2",
+  "recorded_at": "2026-07-21T14:29:05.619Z",
+  "work_item_id": "TASK-113",
+  "work_item_ref": ".aof/tasks/done/TASK-113.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V93-001",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v9.3-release-definition.md",
+      "title": "Capability-first release audit",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered only when capability-first-release-audit passes and active release delta exists",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-113.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/capability-first-release-audit.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V93-002",
+      "requirement_type": "qif_quality_intent",
+      "source_ref": "docs/v9.3-release-definition.md",
+      "title": "Value comprehension is user-facing",
+      "owner_ref": "product-council",
+      "acceptance_boundary": "covered only when product-value-evidence-audit passes and release notes start with capability",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-113.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded release verification only",
+    "burndown_ref": "docs/v9.3-release-checklist.md",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves traceability only, not market adoption or universal comprehension.",
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null,
+  "notes": null
+}

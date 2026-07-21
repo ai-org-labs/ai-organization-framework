@@ -1,0 +1,35 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-21T14:31:10.547Z",
+  "team_output_id": "TOUT-MRUR4C7N-ZBP1TY",
+  "team_id": "governance-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Council should approve v9.3 only if capability-first-release-audit is green.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-113-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-113-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-113-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+    "docs/v9.3.0-release-notes.md"
+  ],
+  "decision_required": false,
+  "summary": "Capability-first release packet is ready for Product Council review.",
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null
+}

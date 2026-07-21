@@ -1,0 +1,24 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRUR1NQI-TUJVC8",
+  "recorded_at": "2026-07-21T14:29:05.514Z",
+  "work_item_id": "TASK-113",
+  "work_item_ref": ".aof/tasks/done/TASK-113.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V93-CAPABILITY-FIRST.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-roadmap.md",
+    "docs/vnext-release-plan.md"
+  ],
+  "required_context_refs": [
+    "docs/v9.1-product-value-comprehension.md",
+    "docs/v9.2-release-definition.md"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves references were declared, not that users universally understand the release.",
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null
+}

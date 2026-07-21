@@ -1,0 +1,103 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRUR75DO-JW74X8",
+  "recorded_at": "2026-07-21T14:33:21.660Z",
+  "work_item_id": "TASK-113",
+  "work_item_ref": ".aof/tasks/done/TASK-113.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V93-CAPABILITY-FIRST.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF agent session is summarized runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V93-1",
+      "event_type": "prompt",
+      "summary": "User reported that release value is not understandable as capability.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-113.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V93-2",
+      "event_type": "tool_call",
+      "summary": "AOF runtime commands generated and audited capability-first evidence.",
+      "artifact_refs": [
+        ".aof/artifacts/agent-sessions/SESS-V93-CAPABILITY-FIRST.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V93-3",
+      "event_type": "artifact_write",
+      "summary": "Generated product capability register, capability delta, release notes, and audits.",
+      "artifact_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V93-4",
+      "event_type": "verification",
+      "summary": "Capability-first and product-value audits passed for TASK-113.",
+      "artifact_refs": [
+        ".aof/artifacts/capability-release-deltas/capability-first-release-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V93-5",
+      "event_type": "blocker",
+      "summary": "Provider execution work is intentionally blocked until capability-first release comprehension is fixed.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V93-6",
+      "event_type": "stop_condition",
+      "summary": "Stop release-ready claim if no capability delta or user-value explanation exists.",
+      "artifact_refs": [
+        "docs/v9.3-release-checklist.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V93-7",
+      "event_type": "response",
+      "summary": "v9.3 is framed as Capability-First Release Comprehension, not another provider mechanism release.",
+      "artifact_refs": [
+        "docs/v9.3.0-release-notes.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-113.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.3-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/capability-release-deltas/capability-first-release-audit.json"
+    ],
+    "risk_candidates": [
+      "Release value can be mistaken for audit count."
+    ],
+    "decision_candidates": [
+      "Capability-first release audit becomes mandatory in release-state-audit."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v9.3-release-checklist.md"
+    ]
+  },
+  "redaction_boundary": "No secrets, credentials, provider payloads, or billing information were accessed or exported.",
+  "release_ready_boundary": "Release readiness is structural/runtime capability comprehension evidence only.",
+  "not_proven": "Session export does not prove market adoption, semantic correctness, or universal user understanding.",
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null,
+  "notes": null
+}

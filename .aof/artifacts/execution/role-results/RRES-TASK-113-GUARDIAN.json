@@ -1,0 +1,22 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-21T14:29:38.565Z",
+  "role": "guardian",
+  "stage": "review",
+  "session_id": "SESS-V93-GUARDIAN",
+  "status": "completed",
+  "recommendation": "Approve only if capability-first-release-audit, product-value-evidence-audit, and release-state-audit all pass.",
+  "rationale": "Artifact count is not value; release readiness needs capability delta and not-proven boundaries.",
+  "signals": [],
+  "artifact_refs": [
+    ".aof/artifacts/capability-release-deltas/capability-first-release-audit.json",
+    ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-113",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.9
+}

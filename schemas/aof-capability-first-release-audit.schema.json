@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-capability-first-release-audit.schema.json",
+  "title": "AOF Capability-First Release Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "summary",
+    "capabilities",
+    "deltas",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "capability-first-release-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capability_count",
+        "delta_count",
+        "new_capability_count",
+        "updated_capability_count",
+        "removed_capability_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "capability_count": { "type": "integer", "minimum": 0 },
+        "delta_count": { "type": "integer", "minimum": 0 },
+        "new_capability_count": { "type": "integer", "minimum": 0 },
+        "updated_capability_count": { "type": "integer", "minimum": 0 },
+        "removed_capability_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "capabilities": { "type": "array" },
+    "deltas": { "type": "array" },
+    "checks": { "type": "array" },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

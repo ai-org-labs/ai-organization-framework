@@ -1,0 +1,22 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-21T14:30:44.014Z",
+  "role": "builder",
+  "stage": "execution",
+  "session_id": "SESS-V93-BUILDER",
+  "status": "completed",
+  "recommendation": "Keep v9.3 scoped to capability-first release gate and defer provider execution to v9.4.",
+  "rationale": "The user-visible product problem blocks meaningful provider progress because releases are not understandable as capability.",
+  "signals": [],
+  "artifact_refs": [
+    "docs/aof-product-capability-model.md",
+    "src/commands/capability-first-release-audit.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-113",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

@@ -1,0 +1,66 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRUR57ME-1FK54T",
+  "recorded_at": "2026-07-21T14:31:51.254Z",
+  "work_item_id": "TASK-113",
+  "work_item_ref": ".aof/tasks/done/TASK-113.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-113.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-113.json",
+  "lanes": [
+    {
+      "lane_id": "capability-contract",
+      "goal": "define capability model, delta, and audit",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v9.3-release-definition.md"
+      ],
+      "expected_output": "schemas and runtime commands",
+      "output_refs": [
+        "src/commands/capability-first-release-audit.js",
+        "schemas/aof-product-capability-register.schema.json"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if no capability delta exists",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "user-value-framing",
+      "goal": "make release notes and README start from user capability",
+      "owner_actor_ref": "visionary",
+      "input_refs": [
+        "docs/v9.1-product-value-comprehension.md"
+      ],
+      "expected_output": "capability matrix and release notes",
+      "output_refs": [
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+      ],
+      "stop_condition": "stop if user value is hidden behind mechanism",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "capability-contract",
+      "user-value-framing"
+    ],
+    "conflict_summary": "No unresolved lane conflict; both lanes require capability-first explanation before release readiness.",
+    "blocker_summary": "No active blocker after capability-first-release-audit passes.",
+    "merge_rationale": "Runtime contract and user-value framing are joined by the capability release delta.",
+    "council_authority": "product-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-113-V93.json",
+  "not_proven": "Parallel lane evidence does not prove market adoption or universal comprehension.",
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -433,9 +433,9 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v9.2.0`, advance `v9.3` as Provider-backed Controlled Execution Candidate.
+After `v9.2.0`, advance `v9.3` as Capability-First Release Comprehension.
 
-`v9.1.0` was inserted before the production-boundary track because user feedback exposed a product-level failure: AOF releases could be internally auditable while users could not understand what became possible. Product Value Comprehension is now a release gate, so future external runtime releases must explain capability, before/after change, demo path, user benefit, and understanding outcome instead of only listing internal artifacts.
+`v9.1.0` was inserted before the production-boundary track because user feedback exposed a product-level failure: AOF releases could be internally auditable while users could not understand what became possible. Product Value Comprehension became a release gate, but the latest feedback shows that evidence alone is not enough. AOF must formalize user-facing capability, version matrix, capability delta, and product review trigger as a release acceptance surface.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
 proof, session, context, release, and Archmap evidence can be projected from
 canonical runtime artifacts. The v7.9 Externalization Readiness Boundary then
@@ -468,24 +468,25 @@ state the exact credential, budget, revocation, rollback, monitoring, incident,
 and human approval preconditions required before any real provider-side
 execution can be considered.
 
-The next proof is controlled execution without hidden autonomy: whether AOF can
-run a bounded provider-backed operation only after the v9.2 production boundary,
-human go/no-go, rollback, monitoring, incident, and product-value comprehension
-conditions are satisfied.
+The next proof is release comprehension without hidden mechanism bias: whether AOF can
+make every release claim start from user-recognizable capability, a thirty-second
+version delta, a one-minute value explanation, value evidence, and a product
+review trigger before implementation details.
 
 Forward path:
 
-1. `v9.3`: Provider-backed Controlled Execution Candidate
-2. `v9.4`: External Runtime Incident Drill and Recovery Evidence
-3. `v9.5`: Provider Execution Cost and Quota Boundary
-4. `v9.6`: Third-party Operator Validation for External Runtime Claims
+1. `v9.3`: Capability-First Release Comprehension
+2. `v9.4`: Provider-backed Controlled Execution Candidate
+3. `v9.5`: External Runtime Incident Drill and Recovery Evidence
+4. `v9.6`: Provider Execution Cost and Quota Boundary
+5. `v9.7`: Third-party Operator Validation for External Runtime Claims
 
 Priority order:
 
-1. `v9.2`: External Runtime Production Boundary Candidate
-2. `v9.3`: Provider-backed Controlled Execution Candidate
-3. `v9.4`: External Runtime Incident Drill and Recovery Evidence
-4. `v9.5`: Provider Execution Cost and Quota Boundary
+1. `v9.3`: Capability-First Release Comprehension
+2. `v9.4`: Provider-backed Controlled Execution Candidate
+3. `v9.5`: External Runtime Incident Drill and Recovery Evidence
+4. `v9.6`: Provider Execution Cost and Quota Boundary
 
 Canonical v7.x roadmap:
 
@@ -499,6 +500,7 @@ Reasoning:
   as bounded runtime evidence, then legible in Mission Control as coverage,
   forecast, blocked work, adoption proof, and evidence completeness, and finally
   bounded externalization claims before v8.
-- v8.0 through v9.4 externalize the organization runtime, govern adapters, add
-  operator validation, make acceptance visible, and pilot external execution
-  only behind approval boundaries without overclaiming semantic truth.
+- v8.0 through v9.7 externalize the organization runtime, govern adapters, add
+  operator validation, make acceptance visible, require capability-first release
+  comprehension, and pilot external execution only behind approval boundaries
+  without overclaiming semantic truth.

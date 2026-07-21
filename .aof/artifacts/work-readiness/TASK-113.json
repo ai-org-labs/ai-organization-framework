@@ -1,0 +1,33 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRUR1NTV-8KQNIB",
+  "recorded_at": "2026-07-21T14:29:05.635Z",
+  "work_item_id": "TASK-113",
+  "work_item_ref": ".aof/tasks/done/TASK-113.json",
+  "readiness_status": "ready",
+  "goal": "Make release value understandable as user-facing capability before release-ready claims.",
+  "risk": "AOF may keep adding mechanisms while users cannot tell what changed.",
+  "loss_boundary": "Do not call v9.3 release-ready unless capability register, matrix, delta, value evidence, and capability-first audit are present and green.",
+  "acceptance_gates": [
+    "capability-first-release-audit passes",
+    "release-state-audit includes capability-first-release-audit for v9.3"
+  ],
+  "evidence_plan": [
+    "schemas, commands, docs, runtime artifacts, focused tests, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "product-council",
+  "stop_conditions": [
+    "Stop if release notes lead with mechanism rather than capability",
+    "Stop if no capability changes are recorded"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null
+}

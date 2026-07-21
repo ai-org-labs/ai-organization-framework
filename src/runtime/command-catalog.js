@@ -96,6 +96,8 @@ const COMMAND_SPECS = [
   ["operator-acceptance-drill-audit", "./commands/operator-acceptance-drill-audit.js", "operatorAcceptanceDrillAuditCommand"],
   ["product-value-evidence-record", "./commands/product-value-evidence-record.js", "productValueEvidenceRecordCommand"],
   ["product-value-evidence-audit", "./commands/product-value-evidence-audit.js", "productValueEvidenceAuditCommand"],
+  ["capability-release-delta-record", "./commands/capability-release-delta-record.js", "capabilityReleaseDeltaRecordCommand"],
+  ["capability-first-release-audit", "./commands/capability-first-release-audit.js", "capabilityFirstReleaseAuditCommand"],
   ["operator-validation-record", "./commands/operator-validation-record.js", "operatorValidationRecordCommand"],
   ["operator-validation-audit", "./commands/operator-validation-audit.js", "operatorValidationAuditCommand"],
   ["problem-statement-record", "./commands/problem-statement-record.js", "problemStatementRecordCommand"],

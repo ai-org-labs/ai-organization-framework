@@ -135,6 +135,8 @@ Usage:
   aof operator-acceptance-drill-audit [--project <path>] [--write-artifact <path>]
   aof product-value-evidence-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --capability-statement "<text>" --before-state "<text>" --after-state "<text>" --scenario "<text>" --five-minute-demo "<text>" --time-saved-or-work-reduced "<text>" --cognitive-load-removed "<text>" --capability-row-json '<json>' [--capability-row-json '<json>'] --understanding-outcome <understood|partially_understood|not_understood|not_checked> --evidence-ref <path> [--evidence-ref <path>] --governance-action <none|improve_release_explanation|reopen_need|block_release_claim|escalate_product_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--value-evidence-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof product-value-evidence-audit [--project <path>] [--write-artifact <path>]
+  aof capability-release-delta-record --project <path> --release-version <version> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --one-minute-value-explanation "<text>" --thirty-second-version-delta "<text>" [--new-capability-id <id>] [--updated-capability-id <id>] [--removed-capability-id <id>] --value-evidence-ref <path> [--value-evidence-ref <path>] --product-review-trigger "<text>" --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--delta-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof capability-first-release-audit [--project <path>] [--write-artifact <path>]
   aof operator-validation-record --project <path> --operator-ref <ref> --feedback-source <human_operator|adopter|expert_reviewer|self_hosting_operator|simulated_operator> --release-ref <ref> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --evidence-ref <path> [--evidence-ref <path>] --understanding-outcome <understood|partially_understood|not_understood|needs_clarification|not_checked> --reproduction-outcome <reproduced|partially_reproduced|not_reproduced|needs_clarification|not_checked> --acceptance-outcome <accepted|accepted_with_residual_risk|rejected|needs_clarification|not_checked> --feedback-summary "<text>" [--blocking-reason "<text>"] --governance-action <none|request_clarification|request_reproduction|block_release_claim|escalate_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-validation-audit [--project <path>] [--write-artifact <path>]
   aof problem-statement-record --project <path> --affected-party "<text>" --actual-problem "<text>" --why-it-matters "<text>" --why-now "<text>" --evidence-ref <path> [--evidence-ref <path>] [--source-task-id <TASK-id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1615,6 +1617,33 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "product-value-evidence-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "capability-release-delta-record"
+            ? {
+                project: ".",
+                deltaId: "",
+                releaseVersion: "",
+                releaseRef: "",
+                workItemId: "",
+                workItemRef: "",
+                oneMinuteValueExplanation: "",
+                thirtySecondVersionDelta: "",
+                newCapabilityIds: [],
+                updatedCapabilityIds: [],
+                removedCapabilityIds: [],
+                valueEvidenceRefs: [],
+                productReviewTrigger: "",
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "capability-first-release-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -3305,6 +3334,16 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--delta-id") {
+      options.deltaId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--release-version") {
+      options.releaseVersion = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--operator-ref") {
       options.operatorRef = rest[i + 1] ?? "";
       i += 1;
@@ -3366,6 +3405,57 @@ function parseArgs(argv) {
         throw new Error("Missing value after --capability-row-json.");
       }
       options.capabilityRows.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--one-minute-value-explanation") {
+      options.oneMinuteValueExplanation = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--thirty-second-version-delta") {
+      options.thirtySecondVersionDelta = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--new-capability-id") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --new-capability-id.");
+      }
+      options.newCapabilityIds.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--updated-capability-id") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --updated-capability-id.");
+      }
+      options.updatedCapabilityIds.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--removed-capability-id") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --removed-capability-id.");
+      }
+      options.removedCapabilityIds.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--value-evidence-ref") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --value-evidence-ref.");
+      }
+      options.valueEvidenceRefs.push(value);
+      i += 1;
+      continue;
+    }
+    if (part === "--product-review-trigger") {
+      options.productReviewTrigger = rest[i + 1] ?? "";
       i += 1;
       continue;
     }
@@ -7132,6 +7222,37 @@ function parseArgs(argv) {
   if (command === "product-value-evidence-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `product-value-evidence-audit`.");
+    }
+  }
+
+  if (command === "capability-release-delta-record") {
+    for (const [flag, value] of [
+      ["--release-version", options.releaseVersion],
+      ["--release-ref", options.releaseRef],
+      ["--work-item-id", options.workItemId],
+      ["--work-item-ref", options.workItemRef],
+      ["--one-minute-value-explanation", options.oneMinuteValueExplanation],
+      ["--thirty-second-version-delta", options.thirtySecondVersionDelta],
+      ["--product-review-trigger", options.productReviewTrigger],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`capability-release-delta-record\`.`);
+      }
+    }
+    if ((options.newCapabilityIds.length + options.updatedCapabilityIds.length + options.removedCapabilityIds.length) === 0) {
+      throw new Error("At least one capability delta ID is required for `capability-release-delta-record`.");
+    }
+    if (!Array.isArray(options.valueEvidenceRefs) || options.valueEvidenceRefs.length === 0) {
+      throw new Error("At least one --value-evidence-ref is required for `capability-release-delta-record`.");
+    }
+  }
+
+  if (command === "capability-first-release-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `capability-first-release-audit`.");
     }
   }
 

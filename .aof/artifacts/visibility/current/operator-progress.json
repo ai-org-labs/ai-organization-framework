@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-21T02:22:14.110Z",
+  "generated_at": "2026-07-21T14:41:58.042Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-112 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-112.json"
+    "summary": "TASK-113 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-113.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-112 completed: Ship v9.2 External Runtime Production Boundary Candidate",
-      "artifact_ref": ".aof/tasks/done/TASK-112.json"
+      "summary": "TASK-113 completed: Ship v9.3 Capability-First Release Comprehension",
+      "artifact_ref": ".aof/tasks/done/TASK-113.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
+      "summary": "After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-112 completed: Ship v9.2 External Runtime Production Boundary Candidate After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
+    "what_changed": "TASK-113 completed: Ship v9.3 Capability-First Release Comprehension After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence."
+    "next_checkpoint": "Open an implementation task for the current frontier: After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation."
   }
 }

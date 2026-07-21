@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "product-value-evidence-audit",
-  "generated_at": "2026-07-21T02:07:35.380Z",
+  "generated_at": "2026-07-21T14:34:44.404Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "record_count": 2,
-    "understood_count": 2,
+    "record_count": 3,
+    "understood_count": 3,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 4,
+    "capability_row_count": 6,
     "missing_link_count": 0,
     "failing_check_count": 0
   },
@@ -38,16 +38,30 @@
       "understanding_outcome": "understood",
       "governance_action": "none",
       "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json"
+    },
+    {
+      "value_evidence_id": "PVE-TASK-113-V93",
+      "release_ref": "docs/v9.3-release-definition.md",
+      "work_item_id": "TASK-113",
+      "capability_statement": "Users can judge an AOF release by capability first instead of inferring value from records, audits, schemas, dashboards, or tags.",
+      "before_state": "AOF could require product value evidence, but release value was still not formalized as a versioned product capability model.",
+      "after_state": "AOF has a product capability register, capability matrix, capability delta, and release audit that requires release notes to start from user capability.",
+      "scenario": "A user opens v9.3 and wants to know in 30 seconds what changed from v9.2.",
+      "five_minute_demo": "Open docs/aof-capability-matrix.md, read the v9.3 row, then run capability-first-release-audit.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json"
     }
   ],
   "checks": [
     {
       "name": "product value evidence presence",
       "status": "pass",
-      "detail": "2 record(s) found",
+      "detail": "3 record(s) found",
       "evidence_refs": [
         ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json"
+        ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json"
       ]
     },
     {
@@ -467,6 +481,230 @@
         ".aof/artifacts/visibility/current/mission-control.json",
         "docs/v9.2-release-definition.md",
         ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.3-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-113.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-product-capability-model.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.3.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 capability statement",
+      "status": "pass",
+      "detail": "Users can judge an AOF release by capability first instead of inferring value from records, audits, schemas, dashboards, or tags.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 before state",
+      "status": "pass",
+      "detail": "AOF could require product value evidence, but release value was still not formalized as a versioned product capability model.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 after state",
+      "status": "pass",
+      "detail": "AOF has a product capability register, capability matrix, capability delta, and release audit that requires release notes to start from user capability.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 product scenario",
+      "status": "pass",
+      "detail": "A user opens v9.3 and wants to know in 30 seconds what changed from v9.2.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 five minute demo",
+      "status": "pass",
+      "detail": "Open docs/aof-capability-matrix.md, read the v9.3 row, then run capability-first-release-audit.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 capability matrix",
+      "status": "pass",
+      "detail": "2 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 not-proven boundary",
+      "status": "pass",
+      "detail": "This proves capability-first release governance, not market adoption or semantic correctness.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-113, source_parent_session_id=SESS-V93-CAPABILITY-FIRST",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-113-V93 missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
       ]
     }
   ],

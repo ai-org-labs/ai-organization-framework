@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-21T02:22:14.107Z",
+  "generated_at": "2026-07-21T14:41:58.038Z",
   "mission_overview": {
-    "mission": "Ship v9.2 as the External Runtime Production Boundary Candidate so provider execution eligibility is explicit before any real provider operation is considered.",
-    "release_version": "9.2.0",
-    "release_definition_ref": "docs/v9.2-release-definition.md",
-    "operating_goal": "Prepare the post-v9.2 frontier: define v9.3 as a controlled provider preflight execution readiness model that remains non-production until explicit go/no-go evidence exists.",
-    "next_value_slice": "After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
+    "mission": "Ship v9.3 as Capability-First Release Comprehension so release value starts from user-recognizable capability before mechanism.",
+    "release_version": "9.3.0",
+    "release_definition_ref": "docs/v9.3-release-definition.md",
+    "operating_goal": "Ship v9.3 Capability-First Release Comprehension: release-ready claims must start from user-facing capability, capability delta, value evidence, and product review trigger before mechanism details.",
+    "next_value_slice": "After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
+    "recommended_action": "Open an implementation task for the current frontier: After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 42,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-112.json",
-    "latest_impact_status": "archmap_update_required",
-    "latest_work_item_id": "TASK-112",
+    "impact_record_count": 43,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-113.json",
+    "latest_impact_status": "archmap_unaffected",
+    "latest_work_item_id": "TASK-113",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-112.json"
+      ".aof/artifacts/archmap/impact/TASK-113.json"
     ],
     "external_refs": []
   },
@@ -399,41 +399,40 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 26,
-    "latest_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V92-PRODUCTION-BOUNDARY.json",
+    "stream_count": 27,
+    "latest_session_id": "SESS-V93-CAPABILITY-FIRST",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V93-CAPABILITY-FIRST.json",
     "latest_actor_ref": "codex",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-21T02:03:44.084Z",
-    "latest_event_count": 3,
+    "latest_recorded_at": "2026-07-21T14:29:38.650Z",
+    "latest_event_count": 4,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-112.json"
+      ".aof/tasks/done/TASK-113.json"
     ],
     "linked_requirement_refs": [
-      "docs/v9.2-release-definition.md"
+      "docs/v9.3-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js"
     ],
     "linked_artifact_refs": [
-      "docs/v9.2-release-definition.md",
-      "src/commands/provider-production-boundary-audit.js"
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
     ],
     "risk_candidates": [
-      "Production boundary evidence may be mistaken for production safety."
+      "Release progress may remain hidden behind implementation mechanism."
     ],
     "decision_candidates": [
-      "Block production execution authorization in v9.2 candidate boundary."
+      "Make capability-first release audit a release-state gate."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Heartbeat requested latest-roadmap release advancement using AOF runtime.",
-        "occurred_at": "2026-07-21T02:03:44.084Z",
+        "summary": "User reported that AOF releases are not understandable as user capability.",
+        "occurred_at": "2026-07-21T14:29:38.650Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -441,17 +440,26 @@
       },
       {
         "event_type": "tool_call",
-        "summary": "Ran roadmap-status, organization-status, alignment-pulse, task-open, and runtime artifact writers.",
-        "occurred_at": "2026-07-21T02:03:44.084Z",
-        "tool_name": "aof runtime",
+        "summary": "Ran roadmap-status, organization-status, release-state-refresh, product-value-evidence-record, capability-release-delta-record, and audits.",
+        "occurred_at": "2026-07-21T14:29:38.650Z",
+        "tool_name": "aof-runtime",
         "safety_level": "safe_local_write",
-        "approval_policy": "preapproved",
+        "approval_policy": "preapproved local runtime work",
         "artifact_refs": []
       },
       {
-        "event_type": "artifact_write",
-        "summary": "Implemented provider production boundary record/audit, schemas, tests, release docs, and projections.",
-        "occurred_at": "2026-07-21T02:03:44.084Z",
+        "event_type": "verification_result",
+        "summary": "Focused capability-first tests and runtime audits were executed.",
+        "occurred_at": "2026-07-21T14:29:38.650Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
+      },
+      {
+        "event_type": "stop_condition",
+        "summary": "Stop if a release claims readiness without a capability delta and one-minute value explanation.",
+        "occurred_at": "2026-07-21T14:29:38.650Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -460,10 +468,10 @@
     ],
     "latest_tool_calls": [
       {
-        "summary": "Ran roadmap-status, organization-status, alignment-pulse, task-open, and runtime artifact writers.",
-        "tool_name": "aof runtime",
+        "summary": "Ran roadmap-status, organization-status, release-state-refresh, product-value-evidence-record, capability-release-delta-record, and audits.",
+        "tool_name": "aof-runtime",
         "safety_level": "safe_local_write",
-        "approval_policy": "preapproved"
+        "approval_policy": "preapproved local runtime work"
       }
     ]
   },
@@ -474,11 +482,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 24,
+    "context_record_count": 25,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-113.json",
+        "work_item_id": "TASK-113",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves references were declared, not that users universally understand the release."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-112.json",
         "work_item_id": "TASK-112",
@@ -534,14 +550,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves declared reference availability only, not provider correctness, production execution safety, credential safety, or billing safety."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-105.json",
-        "work_item_id": "TASK-105",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves declared reference availability only, not provider correctness or production execution safety."
       }
     ],
     "latest_external_reference_records": [
@@ -566,9 +574,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-112.json",
-    "latest_work_item_id": "TASK-112",
-    "latest_recorded_at": "2026-07-21T02:03:41.543Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-113.json",
+    "latest_work_item_id": "TASK-113",
+    "latest_recorded_at": "2026-07-21T14:29:05.619Z",
     "coverage_status": "completed",
     "total_requirements": 2,
     "covered_count": 2,
@@ -580,27 +588,27 @@
     "forecast": {
       "estimated_remaining_work_items": 0,
       "estimated_token_cost_range": "bounded release verification only",
-      "burndown_ref": "docs/v9.2-release-checklist.md",
+      "burndown_ref": "docs/v9.3-release-checklist.md",
       "forecast_boundary": "forecast is planning evidence, not delivery certainty"
     },
     "forecast_boundary": "forecast is planning evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V92-001",
-        "title": "Provider production boundary candidate audit",
+        "requirement_id": "REQ-V93-001",
+        "title": "Capability-first release audit",
         "status": "covered",
-        "source_ref": "docs/v9.2-release-definition.md",
+        "source_ref": "docs/v9.3-release-definition.md",
         "owner_ref": "guardian",
         "evidence_refs": [
-          ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+          ".aof/artifacts/capability-release-deltas/capability-first-release-audit.json"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V92-002",
-        "title": "Product value comprehension remains gated",
+        "requirement_id": "REQ-V93-002",
+        "title": "Value comprehension is user-facing",
         "status": "covered",
-        "source_ref": "docs/v9.2-release-definition.md",
+        "source_ref": "docs/v9.3-release-definition.md",
         "owner_ref": "product-council",
         "evidence_refs": [
           ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
@@ -608,9 +616,9 @@
         "blocker_refs": []
       }
     ],
-    "not_proven": "Requirement coverage proves traceability only, not production safety or semantic truth.",
+    "not_proven": "Requirement coverage proves traceability only, not market adoption or universal comprehension.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-112.json"
+      ".aof/artifacts/requirement-coverage/TASK-113.json"
     ]
   },
   "adoption_proof_projection": {
@@ -973,11 +981,11 @@
     "present": true,
     "audit_ref": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json",
     "audit_ok": true,
-    "record_count": 2,
-    "understood_count": 2,
+    "record_count": 3,
+    "understood_count": 3,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 4,
+    "capability_row_count": 6,
     "records": [
       {
         "value_evidence_id": "PVE-TASK-111-V91",
@@ -1004,6 +1012,19 @@
         "understanding_outcome": "understood",
         "governance_action": "none",
         "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json"
+      },
+      {
+        "value_evidence_id": "PVE-TASK-113-V93",
+        "release_ref": "docs/v9.3-release-definition.md",
+        "work_item_id": "TASK-113",
+        "capability_statement": "Users can judge an AOF release by capability first instead of inferring value from records, audits, schemas, dashboards, or tags.",
+        "before_state": "AOF could require product value evidence, but release value was still not formalized as a versioned product capability model.",
+        "after_state": "AOF has a product capability register, capability matrix, capability delta, and release audit that requires release notes to start from user capability.",
+        "scenario": "A user opens v9.3 and wants to know in 30 seconds what changed from v9.2.",
+        "five_minute_demo": "Open docs/aof-capability-matrix.md, read the v9.3 row, then run capability-first-release-audit.",
+        "understanding_outcome": "understood",
+        "governance_action": "none",
+        "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json"
       }
     ],
     "not_proven": "Product value evidence projection proves a bounded capability explanation and understanding check exists; it does not prove market value, broad adoption, or semantic correctness."
@@ -1012,7 +1033,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v9.2-release-definition.md",
+    "release_ref": "docs/v9.3-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1036,7 +1057,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v9.2-release-definition.md",
+    "release_ref": "docs/v9.3-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1055,7 +1076,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v9.2-release-definition.md",
+      "docs/v9.3-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1150,7 +1171,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-112.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-113.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1160,27 +1181,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V92-PRODUCTION-BOUNDARY.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V93-CAPABILITY-FIRST.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-112.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-113.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v9.2-release-definition.md"
+        "artifact_ref": "docs/v9.3-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-112.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-113.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-112.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-113.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V92-PRODUCTION-BOUNDARY.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V93-CAPABILITY-FIRST.json"
   }
 }

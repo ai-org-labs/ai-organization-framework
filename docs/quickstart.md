@@ -24,8 +24,8 @@ npm install
 bundled example ではなく別プロジェクトへ AOF を持ち込む場合、現在の canonical acquisition path は GitHub tag から local tool source を取得する方式である。
 
 ```bash
-git clone --branch v9.2.0 https://github.com/ai-org-labs/ai-organization-framework.git ~/.local/share/aof/v9.2.0
-cd ~/.local/share/aof/v9.2.0
+git clone --branch v9.3.0 https://github.com/ai-org-labs/ai-organization-framework.git ~/.local/share/aof/v9.3.0
+cd ~/.local/share/aof/v9.3.0
 npm install
 npm link
 ```
@@ -223,4 +223,4 @@ Need / Intent / Context を整えることが目的で、planning / approval の
 - project bootstrap model: [aof-project-bootstrap-model.md](./aof-project-bootstrap-model.md)
 - public runtime readiness: [v6.0-public-runtime-readiness.md](./v6.0-public-runtime-readiness.md)
 - Work Governance examples: [v6.1-work-governance-examples.md](./v6.1-work-governance-examples.md)
-- current release definition: [v9.2-release-definition.md](./v9.2-release-definition.md)
+- current release definition: [v9.3-release-definition.md](./v9.3-release-definition.md)

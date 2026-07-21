@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-21T02:22:14.110Z",
+  "generated_at": "2026-07-21T14:41:58.042Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "9.2.0",
-    "active_release_track": "v9.2",
-    "release_definition_ref": "docs/v9.2-release-definition.md"
+    "active_release_version": "9.3.0",
+    "active_release_track": "v9.3",
+    "release_definition_ref": "docs/v9.3-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence."
+    "branch_summary": "After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v9.2",
+      "label": "v9.3",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v9.2 and the next concrete branch.",
-    "why_this_branch": "Prepare the post-v9.2 frontier: define v9.3 as a controlled provider preflight execution readiness model that remains non-production until explicit go/no-go evidence exists.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence."
+    "where_are_we": "The runtime is between v9.3 and the next concrete branch.",
+    "why_this_branch": "Ship v9.3 Capability-First Release Comprehension: release-ready claims must start from user-facing capability, capability delta, value evidence, and product review trigger before mechanism details.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation."
   }
 }

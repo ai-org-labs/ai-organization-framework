@@ -2252,6 +2252,61 @@ QIF / governance boundary:
 
 - audit pass は利用者価値説明の構造・参照・governance escalation を示す。実際の市場価値、広範な利用者理解、semantic correctness は証明しない。
 
+### `capability-release-delta-record`
+
+release ごとに、追加・更新・削除された user-facing capability と、30秒差分説明・1分価値説明・value evidence を保存する。
+
+```bash
+node ./src/cli.js capability-release-delta-record \
+  --project . \
+  --delta-id CRD-TASK-113-V93 \
+  --release-version 9.3.0 \
+  --release-ref docs/v9.3-release-definition.md \
+  --work-item-id TASK-113 \
+  --work-item-ref .aof/tasks/done/TASK-113.json \
+  --one-minute-value-explanation "AOF releases now start from what the user can do, then explain mechanisms." \
+  --thirty-second-version-delta "v9.3 adds a capability model, capability matrix, release delta, and value evidence gate." \
+  --new-capability-id CAP-RELEASE-VALUE-RECOGNITION \
+  --updated-capability-id CAP-GOVERNANCE \
+  --value-evidence-ref .aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json \
+  --product-review-trigger "If users cannot explain what changed, reopen as a product issue." \
+  --not-proven "This does not prove broad external user comprehension." \
+  --source-task-id TASK-113 \
+  --source-parent-session-id SESS-V93-CAPABILITY-FIRST
+```
+
+主な output:
+
+- `.aof/artifacts/capability-release-deltas/<delta-id>.json`
+- `new_capability_ids` / `updated_capability_ids` / `removed_capability_ids`
+- `one_minute_value_explanation`
+- `thirty_second_version_delta`
+- `value_evidence_refs`
+- `product_review_trigger`
+
+### `capability-first-release-audit`
+
+active release が mechanism-first ではなく capability-first に公開されているかを検証する。
+
+```bash
+node ./src/cli.js capability-first-release-audit \
+  --project . \
+  --write-artifact .aof/artifacts/capability-release-deltas/capability-first-release-audit.json
+```
+
+主な check:
+
+- `.aof/product-capabilities.json` の schema と evidence refs
+- active release の capability delta presence
+- delta に含まれる capability ID が register に存在すること
+- release notes が `What You Can Do Now` / `Capability Delta` / `Capability Matrix` / `Value Evidence` を含むこと
+- README が Capability Matrix を露出していること
+- 価値説明が artifact count / audit count / tag existence だけに依存していないこと
+
+QIF / governance boundary:
+
+- audit pass は release comprehension の構造・参照・governance trigger を示す。実際に全利用者が30秒で理解できたことや市場価値は証明しない。
+
 ### AI Command Help Surface
 
 v6.3 以降、CLI help は full reference ではなく AI-oriented command discovery surface として使う。

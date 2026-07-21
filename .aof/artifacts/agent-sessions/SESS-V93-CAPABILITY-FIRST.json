@@ -1,0 +1,86 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRUR2DAY-VNSBCO",
+  "recorded_at": "2026-07-21T14:29:38.650Z",
+  "session_id": "SESS-V93-CAPABILITY-FIRST",
+  "parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MRUR2DAY-A52G30",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-21T14:29:38.650Z",
+      "summary": "User reported that AOF releases are not understandable as user capability.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MRUR2DAY-7FN03D",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-21T14:29:38.650Z",
+      "summary": "Ran roadmap-status, organization-status, release-state-refresh, product-value-evidence-record, capability-release-delta-record, and audits.",
+      "artifact_refs": [],
+      "tool_name": "aof-runtime",
+      "safety_level": "safe_local_write",
+      "approval_policy": "preapproved local runtime work"
+    },
+    {
+      "event_id": "ASEV3-MRUR2DAY-B8OQDR",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-21T14:29:38.650Z",
+      "summary": "Focused capability-first tests and runtime audits were executed.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV4-MRUR2DAY-UJ95XR",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-21T14:29:38.650Z",
+      "summary": "Stop if a release claims readiness without a capability delta and one-minute value explanation.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-113.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.3-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
+    ]
+  },
+  "risk_candidates": [
+    "Release progress may remain hidden behind implementation mechanism."
+  ],
+  "decision_candidates": [
+    "Make capability-first release audit a release-state gate."
+  ],
+  "release_ready_evidence": {
+    "claim": "Capability-first release evidence is structurally and runtime ready.",
+    "evidence_refs": [
+      "docs/v9.3-release-checklist.md"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null
+}

@@ -3,6 +3,7 @@ import path from "node:path";
 import { writeJsonArtifact } from "../runtime/utils.js";
 import { loadBundledSchema, validateAgainstSchema } from "../runtime/validation.js";
 import { archmapImpactAuditCommand } from "./archmap-impact-audit.js";
+import { capabilityFirstReleaseAuditCommand } from "./capability-first-release-audit.js";
 import { adoptionProofBenchmarkCommand } from "./adoption-proof-benchmark.js";
 import { contextReferenceIntegrityAuditCommand } from "./context-reference-integrity-audit.js";
 import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
@@ -265,6 +266,15 @@ function requiresProviderProductionBoundaryAudit(releaseVersion) {
   return major > 9 || (major === 9 && minor >= 2);
 }
 
+function requiresCapabilityFirstReleaseAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 9 || (major === 9 && minor >= 3);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -380,6 +390,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderProductionBoundaryAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-production-boundary-audit", await providerProductionBoundaryAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresCapabilityFirstReleaseAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("capability-first-release-audit", await capabilityFirstReleaseAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

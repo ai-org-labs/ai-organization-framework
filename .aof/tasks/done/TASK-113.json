@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-113",
+  "title": "Ship v9.3 Capability-First Release Comprehension",
+  "description": "Make every release capability-first: define user-facing capabilities, version matrix, capability delta, value evidence, product review loop, and release acceptance criteria so users can understand what changed in 30 seconds.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": null,
+  "created_at": "2026-07-21T14:14:47.160Z",
+  "updated_at": "2026-07-21T14:33:53.194Z",
+  "assigned_at": null,
+  "done_at": "2026-07-21T14:33:53.194Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v9.3 Capability-First Release Comprehension implementation, runtime evidence, and release gates are ready for final verification."
+}

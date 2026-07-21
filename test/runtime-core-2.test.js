@@ -73,6 +73,8 @@ import { operatorAcceptanceDrillAuditCommand } from "../src/commands/operator-ac
 import { operatorAcceptanceDrillRecordCommand } from "../src/commands/operator-acceptance-drill-record.js";
 import { productValueEvidenceAuditCommand } from "../src/commands/product-value-evidence-audit.js";
 import { productValueEvidenceRecordCommand } from "../src/commands/product-value-evidence-record.js";
+import { capabilityFirstReleaseAuditCommand } from "../src/commands/capability-first-release-audit.js";
+import { capabilityReleaseDeltaRecordCommand } from "../src/commands/capability-release-delta-record.js";
 import { outcomeReportCommand } from "../src/commands/outcome-report.js";
 import { policyEvaluationReportCommand } from "../src/commands/policy-evaluation-report.js";
 import { problemStatementRecordCommand } from "../src/commands/problem-statement-record.js";
@@ -4096,6 +4098,117 @@ test("product value evidence audit fails when unclear value does not escalate", 
   const audit = await productValueEvidenceAuditCommand({ project: projectRoot });
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("missing understanding escalates")));
+});
+
+async function writeCapabilityFirstFixture(projectRoot, releaseNotesText) {
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "tasks", "open"), { recursive: true });
+  await fs.mkdir(path.join(projectRoot, ".aof", "context", "active"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "README.md"), "# AOF\n\nSee Capability Matrix.\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "aof-capability-matrix.md"), "# Capability Matrix\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "v9.3-release-definition.md"), "# v9.3\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "v9.3.0-release-notes.md"), releaseNotesText, "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "v9.3-release-checklist.md"), "# Checklist\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "vnext-roadmap.md"), "# Roadmap\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, "docs", "vnext-release-plan.md"), "# Plan\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, ".aof", "tasks", "open", "TASK-113.json"), "{}\n", "utf8");
+  await fs.writeFile(path.join(projectRoot, ".aof", "product-capabilities.json"), `${JSON.stringify({
+    artifact_type: "product-capability-register",
+    recorded_at: "2026-07-21T00:00:00.000Z",
+    purpose: "Fixture product capability register.",
+    capabilities: [
+      {
+        capability_id: "PCAP-CAPABILITY-FIRST-RELEASE",
+        name: "Capability-First Release",
+        description: "Release readiness starts from user-recognizable capability.",
+        user_value: "Users can understand what changed before reading mechanism details.",
+        first_version: "v9.3.0",
+        status: "available",
+        evidence_refs: ["docs/aof-capability-matrix.md"]
+      }
+    ]
+  }, null, 2)}\n`, "utf8");
+  await fs.writeFile(path.join(projectRoot, ".aof", "context", "active", "active-release-manifest.json"), `${JSON.stringify({
+    artifact_type: "active-release-manifest",
+    recorded_at: "2026-07-21T00:00:00.000Z",
+    release_version: "9.3.0",
+    release_tag: "v9.3.0",
+    release_definition_ref: "docs/v9.3-release-definition.md",
+    release_notes_ref: "docs/v9.3.0-release-notes.md",
+    release_checklist_ref: "docs/v9.3-release-checklist.md",
+    roadmap_ref: "docs/vnext-roadmap.md",
+    release_plan_ref: "docs/vnext-release-plan.md"
+  }, null, 2)}\n`, "utf8");
+}
+
+test("capability-first release commands require user-facing capability delta", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeCapabilityFirstFixture(projectRoot, `# v9.3
+
+## What You Can Do Now
+
+Users can understand release capability before mechanism.
+
+## Capability Delta
+
+NEW: Capability-First Release.
+
+## Capability Matrix
+
+See the matrix.
+
+## Value Evidence
+
+The release explains before/after work reduction.
+`);
+
+  await capabilityReleaseDeltaRecordCommand({
+    project: projectRoot,
+    releaseVersion: "9.3.0",
+    releaseRef: "docs/v9.3-release-definition.md",
+    workItemId: "TASK-113",
+    workItemRef: ".aof/tasks/open/TASK-113.json",
+    oneMinuteValueExplanation: "Users can judge release value from capability before reading internal records.",
+    thirtySecondVersionDelta: "v9.3 adds a formal capability-first release gate.",
+    newCapabilityIds: ["PCAP-CAPABILITY-FIRST-RELEASE"],
+    updatedCapabilityIds: [],
+    removedCapabilityIds: [],
+    valueEvidenceRefs: ["docs/aof-capability-matrix.md"],
+    productReviewTrigger: "If users cannot explain what changed, reopen product review.",
+    notProven: "This does not prove market adoption.",
+    sourceTaskId: "TASK-113",
+    sourceParentSessionId: "SESS-V93-CAPABILITY-FIRST"
+  });
+
+  const audit = await capabilityFirstReleaseAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.capability_count, 1);
+  assert.equal(audit.summary.summary.new_capability_count, 1);
+});
+
+test("capability-first release audit fails when release notes hide capability sections", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeCapabilityFirstFixture(projectRoot, "# v9.3\n\n## New Schemas\n\n- schema\n");
+  await capabilityReleaseDeltaRecordCommand({
+    project: projectRoot,
+    releaseVersion: "9.3.0",
+    releaseRef: "docs/v9.3-release-definition.md",
+    workItemId: "TASK-113",
+    workItemRef: ".aof/tasks/open/TASK-113.json",
+    oneMinuteValueExplanation: "Users can judge release value from capability before reading internal records.",
+    thirtySecondVersionDelta: "v9.3 adds a formal capability-first release gate.",
+    newCapabilityIds: ["PCAP-CAPABILITY-FIRST-RELEASE"],
+    valueEvidenceRefs: ["docs/aof-capability-matrix.md"],
+    productReviewTrigger: "If users cannot explain what changed, reopen product review.",
+    notProven: "This does not prove market adoption.",
+    sourceTaskId: "TASK-113",
+    sourceParentSessionId: "SESS-V93-CAPABILITY-FIRST"
+  });
+
+  const audit = await capabilityFirstReleaseAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("release notes ## What You Can Do Now")));
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("release notes ## Capability Delta")));
 });
 
 test("provider production boundary commands write candidate pre-production gates and audit pass", async (t) => {

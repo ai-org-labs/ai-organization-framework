@@ -1,0 +1,30 @@
+{
+  "join_type": "role-join",
+  "recorded_at": "2026-07-21T14:30:46.330Z",
+  "join_id": "RJOIN-MRUR3TIY-V0M9IQ",
+  "join_status": "resolved",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-orchestrator-decision",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit capability-first release packet to Product Council.",
+  "received_session_ids": [
+    "SESS-V93-VISIONARY",
+    "SESS-V93-BUILDER",
+    "SESS-V93-GUARDIAN"
+  ],
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "decision_record_ref": null,
+  "summary": "Visionary, Builder, and Guardian converge on capability-first release comprehension as the v9.3 release gate."
+}

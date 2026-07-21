@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare the post-v9.2 frontier: define v9.3 as a controlled provider preflight execution readiness model that remains non-production until explicit go/no-go evidence exists.",
-  "updated_at": "2026-07-21T02:14:57.593Z",
+  "content": "Ship v9.3 Capability-First Release Comprehension: release-ready claims must start from user-facing capability, capability delta, value evidence, and product review trigger before mechanism details.",
+  "updated_at": "2026-07-21T14:25:52.910Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V92-PRODUCTION-BOUNDARY",
-  "source_decision_record_id": "CREV-TASK-112-V92",
+  "source_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null,
   "declared_complete_at": null
 }

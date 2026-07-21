@@ -1,0 +1,24 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-113",
+  "work_item_ref": ".aof/tasks/done/TASK-113.json",
+  "work_item_id": "TASK-113",
+  "status": "archmap_unaffected",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "node",
+      "id": "ReleaseGovernance",
+      "reason": "Capability-first release governance is a release gate addition and does not change the runtime architecture map topology."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    "docs/aof-product-capability-model.md",
+    "src/commands/capability-first-release-audit.js",
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-113-V93.json"
+  ],
+  "recorded_at": "2026-07-21T14:32:20.000Z"
+}

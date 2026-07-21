@@ -1,0 +1,28 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-113-V93",
+  "recorded_at": "2026-07-21T14:26:30.680Z",
+  "release_version": "9.3.0",
+  "release_ref": "docs/v9.3-release-definition.md",
+  "work_item_id": "TASK-113",
+  "work_item_ref": ".aof/tasks/done/TASK-113.json",
+  "one_minute_value_explanation": "v9.3 makes release value governable as user capability: releases must now show what users can do, what changed, what evidence supports it, and what remains unproven before listing mechanisms.",
+  "thirty_second_version_delta": "v9.2 bounded provider production eligibility; v9.3 fixes the product problem that users could not see release progress by making capability delta a release gate.",
+  "new_capability_ids": [
+    "PCAP-CAPABILITY-FIRST-RELEASE"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PRODUCT-VALUE-COMPREHENSION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If a user cannot answer what changed in 30 seconds, reopen product review before claiming release-ready.",
+  "not_proven": "Capability comprehension evidence is not market adoption, semantic truth, broad user satisfaction, or production provider safety.",
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null,
+  "notes": null
+}

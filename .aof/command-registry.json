@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-21T02:08:02.729Z",
+  "generated_at": "2026-07-21T14:27:04.492Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -537,6 +537,80 @@
       ],
       "outputs": [
         "cadence trigger guide runtime result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "capability-first-release-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify a release is capability-first: product capabilities are registered, active release delta exists, release notes start with user capability, and README exposes the capability matrix.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "capability-first release audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "capability-release-delta-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a release capability delta with the one-minute value explanation, thirty-second version delta, changed capability IDs, value evidence, and product review trigger.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "release-version",
+        "release-ref",
+        "work-item-id",
+        "work-item-ref",
+        "one-minute-value-explanation",
+        "thirty-second-version-delta",
+        "new-capability-id?",
+        "updated-capability-id?",
+        "removed-capability-id?",
+        "value-evidence-ref",
+        "product-review-trigger",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "capability release delta artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

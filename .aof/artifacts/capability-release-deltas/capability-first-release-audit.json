@@ -1,0 +1,713 @@
+{
+  "ok": true,
+  "artifact_type": "capability-first-release-audit",
+  "generated_at": "2026-07-21T14:34:47.070Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "capability_count": 10,
+    "delta_count": 1,
+    "new_capability_count": 1,
+    "updated_capability_count": 1,
+    "removed_capability_count": 0,
+    "failing_check_count": 0
+  },
+  "capabilities": [
+    {
+      "capability_id": "PCAP-TRACEABILITY",
+      "name": "Traceability",
+      "user_value": "Users can reconstruct why work exists and what evidence supports it without reading every raw artifact.",
+      "first_version": "v7.0.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-ORGANIZATION-MEMORY",
+      "name": "Organization Memory",
+      "user_value": "Users can continue governed work across sessions instead of relying on one long chat transcript.",
+      "first_version": "v7.1.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-GOVERNANCE",
+      "name": "Governance",
+      "user_value": "Users can stop work from being called done only because the maker says it is done.",
+      "first_version": "v6.4.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-HUMAN-APPROVAL",
+      "name": "Human Approval",
+      "user_value": "Users can distinguish Council review from explicit human permission before external side effects.",
+      "first_version": "v8.7.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-RESOURCE-ACCESS",
+      "name": "External Resource Access",
+      "user_value": "Users can see what external resource is being used, for what purpose, and under what limits.",
+      "first_version": "v8.0.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-EXECUTION",
+      "name": "Provider Execution",
+      "user_value": "Users can block provider execution unless the required safety and evidence boundaries exist.",
+      "first_version": "v8.5.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-ROLLBACK",
+      "name": "Rollback",
+      "user_value": "Users can avoid treating an external operation as acceptable when reversal evidence is missing.",
+      "first_version": "v8.8.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-LEARNING",
+      "name": "Learning",
+      "user_value": "Users can make the next decision depend on what happened, rather than losing feedback after release.",
+      "first_version": "v8.9.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-PRODUCT-VALUE-COMPREHENSION",
+      "name": "Product Value Comprehension",
+      "user_value": "Users do not need to infer release value from records, audits, schemas, or dashboard existence.",
+      "first_version": "v9.1.0",
+      "status": "improved"
+    },
+    {
+      "capability_id": "PCAP-CAPABILITY-FIRST-RELEASE",
+      "name": "Capability-First Release",
+      "user_value": "Users can understand what changed in a release within 30 seconds before reading implementation details.",
+      "first_version": "v9.3.0",
+      "status": "available"
+    }
+  ],
+  "deltas": [
+    {
+      "delta_id": "CRD-TASK-113-V93",
+      "release_version": "9.3.0",
+      "one_minute_value_explanation": "v9.3 makes release value governable as user capability: releases must now show what users can do, what changed, what evidence supports it, and what remains unproven before listing mechanisms.",
+      "thirty_second_version_delta": "v9.2 bounded provider production eligibility; v9.3 fixes the product problem that users could not see release progress by making capability delta a release gate.",
+      "new_capability_ids": [
+        "PCAP-CAPABILITY-FIRST-RELEASE"
+      ],
+      "updated_capability_ids": [
+        "PCAP-PRODUCT-VALUE-COMPREHENSION"
+      ],
+      "removed_capability_ids": [],
+      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "active release manifest presence",
+      "status": "pass",
+      "detail": "9.3.0",
+      "evidence_refs": []
+    },
+    {
+      "name": "product capability register presence",
+      "status": "pass",
+      "detail": "10 capability row(s)",
+      "evidence_refs": [
+        ".aof/product-capabilities.json"
+      ]
+    },
+    {
+      "name": "PCAP-TRACEABILITY description",
+      "status": "pass",
+      "detail": "AOF can link work, requirements, sessions, decisions, evidence, and release readiness into an auditable chain.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v7.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-TRACEABILITY user value",
+      "status": "pass",
+      "detail": "Users can reconstruct why work exists and what evidence supports it without reading every raw artifact.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v7.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-TRACEABILITY first version",
+      "status": "pass",
+      "detail": "v7.0.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v7.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-TRACEABILITY evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.0.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v7.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ORGANIZATION-MEMORY description",
+      "status": "pass",
+      "detail": "AOF can keep canonical state for tasks, goals, runtime sessions, decisions, artifacts, and learning updates.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v7.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ORGANIZATION-MEMORY user value",
+      "status": "pass",
+      "detail": "Users can continue governed work across sessions instead of relying on one long chat transcript.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v7.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ORGANIZATION-MEMORY first version",
+      "status": "pass",
+      "detail": "v7.1.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v7.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ORGANIZATION-MEMORY evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.1.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v7.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-GOVERNANCE description",
+      "status": "pass",
+      "detail": "AOF can separate maker work, checker review, council judgment, and release gates.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v6.4.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-GOVERNANCE user value",
+      "status": "pass",
+      "detail": "Users can stop work from being called done only because the maker says it is done.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v6.4.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-GOVERNANCE first version",
+      "status": "pass",
+      "detail": "v6.4.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v6.4.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-GOVERNANCE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.4.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v6.4.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-HUMAN-APPROVAL description",
+      "status": "pass",
+      "detail": "AOF can record independent human approval and revocation state for external-write candidates.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-HUMAN-APPROVAL user value",
+      "status": "pass",
+      "detail": "Users can distinguish Council review from explicit human permission before external side effects.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-HUMAN-APPROVAL first version",
+      "status": "pass",
+      "detail": "v8.7.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-HUMAN-APPROVAL evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RESOURCE-ACCESS description",
+      "status": "pass",
+      "detail": "AOF can represent external actors, tools, providers, and references with source-of-truth and permission boundaries.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RESOURCE-ACCESS user value",
+      "status": "pass",
+      "detail": "Users can see what external resource is being used, for what purpose, and under what limits.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RESOURCE-ACCESS first version",
+      "status": "pass",
+      "detail": "v8.0.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RESOURCE-ACCESS evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION description",
+      "status": "pass",
+      "detail": "AOF can model provider execution readiness, approval, reproduction, rollback, outcome, learning, and production-boundary candidates.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION user value",
+      "status": "pass",
+      "detail": "Users can block provider execution unless the required safety and evidence boundaries exist.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION first version",
+      "status": "pass",
+      "detail": "v8.5.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.5.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ROLLBACK description",
+      "status": "pass",
+      "detail": "AOF can require rollback readiness evidence before provider execution claims are trusted.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.8.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ROLLBACK user value",
+      "status": "pass",
+      "detail": "Users can avoid treating an external operation as acceptable when reversal evidence is missing.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.8.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ROLLBACK first version",
+      "status": "pass",
+      "detail": "v8.8.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.8.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ROLLBACK evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.8.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.8.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-LEARNING description",
+      "status": "pass",
+      "detail": "AOF can convert outcome evidence into an accepted, corrected, rollback, escalation, or defer learning update.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-LEARNING user value",
+      "status": "pass",
+      "detail": "Users can make the next decision depend on what happened, rather than losing feedback after release.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-LEARNING first version",
+      "status": "pass",
+      "detail": "v8.9.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-LEARNING evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.9.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION description",
+      "status": "pass",
+      "detail": "AOF can require release value evidence that states what a user can now do, before/after, demo, reduced work, and not-proven boundaries.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION user value",
+      "status": "pass",
+      "detail": "Users do not need to infer release value from records, audits, schemas, or dashboard existence.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION first version",
+      "status": "pass",
+      "detail": "v9.1.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-product-value-comprehension.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-FIRST-RELEASE description",
+      "status": "pass",
+      "detail": "AOF can require a formal capability register, version matrix, capability delta, and release acceptance criteria before release-ready claims.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-FIRST-RELEASE user value",
+      "status": "pass",
+      "detail": "Users can understand what changed in a release within 30 seconds before reading implementation details.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-FIRST-RELEASE first version",
+      "status": "pass",
+      "detail": "v9.3.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-FIRST-RELEASE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-product-capability-model.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-FIRST-RELEASE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-FIRST-RELEASE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.3.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/aof-product-capability-model.md",
+        "docs/aof-capability-matrix.md",
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "active release capability delta presence",
+      "status": "pass",
+      "detail": "1 delta record(s)",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
+      ]
+    },
+    {
+      "name": "active release capability change",
+      "status": "pass",
+      "detail": "2 changed capability reference(s)",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.3-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-113.json",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 capability ref PCAP-CAPABILITY-FIRST-RELEASE",
+      "status": "pass",
+      "detail": "PCAP-CAPABILITY-FIRST-RELEASE",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 capability ref PCAP-PRODUCT-VALUE-COMPREHENSION",
+      "status": "pass",
+      "detail": "PCAP-PRODUCT-VALUE-COMPREHENSION",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 value evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 value evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 one minute value explanation",
+      "status": "pass",
+      "detail": "v9.3 makes release value governable as user capability: releases must now show what users can do, what changed, what evidence supports it, and what remains unproven before listing mechanisms.",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 thirty second version delta",
+      "status": "pass",
+      "detail": "v9.2 bounded provider production eligibility; v9.3 fixes the product problem that users could not see release progress by making capability delta a release gate.",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 product review trigger",
+      "status": "pass",
+      "detail": "If a user cannot answer what changed in 30 seconds, reopen product review before claiming release-ready.",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "CRD-TASK-113-V93 not-proven boundary",
+      "status": "pass",
+      "detail": "Capability comprehension evidence is not market adoption, semantic truth, broad user satisfaction, or production provider safety.",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
+        "docs/v9.3-release-definition.md",
+        ".aof/tasks/done/TASK-113.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "release notes ## What You Can Do Now",
+      "status": "pass",
+      "detail": "docs/v9.3.0-release-notes.md",
+      "evidence_refs": [
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "release notes ## Capability Delta",
+      "status": "pass",
+      "detail": "docs/v9.3.0-release-notes.md",
+      "evidence_refs": [
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "release notes ## Capability Matrix",
+      "status": "pass",
+      "detail": "docs/v9.3.0-release-notes.md",
+      "evidence_refs": [
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "release notes ## Value Evidence",
+      "status": "pass",
+      "detail": "docs/v9.3.0-release-notes.md",
+      "evidence_refs": [
+        "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "README capability matrix link",
+      "status": "pass",
+      "detail": "README.md must expose Capability Matrix",
+      "evidence_refs": [
+        "README.md"
+      ]
+    }
+  ],
+  "errors": []
+}

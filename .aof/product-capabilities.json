@@ -1,0 +1,97 @@
+{
+  "artifact_type": "product-capability-register",
+  "recorded_at": "2026-07-21T14:20:00.000Z",
+  "purpose": "User-facing capability register. This is not the internal actor capability registry; it exists so release value starts from what a user can do.",
+  "capabilities": [
+    {
+      "capability_id": "PCAP-TRACEABILITY",
+      "name": "Traceability",
+      "description": "AOF can link work, requirements, sessions, decisions, evidence, and release readiness into an auditable chain.",
+      "user_value": "Users can reconstruct why work exists and what evidence supports it without reading every raw artifact.",
+      "first_version": "v7.0.0",
+      "status": "available",
+      "evidence_refs": ["docs/v7.0.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-ORGANIZATION-MEMORY",
+      "name": "Organization Memory",
+      "description": "AOF can keep canonical state for tasks, goals, runtime sessions, decisions, artifacts, and learning updates.",
+      "user_value": "Users can continue governed work across sessions instead of relying on one long chat transcript.",
+      "first_version": "v7.1.0",
+      "status": "available",
+      "evidence_refs": ["docs/v7.1.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-GOVERNANCE",
+      "name": "Governance",
+      "description": "AOF can separate maker work, checker review, council judgment, and release gates.",
+      "user_value": "Users can stop work from being called done only because the maker says it is done.",
+      "first_version": "v6.4.0",
+      "status": "available",
+      "evidence_refs": ["docs/v6.4.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-HUMAN-APPROVAL",
+      "name": "Human Approval",
+      "description": "AOF can record independent human approval and revocation state for external-write candidates.",
+      "user_value": "Users can distinguish Council review from explicit human permission before external side effects.",
+      "first_version": "v8.7.0",
+      "status": "available",
+      "evidence_refs": ["docs/v8.7.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-RESOURCE-ACCESS",
+      "name": "External Resource Access",
+      "description": "AOF can represent external actors, tools, providers, and references with source-of-truth and permission boundaries.",
+      "user_value": "Users can see what external resource is being used, for what purpose, and under what limits.",
+      "first_version": "v8.0.0",
+      "status": "available",
+      "evidence_refs": ["docs/v8.0.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-EXECUTION",
+      "name": "Provider Execution",
+      "description": "AOF can model provider execution readiness, approval, reproduction, rollback, outcome, learning, and production-boundary candidates.",
+      "user_value": "Users can block provider execution unless the required safety and evidence boundaries exist.",
+      "first_version": "v8.5.0",
+      "status": "available",
+      "evidence_refs": ["docs/v8.5.0-release-notes.md", "docs/v9.2.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-ROLLBACK",
+      "name": "Rollback",
+      "description": "AOF can require rollback readiness evidence before provider execution claims are trusted.",
+      "user_value": "Users can avoid treating an external operation as acceptable when reversal evidence is missing.",
+      "first_version": "v8.8.0",
+      "status": "available",
+      "evidence_refs": ["docs/v8.8.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-LEARNING",
+      "name": "Learning",
+      "description": "AOF can convert outcome evidence into an accepted, corrected, rollback, escalation, or defer learning update.",
+      "user_value": "Users can make the next decision depend on what happened, rather than losing feedback after release.",
+      "first_version": "v8.9.0",
+      "status": "available",
+      "evidence_refs": ["docs/v8.9.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-PRODUCT-VALUE-COMPREHENSION",
+      "name": "Product Value Comprehension",
+      "description": "AOF can require release value evidence that states what a user can now do, before/after, demo, reduced work, and not-proven boundaries.",
+      "user_value": "Users do not need to infer release value from records, audits, schemas, or dashboard existence.",
+      "first_version": "v9.1.0",
+      "status": "improved",
+      "evidence_refs": ["docs/v9.1-product-value-comprehension.md", "docs/v9.1.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-CAPABILITY-FIRST-RELEASE",
+      "name": "Capability-First Release",
+      "description": "AOF can require a formal capability register, version matrix, capability delta, and release acceptance criteria before release-ready claims.",
+      "user_value": "Users can understand what changed in a release within 30 seconds before reading implementation details.",
+      "first_version": "v9.3.0",
+      "status": "available",
+      "evidence_refs": ["docs/aof-product-capability-model.md", "docs/aof-capability-matrix.md", "docs/v9.3.0-release-notes.md"]
+    }
+  ]
+}

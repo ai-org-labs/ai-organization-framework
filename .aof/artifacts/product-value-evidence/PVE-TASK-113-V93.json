@@ -1,0 +1,42 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-113-V93",
+  "recorded_at": "2026-07-21T14:26:14.971Z",
+  "release_ref": "docs/v9.3-release-definition.md",
+  "work_item_id": "TASK-113",
+  "work_item_ref": ".aof/tasks/done/TASK-113.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "Users can judge an AOF release by capability first instead of inferring value from records, audits, schemas, dashboards, or tags.",
+  "before_state": "AOF could require product value evidence, but release value was still not formalized as a versioned product capability model.",
+  "after_state": "AOF has a product capability register, capability matrix, capability delta, and release audit that requires release notes to start from user capability.",
+  "scenario": "A user opens v9.3 and wants to know in 30 seconds what changed from v9.2.",
+  "five_minute_demo": "Open docs/aof-capability-matrix.md, read the v9.3 row, then run capability-first-release-audit.",
+  "time_saved_or_work_reduced": "Users no longer need an AI-generated comparison just to understand the release claim.",
+  "cognitive_load_removed": "Users do not need to translate audit and schema names into product capability manually.",
+  "capability_matrix": [
+    {
+      "capability": "Capability-First Release",
+      "before": "Product value evidence existed but capability modeling and delta were informal.",
+      "after": "Capability register, matrix, delta, and audit are required for release-ready claims.",
+      "user_value": "Release progress is readable as user capability before implementation mechanism."
+    },
+    {
+      "capability": "Product Value Comprehension",
+      "before": "Value evidence could be present but still detached from a formal capability map.",
+      "after": "Value evidence is connected to product capability IDs and release acceptance criteria.",
+      "user_value": "Unclear release value becomes a product review trigger, not a documentation afterthought."
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    "docs/aof-product-capability-model.md",
+    "docs/aof-capability-matrix.md",
+    "docs/v9.3.0-release-notes.md"
+  ],
+  "governance_action": "none",
+  "not_proven": "This proves capability-first release governance, not market adoption or semantic correctness.",
+  "source_task_id": "TASK-113",
+  "source_parent_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_decision_record_id": null,
+  "notes": null
+}
