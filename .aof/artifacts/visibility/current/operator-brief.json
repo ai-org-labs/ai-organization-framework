@@ -1,6 +1,6 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-21T02:16:51.792Z",
+  "generated_at": "2026-07-21T02:22:14.110Z",
   "headline": "The next frontier is defined, but no aligned implementation task is open yet: After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",
   "current_state": {
     "release_version": "9.2.0",

@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-21T02:16:51.788Z",
+  "as_of": "2026-07-21T02:22:14.107Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "After v9.2.0, select v9.3 as the next bounded frontier: provider preflight execution readiness without live production writes; keep v9.4-v9.6 as roadmap depth for scoped rehearsal, independent validation, and production go/no-go evidence.",

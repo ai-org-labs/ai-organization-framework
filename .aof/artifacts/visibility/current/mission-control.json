@@ -1,6 +1,6 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-21T02:16:51.788Z",
+  "generated_at": "2026-07-21T02:22:14.107Z",
   "mission_overview": {
     "mission": "Ship v9.2 as the External Runtime Production Boundary Candidate so provider execution eligibility is explicit before any real provider operation is considered.",
     "release_version": "9.2.0",
