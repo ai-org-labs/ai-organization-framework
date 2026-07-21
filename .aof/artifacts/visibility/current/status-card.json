@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-21T00:02:43.880Z",
+  "as_of": "2026-07-21T00:09:45.199Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "Run a runtime-backed v9.2 direction review for External Runtime Production Boundary Candidate, preserving v9.1 Product Value Comprehension as a mandatory release gate.",
