@@ -1,0 +1,25 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MRVG5GAZ-4QBGDD",
+  "recorded_at": "2026-07-22T02:11:52.907Z",
+  "release_version": "9.4.1",
+  "release_ref": "docs/v9.4-release-definition.md",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "one_minute_value_explanation": "AOF v9.4 users can install a CI-corrected patch tag whose package metadata, active release manifest, README, Quickstart, and release notes all agree on the current release.",
+  "thirty_second_version_delta": "v9.4.1 does not add provider authority; it corrects v9.4 release metadata and install path consistency after the v9.4.0 tag CI failed.",
+  "new_capability_ids": [],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-EXECUTION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+  ],
+  "product_review_trigger": "If users cannot tell which v9.4 tag is safe to install, reopen as a release comprehension and installation reliability issue.",
+  "not_proven": "This patch delta does not prove production provider execution, semantic correctness, credential safety, billing safety, actual rollback execution, or market adoption.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

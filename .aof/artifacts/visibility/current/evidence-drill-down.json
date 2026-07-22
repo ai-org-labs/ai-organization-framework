@@ -1,9 +1,9 @@
 {
   "view_type": "evidence_drill_down",
-  "generated_at": "2026-07-22T02:04:45.072Z",
+  "generated_at": "2026-07-22T02:13:30.046Z",
   "brief_ref": ".aof/artifacts/visibility/current/operator-brief.json",
   "current_state": {
-    "release_version": "9.4.0",
+    "release_version": "9.4.1",
     "active_release_track": "v9.4",
     "release_definition_ref": "docs/v9.4-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
@@ -11,7 +11,7 @@
   },
   "answer_to_proof": {
     "headline": {
-      "claim": "The next frontier is defined, but no aligned implementation task is open yet: After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+      "claim": "The next frontier is defined, but no aligned implementation task is open yet: After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
       "rationale": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
       "evidence_refs": [
         "docs/v9.4-release-definition.md",
@@ -63,7 +63,7 @@
       ]
     },
     "next_action": {
-      "claim": "Open an implementation task for the current frontier: After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+      "claim": "Open an implementation task for the current frontier: After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
       "rationale": "No current open implementation task is aligned to the current operating goal.",
       "artifact_ref": ".aof/goals/next-value-slice.json",
       "evidence_refs": [

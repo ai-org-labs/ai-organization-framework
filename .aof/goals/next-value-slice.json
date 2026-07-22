@@ -1,6 +1,6 @@
 {
   "goal_type": "next-value-slice",
-  "content": "After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+  "content": "After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
   "updated_at": "2026-07-22T01:48:11.030Z",
   "agreed_with_human": true,
   "source_session_id": "SESS-V94-CONTROLLED-EXECUTION",

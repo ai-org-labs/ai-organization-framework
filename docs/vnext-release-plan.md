@@ -2,7 +2,7 @@
 
 ## Version
 
-Candidate: `v9.4.0`
+Candidate: `v9.4.1`
 
 ## Release Theme
 

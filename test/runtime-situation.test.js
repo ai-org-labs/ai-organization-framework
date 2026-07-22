@@ -19,7 +19,7 @@ test("situationAssessCommand diagnoses the current frontier from self-hosting ru
 
   assert.equal(result.ok, true);
   assert.equal(result.summary.artifact_type, "situation-assessment");
-  assert.equal(result.summary.active_release_version, "9.4.0");
+  assert.equal(result.summary.active_release_version, "9.4.1");
   assert.equal(result.summary.primary_frontier_task, null);
   assert.equal(result.summary.current_runtime_stage, "frontier-definition-needed");
   assert.match(result.summary.recommended_action.recommended_action, /v9\.5|incident recovery|cost\/quota|third-party operator validation|frontier/i);
@@ -119,7 +119,7 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   const result = await visibilityExportCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.payloads.mission_control.mission_overview.release_version, "9.4.0");
+  assert.equal(result.payloads.mission_control.mission_overview.release_version, "9.4.1");
   assert.equal(result.payloads.mission_control.mission_overview.current_runtime_stage, "frontier-definition-needed");
   assert.match(result.payloads.mission_control.next_action.recommended_action, /v9\.5|incident recovery|cost\/quota|third-party operator validation/i);
   assert.doesNotMatch(result.payloads.mission_control.next_action.recommended_action, /Mission Control visibility slice/i);
@@ -226,7 +226,7 @@ test("operatorBriefCommand compresses runtime situation judgment into one operat
 
   assert.equal(result.ok, true);
   assert.equal(result.brief.view_type, "operator_brief");
-  assert.equal(result.brief.current_state.release_version, "9.4.0");
+  assert.equal(result.brief.current_state.release_version, "9.4.1");
   assert.equal(result.brief.current_state.current_runtime_stage, "frontier-definition-needed");
   assert.equal(result.brief.current_state.primary_frontier_task, null);
   assert.equal(result.brief.current_state.skillful_actor_projection?.projection_id, "SAHRI-TASK-054-PROOF");
@@ -257,7 +257,7 @@ test("treePositionCommand explains the current release trunk and frontier branch
 
   assert.equal(result.ok, true);
   assert.equal(result.tree.view_type, "tree_position");
-  assert.equal(result.tree.trunk.active_release_version, "9.4.0");
+  assert.equal(result.tree.trunk.active_release_version, "9.4.1");
   assert.equal(result.tree.branch.frontier_task_id, null);
   assert.equal(result.tree.branch.frontier_track, null);
   assert.match(result.tree.tree_answer.where_are_we, /v9\.4|next concrete branch/i);
@@ -268,7 +268,7 @@ test("releaseStateAuditCommand includes product value, production boundary, and 
   const result = await releaseStateAuditCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.summary.active_release.release_version, "9.4.0");
+  assert.equal(result.summary.active_release.release_version, "9.4.1");
   const externalResourceAudit = result.summary.governance_audits.find((audit) => audit.name === "external-resource-audit");
   assert.equal(externalResourceAudit.ok, true);
   const providerAdapterAudit = result.summary.governance_audits.find((audit) => audit.name === "provider-adapter-audit");

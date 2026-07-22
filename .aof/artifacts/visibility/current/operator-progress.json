@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-22T02:04:45.072Z",
+  "generated_at": "2026-07-22T02:13:30.046Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -19,13 +19,13 @@
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+      "summary": "After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-114 completed: Ship v9.4 Provider-backed Controlled Execution Candidate After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+    "what_changed": "TASK-114 completed: Ship v9.4 Provider-backed Controlled Execution Candidate After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
+    "next_checkpoint": "Open an implementation task for the current frontier: After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
   }
 }

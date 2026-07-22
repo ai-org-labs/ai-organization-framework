@@ -1,9 +1,9 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-22T02:04:45.072Z",
+  "generated_at": "2026-07-22T02:13:30.046Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "9.4.0",
+    "active_release_version": "9.4.1",
     "active_release_track": "v9.4",
     "release_definition_ref": "docs/v9.4-release-definition.md"
   },
@@ -12,7 +12,7 @@
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
+    "branch_summary": "After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
   },
   "roadmap_path": [
     {
@@ -24,6 +24,6 @@
   "tree_answer": {
     "where_are_we": "The runtime is between v9.4 and the next concrete branch.",
     "why_this_branch": "Ship v9.4 Provider-backed Controlled Execution Candidate: bind provider approval, target, reproduction, rollback, outcome, learning, operator acceptance, product value, and production boundary evidence into one operator go/no-go candidate without authorizing production execution.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
   }
 }
