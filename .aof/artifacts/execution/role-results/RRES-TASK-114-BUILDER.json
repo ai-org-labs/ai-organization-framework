@@ -1,0 +1,24 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-22T01:53:15.144Z",
+  "role": "builder",
+  "stage": "planning",
+  "session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "status": "completed",
+  "recommendation": "Implement narrow record/audit commands and wire the candidate audit into release-state-audit for v9.4 onward.",
+  "rationale": "A dedicated narrow audit avoids broad scoring and makes missing upstream evidence or production overclaim mechanically visible.",
+  "signals": [
+    "narrow runtime contract"
+  ],
+  "artifact_refs": [
+    "src/commands/provider-controlled-execution-candidate-record.js",
+    "src/commands/provider-controlled-execution-candidate-audit.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-114",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.88
+}

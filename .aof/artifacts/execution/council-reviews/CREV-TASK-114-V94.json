@@ -1,0 +1,40 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-22T01:59:06.869Z",
+  "review_packet_id": "CREV-MRVFP185-MYGKS6",
+  "council_id": "product-council",
+  "stage": "planning",
+  "review_status": "approved",
+  "decision_summary": "Approve v9.4 as a controlled provider execution candidate release, not as production provider execution.",
+  "rationale": "The release bundles scattered provider readiness evidence into one operator go/no-go candidate and preserves explicit not-proven boundaries.",
+  "recommendation": "Proceed to release verification after candidate, capability, product value, and release-state audits are green.",
+  "target_audience": "AOF operator evaluating provider-backed work readiness",
+  "expected_user_reaction": "Operator can see one candidate and distinguish go/no-go readiness from production authorization.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": "provider boundary comprehension",
+  "diagnosis_confidence": 0.86,
+  "diagnosis_evidence_refs": [
+    "docs/aof-capability-matrix.md"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-114-V94.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-114-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-114-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-114-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/provider-controlled-execution-candidates/provider-controlled-execution-candidate-audit.json",
+    ".aof/artifacts/capability-release-deltas/capability-first-release-audit.json",
+    ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null
+}

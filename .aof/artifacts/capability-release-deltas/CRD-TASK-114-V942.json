@@ -1,0 +1,25 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MRVGC1RX-61K8IO",
+  "recorded_at": "2026-07-22T02:17:00.669Z",
+  "release_version": "9.4.2",
+  "release_ref": "docs/v9.4-release-definition.md",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "one_minute_value_explanation": "AOF v9.4 users can validate the release from a clean checkout because the TASK-114 role, team, and Council evidence required by release-state audit is now committed.",
+  "thirty_second_version_delta": "v9.4.2 does not add provider authority; it fixes clean-checkout release audit reproducibility by committing the missing TASK-114 execution evidence.",
+  "new_capability_ids": [],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-EXECUTION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+  ],
+  "product_review_trigger": "If release audit passes only on one local machine, reopen as a release reproducibility and evidence packaging issue.",
+  "not_proven": "This patch delta does not prove production provider execution, semantic correctness, credential safety, billing safety, actual rollback execution, or market adoption.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

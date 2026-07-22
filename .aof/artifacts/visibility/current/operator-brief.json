@@ -1,14 +1,14 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-22T02:13:30.046Z",
-  "headline": "The next frontier is defined, but no aligned implementation task is open yet: After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+  "generated_at": "2026-07-22T02:17:40.151Z",
+  "headline": "The next frontier is defined, but no aligned implementation task is open yet: After v9.4.2, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
   "current_state": {
-    "release_version": "9.4.1",
+    "release_version": "9.4.2",
     "active_release_track": "v9.4",
     "release_definition_ref": "docs/v9.4-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
     "operating_goal": "Ship v9.4 Provider-backed Controlled Execution Candidate: bind provider approval, target, reproduction, rollback, outcome, learning, operator acceptance, product value, and production boundary evidence into one operator go/no-go candidate without authorizing production execution.",
-    "next_value_slice": "After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+    "next_value_slice": "After v9.4.2, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
     "primary_frontier_task": null,
     "skillful_actor_projection": {
       "projection_ref": ".aof/artifacts/skillful-actor/hri-projections/SAHRI-TASK-054-PROOF.json",
@@ -65,7 +65,7 @@
   "why_now": {
     "summary": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "reasons": [
-      "The active release baseline is 9.4.1 and the runtime is now targeting the next track.",
+      "The active release baseline is 9.4.2 and the runtime is now targeting the next track.",
       "The current operating goal and next value slice both reinforce the current frontier as the next bounded operating move."
     ],
     "evidence_refs": [
@@ -77,7 +77,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+    "recommended_action": "Open an implementation task for the current frontier: After v9.4.2, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -85,6 +85,6 @@
     "what_is_happening_now": "The runtime is in frontier-definition-needed and still needs a more concrete frontier task.",
     "why_this_state": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_is_blocked": "No critical truth conflict is currently blocking the frontier.",
-    "what_should_happen_next": "Open an implementation task for the current frontier: After v9.4.1, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
+    "what_should_happen_next": "Open an implementation task for the current frontier: After v9.4.2, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
   }
 }

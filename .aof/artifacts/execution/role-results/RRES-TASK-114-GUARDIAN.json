@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-22T01:53:03.091Z",
+  "role": "guardian",
+  "stage": "planning",
+  "session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "status": "completed",
+  "recommendation": "Approve only if production_execution_authorized remains false and the candidate has resolvable upstream refs, stop conditions, and not-proven boundary.",
+  "rationale": "The release must not let audit pass be mistaken for production provider safety or actual rollback execution.",
+  "signals": [
+    "production boundary must remain closed"
+  ],
+  "artifact_refs": [
+    "docs/v9.4-release-checklist.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-114",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.87
+}

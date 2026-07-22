@@ -1,0 +1,23 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-22T01:53:04.063Z",
+  "role": "visionary",
+  "stage": "planning",
+  "session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "status": "completed",
+  "recommendation": "Frame v9.4 as one operator-readable controlled execution candidate, not as live provider execution.",
+  "rationale": "The user value is reducing mental assembly of provider readiness evidence while preserving the production-not-authorized boundary.",
+  "signals": [
+    "capability-first wording required"
+  ],
+  "artifact_refs": [
+    "docs/v9.4-release-definition.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-114",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

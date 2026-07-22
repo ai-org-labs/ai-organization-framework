@@ -1,0 +1,35 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-22T01:54:02.128Z",
+  "team_output_id": "TOUT-MRVFII34-1B6A9E",
+  "team_id": "runtime-team",
+  "stage": "planning",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Council should approve v9.4 only if candidate audit and release-state audit are green and production execution remains unauthorized.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-114-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-114-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-114-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v9.4-release-definition.md",
+    "src/commands/provider-controlled-execution-candidate-audit.js"
+  ],
+  "decision_required": false,
+  "summary": "Runtime team produced a bounded provider controlled execution candidate contract.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null
+}
