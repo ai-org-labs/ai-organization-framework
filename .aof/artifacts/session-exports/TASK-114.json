@@ -1,0 +1,103 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MRVFPZYF-QKIV2W",
+  "recorded_at": "2026-07-22T01:59:51.879Z",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V94-CONTROLLED-EXECUTION.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export summarizes local runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V94-1",
+      "event_type": "prompt",
+      "summary": "Runtime heartbeat required next release completion using AOF runtime.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V94-2",
+      "event_type": "response",
+      "summary": "v9.4 was selected as the next provider-backed controlled execution candidate release.",
+      "artifact_refs": [
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V94-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime commands inspected roadmap, release state, and audit gaps.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V94-4",
+      "event_type": "artifact_write",
+      "summary": "v9.4 controlled execution candidate artifacts and docs were generated.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V94-5",
+      "event_type": "verification",
+      "summary": "Candidate audit, capability audit, product value audit, release-state audit, and tests are release evidence.",
+      "artifact_refs": [
+        "docs/v9.4-release-checklist.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V94-6",
+      "event_type": "blocker",
+      "summary": "Production execution remains blocked; v9.4 only creates an operator go/no-go candidate.",
+      "artifact_refs": [
+        "docs/v9.4-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V94-7",
+      "event_type": "stop_condition",
+      "summary": "Stop if production execution is authorized or upstream provider refs are missing.",
+      "artifact_refs": [
+        "docs/v9.4-release-definition.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-114.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.4-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json"
+    ],
+    "risk_candidates": [
+      "Controlled candidate could be read as production execution if wording is weak."
+    ],
+    "decision_candidates": [
+      "Keep v9.4 as preproduction go/no-go candidate and defer live execution."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v9.4-release-checklist.md"
+    ]
+  },
+  "redaction_boundary": "No secrets, credentials, provider payload bodies, or billing data are exported.",
+  "release_ready_boundary": "Release readiness is bounded to structural/runtime candidate evidence and tests.",
+  "not_proven": "Session export does not prove production execution safety, provider output correctness, or market adoption.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

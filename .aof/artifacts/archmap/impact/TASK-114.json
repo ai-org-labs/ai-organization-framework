@@ -1,0 +1,25 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "work_item_id": "TASK-114",
+  "status": "archmap_unaffected",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "node",
+      "id": "ProviderExecutionBoundary",
+      "reason": "v9.4 adds a controlled execution candidate record and audit above the existing provider boundary chain; it does not change the current runtime architecture map topology."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    "docs/v9.4-release-definition.md",
+    "src/commands/provider-controlled-execution-candidate-record.js",
+    "src/commands/provider-controlled-execution-candidate-audit.js",
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-114-V94.json"
+  ],
+  "recorded_at": "2026-07-22T01:58:00.000Z"
+}

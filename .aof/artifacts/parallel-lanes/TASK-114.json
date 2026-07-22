@@ -1,0 +1,67 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MRVFMNR8-DSNZ3J",
+  "recorded_at": "2026-07-22T01:57:16.100Z",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-114.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-114.json",
+  "lanes": [
+    {
+      "lane_id": "candidate-contract",
+      "goal": "define and implement controlled execution candidate record/audit",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v9.4-release-definition.md"
+      ],
+      "expected_output": "schema and runtime commands",
+      "output_refs": [
+        "schemas/aof-provider-controlled-execution-candidate-record.schema.json",
+        "src/commands/provider-controlled-execution-candidate-audit.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if production execution can be authorized",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "product-boundary-framing",
+      "goal": "explain provider candidate value without overclaiming production execution",
+      "owner_actor_ref": "visionary",
+      "input_refs": [
+        "docs/aof-capability-matrix.md"
+      ],
+      "expected_output": "capability delta, product value evidence, release notes",
+      "output_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4.0-release-notes.md"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+      ],
+      "stop_condition": "stop if users may read v9.4 as live production execution",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "candidate-contract",
+      "product-boundary-framing"
+    ],
+    "conflict_summary": "No unresolved lane conflict; both lanes require production execution to remain unauthorized.",
+    "blocker_summary": "No active blocker after candidate and capability evidence are present.",
+    "merge_rationale": "Runtime contract and product framing are joined by the controlled candidate artifact and capability delta.",
+    "council_authority": "product-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-114-V94.json",
+  "not_proven": "Parallel lane evidence does not prove live provider execution safety, credential safety, or market adoption.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

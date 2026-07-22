@@ -15,6 +15,7 @@ import { pathExists, readJson } from "./operator-surface-helpers.js";
 import { productValueEvidenceAuditCommand } from "./product-value-evidence-audit.js";
 import { providerAdapterAuditCommand } from "./provider-adapter-audit.js";
 import { providerAdapterPilotAuditCommand } from "./provider-adapter-pilot-audit.js";
+import { providerControlledExecutionCandidateAuditCommand } from "./provider-controlled-execution-candidate-audit.js";
 import { providerExecutionApprovalAuditCommand } from "./provider-execution-approval-audit.js";
 import { providerExecutionReproductionAuditCommand } from "./provider-execution-reproduction-audit.js";
 import { providerLearningLoopAuditCommand } from "./provider-learning-loop-audit.js";
@@ -275,6 +276,15 @@ function requiresCapabilityFirstReleaseAudit(releaseVersion) {
   return major > 9 || (major === 9 && minor >= 3);
 }
 
+function requiresProviderControlledExecutionCandidateAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 9 || (major === 9 && minor >= 4);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -395,6 +405,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresCapabilityFirstReleaseAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("capability-first-release-audit", await capabilityFirstReleaseAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderControlledExecutionCandidateAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-controlled-execution-candidate-audit", await providerControlledExecutionCandidateAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

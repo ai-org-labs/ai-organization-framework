@@ -433,7 +433,7 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v9.2.0`, advance `v9.3` as Capability-First Release Comprehension.
+After `v9.3.0`, advance `v9.4` as Provider-backed Controlled Execution Candidate.
 
 `v9.1.0` was inserted before the production-boundary track because user feedback exposed a product-level failure: AOF releases could be internally auditable while users could not understand what became possible. Product Value Comprehension became a release gate, but the latest feedback shows that evidence alone is not enough. AOF must formalize user-facing capability, version matrix, capability delta, and product review trigger as a release acceptance surface.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
@@ -466,27 +466,29 @@ against the full external runtime chain before controlled provider execution
 advances. v9.2 added production-boundary eligibility: whether AOF can
 state the exact credential, budget, revocation, rollback, monitoring, incident,
 and human approval preconditions required before any real provider-side
-execution can be considered.
+execution can be considered. v9.3 added capability-first release comprehension,
+so provider progress must be explained as user-visible capability before
+mechanism details.
 
-The next proof is release comprehension without hidden mechanism bias: whether AOF can
-make every release claim start from user-recognizable capability, a thirty-second
-version delta, a one-minute value explanation, value evidence, and a product
-review trigger before implementation details.
+The next proof is a controlled provider execution candidate: whether AOF can
+bind approval, target operation, reproduction, rollback, outcome, learning,
+operator acceptance, product value, and production-boundary evidence into one
+operator go/no-go candidate without authorizing production execution.
 
 Forward path:
 
-1. `v9.3`: Capability-First Release Comprehension
-2. `v9.4`: Provider-backed Controlled Execution Candidate
-3. `v9.5`: External Runtime Incident Drill and Recovery Evidence
-4. `v9.6`: Provider Execution Cost and Quota Boundary
-5. `v9.7`: Third-party Operator Validation for External Runtime Claims
+1. `v9.4`: Provider-backed Controlled Execution Candidate
+2. `v9.5`: External Runtime Incident Drill and Recovery Evidence
+3. `v9.6`: Provider Execution Cost and Quota Boundary
+4. `v9.7`: Third-party Operator Validation for External Runtime Claims
+5. `v9.8`: Production Execution Go/No-Go Evidence Candidate
 
 Priority order:
 
-1. `v9.3`: Capability-First Release Comprehension
-2. `v9.4`: Provider-backed Controlled Execution Candidate
-3. `v9.5`: External Runtime Incident Drill and Recovery Evidence
-4. `v9.6`: Provider Execution Cost and Quota Boundary
+1. `v9.4`: Provider-backed Controlled Execution Candidate
+2. `v9.5`: External Runtime Incident Drill and Recovery Evidence
+3. `v9.6`: Provider Execution Cost and Quota Boundary
+4. `v9.7`: Third-party Operator Validation for External Runtime Claims
 
 Canonical v7.x roadmap:
 

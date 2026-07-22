@@ -1,12 +1,12 @@
 {
   "ok": true,
   "artifact_type": "capability-first-release-audit",
-  "generated_at": "2026-07-21T14:34:47.070Z",
+  "generated_at": "2026-07-22T01:58:01.373Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
     "capability_count": 10,
     "delta_count": 1,
-    "new_capability_count": 1,
+    "new_capability_count": 0,
     "updated_capability_count": 1,
     "removed_capability_count": 0,
     "failing_check_count": 0
@@ -50,9 +50,9 @@
     {
       "capability_id": "PCAP-PROVIDER-EXECUTION",
       "name": "Provider Execution",
-      "user_value": "Users can block provider execution unless the required safety and evidence boundaries exist.",
+      "user_value": "Users can see when a provider-backed action is only a controlled candidate and cannot be confused with production execution.",
       "first_version": "v8.5.0",
-      "status": "available"
+      "status": "improved"
     },
     {
       "capability_id": "PCAP-ROLLBACK",
@@ -85,25 +85,23 @@
   ],
   "deltas": [
     {
-      "delta_id": "CRD-TASK-113-V93",
-      "release_version": "9.3.0",
-      "one_minute_value_explanation": "v9.3 makes release value governable as user capability: releases must now show what users can do, what changed, what evidence supports it, and what remains unproven before listing mechanisms.",
-      "thirty_second_version_delta": "v9.2 bounded provider production eligibility; v9.3 fixes the product problem that users could not see release progress by making capability delta a release gate.",
-      "new_capability_ids": [
-        "PCAP-CAPABILITY-FIRST-RELEASE"
-      ],
+      "delta_id": "CRD-TASK-114-V94",
+      "release_version": "9.4.0",
+      "one_minute_value_explanation": "AOF can now show one provider-backed controlled execution candidate for operator go/no-go instead of forcing manual inspection across scattered readiness artifacts.",
+      "thirty_second_version_delta": "v9.4 turns provider readiness evidence into one controlled execution candidate while keeping production execution unauthorized.",
+      "new_capability_ids": [],
       "updated_capability_ids": [
-        "PCAP-PRODUCT-VALUE-COMPREHENSION"
+        "PCAP-PROVIDER-EXECUTION"
       ],
       "removed_capability_ids": [],
-      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
+      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json"
     }
   ],
   "checks": [
     {
       "name": "active release manifest presence",
       "status": "pass",
-      "detail": "9.3.0",
+      "detail": "9.4.0",
       "evidence_refs": []
     },
     {
@@ -297,21 +295,23 @@
     {
       "name": "PCAP-PROVIDER-EXECUTION description",
       "status": "pass",
-      "detail": "AOF can model provider execution readiness, approval, reproduction, rollback, outcome, learning, and production-boundary candidates.",
+      "detail": "AOF can model provider execution readiness, approval, reproduction, rollback, outcome, learning, production-boundary candidates, and controlled execution candidates.",
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
-        "docs/v9.2.0-release-notes.md"
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md"
       ]
     },
     {
       "name": "PCAP-PROVIDER-EXECUTION user value",
       "status": "pass",
-      "detail": "Users can block provider execution unless the required safety and evidence boundaries exist.",
+      "detail": "Users can see when a provider-backed action is only a controlled candidate and cannot be confused with production execution.",
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
-        "docs/v9.2.0-release-notes.md"
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md"
       ]
     },
     {
@@ -321,7 +321,8 @@
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
-        "docs/v9.2.0-release-notes.md"
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md"
       ]
     },
     {
@@ -331,7 +332,8 @@
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
-        "docs/v9.2.0-release-notes.md"
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md"
       ]
     },
     {
@@ -341,7 +343,19 @@
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
-        "docs/v9.2.0-release-notes.md"
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.4.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md"
       ]
     },
     {
@@ -537,167 +551,135 @@
       "status": "pass",
       "detail": "1 delta record(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json"
       ]
     },
     {
       "name": "active release capability change",
       "status": "pass",
-      "detail": "2 changed capability reference(s)",
+      "detail": "1 changed capability reference(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json"
       ]
     },
     {
-      "name": "CRD-TASK-113-V93 release ref resolves",
+      "name": "CRD-TASK-114-V94 release ref resolves",
       "status": "pass",
-      "detail": "docs/v9.3-release-definition.md",
+      "detail": "docs/v9.4-release-definition.md",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
       ]
     },
     {
-      "name": "CRD-TASK-113-V93 work item ref resolves",
+      "name": "CRD-TASK-114-V94 work item ref resolves",
       "status": "pass",
-      "detail": ".aof/tasks/done/TASK-113.json",
+      "detail": ".aof/tasks/done/TASK-114.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
       ]
     },
     {
-      "name": "CRD-TASK-113-V93 capability ref PCAP-CAPABILITY-FIRST-RELEASE",
+      "name": "CRD-TASK-114-V94 capability ref PCAP-PROVIDER-EXECUTION",
       "status": "pass",
-      "detail": "PCAP-CAPABILITY-FIRST-RELEASE",
+      "detail": "PCAP-PROVIDER-EXECUTION",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
       ]
     },
     {
-      "name": "CRD-TASK-113-V93 capability ref PCAP-PRODUCT-VALUE-COMPREHENSION",
+      "name": "CRD-TASK-114-V94 value evidence ref resolves",
       "status": "pass",
-      "detail": "PCAP-PRODUCT-VALUE-COMPREHENSION",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
       ]
     },
     {
-      "name": "CRD-TASK-113-V93 value evidence ref resolves",
+      "name": "CRD-TASK-114-V94 one minute value explanation",
       "status": "pass",
-      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+      "detail": "AOF can now show one provider-backed controlled execution candidate for operator go/no-go instead of forcing manual inspection across scattered readiness artifacts.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
       ]
     },
     {
-      "name": "CRD-TASK-113-V93 value evidence ref resolves",
+      "name": "CRD-TASK-114-V94 thirty second version delta",
       "status": "pass",
-      "detail": "docs/aof-capability-matrix.md",
+      "detail": "v9.4 turns provider readiness evidence into one controlled execution candidate while keeping production execution unauthorized.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
       ]
     },
     {
-      "name": "CRD-TASK-113-V93 one minute value explanation",
+      "name": "CRD-TASK-114-V94 product review trigger",
       "status": "pass",
-      "detail": "v9.3 makes release value governable as user capability: releases must now show what users can do, what changed, what evidence supports it, and what remains unproven before listing mechanisms.",
+      "detail": "If users read v9.4 as live production provider execution, reopen as a product framing and safety-boundary issue.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
       ]
     },
     {
-      "name": "CRD-TASK-113-V93 thirty second version delta",
+      "name": "CRD-TASK-114-V94 not-proven boundary",
       "status": "pass",
-      "detail": "v9.2 bounded provider production eligibility; v9.3 fixes the product problem that users could not see release progress by making capability delta a release gate.",
+      "detail": "Capability delta does not prove live provider execution, semantic correctness, credential safety, billing safety, or market adoption.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
-      ]
-    },
-    {
-      "name": "CRD-TASK-113-V93 product review trigger",
-      "status": "pass",
-      "detail": "If a user cannot answer what changed in 30 seconds, reopen product review before claiming release-ready.",
-      "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
-      ]
-    },
-    {
-      "name": "CRD-TASK-113-V93 not-proven boundary",
-      "status": "pass",
-      "detail": "Capability comprehension evidence is not market adoption, semantic truth, broad user satisfaction, or production provider safety.",
-      "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-113-V93.json",
-        "docs/v9.3-release-definition.md",
-        ".aof/tasks/done/TASK-113.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        "docs/aof-capability-matrix.md"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
       ]
     },
     {
       "name": "release notes ## What You Can Do Now",
       "status": "pass",
-      "detail": "docs/v9.3.0-release-notes.md",
+      "detail": "docs/v9.4.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.3.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Delta",
       "status": "pass",
-      "detail": "docs/v9.3.0-release-notes.md",
+      "detail": "docs/v9.4.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.3.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Matrix",
       "status": "pass",
-      "detail": "docs/v9.3.0-release-notes.md",
+      "detail": "docs/v9.4.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.3.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Value Evidence",
       "status": "pass",
-      "detail": "docs/v9.3.0-release-notes.md",
+      "detail": "docs/v9.4.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.3.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md"
       ]
     },
     {

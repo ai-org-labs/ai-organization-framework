@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-114-V94",
+  "recorded_at": "2026-07-22T01:54:57.856Z",
+  "release_ref": "docs/v9.4-release-definition.md",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "AOF can present a provider-backed action as one controlled execution candidate with go/no-go status and a production-not-authorized boundary.",
+  "before_state": "Provider readiness evidence existed across many artifacts and had to be mentally assembled.",
+  "after_state": "Operator can inspect one controlled execution candidate and audit result before go/no-go.",
+  "scenario": "AOF is considering a bounded GitHub issue creation provider-backed action.",
+  "five_minute_demo": "Run provider-controlled-execution-candidate-audit and inspect PCEC-TASK-114-V94 to see upstream refs, stop conditions, and production authorization=false.",
+  "time_saved_or_work_reduced": "No manual assembly of approval, target, rollback, outcome, learning, acceptance, value, and boundary artifacts is required.",
+  "cognitive_load_removed": "Operator no longer has to infer whether provider readiness means production execution is authorized.",
+  "capability_matrix": [
+    {
+      "capability": "Provider Execution",
+      "before": "Provider readiness evidence was distributed across approval, reproduction, rollback, outcome, learning, acceptance, value, and boundary artifacts.",
+      "after": "AOF exposes one controlled execution candidate for operator go/no-go while production execution remains unauthorized.",
+      "user_value": "Operators can judge a provider-backed action candidate without manually assembling the chain."
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    "docs/v9.4.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "governance_action": "none",
+  "not_proven": "This does not prove production provider execution safety, provider semantic correctness, credential or billing safety, actual rollback execution, or market adoption.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

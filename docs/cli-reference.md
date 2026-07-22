@@ -565,6 +565,69 @@ QIF boundary:
 - pass は approval bridge governance の structural/runtime evidence であり、実 provider 実行、rollback 実行、credential safety、billing safety、provider output correctness を証明しない
 - release sign-off では `release-state-audit` が v8.6 以降この audit を release gate として実行する
 
+### `provider-controlled-execution-candidate-record`
+
+approval、target operation、reproduction、rollback、outcome、learning、operator acceptance、product value、production boundary を 1 つの provider-backed controlled execution candidate に束ねる。`v9.4` では operator go/no-go 候補を作るだけであり、production provider execution は許可しない。
+
+```bash
+node ./src/cli.js provider-controlled-execution-candidate-record \
+  --project . \
+  --candidate-id PCEC-TASK-114-V94 \
+  --release-ref docs/v9.4-release-definition.md \
+  --work-item-id TASK-114 \
+  --work-item-ref .aof/tasks/done/TASK-114.json \
+  --mission-control-ref .aof/artifacts/visibility/current/mission-control.json \
+  --approval-ref .aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json \
+  --target-operation-ref .aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json \
+  --reproduction-ref .aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json \
+  --rollback-ref .aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json \
+  --outcome-ref .aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json \
+  --learning-ref .aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json \
+  --operator-acceptance-ref .aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json \
+  --product-value-evidence-ref .aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json \
+  --production-boundary-ref .aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json \
+  --provider-scope "bounded GitHub issue creation candidate" \
+  --controlled-execution-mode approved_preproduction_write_candidate \
+  --candidate-status ready_for_operator_go_no_go \
+  --expected-provider-effect "one bounded GitHub issue creation would be attempted only after explicit operator go/no-go" \
+  --external-write-authorized \
+  --go-no-go-decision operator_go_required \
+  --credential-boundary "issues:write only; no secrets logged" \
+  --budget-boundary "zero-dollar GitHub issue operation only" \
+  --rollback-boundary "delete or close the created issue if the candidate is executed" \
+  --monitoring-boundary "record provider response and issue URL if executed" \
+  --incident-boundary "stop and escalate on provider error, scope mismatch, or unexpected side effect" \
+  --stop-condition "production execution requested" \
+  --provenance-ref .aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json \
+  --verification-ref .aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json \
+  --not-proven "This does not prove production provider execution safety." \
+  --source-task-id TASK-114 \
+  --source-parent-session-id SESS-V94-CONTROLLED-EXECUTION
+```
+
+主な記録項目:
+
+- upstream provider evidence refs
+- controlled execution mode and candidate status
+- external write authorization boundary
+- production execution authorization boundary
+- credential, budget, rollback, monitoring, incident, and stop conditions
+- not-proven boundary
+
+### `provider-controlled-execution-candidate-audit`
+
+controlled execution candidate が upstream evidence、境界、stop condition、runtime provenance を持ち、production execution を許可していないことを検査する。
+
+```bash
+node ./src/cli.js provider-controlled-execution-candidate-audit --project . \
+  --write-artifact .aof/artifacts/provider-controlled-execution-candidates/provider-controlled-execution-candidate-audit.json
+```
+
+QIF boundary:
+
+- pass は provider-backed action が operator go/no-go 候補として構造化されていることの structural/runtime evidence である
+- pass は production execution safety、credential/billing safety、actual rollback execution、provider output correctness、market value を証明しない
+
 ### `archmap-impact-audit`
 
 `TASK-071` 以降の implementation-grade work item が、Archmap への影響判断を持っているかを narrow に検査する。これは v6.7 の Verifiable Governance 用 command であり、release sign-off 前に「アーキテクチャ影響を見たことにしていないか」を機械的に落とすためのもの。

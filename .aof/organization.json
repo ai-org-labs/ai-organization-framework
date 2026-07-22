@@ -1,7 +1,7 @@
 {
   "organization_type": "aof-organization",
   "organization_format_version": 1,
-  "mission": "Ship v9.3 as Capability-First Release Comprehension so release value starts from user-recognizable capability before mechanism.",
+  "mission": "Ship v9.4 as Provider-backed Controlled Execution Candidate so approved provider paths become operator-governed candidates without production execution authorization.",
   "project_ref": ".aof/context/active/project-orientation.json",
   "skills_ref": ".aof/skills.json",
   "capability_registry_ref": ".aof/capability-registry.json",
@@ -174,7 +174,7 @@
       "name": "Governance To Release Contract",
       "owner_team_ref": "governance-team",
       "contract_type": "release-definition",
-      "artifact_ref": "docs/v9.3-release-definition.md"
+      "artifact_ref": "docs/v9.4-release-definition.md"
     },
     {
       "contract_id": "contract-verification-to-runtime",
@@ -287,5 +287,5 @@
       "archive"
     ]
   },
-  "updated_at": "2026-07-21T14:25:46.922Z"
+  "updated_at": "2026-07-22T01:39:56.473Z"
 }

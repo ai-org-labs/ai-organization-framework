@@ -1,0 +1,60 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MRVFM04T-ECBMFX",
+  "recorded_at": "2026-07-22T01:56:45.485Z",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V94-001",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v9.4-release-definition.md",
+      "title": "Controlled execution candidate audit",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered only when provider-controlled-execution-candidate-audit passes and production_execution_authorized remains false",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-114.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/provider-controlled-execution-candidates/provider-controlled-execution-candidate-audit.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V94-002",
+      "requirement_type": "functional",
+      "source_ref": "docs/v9.4-release-definition.md",
+      "title": "Capability-first provider candidate explanation",
+      "owner_ref": "product-council",
+      "acceptance_boundary": "covered only when capability delta and product value evidence explain the operator go/no-go value before mechanism",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-114.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded release verification only",
+    "burndown_ref": "docs/v9.4-release-checklist.md",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves traceability only, not production provider safety or semantic correctness.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

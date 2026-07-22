@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-21T14:41:58.038Z",
+      "at": "2026-07-22T02:04:45.067Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-21T14:41:58.032Z",
+      "at": "2026-07-22T02:04:45.061Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -21,6 +21,28 @@
       "next": "Use the visibility packet to inspect operator-facing runtime health.",
       "refs": [
         ".aof/context/active/metrics-snapshot.json"
+      ]
+    },
+    {
+      "at": "2026-07-22T01:51:31.384Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Ship v9.4 Provider-backed Controlled Execution Candidate",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-114.json"
+      ]
+    },
+    {
+      "at": "2026-07-22T01:48:11.030Z",
+      "actor": "AOF Runtime",
+      "event_type": "next_value_slice_updated",
+      "summary": "After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+      "rationale": "Project memory was updated to reflect the current operating focus.",
+      "next": "Project the current slice into operator visibility outputs.",
+      "refs": [
+        ".aof/goals/next-value-slice.json"
       ]
     },
     {
@@ -35,17 +57,6 @@
       ]
     },
     {
-      "at": "2026-07-21T14:25:45.944Z",
-      "actor": "AOF Runtime",
-      "event_type": "next_value_slice_updated",
-      "summary": "After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation.",
-      "rationale": "Project memory was updated to reflect the current operating focus.",
-      "next": "Project the current slice into operator visibility outputs.",
-      "refs": [
-        ".aof/goals/next-value-slice.json"
-      ]
-    },
-    {
       "at": "2026-07-21T02:01:49.825Z",
       "actor": "AOF Runtime",
       "event_type": "task_completed",
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-112.json"
-      ]
-    },
-    {
-      "at": "2026-07-20T23:57:21.628Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Ship v9.1 Product Value Comprehension Gate",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-111.json"
       ]
     }
   ]

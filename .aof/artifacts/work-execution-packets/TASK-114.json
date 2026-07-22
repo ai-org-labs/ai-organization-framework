@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-execution-packet",
+  "packet_id": "WEP-MRVFLXPN-9QK1CS",
+  "recorded_at": "2026-07-22T01:56:42.347Z",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "execution_status": "completed",
+  "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-114.json",
+  "actor_handoff_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-114-V94.json",
+    ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V94.json"
+  ],
+  "execution_lineage_ref": ".aof/context/active/execution-lineage.json",
+  "verification_evidence_refs": [
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json"
+  ],
+  "stop_continue_decision": {
+    "decision": "continue",
+    "rationale": "Proceed because v9.4 candidate remains preproduction/operator-governed and production execution is false.",
+    "decided_by": "product-council",
+    "evidence_refs": [
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-114-V94.json"
+    ]
+  },
+  "not_proven": "Execution packet proves process integrity for v9.4 candidate evidence, not live provider safety or semantic correctness.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

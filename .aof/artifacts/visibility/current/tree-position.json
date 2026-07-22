@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-21T14:41:58.042Z",
+  "generated_at": "2026-07-22T02:04:45.072Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "9.3.0",
-    "active_release_track": "v9.3",
-    "release_definition_ref": "docs/v9.3-release-definition.md"
+    "active_release_version": "9.4.0",
+    "active_release_track": "v9.4",
+    "release_definition_ref": "docs/v9.4-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation."
+    "branch_summary": "After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v9.3",
+      "label": "v9.4",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v9.3 and the next concrete branch.",
-    "why_this_branch": "Ship v9.3 Capability-First Release Comprehension: release-ready claims must start from user-facing capability, capability delta, value evidence, and product review trigger before mechanism details.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation."
+    "where_are_we": "The runtime is between v9.4 and the next concrete branch.",
+    "why_this_branch": "Ship v9.4 Provider-backed Controlled Execution Candidate: bind provider approval, target, reproduction, rollback, outcome, learning, operator acceptance, product value, and production boundary evidence into one operator go/no-go candidate without authorizing production execution.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate."
   }
 }

@@ -2,66 +2,67 @@
 
 ## Version
 
-Candidate: `v9.3.0`
+Candidate: `v9.4.0`
 
 ## Release Theme
 
-Capability-First Release Comprehension.
+Provider-backed Controlled Execution Candidate.
 
-`v9.2.0` added the External Runtime Production Boundary Candidate. The next bottleneck is not another provider mechanism; it is product comprehension. Users cannot trust the release train if they cannot understand what capability changed.
+`v9.3.0` fixed the release-comprehension problem: releases must start from user-visible capability, delta, value evidence, and not-proven boundary. The next bottleneck returns to the provider track. AOF has approval, target, reproduction, rollback, outcome, learning, operator acceptance, product value, and production-boundary evidence, but those artifacts are still scattered.
 
 Human-facing wording:
 
-> v9.3 should make every release capability-first: what the user can do, what changed, why it matters, what evidence supports it, and what remains unproven must be visible before mechanism details.
+> v9.4 should let an operator inspect one controlled provider execution candidate and decide whether the provider-backed action is ready for explicit go/no-go, without mistaking that state for production execution authorization.
 
 ## Runtime Evidence Basis
 
 - runtime basis: `docs/vnext-roadmap.md`
-- previous release: `v9.2.0`
-- v9.2 evidence: `docs/v9.2-release-definition.md`, `docs/v9.2.0-release-notes.md`, `.aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json`, `.aof/context/active/release-state-audit.json`
-- current frontier candidate: `v9.3` Capability-First Release Comprehension
+- previous release: `v9.3.0`
+- v9.3 evidence: `docs/v9.3-release-definition.md`, `docs/v9.3.0-release-notes.md`, `.aof/artifacts/capability-release-deltas/capability-first-release-audit.json`, `.aof/context/active/release-state-audit.json`
+- current frontier candidate: `v9.4` Provider-backed Controlled Execution Candidate
 
 ## Required Outcomes
 
 Required:
 
-- define a product capability model
-- commit a product capability register
-- add a capability matrix that explains version differences in 30 seconds
-- record capability delta for the active release
-- add `capability-first-release-audit`
-- preserve provider preflight work as the next frontier after comprehension is fixed
+- add `provider-controlled-execution-candidate-record`
+- add `provider-controlled-execution-candidate-audit`
+- bind approval, target operation, reproduction, rollback, outcome, learning, operator acceptance, product value, and production-boundary refs into one candidate
+- make `release-state-audit` include the v9.4 candidate audit
+- update the capability matrix and release notes from user-visible capability first
+- keep production provider execution explicitly unauthorized
 
 Deferred:
 
-- controlled provider-backed execution candidate
-- autonomous provider execution
+- live production provider execution
 - hosted provider orchestration
-- semantic correctness of provider output
-- market truth beyond bounded value comprehension evidence
+- credential/billing safety proof in a live provider
+- actual rollback execution against an external provider
+- broad market adoption or semantic correctness of provider output
 
 ## Release Gates
 
-- capability-first release audit passes
+- controlled execution candidate audit passes
+- release-state audit includes the v9.4 gate
 - product value evidence audit remains green
-- release notes begin with user capability before mechanism
-- README exposes capability matrix
-- release-state audit includes the new v9.3 gate
+- capability-first release audit remains green
+- README and Quickstart point at the current release
+- full runtime tests and smoke validation pass
 
 ## Release Decision
 
 Release only if AOF makes it harder to confuse:
 
-- artifacts with capability
-- audits with user value
-- release tags with product progress
-- dashboards with comprehension
-- value explanation with market validation
+- provider readiness artifacts with a controlled execution candidate
+- operator go/no-go with production execution authorization
+- external write candidate status with credential/billing safety
+- audit pass with semantic correctness
+- release mechanism with user-visible capability
 
 ## Forward Path
 
-1. `v9.3`: Capability-First Release Comprehension
-2. `v9.4`: Provider-backed Controlled Execution Candidate
-3. `v9.5`: External Runtime Incident Drill and Recovery Evidence
-4. `v9.6`: Provider Execution Cost and Quota Boundary
-5. `v9.7`: Third-party Operator Validation for External Runtime Claims
+1. `v9.4`: Provider-backed Controlled Execution Candidate
+2. `v9.5`: External Runtime Incident Drill and Recovery Evidence
+3. `v9.6`: Provider Execution Cost and Quota Boundary
+4. `v9.7`: Third-party Operator Validation for External Runtime Claims
+5. `v9.8`: Production Execution Go/No-Go Evidence Candidate

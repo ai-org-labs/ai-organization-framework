@@ -1,0 +1,107 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MRVFGGVX-XDVDU2",
+  "recorded_at": "2026-07-22T01:52:27.261Z",
+  "session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "parent_session_id": null,
+  "actor_ref": "parent-codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "EVT-V94-1",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-22T01:52:27.259Z",
+      "summary": "Heartbeat selected the next unreleased roadmap item and required latest AOF runtime usage for release completion.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V94-2",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-22T01:52:27.260Z",
+      "summary": "AOF runtime confirmed v9.4 active release, TASK-114 frontier, and release-state audit gaps.",
+      "artifact_refs": [
+        ".aof/context/active/active-release-manifest.json",
+        ".aof/tasks/done/TASK-114.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V94-3",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-22T01:52:27.260Z",
+      "summary": "Implemented provider controlled execution candidate commands, schemas, docs, capability matrix, and release evidence.",
+      "artifact_refs": [
+        "src/commands/provider-controlled-execution-candidate-record.js",
+        "src/commands/provider-controlled-execution-candidate-audit.js",
+        "docs/v9.4-release-definition.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V94-4",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-22T01:52:27.260Z",
+      "summary": "Focused provider controlled execution candidate regression was executed before full release verification.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V94-5",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-22T01:52:27.260Z",
+      "summary": "Stop if production execution is authorized, upstream refs are missing, or v9.4 is described as live provider execution.",
+      "artifact_refs": [
+        "docs/v9.4-release-checklist.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-114.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.4-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": []
+  },
+  "risk_candidates": [
+    "Operator may confuse controlled candidate with production execution."
+  ],
+  "decision_candidates": [
+    "Keep v9.4 bounded to operator go/no-go candidate; defer live production execution."
+  ],
+  "release_ready_evidence": {
+    "claim": "Release readiness is not claimed from this session alone.",
+    "evidence_refs": [
+      "docs/v9.4-release-checklist.md"
+    ],
+    "verdict": "not_ready"
+  },
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null
+}

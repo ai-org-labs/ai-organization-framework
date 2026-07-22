@@ -1,0 +1,26 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MRVFHB68-ROK5K4",
+  "recorded_at": "2026-07-22T01:53:06.512Z",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V94-CONTROLLED-EXECUTION.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-roadmap.md",
+    "docs/vnext-release-plan.md",
+    "docs/v9.4-release-definition.md"
+  ],
+  "required_context_refs": [
+    "docs/v9.3-release-definition.md",
+    "docs/v9.2-release-definition.md",
+    ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared references were available, not production provider safety or semantic correctness.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null
+}

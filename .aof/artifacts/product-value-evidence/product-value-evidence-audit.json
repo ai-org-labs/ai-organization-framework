@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "product-value-evidence-audit",
-  "generated_at": "2026-07-21T14:34:44.404Z",
+  "generated_at": "2026-07-22T01:58:01.679Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "record_count": 3,
-    "understood_count": 3,
+    "record_count": 4,
+    "understood_count": 4,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 6,
+    "capability_row_count": 7,
     "missing_link_count": 0,
     "failing_check_count": 0
   },
@@ -51,17 +51,31 @@
       "understanding_outcome": "understood",
       "governance_action": "none",
       "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json"
+    },
+    {
+      "value_evidence_id": "PVE-TASK-114-V94",
+      "release_ref": "docs/v9.4-release-definition.md",
+      "work_item_id": "TASK-114",
+      "capability_statement": "AOF can present a provider-backed action as one controlled execution candidate with go/no-go status and a production-not-authorized boundary.",
+      "before_state": "Provider readiness evidence existed across many artifacts and had to be mentally assembled.",
+      "after_state": "Operator can inspect one controlled execution candidate and audit result before go/no-go.",
+      "scenario": "AOF is considering a bounded GitHub issue creation provider-backed action.",
+      "five_minute_demo": "Run provider-controlled-execution-candidate-audit and inspect PCEC-TASK-114-V94 to see upstream refs, stop conditions, and production authorization=false.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
     }
   ],
   "checks": [
     {
       "name": "product value evidence presence",
       "status": "pass",
-      "detail": "3 record(s) found",
+      "detail": "4 record(s) found",
       "evidence_refs": [
         ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json"
+        ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
       ]
     },
     {
@@ -705,6 +719,201 @@
         "docs/aof-product-capability-model.md",
         "docs/aof-capability-matrix.md",
         "docs/v9.3.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.4-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-114.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.4.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 capability statement",
+      "status": "pass",
+      "detail": "AOF can present a provider-backed action as one controlled execution candidate with go/no-go status and a production-not-authorized boundary.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 before state",
+      "status": "pass",
+      "detail": "Provider readiness evidence existed across many artifacts and had to be mentally assembled.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 after state",
+      "status": "pass",
+      "detail": "Operator can inspect one controlled execution candidate and audit result before go/no-go.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 product scenario",
+      "status": "pass",
+      "detail": "AOF is considering a bounded GitHub issue creation provider-backed action.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 five minute demo",
+      "status": "pass",
+      "detail": "Run provider-controlled-execution-candidate-audit and inspect PCEC-TASK-114-V94 to see upstream refs, stop conditions, and production authorization=false.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 capability matrix",
+      "status": "pass",
+      "detail": "1 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 not-proven boundary",
+      "status": "pass",
+      "detail": "This does not prove production provider execution safety, provider semantic correctness, credential or billing safety, actual rollback execution, or market adoption.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-114, source_parent_session_id=SESS-V94-CONTROLLED-EXECUTION",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-114-V94 missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        "docs/v9.4-release-definition.md",
+        ".aof/tasks/done/TASK-114.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
       ]
     }
   ],

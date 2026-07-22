@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "After v9.3.0, resume the provider track as v9.4 Provider-backed Controlled Execution Candidate, then v9.5 incident recovery evidence, v9.6 cost/quota boundary, and v9.7 third-party operator validation.",
-  "updated_at": "2026-07-21T14:25:45.944Z",
+  "content": "After v9.4.0, advance v9.5 incident recovery evidence, v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, and v9.8 production execution go/no-go evidence candidate.",
+  "updated_at": "2026-07-22T01:48:11.030Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V93-CAPABILITY-FIRST",
+  "source_session_id": "SESS-V94-CONTROLLED-EXECUTION",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

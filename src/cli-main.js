@@ -131,6 +131,8 @@ Usage:
   aof provider-learning-loop-audit [--project <path>] [--write-artifact <path>]
   aof provider-production-boundary-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --operator-acceptance-ref <path> --product-value-evidence-ref <path> --provider-scope "<text>" --allowed-operation-class <read_only|write_preflight|controlled_write_candidate|production_write> --execution-eligibility <candidate|blocked|not_assessed> --credential-boundary "<text>" --budget-boundary "<text>" --revocation-boundary "<text>" --rollback-boundary "<text>" --monitoring-boundary "<text>" --incident-boundary "<text>" --human-go-no-go-boundary "<text>" --product-value-comprehension-boundary "<text>" --go-no-go-status <authorized|not_authorized|blocked|escalated> --governance-action <block_production_execution|allow_preproduction_review|escalate_production_review> --stop-condition "<text>" [--stop-condition "<text>"] --provenance-ref <path> [--provenance-ref <path>] --verification-ref <path> [--verification-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--boundary-id <id>] [--production-execution-authorized] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-production-boundary-audit [--project <path>] [--write-artifact <path>]
+  aof provider-controlled-execution-candidate-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --approval-ref <path> --target-operation-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --operator-acceptance-ref <path> --product-value-evidence-ref <path> --production-boundary-ref <path> --provider-scope "<text>" --controlled-execution-mode <dry_run_replay|approved_preproduction_write_candidate|blocked> --candidate-status <ready_for_operator_go_no_go|blocked|not_ready> --expected-provider-effect "<text>" [--external-write-authorized] [--production-execution-authorized] --go-no-go-decision <not_requested|operator_go_required|blocked|defer|approved_for_preproduction_only> --credential-boundary "<text>" --budget-boundary "<text>" --rollback-boundary "<text>" --monitoring-boundary "<text>" --incident-boundary "<text>" --stop-condition "<text>" [--stop-condition "<text>"] --provenance-ref <path> [--provenance-ref <path>] --verification-ref <path> [--verification-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--candidate-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof provider-controlled-execution-candidate-audit [--project <path>] [--write-artifact <path>]
   aof operator-acceptance-drill-record --project <path> --operator-ref <ref> --work-item-id <TASK-id> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --mission-control-ref <path> --decision <accept|stop|rollback|escalate|defer> --decision-rationale "<text>" --accepted-risk "<text>" --blocker-summary "<text>" --next-action "<text>" --safety-boundary "<text>" --not-proven "<text>" --evidence-ref <path> [--evidence-ref <path>] --source-task-id <TASK-id> --source-parent-session-id <id> [--drill-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-acceptance-drill-audit [--project <path>] [--write-artifact <path>]
   aof product-value-evidence-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --capability-statement "<text>" --before-state "<text>" --after-state "<text>" --scenario "<text>" --five-minute-demo "<text>" --time-saved-or-work-reduced "<text>" --cognitive-load-removed "<text>" --capability-row-json '<json>' [--capability-row-json '<json>'] --understanding-outcome <understood|partially_understood|not_understood|not_checked> --evidence-ref <path> [--evidence-ref <path>] --governance-action <none|improve_release_explanation|reopen_need|block_release_claim|escalate_product_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--value-evidence-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1555,6 +1557,50 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "provider-production-boundary-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "provider-controlled-execution-candidate-record"
+            ? {
+                project: ".",
+                candidateId: "",
+                releaseRef: "",
+                workItemId: "",
+                workItemRef: "",
+                missionControlRef: "",
+                approvalRef: "",
+                targetOperationRef: "",
+                reproductionRef: "",
+                rollbackRef: "",
+                outcomeRef: "",
+                learningRef: "",
+                operatorAcceptanceRef: "",
+                productValueEvidenceRef: "",
+                productionBoundaryRef: "",
+                providerScope: "",
+                controlledExecutionMode: "blocked",
+                candidateStatus: "not_ready",
+                expectedProviderEffect: "",
+                externalWriteAuthorized: false,
+                productionExecutionAuthorized: false,
+                goNoGoDecision: "not_requested",
+                credentialBoundary: "",
+                budgetBoundary: "",
+                rollbackBoundary: "",
+                monitoringBoundary: "",
+                incidentBoundary: "",
+                stopConditions: [],
+                provenanceRefs: [],
+                verificationRefs: [],
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "provider-controlled-execution-candidate-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -3947,6 +3993,40 @@ function parseArgs(argv) {
     }
     if (part === "--boundary-id") {
       options.boundaryId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--candidate-id") {
+      options.candidateId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--production-boundary-ref") {
+      options.productionBoundaryRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--controlled-execution-mode") {
+      options.controlledExecutionMode = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--candidate-status") {
+      options.candidateStatus = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--expected-provider-effect") {
+      options.expectedProviderEffect = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--external-write-authorized") {
+      options.externalWriteAuthorized = true;
+      continue;
+    }
+    if (part === "--go-no-go-decision") {
+      options.goNoGoDecision = rest[i + 1] ?? "";
       i += 1;
       continue;
     }
@@ -7141,6 +7221,68 @@ function parseArgs(argv) {
   if (command === "provider-production-boundary-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `provider-production-boundary-audit`.");
+    }
+  }
+
+  if (command === "provider-controlled-execution-candidate-record") {
+    for (const [flag, value] of [
+      ["--release-ref", options.releaseRef],
+      ["--work-item-id", options.workItemId],
+      ["--work-item-ref", options.workItemRef],
+      ["--mission-control-ref", options.missionControlRef],
+      ["--approval-ref", options.approvalRef],
+      ["--target-operation-ref", options.targetOperationRef],
+      ["--reproduction-ref", options.reproductionRef],
+      ["--rollback-ref", options.rollbackRef],
+      ["--outcome-ref", options.outcomeRef],
+      ["--learning-ref", options.learningRef],
+      ["--operator-acceptance-ref", options.operatorAcceptanceRef],
+      ["--product-value-evidence-ref", options.productValueEvidenceRef],
+      ["--production-boundary-ref", options.productionBoundaryRef],
+      ["--provider-scope", options.providerScope],
+      ["--controlled-execution-mode", options.controlledExecutionMode],
+      ["--candidate-status", options.candidateStatus],
+      ["--expected-provider-effect", options.expectedProviderEffect],
+      ["--go-no-go-decision", options.goNoGoDecision],
+      ["--credential-boundary", options.credentialBoundary],
+      ["--budget-boundary", options.budgetBoundary],
+      ["--rollback-boundary", options.rollbackBoundary],
+      ["--monitoring-boundary", options.monitoringBoundary],
+      ["--incident-boundary", options.incidentBoundary],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`provider-controlled-execution-candidate-record\`.`);
+      }
+    }
+    if (!["dry_run_replay", "approved_preproduction_write_candidate", "blocked"].includes(options.controlledExecutionMode)) {
+      throw new Error("Invalid --controlled-execution-mode for `provider-controlled-execution-candidate-record`.");
+    }
+    if (!["ready_for_operator_go_no_go", "blocked", "not_ready"].includes(options.candidateStatus)) {
+      throw new Error("Invalid --candidate-status for `provider-controlled-execution-candidate-record`.");
+    }
+    if (!["not_requested", "operator_go_required", "blocked", "defer", "approved_for_preproduction_only"].includes(options.goNoGoDecision)) {
+      throw new Error("Invalid --go-no-go-decision for `provider-controlled-execution-candidate-record`.");
+    }
+    if (options.productionExecutionAuthorized) {
+      throw new Error("`provider-controlled-execution-candidate-record` cannot authorize production execution in v9.4.");
+    }
+    if (!Array.isArray(options.stopConditions) || options.stopConditions.length === 0) {
+      throw new Error("At least one --stop-condition is required for `provider-controlled-execution-candidate-record`.");
+    }
+    if (!Array.isArray(options.provenanceRefs) || options.provenanceRefs.length === 0) {
+      throw new Error("At least one --provenance-ref is required for `provider-controlled-execution-candidate-record`.");
+    }
+    if (!Array.isArray(options.verificationRefs) || options.verificationRefs.length === 0) {
+      throw new Error("At least one --verification-ref is required for `provider-controlled-execution-candidate-record`.");
+    }
+  }
+
+  if (command === "provider-controlled-execution-candidate-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `provider-controlled-execution-candidate-audit`.");
     }
   }
 

@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-21T14:27:04.492Z",
+  "generated_at": "2026-07-22T01:57:58.669Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2899,6 +2899,97 @@
       ],
       "outputs": [
         "provider check summary"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-controlled-execution-candidate-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify controlled provider execution candidates have complete upstream evidence and remain bounded to operator go/no-go or preproduction review without authorizing production execution.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider controlled execution candidate audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-controlled-execution-candidate-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a controlled provider execution candidate that binds the approved target, approval, reproduction, rollback, outcome, learning, operator acceptance, product value, and production boundary evidence before any provider-backed action advances.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "release-ref",
+        "work-item-id",
+        "work-item-ref",
+        "mission-control-ref",
+        "approval-ref",
+        "target-operation-ref",
+        "reproduction-ref",
+        "rollback-ref",
+        "outcome-ref",
+        "learning-ref",
+        "operator-acceptance-ref",
+        "product-value-evidence-ref",
+        "production-boundary-ref",
+        "provider-scope",
+        "controlled-execution-mode",
+        "candidate-status",
+        "expected-provider-effect",
+        "external-write-authorized?",
+        "production-execution-authorized?",
+        "go-no-go-decision",
+        "credential-boundary",
+        "budget-boundary",
+        "rollback-boundary",
+        "monitoring-boundary",
+        "incident-boundary",
+        "stop-condition",
+        "provenance-ref",
+        "verification-ref",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider controlled execution candidate artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

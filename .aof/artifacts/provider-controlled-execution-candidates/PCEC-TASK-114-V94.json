@@ -1,0 +1,48 @@
+{
+  "artifact_type": "provider-controlled-execution-candidate-record",
+  "candidate_id": "PCEC-TASK-114-V94",
+  "recorded_at": "2026-07-22T01:55:20.833Z",
+  "release_ref": "docs/v9.4-release-definition.md",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+  "target_operation_ref": ".aof/artifacts/provider-operation-targets/POT-TASK-107-GITHUB-ISSUE.json",
+  "reproduction_ref": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+  "rollback_ref": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+  "outcome_ref": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+  "learning_ref": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+  "operator_acceptance_ref": ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+  "product_value_evidence_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+  "production_boundary_ref": ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json",
+  "provider_scope": "bounded GitHub issue creation candidate from self-hosting provider chain",
+  "controlled_execution_mode": "approved_preproduction_write_candidate",
+  "candidate_status": "ready_for_operator_go_no_go",
+  "expected_provider_effect": "one bounded GitHub issue creation would be attempted only after explicit operator go/no-go",
+  "external_write_authorized": true,
+  "production_execution_authorized": false,
+  "go_no_go_decision": "operator_go_required",
+  "credential_boundary": "issues:write scope only; no secrets may be recorded in artifacts",
+  "budget_boundary": "zero-dollar GitHub issue operation only; no billing-bearing provider operation",
+  "rollback_boundary": "delete or close created issue if the candidate is executed and must be rolled back",
+  "monitoring_boundary": "record provider response, created issue URL, and outcome evidence if executed",
+  "incident_boundary": "stop and escalate on provider error, scope mismatch, unexpected side effect, or missing rollback route",
+  "stop_conditions": [
+    "production execution authorization requested",
+    "credential scope mismatch",
+    "rollback proof unavailable"
+  ],
+  "provenance_refs": [
+    ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+    ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json"
+  ],
+  "verification_refs": [
+    ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json",
+    ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+  ],
+  "not_proven": "This candidate does not prove production provider execution safety, provider semantic correctness, credential safety, billing safety, actual rollback execution, or market adoption.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,33 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-MRVFHS6T-5TCT3C",
+  "recorded_at": "2026-07-22T01:53:28.565Z",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "readiness_status": "ready",
+  "goal": "Ship a provider-backed controlled execution candidate without production execution authorization.",
+  "risk": "AOF may overclaim provider execution readiness or make operators assemble scattered evidence manually.",
+  "loss_boundary": "Do not call v9.4 release-ready unless candidate audit, capability delta, product value evidence, and release-state audit are green, and production execution remains false.",
+  "acceptance_gates": [
+    "provider-controlled-execution-candidate-audit passes",
+    "release-state-audit includes the v9.4 candidate gate"
+  ],
+  "evidence_plan": [
+    "schemas, commands, candidate artifact, capability delta, product value evidence, focused tests, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "product-council",
+  "stop_conditions": [
+    "Stop if production_execution_authorized is true",
+    "Stop if upstream provider evidence refs are missing"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "unknown",
+  "notes": null,
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null
+}

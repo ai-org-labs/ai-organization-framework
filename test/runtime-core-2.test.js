@@ -43,6 +43,8 @@ import { providerAdapterAuditCommand } from "../src/commands/provider-adapter-au
 import { providerAdapterPilotAuditCommand } from "../src/commands/provider-adapter-pilot-audit.js";
 import { providerAdapterPilotRecordCommand } from "../src/commands/provider-adapter-pilot-record.js";
 import { providerAdapterRecordCommand } from "../src/commands/provider-adapter-record.js";
+import { providerControlledExecutionCandidateAuditCommand } from "../src/commands/provider-controlled-execution-candidate-audit.js";
+import { providerControlledExecutionCandidateRecordCommand } from "../src/commands/provider-controlled-execution-candidate-record.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
 import { providerExecutionReproductionAuditCommand } from "../src/commands/provider-execution-reproduction-audit.js";
@@ -4334,6 +4336,135 @@ test("provider production boundary audit rejects production authorization claims
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("production execution not authorized")));
   assert.ok(audit.summary.errors.some((entry) => entry.includes("go/no-go blocks production")));
+});
+
+test("provider controlled execution candidate commands gate a preproduction provider-backed candidate", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const refs = [
+    "docs/v9.4-release-definition.md",
+    ".aof/tasks/open/TASK-114.json",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    ".aof/artifacts/provider-operation-targets/POT-TEST.json",
+    ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    ".aof/artifacts/product-value-evidence/PVE-TEST.json",
+    ".aof/artifacts/provider-production-boundaries/PPB-TEST.json",
+    "docs/evidence.md"
+  ];
+  for (const ref of refs) {
+    await fs.mkdir(path.dirname(path.join(projectRoot, ref)), { recursive: true });
+    await fs.writeFile(path.join(projectRoot, ref), "{}\n", "utf8");
+  }
+
+  await providerControlledExecutionCandidateRecordCommand({
+    project: projectRoot,
+    candidateId: "PCEC-TEST-V94",
+    releaseRef: "docs/v9.4-release-definition.md",
+    workItemId: "TASK-114",
+    workItemRef: ".aof/tasks/open/TASK-114.json",
+    missionControlRef: ".aof/artifacts/visibility/current/mission-control.json",
+    approvalRef: ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    targetOperationRef: ".aof/artifacts/provider-operation-targets/POT-TEST.json",
+    reproductionRef: ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    rollbackRef: ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    outcomeRef: ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    learningRef: ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    operatorAcceptanceRef: ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    productValueEvidenceRef: ".aof/artifacts/product-value-evidence/PVE-TEST.json",
+    productionBoundaryRef: ".aof/artifacts/provider-production-boundaries/PPB-TEST.json",
+    providerScope: "bounded GitHub issue creation preproduction candidate",
+    controlledExecutionMode: "approved_preproduction_write_candidate",
+    candidateStatus: "ready_for_operator_go_no_go",
+    expectedProviderEffect: "one bounded issue creation would be attempted only after explicit operator go/no-go",
+    externalWriteAuthorized: true,
+    productionExecutionAuthorized: false,
+    goNoGoDecision: "operator_go_required",
+    credentialBoundary: "scoped deploy key or token must be operator-provided and revocable",
+    budgetBoundary: "maximum one provider call and zero unbounded billing paths",
+    rollbackBoundary: "rollback proof must stay ready before execution",
+    monitoringBoundary: "operator must see attempt, result, and failure signal",
+    incidentBoundary: "stop and escalation path is required before live attempt",
+    stopConditions: ["missing operator go/no-go", "credential scope mismatch", "rollback proof unavailable"],
+    provenanceRefs: ["docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    notProven: "This is a controlled execution candidate; it does not prove production execution safety or provider semantic correctness.",
+    sourceTaskId: "TASK-114",
+    sourceParentSessionId: "SESS-V94-TEST"
+  });
+
+  const audit = await providerControlledExecutionCandidateAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.candidate_count, 1);
+  assert.equal(audit.summary.summary.ready_count, 1);
+  assert.equal(audit.summary.summary.external_write_authorized_count, 1);
+  assert.equal(audit.summary.summary.production_authorized_count, 0);
+});
+
+test("provider controlled execution candidate audit rejects production execution authorization", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const refs = [
+    "docs/v9.4-release-definition.md",
+    ".aof/tasks/open/TASK-114.json",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    ".aof/artifacts/provider-operation-targets/POT-TEST.json",
+    ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    ".aof/artifacts/product-value-evidence/PVE-TEST.json",
+    ".aof/artifacts/provider-production-boundaries/PPB-TEST.json",
+    "docs/evidence.md"
+  ];
+  for (const ref of refs) {
+    await fs.mkdir(path.dirname(path.join(projectRoot, ref)), { recursive: true });
+    await fs.writeFile(path.join(projectRoot, ref), "{}\n", "utf8");
+  }
+
+  await providerControlledExecutionCandidateRecordCommand({
+    project: projectRoot,
+    candidateId: "PCEC-TEST-V94-BAD",
+    releaseRef: "docs/v9.4-release-definition.md",
+    workItemId: "TASK-114",
+    workItemRef: ".aof/tasks/open/TASK-114.json",
+    missionControlRef: ".aof/artifacts/visibility/current/mission-control.json",
+    approvalRef: ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    targetOperationRef: ".aof/artifacts/provider-operation-targets/POT-TEST.json",
+    reproductionRef: ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    rollbackRef: ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    outcomeRef: ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    learningRef: ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    operatorAcceptanceRef: ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    productValueEvidenceRef: ".aof/artifacts/product-value-evidence/PVE-TEST.json",
+    productionBoundaryRef: ".aof/artifacts/provider-production-boundaries/PPB-TEST.json",
+    providerScope: "bad negative test",
+    controlledExecutionMode: "approved_preproduction_write_candidate",
+    candidateStatus: "ready_for_operator_go_no_go",
+    expectedProviderEffect: "bad test",
+    externalWriteAuthorized: true,
+    productionExecutionAuthorized: true,
+    goNoGoDecision: "approved_for_preproduction_only",
+    credentialBoundary: "defined",
+    budgetBoundary: "defined",
+    rollbackBoundary: "defined",
+    monitoringBoundary: "defined",
+    incidentBoundary: "defined",
+    stopConditions: ["stop"],
+    provenanceRefs: ["docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    notProven: "negative test",
+    sourceTaskId: "TASK-114",
+    sourceParentSessionId: "SESS-V94-TEST"
+  });
+
+  const audit = await providerControlledExecutionCandidateAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("production execution not authorized")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

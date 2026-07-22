@@ -1,0 +1,25 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-114-V94",
+  "recorded_at": "2026-07-22T01:54:26.526Z",
+  "release_version": "9.4.0",
+  "release_ref": "docs/v9.4-release-definition.md",
+  "work_item_id": "TASK-114",
+  "work_item_ref": ".aof/tasks/done/TASK-114.json",
+  "one_minute_value_explanation": "AOF can now show one provider-backed controlled execution candidate for operator go/no-go instead of forcing manual inspection across scattered readiness artifacts.",
+  "thirty_second_version_delta": "v9.4 turns provider readiness evidence into one controlled execution candidate while keeping production execution unauthorized.",
+  "new_capability_ids": [],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-EXECUTION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+  ],
+  "product_review_trigger": "If users read v9.4 as live production provider execution, reopen as a product framing and safety-boundary issue.",
+  "not_proven": "Capability delta does not prove live provider execution, semantic correctness, credential safety, billing safety, or market adoption.",
+  "source_task_id": "TASK-114",
+  "source_parent_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_decision_record_id": null,
+  "notes": null
+}
