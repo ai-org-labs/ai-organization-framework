@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MRXQUE24-WWENM0",
+  "recorded_at": "2026-07-23T16:46:44.908Z",
+  "release_version": "9.5.0",
+  "release_ref": "docs/v9.5-release-definition.md",
+  "work_item_id": "TASK-115",
+  "work_item_ref": ".aof/tasks/done/TASK-115.json",
+  "one_minute_value_explanation": "AOF can now show the incident recovery path before a provider-backed action advances: detect, contain, rollback, recover, notify, learn, and block or resume through governance.",
+  "thirty_second_version_delta": "v9.4 showed one controlled provider execution candidate. v9.5 adds the failure-handling drill for that candidate.",
+  "new_capability_ids": [
+    "PCAP-PROVIDER-INCIDENT-RECOVERY"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-EXECUTION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+  ],
+  "product_review_trigger": "If an operator still cannot explain what happens when provider execution fails, reopen product review instead of treating this as documentation only.",
+  "not_proven": "This capability delta does not prove live incident recovery performance, actual rollback execution, third-party adoption, or market value.",
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null,
+  "notes": null
+}

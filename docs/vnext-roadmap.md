@@ -470,25 +470,25 @@ execution can be considered. v9.3 added capability-first release comprehension,
 so provider progress must be explained as user-visible capability before
 mechanism details.
 
-The next proof is a controlled provider execution candidate: whether AOF can
-bind approval, target operation, reproduction, rollback, outcome, learning,
-operator acceptance, product value, and production-boundary evidence into one
-operator go/no-go candidate without authorizing production execution.
+The next proof is incident recovery evidence for a controlled provider execution
+candidate: whether AOF can bind detection, containment, rollback, recovery,
+operator notification, learning update, and resume/stop governance before the
+external runtime advances.
 
 Forward path:
 
-1. `v9.4`: Provider-backed Controlled Execution Candidate
-2. `v9.5`: External Runtime Incident Drill and Recovery Evidence
-3. `v9.6`: Provider Execution Cost and Quota Boundary
-4. `v9.7`: Third-party Operator Validation for External Runtime Claims
-5. `v9.8`: Production Execution Go/No-Go Evidence Candidate
+1. `v9.5`: External Runtime Incident Drill and Recovery Evidence
+2. `v9.6`: Provider Execution Cost and Quota Boundary
+3. `v9.7`: Third-party Operator Validation for External Runtime Claims
+4. `v9.8`: Production Execution Go/No-Go Evidence Candidate
+5. `v9.9`: External Runtime Production Readiness Review
 
 Priority order:
 
-1. `v9.4`: Provider-backed Controlled Execution Candidate
-2. `v9.5`: External Runtime Incident Drill and Recovery Evidence
-3. `v9.6`: Provider Execution Cost and Quota Boundary
-4. `v9.7`: Third-party Operator Validation for External Runtime Claims
+1. `v9.5`: External Runtime Incident Drill and Recovery Evidence
+2. `v9.6`: Provider Execution Cost and Quota Boundary
+3. `v9.7`: Third-party Operator Validation for External Runtime Claims
+4. `v9.8`: Production Execution Go/No-Go Evidence Candidate
 
 Canonical v7.x roadmap:
 

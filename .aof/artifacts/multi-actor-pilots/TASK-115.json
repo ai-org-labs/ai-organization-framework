@@ -1,0 +1,24 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-TASK-115-V95",
+  "recorded_at": "2026-07-23T16:47:36.000Z",
+  "work_item_id": "TASK-115",
+  "work_item_ref": ".aof/tasks/done/TASK-115.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V95-INCIDENT-RECOVERY.json",
+  "core_council_roles": ["visionary", "builder", "guardian"],
+  "actor_roster_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-115-V95.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-115-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-115-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-115-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-115-V95.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-115.json",
+  "maker_checker_council_boundary": "Builder implements the recovery contract, Guardian verifies hidden resume authority fails, Product Council approves bounded release framing.",
+  "not_proven": "Multi-actor evidence proves governed handoff only, not live incident recovery performance.",
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null,
+  "notes": null
+}

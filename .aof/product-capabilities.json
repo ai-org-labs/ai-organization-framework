@@ -55,7 +55,16 @@
       "user_value": "Users can see when a provider-backed action is only a controlled candidate and cannot be confused with production execution.",
       "first_version": "v8.5.0",
       "status": "improved",
-      "evidence_refs": ["docs/v8.5.0-release-notes.md", "docs/v9.2.0-release-notes.md", "docs/v9.4.0-release-notes.md"]
+      "evidence_refs": ["docs/v8.5.0-release-notes.md", "docs/v9.2.0-release-notes.md", "docs/v9.4.0-release-notes.md", "docs/v9.5.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-INCIDENT-RECOVERY",
+      "name": "Provider Incident Recovery",
+      "description": "AOF can record and audit a provider incident drill that links a controlled execution candidate to detection, containment, rollback, recovery, notification, learning, and resume/stop governance.",
+      "user_value": "Users can inspect what happens if a provider-backed action fails before allowing the action to advance.",
+      "first_version": "v9.5.0",
+      "status": "available",
+      "evidence_refs": ["docs/v9.5-release-definition.md", "docs/v9.5.0-release-notes.md"]
     },
     {
       "capability_id": "PCAP-ROLLBACK",

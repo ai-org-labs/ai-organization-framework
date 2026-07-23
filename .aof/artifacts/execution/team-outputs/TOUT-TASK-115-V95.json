@@ -1,0 +1,28 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-23T16:47:20.000Z",
+  "team_output_id": "TOUT-TASK-115-V95",
+  "team_id": "runtime-team",
+  "stage": "planning",
+  "expected_roles": ["visionary", "builder", "guardian"],
+  "received_roles": ["visionary", "builder", "guardian"],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Council should approve v9.5 only if incident recovery audit and release-state audit are green and production recovery claims remain not-proven.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-115-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-115-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-115-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v9.5-release-definition.md",
+    "src/commands/provider-incident-recovery-audit.js",
+    ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"
+  ],
+  "decision_required": false,
+  "summary": "Runtime team produced a bounded provider incident recovery contract and evidence chain.",
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null
+}

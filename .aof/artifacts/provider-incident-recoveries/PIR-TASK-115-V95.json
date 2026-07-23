@@ -1,0 +1,48 @@
+{
+  "artifact_type": "provider-incident-recovery-record",
+  "recovery_id": "PIR-TASK-115-V95",
+  "recorded_at": "2026-07-23T16:45:36.194Z",
+  "release_ref": "docs/v9.5-release-definition.md",
+  "work_item_id": "TASK-115",
+  "work_item_ref": ".aof/tasks/done/TASK-115.json",
+  "candidate_ref": ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+  "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+  "reproduction_ref": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json",
+  "rollback_ref": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json",
+  "outcome_ref": ".aof/artifacts/provider-outcome-evidence/POE-TASK-109-GITHUB-ISSUE.json",
+  "learning_ref": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+  "operator_acceptance_ref": ".aof/artifacts/operator-acceptance-drills/OAD-TASK-110-V90-SELF-HOSTING.json",
+  "production_boundary_ref": ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json",
+  "incident_scenario": "Approved preproduction provider candidate returns unexpected provider failure or scope mismatch before retry.",
+  "detection_signal": "Provider response status, scope mismatch, or unexpected side effect is recorded before any retry.",
+  "severity": "high",
+  "containment_action": "Stop further provider calls, freeze the candidate, preserve response evidence, and require operator review.",
+  "rollback_decision": "rollback_ready",
+  "recovery_action": "Use rollback proof to close/delete the created issue if a side effect occurred; otherwise keep execution stopped.",
+  "resume_decision": "defer",
+  "operator_notification": "Notify the operator with candidate, approval, response, rollback, containment, and learning refs.",
+  "learning_update_ref": ".aof/artifacts/provider-learning-loop/PLL-TASK-109-GITHUB-ISSUE.json",
+  "governance_action": "rollback_then_review",
+  "recovery_status": "ready_for_drill",
+  "time_to_detect_boundary": "Detection must happen before any retry or second provider call.",
+  "time_to_contain_boundary": "Containment must happen immediately after unexpected provider response.",
+  "data_loss_boundary": "No customer data or secret material may be sent or written to AOF artifacts.",
+  "customer_impact_boundary": "No production customer impact is allowed in this drill.",
+  "stop_conditions": [
+    "unexpected provider status",
+    "credential or scope mismatch",
+    "operator cannot reconstruct incident path"
+  ],
+  "evidence_refs": [
+    "docs/v9.5-release-definition.md",
+    ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json"
+  ],
+  "verification_refs": [
+    "test/runtime-core-2.test.js"
+  ],
+  "not_proven": "This proves incident recovery drill contract completeness only, not live provider recovery performance, actual rollback execution, credential safety, billing safety, customer impact absence, or market value.",
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null,
+  "notes": null
+}

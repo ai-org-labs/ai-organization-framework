@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-MRXQU4IE-K5QKP4",
+  "recorded_at": "2026-07-23T16:46:32.534Z",
+  "release_ref": "docs/v9.5-release-definition.md",
+  "work_item_id": "TASK-115",
+  "work_item_ref": ".aof/tasks/done/TASK-115.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "Operators can inspect provider incident recovery before advancing a provider-backed action.",
+  "before_state": "AOF could show a controlled provider execution candidate, but failure handling was mostly boundary text.",
+  "after_state": "AOF records detection, containment, rollback decision, recovery action, operator notification, learning update, and resume/stop governance as auditable recovery evidence.",
+  "scenario": "A GitHub issue creation candidate receives an unexpected provider response; AOF stops calls, preserves evidence, checks rollback readiness, notifies the operator, and defers resume until governance review.",
+  "five_minute_demo": "Run provider-incident-recovery-audit and release-state-audit from a clean checkout.",
+  "time_saved_or_work_reduced": "Operator no longer manually reconstructs failure handling from candidate, boundary, rollback, outcome, and learning artifacts.",
+  "cognitive_load_removed": "Operator can distinguish controlled candidate, incident drill, and production recovery performance without reading every raw JSON artifact.",
+  "capability_matrix": [
+    {
+      "capability": "Provider Incident Recovery",
+      "before": "Incident handling was mostly boundary text attached to provider execution readiness.",
+      "after": "Incident handling is a dedicated drill with detection, containment, rollback, recovery, notification, learning, and resume/stop governance.",
+      "user_value": "Operators can inspect failure handling before advancing provider execution."
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+    "docs/aof-capability-matrix.md"
+  ],
+  "governance_action": "none",
+  "not_proven": "This value evidence does not prove live incident recovery performance, actual rollback execution, third-party adoption, or market value.",
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,79 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-115-V95",
+  "recorded_at": "2026-07-23T16:47:42.000Z",
+  "work_item_id": "TASK-115",
+  "work_item_ref": ".aof/tasks/done/TASK-115.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V95-INCIDENT-RECOVERY.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export summarizes local runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V95-1",
+      "event_type": "prompt",
+      "summary": "Heartbeat required next release completion using AOF runtime.",
+      "artifact_refs": ["docs/vnext-roadmap.md"]
+    },
+    {
+      "event_id": "EVT-V95-2",
+      "event_type": "response",
+      "summary": "v9.5 was selected as the next provider track release because failure handling is the next risk after controlled execution candidate evidence.",
+      "artifact_refs": ["docs/vnext-release-plan.md"]
+    },
+    {
+      "event_id": "EVT-V95-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime opened TASK-115 and wrote provider incident recovery evidence.",
+      "artifact_refs": [".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"]
+    },
+    {
+      "event_id": "EVT-V95-4",
+      "event_type": "artifact_write",
+      "summary": "v9.5 incident recovery docs, schemas, commands, capability matrix, and release evidence were generated.",
+      "artifact_refs": ["docs/v9.5-release-definition.md"]
+    },
+    {
+      "event_id": "EVT-V95-5",
+      "event_type": "verification",
+      "summary": "Incident recovery audit, capability audit, product value audit, release-state audit, and tests are release evidence.",
+      "artifact_refs": ["docs/v9.5-release-checklist.md"]
+    },
+    {
+      "event_id": "EVT-V95-6",
+      "event_type": "blocker",
+      "summary": "Production recovery performance remains not proven; v9.5 only creates incident recovery drill evidence.",
+      "artifact_refs": ["docs/v9.5-release-definition.md"]
+    },
+    {
+      "event_id": "EVT-V95-7",
+      "event_type": "stop_condition",
+      "summary": "Stop if hidden resume authority can pass or incident recovery is described as production proof.",
+      "artifact_refs": ["docs/v9.5-release-definition.md"]
+    }
+  ],
+  "links": {
+    "task_refs": [".aof/tasks/done/TASK-115.json"],
+    "requirement_refs": ["docs/v9.5-release-definition.md"],
+    "test_evidence_refs": ["test/runtime-core-2.test.js"],
+    "artifact_refs": [".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"],
+    "risk_candidates": [
+      "Incident recovery drill could be read as live recovery performance if not-proven wording is weak."
+    ],
+    "decision_candidates": [
+      "Keep v9.5 as recovery drill evidence and defer live production recovery claims."
+    ],
+    "release_ready_evidence_refs": ["docs/v9.5-release-checklist.md"]
+  },
+  "redaction_boundary": "No secrets, credentials, provider payload bodies, or billing data are exported.",
+  "release_ready_boundary": "Release readiness is bounded to structural/runtime recovery evidence and tests.",
+  "not_proven": "Session export does not prove live provider recovery, provider output correctness, or market adoption.",
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null,
+  "notes": null
+}

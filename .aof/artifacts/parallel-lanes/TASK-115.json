@@ -1,0 +1,56 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-TASK-115-V95",
+  "recorded_at": "2026-07-23T16:47:38.000Z",
+  "work_item_id": "TASK-115",
+  "work_item_ref": ".aof/tasks/done/TASK-115.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-115.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-115.json",
+  "lanes": [
+    {
+      "lane_id": "recovery-contract",
+      "goal": "define and implement provider incident recovery record/audit",
+      "owner_actor_ref": "builder",
+      "input_refs": ["docs/v9.5-release-definition.md"],
+      "expected_output": "schema and runtime commands",
+      "output_refs": [
+        "schemas/aof-provider-incident-recovery-record.schema.json",
+        "src/commands/provider-incident-recovery-audit.js"
+      ],
+      "verification_refs": ["test/runtime-core-2.test.js"],
+      "stop_condition": "stop if hidden resume authority can pass",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "recovery-value-framing",
+      "goal": "explain incident recovery value without claiming production recovery performance",
+      "owner_actor_ref": "visionary",
+      "input_refs": ["docs/aof-capability-matrix.md"],
+      "expected_output": "capability delta, product value evidence, release notes",
+      "output_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5.0-release-notes.md"
+      ],
+      "verification_refs": [".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"],
+      "stop_condition": "stop if users may read v9.5 as live production incident recovery proof",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": ["recovery-contract", "recovery-value-framing"],
+    "conflict_summary": "No unresolved lane conflict; both lanes require incident recovery to remain drill evidence.",
+    "blocker_summary": "No active blocker after recovery and capability evidence are present.",
+    "merge_rationale": "Runtime contract and product framing are joined by the incident recovery artifact and capability delta.",
+    "council_authority": "product-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-115-V95.json",
+  "not_proven": "Parallel lane evidence does not prove live provider recovery, credential safety, billing safety, or market adoption.",
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null,
+  "notes": null
+}

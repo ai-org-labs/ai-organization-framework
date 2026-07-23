@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-incident-recovery-audit.schema.json",
+  "title": "AOF Provider Incident Recovery Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "summary",
+    "recoveries",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "provider-incident-recovery-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recovery_count",
+        "ready_count",
+        "blocked_count",
+        "resume_allowed_count",
+        "stop_or_escalate_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "recovery_count": { "type": "integer", "minimum": 0 },
+        "ready_count": { "type": "integer", "minimum": 0 },
+        "blocked_count": { "type": "integer", "minimum": 0 },
+        "resume_allowed_count": { "type": "integer", "minimum": 0 },
+        "stop_or_escalate_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "recoveries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "recovery_id",
+          "release_ref",
+          "work_item_id",
+          "severity",
+          "rollback_decision",
+          "resume_decision",
+          "governance_action",
+          "recovery_status",
+          "artifact_ref"
+        ],
+        "properties": {
+          "recovery_id": { "type": "string" },
+          "release_ref": { "type": "string" },
+          "work_item_id": { "type": "string" },
+          "severity": { "type": "string" },
+          "rollback_decision": { "type": "string" },
+          "resume_decision": { "type": "string" },
+          "governance_action": { "type": "string" },
+          "recovery_status": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" },
+          "evidence_refs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "errors": { "type": "array", "items": { "type": "string" } }
+  }
+}

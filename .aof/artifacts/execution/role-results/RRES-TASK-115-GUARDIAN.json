@@ -1,0 +1,19 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-23T16:47:12.000Z",
+  "role": "guardian",
+  "stage": "planning",
+  "session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "status": "completed",
+  "recommendation": "Approve only if resume authority is review-bound and the release explicitly does not prove live recovery performance.",
+  "rationale": "Incident recovery evidence must reduce provider execution risk without hiding production uncertainty.",
+  "signals": ["hidden resume authority must fail audit"],
+  "artifact_refs": ["docs/v9.5-release-checklist.md", "test/runtime-core-2.test.js"],
+  "decision_required": false,
+  "source_task_id": "TASK-115",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.88
+}

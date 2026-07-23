@@ -1,0 +1,26 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-115-V95",
+  "recorded_at": "2026-07-23T16:47:30.000Z",
+  "work_item_id": "TASK-115",
+  "work_item_ref": ".aof/tasks/done/TASK-115.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V95-INCIDENT-RECOVERY.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-roadmap.md",
+    "docs/vnext-release-plan.md",
+    "docs/v9.5-release-definition.md"
+  ],
+  "required_context_refs": [
+    "docs/v9.4-release-definition.md",
+    ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+    ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared references were available, not live incident recovery performance or semantic correctness.",
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null
+}

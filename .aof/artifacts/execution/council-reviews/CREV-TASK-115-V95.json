@@ -1,0 +1,39 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-23T16:47:25.000Z",
+  "review_packet_id": "CREV-TASK-115-V95",
+  "council_id": "product-council",
+  "stage": "planning",
+  "review_status": "approved",
+  "decision_summary": "Approve v9.5 as provider incident recovery drill evidence, not as live production recovery proof.",
+  "rationale": "The release makes the provider failure path reconstructable and keeps resume authority governed.",
+  "recommendation": "Proceed to release verification after incident recovery, capability, product value, and release-state audits are green.",
+  "target_audience": "AOF operator evaluating provider-backed work failure handling",
+  "expected_user_reaction": "Operator can see what happens if provider execution fails before allowing the provider track to advance.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": "provider incident recovery comprehension",
+  "diagnosis_confidence": 0.87,
+  "diagnosis_evidence_refs": ["docs/aof-capability-matrix.md"],
+  "human_override_signal": null,
+  "team_output_refs": [".aof/artifacts/execution/team-outputs/TOUT-TASK-115-V95.json"],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-115-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-115-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-115-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+    "test/runtime-core-2.test.js",
+    "schemas/aof-provider-incident-recovery-record.schema.json",
+    ".aof/artifacts/provider-incident-recoveries/provider-incident-recovery-audit.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null
+}

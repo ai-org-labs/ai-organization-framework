@@ -1,0 +1,2125 @@
+{
+  "ok": true,
+  "artifact_type": "evidence-independence-audit",
+  "generated_at": "2026-07-23T16:51:14.989Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "cutoff_task_id": "TASK-071",
+  "audited_status_dirs": [
+    "done"
+  ],
+  "independent_categories": [
+    "test",
+    "schema",
+    "governance-review",
+    "council-review",
+    "guardian-result",
+    "release-check"
+  ],
+  "summary": {
+    "scoped_task_count": 45,
+    "evidence_record_count": 45,
+    "low_independence_task_count": 0,
+    "failing_check_count": 0
+  },
+  "tasks": [
+    {
+      "task_id": "TASK-071",
+      "title": "v6.6 frontier: Integrate Archmap into AOF governed development flow",
+      "artifact_ref": ".aof/tasks/done/TASK-071.json"
+    },
+    {
+      "task_id": "TASK-072",
+      "title": "v6.7 frontier: archmap-impact-audit machine verification",
+      "artifact_ref": ".aof/tasks/done/TASK-072.json"
+    },
+    {
+      "task_id": "TASK-073",
+      "title": "v6.7 frontier: review provenance audit",
+      "artifact_ref": ".aof/tasks/done/TASK-073.json"
+    },
+    {
+      "task_id": "TASK-074",
+      "title": "v6.7 frontier: evidence independence audit",
+      "artifact_ref": ".aof/tasks/done/TASK-074.json"
+    },
+    {
+      "task_id": "TASK-075",
+      "title": "v6.7 frontier: integrate governance audits into release sign-off",
+      "artifact_ref": ".aof/tasks/done/TASK-075.json"
+    },
+    {
+      "task_id": "TASK-076",
+      "title": "v6.7 release closure: ship Verifiable Governance",
+      "artifact_ref": ".aof/tasks/done/TASK-076.json"
+    },
+    {
+      "task_id": "TASK-077",
+      "title": "v6.8 direction selection: Executable Quality Ledger",
+      "artifact_ref": ".aof/tasks/done/TASK-077.json"
+    },
+    {
+      "task_id": "TASK-078",
+      "title": "v6.8 frontier: executable quality ledger foundation",
+      "artifact_ref": ".aof/tasks/done/TASK-078.json"
+    },
+    {
+      "task_id": "TASK-079",
+      "title": "v6.8 release closure: ship Executable Quality Ledger",
+      "artifact_ref": ".aof/tasks/done/TASK-079.json"
+    },
+    {
+      "task_id": "TASK-080",
+      "title": "Update Archmap provider baseline to v0.1.1",
+      "artifact_ref": ".aof/tasks/done/TASK-080.json"
+    },
+    {
+      "task_id": "TASK-081",
+      "title": "v6.9 direction selection: Executable Pre-Implementation Quality Gates",
+      "artifact_ref": ".aof/tasks/done/TASK-081.json"
+    },
+    {
+      "task_id": "TASK-082",
+      "title": "v6.9 frontier: executable work readiness gate",
+      "artifact_ref": ".aof/tasks/done/TASK-082.json"
+    },
+    {
+      "task_id": "TASK-083",
+      "title": "v6.9 release closure: ship Executable Pre-Implementation Quality Gates",
+      "artifact_ref": ".aof/tasks/done/TASK-083.json"
+    },
+    {
+      "task_id": "TASK-084",
+      "title": "Post-v6.9 direction: agent session streaming evidence",
+      "artifact_ref": ".aof/tasks/done/TASK-084.json"
+    },
+    {
+      "task_id": "TASK-085",
+      "title": "v7.0 frontier: agent session event stream",
+      "artifact_ref": ".aof/tasks/done/TASK-085.json"
+    },
+    {
+      "task_id": "TASK-086",
+      "title": "v7.0 frontier: persistent Mission Control session and organization view",
+      "artifact_ref": ".aof/tasks/done/TASK-086.json"
+    },
+    {
+      "task_id": "TASK-087",
+      "title": "Add Mission Control auto-start operator entrypoint",
+      "artifact_ref": ".aof/tasks/done/TASK-087.json"
+    },
+    {
+      "task_id": "TASK-088",
+      "title": "Release v7.0 Agent Session Observability",
+      "artifact_ref": ".aof/tasks/done/TASK-088.json"
+    },
+    {
+      "task_id": "TASK-089",
+      "title": "Design v7.1 Context and Reference Integrity",
+      "artifact_ref": ".aof/tasks/done/TASK-089.json"
+    },
+    {
+      "task_id": "TASK-090",
+      "title": "Ship v7.1 Context and Reference Integrity",
+      "artifact_ref": ".aof/tasks/done/TASK-090.json"
+    },
+    {
+      "task_id": "TASK-091",
+      "title": "Ship v7.2 Work Execution Packet",
+      "artifact_ref": ".aof/tasks/done/TASK-091.json"
+    },
+    {
+      "task_id": "TASK-092",
+      "title": "Ship v7.3 Governed Multi-Actor Pilot",
+      "artifact_ref": ".aof/tasks/done/TASK-092.json"
+    },
+    {
+      "task_id": "TASK-093",
+      "title": "Ship v7.4 Governed Parallel Lanes",
+      "artifact_ref": ".aof/tasks/done/TASK-093.json"
+    },
+    {
+      "task_id": "TASK-094",
+      "title": "Ship v7.5 Requirements Coverage, Forecasting, And Organization Analytics",
+      "artifact_ref": ".aof/tasks/done/TASK-094.json"
+    },
+    {
+      "task_id": "TASK-095",
+      "title": "Ship v7.6 Provider-Neutral Session Export",
+      "artifact_ref": ".aof/tasks/done/TASK-095.json"
+    },
+    {
+      "task_id": "TASK-096",
+      "title": "Ship v7.7 Adoption-Grade v7 Runtime",
+      "artifact_ref": ".aof/tasks/done/TASK-096.json"
+    },
+    {
+      "task_id": "TASK-097",
+      "title": "Ship v7.8 Mission Control Coverage Forecast Projection",
+      "artifact_ref": ".aof/tasks/done/TASK-097.json"
+    },
+    {
+      "task_id": "TASK-098",
+      "title": "Ship v7.9 Externalization Readiness Boundary",
+      "artifact_ref": ".aof/tasks/done/TASK-098.json"
+    },
+    {
+      "task_id": "TASK-099",
+      "title": "Define v8.0 Externalized Organization Runtime direction",
+      "artifact_ref": ".aof/tasks/done/TASK-099.json"
+    },
+    {
+      "task_id": "TASK-100",
+      "title": "Implement v8.0 External Runtime Resource contract and audit",
+      "artifact_ref": ".aof/tasks/done/TASK-100.json"
+    },
+    {
+      "task_id": "TASK-101",
+      "title": "Define v8.1 Provider Adapter Governance direction",
+      "artifact_ref": ".aof/tasks/done/TASK-101.json"
+    },
+    {
+      "task_id": "TASK-102",
+      "title": "Ship v8.2 Adoption Feedback And Operator Validation Loop",
+      "artifact_ref": ".aof/tasks/done/TASK-102.json"
+    },
+    {
+      "task_id": "TASK-103",
+      "title": "Ship v8.3 Mission Control Operator Acceptance Evidence",
+      "artifact_ref": ".aof/tasks/done/TASK-103.json"
+    },
+    {
+      "task_id": "TASK-104",
+      "title": "Ship v8.4 Externalized Runtime Operator Safety Proof",
+      "artifact_ref": ".aof/tasks/done/TASK-104.json"
+    },
+    {
+      "task_id": "TASK-105",
+      "title": "Ship v8.5 Provider Adapter Execution Pilot Boundary",
+      "artifact_ref": ".aof/tasks/done/TASK-105.json"
+    },
+    {
+      "task_id": "TASK-106",
+      "title": "Ship v8.6 Provider Execution Approval Bridge",
+      "artifact_ref": ".aof/tasks/done/TASK-106.json"
+    },
+    {
+      "task_id": "TASK-107",
+      "title": "Ship v8.7 Approval Authenticity and Adapter Capability Alignment",
+      "artifact_ref": ".aof/tasks/done/TASK-107.json"
+    },
+    {
+      "task_id": "TASK-108",
+      "title": "Ship v8.8 External Runtime Reproduction and Rollback Proof",
+      "artifact_ref": ".aof/tasks/done/TASK-108.json"
+    },
+    {
+      "task_id": "TASK-109",
+      "title": "Ship v8.9 External Runtime Outcome Evidence and Learning Loop",
+      "artifact_ref": ".aof/tasks/done/TASK-109.json"
+    },
+    {
+      "task_id": "TASK-110",
+      "title": "Ship v9.0 External Runtime Operator Acceptance and Safety Drill",
+      "artifact_ref": ".aof/tasks/done/TASK-110.json"
+    },
+    {
+      "task_id": "TASK-111",
+      "title": "Ship v9.1 Product Value Comprehension Gate",
+      "artifact_ref": ".aof/tasks/done/TASK-111.json"
+    },
+    {
+      "task_id": "TASK-112",
+      "title": "Ship v9.2 External Runtime Production Boundary Candidate",
+      "artifact_ref": ".aof/tasks/done/TASK-112.json"
+    },
+    {
+      "task_id": "TASK-113",
+      "title": "Ship v9.3 Capability-First Release Comprehension",
+      "artifact_ref": ".aof/tasks/done/TASK-113.json"
+    },
+    {
+      "task_id": "TASK-114",
+      "title": "Ship v9.4 Provider-backed Controlled Execution Candidate",
+      "artifact_ref": ".aof/tasks/done/TASK-114.json"
+    },
+    {
+      "task_id": "TASK-115",
+      "title": "Ship v9.5 External Runtime Incident Drill and Recovery Evidence",
+      "artifact_ref": ".aof/tasks/done/TASK-115.json"
+    }
+  ],
+  "evidence_records": [
+    {
+      "task_id": "TASK-071",
+      "evidence_ref_count": 4,
+      "independent_evidence_count": 2,
+      "categories": [
+        "unknown",
+        "governance-review",
+        "self-attested"
+      ]
+    },
+    {
+      "task_id": "TASK-072",
+      "evidence_ref_count": 4,
+      "independent_evidence_count": 2,
+      "categories": [
+        "maker-authored",
+        "schema",
+        "test",
+        "self-attested"
+      ]
+    },
+    {
+      "task_id": "TASK-073",
+      "evidence_ref_count": 4,
+      "independent_evidence_count": 2,
+      "categories": [
+        "maker-authored",
+        "schema",
+        "test",
+        "self-attested"
+      ]
+    },
+    {
+      "task_id": "TASK-074",
+      "evidence_ref_count": 4,
+      "independent_evidence_count": 2,
+      "categories": [
+        "maker-authored",
+        "schema",
+        "test",
+        "self-attested"
+      ]
+    },
+    {
+      "task_id": "TASK-075",
+      "evidence_ref_count": 4,
+      "independent_evidence_count": 3,
+      "categories": [
+        "release-check",
+        "schema",
+        "maker-authored",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-076",
+      "evidence_ref_count": 6,
+      "independent_evidence_count": 4,
+      "categories": [
+        "unknown",
+        "governance-review",
+        "release-check",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-077",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 1,
+      "categories": [
+        "governance-review",
+        "unknown",
+        "self-attested"
+      ]
+    },
+    {
+      "task_id": "TASK-078",
+      "evidence_ref_count": 8,
+      "independent_evidence_count": 4,
+      "categories": [
+        "schema",
+        "maker-authored",
+        "test",
+        "unknown",
+        "governance-review"
+      ]
+    },
+    {
+      "task_id": "TASK-079",
+      "evidence_ref_count": 8,
+      "independent_evidence_count": 4,
+      "categories": [
+        "unknown",
+        "governance-review",
+        "release-check",
+        "maker-authored",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-080",
+      "evidence_ref_count": 8,
+      "independent_evidence_count": 3,
+      "categories": [
+        "unknown",
+        "self-attested",
+        "schema",
+        "release-check",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-081",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 1,
+      "categories": [
+        "governance-review",
+        "unknown"
+      ]
+    },
+    {
+      "task_id": "TASK-082",
+      "evidence_ref_count": 8,
+      "independent_evidence_count": 4,
+      "categories": [
+        "schema",
+        "maker-authored",
+        "release-check",
+        "test",
+        "unknown"
+      ]
+    },
+    {
+      "task_id": "TASK-083",
+      "evidence_ref_count": 7,
+      "independent_evidence_count": 3,
+      "categories": [
+        "unknown",
+        "governance-review",
+        "maker-authored",
+        "release-check",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-084",
+      "evidence_ref_count": 6,
+      "independent_evidence_count": 2,
+      "categories": [
+        "unknown",
+        "governance-review",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-085",
+      "evidence_ref_count": 12,
+      "independent_evidence_count": 4,
+      "categories": [
+        "unknown",
+        "schema",
+        "maker-authored",
+        "test",
+        "release-check"
+      ]
+    },
+    {
+      "task_id": "TASK-086",
+      "evidence_ref_count": 10,
+      "independent_evidence_count": 4,
+      "categories": [
+        "schema",
+        "maker-authored",
+        "test",
+        "unknown",
+        "release-check",
+        "self-attested"
+      ]
+    },
+    {
+      "task_id": "TASK-087",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 2,
+      "categories": [
+        "test",
+        "unknown"
+      ]
+    },
+    {
+      "task_id": "TASK-088",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 1,
+      "categories": [
+        "governance-review",
+        "unknown"
+      ]
+    },
+    {
+      "task_id": "TASK-089",
+      "evidence_ref_count": 6,
+      "independent_evidence_count": 2,
+      "categories": [
+        "unknown",
+        "test",
+        "schema",
+        "self-attested"
+      ]
+    },
+    {
+      "task_id": "TASK-090",
+      "evidence_ref_count": 4,
+      "independent_evidence_count": 2,
+      "categories": [
+        "test",
+        "schema",
+        "unknown"
+      ]
+    },
+    {
+      "task_id": "TASK-091",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 3,
+      "categories": [
+        "schema",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-092",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 2,
+      "categories": [
+        "test",
+        "schema",
+        "maker-authored"
+      ]
+    },
+    {
+      "task_id": "TASK-093",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 3,
+      "categories": [
+        "test",
+        "schema"
+      ]
+    },
+    {
+      "task_id": "TASK-094",
+      "evidence_ref_count": 2,
+      "independent_evidence_count": 1,
+      "categories": [
+        "unknown",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-095",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 1,
+      "categories": [
+        "unknown",
+        "maker-authored",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-096",
+      "evidence_ref_count": 2,
+      "independent_evidence_count": 1,
+      "categories": [
+        "unknown",
+        "governance-review"
+      ]
+    },
+    {
+      "task_id": "TASK-097",
+      "evidence_ref_count": 6,
+      "independent_evidence_count": 4,
+      "categories": [
+        "maker-authored",
+        "release-check",
+        "schema",
+        "governance-review"
+      ]
+    },
+    {
+      "task_id": "TASK-098",
+      "evidence_ref_count": 2,
+      "independent_evidence_count": 2,
+      "categories": [
+        "release-check",
+        "governance-review"
+      ]
+    },
+    {
+      "task_id": "TASK-099",
+      "evidence_ref_count": 1,
+      "independent_evidence_count": 1,
+      "categories": [
+        "governance-review"
+      ]
+    },
+    {
+      "task_id": "TASK-100",
+      "evidence_ref_count": 2,
+      "independent_evidence_count": 2,
+      "categories": [
+        "release-check",
+        "governance-review"
+      ]
+    },
+    {
+      "task_id": "TASK-101",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 3,
+      "categories": [
+        "release-check",
+        "test",
+        "governance-review"
+      ]
+    },
+    {
+      "task_id": "TASK-102",
+      "evidence_ref_count": 2,
+      "independent_evidence_count": 2,
+      "categories": [
+        "release-check",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-103",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 2,
+      "categories": [
+        "release-check",
+        "unknown",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-104",
+      "evidence_ref_count": 5,
+      "independent_evidence_count": 4,
+      "categories": [
+        "release-check",
+        "unknown",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-105",
+      "evidence_ref_count": 6,
+      "independent_evidence_count": 4,
+      "categories": [
+        "release-check",
+        "unknown",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-106",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 2,
+      "categories": [
+        "test",
+        "governance-review",
+        "unknown"
+      ]
+    },
+    {
+      "task_id": "TASK-107",
+      "evidence_ref_count": 4,
+      "independent_evidence_count": 3,
+      "categories": [
+        "test",
+        "governance-review",
+        "unknown",
+        "release-check"
+      ]
+    },
+    {
+      "task_id": "TASK-108",
+      "evidence_ref_count": 6,
+      "independent_evidence_count": 4,
+      "categories": [
+        "test",
+        "governance-review",
+        "unknown",
+        "release-check"
+      ]
+    },
+    {
+      "task_id": "TASK-109",
+      "evidence_ref_count": 2,
+      "independent_evidence_count": 2,
+      "categories": [
+        "test",
+        "governance-review"
+      ]
+    },
+    {
+      "task_id": "TASK-110",
+      "evidence_ref_count": 1,
+      "independent_evidence_count": 1,
+      "categories": [
+        "release-check"
+      ]
+    },
+    {
+      "task_id": "TASK-111",
+      "evidence_ref_count": 2,
+      "independent_evidence_count": 1,
+      "categories": [
+        "release-check",
+        "unknown"
+      ]
+    },
+    {
+      "task_id": "TASK-112",
+      "evidence_ref_count": 2,
+      "independent_evidence_count": 1,
+      "categories": [
+        "unknown",
+        "test"
+      ]
+    },
+    {
+      "task_id": "TASK-113",
+      "evidence_ref_count": 2,
+      "independent_evidence_count": 2,
+      "categories": [
+        "release-check"
+      ]
+    },
+    {
+      "task_id": "TASK-114",
+      "evidence_ref_count": 3,
+      "independent_evidence_count": 3,
+      "categories": [
+        "release-check"
+      ]
+    },
+    {
+      "task_id": "TASK-115",
+      "evidence_ref_count": 6,
+      "independent_evidence_count": 3,
+      "categories": [
+        "unknown",
+        "test",
+        "schema",
+        "release-check"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "done task discovery",
+      "status": "pass",
+      "detail": "45 done task(s) at or after TASK-071"
+    },
+    {
+      "name": "TASK-071 evidence presence",
+      "status": "pass",
+      "detail": "4 evidence ref(s)"
+    },
+    {
+      "name": "TASK-071 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v6.6-release-definition.md, governance-review:docs/v6.6-release-checklist.md, governance-review:docs/v6.6-qif-release-readiness-review.md, self-attested:.aof/artifacts/archmap/impact/TASK-071.json"
+    },
+    {
+      "name": "TASK-071 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.6-release-definition.md"
+    },
+    {
+      "name": "TASK-071 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.6-release-checklist.md"
+    },
+    {
+      "name": "TASK-071 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.6-qif-release-readiness-review.md"
+    },
+    {
+      "name": "TASK-071 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-071.json"
+    },
+    {
+      "name": "TASK-072 evidence presence",
+      "status": "pass",
+      "detail": "4 evidence ref(s)"
+    },
+    {
+      "name": "TASK-072 independent evidence presence",
+      "status": "pass",
+      "detail": "maker-authored:src/commands/archmap-impact-audit.js, schema:schemas/aof-archmap-impact-audit.schema.json, test:test/runtime-core-2.test.js, self-attested:.aof/artifacts/archmap/impact/TASK-072.json"
+    },
+    {
+      "name": "TASK-072 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/archmap-impact-audit.js"
+    },
+    {
+      "name": "TASK-072 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-archmap-impact-audit.schema.json"
+    },
+    {
+      "name": "TASK-072 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-072 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-072.json"
+    },
+    {
+      "name": "TASK-073 evidence presence",
+      "status": "pass",
+      "detail": "4 evidence ref(s)"
+    },
+    {
+      "name": "TASK-073 independent evidence presence",
+      "status": "pass",
+      "detail": "maker-authored:src/commands/review-provenance-audit.js, schema:schemas/aof-review-provenance-audit.schema.json, test:test/runtime-core-2.test.js, self-attested:.aof/artifacts/archmap/impact/TASK-073.json"
+    },
+    {
+      "name": "TASK-073 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/review-provenance-audit.js"
+    },
+    {
+      "name": "TASK-073 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-review-provenance-audit.schema.json"
+    },
+    {
+      "name": "TASK-073 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-073 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-073.json"
+    },
+    {
+      "name": "TASK-074 evidence presence",
+      "status": "pass",
+      "detail": "4 evidence ref(s)"
+    },
+    {
+      "name": "TASK-074 independent evidence presence",
+      "status": "pass",
+      "detail": "maker-authored:src/commands/evidence-independence-audit.js, schema:schemas/aof-evidence-independence-audit.schema.json, test:test/runtime-core-2.test.js, self-attested:.aof/artifacts/archmap/impact/TASK-074.json"
+    },
+    {
+      "name": "TASK-074 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/evidence-independence-audit.js"
+    },
+    {
+      "name": "TASK-074 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-evidence-independence-audit.schema.json"
+    },
+    {
+      "name": "TASK-074 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-074 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-074.json"
+    },
+    {
+      "name": "TASK-075 evidence presence",
+      "status": "pass",
+      "detail": "4 evidence ref(s)"
+    },
+    {
+      "name": "TASK-075 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:src/commands/release-state-audit.js, schema:schemas/aof-release-state-audit.schema.json, maker-authored:src/commands/cli-help-benchmark.js, test:test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-075 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/release-state-audit.js"
+    },
+    {
+      "name": "TASK-075 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-release-state-audit.schema.json"
+    },
+    {
+      "name": "TASK-075 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/cli-help-benchmark.js"
+    },
+    {
+      "name": "TASK-075 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-076 evidence presence",
+      "status": "pass",
+      "detail": "6 evidence ref(s)"
+    },
+    {
+      "name": "TASK-076 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v6.7-release-definition.md, governance-review:docs/v6.7-release-checklist.md, unknown:docs/v6.7.0-release-notes.md, release-check:src/commands/release-state-audit.js, test:test/runtime-core-2.test.js, test:test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-076 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.7-release-definition.md"
+    },
+    {
+      "name": "TASK-076 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.7-release-checklist.md"
+    },
+    {
+      "name": "TASK-076 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.7.0-release-notes.md"
+    },
+    {
+      "name": "TASK-076 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/release-state-audit.js"
+    },
+    {
+      "name": "TASK-076 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-076 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-077 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-077 independent evidence presence",
+      "status": "pass",
+      "detail": "governance-review:docs/v6.8-direction-review.md, unknown:docs/v6.7-v8.0-completion-roadmap.md, self-attested:.aof/artifacts/archmap/impact/TASK-077.json"
+    },
+    {
+      "name": "TASK-077 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.8-direction-review.md"
+    },
+    {
+      "name": "TASK-077 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.7-v8.0-completion-roadmap.md"
+    },
+    {
+      "name": "TASK-077 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-077.json"
+    },
+    {
+      "name": "TASK-078 evidence presence",
+      "status": "pass",
+      "detail": "8 evidence ref(s)"
+    },
+    {
+      "name": "TASK-078 independent evidence presence",
+      "status": "pass",
+      "detail": "schema:schemas/aof-quality-ledger-event.schema.json, schema:schemas/aof-quality-ledger-audit.schema.json, maker-authored:src/commands/quality-ledger-record.js, maker-authored:src/commands/quality-ledger-audit.js, test:test/runtime-core-2.test.js, unknown:docs/cli-reference.md, governance-review:docs/aof-qif-provider-integration.md, unknown:.aof/quality/ledger/events/QLE-TASK-078-RUNTIME-EVIDENCE.json"
+    },
+    {
+      "name": "TASK-078 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-quality-ledger-event.schema.json"
+    },
+    {
+      "name": "TASK-078 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-quality-ledger-audit.schema.json"
+    },
+    {
+      "name": "TASK-078 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/quality-ledger-record.js"
+    },
+    {
+      "name": "TASK-078 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/quality-ledger-audit.js"
+    },
+    {
+      "name": "TASK-078 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-078 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/cli-reference.md"
+    },
+    {
+      "name": "TASK-078 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-provider-integration.md"
+    },
+    {
+      "name": "TASK-078 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/ledger/events/QLE-TASK-078-RUNTIME-EVIDENCE.json"
+    },
+    {
+      "name": "TASK-079 evidence presence",
+      "status": "pass",
+      "detail": "8 evidence ref(s)"
+    },
+    {
+      "name": "TASK-079 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v6.8-release-definition.md, governance-review:docs/v6.8-release-checklist.md, unknown:docs/v6.8.0-release-notes.md, release-check:src/commands/release-state-audit.js, maker-authored:src/commands/quality-ledger-audit.js, test:test/runtime-core-2.test.js, test:test/runtime-situation.test.js, unknown:.aof/quality/ledger/events/QLE-TASK-078-RUNTIME-EVIDENCE.json"
+    },
+    {
+      "name": "TASK-079 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.8-release-definition.md"
+    },
+    {
+      "name": "TASK-079 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.8-release-checklist.md"
+    },
+    {
+      "name": "TASK-079 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.8.0-release-notes.md"
+    },
+    {
+      "name": "TASK-079 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/release-state-audit.js"
+    },
+    {
+      "name": "TASK-079 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/quality-ledger-audit.js"
+    },
+    {
+      "name": "TASK-079 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-079 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-079 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/ledger/events/QLE-TASK-078-RUNTIME-EVIDENCE.json"
+    },
+    {
+      "name": "TASK-080 evidence presence",
+      "status": "pass",
+      "detail": "8 evidence ref(s)"
+    },
+    {
+      "name": "TASK-080 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v6.6-archmap-integration.md, unknown:docs/vnext-roadmap.md, unknown:docs/AI_AUTHORING_GUIDE.md, unknown:README.md, self-attested:.aof/artifacts/archmap/impact/TASK-080.json, schema:schemas/aof-archmap-impact-audit.schema.json, release-check:src/commands/release-state-audit.js, test:test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-080 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.6-archmap-integration.md"
+    },
+    {
+      "name": "TASK-080 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-080 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/AI_AUTHORING_GUIDE.md"
+    },
+    {
+      "name": "TASK-080 evidence ref resolves",
+      "status": "pass",
+      "detail": "README.md"
+    },
+    {
+      "name": "TASK-080 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-080.json"
+    },
+    {
+      "name": "TASK-080 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-archmap-impact-audit.schema.json"
+    },
+    {
+      "name": "TASK-080 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/release-state-audit.js"
+    },
+    {
+      "name": "TASK-080 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-081 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-081 independent evidence presence",
+      "status": "pass",
+      "detail": "governance-review:docs/v6.9-direction-review.md, unknown:docs/vnext-roadmap.md, unknown:.aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-081 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.9-direction-review.md"
+    },
+    {
+      "name": "TASK-081 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-081 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-082 evidence presence",
+      "status": "pass",
+      "detail": "8 evidence ref(s)"
+    },
+    {
+      "name": "TASK-082 independent evidence presence",
+      "status": "pass",
+      "detail": "schema:schemas/aof-work-readiness-record.schema.json, schema:schemas/aof-work-readiness-audit.schema.json, maker-authored:src/commands/work-readiness-record.js, maker-authored:src/commands/work-readiness-audit.js, release-check:src/commands/release-state-audit.js, test:test/runtime-core-2.test.js, unknown:docs/cli-reference.md, unknown:.aof/artifacts/work-readiness/TASK-082.json"
+    },
+    {
+      "name": "TASK-082 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-work-readiness-record.schema.json"
+    },
+    {
+      "name": "TASK-082 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-work-readiness-audit.schema.json"
+    },
+    {
+      "name": "TASK-082 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/work-readiness-record.js"
+    },
+    {
+      "name": "TASK-082 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/work-readiness-audit.js"
+    },
+    {
+      "name": "TASK-082 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/release-state-audit.js"
+    },
+    {
+      "name": "TASK-082 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-082 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/cli-reference.md"
+    },
+    {
+      "name": "TASK-082 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-082.json"
+    },
+    {
+      "name": "TASK-083 evidence presence",
+      "status": "pass",
+      "detail": "7 evidence ref(s)"
+    },
+    {
+      "name": "TASK-083 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v6.9-release-definition.md, governance-review:docs/v6.9-release-checklist.md, unknown:docs/v6.9.0-release-notes.md, maker-authored:src/commands/work-readiness-audit.js, release-check:src/commands/release-state-audit.js, test:test/runtime-core-2.test.js, unknown:.aof/artifacts/work-readiness/TASK-083.json"
+    },
+    {
+      "name": "TASK-083 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.9-release-definition.md"
+    },
+    {
+      "name": "TASK-083 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.9-release-checklist.md"
+    },
+    {
+      "name": "TASK-083 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.9.0-release-notes.md"
+    },
+    {
+      "name": "TASK-083 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/work-readiness-audit.js"
+    },
+    {
+      "name": "TASK-083 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/release-state-audit.js"
+    },
+    {
+      "name": "TASK-083 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-083 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-083.json"
+    },
+    {
+      "name": "TASK-084 evidence presence",
+      "status": "pass",
+      "detail": "6 evidence ref(s)"
+    },
+    {
+      "name": "TASK-084 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v7.0-agent-session-observability-direction.md, unknown:docs/v6.9-release-definition.md, governance-review:docs/v6.9-release-checklist.md, unknown:.aof/goals/next-value-slice.json, unknown:.aof/artifacts/work-readiness/TASK-084.json, test:test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-084 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.0-agent-session-observability-direction.md"
+    },
+    {
+      "name": "TASK-084 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.9-release-definition.md"
+    },
+    {
+      "name": "TASK-084 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.9-release-checklist.md"
+    },
+    {
+      "name": "TASK-084 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-084 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-084.json"
+    },
+    {
+      "name": "TASK-084 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-085 evidence presence",
+      "status": "pass",
+      "detail": "12 evidence ref(s)"
+    },
+    {
+      "name": "TASK-085 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v7.0-agent-session-observability-direction.md, unknown:docs/cli-reference.md, schema:schemas/aof-agent-session-record.schema.json, schema:schemas/aof-session-observability-audit.schema.json, maker-authored:src/commands/agent-session-record.js, maker-authored:src/commands/session-observability-audit.js, maker-authored:src/cli-main.js, maker-authored:src/runtime/command-registry-payload.js, test:test/runtime-core-2.test.js, unknown:.aof/artifacts/work-readiness/TASK-085.json, unknown:.aof/artifacts/agent-sessions/SESS-V70-SESSION-OBSERVABILITY.json, release-check:.aof/artifacts/session-observability/session-observability-audit.json"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.0-agent-session-observability-direction.md"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/cli-reference.md"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-record.schema.json"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-session-observability-audit.schema.json"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/agent-session-record.js"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/session-observability-audit.js"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/cli-main.js"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/runtime/command-registry-payload.js"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-085.json"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V70-SESSION-OBSERVABILITY.json"
+    },
+    {
+      "name": "TASK-085 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-observability/session-observability-audit.json"
+    },
+    {
+      "name": "TASK-086 evidence presence",
+      "status": "pass",
+      "detail": "10 evidence ref(s)"
+    },
+    {
+      "name": "TASK-086 independent evidence presence",
+      "status": "pass",
+      "detail": "schema:schemas/aof-mission-control-view.schema.json, maker-authored:src/commands/visibility-export.js, maker-authored:src/commands/visibility-serve.js, test:test/runtime-situation.test.js, test:test/runtime-core-2.test.js, unknown:.aof/artifacts/work-readiness/TASK-086.json, unknown:.aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json, release-check:.aof/artifacts/session-observability/session-observability-audit.json, unknown:.aof/artifacts/visibility/current/mission-control.json, self-attested:.aof/artifacts/archmap/impact/TASK-086.json"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-mission-control-view.schema.json"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-export.js"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-serve.js"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-086.json"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-observability/session-observability-audit.json"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-086 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-086.json"
+    },
+    {
+      "name": "TASK-087 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-087 independent evidence presence",
+      "status": "pass",
+      "detail": "test:test/runtime-core-2.test.js, test:test/runtime-situation.test.js, unknown:.aof/command-registry.json"
+    },
+    {
+      "name": "TASK-087 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-087 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-087 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/command-registry.json"
+    },
+    {
+      "name": "TASK-088 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-088 independent evidence presence",
+      "status": "pass",
+      "detail": "governance-review:docs/v7.0-release-checklist.md, unknown:.aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json, unknown:.aof/artifacts/work-readiness/TASK-088.json"
+    },
+    {
+      "name": "TASK-088 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.0-release-checklist.md"
+    },
+    {
+      "name": "TASK-088 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json"
+    },
+    {
+      "name": "TASK-088 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-088.json"
+    },
+    {
+      "name": "TASK-089 evidence presence",
+      "status": "pass",
+      "detail": "6 evidence ref(s)"
+    },
+    {
+      "name": "TASK-089 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v7.1-context-reference-integrity-design.md, test:test/runtime-core-2.test.js, schema:schemas/aof-context-pack.schema.json, unknown:.aof/artifacts/work-readiness/TASK-089.json, unknown:.aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-DESIGN.json, self-attested:.aof/artifacts/archmap/impact/TASK-089.json"
+    },
+    {
+      "name": "TASK-089 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.1-context-reference-integrity-design.md"
+    },
+    {
+      "name": "TASK-089 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-089 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-context-pack.schema.json"
+    },
+    {
+      "name": "TASK-089 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-readiness/TASK-089.json"
+    },
+    {
+      "name": "TASK-089 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-DESIGN.json"
+    },
+    {
+      "name": "TASK-089 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-089.json"
+    },
+    {
+      "name": "TASK-090 evidence presence",
+      "status": "pass",
+      "detail": "4 evidence ref(s)"
+    },
+    {
+      "name": "TASK-090 independent evidence presence",
+      "status": "pass",
+      "detail": "test:test/runtime-core-2.test.js, schema:schemas/aof-context-reference-integrity-audit.schema.json, unknown:docs/v7.1-context-reference-integrity-design.md, unknown:.aof/artifacts/context-integrity/TASK-090.json"
+    },
+    {
+      "name": "TASK-090 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-090 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-context-reference-integrity-audit.schema.json"
+    },
+    {
+      "name": "TASK-090 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.1-context-reference-integrity-design.md"
+    },
+    {
+      "name": "TASK-090 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-090.json"
+    },
+    {
+      "name": "TASK-091 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-091 independent evidence presence",
+      "status": "pass",
+      "detail": "schema:schemas/aof-work-execution-packet.schema.json, schema:schemas/aof-work-execution-packet-audit.schema.json, test:test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-091 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-work-execution-packet.schema.json"
+    },
+    {
+      "name": "TASK-091 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-work-execution-packet-audit.schema.json"
+    },
+    {
+      "name": "TASK-091 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-092 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-092 independent evidence presence",
+      "status": "pass",
+      "detail": "test:test/runtime-core-2.test.js, schema:schemas/aof-multi-actor-pilot.schema.json, maker-authored:src/commands/multi-actor-pilot-audit.js"
+    },
+    {
+      "name": "TASK-092 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-092 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-multi-actor-pilot.schema.json"
+    },
+    {
+      "name": "TASK-092 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/multi-actor-pilot-audit.js"
+    },
+    {
+      "name": "TASK-093 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-093 independent evidence presence",
+      "status": "pass",
+      "detail": "test:test/runtime-core-2.test.js, schema:schemas/aof-parallel-lane-pilot.schema.json, schema:schemas/aof-parallel-lane-audit.schema.json"
+    },
+    {
+      "name": "TASK-093 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-093 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-parallel-lane-pilot.schema.json"
+    },
+    {
+      "name": "TASK-093 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-parallel-lane-audit.schema.json"
+    },
+    {
+      "name": "TASK-094 evidence presence",
+      "status": "pass",
+      "detail": "2 evidence ref(s)"
+    },
+    {
+      "name": "TASK-094 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v7.5-release-definition.md, test:test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-094 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.5-release-definition.md"
+    },
+    {
+      "name": "TASK-094 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-095 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-095 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v7.6-release-definition.md, maker-authored:src/commands/session-export-audit.js, test:test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-095 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.6-release-definition.md"
+    },
+    {
+      "name": "TASK-095 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/session-export-audit.js"
+    },
+    {
+      "name": "TASK-095 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-096 evidence presence",
+      "status": "pass",
+      "detail": "2 evidence ref(s)"
+    },
+    {
+      "name": "TASK-096 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:.aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json, governance-review:docs/v7.7-release-checklist.md"
+    },
+    {
+      "name": "TASK-096 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json"
+    },
+    {
+      "name": "TASK-096 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.7-release-checklist.md"
+    },
+    {
+      "name": "TASK-097 evidence presence",
+      "status": "pass",
+      "detail": "6 evidence ref(s)"
+    },
+    {
+      "name": "TASK-097 independent evidence presence",
+      "status": "pass",
+      "detail": "maker-authored:src/commands/mission-control-projection-audit.js, maker-authored:src/commands/visibility-export.js, release-check:src/commands/release-state-audit.js, schema:schemas/aof-mission-control-view.schema.json, schema:schemas/aof-mission-control-projection-audit.schema.json, governance-review:docs/v7.8-release-checklist.md"
+    },
+    {
+      "name": "TASK-097 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/mission-control-projection-audit.js"
+    },
+    {
+      "name": "TASK-097 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-export.js"
+    },
+    {
+      "name": "TASK-097 evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/release-state-audit.js"
+    },
+    {
+      "name": "TASK-097 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-mission-control-view.schema.json"
+    },
+    {
+      "name": "TASK-097 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-mission-control-projection-audit.schema.json"
+    },
+    {
+      "name": "TASK-097 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.8-release-checklist.md"
+    },
+    {
+      "name": "TASK-098 evidence presence",
+      "status": "pass",
+      "detail": "2 evidence ref(s)"
+    },
+    {
+      "name": "TASK-098 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/externalization/externalization-readiness-audit.json, governance-review:docs/v7.9-release-checklist.md"
+    },
+    {
+      "name": "TASK-098 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/externalization/externalization-readiness-audit.json"
+    },
+    {
+      "name": "TASK-098 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v7.9-release-checklist.md"
+    },
+    {
+      "name": "TASK-099 evidence presence",
+      "status": "pass",
+      "detail": "1 evidence ref(s)"
+    },
+    {
+      "name": "TASK-099 independent evidence presence",
+      "status": "pass",
+      "detail": "governance-review:docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-099 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-100 evidence presence",
+      "status": "pass",
+      "detail": "2 evidence ref(s)"
+    },
+    {
+      "name": "TASK-100 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/external-resources/external-resource-audit.json, governance-review:docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-100 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-resources/external-resource-audit.json"
+    },
+    {
+      "name": "TASK-100 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.0-direction-review.md"
+    },
+    {
+      "name": "TASK-101 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-101 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/provider-adapters/provider-adapter-audit.json, test:test/runtime-core-2.test.js, governance-review:docs/v8.1-direction-review.md"
+    },
+    {
+      "name": "TASK-101 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    },
+    {
+      "name": "TASK-101 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-101 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.1-direction-review.md"
+    },
+    {
+      "name": "TASK-102 evidence presence",
+      "status": "pass",
+      "detail": "2 evidence ref(s)"
+    },
+    {
+      "name": "TASK-102 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/operator-validation/operator-validation-audit.json, test:test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-102 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-102 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-103 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-103 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/operator-validation/operator-validation-audit.json, unknown:.aof/artifacts/visibility/current/mission-control.json, test:test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-103 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-103 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-103 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-104 evidence presence",
+      "status": "pass",
+      "detail": "5 evidence ref(s)"
+    },
+    {
+      "name": "TASK-104 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/externalization/externalization-readiness-audit.json, release-check:.aof/artifacts/external-resources/external-resource-audit.json, release-check:.aof/artifacts/provider-adapters/provider-adapter-audit.json, unknown:.aof/artifacts/visibility/current/mission-control.json, test:test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-104 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/externalization/externalization-readiness-audit.json"
+    },
+    {
+      "name": "TASK-104 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-resources/external-resource-audit.json"
+    },
+    {
+      "name": "TASK-104 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    },
+    {
+      "name": "TASK-104 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-104 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-105 evidence presence",
+      "status": "pass",
+      "detail": "6 evidence ref(s)"
+    },
+    {
+      "name": "TASK-105 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/provider-adapters/provider-adapter-audit.json, unknown:.aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json, release-check:.aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json, unknown:.aof/artifacts/visibility/current/mission-control.json, test:test/runtime-core-2.test.js, test:test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-105 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/provider-adapter-audit.json"
+    },
+    {
+      "name": "TASK-105 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json"
+    },
+    {
+      "name": "TASK-105 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json"
+    },
+    {
+      "name": "TASK-105 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-105 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-105 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "TASK-106 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-106 independent evidence presence",
+      "status": "pass",
+      "detail": "test:test/runtime-core-2.test.js, governance-review:docs/v8.6-release-checklist.md, unknown:.aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+    },
+    {
+      "name": "TASK-106 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-106 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.6-release-checklist.md"
+    },
+    {
+      "name": "TASK-106 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-106-V86-PREFLIGHT.json"
+    },
+    {
+      "name": "TASK-107 evidence presence",
+      "status": "pass",
+      "detail": "4 evidence ref(s)"
+    },
+    {
+      "name": "TASK-107 independent evidence presence",
+      "status": "pass",
+      "detail": "test:test/runtime-core-2.test.js, governance-review:docs/v8.7-release-checklist.md, unknown:.aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json, release-check:.aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    },
+    {
+      "name": "TASK-107 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-107 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.7-release-checklist.md"
+    },
+    {
+      "name": "TASK-107 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
+    },
+    {
+      "name": "TASK-107 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json"
+    },
+    {
+      "name": "TASK-108 evidence presence",
+      "status": "pass",
+      "detail": "6 evidence ref(s)"
+    },
+    {
+      "name": "TASK-108 independent evidence presence",
+      "status": "pass",
+      "detail": "test:test/runtime-core-2.test.js, governance-review:docs/v8.8-release-checklist.md, unknown:.aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json, release-check:.aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json, unknown:.aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json, release-check:.aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+    },
+    {
+      "name": "TASK-108 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-108 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.8-release-checklist.md"
+    },
+    {
+      "name": "TASK-108 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/PERP-TASK-108-GITHUB-ISSUE.json"
+    },
+    {
+      "name": "TASK-108 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-reproductions/provider-execution-reproduction-audit.json"
+    },
+    {
+      "name": "TASK-108 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-rollback-proofs/PRB-TASK-108-GITHUB-ISSUE.json"
+    },
+    {
+      "name": "TASK-108 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-rollback-proofs/provider-rollback-proof-audit.json"
+    },
+    {
+      "name": "TASK-109 evidence presence",
+      "status": "pass",
+      "detail": "2 evidence ref(s)"
+    },
+    {
+      "name": "TASK-109 independent evidence presence",
+      "status": "pass",
+      "detail": "test:test/runtime-core-2.test.js, governance-review:docs/v8.9-release-checklist.md"
+    },
+    {
+      "name": "TASK-109 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-109 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v8.9-release-checklist.md"
+    },
+    {
+      "name": "TASK-110 evidence presence",
+      "status": "pass",
+      "detail": "1 evidence ref(s)"
+    },
+    {
+      "name": "TASK-110 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+    },
+    {
+      "name": "TASK-110 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-acceptance-drills/operator-acceptance-drill-audit.json"
+    },
+    {
+      "name": "TASK-111 evidence presence",
+      "status": "pass",
+      "detail": "2 evidence ref(s)"
+    },
+    {
+      "name": "TASK-111 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/product-value-evidence/product-value-evidence-audit.json, unknown:docs/v9.1-product-value-comprehension.md"
+    },
+    {
+      "name": "TASK-111 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-111 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-product-value-comprehension.md"
+    },
+    {
+      "name": "TASK-112 evidence presence",
+      "status": "pass",
+      "detail": "2 evidence ref(s)"
+    },
+    {
+      "name": "TASK-112 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:docs/v9.2-release-definition.md, test:test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-112 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2-release-definition.md"
+    },
+    {
+      "name": "TASK-112 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-113 evidence presence",
+      "status": "pass",
+      "detail": "2 evidence ref(s)"
+    },
+    {
+      "name": "TASK-113 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/capability-release-deltas/capability-first-release-audit.json, release-check:.aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-113 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/capability-first-release-audit.json"
+    },
+    {
+      "name": "TASK-113 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-114 evidence presence",
+      "status": "pass",
+      "detail": "3 evidence ref(s)"
+    },
+    {
+      "name": "TASK-114 independent evidence presence",
+      "status": "pass",
+      "detail": "release-check:.aof/artifacts/provider-controlled-execution-candidates/provider-controlled-execution-candidate-audit.json, release-check:.aof/artifacts/capability-release-deltas/capability-first-release-audit.json, release-check:.aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-114 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-controlled-execution-candidates/provider-controlled-execution-candidate-audit.json"
+    },
+    {
+      "name": "TASK-114 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/capability-first-release-audit.json"
+    },
+    {
+      "name": "TASK-114 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-115 evidence presence",
+      "status": "pass",
+      "detail": "6 evidence ref(s)"
+    },
+    {
+      "name": "TASK-115 independent evidence presence",
+      "status": "pass",
+      "detail": "unknown:.aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json, unknown:.aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json, unknown:.aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json, test:test/runtime-core-2.test.js, schema:schemas/aof-provider-incident-recovery-record.schema.json, release-check:.aof/artifacts/provider-incident-recoveries/provider-incident-recovery-audit.json"
+    },
+    {
+      "name": "TASK-115 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"
+    },
+    {
+      "name": "TASK-115 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json"
+    },
+    {
+      "name": "TASK-115 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+    },
+    {
+      "name": "TASK-115 evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-115 evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-incident-recovery-record.schema.json"
+    },
+    {
+      "name": "TASK-115 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-incident-recoveries/provider-incident-recovery-audit.json"
+    }
+  ],
+  "errors": []
+}

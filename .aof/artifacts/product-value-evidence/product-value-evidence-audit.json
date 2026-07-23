@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "product-value-evidence-audit",
-  "generated_at": "2026-07-22T01:58:01.679Z",
+  "generated_at": "2026-07-23T16:50:12.503Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "record_count": 4,
-    "understood_count": 4,
+    "record_count": 5,
+    "understood_count": 5,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 7,
+    "capability_row_count": 8,
     "missing_link_count": 0,
     "failing_check_count": 0
   },
@@ -64,18 +64,32 @@
       "understanding_outcome": "understood",
       "governance_action": "none",
       "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+    },
+    {
+      "value_evidence_id": "PVE-MRXQU4IE-K5QKP4",
+      "release_ref": "docs/v9.5-release-definition.md",
+      "work_item_id": "TASK-115",
+      "capability_statement": "Operators can inspect provider incident recovery before advancing a provider-backed action.",
+      "before_state": "AOF could show a controlled provider execution candidate, but failure handling was mostly boundary text.",
+      "after_state": "AOF records detection, containment, rollback decision, recovery action, operator notification, learning update, and resume/stop governance as auditable recovery evidence.",
+      "scenario": "A GitHub issue creation candidate receives an unexpected provider response; AOF stops calls, preserves evidence, checks rollback readiness, notifies the operator, and defers resume until governance review.",
+      "five_minute_demo": "Run provider-incident-recovery-audit and release-state-audit from a clean checkout.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
     }
   ],
   "checks": [
     {
       "name": "product value evidence presence",
       "status": "pass",
-      "detail": "4 record(s) found",
+      "detail": "5 record(s) found",
       "evidence_refs": [
         ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
       ]
     },
     {
@@ -913,6 +927,201 @@
         ".aof/tasks/done/TASK-114.json",
         ".aof/artifacts/visibility/current/mission-control.json",
         "docs/v9.4.0-release-notes.md",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.5-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-115.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 capability statement",
+      "status": "pass",
+      "detail": "Operators can inspect provider incident recovery before advancing a provider-backed action.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 before state",
+      "status": "pass",
+      "detail": "AOF could show a controlled provider execution candidate, but failure handling was mostly boundary text.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 after state",
+      "status": "pass",
+      "detail": "AOF records detection, containment, rollback decision, recovery action, operator notification, learning update, and resume/stop governance as auditable recovery evidence.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 product scenario",
+      "status": "pass",
+      "detail": "A GitHub issue creation candidate receives an unexpected provider response; AOF stops calls, preserves evidence, checks rollback readiness, notifies the operator, and defers resume until governance review.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 five minute demo",
+      "status": "pass",
+      "detail": "Run provider-incident-recovery-audit and release-state-audit from a clean checkout.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 capability matrix",
+      "status": "pass",
+      "detail": "1 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 not-proven boundary",
+      "status": "pass",
+      "detail": "This value evidence does not prove live incident recovery performance, actual rollback execution, third-party adoption, or market value.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-115, source_parent_session_id=SESS-V95-INCIDENT-RECOVERY",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-MRXQU4IE-K5QKP4 missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
         "docs/aof-capability-matrix.md"
       ]
     }

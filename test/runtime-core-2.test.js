@@ -49,6 +49,8 @@ import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
 import { providerExecutionReproductionAuditCommand } from "../src/commands/provider-execution-reproduction-audit.js";
 import { providerExecutionReproductionRecordCommand } from "../src/commands/provider-execution-reproduction-record.js";
+import { providerIncidentRecoveryAuditCommand } from "../src/commands/provider-incident-recovery-audit.js";
+import { providerIncidentRecoveryRecordCommand } from "../src/commands/provider-incident-recovery-record.js";
 import { providerLearningLoopAuditCommand } from "../src/commands/provider-learning-loop-audit.js";
 import { providerLearningLoopRecordCommand } from "../src/commands/provider-learning-loop-record.js";
 import { providerOutcomeEvidenceAuditCommand } from "../src/commands/provider-outcome-evidence-audit.js";
@@ -4465,6 +4467,132 @@ test("provider controlled execution candidate audit rejects production execution
   const audit = await providerControlledExecutionCandidateAuditCommand({ project: projectRoot });
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("production execution not authorized")));
+});
+
+test("provider incident recovery commands bind detection, containment, rollback, learning, and stop governance", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const refs = [
+    "docs/v9.5-release-definition.md",
+    ".aof/tasks/open/TASK-115.json",
+    ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TEST.json",
+    ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    ".aof/artifacts/provider-production-boundaries/PPB-TEST.json",
+    "docs/evidence.md"
+  ];
+  for (const ref of refs) {
+    await fs.mkdir(path.dirname(path.join(projectRoot, ref)), { recursive: true });
+    await fs.writeFile(path.join(projectRoot, ref), "{}\n", "utf8");
+  }
+
+  await providerIncidentRecoveryRecordCommand({
+    project: projectRoot,
+    recoveryId: "PIR-TEST-V95",
+    releaseRef: "docs/v9.5-release-definition.md",
+    workItemId: "TASK-115",
+    workItemRef: ".aof/tasks/open/TASK-115.json",
+    candidateRef: ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TEST.json",
+    approvalRef: ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    reproductionRef: ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    rollbackRef: ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    outcomeRef: ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    learningRef: ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    operatorAcceptanceRef: ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    productionBoundaryRef: ".aof/artifacts/provider-production-boundaries/PPB-TEST.json",
+    incidentScenario: "Provider returns unexpected 403 after an approved preproduction write candidate.",
+    detectionSignal: "Provider response status and scope mismatch are recorded before retry.",
+    severity: "high",
+    containmentAction: "Stop further provider calls and freeze the candidate until human review.",
+    rollbackDecision: "rollback_ready",
+    recoveryAction: "Use the rollback proof to close or delete the created issue if any side effect occurred.",
+    resumeDecision: "defer",
+    operatorNotification: "Notify the operator with candidate, provider response, containment, and rollback refs.",
+    learningUpdateRef: ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    governanceAction: "rollback_then_review",
+    recoveryStatus: "ready_for_drill",
+    timeToDetectBoundary: "Detection must happen before any retry or second provider call.",
+    timeToContainBoundary: "Containment must happen immediately after unexpected provider response.",
+    dataLossBoundary: "No customer data may be sent; no secret may be written to artifacts.",
+    customerImpactBoundary: "No production customer impact is allowed in the drill.",
+    stopConditions: ["unexpected provider status", "missing rollback route", "operator cannot reconstruct incident"],
+    evidenceRefs: ["docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    notProven: "This proves incident drill contract completeness only, not live provider recovery performance.",
+    sourceTaskId: "TASK-115",
+    sourceParentSessionId: "SESS-V95-TEST"
+  });
+
+  const audit = await providerIncidentRecoveryAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.recovery_count, 1);
+  assert.equal(audit.summary.summary.ready_count, 1);
+  assert.equal(audit.summary.summary.resume_allowed_count, 0);
+});
+
+test("provider incident recovery audit blocks hidden resume authority", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const refs = [
+    "docs/v9.5-release-definition.md",
+    ".aof/tasks/open/TASK-115.json",
+    ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TEST.json",
+    ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    ".aof/artifacts/provider-production-boundaries/PPB-TEST.json",
+    "docs/evidence.md"
+  ];
+  for (const ref of refs) {
+    await fs.mkdir(path.dirname(path.join(projectRoot, ref)), { recursive: true });
+    await fs.writeFile(path.join(projectRoot, ref), "{}\n", "utf8");
+  }
+
+  await providerIncidentRecoveryRecordCommand({
+    project: projectRoot,
+    recoveryId: "PIR-TEST-V95-BAD",
+    releaseRef: "docs/v9.5-release-definition.md",
+    workItemId: "TASK-115",
+    workItemRef: ".aof/tasks/open/TASK-115.json",
+    candidateRef: ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TEST.json",
+    approvalRef: ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    reproductionRef: ".aof/artifacts/provider-execution-reproductions/PER-TEST.json",
+    rollbackRef: ".aof/artifacts/provider-rollback-proofs/PRP-TEST.json",
+    outcomeRef: ".aof/artifacts/provider-outcome-evidence/POE-TEST.json",
+    learningRef: ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    operatorAcceptanceRef: ".aof/artifacts/operator-acceptance-drills/OAD-TEST.json",
+    productionBoundaryRef: ".aof/artifacts/provider-production-boundaries/PPB-TEST.json",
+    incidentScenario: "bad negative test",
+    detectionSignal: "defined",
+    severity: "medium",
+    containmentAction: "defined",
+    rollbackDecision: "rollback_ready",
+    recoveryAction: "defined",
+    resumeDecision: "resume_allowed",
+    operatorNotification: "defined",
+    learningUpdateRef: ".aof/artifacts/provider-learning-loop/PLL-TEST.json",
+    governanceAction: "stop_provider_execution",
+    recoveryStatus: "ready_for_drill",
+    timeToDetectBoundary: "defined",
+    timeToContainBoundary: "defined",
+    dataLossBoundary: "defined",
+    customerImpactBoundary: "defined",
+    stopConditions: ["stop"],
+    evidenceRefs: ["docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    notProven: "negative test",
+    sourceTaskId: "TASK-115",
+    sourceParentSessionId: "SESS-V95-TEST"
+  });
+
+  const audit = await providerIncidentRecoveryAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("resume requires review")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

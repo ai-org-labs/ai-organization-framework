@@ -133,6 +133,8 @@ Usage:
   aof provider-production-boundary-audit [--project <path>] [--write-artifact <path>]
   aof provider-controlled-execution-candidate-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --approval-ref <path> --target-operation-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --operator-acceptance-ref <path> --product-value-evidence-ref <path> --production-boundary-ref <path> --provider-scope "<text>" --controlled-execution-mode <dry_run_replay|approved_preproduction_write_candidate|blocked> --candidate-status <ready_for_operator_go_no_go|blocked|not_ready> --expected-provider-effect "<text>" [--external-write-authorized] [--production-execution-authorized] --go-no-go-decision <not_requested|operator_go_required|blocked|defer|approved_for_preproduction_only> --credential-boundary "<text>" --budget-boundary "<text>" --rollback-boundary "<text>" --monitoring-boundary "<text>" --incident-boundary "<text>" --stop-condition "<text>" [--stop-condition "<text>"] --provenance-ref <path> [--provenance-ref <path>] --verification-ref <path> [--verification-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--candidate-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-controlled-execution-candidate-audit [--project <path>] [--write-artifact <path>]
+  aof provider-incident-recovery-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --candidate-ref <path> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --operator-acceptance-ref <path> --production-boundary-ref <path> --incident-scenario "<text>" --detection-signal "<text>" --severity <low|medium|high|critical> --containment-action "<text>" --rollback-decision <not_required|rollback_ready|rollback_executed|blocked|escalate> --recovery-action "<text>" --resume-decision <resume_blocked|resume_allowed|defer|escalate> --operator-notification "<text>" --learning-update-ref <path> --governance-action <stop_provider_execution|rollback_then_review|escalate_to_human|resume_after_review> --recovery-status <ready_for_drill|blocked|not_ready> --time-to-detect-boundary "<text>" --time-to-contain-boundary "<text>" --data-loss-boundary "<text>" --customer-impact-boundary "<text>" --stop-condition "<text>" [--stop-condition "<text>"] --evidence-ref <path> [--evidence-ref <path>] --verification-ref <path> [--verification-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--recovery-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof provider-incident-recovery-audit [--project <path>] [--write-artifact <path>]
   aof operator-acceptance-drill-record --project <path> --operator-ref <ref> --work-item-id <TASK-id> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --mission-control-ref <path> --decision <accept|stop|rollback|escalate|defer> --decision-rationale "<text>" --accepted-risk "<text>" --blocker-summary "<text>" --next-action "<text>" --safety-boundary "<text>" --not-proven "<text>" --evidence-ref <path> [--evidence-ref <path>] --source-task-id <TASK-id> --source-parent-session-id <id> [--drill-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-acceptance-drill-audit [--project <path>] [--write-artifact <path>]
   aof product-value-evidence-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --capability-statement "<text>" --before-state "<text>" --after-state "<text>" --scenario "<text>" --five-minute-demo "<text>" --time-saved-or-work-reduced "<text>" --cognitive-load-removed "<text>" --capability-row-json '<json>' [--capability-row-json '<json>'] --understanding-outcome <understood|partially_understood|not_understood|not_checked> --evidence-ref <path> [--evidence-ref <path>] --governance-action <none|improve_release_explanation|reopen_need|block_release_claim|escalate_product_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--value-evidence-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1601,6 +1603,51 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "provider-controlled-execution-candidate-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "provider-incident-recovery-record"
+            ? {
+                project: ".",
+                recoveryId: "",
+                releaseRef: "",
+                workItemId: "",
+                workItemRef: "",
+                candidateRef: "",
+                approvalRef: "",
+                reproductionRef: "",
+                rollbackRef: "",
+                outcomeRef: "",
+                learningRef: "",
+                operatorAcceptanceRef: "",
+                productionBoundaryRef: "",
+                incidentScenario: "",
+                detectionSignal: "",
+                severity: "medium",
+                containmentAction: "",
+                rollbackDecision: "blocked",
+                recoveryAction: "",
+                resumeDecision: "resume_blocked",
+                operatorNotification: "",
+                learningUpdateRef: "",
+                governanceAction: "stop_provider_execution",
+                recoveryStatus: "not_ready",
+                timeToDetectBoundary: "",
+                timeToContainBoundary: "",
+                dataLossBoundary: "",
+                customerImpactBoundary: "",
+                stopConditions: [],
+                evidenceRefs: [],
+                verificationRefs: [],
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "provider-incident-recovery-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -4001,6 +4048,16 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--recovery-id") {
+      options.recoveryId = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--candidate-ref") {
+      options.candidateRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--production-boundary-ref") {
       options.productionBoundaryRef = rest[i + 1] ?? "";
       i += 1;
@@ -4027,6 +4084,76 @@ function parseArgs(argv) {
     }
     if (part === "--go-no-go-decision") {
       options.goNoGoDecision = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--incident-scenario") {
+      options.incidentScenario = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--detection-signal") {
+      options.detectionSignal = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--severity") {
+      options.severity = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--containment-action") {
+      options.containmentAction = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--rollback-decision") {
+      options.rollbackDecision = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--recovery-action") {
+      options.recoveryAction = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--resume-decision") {
+      options.resumeDecision = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--operator-notification") {
+      options.operatorNotification = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--learning-update-ref") {
+      options.learningUpdateRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--recovery-status") {
+      options.recoveryStatus = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--time-to-detect-boundary") {
+      options.timeToDetectBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--time-to-contain-boundary") {
+      options.timeToContainBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--data-loss-boundary") {
+      options.dataLossBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--customer-impact-boundary") {
+      options.customerImpactBoundary = rest[i + 1] ?? "";
       i += 1;
       continue;
     }
@@ -7283,6 +7410,74 @@ function parseArgs(argv) {
   if (command === "provider-controlled-execution-candidate-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `provider-controlled-execution-candidate-audit`.");
+    }
+  }
+
+  if (command === "provider-incident-recovery-record") {
+    for (const [flag, value] of [
+      ["--release-ref", options.releaseRef],
+      ["--work-item-id", options.workItemId],
+      ["--work-item-ref", options.workItemRef],
+      ["--candidate-ref", options.candidateRef],
+      ["--approval-ref", options.approvalRef],
+      ["--reproduction-ref", options.reproductionRef],
+      ["--rollback-ref", options.rollbackRef],
+      ["--outcome-ref", options.outcomeRef],
+      ["--learning-ref", options.learningRef],
+      ["--operator-acceptance-ref", options.operatorAcceptanceRef],
+      ["--production-boundary-ref", options.productionBoundaryRef],
+      ["--incident-scenario", options.incidentScenario],
+      ["--detection-signal", options.detectionSignal],
+      ["--severity", options.severity],
+      ["--containment-action", options.containmentAction],
+      ["--rollback-decision", options.rollbackDecision],
+      ["--recovery-action", options.recoveryAction],
+      ["--resume-decision", options.resumeDecision],
+      ["--operator-notification", options.operatorNotification],
+      ["--learning-update-ref", options.learningUpdateRef],
+      ["--governance-action", options.governanceAction],
+      ["--recovery-status", options.recoveryStatus],
+      ["--time-to-detect-boundary", options.timeToDetectBoundary],
+      ["--time-to-contain-boundary", options.timeToContainBoundary],
+      ["--data-loss-boundary", options.dataLossBoundary],
+      ["--customer-impact-boundary", options.customerImpactBoundary],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value) {
+        throw new Error(`Missing ${flag} for \`provider-incident-recovery-record\`.`);
+      }
+    }
+    if (!["low", "medium", "high", "critical"].includes(options.severity)) {
+      throw new Error("Invalid --severity for `provider-incident-recovery-record`.");
+    }
+    if (!["not_required", "rollback_ready", "rollback_executed", "blocked", "escalate"].includes(options.rollbackDecision)) {
+      throw new Error("Invalid --rollback-decision for `provider-incident-recovery-record`.");
+    }
+    if (!["resume_blocked", "resume_allowed", "defer", "escalate"].includes(options.resumeDecision)) {
+      throw new Error("Invalid --resume-decision for `provider-incident-recovery-record`.");
+    }
+    if (!["stop_provider_execution", "rollback_then_review", "escalate_to_human", "resume_after_review"].includes(options.governanceAction)) {
+      throw new Error("Invalid --governance-action for `provider-incident-recovery-record`.");
+    }
+    if (!["ready_for_drill", "blocked", "not_ready"].includes(options.recoveryStatus)) {
+      throw new Error("Invalid --recovery-status for `provider-incident-recovery-record`.");
+    }
+    if (!Array.isArray(options.stopConditions) || options.stopConditions.length === 0) {
+      throw new Error("At least one --stop-condition is required for `provider-incident-recovery-record`.");
+    }
+    if (!Array.isArray(options.evidenceRefs) || options.evidenceRefs.length === 0) {
+      throw new Error("At least one --evidence-ref is required for `provider-incident-recovery-record`.");
+    }
+    if (!Array.isArray(options.verificationRefs) || options.verificationRefs.length === 0) {
+      throw new Error("At least one --verification-ref is required for `provider-incident-recovery-record`.");
+    }
+  }
+
+  if (command === "provider-incident-recovery-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `provider-incident-recovery-audit`.");
     }
   }
 

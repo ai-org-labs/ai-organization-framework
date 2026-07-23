@@ -20,6 +20,7 @@
     "provider_rollback_proof_projection",
     "provider_outcome_evidence_projection",
     "provider_learning_loop_projection",
+    "provider_incident_recovery_projection",
     "provider_production_boundary_projection",
     "operator_acceptance_drill_projection",
     "product_value_evidence_projection",
@@ -1123,6 +1124,64 @@
               "outcome_ref": { "type": "string" },
               "decision": { "type": "string" },
               "update_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_incident_recovery_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "recovery_count",
+        "ready_count",
+        "blocked_count",
+        "resume_allowed_count",
+        "hidden_resume_risk_count",
+        "missing_boundary_count",
+        "recoveries",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "recovery_count": { "type": "integer" },
+        "ready_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "resume_allowed_count": { "type": "integer" },
+        "hidden_resume_risk_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "recoveries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "recovery_id",
+              "release_ref",
+              "work_item_id",
+              "severity",
+              "rollback_decision",
+              "resume_decision",
+              "governance_action",
+              "recovery_status",
+              "artifact_ref"
+            ],
+            "properties": {
+              "recovery_id": { "type": "string" },
+              "release_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "severity": { "type": "string" },
+              "rollback_decision": { "type": "string" },
+              "resume_decision": { "type": "string" },
+              "governance_action": { "type": "string" },
+              "recovery_status": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

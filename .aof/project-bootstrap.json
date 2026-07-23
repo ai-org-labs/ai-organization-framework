@@ -1,7 +1,7 @@
 {
   "bootstrap_type": "aof-project-bootstrap",
   "bootstrap_format_version": 1,
-  "aof_version": "9.4.2",
+  "aof_version": "9.5.0",
   "topology": "self-hosting",
   "install_mode": "runtime-on",
   "write_target": "main",

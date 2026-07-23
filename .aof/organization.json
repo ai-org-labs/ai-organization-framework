@@ -1,7 +1,7 @@
 {
   "organization_type": "aof-organization",
   "organization_format_version": 1,
-  "mission": "Ship v9.4 as Provider-backed Controlled Execution Candidate so approved provider paths become operator-governed candidates without production execution authorization.",
+  "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
   "project_ref": ".aof/context/active/project-orientation.json",
   "skills_ref": ".aof/skills.json",
   "capability_registry_ref": ".aof/capability-registry.json",
@@ -174,7 +174,7 @@
       "name": "Governance To Release Contract",
       "owner_team_ref": "governance-team",
       "contract_type": "release-definition",
-      "artifact_ref": "docs/v9.4-release-definition.md"
+      "artifact_ref": "docs/v9.5-release-definition.md"
     },
     {
       "contract_id": "contract-verification-to-runtime",

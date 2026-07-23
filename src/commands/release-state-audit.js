@@ -18,6 +18,7 @@ import { providerAdapterPilotAuditCommand } from "./provider-adapter-pilot-audit
 import { providerControlledExecutionCandidateAuditCommand } from "./provider-controlled-execution-candidate-audit.js";
 import { providerExecutionApprovalAuditCommand } from "./provider-execution-approval-audit.js";
 import { providerExecutionReproductionAuditCommand } from "./provider-execution-reproduction-audit.js";
+import { providerIncidentRecoveryAuditCommand } from "./provider-incident-recovery-audit.js";
 import { providerLearningLoopAuditCommand } from "./provider-learning-loop-audit.js";
 import { providerOutcomeEvidenceAuditCommand } from "./provider-outcome-evidence-audit.js";
 import { providerProductionBoundaryAuditCommand } from "./provider-production-boundary-audit.js";
@@ -285,6 +286,15 @@ function requiresProviderControlledExecutionCandidateAudit(releaseVersion) {
   return major > 9 || (major === 9 && minor >= 4);
 }
 
+function requiresProviderIncidentRecoveryAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 9 || (major === 9 && minor >= 5);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -410,6 +420,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderControlledExecutionCandidateAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-controlled-execution-candidate-audit", await providerControlledExecutionCandidateAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderIncidentRecoveryAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-incident-recovery-audit", await providerIncidentRecoveryAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

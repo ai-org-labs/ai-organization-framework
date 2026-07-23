@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Ship v9.4 Provider-backed Controlled Execution Candidate: bind provider approval, target, reproduction, rollback, outcome, learning, operator acceptance, product value, and production boundary evidence into one operator go/no-go candidate without authorizing production execution.",
-  "updated_at": "2026-07-22T01:48:05.106Z",
+  "content": "Ship v9.5 External Runtime Incident Drill and Recovery Evidence: bind provider incident detection, containment, rollback, recovery, operator notification, learning update, and resume/stop governance before external provider execution advances.",
+  "updated_at": "2026-07-23T01:33:04.128Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V94-CONTROLLED-EXECUTION",
+  "source_session_id": "SESS-V95-INCIDENT-RECOVERY",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

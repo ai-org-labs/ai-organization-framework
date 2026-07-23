@@ -1,0 +1,31 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-115-V95",
+  "recorded_at": "2026-07-23T16:47:32.000Z",
+  "work_item_id": "TASK-115",
+  "work_item_ref": ".aof/tasks/done/TASK-115.json",
+  "readiness_status": "ready",
+  "goal": "Ship provider incident recovery drill evidence without claiming live production recovery performance.",
+  "risk": "AOF may treat a controlled provider candidate as ready even though the failure path is not reconstructable.",
+  "loss_boundary": "Do not call v9.5 release-ready unless incident recovery audit, capability delta, product value evidence, and release-state audit are green, and hidden resume authority fails.",
+  "acceptance_gates": [
+    "provider-incident-recovery-audit passes",
+    "release-state-audit includes the v9.5 incident recovery gate"
+  ],
+  "evidence_plan": [
+    "schemas, commands, recovery artifact, capability delta, product value evidence, focused tests, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "product-council",
+  "stop_conditions": [
+    "Stop if resume_allowed lacks resume_after_review governance",
+    "Stop if not-proven boundary claims live recovery performance"
+  ],
+  "qif_refs": ["docs/aof-qif-quality-definition.md"],
+  "archmap_impact_expected": "unknown",
+  "notes": null,
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null
+}

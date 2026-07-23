@@ -1,12 +1,12 @@
 {
   "ok": true,
   "artifact_type": "capability-first-release-audit",
-  "generated_at": "2026-07-22T02:17:20.877Z",
+  "generated_at": "2026-07-23T16:50:15.158Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "capability_count": 10,
+    "capability_count": 11,
     "delta_count": 1,
-    "new_capability_count": 0,
+    "new_capability_count": 1,
     "updated_capability_count": 1,
     "removed_capability_count": 0,
     "failing_check_count": 0
@@ -55,6 +55,13 @@
       "status": "improved"
     },
     {
+      "capability_id": "PCAP-PROVIDER-INCIDENT-RECOVERY",
+      "name": "Provider Incident Recovery",
+      "user_value": "Users can inspect what happens if a provider-backed action fails before allowing the action to advance.",
+      "first_version": "v9.5.0",
+      "status": "available"
+    },
+    {
       "capability_id": "PCAP-ROLLBACK",
       "name": "Rollback",
       "user_value": "Users can avoid treating an external operation as acceptable when reversal evidence is missing.",
@@ -85,29 +92,31 @@
   ],
   "deltas": [
     {
-      "delta_id": "CRD-MRVGC1RX-61K8IO",
-      "release_version": "9.4.2",
-      "one_minute_value_explanation": "AOF v9.4 users can validate the release from a clean checkout because the TASK-114 role, team, and Council evidence required by release-state audit is now committed.",
-      "thirty_second_version_delta": "v9.4.2 does not add provider authority; it fixes clean-checkout release audit reproducibility by committing the missing TASK-114 execution evidence.",
-      "new_capability_ids": [],
+      "delta_id": "CRD-MRXQUE24-WWENM0",
+      "release_version": "9.5.0",
+      "one_minute_value_explanation": "AOF can now show the incident recovery path before a provider-backed action advances: detect, contain, rollback, recover, notify, learn, and block or resume through governance.",
+      "thirty_second_version_delta": "v9.4 showed one controlled provider execution candidate. v9.5 adds the failure-handling drill for that candidate.",
+      "new_capability_ids": [
+        "PCAP-PROVIDER-INCIDENT-RECOVERY"
+      ],
       "updated_capability_ids": [
         "PCAP-PROVIDER-EXECUTION"
       ],
       "removed_capability_ids": [],
-      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json"
+      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json"
     }
   ],
   "checks": [
     {
       "name": "active release manifest presence",
       "status": "pass",
-      "detail": "9.4.2",
+      "detail": "9.5.0",
       "evidence_refs": []
     },
     {
       "name": "product capability register presence",
       "status": "pass",
-      "detail": "10 capability row(s)",
+      "detail": "11 capability row(s)",
       "evidence_refs": [
         ".aof/product-capabilities.json"
       ]
@@ -300,7 +309,8 @@
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
-        "docs/v9.4.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {
@@ -311,7 +321,8 @@
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
-        "docs/v9.4.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {
@@ -322,7 +333,8 @@
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
-        "docs/v9.4.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {
@@ -333,7 +345,8 @@
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
-        "docs/v9.4.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {
@@ -344,7 +357,8 @@
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
-        "docs/v9.4.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {
@@ -355,7 +369,70 @@
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
-        "docs/v9.4.0-release-notes.md"
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.5.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-INCIDENT-RECOVERY description",
+      "status": "pass",
+      "detail": "AOF can record and audit a provider incident drill that links a controlled execution candidate to detection, containment, rollback, recovery, notification, learning, and resume/stop governance.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.5-release-definition.md",
+        "docs/v9.5.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-INCIDENT-RECOVERY user value",
+      "status": "pass",
+      "detail": "Users can inspect what happens if a provider-backed action fails before allowing the action to advance.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.5-release-definition.md",
+        "docs/v9.5.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-INCIDENT-RECOVERY first version",
+      "status": "pass",
+      "detail": "v9.5.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.5-release-definition.md",
+        "docs/v9.5.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-INCIDENT-RECOVERY evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.5-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.5-release-definition.md",
+        "docs/v9.5.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-INCIDENT-RECOVERY evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.5.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.5-release-definition.md",
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {
@@ -551,135 +628,146 @@
       "status": "pass",
       "detail": "1 delta record(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json"
       ]
     },
     {
       "name": "active release capability change",
       "status": "pass",
-      "detail": "1 changed capability reference(s)",
+      "detail": "2 changed capability reference(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json"
       ]
     },
     {
-      "name": "CRD-MRVGC1RX-61K8IO release ref resolves",
+      "name": "CRD-MRXQUE24-WWENM0 release ref resolves",
       "status": "pass",
-      "detail": "docs/v9.4-release-definition.md",
+      "detail": "docs/v9.5-release-definition.md",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json",
-        "docs/v9.4-release-definition.md",
-        ".aof/tasks/done/TASK-114.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
       ]
     },
     {
-      "name": "CRD-MRVGC1RX-61K8IO work item ref resolves",
+      "name": "CRD-MRXQUE24-WWENM0 work item ref resolves",
       "status": "pass",
-      "detail": ".aof/tasks/done/TASK-114.json",
+      "detail": ".aof/tasks/done/TASK-115.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json",
-        "docs/v9.4-release-definition.md",
-        ".aof/tasks/done/TASK-114.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
       ]
     },
     {
-      "name": "CRD-MRVGC1RX-61K8IO capability ref PCAP-PROVIDER-EXECUTION",
+      "name": "CRD-MRXQUE24-WWENM0 capability ref PCAP-PROVIDER-INCIDENT-RECOVERY",
+      "status": "pass",
+      "detail": "PCAP-PROVIDER-INCIDENT-RECOVERY",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+      ]
+    },
+    {
+      "name": "CRD-MRXQUE24-WWENM0 capability ref PCAP-PROVIDER-EXECUTION",
       "status": "pass",
       "detail": "PCAP-PROVIDER-EXECUTION",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json",
-        "docs/v9.4-release-definition.md",
-        ".aof/tasks/done/TASK-114.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
       ]
     },
     {
-      "name": "CRD-MRVGC1RX-61K8IO value evidence ref resolves",
+      "name": "CRD-MRXQUE24-WWENM0 value evidence ref resolves",
       "status": "pass",
-      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json",
-        "docs/v9.4-release-definition.md",
-        ".aof/tasks/done/TASK-114.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
       ]
     },
     {
-      "name": "CRD-MRVGC1RX-61K8IO one minute value explanation",
+      "name": "CRD-MRXQUE24-WWENM0 one minute value explanation",
       "status": "pass",
-      "detail": "AOF v9.4 users can validate the release from a clean checkout because the TASK-114 role, team, and Council evidence required by release-state audit is now committed.",
+      "detail": "AOF can now show the incident recovery path before a provider-backed action advances: detect, contain, rollback, recover, notify, learn, and block or resume through governance.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json",
-        "docs/v9.4-release-definition.md",
-        ".aof/tasks/done/TASK-114.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
       ]
     },
     {
-      "name": "CRD-MRVGC1RX-61K8IO thirty second version delta",
+      "name": "CRD-MRXQUE24-WWENM0 thirty second version delta",
       "status": "pass",
-      "detail": "v9.4.2 does not add provider authority; it fixes clean-checkout release audit reproducibility by committing the missing TASK-114 execution evidence.",
+      "detail": "v9.4 showed one controlled provider execution candidate. v9.5 adds the failure-handling drill for that candidate.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json",
-        "docs/v9.4-release-definition.md",
-        ".aof/tasks/done/TASK-114.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
       ]
     },
     {
-      "name": "CRD-MRVGC1RX-61K8IO product review trigger",
+      "name": "CRD-MRXQUE24-WWENM0 product review trigger",
       "status": "pass",
-      "detail": "If release audit passes only on one local machine, reopen as a release reproducibility and evidence packaging issue.",
+      "detail": "If an operator still cannot explain what happens when provider execution fails, reopen product review instead of treating this as documentation only.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json",
-        "docs/v9.4-release-definition.md",
-        ".aof/tasks/done/TASK-114.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
       ]
     },
     {
-      "name": "CRD-MRVGC1RX-61K8IO not-proven boundary",
+      "name": "CRD-MRXQUE24-WWENM0 not-proven boundary",
       "status": "pass",
-      "detail": "This patch delta does not prove production provider execution, semantic correctness, credential safety, billing safety, actual rollback execution, or market adoption.",
+      "detail": "This capability delta does not prove live incident recovery performance, actual rollback execution, third-party adoption, or market value.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-114-V942.json",
-        "docs/v9.4-release-definition.md",
-        ".aof/tasks/done/TASK-114.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
+        "docs/v9.5-release-definition.md",
+        ".aof/tasks/done/TASK-115.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
       ]
     },
     {
       "name": "release notes ## What You Can Do Now",
       "status": "pass",
-      "detail": "docs/v9.4.2-release-notes.md",
+      "detail": "docs/v9.5.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.4.2-release-notes.md"
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Delta",
       "status": "pass",
-      "detail": "docs/v9.4.2-release-notes.md",
+      "detail": "docs/v9.5.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.4.2-release-notes.md"
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Matrix",
       "status": "pass",
-      "detail": "docs/v9.4.2-release-notes.md",
+      "detail": "docs/v9.5.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.4.2-release-notes.md"
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Value Evidence",
       "status": "pass",
-      "detail": "docs/v9.4.2-release-notes.md",
+      "detail": "docs/v9.5.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.4.2-release-notes.md"
+        "docs/v9.5.0-release-notes.md"
       ]
     },
     {

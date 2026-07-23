@@ -146,6 +146,8 @@ const COMMAND_SPECS = [
   ["council", "./commands/council.js", "councilCommand"],
   ["council-exec", "./commands/council-exec.js", "councilExecCommand"],
   ["provider-check", "./commands/provider-check.js", "providerCheckCommand"],
+  ["provider-incident-recovery-record", "./commands/provider-incident-recovery-record.js", "providerIncidentRecoveryRecordCommand"],
+  ["provider-incident-recovery-audit", "./commands/provider-incident-recovery-audit.js", "providerIncidentRecoveryAuditCommand"],
   ["escalation-resolve", "./commands/escalation-resolve.js", "escalationResolveCommand"],
   ["role-result-record", "./commands/role-result-record.js", "roleResultRecordCommand"],
   ["role-join-record", "./commands/role-join-record.js", "roleJoinRecordCommand"],

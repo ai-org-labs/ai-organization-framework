@@ -1,0 +1,18 @@
+{
+  "join_type": "role-join",
+  "recorded_at": "2026-07-23T16:47:15.000Z",
+  "join_id": "RJOIN-TASK-115-V95",
+  "join_status": "resolved",
+  "stage": "planning",
+  "expected_roles": ["visionary", "builder", "guardian"],
+  "received_roles": ["visionary", "builder", "guardian"],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-orchestrator-decision",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v9.5 incident recovery evidence to council review.",
+  "received_session_ids": ["SESS-V95-INCIDENT-RECOVERY"],
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "decision_record_ref": null,
+  "summary": "Visionary, Builder, and Guardian all returned bounded v9.5 recommendations."
+}

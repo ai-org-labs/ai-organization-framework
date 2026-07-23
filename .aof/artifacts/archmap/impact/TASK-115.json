@@ -1,0 +1,25 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-115",
+  "work_item_ref": ".aof/tasks/done/TASK-115.json",
+  "work_item_id": "TASK-115",
+  "status": "archmap_unaffected",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "node",
+      "id": "ProviderExecutionBoundary",
+      "reason": "v9.5 adds an incident recovery record and audit above the existing provider boundary chain; it does not change the current runtime architecture map topology."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    "docs/v9.5-release-definition.md",
+    "src/commands/provider-incident-recovery-record.js",
+    "src/commands/provider-incident-recovery-audit.js",
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-115-V95.json"
+  ],
+  "recorded_at": "2026-07-23T16:47:44.000Z"
+}

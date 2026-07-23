@@ -1,0 +1,89 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-V95-INCIDENT-RECOVERY",
+  "recorded_at": "2026-07-23T16:47:00.000Z",
+  "session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "parent_session_id": null,
+  "actor_ref": "parent-codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "EVT-V95-1",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-23T16:41:37.036Z",
+      "summary": "Heartbeat required latest AOF runtime use and next release completion.",
+      "artifact_refs": ["docs/vnext-roadmap.md"],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V95-2",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-23T16:45:36.194Z",
+      "summary": "AOF runtime wrote provider incident recovery evidence for TASK-115.",
+      "artifact_refs": [".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"],
+      "tool_name": "provider-incident-recovery-record",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V95-3",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-23T16:46:44.908Z",
+      "summary": "AOF runtime wrote product value evidence and capability delta for the v9.5 release.",
+      "artifact_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json"
+      ],
+      "tool_name": "capability-release-delta-record",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V95-4",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-23T16:47:00.000Z",
+      "summary": "Focused provider incident recovery tests were added before full release verification.",
+      "artifact_refs": ["test/runtime-core-2.test.js"],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V95-5",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-23T16:47:00.000Z",
+      "summary": "Stop if incident recovery evidence permits hidden resume authority or claims live production recovery performance.",
+      "artifact_refs": ["docs/v9.5-release-checklist.md"],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [".aof/tasks/done/TASK-115.json"],
+    "requirement_refs": ["docs/v9.5-release-definition.md"],
+    "test_evidence_refs": ["test/runtime-core-2.test.js"],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"]
+  },
+  "risk_candidates": [
+    "Operator may confuse incident recovery drill completeness with live provider recovery performance."
+  ],
+  "decision_candidates": [
+    "Keep v9.5 bounded to recovery drill evidence and defer production recovery claims."
+  ],
+  "release_ready_evidence": {
+    "claim": "Release readiness is not claimed from this session alone.",
+    "evidence_refs": ["docs/v9.5-release-checklist.md"],
+    "verdict": "not_ready"
+  },
+  "source_task_id": "TASK-115",
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_decision_record_id": null
+}

@@ -1,0 +1,22 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-23T16:47:11.000Z",
+  "role": "builder",
+  "stage": "planning",
+  "session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "status": "completed",
+  "recommendation": "Implement narrow provider incident recovery record/audit commands and wire the audit into release-state-audit for v9.5 onward.",
+  "rationale": "A dedicated incident audit detects missing detection, containment, rollback, notification, learning, and hidden resume authority.",
+  "signals": ["narrow runtime recovery contract"],
+  "artifact_refs": [
+    "src/commands/provider-incident-recovery-record.js",
+    "src/commands/provider-incident-recovery-audit.js"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-115",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.89
+}

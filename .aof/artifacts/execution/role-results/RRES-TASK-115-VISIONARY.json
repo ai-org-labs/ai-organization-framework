@@ -1,0 +1,19 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-23T16:47:10.000Z",
+  "role": "visionary",
+  "stage": "planning",
+  "session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "status": "completed",
+  "recommendation": "Frame v9.5 as provider incident recovery evidence, not as a claim that production incidents are solved.",
+  "rationale": "The user value is seeing the failure path before provider execution advances.",
+  "signals": ["capability-first incident framing required"],
+  "artifact_refs": ["docs/v9.5-release-definition.md", "docs/aof-capability-matrix.md"],
+  "decision_required": false,
+  "source_task_id": "TASK-115",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.87
+}
