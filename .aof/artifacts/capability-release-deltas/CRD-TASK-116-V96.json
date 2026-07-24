@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-116-V96",
+  "recorded_at": "2026-07-24T01:56:25.117Z",
+  "release_version": "9.6.0",
+  "release_ref": "docs/v9.6-release-definition.md",
+  "work_item_id": "TASK-116",
+  "work_item_ref": ".aof/tasks/done/TASK-116.json",
+  "one_minute_value_explanation": "v9.6 lets an operator see whether a provider-backed action is allowed to spend tokens, calls, quota, retries, or money before execution advances.",
+  "thirty_second_version_delta": "v9.5 showed the failure recovery path. v9.6 adds the spend and quota gate before execution can advance.",
+  "new_capability_ids": [
+    "PCAP-PROVIDER-COST-QUOTA"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-EXECUTION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+  ],
+  "product_review_trigger": "Reopen product review if users still cannot explain whether provider execution is budget-bound or merely structurally audited.",
+  "not_proven": "This delta does not prove actual provider billing correctness, quota enforcement, production execution safety, or market adoption.",
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "source_decision_record_id": null,
+  "notes": null
+}

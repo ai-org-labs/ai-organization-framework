@@ -19,7 +19,7 @@ test("situationAssessCommand diagnoses the current frontier from self-hosting ru
 
   assert.equal(result.ok, true);
   assert.equal(result.summary.artifact_type, "situation-assessment");
-  assert.equal(result.summary.active_release_version, "9.5.0");
+  assert.equal(result.summary.active_release_version, "9.6.0");
   assert.equal(result.summary.primary_frontier_task, null);
   assert.equal(result.summary.current_runtime_stage, "frontier-definition-needed");
   assert.match(result.summary.recommended_action.recommended_action, /v9\.6|cost\/quota|third-party operator validation|production execution|frontier/i);
@@ -114,6 +114,8 @@ test("roadmapStatusCommand keeps committed release evidence on the correct track
   assert.ok(result.release_tracks["v9.4"].some((task) => task.task_id === "TASK-114"));
   assert.ok(Array.isArray(result.release_tracks["v9.5"]));
   assert.ok(result.release_tracks["v9.5"].some((task) => task.task_id === "TASK-115"));
+  assert.ok(Array.isArray(result.release_tracks["v9.6"]));
+  assert.ok(result.release_tracks["v9.6"].some((task) => task.task_id === "TASK-116"));
 });
 
 test("visibilityExportCommand surfaces situation judgment rather than stale release work", async () => {
@@ -121,27 +123,27 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   const result = await visibilityExportCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.payloads.mission_control.mission_overview.release_version, "9.5.0");
+  assert.equal(result.payloads.mission_control.mission_overview.release_version, "9.6.0");
   assert.equal(result.payloads.mission_control.mission_overview.current_runtime_stage, "frontier-definition-needed");
   assert.match(result.payloads.mission_control.next_action.recommended_action, /v9\.6|cost\/quota|third-party operator validation|production execution/i);
   assert.doesNotMatch(result.payloads.mission_control.next_action.recommended_action, /Mission Control visibility slice/i);
   assert.equal(result.payloads.mission_control.blockers.some((blocker) => /alignment pulse/i.test(blocker.summary)), false);
   assert.equal(result.payloads.mission_control.blockers.some((blocker) => /frontier task/i.test(blocker.summary)), false);
-  assert.match(result.payloads.operator_brief.headline, /frontier|v9\.5|incident recovery/i);
+  assert.match(result.payloads.operator_brief.headline, /frontier|v9\.6|cost\/quota|cost and quota/i);
   assert.match(result.payloads.operator_brief.next_action.recommended_action, /v9\.6|cost\/quota|third-party operator validation|production execution|frontier/i);
   assert.equal(result.payloads.mission_control.work_governance.present, true);
   assert.ok(result.payloads.mission_control.work_governance.work_items.length >= 2);
   assert.equal(result.payloads.mission_control.archmap.present, true);
   assert.equal(result.payloads.mission_control.archmap.current_source_ref, "docs/archmaps/aof-runtime-current.archmap");
-  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-115");
+  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-116");
   assert.ok(result.payloads.mission_control.archmap.pending_impact_count >= 0);
   assert.equal(result.payloads.mission_control.organization_state.present, true);
   assert.equal(result.payloads.mission_control.organization_state.council_count, 3);
   assert.ok(result.payloads.mission_control.organization_state.roles.some((role) => role.role_id === "builder"));
   assert.equal(result.payloads.mission_control.agent_session_observability.present, true);
-  assert.equal(result.payloads.mission_control.agent_session_observability.latest_session_id, "SESS-V95-INCIDENT-RECOVERY");
+  assert.equal(result.payloads.mission_control.agent_session_observability.latest_session_id, "SESS-V96-COST-QUOTA");
   assert.equal(result.payloads.mission_control.agent_session_observability.audit_ok, true);
-  assert.ok(result.payloads.mission_control.agent_session_observability.linked_task_refs.some((ref) => /TASK-115/.test(ref)));
+  assert.ok(result.payloads.mission_control.agent_session_observability.linked_task_refs.some((ref) => /TASK-116/.test(ref)));
   assert.ok(result.payloads.mission_control.agent_session_observability.risk_candidates.length >= 1);
   assert.ok(result.payloads.mission_control.agent_session_observability.decision_candidates.length >= 1);
   assert.equal(result.payloads.mission_control.context_reference_integrity.present, true);
@@ -187,15 +189,21 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.equal(result.payloads.mission_control.provider_incident_recovery_projection.audit_ok, true);
   assert.equal(result.payloads.mission_control.provider_incident_recovery_projection.recovery_count, 1);
   assert.equal(result.payloads.mission_control.provider_incident_recovery_projection.ready_count, 1);
+  assert.equal(result.payloads.mission_control.provider_cost_quota_boundary_projection.present, true);
+  assert.equal(result.payloads.mission_control.provider_cost_quota_boundary_projection.audit_ok, true);
+  assert.equal(result.payloads.mission_control.provider_cost_quota_boundary_projection.boundary_count, 1);
+  assert.equal(result.payloads.mission_control.provider_cost_quota_boundary_projection.ready_count, 1);
+  assert.equal(result.payloads.mission_control.provider_cost_quota_boundary_projection.blocked_count, 1);
+  assert.equal(result.payloads.mission_control.provider_cost_quota_boundary_projection.allowed_count, 0);
   assert.equal(result.payloads.mission_control.operator_acceptance_drill_projection.present, true);
   assert.equal(result.payloads.mission_control.operator_acceptance_drill_projection.audit_ok, true);
   assert.equal(result.payloads.mission_control.operator_acceptance_drill_projection.drill_count, 1);
   assert.equal(result.payloads.mission_control.operator_acceptance_drill_projection.accept_count, 1);
   assert.equal(result.payloads.mission_control.product_value_evidence_projection.present, true);
   assert.equal(result.payloads.mission_control.product_value_evidence_projection.audit_ok, true);
-  assert.equal(result.payloads.mission_control.product_value_evidence_projection.record_count, 5);
-  assert.equal(result.payloads.mission_control.product_value_evidence_projection.understood_count, 5);
-  assert.equal(result.payloads.mission_control.product_value_evidence_projection.capability_row_count, 8);
+  assert.equal(result.payloads.mission_control.product_value_evidence_projection.record_count, 6);
+  assert.equal(result.payloads.mission_control.product_value_evidence_projection.understood_count, 6);
+  assert.equal(result.payloads.mission_control.product_value_evidence_projection.capability_row_count, 10);
   assert.equal(result.payloads.mission_control.provider_production_boundary_projection.present, true);
   assert.equal(result.payloads.mission_control.provider_production_boundary_projection.audit_ok, true);
   assert.equal(result.payloads.mission_control.provider_production_boundary_projection.boundary_count, 1);
@@ -232,20 +240,20 @@ test("operatorBriefCommand compresses runtime situation judgment into one operat
 
   assert.equal(result.ok, true);
   assert.equal(result.brief.view_type, "operator_brief");
-  assert.equal(result.brief.current_state.release_version, "9.5.0");
+  assert.equal(result.brief.current_state.release_version, "9.6.0");
   assert.equal(result.brief.current_state.current_runtime_stage, "frontier-definition-needed");
   assert.equal(result.brief.current_state.primary_frontier_task, null);
   assert.equal(result.brief.current_state.skillful_actor_projection?.projection_id, "SAHRI-TASK-054-PROOF");
   assert.match(result.brief.operator_answers.what_should_happen_next, /v9\.6|cost\/quota|third-party operator validation|production execution|frontier/i);
 });
 
-test("organizationStatusCommand exposes the post-v9.5 direction goal and next value slice", async () => {
+test("organizationStatusCommand exposes the post-v9.6 direction goal and next value slice", async () => {
   const projectRoot = process.cwd();
   const result = await organizationStatusCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.match(result.goals.operating_goal, /v9\.5|incident recovery/i);
-  assert.match(result.goals.next_value_slice, /v9\.6|cost\/quota|third-party operator validation|production execution/i);
+  assert.match(result.goals.operating_goal, /v9\.6|cost\/quota|cost and quota/i);
+  assert.match(result.goals.next_value_slice, /v9\.7|third-party operator validation|production execution|v10\.0/i);
 });
 
 test("operatorProgressCommand explains what changed since the last checkpoint", async () => {
@@ -254,7 +262,7 @@ test("operatorProgressCommand explains what changed since the last checkpoint", 
 
   assert.equal(result.ok, true);
   assert.equal(result.progress.view_type, "operator_progress");
-  assert.match(result.progress.progress_answer.what_changed, /TASK-115|v9\.5|incident recovery/i);
+  assert.match(result.progress.progress_answer.what_changed, /TASK-116|v9\.6|cost\/quota|cost and quota/i);
 });
 
 test("treePositionCommand explains the current release trunk and frontier branch", async () => {
@@ -263,10 +271,10 @@ test("treePositionCommand explains the current release trunk and frontier branch
 
   assert.equal(result.ok, true);
   assert.equal(result.tree.view_type, "tree_position");
-  assert.equal(result.tree.trunk.active_release_version, "9.5.0");
+  assert.equal(result.tree.trunk.active_release_version, "9.6.0");
   assert.equal(result.tree.branch.frontier_task_id, null);
   assert.equal(result.tree.branch.frontier_track, null);
-  assert.match(result.tree.tree_answer.where_are_we, /v9\.5|next concrete branch/i);
+  assert.match(result.tree.tree_answer.where_are_we, /v9\.6|next concrete branch/i);
 });
 
 test("releaseStateAuditCommand includes product value, production boundary, and controlled candidate release gates", async () => {
@@ -274,7 +282,7 @@ test("releaseStateAuditCommand includes product value, production boundary, and 
   const result = await releaseStateAuditCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.summary.active_release.release_version, "9.5.0");
+  assert.equal(result.summary.active_release.release_version, "9.6.0");
   const externalResourceAudit = result.summary.governance_audits.find((audit) => audit.name === "external-resource-audit");
   assert.equal(externalResourceAudit.ok, true);
   const providerAdapterAudit = result.summary.governance_audits.find((audit) => audit.name === "provider-adapter-audit");
@@ -301,6 +309,8 @@ test("releaseStateAuditCommand includes product value, production boundary, and 
   assert.equal(providerControlledExecutionCandidateAudit.ok, true);
   const providerIncidentRecoveryAudit = result.summary.governance_audits.find((audit) => audit.name === "provider-incident-recovery-audit");
   assert.equal(providerIncidentRecoveryAudit.ok, true);
+  const providerCostQuotaBoundaryAudit = result.summary.governance_audits.find((audit) => audit.name === "provider-cost-quota-boundary-audit");
+  assert.equal(providerCostQuotaBoundaryAudit.ok, true);
   assert.equal(result.summary.errors.length, 0);
 });
 

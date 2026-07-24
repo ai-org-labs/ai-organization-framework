@@ -16,6 +16,7 @@ import { productValueEvidenceAuditCommand } from "./product-value-evidence-audit
 import { providerAdapterAuditCommand } from "./provider-adapter-audit.js";
 import { providerAdapterPilotAuditCommand } from "./provider-adapter-pilot-audit.js";
 import { providerControlledExecutionCandidateAuditCommand } from "./provider-controlled-execution-candidate-audit.js";
+import { providerCostQuotaBoundaryAuditCommand } from "./provider-cost-quota-boundary-audit.js";
 import { providerExecutionApprovalAuditCommand } from "./provider-execution-approval-audit.js";
 import { providerExecutionReproductionAuditCommand } from "./provider-execution-reproduction-audit.js";
 import { providerIncidentRecoveryAuditCommand } from "./provider-incident-recovery-audit.js";
@@ -295,6 +296,15 @@ function requiresProviderIncidentRecoveryAudit(releaseVersion) {
   return major > 9 || (major === 9 && minor >= 5);
 }
 
+function requiresProviderCostQuotaBoundaryAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 9 || (major === 9 && minor >= 6);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -425,6 +435,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderIncidentRecoveryAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-incident-recovery-audit", await providerIncidentRecoveryAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderCostQuotaBoundaryAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-cost-quota-boundary-audit", await providerCostQuotaBoundaryAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

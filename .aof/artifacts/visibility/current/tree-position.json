@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-23T16:59:08.340Z",
+  "generated_at": "2026-07-24T02:00:06.256Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "9.5.0",
-    "active_release_track": "v9.5",
-    "release_definition_ref": "docs/v9.5-release-definition.md"
+    "active_release_version": "9.6.0",
+    "active_release_track": "v9.6",
+    "release_definition_ref": "docs/v9.6-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v9.5.0, advance v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, and v9.9 external runtime production readiness review."
+    "branch_summary": "After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v9.5",
+      "label": "v9.6",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v9.5 and the next concrete branch.",
-    "why_this_branch": "Ship v9.5 External Runtime Incident Drill and Recovery Evidence: bind provider incident detection, containment, rollback, recovery, operator notification, learning update, and resume/stop governance before external provider execution advances.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.5.0, advance v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, and v9.9 external runtime production readiness review."
+    "where_are_we": "The runtime is between v9.6 and the next concrete branch.",
+    "why_this_branch": "Ship v9.6 Provider Execution Cost and Quota Boundary: bind provider scope, budget owner, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance before provider-backed execution advances.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision."
   }
 }

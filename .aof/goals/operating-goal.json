@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Ship v9.5 External Runtime Incident Drill and Recovery Evidence: bind provider incident detection, containment, rollback, recovery, operator notification, learning update, and resume/stop governance before external provider execution advances.",
-  "updated_at": "2026-07-23T01:33:04.128Z",
+  "content": "Ship v9.6 Provider Execution Cost and Quota Boundary: bind provider scope, budget owner, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance before provider-backed execution advances.",
+  "updated_at": "2026-07-24T01:31:50.248Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V95-INCIDENT-RECOVERY",
+  "source_session_id": "SESS-V96-COST-QUOTA",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

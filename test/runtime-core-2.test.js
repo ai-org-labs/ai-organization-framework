@@ -45,6 +45,8 @@ import { providerAdapterPilotRecordCommand } from "../src/commands/provider-adap
 import { providerAdapterRecordCommand } from "../src/commands/provider-adapter-record.js";
 import { providerControlledExecutionCandidateAuditCommand } from "../src/commands/provider-controlled-execution-candidate-audit.js";
 import { providerControlledExecutionCandidateRecordCommand } from "../src/commands/provider-controlled-execution-candidate-record.js";
+import { providerCostQuotaBoundaryAuditCommand } from "../src/commands/provider-cost-quota-boundary-audit.js";
+import { providerCostQuotaBoundaryRecordCommand } from "../src/commands/provider-cost-quota-boundary-record.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
 import { providerExecutionReproductionAuditCommand } from "../src/commands/provider-execution-reproduction-audit.js";
@@ -4593,6 +4595,119 @@ test("provider incident recovery audit blocks hidden resume authority", async (t
   const audit = await providerIncidentRecoveryAuditCommand({ project: projectRoot });
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("resume requires review")));
+});
+
+test("provider cost quota boundary commands bind spend, quota, and stop governance", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const refs = [
+    "docs/v9.6-release-definition.md",
+    ".aof/tasks/open/TASK-116.json",
+    ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TEST.json",
+    ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    ".aof/artifacts/provider-incident-recoveries/PIR-TEST.json",
+    ".aof/organization.json",
+    "docs/evidence.md"
+  ];
+  for (const ref of refs) {
+    await fs.mkdir(path.dirname(path.join(projectRoot, ref)), { recursive: true });
+    await fs.writeFile(path.join(projectRoot, ref), "{}\n", "utf8");
+  }
+
+  await providerCostQuotaBoundaryRecordCommand({
+    project: projectRoot,
+    boundaryId: "PCQB-TEST-V96",
+    releaseRef: "docs/v9.6-release-definition.md",
+    workItemId: "TASK-116",
+    workItemRef: ".aof/tasks/open/TASK-116.json",
+    candidateRef: ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TEST.json",
+    approvalRef: ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    incidentRecoveryRef: ".aof/artifacts/provider-incident-recoveries/PIR-TEST.json",
+    providerScope: "Bounded preproduction provider candidate.",
+    budgetOwnerRef: ".aof/organization.json",
+    budgetPeriod: "single test execution",
+    maxEstimatedCost: 1,
+    maxActualCost: 2,
+    currency: "USD",
+    maxTokens: 1000,
+    maxProviderCalls: 2,
+    maxRetryCount: 1,
+    rateLimitBoundary: "No more than two provider calls.",
+    quotaBoundary: "Known token and call quota must exist.",
+    billingBoundary: "No autonomous paid execution.",
+    overagePolicy: "block",
+    costStatus: "within_boundary",
+    quotaStatus: "within_boundary",
+    executionEligibility: "blocked",
+    governanceAction: "block_provider_execution",
+    stopConditions: ["cost over ceiling", "quota unknown"],
+    evidenceRefs: ["docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    notProven: "This proves boundary completeness only, not provider billing truth.",
+    sourceTaskId: "TASK-116",
+    sourceParentSessionId: "SESS-V96-TEST"
+  });
+
+  const audit = await providerCostQuotaBoundaryAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.boundary_count, 1);
+  assert.equal(audit.summary.summary.ready_count, 1);
+  assert.equal(audit.summary.summary.allowed_count, 0);
+});
+
+test("provider cost quota boundary audit blocks hidden execution permission", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const refs = [
+    "docs/v9.6-release-definition.md",
+    ".aof/tasks/open/TASK-116.json",
+    ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TEST.json",
+    ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    ".aof/artifacts/provider-incident-recoveries/PIR-TEST.json",
+    ".aof/organization.json",
+    "docs/evidence.md"
+  ];
+  for (const ref of refs) {
+    await fs.mkdir(path.dirname(path.join(projectRoot, ref)), { recursive: true });
+    await fs.writeFile(path.join(projectRoot, ref), "{}\n", "utf8");
+  }
+
+  await providerCostQuotaBoundaryRecordCommand({
+    project: projectRoot,
+    boundaryId: "PCQB-TEST-V96-BAD",
+    releaseRef: "docs/v9.6-release-definition.md",
+    workItemId: "TASK-116",
+    workItemRef: ".aof/tasks/open/TASK-116.json",
+    candidateRef: ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TEST.json",
+    approvalRef: ".aof/artifacts/provider-execution-approvals/PEA-TEST.json",
+    incidentRecoveryRef: ".aof/artifacts/provider-incident-recoveries/PIR-TEST.json",
+    providerScope: "bad negative test",
+    budgetOwnerRef: ".aof/organization.json",
+    budgetPeriod: "single test execution",
+    maxEstimatedCost: 1,
+    maxActualCost: 2,
+    currency: "USD",
+    maxTokens: 1000,
+    maxProviderCalls: 2,
+    maxRetryCount: 1,
+    rateLimitBoundary: "defined",
+    quotaBoundary: "defined",
+    billingBoundary: "defined",
+    overagePolicy: "allow",
+    costStatus: "within_boundary",
+    quotaStatus: "within_boundary",
+    executionEligibility: "allowed",
+    governanceAction: "block_provider_execution",
+    stopConditions: ["stop"],
+    evidenceRefs: ["docs/evidence.md"],
+    verificationRefs: ["docs/evidence.md"],
+    notProven: "negative test",
+    sourceTaskId: "TASK-116",
+    sourceParentSessionId: "SESS-V96-TEST"
+  });
+
+  const audit = await providerCostQuotaBoundaryAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("no hidden execution permission")));
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("overage blocks or escalates")));
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

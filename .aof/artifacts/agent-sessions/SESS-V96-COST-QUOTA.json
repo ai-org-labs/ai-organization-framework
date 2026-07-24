@@ -1,0 +1,100 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-V96-COST-QUOTA",
+  "recorded_at": "2026-07-24T01:31:50.248Z",
+  "session_id": "SESS-V96-COST-QUOTA",
+  "parent_session_id": null,
+  "actor_ref": "parent-codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "EVT-V96-1",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-24T01:31:50.248Z",
+      "summary": "Heartbeat required latest AOF runtime use and next release completion.",
+      "artifact_refs": ["docs/vnext-roadmap.md"],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V96-2",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-24T01:40:00.000Z",
+      "summary": "AOF runtime opened TASK-116 for v9.6 provider execution cost and quota boundary.",
+      "artifact_refs": [".aof/tasks/open/TASK-116.json"],
+      "tool_name": "task-open",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V96-3",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-24T01:48:00.000Z",
+      "summary": "AOF runtime wrote provider cost/quota boundary evidence for TASK-116.",
+      "artifact_refs": [".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"],
+      "tool_name": "provider-cost-quota-boundary-record",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V96-4",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-24T01:52:00.000Z",
+      "summary": "v9.6 release docs, schemas, commands, product capability, value evidence, and capability delta were generated.",
+      "artifact_refs": [
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json"
+      ],
+      "tool_name": null,
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V96-5",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-24T02:00:00.000Z",
+      "summary": "Provider cost/quota boundary audit, product value audit, capability-first audit, focused tests, and release-state audit are required before release.",
+      "artifact_refs": ["docs/v9.6-release-checklist.md"],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V96-6",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-24T02:00:00.000Z",
+      "summary": "Stop if provider execution can advance without budget owner, cost ceiling, quota boundary, rate-limit boundary, billing boundary, or explicit overage policy.",
+      "artifact_refs": ["docs/v9.6-release-definition.md"],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [".aof/tasks/done/TASK-116.json"],
+    "requirement_refs": ["docs/v9.6-release-definition.md"],
+    "test_evidence_refs": ["test/runtime-core-2.test.js"],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"]
+  },
+  "risk_candidates": [
+    "Operator may read a structurally valid provider boundary as proof of actual provider billing correctness."
+  ],
+  "decision_candidates": [
+    "Keep v9.6 bounded to pre-execution cost/quota governance and defer production billing proof."
+  ],
+  "release_ready_evidence": {
+    "claim": "Release readiness is not claimed from this session alone.",
+    "evidence_refs": ["docs/v9.6-release-checklist.md"],
+    "verdict": "not_ready"
+  },
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "source_decision_record_id": null
+}

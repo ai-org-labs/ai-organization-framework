@@ -148,6 +148,8 @@ const COMMAND_SPECS = [
   ["provider-check", "./commands/provider-check.js", "providerCheckCommand"],
   ["provider-incident-recovery-record", "./commands/provider-incident-recovery-record.js", "providerIncidentRecoveryRecordCommand"],
   ["provider-incident-recovery-audit", "./commands/provider-incident-recovery-audit.js", "providerIncidentRecoveryAuditCommand"],
+  ["provider-cost-quota-boundary-record", "./commands/provider-cost-quota-boundary-record.js", "providerCostQuotaBoundaryRecordCommand"],
+  ["provider-cost-quota-boundary-audit", "./commands/provider-cost-quota-boundary-audit.js", "providerCostQuotaBoundaryAuditCommand"],
   ["escalation-resolve", "./commands/escalation-resolve.js", "escalationResolveCommand"],
   ["role-result-record", "./commands/role-result-record.js", "roleResultRecordCommand"],
   ["role-join-record", "./commands/role-join-record.js", "roleJoinRecordCommand"],

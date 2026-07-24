@@ -1,0 +1,79 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-116-V96",
+  "recorded_at": "2026-07-24T02:00:42.000Z",
+  "work_item_id": "TASK-116",
+  "work_item_ref": ".aof/tasks/done/TASK-116.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V96-COST-QUOTA.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export summarizes local runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V96-1",
+      "event_type": "prompt",
+      "summary": "Heartbeat required next release completion using AOF runtime.",
+      "artifact_refs": ["docs/vnext-roadmap.md"]
+    },
+    {
+      "event_id": "EVT-V96-2",
+      "event_type": "response",
+      "summary": "v9.6 was selected as the next provider track release because cost/quota boundaries are the next risk after incident recovery evidence.",
+      "artifact_refs": ["docs/vnext-release-plan.md"]
+    },
+    {
+      "event_id": "EVT-V96-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime opened TASK-116 and wrote provider cost/quota boundary evidence.",
+      "artifact_refs": [".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"]
+    },
+    {
+      "event_id": "EVT-V96-4",
+      "event_type": "artifact_write",
+      "summary": "v9.6 cost/quota docs, schemas, commands, capability matrix, and release evidence were generated.",
+      "artifact_refs": ["docs/v9.6-release-definition.md"]
+    },
+    {
+      "event_id": "EVT-V96-5",
+      "event_type": "verification",
+      "summary": "Cost/quota audit, capability audit, product value audit, release-state audit, and tests are release evidence.",
+      "artifact_refs": ["docs/v9.6-release-checklist.md"]
+    },
+    {
+      "event_id": "EVT-V96-6",
+      "event_type": "blocker",
+      "summary": "Actual provider billing correctness remains not proven; v9.6 only creates pre-execution cost/quota governance evidence.",
+      "artifact_refs": ["docs/v9.6-release-definition.md"]
+    },
+    {
+      "event_id": "EVT-V96-7",
+      "event_type": "stop_condition",
+      "summary": "Stop if execution can advance without budget owner, cost ceiling, quota, rate-limit, billing, or overage policy evidence.",
+      "artifact_refs": ["docs/v9.6-release-definition.md"]
+    }
+  ],
+  "links": {
+    "task_refs": [".aof/tasks/done/TASK-116.json"],
+    "requirement_refs": ["docs/v9.6-release-definition.md"],
+    "test_evidence_refs": ["test/runtime-core-2.test.js"],
+    "artifact_refs": [".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"],
+    "risk_candidates": [
+      "Cost/quota boundary could be read as production billing proof if not-proven wording is weak."
+    ],
+    "decision_candidates": [
+      "Keep v9.6 as pre-execution cost/quota governance and defer production billing proof."
+    ],
+    "release_ready_evidence_refs": ["docs/v9.6-release-checklist.md"]
+  },
+  "redaction_boundary": "No secrets, credentials, provider payload bodies, or billing data are exported.",
+  "release_ready_boundary": "Release readiness is bounded to structural/runtime cost/quota evidence and tests.",
+  "not_proven": "Session export does not prove actual provider billing correctness, provider output correctness, or market adoption.",
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "source_decision_record_id": null,
+  "notes": null
+}

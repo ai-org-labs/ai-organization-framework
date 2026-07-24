@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-23T16:59:08.335Z",
+      "at": "2026-07-24T02:00:06.248Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-23T16:59:08.328Z",
+      "at": "2026-07-24T02:00:06.241Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -21,6 +21,28 @@
       "next": "Use the visibility packet to inspect operator-facing runtime health.",
       "refs": [
         ".aof/context/active/metrics-snapshot.json"
+      ]
+    },
+    {
+      "at": "2026-07-24T01:54:57.317Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Ship v9.6 Provider Execution Cost and Quota Boundary",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-116.json"
+      ]
+    },
+    {
+      "at": "2026-07-24T01:31:50.248Z",
+      "actor": "AOF Runtime",
+      "event_type": "next_value_slice_updated",
+      "summary": "After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
+      "rationale": "Project memory was updated to reflect the current operating focus.",
+      "next": "Project the current slice into operator visibility outputs.",
+      "refs": [
+        ".aof/goals/next-value-slice.json"
       ]
     },
     {
@@ -43,28 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-114.json"
-      ]
-    },
-    {
-      "at": "2026-07-22T01:48:11.030Z",
-      "actor": "AOF Runtime",
-      "event_type": "next_value_slice_updated",
-      "summary": "After v9.5.0, advance v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, and v9.9 external runtime production readiness review.",
-      "rationale": "Project memory was updated to reflect the current operating focus.",
-      "next": "Project the current slice into operator visibility outputs.",
-      "refs": [
-        ".aof/goals/next-value-slice.json"
-      ]
-    },
-    {
-      "at": "2026-07-21T14:33:53.194Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Ship v9.3 Capability-First Release Comprehension",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-113.json"
       ]
     }
   ]

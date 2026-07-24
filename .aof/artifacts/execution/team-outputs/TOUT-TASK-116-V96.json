@@ -1,0 +1,28 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-07-24T02:00:20.000Z",
+  "team_output_id": "TOUT-TASK-116-V96",
+  "team_id": "runtime-team",
+  "stage": "planning",
+  "expected_roles": ["visionary", "builder", "guardian"],
+  "received_roles": ["visionary", "builder", "guardian"],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Council should approve v9.6 only if cost/quota boundary audit and release-state audit are green and production billing correctness remains not-proven.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-116-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-116-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-116-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v9.6-release-definition.md",
+    "src/commands/provider-cost-quota-boundary-audit.js",
+    ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+  ],
+  "decision_required": false,
+  "summary": "Runtime team produced a bounded provider cost/quota contract and evidence chain.",
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "source_decision_record_id": null
+}

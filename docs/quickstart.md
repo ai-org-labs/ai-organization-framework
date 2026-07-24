@@ -24,8 +24,8 @@ npm install
 bundled example ではなく別プロジェクトへ AOF を持ち込む場合、現在の canonical acquisition path は GitHub tag から local tool source を取得する方式である。
 
 ```bash
-git clone --branch v9.5.0 https://github.com/ai-org-labs/ai-organization-framework.git ~/.local/share/aof/v9.5.0
-cd ~/.local/share/aof/v9.5.0
+git clone --branch v9.6.0 https://github.com/ai-org-labs/ai-organization-framework.git ~/.local/share/aof/v9.6.0
+cd ~/.local/share/aof/v9.6.0
 npm install
 npm link
 ```

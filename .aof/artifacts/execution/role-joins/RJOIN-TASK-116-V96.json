@@ -1,0 +1,18 @@
+{
+  "join_type": "role-join",
+  "recorded_at": "2026-07-24T02:00:15.000Z",
+  "join_id": "RJOIN-TASK-116-V96",
+  "join_status": "resolved",
+  "stage": "planning",
+  "expected_roles": ["visionary", "builder", "guardian"],
+  "received_roles": ["visionary", "builder", "guardian"],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-orchestrator-decision",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v9.6 cost/quota boundary evidence to council review.",
+  "received_session_ids": ["SESS-V96-COST-QUOTA"],
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "decision_record_ref": null,
+  "summary": "Visionary, Builder, and Guardian all returned bounded v9.6 recommendations."
+}

@@ -1,0 +1,31 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-116-V96",
+  "recorded_at": "2026-07-24T02:00:32.000Z",
+  "work_item_id": "TASK-116",
+  "work_item_ref": ".aof/tasks/done/TASK-116.json",
+  "readiness_status": "ready",
+  "goal": "Ship provider execution cost and quota boundary evidence without claiming actual provider billing correctness.",
+  "risk": "AOF may allow provider-backed execution to advance without an explicit budget owner, cost ceiling, quota, rate-limit, billing boundary, or overage policy.",
+  "loss_boundary": "Do not call v9.6 release-ready unless provider-cost-quota-boundary-audit, capability delta, product value evidence, and release-state audit are green, and missing cost/quota evidence blocks execution.",
+  "acceptance_gates": [
+    "provider-cost-quota-boundary-audit passes",
+    "release-state-audit includes the v9.6 cost/quota boundary gate"
+  ],
+  "evidence_plan": [
+    "schemas, commands, boundary artifact, capability delta, product value evidence, focused tests, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "product-council",
+  "stop_conditions": [
+    "Stop if execution can advance without budget owner or cost ceiling",
+    "Stop if not-proven boundary claims actual provider billing correctness"
+  ],
+  "qif_refs": ["docs/aof-qif-quality-definition.md"],
+  "archmap_impact_expected": "no",
+  "notes": null,
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "source_decision_record_id": null
+}

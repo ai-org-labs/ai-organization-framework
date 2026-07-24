@@ -51,11 +51,11 @@
     {
       "capability_id": "PCAP-PROVIDER-EXECUTION",
       "name": "Provider Execution",
-      "description": "AOF can model provider execution readiness, approval, reproduction, rollback, outcome, learning, production-boundary candidates, and controlled execution candidates.",
+      "description": "AOF can model provider execution readiness, approval, reproduction, rollback, outcome, learning, production-boundary candidates, controlled execution candidates, incident recovery, and cost/quota boundaries.",
       "user_value": "Users can see when a provider-backed action is only a controlled candidate and cannot be confused with production execution.",
       "first_version": "v8.5.0",
       "status": "improved",
-      "evidence_refs": ["docs/v8.5.0-release-notes.md", "docs/v9.2.0-release-notes.md", "docs/v9.4.0-release-notes.md", "docs/v9.5.0-release-notes.md"]
+      "evidence_refs": ["docs/v8.5.0-release-notes.md", "docs/v9.2.0-release-notes.md", "docs/v9.4.0-release-notes.md", "docs/v9.5.0-release-notes.md", "docs/v9.6.0-release-notes.md"]
     },
     {
       "capability_id": "PCAP-PROVIDER-INCIDENT-RECOVERY",
@@ -65,6 +65,15 @@
       "first_version": "v9.5.0",
       "status": "available",
       "evidence_refs": ["docs/v9.5-release-definition.md", "docs/v9.5.0-release-notes.md"]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-COST-QUOTA",
+      "name": "Provider Cost/Quota Boundary",
+      "description": "AOF can record and audit provider execution spend and quota boundaries that bind budget owner, budget period, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance.",
+      "user_value": "Users can see whether provider-backed execution is allowed to spend tokens, calls, quota, or money before execution advances.",
+      "first_version": "v9.6.0",
+      "status": "available",
+      "evidence_refs": ["docs/v9.6-release-definition.md", "docs/v9.6.0-release-notes.md"]
     },
     {
       "capability_id": "PCAP-ROLLBACK",

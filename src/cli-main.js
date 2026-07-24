@@ -135,6 +135,8 @@ Usage:
   aof provider-controlled-execution-candidate-audit [--project <path>] [--write-artifact <path>]
   aof provider-incident-recovery-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --candidate-ref <path> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --operator-acceptance-ref <path> --production-boundary-ref <path> --incident-scenario "<text>" --detection-signal "<text>" --severity <low|medium|high|critical> --containment-action "<text>" --rollback-decision <not_required|rollback_ready|rollback_executed|blocked|escalate> --recovery-action "<text>" --resume-decision <resume_blocked|resume_allowed|defer|escalate> --operator-notification "<text>" --learning-update-ref <path> --governance-action <stop_provider_execution|rollback_then_review|escalate_to_human|resume_after_review> --recovery-status <ready_for_drill|blocked|not_ready> --time-to-detect-boundary "<text>" --time-to-contain-boundary "<text>" --data-loss-boundary "<text>" --customer-impact-boundary "<text>" --stop-condition "<text>" [--stop-condition "<text>"] --evidence-ref <path> [--evidence-ref <path>] --verification-ref <path> [--verification-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--recovery-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof provider-incident-recovery-audit [--project <path>] [--write-artifact <path>]
+  aof provider-cost-quota-boundary-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --candidate-ref <path> --approval-ref <path> --incident-recovery-ref <path> --provider-scope "<text>" --budget-owner-ref <path> --budget-period "<text>" --max-estimated-cost <number> --max-actual-cost <number> --currency <code> --max-tokens <n> --max-provider-calls <n> --max-retry-count <n> --rate-limit-boundary "<text>" --quota-boundary "<text>" --billing-boundary "<text>" --overage-policy <block|escalate|allow> --cost-status <within_boundary|at_risk|exceeded|not_ready> --quota-status <within_boundary|at_risk|exceeded|not_ready> --execution-eligibility <allowed|blocked|escalated|not_assessed> --governance-action <allow_bounded_execution|block_provider_execution|escalate_budget_review|defer_until_quota_known> --stop-condition "<text>" [--stop-condition "<text>"] --evidence-ref <path> [--evidence-ref <path>] --verification-ref <path> [--verification-ref <path>] --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--boundary-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
+  aof provider-cost-quota-boundary-audit [--project <path>] [--write-artifact <path>]
   aof operator-acceptance-drill-record --project <path> --operator-ref <ref> --work-item-id <TASK-id> --approval-ref <path> --reproduction-ref <path> --rollback-ref <path> --outcome-ref <path> --learning-ref <path> --mission-control-ref <path> --decision <accept|stop|rollback|escalate|defer> --decision-rationale "<text>" --accepted-risk "<text>" --blocker-summary "<text>" --next-action "<text>" --safety-boundary "<text>" --not-proven "<text>" --evidence-ref <path> [--evidence-ref <path>] --source-task-id <TASK-id> --source-parent-session-id <id> [--drill-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
   aof operator-acceptance-drill-audit [--project <path>] [--write-artifact <path>]
   aof product-value-evidence-record --project <path> --release-ref <path> --work-item-id <TASK-id> --work-item-ref <path> --mission-control-ref <path> --capability-statement "<text>" --before-state "<text>" --after-state "<text>" --scenario "<text>" --five-minute-demo "<text>" --time-saved-or-work-reduced "<text>" --cognitive-load-removed "<text>" --capability-row-json '<json>' [--capability-row-json '<json>'] --understanding-outcome <understood|partially_understood|not_understood|not_checked> --evidence-ref <path> [--evidence-ref <path>] --governance-action <none|improve_release_explanation|reopen_need|block_release_claim|escalate_product_review> --not-proven "<text>" --source-task-id <TASK-id> --source-parent-session-id <id> [--value-evidence-id <id>] [--source-decision-record-id <id>] [--write-artifact <path>]
@@ -1648,6 +1650,48 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "provider-incident-recovery-audit"
+            ? {
+                project: ".",
+                artifactPath: ""
+              }
+          : command === "provider-cost-quota-boundary-record"
+            ? {
+                project: ".",
+                boundaryId: "",
+                releaseRef: "",
+                workItemId: "",
+                workItemRef: "",
+                candidateRef: "",
+                approvalRef: "",
+                incidentRecoveryRef: "",
+                providerScope: "",
+                budgetOwnerRef: "",
+                budgetPeriod: "",
+                maxEstimatedCost: "",
+                maxActualCost: "",
+                currency: "USD",
+                maxTokens: "",
+                maxProviderCalls: "",
+                maxRetryCount: "0",
+                rateLimitBoundary: "",
+                quotaBoundary: "",
+                billingBoundary: "",
+                overagePolicy: "block",
+                costStatus: "not_ready",
+                quotaStatus: "not_ready",
+                executionEligibility: "blocked",
+                governanceAction: "block_provider_execution",
+                stopConditions: [],
+                evidenceRefs: [],
+                verificationRefs: [],
+                notProven: "",
+                sourceTaskId: "",
+                sourceDecisionRecordId: "",
+                sourceParentSessionId: "",
+                notes: "",
+                artifactPath: ""
+              }
+          : command === "provider-cost-quota-boundary-audit"
             ? {
                 project: ".",
                 artifactPath: ""
@@ -4063,6 +4107,11 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (part === "--incident-recovery-ref") {
+      options.incidentRecoveryRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
     if (part === "--controlled-execution-mode") {
       options.controlledExecutionMode = rest[i + 1] ?? "";
       i += 1;
@@ -4154,6 +4203,81 @@ function parseArgs(argv) {
     }
     if (part === "--customer-impact-boundary") {
       options.customerImpactBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--budget-owner-ref") {
+      options.budgetOwnerRef = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--budget-period") {
+      options.budgetPeriod = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--max-estimated-cost") {
+      options.maxEstimatedCost = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--max-actual-cost") {
+      options.maxActualCost = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--currency") {
+      options.currency = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--max-tokens") {
+      options.maxTokens = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--max-provider-calls") {
+      options.maxProviderCalls = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--max-retry-count") {
+      options.maxRetryCount = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--rate-limit-boundary") {
+      options.rateLimitBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--quota-boundary") {
+      options.quotaBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--billing-boundary") {
+      options.billingBoundary = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--overage-policy") {
+      options.overagePolicy = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--cost-status") {
+      options.costStatus = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--quota-status") {
+      options.quotaStatus = rest[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    if (part === "--execution-eligibility") {
+      options.executionEligibility = rest[i + 1] ?? "";
       i += 1;
       continue;
     }
@@ -7478,6 +7602,86 @@ function parseArgs(argv) {
   if (command === "provider-incident-recovery-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `provider-incident-recovery-audit`.");
+    }
+  }
+
+  if (command === "provider-cost-quota-boundary-record") {
+    for (const [flag, value] of [
+      ["--release-ref", options.releaseRef],
+      ["--work-item-id", options.workItemId],
+      ["--work-item-ref", options.workItemRef],
+      ["--candidate-ref", options.candidateRef],
+      ["--approval-ref", options.approvalRef],
+      ["--incident-recovery-ref", options.incidentRecoveryRef],
+      ["--provider-scope", options.providerScope],
+      ["--budget-owner-ref", options.budgetOwnerRef],
+      ["--budget-period", options.budgetPeriod],
+      ["--max-estimated-cost", options.maxEstimatedCost],
+      ["--max-actual-cost", options.maxActualCost],
+      ["--currency", options.currency],
+      ["--max-tokens", options.maxTokens],
+      ["--max-provider-calls", options.maxProviderCalls],
+      ["--max-retry-count", options.maxRetryCount],
+      ["--rate-limit-boundary", options.rateLimitBoundary],
+      ["--quota-boundary", options.quotaBoundary],
+      ["--billing-boundary", options.billingBoundary],
+      ["--overage-policy", options.overagePolicy],
+      ["--cost-status", options.costStatus],
+      ["--quota-status", options.quotaStatus],
+      ["--execution-eligibility", options.executionEligibility],
+      ["--governance-action", options.governanceAction],
+      ["--not-proven", options.notProven],
+      ["--source-task-id", options.sourceTaskId],
+      ["--source-parent-session-id", options.sourceParentSessionId]
+    ]) {
+      if (!value && value !== 0) {
+        throw new Error(`Missing ${flag} for \`provider-cost-quota-boundary-record\`.`);
+      }
+    }
+    if (!Number.isFinite(Number(options.maxEstimatedCost)) || Number(options.maxEstimatedCost) <= 0) {
+      throw new Error("Invalid --max-estimated-cost for `provider-cost-quota-boundary-record`.");
+    }
+    if (!Number.isFinite(Number(options.maxActualCost)) || Number(options.maxActualCost) <= 0) {
+      throw new Error("Invalid --max-actual-cost for `provider-cost-quota-boundary-record`.");
+    }
+    if (!Number.isInteger(Number(options.maxTokens)) || Number(options.maxTokens) <= 0) {
+      throw new Error("Invalid --max-tokens for `provider-cost-quota-boundary-record`.");
+    }
+    if (!Number.isInteger(Number(options.maxProviderCalls)) || Number(options.maxProviderCalls) <= 0) {
+      throw new Error("Invalid --max-provider-calls for `provider-cost-quota-boundary-record`.");
+    }
+    if (!Number.isInteger(Number(options.maxRetryCount)) || Number(options.maxRetryCount) < 0) {
+      throw new Error("Invalid --max-retry-count for `provider-cost-quota-boundary-record`.");
+    }
+    if (!["block", "escalate", "allow"].includes(options.overagePolicy)) {
+      throw new Error("Invalid --overage-policy for `provider-cost-quota-boundary-record`.");
+    }
+    if (!["within_boundary", "at_risk", "exceeded", "not_ready"].includes(options.costStatus)) {
+      throw new Error("Invalid --cost-status for `provider-cost-quota-boundary-record`.");
+    }
+    if (!["within_boundary", "at_risk", "exceeded", "not_ready"].includes(options.quotaStatus)) {
+      throw new Error("Invalid --quota-status for `provider-cost-quota-boundary-record`.");
+    }
+    if (!["allowed", "blocked", "escalated", "not_assessed"].includes(options.executionEligibility)) {
+      throw new Error("Invalid --execution-eligibility for `provider-cost-quota-boundary-record`.");
+    }
+    if (!["allow_bounded_execution", "block_provider_execution", "escalate_budget_review", "defer_until_quota_known"].includes(options.governanceAction)) {
+      throw new Error("Invalid --governance-action for `provider-cost-quota-boundary-record`.");
+    }
+    if (!Array.isArray(options.stopConditions) || options.stopConditions.length === 0) {
+      throw new Error("At least one --stop-condition is required for `provider-cost-quota-boundary-record`.");
+    }
+    if (!Array.isArray(options.evidenceRefs) || options.evidenceRefs.length === 0) {
+      throw new Error("At least one --evidence-ref is required for `provider-cost-quota-boundary-record`.");
+    }
+    if (!Array.isArray(options.verificationRefs) || options.verificationRefs.length === 0) {
+      throw new Error("At least one --verification-ref is required for `provider-cost-quota-boundary-record`.");
+    }
+  }
+
+  if (command === "provider-cost-quota-boundary-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `provider-cost-quota-boundary-audit`.");
     }
   }
 

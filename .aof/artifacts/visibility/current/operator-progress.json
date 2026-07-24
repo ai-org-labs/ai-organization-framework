@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-23T16:59:08.340Z",
+  "generated_at": "2026-07-24T02:00:06.256Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-115 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-115.json"
+    "summary": "TASK-116 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-116.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-115 completed: Ship v9.5 External Runtime Incident Drill and Recovery Evidence",
-      "artifact_ref": ".aof/tasks/done/TASK-115.json"
+      "summary": "TASK-116 completed: Ship v9.6 Provider Execution Cost and Quota Boundary",
+      "artifact_ref": ".aof/tasks/done/TASK-116.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v9.5.0, advance v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, and v9.9 external runtime production readiness review.",
+      "summary": "After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-115 completed: Ship v9.5 External Runtime Incident Drill and Recovery Evidence After v9.5.0, advance v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, and v9.9 external runtime production readiness review.",
+    "what_changed": "TASK-116 completed: Ship v9.6 Provider Execution Cost and Quota Boundary After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: After v9.5.0, advance v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, and v9.9 external runtime production readiness review."
+    "next_checkpoint": "Open an implementation task for the current frontier: After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision."
   }
 }

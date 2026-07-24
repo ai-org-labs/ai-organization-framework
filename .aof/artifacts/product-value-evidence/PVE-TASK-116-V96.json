@@ -1,0 +1,41 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-116-V96",
+  "recorded_at": "2026-07-24T01:56:10.873Z",
+  "release_ref": "docs/v9.6-release-definition.md",
+  "work_item_id": "TASK-116",
+  "work_item_ref": ".aof/tasks/done/TASK-116.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "Operators can inspect provider execution cost and quota boundaries before provider-backed execution advances.",
+  "before_state": "AOF could show a controlled provider candidate and incident recovery drill, but spend and quota limits were not a first-class release gate.",
+  "after_state": "AOF records and audits budget owner, budget period, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance.",
+  "scenario": "Before a provider-backed GitHub/Jira/Slack/OpenAI action advances, an operator runs provider-cost-quota-boundary-audit and sees whether spend and quota are bounded or execution remains blocked.",
+  "five_minute_demo": "Run provider-cost-quota-boundary-audit and release-state-audit from a clean checkout.",
+  "time_saved_or_work_reduced": "The operator no longer reconstructs spend and quota risk from approval, production-boundary, and provider notes manually.",
+  "cognitive_load_removed": "The operator can distinguish cost/quota boundary evidence from production execution permission.",
+  "capability_matrix": [
+    {
+      "capability": "Provider Cost/Quota Boundary",
+      "before": "Budget and quota were scattered boundary text.",
+      "after": "Budget owner, cost ceiling, token/call/retry caps, quota/rate-limit, billing, overage, and stop governance are audited.",
+      "user_value": "Users can see whether provider execution is allowed to spend tokens, calls, quota, or money before execution advances."
+    },
+    {
+      "capability": "Provider Execution",
+      "before": "Provider candidate had incident recovery but no spend gate.",
+      "after": "Provider candidate must have incident recovery and cost/quota evidence before advancing.",
+      "user_value": "Users can avoid treating provider execution readiness as budget approval."
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    "docs/v9.6-release-definition.md",
+    ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "This value evidence does not prove market adoption, actual provider billing correctness, actual quota enforcement, or production execution safety.",
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "source_decision_record_id": null,
+  "notes": null
+}

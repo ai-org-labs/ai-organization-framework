@@ -1,0 +1,39 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-07-24T02:00:25.000Z",
+  "review_packet_id": "CREV-TASK-116-V96",
+  "council_id": "product-council",
+  "stage": "planning",
+  "review_status": "approved",
+  "decision_summary": "Approve v9.6 as provider execution cost/quota preflight governance, not as proof of actual provider billing correctness.",
+  "rationale": "The release makes budget owner, cost ceiling, token/call/retry caps, quota, rate-limit, billing, and overage policy visible before provider execution can advance.",
+  "recommendation": "Proceed to release verification after cost/quota, capability, product value, and release-state audits are green.",
+  "target_audience": "AOF operator evaluating provider-backed execution readiness",
+  "expected_user_reaction": "Operator can see whether provider execution is cost/quota bounded before allowing the provider track to advance.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": "provider cost quota comprehension",
+  "diagnosis_confidence": 0.88,
+  "diagnosis_evidence_refs": ["docs/aof-capability-matrix.md"],
+  "human_override_signal": null,
+  "team_output_refs": [".aof/artifacts/execution/team-outputs/TOUT-TASK-116-V96.json"],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-116-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-116-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-116-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+    "test/runtime-core-2.test.js",
+    "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+    ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "source_decision_record_id": null
+}

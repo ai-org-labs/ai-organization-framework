@@ -1,0 +1,26 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-116-V96",
+  "recorded_at": "2026-07-24T02:00:30.000Z",
+  "work_item_id": "TASK-116",
+  "work_item_ref": ".aof/tasks/done/TASK-116.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V96-COST-QUOTA.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/vnext-roadmap.md",
+    "docs/vnext-release-plan.md",
+    "docs/v9.6-release-definition.md"
+  ],
+  "required_context_refs": [
+    "docs/v9.5-release-definition.md",
+    ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+    ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared references were available, not actual provider billing correctness or production quota enforcement.",
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "source_decision_record_id": null
+}

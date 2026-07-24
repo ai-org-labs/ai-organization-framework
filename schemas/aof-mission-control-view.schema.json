@@ -21,6 +21,7 @@
     "provider_outcome_evidence_projection",
     "provider_learning_loop_projection",
     "provider_incident_recovery_projection",
+    "provider_cost_quota_boundary_projection",
     "provider_production_boundary_projection",
     "operator_acceptance_drill_projection",
     "product_value_evidence_projection",
@@ -1182,6 +1183,74 @@
               "resume_decision": { "type": "string" },
               "governance_action": { "type": "string" },
               "recovery_status": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_cost_quota_boundary_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "boundary_count",
+        "ready_count",
+        "blocked_count",
+        "escalated_count",
+        "allowed_count",
+        "missing_boundary_count",
+        "boundaries",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "boundary_count": { "type": "integer" },
+        "ready_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "escalated_count": { "type": "integer" },
+        "allowed_count": { "type": "integer" },
+        "missing_boundary_count": { "type": ["integer", "null"] },
+        "boundaries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "boundary_id",
+              "release_ref",
+              "work_item_id",
+              "budget_period",
+              "max_estimated_cost",
+              "max_actual_cost",
+              "currency",
+              "max_tokens",
+              "max_provider_calls",
+              "cost_status",
+              "quota_status",
+              "execution_eligibility",
+              "governance_action",
+              "artifact_ref"
+            ],
+            "properties": {
+              "boundary_id": { "type": "string" },
+              "release_ref": { "type": "string" },
+              "work_item_id": { "type": "string" },
+              "budget_period": { "type": "string" },
+              "max_estimated_cost": { "type": ["number", "integer"] },
+              "max_actual_cost": { "type": ["number", "integer"] },
+              "currency": { "type": "string" },
+              "max_tokens": { "type": "integer" },
+              "max_provider_calls": { "type": "integer" },
+              "cost_status": { "type": "string" },
+              "quota_status": { "type": "string" },
+              "execution_eligibility": { "type": "string" },
+              "governance_action": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

@@ -1275,6 +1275,39 @@ async function loadProviderIncidentRecoveryProjection(projectRoot) {
   };
 }
 
+async function loadProviderCostQuotaBoundaryProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider cost quota boundary audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      boundary_count: 0,
+      ready_count: 0,
+      blocked_count: 0,
+      escalated_count: 0,
+      allowed_count: 0,
+      missing_boundary_count: null,
+      boundaries: [],
+      not_proven: "No provider cost quota boundary audit artifact is present."
+    };
+  }
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    boundary_count: audit.summary?.boundary_count ?? 0,
+    ready_count: audit.summary?.ready_count ?? 0,
+    blocked_count: audit.summary?.blocked_count ?? 0,
+    escalated_count: audit.summary?.escalated_count ?? 0,
+    allowed_count: audit.summary?.allowed_count ?? 0,
+    missing_boundary_count: audit.summary?.missing_boundary_count ?? null,
+    boundaries: audit.boundaries ?? [],
+    not_proven: "Provider cost/quota projection proves declared spend and quota boundaries only; it does not prove actual provider billing correctness, actual quota enforcement, production safety, semantic truth, or market value."
+  };
+}
+
 async function loadProviderProductionBoundaryProjection(projectRoot) {
   const auditRef = ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json";
   const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider production boundary audit");
@@ -1678,6 +1711,7 @@ function buildMissionControl({
   providerOutcomeEvidenceProjection = null,
   providerLearningLoopProjection = null,
   providerIncidentRecoveryProjection = null,
+  providerCostQuotaBoundaryProjection = null,
   providerProductionBoundaryProjection = null,
   operatorAcceptanceDrillProjection = null,
   productValueEvidenceProjection = null,
@@ -2002,6 +2036,19 @@ function buildMissionControl({
       recoveries: [],
       not_proven: "No provider incident recovery audit artifact is present."
     },
+    provider_cost_quota_boundary_projection: providerCostQuotaBoundaryProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json",
+      audit_ok: null,
+      boundary_count: 0,
+      ready_count: 0,
+      blocked_count: 0,
+      escalated_count: 0,
+      allowed_count: 0,
+      missing_boundary_count: null,
+      boundaries: [],
+      not_proven: "No provider cost quota boundary audit artifact is present."
+    },
     provider_production_boundary_projection: providerProductionBoundaryProjection ?? {
       present: false,
       audit_ref: ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json",
@@ -2101,7 +2148,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, providerIncidentRecoveryProjection, providerProductionBoundaryProjection, operatorAcceptanceDrillProjection, productValueEvidenceProjection, operatorValidationProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, providerIncidentRecoveryProjection, providerCostQuotaBoundaryProjection, providerProductionBoundaryProjection, operatorAcceptanceDrillProjection, productValueEvidenceProjection, operatorValidationProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -2128,6 +2175,7 @@ export async function visibilityExportCommand(options) {
     loadProviderOutcomeEvidenceProjection(projectRoot),
     loadProviderLearningLoopProjection(projectRoot),
     loadProviderIncidentRecoveryProjection(projectRoot),
+    loadProviderCostQuotaBoundaryProjection(projectRoot),
     loadProviderProductionBoundaryProjection(projectRoot),
     loadOperatorAcceptanceDrillProjection(projectRoot),
     loadProductValueEvidenceProjection(projectRoot),
@@ -2203,6 +2251,7 @@ export async function visibilityExportCommand(options) {
     providerOutcomeEvidenceProjection,
     providerLearningLoopProjection,
     providerIncidentRecoveryProjection,
+    providerCostQuotaBoundaryProjection,
     providerProductionBoundaryProjection,
     operatorAcceptanceDrillProjection,
     productValueEvidenceProjection,

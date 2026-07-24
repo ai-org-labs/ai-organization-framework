@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "product-value-evidence-audit",
-  "generated_at": "2026-07-23T16:50:12.503Z",
+  "generated_at": "2026-07-24T01:56:47.366Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "record_count": 5,
-    "understood_count": 5,
+    "record_count": 6,
+    "understood_count": 6,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 8,
+    "capability_row_count": 10,
     "missing_link_count": 0,
     "failing_check_count": 0
   },
@@ -77,19 +77,33 @@
       "understanding_outcome": "understood",
       "governance_action": "none",
       "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+    },
+    {
+      "value_evidence_id": "PVE-TASK-116-V96",
+      "release_ref": "docs/v9.6-release-definition.md",
+      "work_item_id": "TASK-116",
+      "capability_statement": "Operators can inspect provider execution cost and quota boundaries before provider-backed execution advances.",
+      "before_state": "AOF could show a controlled provider candidate and incident recovery drill, but spend and quota limits were not a first-class release gate.",
+      "after_state": "AOF records and audits budget owner, budget period, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance.",
+      "scenario": "Before a provider-backed GitHub/Jira/Slack/OpenAI action advances, an operator runs provider-cost-quota-boundary-audit and sees whether spend and quota are bounded or execution remains blocked.",
+      "five_minute_demo": "Run provider-cost-quota-boundary-audit and release-state-audit from a clean checkout.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
     }
   ],
   "checks": [
     {
       "name": "product value evidence presence",
       "status": "pass",
-      "detail": "5 record(s) found",
+      "detail": "6 record(s) found",
       "evidence_refs": [
         ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
@@ -1123,6 +1137,201 @@
         ".aof/artifacts/visibility/current/mission-control.json",
         ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
         "docs/aof-capability-matrix.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-116.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 capability statement",
+      "status": "pass",
+      "detail": "Operators can inspect provider execution cost and quota boundaries before provider-backed execution advances.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 before state",
+      "status": "pass",
+      "detail": "AOF could show a controlled provider candidate and incident recovery drill, but spend and quota limits were not a first-class release gate.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 after state",
+      "status": "pass",
+      "detail": "AOF records and audits budget owner, budget period, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 product scenario",
+      "status": "pass",
+      "detail": "Before a provider-backed GitHub/Jira/Slack/OpenAI action advances, an operator runs provider-cost-quota-boundary-audit and sees whether spend and quota are bounded or execution remains blocked.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 five minute demo",
+      "status": "pass",
+      "detail": "Run provider-cost-quota-boundary-audit and release-state-audit from a clean checkout.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 capability matrix",
+      "status": "pass",
+      "detail": "2 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 not-proven boundary",
+      "status": "pass",
+      "detail": "This value evidence does not prove market adoption, actual provider billing correctness, actual quota enforcement, or production execution safety.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-116, source_parent_session_id=SESS-V96-COST-QUOTA",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-116-V96 missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
       ]
     }
   ],

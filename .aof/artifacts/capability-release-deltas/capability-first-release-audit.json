@@ -1,10 +1,10 @@
 {
   "ok": true,
   "artifact_type": "capability-first-release-audit",
-  "generated_at": "2026-07-23T16:50:15.158Z",
+  "generated_at": "2026-07-24T01:56:47.156Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "capability_count": 11,
+    "capability_count": 12,
     "delta_count": 1,
     "new_capability_count": 1,
     "updated_capability_count": 1,
@@ -62,6 +62,13 @@
       "status": "available"
     },
     {
+      "capability_id": "PCAP-PROVIDER-COST-QUOTA",
+      "name": "Provider Cost/Quota Boundary",
+      "user_value": "Users can see whether provider-backed execution is allowed to spend tokens, calls, quota, or money before execution advances.",
+      "first_version": "v9.6.0",
+      "status": "available"
+    },
+    {
       "capability_id": "PCAP-ROLLBACK",
       "name": "Rollback",
       "user_value": "Users can avoid treating an external operation as acceptable when reversal evidence is missing.",
@@ -92,31 +99,31 @@
   ],
   "deltas": [
     {
-      "delta_id": "CRD-MRXQUE24-WWENM0",
-      "release_version": "9.5.0",
-      "one_minute_value_explanation": "AOF can now show the incident recovery path before a provider-backed action advances: detect, contain, rollback, recover, notify, learn, and block or resume through governance.",
-      "thirty_second_version_delta": "v9.4 showed one controlled provider execution candidate. v9.5 adds the failure-handling drill for that candidate.",
+      "delta_id": "CRD-TASK-116-V96",
+      "release_version": "9.6.0",
+      "one_minute_value_explanation": "v9.6 lets an operator see whether a provider-backed action is allowed to spend tokens, calls, quota, retries, or money before execution advances.",
+      "thirty_second_version_delta": "v9.5 showed the failure recovery path. v9.6 adds the spend and quota gate before execution can advance.",
       "new_capability_ids": [
-        "PCAP-PROVIDER-INCIDENT-RECOVERY"
+        "PCAP-PROVIDER-COST-QUOTA"
       ],
       "updated_capability_ids": [
         "PCAP-PROVIDER-EXECUTION"
       ],
       "removed_capability_ids": [],
-      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json"
+      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json"
     }
   ],
   "checks": [
     {
       "name": "active release manifest presence",
       "status": "pass",
-      "detail": "9.5.0",
+      "detail": "9.6.0",
       "evidence_refs": []
     },
     {
       "name": "product capability register presence",
       "status": "pass",
-      "detail": "11 capability row(s)",
+      "detail": "12 capability row(s)",
       "evidence_refs": [
         ".aof/product-capabilities.json"
       ]
@@ -304,13 +311,14 @@
     {
       "name": "PCAP-PROVIDER-EXECUTION description",
       "status": "pass",
-      "detail": "AOF can model provider execution readiness, approval, reproduction, rollback, outcome, learning, production-boundary candidates, and controlled execution candidates.",
+      "detail": "AOF can model provider execution readiness, approval, reproduction, rollback, outcome, learning, production-boundary candidates, controlled execution candidates, incident recovery, and cost/quota boundaries.",
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
@@ -322,7 +330,8 @@
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
@@ -334,7 +343,8 @@
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
@@ -346,7 +356,8 @@
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
@@ -358,7 +369,8 @@
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
@@ -370,7 +382,8 @@
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
@@ -382,7 +395,21 @@
         "docs/v8.5.0-release-notes.md",
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.6.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
@@ -433,6 +460,56 @@
         ".aof/product-capabilities.json",
         "docs/v9.5-release-definition.md",
         "docs/v9.5.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-COST-QUOTA description",
+      "status": "pass",
+      "detail": "AOF can record and audit provider execution spend and quota boundaries that bind budget owner, budget period, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.6-release-definition.md",
+        "docs/v9.6.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-COST-QUOTA user value",
+      "status": "pass",
+      "detail": "Users can see whether provider-backed execution is allowed to spend tokens, calls, quota, or money before execution advances.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.6-release-definition.md",
+        "docs/v9.6.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-COST-QUOTA first version",
+      "status": "pass",
+      "detail": "v9.6.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.6-release-definition.md",
+        "docs/v9.6.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-COST-QUOTA evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.6-release-definition.md",
+        "docs/v9.6.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-COST-QUOTA evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.6.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.6-release-definition.md",
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
@@ -628,7 +705,7 @@
       "status": "pass",
       "detail": "1 delta record(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json"
       ]
     },
     {
@@ -636,138 +713,138 @@
       "status": "pass",
       "detail": "2 changed capability reference(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json"
       ]
     },
     {
-      "name": "CRD-MRXQUE24-WWENM0 release ref resolves",
+      "name": "CRD-TASK-116-V96 release ref resolves",
       "status": "pass",
-      "detail": "docs/v9.5-release-definition.md",
+      "detail": "docs/v9.6-release-definition.md",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-        "docs/v9.5-release-definition.md",
-        ".aof/tasks/done/TASK-115.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
-      "name": "CRD-MRXQUE24-WWENM0 work item ref resolves",
+      "name": "CRD-TASK-116-V96 work item ref resolves",
       "status": "pass",
-      "detail": ".aof/tasks/done/TASK-115.json",
+      "detail": ".aof/tasks/done/TASK-116.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-        "docs/v9.5-release-definition.md",
-        ".aof/tasks/done/TASK-115.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
-      "name": "CRD-MRXQUE24-WWENM0 capability ref PCAP-PROVIDER-INCIDENT-RECOVERY",
+      "name": "CRD-TASK-116-V96 capability ref PCAP-PROVIDER-COST-QUOTA",
       "status": "pass",
-      "detail": "PCAP-PROVIDER-INCIDENT-RECOVERY",
+      "detail": "PCAP-PROVIDER-COST-QUOTA",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-        "docs/v9.5-release-definition.md",
-        ".aof/tasks/done/TASK-115.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
-      "name": "CRD-MRXQUE24-WWENM0 capability ref PCAP-PROVIDER-EXECUTION",
+      "name": "CRD-TASK-116-V96 capability ref PCAP-PROVIDER-EXECUTION",
       "status": "pass",
       "detail": "PCAP-PROVIDER-EXECUTION",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-        "docs/v9.5-release-definition.md",
-        ".aof/tasks/done/TASK-115.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
-      "name": "CRD-MRXQUE24-WWENM0 value evidence ref resolves",
+      "name": "CRD-TASK-116-V96 value evidence ref resolves",
       "status": "pass",
-      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-        "docs/v9.5-release-definition.md",
-        ".aof/tasks/done/TASK-115.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
-      "name": "CRD-MRXQUE24-WWENM0 one minute value explanation",
+      "name": "CRD-TASK-116-V96 one minute value explanation",
       "status": "pass",
-      "detail": "AOF can now show the incident recovery path before a provider-backed action advances: detect, contain, rollback, recover, notify, learn, and block or resume through governance.",
+      "detail": "v9.6 lets an operator see whether a provider-backed action is allowed to spend tokens, calls, quota, retries, or money before execution advances.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-        "docs/v9.5-release-definition.md",
-        ".aof/tasks/done/TASK-115.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
-      "name": "CRD-MRXQUE24-WWENM0 thirty second version delta",
+      "name": "CRD-TASK-116-V96 thirty second version delta",
       "status": "pass",
-      "detail": "v9.4 showed one controlled provider execution candidate. v9.5 adds the failure-handling drill for that candidate.",
+      "detail": "v9.5 showed the failure recovery path. v9.6 adds the spend and quota gate before execution can advance.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-        "docs/v9.5-release-definition.md",
-        ".aof/tasks/done/TASK-115.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
-      "name": "CRD-MRXQUE24-WWENM0 product review trigger",
+      "name": "CRD-TASK-116-V96 product review trigger",
       "status": "pass",
-      "detail": "If an operator still cannot explain what happens when provider execution fails, reopen product review instead of treating this as documentation only.",
+      "detail": "Reopen product review if users still cannot explain whether provider execution is budget-bound or merely structurally audited.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-        "docs/v9.5-release-definition.md",
-        ".aof/tasks/done/TASK-115.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
-      "name": "CRD-MRXQUE24-WWENM0 not-proven boundary",
+      "name": "CRD-TASK-116-V96 not-proven boundary",
       "status": "pass",
-      "detail": "This capability delta does not prove live incident recovery performance, actual rollback execution, third-party adoption, or market value.",
+      "detail": "This delta does not prove actual provider billing correctness, quota enforcement, production execution safety, or market adoption.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-        "docs/v9.5-release-definition.md",
-        ".aof/tasks/done/TASK-115.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       ]
     },
     {
       "name": "release notes ## What You Can Do Now",
       "status": "pass",
-      "detail": "docs/v9.5.0-release-notes.md",
+      "detail": "docs/v9.6.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Delta",
       "status": "pass",
-      "detail": "docs/v9.5.0-release-notes.md",
+      "detail": "docs/v9.6.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Matrix",
       "status": "pass",
-      "detail": "docs/v9.5.0-release-notes.md",
+      "detail": "docs/v9.6.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Value Evidence",
       "status": "pass",
-      "detail": "docs/v9.5.0-release-notes.md",
+      "detail": "docs/v9.6.0-release-notes.md",
       "evidence_refs": [
-        "docs/v9.5.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md"
       ]
     },
     {

@@ -1,0 +1,565 @@
+{
+  "ok": true,
+  "artifact_type": "provider-cost-quota-boundary-audit",
+  "generated_at": "2026-07-24T01:56:43.819Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "boundary_count": 1,
+    "ready_count": 1,
+    "blocked_count": 1,
+    "escalated_count": 0,
+    "allowed_count": 0,
+    "failing_check_count": 0
+  },
+  "boundaries": [
+    {
+      "boundary_id": "PCQB-TASK-116-V96",
+      "release_ref": "docs/v9.6-release-definition.md",
+      "work_item_id": "TASK-116",
+      "budget_period": "single bounded provider execution candidate review",
+      "max_estimated_cost": 1,
+      "max_actual_cost": 2,
+      "currency": "USD",
+      "max_tokens": 20000,
+      "max_provider_calls": 3,
+      "cost_status": "within_boundary",
+      "quota_status": "within_boundary",
+      "execution_eligibility": "blocked",
+      "governance_action": "block_provider_execution",
+      "artifact_ref": ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider cost quota boundary presence",
+      "status": "pass",
+      "detail": "1 boundary record(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-116.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 candidate ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 approval ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 incident recovery ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 budget owner ref resolves",
+      "status": "pass",
+      "detail": ".aof/organization.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 verification ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 verification ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-cost-quota-boundary-audit.js",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 provider scope",
+      "status": "pass",
+      "detail": "Self-hosting provider-backed GitHub issue candidate remains bounded to preproduction review; no production execution is authorized.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 budget period",
+      "status": "pass",
+      "detail": "single bounded provider execution candidate review",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 currency",
+      "status": "pass",
+      "detail": "USD",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 rate limit boundary",
+      "status": "pass",
+      "detail": "Stop or escalate if provider calls would exceed three calls or if rate-limit state is unknown.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 quota boundary",
+      "status": "pass",
+      "detail": "Stop or escalate if token/call quota cannot be checked before execution.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 billing boundary",
+      "status": "pass",
+      "detail": "No autonomous paid execution; budget owner review is required before cost-bearing external provider writes.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 not-proven boundary",
+      "status": "pass",
+      "detail": "This boundary does not prove actual provider billing correctness, actual quota enforcement, provider semantic correctness, or production execution safety.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 max estimated cost positive",
+      "status": "pass",
+      "detail": "1",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 max actual cost positive",
+      "status": "pass",
+      "detail": "2",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 cost ordering",
+      "status": "pass",
+      "detail": "estimated=1, actual=2",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 max tokens positive",
+      "status": "pass",
+      "detail": "20000",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 max provider calls positive",
+      "status": "pass",
+      "detail": "3",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 max retries non-negative",
+      "status": "pass",
+      "detail": "1",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 stop conditions",
+      "status": "pass",
+      "detail": "Stop if estimated cost exceeds USD 1.00 or actual ceiling would exceed USD 2.00., Stop if token, call, retry, quota, or rate-limit boundary is unknown.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 evidence",
+      "status": "pass",
+      "detail": "docs/v9.6-release-definition.md, .aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 verification",
+      "status": "pass",
+      "detail": "schemas/aof-provider-cost-quota-boundary-record.schema.json, src/commands/provider-cost-quota-boundary-audit.js",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-116, source_parent_session_id=SESS-V96-COST-QUOTA",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 no hidden execution permission",
+      "status": "pass",
+      "detail": "execution_eligibility=blocked, governance_action=block_provider_execution",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    },
+    {
+      "name": "PCQB-TASK-116-V96 overage blocks or escalates",
+      "status": "pass",
+      "detail": "overage_policy=block, governance_action=block_provider_execution",
+      "evidence_refs": [
+        ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/tasks/done/TASK-116.json",
+        ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+        ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        ".aof/organization.json",
+        "docs/v9.6-release-definition.md",
+        ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+        "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+        "src/commands/provider-cost-quota-boundary-audit.js"
+      ]
+    }
+  ],
+  "errors": []
+}

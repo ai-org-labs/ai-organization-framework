@@ -1,0 +1,45 @@
+{
+  "artifact_type": "provider-cost-quota-boundary-record",
+  "boundary_id": "PCQB-TASK-116-V96",
+  "recorded_at": "2026-07-24T01:55:51.418Z",
+  "release_ref": "docs/v9.6-release-definition.md",
+  "work_item_id": "TASK-116",
+  "work_item_ref": ".aof/tasks/done/TASK-116.json",
+  "candidate_ref": ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json",
+  "approval_ref": ".aof/artifacts/provider-execution-approvals/PEA-TASK-107-GITHUB-ISSUE-PREFLIGHT.json",
+  "incident_recovery_ref": ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json",
+  "provider_scope": "Self-hosting provider-backed GitHub issue candidate remains bounded to preproduction review; no production execution is authorized.",
+  "budget_owner_ref": ".aof/organization.json",
+  "budget_period": "single bounded provider execution candidate review",
+  "max_estimated_cost": 1,
+  "max_actual_cost": 2,
+  "currency": "USD",
+  "max_tokens": 20000,
+  "max_provider_calls": 3,
+  "max_retry_count": 1,
+  "rate_limit_boundary": "Stop or escalate if provider calls would exceed three calls or if rate-limit state is unknown.",
+  "quota_boundary": "Stop or escalate if token/call quota cannot be checked before execution.",
+  "billing_boundary": "No autonomous paid execution; budget owner review is required before cost-bearing external provider writes.",
+  "overage_policy": "block",
+  "cost_status": "within_boundary",
+  "quota_status": "within_boundary",
+  "execution_eligibility": "blocked",
+  "governance_action": "block_provider_execution",
+  "stop_conditions": [
+    "Stop if estimated cost exceeds USD 1.00 or actual ceiling would exceed USD 2.00.",
+    "Stop if token, call, retry, quota, or rate-limit boundary is unknown."
+  ],
+  "evidence_refs": [
+    "docs/v9.6-release-definition.md",
+    ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"
+  ],
+  "verification_refs": [
+    "schemas/aof-provider-cost-quota-boundary-record.schema.json",
+    "src/commands/provider-cost-quota-boundary-audit.js"
+  ],
+  "not_proven": "This boundary does not prove actual provider billing correctness, actual quota enforcement, provider semantic correctness, or production execution safety.",
+  "source_task_id": "TASK-116",
+  "source_parent_session_id": "SESS-V96-COST-QUOTA",
+  "source_decision_record_id": null,
+  "notes": null
+}

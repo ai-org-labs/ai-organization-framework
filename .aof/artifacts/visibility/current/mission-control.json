@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-23T16:59:08.335Z",
+  "generated_at": "2026-07-24T02:00:06.248Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
-    "release_version": "9.5.0",
-    "release_definition_ref": "docs/v9.5-release-definition.md",
-    "operating_goal": "Ship v9.5 External Runtime Incident Drill and Recovery Evidence: bind provider incident detection, containment, rollback, recovery, operator notification, learning update, and resume/stop governance before external provider execution advances.",
-    "next_value_slice": "After v9.5.0, advance v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, and v9.9 external runtime production readiness review.",
+    "release_version": "9.6.0",
+    "release_definition_ref": "docs/v9.6-release-definition.md",
+    "operating_goal": "Ship v9.6 Provider Execution Cost and Quota Boundary: bind provider scope, budget owner, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance before provider-backed execution advances.",
+    "next_value_slice": "After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: After v9.5.0, advance v9.6 provider execution cost/quota boundary, v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, and v9.9 external runtime production readiness review.",
+    "recommended_action": "Open an implementation task for the current frontier: After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 45,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-115.json",
+    "impact_record_count": 46,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-116.json",
     "latest_impact_status": "archmap_unaffected",
-    "latest_work_item_id": "TASK-115",
+    "latest_work_item_id": "TASK-116",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-115.json"
+      ".aof/artifacts/archmap/impact/TASK-116.json"
     ],
     "external_refs": []
   },
@@ -399,40 +399,40 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 29,
-    "latest_session_id": "SESS-V95-INCIDENT-RECOVERY",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V95-INCIDENT-RECOVERY.json",
+    "stream_count": 30,
+    "latest_session_id": "SESS-V96-COST-QUOTA",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V96-COST-QUOTA.json",
     "latest_actor_ref": "parent-codex",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-23T16:47:00.000Z",
-    "latest_event_count": 5,
+    "latest_recorded_at": "2026-07-24T01:31:50.248Z",
+    "latest_event_count": 6,
     "latest_release_verdict": "not_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-115.json"
+      ".aof/tasks/done/TASK-116.json"
     ],
     "linked_requirement_refs": [
-      "docs/v9.5-release-definition.md"
+      "docs/v9.6-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js"
     ],
     "linked_artifact_refs": [
-      ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"
+      ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
     ],
     "risk_candidates": [
-      "Operator may confuse incident recovery drill completeness with live provider recovery performance."
+      "Operator may read a structurally valid provider boundary as proof of actual provider billing correctness."
     ],
     "decision_candidates": [
-      "Keep v9.5 bounded to recovery drill evidence and defer production recovery claims."
+      "Keep v9.6 bounded to pre-execution cost/quota governance and defer production billing proof."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
         "summary": "Heartbeat required latest AOF runtime use and next release completion.",
-        "occurred_at": "2026-07-23T16:41:37.036Z",
+        "occurred_at": "2026-07-24T01:31:50.248Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -442,54 +442,72 @@
       },
       {
         "event_type": "tool_call",
-        "summary": "AOF runtime wrote provider incident recovery evidence for TASK-115.",
-        "occurred_at": "2026-07-23T16:45:36.194Z",
-        "tool_name": "provider-incident-recovery-record",
+        "summary": "AOF runtime opened TASK-116 for v9.6 provider execution cost and quota boundary.",
+        "occurred_at": "2026-07-24T01:40:00.000Z",
+        "tool_name": "task-open",
         "safety_level": "safe_local_write",
         "approval_policy": "approved",
         "artifact_refs": [
-          ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"
+          ".aof/tasks/open/TASK-116.json"
+        ]
+      },
+      {
+        "event_type": "tool_call",
+        "summary": "AOF runtime wrote provider cost/quota boundary evidence for TASK-116.",
+        "occurred_at": "2026-07-24T01:48:00.000Z",
+        "tool_name": "provider-cost-quota-boundary-record",
+        "safety_level": "safe_local_write",
+        "approval_policy": "approved",
+        "artifact_refs": [
+          ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
         ]
       },
       {
         "event_type": "artifact_write",
-        "summary": "AOF runtime wrote product value evidence and capability delta for the v9.5 release.",
-        "occurred_at": "2026-07-23T16:46:44.908Z",
-        "tool_name": "capability-release-delta-record",
+        "summary": "v9.6 release docs, schemas, commands, product capability, value evidence, and capability delta were generated.",
+        "occurred_at": "2026-07-24T01:52:00.000Z",
+        "tool_name": null,
         "safety_level": "safe_local_write",
         "approval_policy": "approved",
         "artifact_refs": [
-          ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
-          ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json"
+          "docs/v9.6-release-definition.md",
+          ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+          ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json"
         ]
       },
       {
         "event_type": "verification_result",
-        "summary": "Focused provider incident recovery tests were added before full release verification.",
-        "occurred_at": "2026-07-23T16:47:00.000Z",
+        "summary": "Provider cost/quota boundary audit, product value audit, capability-first audit, focused tests, and release-state audit are required before release.",
+        "occurred_at": "2026-07-24T02:00:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "test/runtime-core-2.test.js"
+          "docs/v9.6-release-checklist.md"
         ]
       },
       {
         "event_type": "stop_condition",
-        "summary": "Stop if incident recovery evidence permits hidden resume authority or claims live production recovery performance.",
-        "occurred_at": "2026-07-23T16:47:00.000Z",
+        "summary": "Stop if provider execution can advance without budget owner, cost ceiling, quota boundary, rate-limit boundary, billing boundary, or explicit overage policy.",
+        "occurred_at": "2026-07-24T02:00:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "docs/v9.5-release-checklist.md"
+          "docs/v9.6-release-definition.md"
         ]
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "AOF runtime wrote provider incident recovery evidence for TASK-115.",
-        "tool_name": "provider-incident-recovery-record",
+        "summary": "AOF runtime opened TASK-116 for v9.6 provider execution cost and quota boundary.",
+        "tool_name": "task-open",
+        "safety_level": "safe_local_write",
+        "approval_policy": "approved"
+      },
+      {
+        "summary": "AOF runtime wrote provider cost/quota boundary evidence for TASK-116.",
+        "tool_name": "provider-cost-quota-boundary-record",
         "safety_level": "safe_local_write",
         "approval_policy": "approved"
       }
@@ -502,11 +520,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 27,
+    "context_record_count": 28,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-116.json",
+        "work_item_id": "TASK-116",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared references were available, not actual provider billing correctness or production quota enforcement."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-115.json",
         "work_item_id": "TASK-115",
@@ -562,14 +588,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves declared local refs exist; it does not prove semantic truth, provider truth, or production execution safety."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-108.json",
-        "work_item_id": "TASK-108",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves reference availability only, not provider correctness or production rollback execution."
       }
     ],
     "latest_external_reference_records": [
@@ -594,9 +612,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-115.json",
-    "latest_work_item_id": "TASK-115",
-    "latest_recorded_at": "2026-07-23T16:47:40.000Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-116.json",
+    "latest_work_item_id": "TASK-116",
+    "latest_recorded_at": "2026-07-24T02:00:40.000Z",
     "coverage_status": "completed",
     "total_requirements": 2,
     "covered_count": 2,
@@ -608,38 +626,38 @@
     "forecast": {
       "estimated_remaining_work_items": 0,
       "estimated_token_cost_range": "bounded release verification only",
-      "burndown_ref": "docs/v9.5-release-checklist.md",
+      "burndown_ref": "docs/v9.6-release-checklist.md",
       "forecast_boundary": "forecast is planning evidence, not delivery certainty"
     },
     "forecast_boundary": "forecast is planning evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V95-001",
-        "title": "Provider incident recovery audit",
+        "requirement_id": "REQ-V96-001",
+        "title": "Provider cost/quota boundary audit",
         "status": "covered",
-        "source_ref": "docs/v9.5-release-definition.md",
+        "source_ref": "docs/v9.6-release-definition.md",
         "owner_ref": "guardian",
         "evidence_refs": [
-          ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"
+          ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V95-002",
-        "title": "Capability-first incident recovery explanation",
+        "requirement_id": "REQ-V96-002",
+        "title": "Capability-first cost/quota explanation",
         "status": "covered",
-        "source_ref": "docs/v9.5-release-definition.md",
+        "source_ref": "docs/v9.6-release-definition.md",
         "owner_ref": "product-council",
         "evidence_refs": [
-          ".aof/artifacts/capability-release-deltas/CRD-TASK-115-V95.json",
-          ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+          ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
+          ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
         ],
         "blocker_refs": []
       }
     ],
-    "not_proven": "Requirement coverage proves traceability only, not live incident recovery performance or semantic correctness.",
+    "not_proven": "Requirement coverage proves traceability only, not actual provider billing correctness, quota enforcement, or semantic correctness.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-115.json"
+      ".aof/artifacts/requirement-coverage/TASK-116.json"
     ]
   },
   "adoption_proof_projection": {
@@ -978,6 +996,36 @@
     ],
     "not_proven": "Provider incident recovery projection proves drill governance only; it does not prove live provider recovery performance, production safety, semantic truth, or customer impact truth."
   },
+  "provider_cost_quota_boundary_projection": {
+    "present": true,
+    "audit_ref": ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json",
+    "audit_ok": true,
+    "boundary_count": 1,
+    "ready_count": 1,
+    "blocked_count": 1,
+    "escalated_count": 0,
+    "allowed_count": 0,
+    "missing_boundary_count": null,
+    "boundaries": [
+      {
+        "boundary_id": "PCQB-TASK-116-V96",
+        "release_ref": "docs/v9.6-release-definition.md",
+        "work_item_id": "TASK-116",
+        "budget_period": "single bounded provider execution candidate review",
+        "max_estimated_cost": 1,
+        "max_actual_cost": 2,
+        "currency": "USD",
+        "max_tokens": 20000,
+        "max_provider_calls": 3,
+        "cost_status": "within_boundary",
+        "quota_status": "within_boundary",
+        "execution_eligibility": "blocked",
+        "governance_action": "block_provider_execution",
+        "artifact_ref": ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      }
+    ],
+    "not_proven": "Provider cost/quota projection proves declared spend and quota boundaries only; it does not prove actual provider billing correctness, actual quota enforcement, production safety, semantic truth, or market value."
+  },
   "provider_production_boundary_projection": {
     "present": true,
     "audit_ref": ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json",
@@ -1027,11 +1075,11 @@
     "present": true,
     "audit_ref": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json",
     "audit_ok": true,
-    "record_count": 5,
-    "understood_count": 5,
+    "record_count": 6,
+    "understood_count": 6,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 8,
+    "capability_row_count": 10,
     "records": [
       {
         "value_evidence_id": "PVE-TASK-111-V91",
@@ -1097,6 +1145,19 @@
         "understanding_outcome": "understood",
         "governance_action": "none",
         "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json"
+      },
+      {
+        "value_evidence_id": "PVE-TASK-116-V96",
+        "release_ref": "docs/v9.6-release-definition.md",
+        "work_item_id": "TASK-116",
+        "capability_statement": "Operators can inspect provider execution cost and quota boundaries before provider-backed execution advances.",
+        "before_state": "AOF could show a controlled provider candidate and incident recovery drill, but spend and quota limits were not a first-class release gate.",
+        "after_state": "AOF records and audits budget owner, budget period, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance.",
+        "scenario": "Before a provider-backed GitHub/Jira/Slack/OpenAI action advances, an operator runs provider-cost-quota-boundary-audit and sees whether spend and quota are bounded or execution remains blocked.",
+        "five_minute_demo": "Run provider-cost-quota-boundary-audit and release-state-audit from a clean checkout.",
+        "understanding_outcome": "understood",
+        "governance_action": "none",
+        "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
       }
     ],
     "not_proven": "Product value evidence projection proves a bounded capability explanation and understanding check exists; it does not prove market value, broad adoption, or semantic correctness."
@@ -1105,7 +1166,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v9.5-release-definition.md",
+    "release_ref": "docs/v9.6-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1129,7 +1190,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v9.5-release-definition.md",
+    "release_ref": "docs/v9.6-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1148,7 +1209,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v9.5-release-definition.md",
+      "docs/v9.6-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1243,7 +1304,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-115.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-116.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1253,27 +1314,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V95-INCIDENT-RECOVERY.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V96-COST-QUOTA.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-115.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-116.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v9.5-release-definition.md"
+        "artifact_ref": "docs/v9.6-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-115.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-116.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-115.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-116.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V95-INCIDENT-RECOVERY.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V96-COST-QUOTA.json"
   }
 }

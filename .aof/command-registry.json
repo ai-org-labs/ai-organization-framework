@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-23T16:46:52.426Z",
+  "generated_at": "2026-07-24T01:56:47.147Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -2990,6 +2990,95 @@
       ],
       "outputs": [
         "provider controlled execution candidate artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-cost-quota-boundary-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify provider cost and quota boundaries have complete upstream refs, positive limits, explicit billing and quota boundaries, stop conditions, and no hidden execution permission beyond the declared budget.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider cost quota boundary audit result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-cost-quota-boundary-record",
+      "category": "write",
+      "safety_level": "safe_local_write",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Write a provider execution cost and quota boundary record that binds provider scope, budget owner, estimated cost, actual-cost ceiling, token/call/retry limits, rate limit, quota, billing, overage policy, and stop governance before provider-backed execution advances.",
+      "operator_path": "artifact-recording",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "release-ref",
+        "work-item-id",
+        "work-item-ref",
+        "candidate-ref",
+        "approval-ref",
+        "incident-recovery-ref",
+        "provider-scope",
+        "budget-owner-ref",
+        "budget-period",
+        "max-estimated-cost",
+        "max-actual-cost",
+        "currency",
+        "max-tokens",
+        "max-provider-calls",
+        "max-retry-count",
+        "rate-limit-boundary",
+        "quota-boundary",
+        "billing-boundary",
+        "overage-policy",
+        "cost-status",
+        "quota-status",
+        "execution-eligibility",
+        "governance-action",
+        "stop-condition",
+        "evidence-ref",
+        "verification-ref",
+        "not-proven",
+        "source-task-id",
+        "source-parent-session-id",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider cost quota boundary artifact"
       ],
       "detail_ref": "docs/cli-reference.md"
     },
