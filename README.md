@@ -162,7 +162,7 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - `situation-assess` が "After v6.4.0, advance v6.5..." のような表現で shipped release と target frontier を取り違えないこと
 - implementation-grade work item が Archmap impact を `archmap_update_required` / `archmap_unaffected` / `archmap_deferred_with_reason` として扱えること
 - Archmap source と AOF artifact を source of truth とし、Mission Control は architecture map state の read-only projection に留まること
-- Archmap external provider baseline を `v0.1.1` として扱い、optional archmap-icons `v0.1.2` は recognition aid としてのみ利用できること
+- Archmap external provider baseline を `v0.4.0` として扱い、Requirement / Acceptance / Decision / Risk / Test / Evidence lifecycle traceability は opt-in provider capability であり、AOF artifacts が source of truth であると明示できること
 - Node.js 22 と Node.js 24 を CI-validated runtime lane として扱えること
 
 である。

@@ -1,0 +1,24 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-117-V97",
+  "recorded_at": "2026-07-25T01:46:30.000Z",
+  "work_item_id": "TASK-117",
+  "work_item_ref": ".aof/tasks/done/TASK-117.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V97-ARCHMAP-V040.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    "docs/v6.6-archmap-integration.md",
+    "docs/archmaps/aof-runtime-current.archmap"
+  ],
+  "required_context_refs": [
+    ".aof/external-refs/Archmap-v0.4.0.json",
+    "docs/v9.7-archmap-v0.4.0-adoption.md"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared references were available, not rendered Archmap usability or third-party comprehension.",
+  "source_task_id": "TASK-117",
+  "source_parent_session_id": "SESS-V97-ARCHMAP-V040",
+  "source_decision_record_id": null
+}

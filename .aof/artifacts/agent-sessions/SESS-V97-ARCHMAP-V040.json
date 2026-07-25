@@ -1,0 +1,106 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-V97-ARCHMAP-V040",
+  "recorded_at": "2026-07-25T01:46:00.000Z",
+  "session_id": "SESS-V97-ARCHMAP-V040",
+  "parent_session_id": null,
+  "actor_ref": "parent-codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "EVT-V97-1",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-25T01:42:00.000Z",
+      "summary": "User required AOF to incorporate Archmap v0.4.0 after its GitHub release.",
+      "artifact_refs": [".aof/external-refs/Archmap-v0.4.0.json"],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V97-2",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-25T01:42:59.450Z",
+      "summary": "AOF runtime opened TASK-117 for Archmap v0.4.0 lifecycle traceability baseline adoption.",
+      "artifact_refs": [".aof/tasks/done/TASK-117.json"],
+      "tool_name": "task-open",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V97-3",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-25T01:44:00.000Z",
+      "summary": "AOF recorded Archmap v0.4.0 as an external provider baseline and updated the Archmap integration contract.",
+      "artifact_refs": [
+        ".aof/external-refs/Archmap-v0.4.0.json",
+        "docs/v9.7-archmap-v0.4.0-adoption.md",
+        "docs/v6.6-archmap-integration.md"
+      ],
+      "tool_name": null,
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V97-4",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-25T01:44:30.000Z",
+      "summary": "AOF updated the current Archmap source with an opt-in lifecycle projection node and mappings.",
+      "artifact_refs": ["docs/archmaps/aof-runtime-current.archmap"],
+      "tool_name": null,
+      "safety_level": "project_write",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V97-5",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-25T01:45:30.580Z",
+      "summary": "AOF runtime verified Archmap impact and refreshed Mission Control projection.",
+      "artifact_refs": [
+        ".aof/artifacts/archmap/impact/TASK-117.json",
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "tool_name": "archmap-impact-audit",
+      "safety_level": "safe_read",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V97-6",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-25T01:46:00.000Z",
+      "summary": "Stop if Archmap lifecycle views are described as canonical AOF truth or as proof of semantic correctness.",
+      "artifact_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [".aof/tasks/done/TASK-117.json"],
+    "requirement_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"],
+    "test_evidence_refs": [".aof/artifacts/archmap/archmap-impact-audit.json"],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/external-refs/Archmap-v0.4.0.json",
+      "docs/archmaps/aof-runtime-current.archmap"
+    ]
+  },
+  "risk_candidates": [
+    "Operator may confuse Archmap lifecycle projection with canonical AOF evidence or semantic truth."
+  ],
+  "decision_candidates": [
+    "Use Archmap v0.4.0 lifecycle support as opt-in projection capability while keeping AOF artifacts canonical."
+  ],
+  "release_ready_evidence": {
+    "claim": "Release readiness is not claimed from this session alone.",
+    "evidence_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"],
+    "verdict": "not_ready"
+  },
+  "source_task_id": "TASK-117",
+  "source_parent_session_id": "SESS-V97-ARCHMAP-V040",
+  "source_decision_record_id": null
+}

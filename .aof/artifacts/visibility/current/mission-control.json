@@ -1,6 +1,6 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-24T02:00:06.248Z",
+  "generated_at": "2026-07-25T01:52:36.134Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
     "release_version": "9.6.0",
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 46,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-116.json",
-    "latest_impact_status": "archmap_unaffected",
-    "latest_work_item_id": "TASK-116",
+    "impact_record_count": 47,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-117.json",
+    "latest_impact_status": "archmap_update_required",
+    "latest_work_item_id": "TASK-117",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-116.json"
+      ".aof/artifacts/archmap/impact/TASK-117.json"
     ],
     "external_refs": []
   },
@@ -399,115 +399,111 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 30,
-    "latest_session_id": "SESS-V96-COST-QUOTA",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V96-COST-QUOTA.json",
+    "stream_count": 31,
+    "latest_session_id": "SESS-V97-ARCHMAP-V040",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V97-ARCHMAP-V040.json",
     "latest_actor_ref": "parent-codex",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-24T01:31:50.248Z",
+    "latest_recorded_at": "2026-07-25T01:46:00.000Z",
     "latest_event_count": 6,
     "latest_release_verdict": "not_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-116.json"
+      ".aof/tasks/done/TASK-117.json"
     ],
     "linked_requirement_refs": [
-      "docs/v9.6-release-definition.md"
+      "docs/v9.7-archmap-v0.4.0-adoption.md"
     ],
     "linked_test_evidence_refs": [
-      "test/runtime-core-2.test.js"
+      ".aof/artifacts/archmap/archmap-impact-audit.json"
     ],
     "linked_artifact_refs": [
-      ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ".aof/external-refs/Archmap-v0.4.0.json",
+      "docs/archmaps/aof-runtime-current.archmap"
     ],
     "risk_candidates": [
-      "Operator may read a structurally valid provider boundary as proof of actual provider billing correctness."
+      "Operator may confuse Archmap lifecycle projection with canonical AOF evidence or semantic truth."
     ],
     "decision_candidates": [
-      "Keep v9.6 bounded to pre-execution cost/quota governance and defer production billing proof."
+      "Use Archmap v0.4.0 lifecycle support as opt-in projection capability while keeping AOF artifacts canonical."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Heartbeat required latest AOF runtime use and next release completion.",
-        "occurred_at": "2026-07-24T01:31:50.248Z",
+        "summary": "User required AOF to incorporate Archmap v0.4.0 after its GitHub release.",
+        "occurred_at": "2026-07-25T01:42:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "docs/vnext-roadmap.md"
+          ".aof/external-refs/Archmap-v0.4.0.json"
         ]
       },
       {
         "event_type": "tool_call",
-        "summary": "AOF runtime opened TASK-116 for v9.6 provider execution cost and quota boundary.",
-        "occurred_at": "2026-07-24T01:40:00.000Z",
+        "summary": "AOF runtime opened TASK-117 for Archmap v0.4.0 lifecycle traceability baseline adoption.",
+        "occurred_at": "2026-07-25T01:42:59.450Z",
         "tool_name": "task-open",
         "safety_level": "safe_local_write",
         "approval_policy": "approved",
         "artifact_refs": [
-          ".aof/tasks/open/TASK-116.json"
-        ]
-      },
-      {
-        "event_type": "tool_call",
-        "summary": "AOF runtime wrote provider cost/quota boundary evidence for TASK-116.",
-        "occurred_at": "2026-07-24T01:48:00.000Z",
-        "tool_name": "provider-cost-quota-boundary-record",
-        "safety_level": "safe_local_write",
-        "approval_policy": "approved",
-        "artifact_refs": [
-          ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+          ".aof/tasks/done/TASK-117.json"
         ]
       },
       {
         "event_type": "artifact_write",
-        "summary": "v9.6 release docs, schemas, commands, product capability, value evidence, and capability delta were generated.",
-        "occurred_at": "2026-07-24T01:52:00.000Z",
+        "summary": "AOF recorded Archmap v0.4.0 as an external provider baseline and updated the Archmap integration contract.",
+        "occurred_at": "2026-07-25T01:44:00.000Z",
         "tool_name": null,
         "safety_level": "safe_local_write",
         "approval_policy": "approved",
         "artifact_refs": [
-          "docs/v9.6-release-definition.md",
-          ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
-          ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json"
+          ".aof/external-refs/Archmap-v0.4.0.json",
+          "docs/v9.7-archmap-v0.4.0-adoption.md",
+          "docs/v6.6-archmap-integration.md"
+        ]
+      },
+      {
+        "event_type": "artifact_write",
+        "summary": "AOF updated the current Archmap source with an opt-in lifecycle projection node and mappings.",
+        "occurred_at": "2026-07-25T01:44:30.000Z",
+        "tool_name": null,
+        "safety_level": "project_write",
+        "approval_policy": "approved",
+        "artifact_refs": [
+          "docs/archmaps/aof-runtime-current.archmap"
         ]
       },
       {
         "event_type": "verification_result",
-        "summary": "Provider cost/quota boundary audit, product value audit, capability-first audit, focused tests, and release-state audit are required before release.",
-        "occurred_at": "2026-07-24T02:00:00.000Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
+        "summary": "AOF runtime verified Archmap impact and refreshed Mission Control projection.",
+        "occurred_at": "2026-07-25T01:45:30.580Z",
+        "tool_name": "archmap-impact-audit",
+        "safety_level": "safe_read",
+        "approval_policy": "approved",
         "artifact_refs": [
-          "docs/v9.6-release-checklist.md"
+          ".aof/artifacts/archmap/impact/TASK-117.json",
+          ".aof/artifacts/visibility/current/mission-control.json"
         ]
       },
       {
         "event_type": "stop_condition",
-        "summary": "Stop if provider execution can advance without budget owner, cost ceiling, quota boundary, rate-limit boundary, billing boundary, or explicit overage policy.",
-        "occurred_at": "2026-07-24T02:00:00.000Z",
+        "summary": "Stop if Archmap lifecycle views are described as canonical AOF truth or as proof of semantic correctness.",
+        "occurred_at": "2026-07-25T01:46:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "docs/v9.6-release-definition.md"
+          "docs/v9.7-archmap-v0.4.0-adoption.md"
         ]
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "AOF runtime opened TASK-116 for v9.6 provider execution cost and quota boundary.",
+        "summary": "AOF runtime opened TASK-117 for Archmap v0.4.0 lifecycle traceability baseline adoption.",
         "tool_name": "task-open",
-        "safety_level": "safe_local_write",
-        "approval_policy": "approved"
-      },
-      {
-        "summary": "AOF runtime wrote provider cost/quota boundary evidence for TASK-116.",
-        "tool_name": "provider-cost-quota-boundary-record",
         "safety_level": "safe_local_write",
         "approval_policy": "approved"
       }
@@ -520,11 +516,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 28,
+    "context_record_count": 29,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-117.json",
+        "work_item_id": "TASK-117",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared references were available, not rendered Archmap usability or third-party comprehension."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-116.json",
         "work_item_id": "TASK-116",
@@ -580,14 +584,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves declared local refs exist; it does not prove production safety, semantic truth, or independent operator adoption."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-109.json",
-        "work_item_id": "TASK-109",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves declared local refs exist; it does not prove semantic truth, provider truth, or production execution safety."
       }
     ],
     "latest_external_reference_records": [
@@ -612,9 +608,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-116.json",
-    "latest_work_item_id": "TASK-116",
-    "latest_recorded_at": "2026-07-24T02:00:40.000Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-117.json",
+    "latest_work_item_id": "TASK-117",
+    "latest_recorded_at": "2026-07-25T01:46:40.000Z",
     "coverage_status": "completed",
     "total_requirements": 2,
     "covered_count": 2,
@@ -625,39 +621,41 @@
     "coverage_ratio": null,
     "forecast": {
       "estimated_remaining_work_items": 0,
-      "estimated_token_cost_range": "bounded release verification only",
-      "burndown_ref": "docs/v9.6-release-checklist.md",
+      "estimated_token_cost_range": "bounded local documentation and verification only",
+      "burndown_ref": "docs/v9.7-archmap-v0.4.0-adoption.md",
       "forecast_boundary": "forecast is planning evidence, not delivery certainty"
     },
     "forecast_boundary": "forecast is planning evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V96-001",
-        "title": "Provider cost/quota boundary audit",
+        "requirement_id": "REQ-V97-ARCHMAP-001",
+        "title": "Archmap v0.4.0 external provider baseline",
         "status": "covered",
-        "source_ref": "docs/v9.6-release-definition.md",
-        "owner_ref": "guardian",
+        "source_ref": "docs/v9.7-archmap-v0.4.0-adoption.md",
+        "owner_ref": "builder",
         "evidence_refs": [
-          ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+          ".aof/external-refs/Archmap-v0.4.0.json",
+          "docs/v6.6-archmap-integration.md",
+          "docs/AI_AUTHORING_GUIDE.md"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V96-002",
-        "title": "Capability-first cost/quota explanation",
+        "requirement_id": "REQ-V97-ARCHMAP-002",
+        "title": "AOF lifecycle artifacts map to Archmap lifecycle concepts",
         "status": "covered",
-        "source_ref": "docs/v9.6-release-definition.md",
-        "owner_ref": "product-council",
+        "source_ref": "docs/v9.7-archmap-v0.4.0-adoption.md",
+        "owner_ref": "guardian",
         "evidence_refs": [
-          ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-          ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+          "docs/archmaps/aof-runtime-current.archmap",
+          ".aof/artifacts/execution/council-reviews/CREV-TASK-117-V97.json"
         ],
         "blocker_refs": []
       }
     ],
-    "not_proven": "Requirement coverage proves traceability only, not actual provider billing correctness, quota enforcement, or semantic correctness.",
+    "not_proven": "Requirement coverage proves traceability only, not Archmap rendered usability or third-party comprehension.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-116.json"
+      ".aof/artifacts/requirement-coverage/TASK-117.json"
     ]
   },
   "adoption_proof_projection": {
@@ -1304,7 +1302,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-116.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-117.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1314,12 +1312,12 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V96-COST-QUOTA.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V97-ARCHMAP-V040.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-116.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-117.json"
       },
       {
         "source_id": "release-definition",
@@ -1329,12 +1327,12 @@
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-116.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-117.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-116.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-117.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V96-COST-QUOTA.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V97-ARCHMAP-V040.json"
   }
 }

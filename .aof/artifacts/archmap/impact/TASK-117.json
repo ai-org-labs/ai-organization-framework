@@ -1,0 +1,35 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-117",
+  "work_item_ref": ".aof/tasks/done/TASK-117.json",
+  "work_item_id": "TASK-117",
+  "status": "archmap_update_required",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    {
+      "kind": "node",
+      "id": "ArchmapLifecycle",
+      "reason": "Archmap v0.4.0 introduces an opt-in lifecycle plugin baseline for Requirement, Acceptance Criterion, Decision, Risk, Test, and Evidence projection."
+    },
+    {
+      "kind": "boundary",
+      "id": "external_dependency",
+      "reason": "Archmap lifecycle remains an external provider capability and does not become canonical AOF truth."
+    },
+    {
+      "kind": "metadata",
+      "id": "lifecycle.mappings",
+      "reason": "AOF artifact families are now mapped to Archmap lifecycle concepts for traceability projection."
+    }
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    ".aof/external-refs/Archmap-v0.4.0.json",
+    "docs/v9.7-archmap-v0.4.0-adoption.md",
+    "docs/v6.6-archmap-integration.md",
+    "docs/archmaps/aof-runtime-current.archmap"
+  ],
+  "recorded_at": "2026-07-25T01:43:30.000Z"
+}

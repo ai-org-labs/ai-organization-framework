@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-07-24T02:00:06.248Z",
+  "as_of": "2026-07-25T01:52:36.134Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",

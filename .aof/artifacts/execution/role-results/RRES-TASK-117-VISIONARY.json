@@ -1,0 +1,19 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-07-25T01:46:10.000Z",
+  "role": "visionary",
+  "stage": "planning",
+  "session_id": "SESS-V97-ARCHMAP-V040",
+  "status": "completed",
+  "recommendation": "Adopt Archmap v0.4.0 as a lifecycle traceability baseline because it can express AOF's Requirement, Decision, Risk, Test, and Evidence chain.",
+  "rationale": "This strengthens operator recognition of how work, requirements, evidence, and decisions relate without making diagrams the source of truth.",
+  "signals": ["lifecycle traceability", "operator comprehension"],
+  "artifact_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"],
+  "decision_required": false,
+  "source_task_id": "TASK-117",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V97-ARCHMAP-V040",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

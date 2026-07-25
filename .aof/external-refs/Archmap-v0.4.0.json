@@ -1,0 +1,10 @@
+{
+  "artifact_type": "external-reference",
+  "ref_id": "Archmap-v0.4.0",
+  "source_system": "github",
+  "url": "https://github.com/ai-org-labs/archmap/releases/tag/v0.4.0",
+  "relationship": "architecture map and lifecycle traceability provider dependency",
+  "source_of_truth": "GitHub release tag",
+  "observed_for": "AOF Archmap lifecycle traceability baseline adoption",
+  "not_proven": "This local pointer records the external Archmap dependency used by AOF; it does not prove that Archmap rendering, lifecycle plugins, or third-party operator comprehension are available in every AOF deployment."
+}

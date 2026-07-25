@@ -1,0 +1,32 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-117-V97",
+  "recorded_at": "2026-07-25T01:46:32.000Z",
+  "work_item_id": "TASK-117",
+  "work_item_ref": ".aof/tasks/done/TASK-117.json",
+  "readiness_status": "ready",
+  "goal": "Adopt Archmap v0.4.0 as AOF's lifecycle traceability provider baseline without making Archmap canonical truth.",
+  "risk": "AOF may overclaim that Archmap lifecycle projections prove semantic correctness or third-party operator comprehension.",
+  "loss_boundary": "Do not call the adoption complete unless provider baseline docs, external reference artifact, Archmap source mapping, impact record, and Council boundary are present.",
+  "acceptance_gates": [
+    "archmap-impact-audit passes",
+    "Mission Control projection refreshes without schema failure",
+    "release-state-audit remains green"
+  ],
+  "evidence_plan": [
+    "external ref, adoption doc, integration doc, authoring guide, Archmap source, impact record, Council review"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if Archmap lifecycle projection is described as canonical AOF truth",
+    "Stop if Archmap v0.4.0 is treated as proof of rendered usability or semantic correctness"
+  ],
+  "qif_refs": ["docs/aof-qif-quality-definition.md"],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-117",
+  "source_parent_session_id": "SESS-V97-ARCHMAP-V040",
+  "source_decision_record_id": null
+}

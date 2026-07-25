@@ -7,6 +7,9 @@ graph LR
   QIF -->|quality evidence events| QualityLedger[Executable Quality Ledger]
   QualityLedger -->|audit evidence history| Runtime
   Runtime -->|architecture source| Archmap[Archmap Source]
+  Runtime -->|lifecycle projection| ArchmapLifecycle[Archmap Lifecycle Plugin]
+  ArchmapLifecycle -->|requirements / traceability / quality views| MissionControl
+  Artifacts -->|requirements / decisions / risks / tests / evidence| ArchmapLifecycle
   Runtime -->|impact verification| ArchmapImpactAudit[Archmap Impact Audit]
   Runtime -->|review provenance verification| ReviewProvenanceAudit[Review Provenance Audit]
   Runtime -->|evidence independence verification| EvidenceIndependenceAudit[Evidence Independence Audit]
@@ -37,6 +40,7 @@ nodes:
   QIF: { zone: external_frameworks, layer: quality, kind: quality_framework }
   QualityLedger: { zone: quality_evidence, layer: ledger, kind: appendable_evidence_store }
   Archmap: { zone: architecture_map, layer: architecture, kind: diagram_source }
+  ArchmapLifecycle: { zone: architecture_map, layer: lifecycle_traceability, kind: lifecycle_plugin, provider: archmap, version: v0.4.0 }
   ArchmapImpactAudit: { zone: governance, layer: verification, kind: audit_command }
   ReviewProvenanceAudit: { zone: governance, layer: verification, kind: audit_command }
   EvidenceIndependenceAudit: { zone: governance, layer: verification, kind: audit_command }
@@ -58,6 +62,9 @@ edges:
   QIF->QualityLedger: { flow: quality_evidence_event_model }
   QualityLedger->Runtime: { flow: ledger_audit_evidence }
   Runtime->Archmap: { flow: architecture_map_update }
+  Runtime->ArchmapLifecycle: { flow: lifecycle_projection_request }
+  Artifacts->ArchmapLifecycle: { flow: requirement_decision_risk_test_evidence_projection }
+  ArchmapLifecycle->MissionControl: { flow: lifecycle_traceability_projection }
   Runtime->ArchmapImpactAudit: { flow: architecture_impact_verification }
   ArchmapImpactAudit->Artifacts: { flow: governed_architecture_disposition }
   Runtime->ReviewProvenanceAudit: { flow: review_provenance_verification }
@@ -86,7 +93,7 @@ zones:
   recognition: { label: Human Recognition, kind: visibility_boundary, contains: [MissionControl] }
   external_frameworks: { label: External Frameworks, kind: reference_boundary, contains: [QIF] }
   quality_evidence: { label: Quality Evidence Ledger, kind: evidence_boundary, contains: [QualityLedger] }
-  architecture_map: { label: Architecture Map, kind: map_boundary, contains: [Archmap, Icons] }
+  architecture_map: { label: Architecture Map, kind: map_boundary, contains: [Archmap, ArchmapLifecycle, Icons] }
   governance: { label: Verifiable Governance, kind: audit_boundary, contains: [ArchmapImpactAudit, ReviewProvenanceAudit, EvidenceIndependenceAudit, ReleaseStateAudit, WorkReadinessAudit, GovernanceAudits, ReleaseSignOff] }
   organization: { label: AI Organization, kind: governance_boundary, contains: [Builder, Guardian, Council] }
   release: { label: Release Baseline, kind: release_boundary, contains: [ReleaseV69] }
@@ -99,5 +106,17 @@ boundaries:
   external_dependency:
     label: External Reference Boundary
     kind: dependency_boundary
-    contains: [QIF, Icons]
+    contains: [QIF, ArchmapLifecycle, Icons]
     description: External frameworks and icon packs are referenced explicitly and should remain replaceable.
+lifecycle:
+  provider_baseline:
+    ref: Archmap-v0.4.0
+    url: https://github.com/ai-org-labs/archmap/releases/tag/v0.4.0
+    capability_boundary: opt-in lifecycle projection, not canonical AOF truth
+  mappings:
+    Requirement: [.aof/tasks, docs/*release-definition.md]
+    AcceptanceCriterion: [.aof/artifacts/work-readiness, docs/*release-checklist.md]
+    Decision: [.aof/decisions, .aof/artifacts/execution/council-reviews]
+    Risk: [.aof/artifacts/session-exports, docs/*release-definition.md]
+    Test: [test, .aof/context/active/release-state-audit.json]
+    Evidence: [.aof/artifacts]

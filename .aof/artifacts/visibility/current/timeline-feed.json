@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-07-24T02:00:06.248Z",
+      "at": "2026-07-25T01:52:36.134Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-07-24T02:00:06.241Z",
+      "at": "2026-07-25T01:52:36.124Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -21,6 +21,17 @@
       "next": "Use the visibility packet to inspect operator-facing runtime health.",
       "refs": [
         ".aof/context/active/metrics-snapshot.json"
+      ]
+    },
+    {
+      "at": "2026-07-25T01:49:10.133Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "Adopt Archmap v0.4.0 lifecycle traceability baseline",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-117.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-115.json"
-      ]
-    },
-    {
-      "at": "2026-07-22T01:51:31.384Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Ship v9.4 Provider-backed Controlled Execution Candidate",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-114.json"
       ]
     }
   ]

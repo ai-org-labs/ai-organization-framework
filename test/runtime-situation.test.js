@@ -135,15 +135,15 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.ok(result.payloads.mission_control.work_governance.work_items.length >= 2);
   assert.equal(result.payloads.mission_control.archmap.present, true);
   assert.equal(result.payloads.mission_control.archmap.current_source_ref, "docs/archmaps/aof-runtime-current.archmap");
-  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-116");
+  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-117");
   assert.ok(result.payloads.mission_control.archmap.pending_impact_count >= 0);
   assert.equal(result.payloads.mission_control.organization_state.present, true);
   assert.equal(result.payloads.mission_control.organization_state.council_count, 3);
   assert.ok(result.payloads.mission_control.organization_state.roles.some((role) => role.role_id === "builder"));
   assert.equal(result.payloads.mission_control.agent_session_observability.present, true);
-  assert.equal(result.payloads.mission_control.agent_session_observability.latest_session_id, "SESS-V96-COST-QUOTA");
+  assert.equal(result.payloads.mission_control.agent_session_observability.latest_session_id, "SESS-V97-ARCHMAP-V040");
   assert.equal(result.payloads.mission_control.agent_session_observability.audit_ok, true);
-  assert.ok(result.payloads.mission_control.agent_session_observability.linked_task_refs.some((ref) => /TASK-116/.test(ref)));
+  assert.ok(result.payloads.mission_control.agent_session_observability.linked_task_refs.some((ref) => /TASK-117/.test(ref)));
   assert.ok(result.payloads.mission_control.agent_session_observability.risk_candidates.length >= 1);
   assert.ok(result.payloads.mission_control.agent_session_observability.decision_candidates.length >= 1);
   assert.equal(result.payloads.mission_control.context_reference_integrity.present, true);

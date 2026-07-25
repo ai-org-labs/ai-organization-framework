@@ -1,0 +1,58 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-117-V97",
+  "recorded_at": "2026-07-25T01:46:40.000Z",
+  "work_item_id": "TASK-117",
+  "work_item_ref": ".aof/tasks/done/TASK-117.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V97-ARCHMAP-001",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v9.7-archmap-v0.4.0-adoption.md",
+      "title": "Archmap v0.4.0 external provider baseline",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered only when local external ref, integration doc, authoring guide, and current map source reference v0.4.0 as the active baseline",
+      "status": "covered",
+      "linked_work_item_refs": [".aof/tasks/done/TASK-117.json"],
+      "evidence_refs": [
+        ".aof/external-refs/Archmap-v0.4.0.json",
+        "docs/v6.6-archmap-integration.md",
+        "docs/AI_AUTHORING_GUIDE.md"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V97-ARCHMAP-002",
+      "requirement_type": "functional",
+      "source_ref": "docs/v9.7-archmap-v0.4.0-adoption.md",
+      "title": "AOF lifecycle artifacts map to Archmap lifecycle concepts",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered only when Requirement, Acceptance, Decision, Risk, Test, and Evidence mappings remain projection-only and not source-of-truth replacement",
+      "status": "covered",
+      "linked_work_item_refs": [".aof/tasks/done/TASK-117.json"],
+      "evidence_refs": [
+        "docs/archmaps/aof-runtime-current.archmap",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-117-V97.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded local documentation and verification only",
+    "burndown_ref": "docs/v9.7-archmap-v0.4.0-adoption.md",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves traceability only, not Archmap rendered usability or third-party comprehension.",
+  "source_task_id": "TASK-117",
+  "source_parent_session_id": "SESS-V97-ARCHMAP-V040",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,88 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-117-V97",
+  "recorded_at": "2026-07-25T01:46:42.000Z",
+  "work_item_id": "TASK-117",
+  "work_item_ref": ".aof/tasks/done/TASK-117.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V97-ARCHMAP-V040.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export summarizes local runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V97-1",
+      "event_type": "prompt",
+      "summary": "Archmap v0.4.0 release should be incorporated into AOF.",
+      "artifact_refs": [".aof/external-refs/Archmap-v0.4.0.json"]
+    },
+    {
+      "event_id": "EVT-V97-2",
+      "event_type": "response",
+      "summary": "AOF selected a bounded provider-baseline adoption path: external reference, lifecycle mapping, Archmap source update, and not-proven boundary.",
+      "artifact_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"]
+    },
+    {
+      "event_id": "EVT-V97-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime opened TASK-117.",
+      "artifact_refs": [".aof/tasks/done/TASK-117.json"]
+    },
+    {
+      "event_id": "EVT-V97-4",
+      "event_type": "artifact_write",
+      "summary": "AOF updated Archmap provider baseline docs and external reference evidence.",
+      "artifact_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"]
+    },
+    {
+      "event_id": "EVT-V97-5",
+      "event_type": "artifact_write",
+      "summary": "AOF updated the current Archmap source with lifecycle traceability projection metadata.",
+      "artifact_refs": ["docs/archmaps/aof-runtime-current.archmap"]
+    },
+    {
+      "event_id": "EVT-V97-6",
+      "event_type": "verification",
+      "summary": "AOF runtime verified Archmap impact and refreshed Mission Control projection.",
+      "artifact_refs": [".aof/artifacts/archmap/archmap-impact-audit.json"]
+    },
+    {
+      "event_id": "EVT-V97-7",
+      "event_type": "blocker",
+      "summary": "Rendered Archmap usability, package availability, and third-party comprehension remain not proven.",
+      "artifact_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"]
+    },
+    {
+      "event_id": "EVT-V97-8",
+      "event_type": "stop_condition",
+      "summary": "Stop if Archmap lifecycle views are described as canonical AOF truth or semantic proof.",
+      "artifact_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"]
+    }
+  ],
+  "links": {
+    "task_refs": [".aof/tasks/done/TASK-117.json"],
+    "requirement_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"],
+    "test_evidence_refs": [".aof/artifacts/archmap/archmap-impact-audit.json"],
+    "artifact_refs": [
+      ".aof/external-refs/Archmap-v0.4.0.json",
+      "docs/archmaps/aof-runtime-current.archmap"
+    ],
+    "risk_candidates": [
+      "Lifecycle projection may be mistaken for canonical evidence or semantic proof."
+    ],
+    "decision_candidates": [
+      "Keep Archmap lifecycle as opt-in provider capability and maintain AOF artifacts as source of truth."
+    ],
+    "release_ready_evidence_refs": ["docs/v9.7-archmap-v0.4.0-adoption.md"]
+  },
+  "redaction_boundary": "No secrets, credentials, provider payload bodies, or billing data are exported.",
+  "release_ready_boundary": "Release readiness is not claimed from this session alone.",
+  "not_proven": "Session export does not prove rendered view usability, package availability, semantic correctness, or third-party comprehension.",
+  "source_task_id": "TASK-117",
+  "source_parent_session_id": "SESS-V97-ARCHMAP-V040",
+  "source_decision_record_id": null,
+  "notes": null
+}

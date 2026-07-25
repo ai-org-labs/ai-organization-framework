@@ -1,0 +1,55 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-TASK-117-V97",
+  "recorded_at": "2026-07-25T01:46:38.000Z",
+  "work_item_id": "TASK-117",
+  "work_item_ref": ".aof/tasks/done/TASK-117.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-117.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-117.json",
+  "lanes": [
+    {
+      "lane_id": "archmap-provider-baseline",
+      "goal": "update AOF's Archmap external provider baseline to v0.4.0",
+      "owner_actor_ref": "builder",
+      "input_refs": [".aof/external-refs/Archmap-v0.4.0.json"],
+      "expected_output": "updated docs and authoring guide",
+      "output_refs": [
+        "docs/v6.6-archmap-integration.md",
+        "docs/AI_AUTHORING_GUIDE.md"
+      ],
+      "verification_refs": [".aof/artifacts/archmap/archmap-impact-audit.json"],
+      "stop_condition": "stop if AOF vendors Archmap or overclaims lifecycle proof",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "archmap-lifecycle-map",
+      "goal": "map AOF artifact families into Archmap lifecycle concepts",
+      "owner_actor_ref": "guardian",
+      "input_refs": ["docs/archmaps/aof-runtime-current.archmap"],
+      "expected_output": "lifecycle projection node and metadata mapping",
+      "output_refs": [
+        "docs/archmaps/aof-runtime-current.archmap",
+        "docs/v9.7-archmap-v0.4.0-adoption.md"
+      ],
+      "verification_refs": [".aof/artifacts/visibility/current/mission-control.json"],
+      "stop_condition": "stop if Mission Control or Archmap becomes a second source of truth",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": ["archmap-provider-baseline", "archmap-lifecycle-map"],
+    "conflict_summary": "No unresolved lane conflict; both lanes keep AOF artifacts canonical.",
+    "blocker_summary": "No active blocker after provider baseline and lifecycle mapping are present.",
+    "merge_rationale": "Provider baseline docs and lifecycle map source are joined by the TASK-117 Archmap impact record.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-117-V97.json",
+  "not_proven": "Parallel lane evidence does not prove rendered view usability, package availability, or third-party comprehension.",
+  "source_task_id": "TASK-117",
+  "source_parent_session_id": "SESS-V97-ARCHMAP-V040",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,6 +1,6 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-07-24T02:00:06.256Z",
+  "generated_at": "2026-07-25T01:52:36.142Z",
   "headline": "The next frontier is defined, but no aligned implementation task is open yet: After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
   "current_state": {
     "release_version": "9.6.0",
