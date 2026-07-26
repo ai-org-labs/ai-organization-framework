@@ -1,16 +1,16 @@
 {
   "ok": true,
   "artifact_type": "release-state-audit",
-  "generated_at": "2026-07-25T01:51:31.318Z",
+  "generated_at": "2026-07-26T08:05:58.411Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "active_release": {
     "artifact_type": "active-release-manifest",
-    "recorded_at": "2026-07-24T01:31:50.248Z",
-    "release_version": "9.6.0",
-    "release_tag": "v9.6.0",
-    "release_definition_ref": "docs/v9.6-release-definition.md",
-    "release_notes_ref": "docs/v9.6.0-release-notes.md",
-    "release_checklist_ref": "docs/v9.6-release-checklist.md",
+    "recorded_at": "2026-07-26T01:30:31.659Z",
+    "release_version": "9.7.0",
+    "release_tag": "v9.7.0",
+    "release_definition_ref": "docs/v9.7-release-definition.md",
+    "release_notes_ref": "docs/v9.7.0-release-notes.md",
+    "release_checklist_ref": "docs/v9.7-release-checklist.md",
     "roadmap_ref": "docs/vnext-roadmap.md",
     "release_plan_ref": "docs/vnext-release-plan.md"
   },
@@ -291,17 +291,17 @@
     {
       "name": "release definition ref",
       "status": "pass",
-      "detail": "docs/v9.6-release-definition.md"
+      "detail": "docs/v9.7-release-definition.md"
     },
     {
       "name": "release notes ref",
       "status": "pass",
-      "detail": "docs/v9.6.0-release-notes.md"
+      "detail": "docs/v9.7.0-release-notes.md"
     },
     {
       "name": "release checklist ref",
       "status": "pass",
-      "detail": "docs/v9.6-release-checklist.md"
+      "detail": "docs/v9.7-release-checklist.md"
     },
     {
       "name": "roadmap ref",
@@ -316,12 +316,12 @@
     {
       "name": "bootstrap version alignment",
       "status": "pass",
-      "detail": "bootstrap.aof_version=9.6.0, manifest.release_version=9.6.0"
+      "detail": "bootstrap.aof_version=9.7.0, manifest.release_version=9.7.0"
     },
     {
       "name": "governance release contract alignment",
       "status": "pass",
-      "detail": "contract-governance-to-release artifact_ref=docs/v9.6-release-definition.md, manifest.release_definition_ref=docs/v9.6-release-definition.md"
+      "detail": "contract-governance-to-release artifact_ref=docs/v9.7-release-definition.md, manifest.release_definition_ref=docs/v9.7-release-definition.md"
     },
     {
       "name": "archmap-impact-audit release gate",

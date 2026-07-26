@@ -433,7 +433,7 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v9.5.0`, advance `v9.6` as Provider Execution Cost and Quota Boundary.
+After `v9.6.0`, advance `v9.7` as Archmap v0.4.0 Lifecycle Traceability Baseline.
 
 `v9.1.0` was inserted before the production-boundary track because user feedback exposed a product-level failure: AOF releases could be internally auditable while users could not understand what became possible. Product Value Comprehension became a release gate, but the latest feedback shows that evidence alone is not enough. AOF must formalize user-facing capability, version matrix, capability delta, and product review trigger as a release acceptance surface.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
@@ -472,25 +472,22 @@ mechanism details. v9.4 made the provider chain legible as a controlled
 execution candidate. v9.5 made the failure path reconstructable through
 incident recovery evidence.
 
-The next proof is cost and quota boundary evidence for a controlled provider
-execution candidate: whether AOF can bind budget owner, budget period, cost
-ceilings, token/call/retry caps, quota, rate limit, billing, overage policy, and
-stop governance before the external runtime advances.
+The next proof is architecture lifecycle traceability: whether AOF can map work, requirements, acceptance criteria, decisions, risks, tests, and evidence into the Archmap v0.4 lifecycle provider baseline while preserving AOF artifacts as the canonical source of truth.
 
 Forward path:
 
-1. `v9.6`: Provider Execution Cost and Quota Boundary
-2. `v9.7`: Third-party Operator Validation for External Runtime Claims
-3. `v9.8`: Production Execution Go/No-Go Evidence Candidate
-4. `v9.9`: External Runtime Production Readiness Review
-5. `v10.0`: External Runtime Productization Decision
+1. `v9.7`: Archmap v0.4.0 Lifecycle Traceability Baseline
+2. `v9.8`: Production Execution Go/No-Go Evidence Candidate
+3. `v9.9`: External Runtime Production Readiness Review
+4. `v10.0`: External Runtime Productization Decision
+5. `v10.1`: Third-party Operator Validation for External Runtime Claims
 
 Priority order:
 
-1. `v9.6`: Provider Execution Cost and Quota Boundary
-2. `v9.7`: Third-party Operator Validation for External Runtime Claims
-3. `v9.8`: Production Execution Go/No-Go Evidence Candidate
-4. `v9.9`: External Runtime Production Readiness Review
+1. `v9.7`: Archmap v0.4.0 Lifecycle Traceability Baseline
+2. `v9.8`: Production Execution Go/No-Go Evidence Candidate
+3. `v9.9`: External Runtime Production Readiness Review
+4. `v10.0`: External Runtime Productization Decision
 
 Canonical v7.x roadmap:
 

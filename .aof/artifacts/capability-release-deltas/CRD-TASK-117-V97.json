@@ -1,0 +1,30 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-117-V97",
+  "recorded_at": "2026-07-26T08:03:33.831Z",
+  "release_version": "9.7.0",
+  "release_ref": "docs/v9.7-release-definition.md",
+  "work_item_id": "TASK-117",
+  "work_item_ref": ".aof/tasks/done/TASK-117.json",
+  "one_minute_value_explanation": "AOF can now map governed work evidence into Archmap v0.4 lifecycle concepts while preserving AOF artifacts as the source of truth.",
+  "thirty_second_version_delta": "Before v9.7, Archmap integration was guidance-level. After v9.7, Archmap v0.4 lifecycle traceability is a recorded user-facing capability with evidence, release docs, and current architecture map mapping.",
+  "new_capability_ids": [
+    "PCAP-ARCHMAP-LIFECYCLE-TRACEABILITY"
+  ],
+  "updated_capability_ids": [
+    "PCAP-TRACEABILITY",
+    "PCAP-PRODUCT-VALUE-COMPREHENSION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v9.7-archmap-v0.4.0-adoption.md",
+    "docs/aof-capability-matrix.md",
+    "docs/archmaps/aof-runtime-current.archmap"
+  ],
+  "product_review_trigger": "If an operator cannot explain what Archmap v0.4 lifecycle traceability adds within 30 seconds, reopen product value comprehension rather than treating the provider baseline update as sufficient.",
+  "not_proven": "Does not prove rendered UX quality, third-party comprehension, semantic lifecycle correctness, package availability in every environment, production provider execution safety, or market adoption.",
+  "source_task_id": "TASK-117",
+  "source_parent_session_id": "SESS-V97-ARCHMAP-V040",
+  "source_decision_record_id": null,
+  "notes": null
+}

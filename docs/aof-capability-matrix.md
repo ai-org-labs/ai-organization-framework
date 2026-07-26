@@ -2,8 +2,8 @@
 
 This matrix is the human-facing release map. It answers: what can a user do now?
 
-| Capability | First Version | v7.x | v8.x | v9.0-v9.2 | v9.3 | v9.4 | v9.5 | v9.6 |
-|---|---:|---|---|---|---|---|---|---|
+| Capability | First Version | v7.x | v8.x | v9.0-v9.2 | v9.3 | v9.4 | v9.5 | v9.6 | v9.7 |
+|---|---:|---|---|---|---|---|---|---|---|
 | Traceability | v7.0 | Session/task/evidence chain | External refs begin | Provider chain evidence | Unchanged | Unchanged | Incident chain evidence | Cost/quota chain evidence |
 | Organization Memory | v7.1 | Context/reference integrity | External resource state | Release state and feedback chain | Unchanged | Controlled candidate memory | Recovery drill memory | Spend boundary memory |
 | Governance | v6.4 | Work execution and multi-actor gates | Provider governance gates | Operator/product gates | Unchanged | Controlled candidate gate | Incident recovery gate | Cost/quota gate |
@@ -16,6 +16,12 @@ This matrix is the human-facing release map. It answers: what can a user do now?
 | Learning | v8.9 | Not present | Outcome-to-learning update | Production boundary consumes learning | Unchanged | Candidate cannot pass without learning ref | Incident drill must bind learning update | Cost/quota decisions become auditable learning inputs |
 | Product Value Comprehension | v9.1 | Not present | Not present | Product value evidence gate | Improved | Candidate value evidence required | Incident recovery value evidence required | Spend/quota value evidence required |
 | Capability-First Release | v9.3 | Not present | Not present | Informal/partial | Formal model, delta, matrix, and audit | Gate persists | Gate persists | Gate persists |
+
+## v9.7 Delta In 30 Seconds
+
+Before v9.7, AOF had Archmap integration guidance, but the current Archmap provider baseline did not explicitly carry lifecycle traceability across requirements, acceptance criteria, decisions, risks, tests, and evidence.
+
+After v9.7, AOF can treat Archmap v0.4.0 as the lifecycle projection baseline while preserving AOF artifacts as the source of truth.
 
 ## v9.6 Delta In 30 Seconds
 

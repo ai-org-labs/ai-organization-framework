@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-25T01:52:36.134Z",
+  "generated_at": "2026-07-26T08:05:58.333Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
-    "release_version": "9.6.0",
-    "release_definition_ref": "docs/v9.6-release-definition.md",
-    "operating_goal": "Ship v9.6 Provider Execution Cost and Quota Boundary: bind provider scope, budget owner, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance before provider-backed execution advances.",
-    "next_value_slice": "After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
+    "release_version": "9.7.0",
+    "release_definition_ref": "docs/v9.7-release-definition.md",
+    "operating_goal": "Ship v9.7 Archmap v0.4.0 Lifecycle Traceability Baseline: make AOF architecture/work lifecycle evidence projectable into Archmap v0.4 Requirement, Acceptance, Decision, Risk, Test, and Evidence views while preserving AOF artifacts as the source of truth.",
+    "next_value_slice": "After v9.7.0, advance v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, v10.0 external runtime productization decision, and v10.1 third-party operator validation for external runtime claims.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
+    "recommended_action": "Open an implementation task for the current frontier: After v9.7.0, advance v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, v10.0 external runtime productization decision, and v10.1 third-party operator validation for external runtime claims.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -1164,7 +1164,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v9.6-release-definition.md",
+    "release_ref": "docs/v9.7-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1188,7 +1188,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v9.6-release-definition.md",
+    "release_ref": "docs/v9.7-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1207,7 +1207,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v9.6-release-definition.md",
+      "docs/v9.7-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1322,7 +1322,7 @@
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v9.6-release-definition.md"
+        "artifact_ref": "docs/v9.7-release-definition.md"
       },
       {
         "source_id": "archmap-impact",

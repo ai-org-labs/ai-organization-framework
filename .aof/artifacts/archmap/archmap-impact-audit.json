@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "archmap-impact-audit",
-  "generated_at": "2026-07-25T01:49:35.733Z",
+  "generated_at": "2026-07-26T08:02:53.743Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "cutoff_task_id": "TASK-071",
   "audited_status_dirs": [
@@ -345,7 +345,7 @@
     },
     {
       "task_id": "TASK-117",
-      "title": "Adopt Archmap v0.4.0 lifecycle traceability baseline",
+      "title": "Ship v9.7 Archmap v0.4.0 Lifecycle Traceability Baseline",
       "status": "done",
       "status_dir": "done",
       "artifact_ref": ".aof/tasks/done/TASK-117.json"

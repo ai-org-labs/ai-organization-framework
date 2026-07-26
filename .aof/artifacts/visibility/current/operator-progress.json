@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-25T01:52:36.142Z",
+  "generated_at": "2026-07-26T08:05:58.337Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -14,18 +14,18 @@
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-117 completed: Adopt Archmap v0.4.0 lifecycle traceability baseline",
+      "summary": "TASK-117 completed: Ship v9.7 Archmap v0.4.0 Lifecycle Traceability Baseline",
       "artifact_ref": ".aof/tasks/done/TASK-117.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
+      "summary": "After v9.7.0, advance v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, v10.0 external runtime productization decision, and v10.1 third-party operator validation for external runtime claims.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-117 completed: Adopt Archmap v0.4.0 lifecycle traceability baseline After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision.",
+    "what_changed": "TASK-117 completed: Ship v9.7 Archmap v0.4.0 Lifecycle Traceability Baseline After v9.7.0, advance v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, v10.0 external runtime productization decision, and v10.1 third-party operator validation for external runtime claims.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: After v9.6.0, advance v9.7 third-party operator validation, v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, and v10.0 external runtime productization decision."
+    "next_checkpoint": "Open an implementation task for the current frontier: After v9.7.0, advance v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, v10.0 external runtime productization decision, and v10.1 third-party operator validation for external runtime claims."
   }
 }

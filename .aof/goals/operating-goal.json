@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Ship v9.6 Provider Execution Cost and Quota Boundary: bind provider scope, budget owner, cost ceiling, token/call/retry caps, quota, rate limit, billing, overage policy, and stop governance before provider-backed execution advances.",
-  "updated_at": "2026-07-24T01:31:50.248Z",
+  "content": "Ship v9.7 Archmap v0.4.0 Lifecycle Traceability Baseline: make AOF architecture/work lifecycle evidence projectable into Archmap v0.4 Requirement, Acceptance, Decision, Risk, Test, and Evidence views while preserving AOF artifacts as the source of truth.",
+  "updated_at": "2026-07-26T01:30:31.659Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V96-COST-QUOTA",
+  "source_session_id": "SESS-V97-ARCHMAP-V040",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

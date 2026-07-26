@@ -1,7 +1,7 @@
 {
   "task_id": "TASK-117",
-  "title": "Adopt Archmap v0.4.0 lifecycle traceability baseline",
-  "description": "Update AOF's Archmap external provider baseline from v0.1.1 to v0.4.0 and align AOF architecture impact, requirement coverage, evidence, decision, risk, test, and Mission Control traceability guidance with Archmap lifecycle plugin capabilities without vendoring Archmap runtime dependencies.",
+  "title": "Ship v9.7 Archmap v0.4.0 Lifecycle Traceability Baseline",
+  "description": "Ship v9.7 by adopting Archmap v0.4.0 as AOF's external lifecycle traceability provider baseline and aligning AOF architecture impact, requirement coverage, acceptance, decision, risk, test, evidence, and Mission Control traceability guidance with Archmap lifecycle plugin capabilities without vendoring Archmap runtime dependencies.",
   "status": "done",
   "origin": "orchestrator",
   "orchestrator_session_id": "SESS-V97-ARCHMAP-V040",
@@ -16,5 +16,5 @@
   "last_triaged_at": null,
   "stale_candidate_at": null,
   "retire_candidate_at": null,
-  "triage_notes": "Adopted Archmap v0.4.0 as AOF's external lifecycle traceability provider baseline with external ref, integration docs, authoring guide, current Archmap source mapping, impact record, and Council/source-of-truth boundary evidence."
+  "triage_notes": "Shipped v9.7 Archmap v0.4.0 lifecycle traceability baseline with external ref, integration docs, authoring guide, current Archmap source mapping, impact record, and Council/source-of-truth boundary evidence."
 }
