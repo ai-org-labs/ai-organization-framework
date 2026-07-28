@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-118",
+  "title": "Ship v9.8 Production Execution Go/No-Go Evidence Candidate",
+  "description": "Ship v9.8 by bundling the existing provider execution readiness chain into an operator-facing production go/no-go evidence candidate that makes approval, target operation, reproduction, rollback, outcome, learning, incident recovery, cost/quota, product value, and not-proven boundaries inspectable without authorizing live provider execution.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V98-PROD-GONOGO",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": ".aof/goals/operating-goal.json",
+  "created_at": "2026-07-28T01:31:14.366Z",
+  "updated_at": "2026-07-28T01:31:14.366Z",
+  "assigned_at": null,
+  "done_at": "2026-07-28T01:31:14.366Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v9.8 closes the gap between many provider readiness artifacts and one human production go/no-go candidate; the candidate is evidence for judgment, not permission to execute."
+}
