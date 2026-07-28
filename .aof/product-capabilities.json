@@ -1,6 +1,6 @@
 {
   "artifact_type": "product-capability-register",
-  "recorded_at": "2026-07-26T01:30:31.659Z",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
   "purpose": "User-facing capability register. This is not the internal actor capability registry; it exists so release value starts from what a user can do.",
   "capabilities": [
     {
@@ -70,7 +70,8 @@
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
-        "docs/v9.6.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md"
       ]
     },
     {
@@ -155,6 +156,18 @@
         "docs/v9.7-archmap-v0.4.0-adoption.md",
         "docs/v9.7-release-definition.md",
         "docs/v9.7.0-release-notes.md"
+      ]
+    },
+    {
+      "capability_id": "PCAP-PRODUCTION-GONOGO",
+      "name": "Production Go/No-Go Evidence",
+      "description": "AOF can bundle provider execution readiness evidence into a bounded operator-facing production go/no-go candidate without authorizing live execution.",
+      "user_value": "Users can make a production-readiness judgment from one evidence surface instead of manually assembling approval, reproduction, rollback, outcome, incident, and cost/quota records.",
+      "first_version": "v9.8.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v9.8-release-definition.md",
+        "docs/v9.8.0-release-notes.md"
       ]
     }
   ]

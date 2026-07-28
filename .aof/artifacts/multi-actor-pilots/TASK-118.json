@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-TASK-118-V98",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
+  "work_item_id": "TASK-118",
+  "work_item_ref": ".aof/tasks/done/TASK-118.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V98-PROD-GONOGO.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-118-V98.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-118-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-118-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-118-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-118-V98.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-118.json",
+  "maker_checker_council_boundary": "Builder assembles the go/no-go evidence chain, Guardian checks not-proven boundaries and missing production safety claims, Architecture Council decides whether the release may present a go/no-go candidate.",
+  "not_proven": "Multi-actor evidence proves governed handoff for a production go/no-go candidate only; it does not prove live external provider execution safety or third-party operator acceptance.",
+  "source_task_id": "TASK-118",
+  "source_parent_session_id": "SESS-V98-PROD-GONOGO",
+  "source_decision_record_id": null,
+  "notes": null
+}

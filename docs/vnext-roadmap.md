@@ -433,7 +433,7 @@ the Executable Quality Ledger slice.
 
 ## Current Recommendation
 
-After `v9.6.0`, advance `v9.7` as Archmap v0.4.0 Lifecycle Traceability Baseline.
+After `v9.7.0`, advance `v9.8` as Production Execution Go/No-Go Evidence Candidate.
 
 `v9.1.0` was inserted before the production-boundary track because user feedback exposed a product-level failure: AOF releases could be internally auditable while users could not understand what became possible. Product Value Comprehension became a release gate, but the latest feedback shows that evidence alone is not enough. AOF must formalize user-facing capability, version matrix, capability delta, and product review trigger as a release acceptance surface.
 The v7.8 Mission Control gate proved requirement coverage, forecast, adoption
@@ -472,22 +472,22 @@ mechanism details. v9.4 made the provider chain legible as a controlled
 execution candidate. v9.5 made the failure path reconstructable through
 incident recovery evidence.
 
-The next proof is architecture lifecycle traceability: whether AOF can map work, requirements, acceptance criteria, decisions, risks, tests, and evidence into the Archmap v0.4 lifecycle provider baseline while preserving AOF artifacts as the canonical source of truth.
+The next proof is production movement judgment: whether AOF can bind approval, target operation, reproduction, rollback, outcome, learning, incident recovery, cost/quota, product value, and not-proven boundaries into one operator-facing production go/no-go evidence candidate without authorizing live provider execution.
 
 Forward path:
 
-1. `v9.7`: Archmap v0.4.0 Lifecycle Traceability Baseline
-2. `v9.8`: Production Execution Go/No-Go Evidence Candidate
-3. `v9.9`: External Runtime Production Readiness Review
-4. `v10.0`: External Runtime Productization Decision
-5. `v10.1`: Third-party Operator Validation for External Runtime Claims
+1. `v9.8`: Production Execution Go/No-Go Evidence Candidate
+2. `v9.9`: External Runtime Production Readiness Review
+3. `v10.0`: External Runtime Productization Decision
+4. `v10.1`: Third-party Operator Validation for External Runtime Claims
+5. `v10.2`: External Provider Integration Pilot Selection
 
 Priority order:
 
-1. `v9.7`: Archmap v0.4.0 Lifecycle Traceability Baseline
-2. `v9.8`: Production Execution Go/No-Go Evidence Candidate
-3. `v9.9`: External Runtime Production Readiness Review
-4. `v10.0`: External Runtime Productization Decision
+1. `v9.8`: Production Execution Go/No-Go Evidence Candidate
+2. `v9.9`: External Runtime Production Readiness Review
+3. `v10.0`: External Runtime Productization Decision
+4. `v10.1`: Third-party Operator Validation for External Runtime Claims
 
 Canonical v7.x roadmap:
 

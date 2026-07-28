@@ -1,0 +1,36 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CTX-TASK-118-V98",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
+  "work_item_id": "TASK-118",
+  "work_item_ref": ".aof/tasks/done/TASK-118.json",
+  "required_context_refs": [
+    "docs/v9.8-release-definition.md",
+    "docs/v9.8.0-release-notes.md",
+    ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json",
+    ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json",
+    ".aof/artifacts/provider-incident-recoveries/provider-incident-recovery-audit.json"
+  ],
+  "missing_context_refs": [],
+  "not_proven": "Context integrity confirms the go/no-go evidence chain is present and connected; it does not prove live provider execution safety, provider credentials, market truth, or external operator acceptance.",
+  "source_task_id": "TASK-118",
+  "source_parent_session_id": "SESS-V98-PROD-GONOGO",
+  "source_decision_record_id": null,
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V98-PROD-GONOGO.json",
+  "context_pack_refs": [
+    ".aof/artifacts/agent-sessions/SESS-V98-PROD-GONOGO.json",
+    ".aof/goals/next-value-slice.json",
+    ".aof/goals/operating-goal.json"
+  ],
+  "declared_context_refs": [
+    ".aof/goals/next-value-slice.json",
+    "docs/vnext-roadmap.md",
+    "docs/v9.8-release-definition.md",
+    "docs/v9.7-release-definition.md",
+    ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json",
+    ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json",
+    ".aof/artifacts/provider-incident-recoveries/provider-incident-recovery-audit.json"
+  ],
+  "hidden_context_signals": [],
+  "integrity_status": "ready"
+}

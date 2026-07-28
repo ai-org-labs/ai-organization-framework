@@ -1,0 +1,30 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-118-V98",
+  "recorded_at": "2026-07-28T01:35:03.465Z",
+  "release_version": "9.8.0",
+  "release_ref": "docs/v9.8-release-definition.md",
+  "work_item_id": "TASK-118",
+  "work_item_ref": ".aof/tasks/done/TASK-118.json",
+  "one_minute_value_explanation": "AOF can now bundle provider readiness evidence into one production go/no-go candidate for operator judgment without authorizing live execution.",
+  "thirty_second_version_delta": "Before v9.8, the provider readiness chain existed as separate artifacts. After v9.8, the chain is presented as one bounded production go/no-go evidence candidate with explicit not-proven boundaries.",
+  "new_capability_ids": [
+    "PCAP-PRODUCTION-GONOGO"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-EXECUTION",
+    "PCAP-PRODUCT-VALUE-COMPREHENSION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v9.8-release-definition.md",
+    "docs/aof-capability-matrix.md",
+    ".aof/artifacts/requirement-coverage/TASK-118.json"
+  ],
+  "product_review_trigger": "If an operator cannot distinguish a go/no-go evidence candidate from production execution permission, reopen product value comprehension and safety wording before release.",
+  "not_proven": "Does not prove live provider execution safety, credential or billing safety, provider semantic correctness, actual rollback execution success, customer impact absence, third-party acceptance, or market value.",
+  "source_task_id": "TASK-118",
+  "source_parent_session_id": "SESS-V98-PROD-GONOGO",
+  "source_decision_record_id": null,
+  "notes": null
+}

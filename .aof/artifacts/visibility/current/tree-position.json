@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-26T08:05:58.337Z",
+  "generated_at": "2026-07-28T01:44:51.511Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "9.7.0",
-    "active_release_track": "v9.7",
-    "release_definition_ref": "docs/v9.7-release-definition.md"
+    "active_release_version": "9.8.0",
+    "active_release_track": "v9.8",
+    "release_definition_ref": "docs/v9.8-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v9.7.0, advance v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, v10.0 external runtime productization decision, and v10.1 third-party operator validation for external runtime claims."
+    "branch_summary": "After v9.8.0, advance v9.9 external runtime production readiness review, v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, and v10.2 external provider integration pilot selection."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v9.7",
+      "label": "v9.8",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v9.7 and the next concrete branch.",
-    "why_this_branch": "Ship v9.7 Archmap v0.4.0 Lifecycle Traceability Baseline: make AOF architecture/work lifecycle evidence projectable into Archmap v0.4 Requirement, Acceptance, Decision, Risk, Test, and Evidence views while preserving AOF artifacts as the source of truth.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.7.0, advance v9.8 production execution go/no-go evidence candidate, v9.9 external runtime production readiness review, v10.0 external runtime productization decision, and v10.1 third-party operator validation for external runtime claims."
+    "where_are_we": "The runtime is between v9.8 and the next concrete branch.",
+    "why_this_branch": "Ship v9.8 Production Execution Go/No-Go Evidence Candidate: bundle approval, target operation, reproduction, rollback, outcome, learning, incident recovery, cost/quota, product value, and not-proven boundaries into one operator-facing production go/no-go candidate without authorizing live provider execution.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.8.0, advance v9.9 external runtime production readiness review, v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, and v10.2 external provider integration pilot selection."
   }
 }

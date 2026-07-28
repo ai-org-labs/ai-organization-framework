@@ -1,0 +1,109 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-V98-PROD-GONOGO",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
+  "session_id": "SESS-V98-PROD-GONOGO",
+  "parent_session_id": null,
+  "actor_ref": "parent-codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "unspecified",
+  "events": [
+    {
+      "event_id": "EVT-V98-1",
+      "event_type": "prompt",
+      "occurred_at": "2026-07-28T01:31:14.366Z",
+      "summary": "AOF heartbeat required continuing the roadmap after v9.7.0 using AOF runtime.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json"
+      ],
+      "tool_name": "organization-status",
+      "safety_level": "safe_read",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V98-2",
+      "event_type": "tool_call",
+      "occurred_at": "2026-07-28T01:31:14.366Z",
+      "summary": "AOF runtime identified v9.8 production execution go/no-go evidence candidate as the next frontier.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md",
+        "docs/vnext-release-plan.md"
+      ],
+      "tool_name": "roadmap-status",
+      "safety_level": "safe_read",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V98-3",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-07-28T01:31:14.366Z",
+      "summary": "AOF recorded TASK-118 and release docs for the v9.8 production go/no-go candidate.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-118.json",
+        "docs/v9.8-release-definition.md",
+        "docs/v9.8.0-release-notes.md"
+      ],
+      "tool_name": null,
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V98-4",
+      "event_type": "verification_result",
+      "occurred_at": "2026-07-28T01:31:14.366Z",
+      "summary": "Release readiness requires release-state audit, organization verification, npm test, smoke, clean checkout, and GitHub Actions.",
+      "artifact_refs": [
+        "docs/v9.8-release-checklist.md"
+      ],
+      "tool_name": "release-state-audit",
+      "safety_level": "safe_read",
+      "approval_policy": "approved"
+    },
+    {
+      "event_id": "EVT-V98-5",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-07-28T01:31:14.366Z",
+      "summary": "Stop if the go/no-go candidate is described as live execution permission or production safety proof.",
+      "artifact_refs": [
+        "docs/v9.8-release-definition.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-118.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.8-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/context/active/release-state-audit.json"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "docs/v9.8.0-release-notes.md"
+    ]
+  },
+  "risk_candidates": [
+    "Operator may confuse a production go/no-go evidence candidate with permission to run live provider execution."
+  ],
+  "decision_candidates": [
+    "Treat v9.8 as a bounded operator judgment packet, not production provider execution."
+  ],
+  "release_ready_evidence": {
+    "claim": "Release readiness depends on independent verification commands and GitHub Actions, not this session alone.",
+    "evidence_refs": [
+      "docs/v9.8-release-checklist.md"
+    ],
+    "verdict": "not_ready"
+  },
+  "source_task_id": "TASK-118",
+  "source_parent_session_id": "SESS-V98-PROD-GONOGO",
+  "source_decision_record_id": null
+}

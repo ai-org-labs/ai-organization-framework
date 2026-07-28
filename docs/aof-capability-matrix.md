@@ -2,20 +2,26 @@
 
 This matrix is the human-facing release map. It answers: what can a user do now?
 
-| Capability | First Version | v7.x | v8.x | v9.0-v9.2 | v9.3 | v9.4 | v9.5 | v9.6 | v9.7 |
-|---|---:|---|---|---|---|---|---|---|---|
-| Traceability | v7.0 | Session/task/evidence chain | External refs begin | Provider chain evidence | Unchanged | Unchanged | Incident chain evidence | Cost/quota chain evidence |
-| Organization Memory | v7.1 | Context/reference integrity | External resource state | Release state and feedback chain | Unchanged | Controlled candidate memory | Recovery drill memory | Spend boundary memory |
-| Governance | v6.4 | Work execution and multi-actor gates | Provider governance gates | Operator/product gates | Unchanged | Controlled candidate gate | Incident recovery gate | Cost/quota gate |
-| Human Approval | v8.7 | Not present | Independent approval artifact | Production boundary candidate consumes it | Unchanged | Operator go/no-go remains required | Resume remains review-bound | Budget owner must be explicit |
-| External Resource Access | v8.0 | Not present | External resources and adapters | Provider execution evidence chain | Unchanged | Controlled provider-backed candidate | Incident response evidence | Spend/quota boundary evidence |
-| Provider Execution | v8.5 | Not present | Pilot and approval bridge | Reproduction, rollback, outcome, learning, production boundary | Deferred after capability-first gate | Controlled execution candidate | Candidate must have recovery drill | Candidate must have cost/quota boundary |
-| Provider Incident Recovery | v9.5 | Not present | Not present | Incident boundary only | Not present | Incident boundary text only | Detection, containment, rollback, recovery, notification, learning, resume/stop audit | Required upstream evidence |
-| Provider Cost/Quota Boundary | v9.6 | Not present | Not present | Budget boundary text only | Not present | Candidate budget text only | Incident path but no spend gate | Budget owner, cost ceiling, token/call/retry cap, quota/rate-limit, billing, overage audit |
-| Rollback | v8.8 | Not present | Rollback readiness proof | Production boundary consumes rollback | Unchanged | Candidate cannot pass without rollback ref | Incident drill must bind rollback decision | Cost overage can block before rollback is needed |
-| Learning | v8.9 | Not present | Outcome-to-learning update | Production boundary consumes learning | Unchanged | Candidate cannot pass without learning ref | Incident drill must bind learning update | Cost/quota decisions become auditable learning inputs |
-| Product Value Comprehension | v9.1 | Not present | Not present | Product value evidence gate | Improved | Candidate value evidence required | Incident recovery value evidence required | Spend/quota value evidence required |
+| Capability | First Version | v7.x | v8.x | v9.0-v9.2 | v9.3 | v9.4 | v9.5 | v9.6 | v9.7 | v9.8 |
+|---|---:|---|---|---|---|---|---|---|---|---|
+| Traceability | v7.0 | Session/task/evidence chain | External refs begin | Provider chain evidence | Unchanged | Unchanged | Incident chain evidence | Cost/quota chain evidence | Production go/no-go evidence chain |
+| Organization Memory | v7.1 | Context/reference integrity | External resource state | Release state and feedback chain | Unchanged | Controlled candidate memory | Recovery drill memory | Spend boundary memory | Production candidate memory |
+| Governance | v6.4 | Work execution and multi-actor gates | Provider governance gates | Operator/product gates | Unchanged | Controlled candidate gate | Incident recovery gate | Cost/quota gate | Go/no-go candidate gate |
+| Human Approval | v8.7 | Not present | Independent approval artifact | Production boundary candidate consumes it | Unchanged | Operator go/no-go remains required | Resume remains review-bound | Budget owner must be explicit | Consumed by candidate boundary |
+| External Resource Access | v8.0 | Not present | External resources and adapters | Provider execution evidence chain | Unchanged | Controlled provider-backed candidate | Incident response evidence | Spend/quota boundary evidence | Production readiness evidence candidate |
+| Provider Execution | v8.5 | Not present | Pilot and approval bridge | Reproduction, rollback, outcome, learning, production boundary | Deferred after capability-first gate | Controlled execution candidate | Candidate must have recovery drill | Candidate must have cost/quota boundary | One operator-facing production go/no-go candidate |
+| Provider Incident Recovery | v9.5 | Not present | Not present | Incident boundary only | Not present | Incident boundary text only | Detection, containment, rollback, recovery, notification, learning, resume/stop audit | Required upstream evidence | Required upstream evidence |
+| Provider Cost/Quota Boundary | v9.6 | Not present | Not present | Budget boundary text only | Not present | Candidate budget text only | Incident path but no spend gate | Budget owner, cost ceiling, token/call/retry cap, quota/rate-limit, billing, overage audit | Required upstream evidence |
+| Rollback | v8.8 | Not present | Rollback readiness proof | Production boundary consumes rollback | Unchanged | Candidate cannot pass without rollback ref | Incident drill must bind rollback decision | Cost overage can block before rollback is needed | Required upstream evidence |
+| Learning | v8.9 | Not present | Outcome-to-learning update | Production boundary consumes learning | Unchanged | Candidate cannot pass without learning ref | Incident drill must bind learning update | Cost/quota decisions become auditable learning inputs | Required upstream evidence |
+| Product Value Comprehension | v9.1 | Not present | Not present | Product value evidence gate | Improved | Candidate value evidence required | Incident recovery value evidence required | Spend/quota value evidence required | Production movement explained as user-facing judgment capability |
 | Capability-First Release | v9.3 | Not present | Not present | Informal/partial | Formal model, delta, matrix, and audit | Gate persists | Gate persists | Gate persists |
+
+## v9.8 Delta In 30 Seconds
+
+Before v9.8, AOF had separate provider readiness artifacts, but an operator had to assemble the production-readiness chain manually.
+
+After v9.8, AOF can present one bounded production go/no-go evidence candidate that connects approval, target, reproduction, rollback, outcome, incident, cost/quota, and value evidence without authorizing live execution.
 
 ## v9.7 Delta In 30 Seconds
 
