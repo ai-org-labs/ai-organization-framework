@@ -1,0 +1,31 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MS6AFJZ4-8GUG1P",
+  "recorded_at": "2026-07-29T16:17:14.464Z",
+  "release_version": "9.9.0",
+  "release_ref": "docs/v9.9-release-definition.md",
+  "work_item_id": "TASK-119",
+  "work_item_ref": ".aof/tasks/done/TASK-119.json",
+  "one_minute_value_explanation": "v9.9 lets an operator review whether external runtime provider-backed work is production-ready without granting live execution permission.",
+  "thirty_second_version_delta": "v9.8 bundled go/no-go evidence; v9.9 turns it into a production readiness review with stop/defer boundaries.",
+  "new_capability_ids": [
+    "PCAP-PRODUCTION-READINESS-REVIEW"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PRODUCTION-GONOGO",
+    "PCAP-PROVIDER-EXECUTION",
+    "PCAP-PRODUCT-VALUE-COMPREHENSION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v9.9-release-definition.md",
+    "docs/v9.9.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If an operator cannot explain whether v9.9 is readiness review rather than authorization within 30 seconds, reopen product value comprehension.",
+  "not_proven": "Capability delta does not prove live production execution, production safety, third-party acceptance, semantic truth, or market value.",
+  "source_task_id": "TASK-119",
+  "source_parent_session_id": "SESS-V99-PROD-READINESS",
+  "source_decision_record_id": null,
+  "notes": null
+}

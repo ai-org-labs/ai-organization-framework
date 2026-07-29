@@ -52,3 +52,15 @@ After v9.4, AOF can expose one controlled provider execution candidate: ready fo
 This matrix does not prove that every capability is valuable in the market.
 
 It proves that AOF no longer lets release value be hidden behind implementation mechanism.
+
+## v9.9 Delta In 30 Seconds
+
+| Version | New Capability | User-Visible Difference | Not Proven |
+|---|---|---|---|
+| v9.9 | Production Readiness Review | Operator can review whether external runtime work is ready for production go/no-go consideration. | Live execution, production safety, third-party acceptance, and market value. |
+
+| Capability | v9.8 | v9.9 |
+|---|---|---|
+| Production Go/No-Go Evidence | Candidate bundle | Feeds readiness review |
+| Production Readiness Review | - | NEW |
+| Provider Execution | Bounded candidate only | Readiness reviewed; live execution still blocked |

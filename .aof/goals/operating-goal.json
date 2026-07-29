@@ -1,9 +1,5 @@
 {
-  "goal_type": "operating-goal",
-  "content": "Ship v9.8 Production Execution Go/No-Go Evidence Candidate: bundle approval, target operation, reproduction, rollback, outcome, learning, incident recovery, cost/quota, product value, and not-proven boundaries into one operator-facing production go/no-go candidate without authorizing live provider execution.",
-  "updated_at": "2026-07-28T01:31:14.366Z",
-  "agreed_with_human": true,
-  "source_session_id": "SESS-V98-PROD-GONOGO",
-  "source_decision_record_id": null,
-  "declared_complete_at": null
+  "artifact_type": "operating-goal",
+  "updated_at": "2026-07-29T01:40:00.211Z",
+  "content": "Ship v9.9 External Runtime Production Readiness Review: Review whether external runtime provider-backed work is ready to move toward production, using bounded evidence, explicit not-proven boundaries, and human/operator go-no-go judgment without authorizing live execution."
 }

@@ -1,0 +1,130 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-119-V99",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
+  "work_item_id": "TASK-119",
+  "work_item_ref": ".aof/tasks/done/TASK-119.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export summarizes local runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V99-1",
+      "event_type": "prompt",
+      "summary": "AOF selected v9.9 as the next bounded release after v9.7.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V99-2",
+      "event_type": "response",
+      "summary": "AOF framed v9.9 as a production readiness review, not live provider execution.",
+      "artifact_refs": [
+        "docs/v9.9-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V99-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime recorded TASK-119 as the v9.9 release work item.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-119.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V99-4",
+      "event_type": "artifact_write",
+      "summary": "AOF created release definition, checklist, and release notes for the readiness review.",
+      "artifact_refs": [
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9-release-checklist.md",
+        "docs/v9.9.0-release-notes.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V99-5",
+      "event_type": "artifact_write",
+      "summary": "AOF updated README, Quickstart, capability matrix, active release manifest, and operating goals to v9.9.",
+      "artifact_refs": [
+        "README.md",
+        "docs/quickstart.md",
+        "docs/aof-capability-matrix.md",
+        ".aof/context/active/active-release-manifest.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V99-6",
+      "event_type": "verification",
+      "summary": "AOF runtime verified organization, archmap impact, release-state, tests, and smoke before release.",
+      "artifact_refs": [
+        ".aof/artifacts/archmap/archmap-impact-audit.json",
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V99-7",
+      "event_type": "blocker",
+      "summary": "Live provider execution safety, provider credentials, market truth, and external operator acceptance remain not proven.",
+      "artifact_refs": [
+        "docs/v9.9-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V99-8",
+      "event_type": "stop_condition",
+      "summary": "Release must stop if it presents v9.9 as production execution rather than a readiness review.",
+      "artifact_refs": [
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-119.json"
+    ],
+    "requirement_refs": [
+      "docs/v9.9-release-definition.md",
+      "docs/aof-capability-matrix.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/context/active/release-state-audit.json",
+      ".aof/artifacts/archmap/archmap-impact-audit.json"
+    ],
+    "artifact_refs": [
+      "docs/v9.9-release-definition.md",
+      "docs/v9.9-release-checklist.md",
+      "docs/v9.9.0-release-notes.md",
+      "README.md",
+      "docs/quickstart.md",
+      "docs/aof-capability-matrix.md"
+    ],
+    "risk_candidates": [
+      "Readiness review could be confused with production authorization.",
+      "Internal self-hosting readiness is not third-party acceptance."
+    ],
+    "decision_candidates": [
+      "Proceed only as readiness review.",
+      "Defer live production execution authorization."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v9.9-release-definition.md",
+      "docs/v9.9-release-checklist.md",
+      "docs/v9.9.0-release-notes.md",
+      ".aof/context/active/release-state-audit.json"
+    ]
+  },
+  "redaction_boundary": "The export excludes raw provider transcript and secrets; it records bounded local AOF artifact refs and summaries.",
+  "release_ready_boundary": "Release-ready means readiness review evidence is complete and auditable; it does not mean production execution is approved.",
+  "not_proven": "Session export does not prove raw transcript completeness, live provider execution, production safety, or external operator acceptance.",
+  "source_task_id": "TASK-119",
+  "source_parent_session_id": "SESS-V99-PROD-GONOGO",
+  "source_decision_record_id": null,
+  "notes": null
+}

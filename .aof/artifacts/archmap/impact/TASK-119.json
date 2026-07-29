@@ -1,0 +1,17 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "ARCHMAP-IMPACT-TASK-119",
+  "work_item_ref": ".aof/tasks/done/TASK-119.json",
+  "work_item_id": "TASK-119",
+  "status": "archmap_unaffected",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    "docs/v9.9-release-definition.md",
+    "docs/v9.9.0-release-notes.md"
+  ],
+  "recorded_at": "2026-07-28T01:31:14.366Z"
+}

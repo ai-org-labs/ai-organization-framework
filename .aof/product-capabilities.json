@@ -71,7 +71,9 @@
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
         "docs/v9.6.0-release-notes.md",
-        "docs/v9.8.0-release-notes.md"
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
       ]
     },
     {
@@ -129,7 +131,9 @@
       "status": "improved",
       "evidence_refs": [
         "docs/v9.1-product-value-comprehension.md",
-        "docs/v9.1.0-release-notes.md"
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
       ]
     },
     {
@@ -167,8 +171,23 @@
       "status": "available",
       "evidence_refs": [
         "docs/v9.8-release-definition.md",
-        "docs/v9.8.0-release-notes.md"
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
       ]
+    },
+    {
+      "capability_id": "PCAP-PRODUCTION-READINESS-REVIEW",
+      "name": "Production Readiness Review",
+      "description": "AOF can present a bounded review of whether external runtime provider-backed work is ready for human production go/no-go judgment.",
+      "user_value": "Operators can decide what is missing before production movement without reading every provider artifact manually.",
+      "evidence_refs": [
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json"
+      ],
+      "first_version": "v9.9.0",
+      "status": "available"
     }
   ]
 }

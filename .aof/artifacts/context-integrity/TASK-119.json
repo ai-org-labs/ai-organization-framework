@@ -1,0 +1,32 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CTX-TASK-119-V99",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
+  "work_item_id": "TASK-119",
+  "work_item_ref": ".aof/tasks/done/TASK-119.json",
+  "required_context_refs": [
+    "docs/v9.9-release-definition.md",
+    "docs/v9.9.0-release-notes.md",
+    ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json",
+    ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json",
+    ".aof/artifacts/provider-incident-recoveries/provider-incident-recovery-audit.json"
+  ],
+  "missing_context_refs": [],
+  "not_proven": "Context integrity confirms readiness review references are present; it does not prove live provider execution safety, production credentials, billing safety, semantic truth, or third-party acceptance.",
+  "source_task_id": "TASK-119",
+  "source_parent_session_id": "SESS-V99-PROD-GONOGO",
+  "source_decision_record_id": null,
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json",
+  "context_pack_refs": [
+    ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json",
+    ".aof/goals/next-value-slice.json",
+    ".aof/goals/operating-goal.json"
+  ],
+  "declared_context_refs": [
+    "docs/v9.9-release-definition.md",
+    "docs/v9.9.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "hidden_context_signals": [],
+  "integrity_status": "ready"
+}
