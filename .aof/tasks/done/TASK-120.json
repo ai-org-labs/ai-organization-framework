@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-120",
+  "title": "Ship v10.0 External Runtime Productization Decision",
+  "status": "done",
+  "created_at": "2026-07-30T01:47:03.288Z",
+  "updated_at": "2026-07-30T01:47:03.288Z",
+  "owner": "AOF Runtime",
+  "goal": "Decide whether AOF external runtime should advance as a product-grade capability surface or remain research-grade, using v9.x readiness evidence, explicit not-proven boundaries, and Council-governed go/defer criteria without authorizing live provider execution.",
+  "release_track": "v10.0",
+  "evidence_refs": [
+    "docs/v10.0-release-definition.md",
+    "docs/v10.0-release-checklist.md",
+    "docs/v10.0.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V100-PRODUCTIZATION.json",
+    ".aof/artifacts/requirement-coverage/TASK-120.json",
+    ".aof/context/active/release-state-audit.json"
+  ],
+  "not_proven": "TASK-120 does not prove third-party adoption, product-market fit, live provider execution safety, billing safety, credential readiness, irreversible operation safety, or production authorization.",
+  "source_task_id": "TASK-120",
+  "source_parent_session_id": "SESS-V100-PRODUCTIZATION"
+}

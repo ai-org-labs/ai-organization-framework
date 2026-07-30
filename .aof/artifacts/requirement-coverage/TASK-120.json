@@ -1,0 +1,61 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-120-V100",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
+  "work_item_id": "TASK-120",
+  "work_item_ref": ".aof/tasks/done/TASK-120.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V100-GONOGO-001",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v10.0-release-definition.md",
+      "title": "One productization decision surface",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered only when upstream provider readiness artifacts and not-proven boundaries are named in one release candidate surface",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-120.json"
+      ],
+      "evidence_refs": [
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V100-GONOGO-002",
+      "requirement_type": "non_functional",
+      "source_ref": "docs/v10.0-release-definition.md",
+      "title": "No live execution authorization overclaim",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered only when release docs and evidence say the candidate does not authorize live provider execution",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-120.json"
+      ],
+      "evidence_refs": [
+        "docs/v10.0-release-definition.md",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-120-V100.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded local documentation and verification only",
+    "burndown_ref": "docs/v10.0-release-checklist.md",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves traceability only, not production provider safety, semantic correctness, or market value.",
+  "source_task_id": "TASK-120",
+  "source_parent_session_id": "SESS-V100-PROD-GONOGO",
+  "source_decision_record_id": null,
+  "notes": null
+}

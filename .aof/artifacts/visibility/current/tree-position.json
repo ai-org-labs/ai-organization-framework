@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-29T16:19:36.708Z",
+  "generated_at": "2026-07-30T13:52:55.525Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "9.9.0",
-    "active_release_track": "v9.9",
-    "release_definition_ref": "docs/v9.9-release-definition.md"
+    "active_release_version": "10.0.0",
+    "active_release_track": "v10.0",
+    "release_definition_ref": "docs/v10.0-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v9.9.0, advance v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, and v10.4 externally reproduced value evidence."
+    "branch_summary": "After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v9.9",
+      "label": "v10.0",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v9.9 and the next concrete branch.",
-    "why_this_branch": "Ship v9.9 External Runtime Production Readiness Review: Review whether external runtime provider-backed work is ready to move toward production, using bounded evidence, explicit not-proven boundaries, and human/operator go-no-go judgment without authorizing live execution.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v9.9.0, advance v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, and v10.4 externally reproduced value evidence."
+    "where_are_we": "The runtime is between v10.0 and the next concrete branch.",
+    "why_this_branch": "Ship v10.0 External Runtime Productization Decision: Decide whether AOF external runtime should advance as a product-grade capability surface or remain research-grade, using v9.x readiness evidence, explicit not-proven boundaries, and Council-governed go/defer criteria without authorizing live provider execution.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface."
   }
 }

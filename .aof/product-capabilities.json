@@ -73,7 +73,9 @@
         "docs/v9.6.0-release-notes.md",
         "docs/v9.8.0-release-notes.md",
         "docs/v9.9-release-definition.md",
-        "docs/v9.9.0-release-notes.md"
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -133,7 +135,9 @@
         "docs/v9.1-product-value-comprehension.md",
         "docs/v9.1.0-release-notes.md",
         "docs/v9.9-release-definition.md",
-        "docs/v9.9.0-release-notes.md"
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -184,10 +188,25 @@
       "evidence_refs": [
         "docs/v9.9-release-definition.md",
         "docs/v9.9.0-release-notes.md",
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ],
       "first_version": "v9.9.0",
       "status": "available"
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION",
+      "name": "External Runtime Productization Decision",
+      "description": "AOF can decide whether external runtime evidence is coherent enough to advance as a product-grade capability surface.",
+      "user_value": "Operators can distinguish productization readiness from live execution permission and know what validation remains.",
+      "first_version": "v10.0.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json"
+      ]
     }
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-TASK-120-V100",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
+  "work_item_id": "TASK-120",
+  "work_item_ref": ".aof/tasks/done/TASK-120.json",
+  "pilot_status": "completed",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V100-PRODUCTIZATION.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/artifacts/execution/team-outputs/TOUT-TASK-120-V100.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-120-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-120-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-120-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-120-V100.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-120.json",
+  "maker_checker_council_boundary": "Builder assembles productization evidence, Guardian verifies validation/not-proven boundaries, Architecture Council decides whether the productization decision is release-grade.",
+  "not_proven": "Multi-actor evidence proves governed productization decision handoff only, not live execution safety or market validation.",
+  "source_task_id": "TASK-120",
+  "source_parent_session_id": "SESS-V100-PROD-GONOGO",
+  "source_decision_record_id": null,
+  "notes": null
+}

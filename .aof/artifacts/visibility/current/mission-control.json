@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-07-29T16:19:36.703Z",
+  "generated_at": "2026-07-30T13:52:55.519Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
-    "release_version": "9.9.0",
-    "release_definition_ref": "docs/v9.9-release-definition.md",
-    "operating_goal": "Ship v9.9 External Runtime Production Readiness Review: Review whether external runtime provider-backed work is ready to move toward production, using bounded evidence, explicit not-proven boundaries, and human/operator go-no-go judgment without authorizing live execution.",
-    "next_value_slice": "After v9.9.0, advance v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, and v10.4 externally reproduced value evidence.",
+    "release_version": "10.0.0",
+    "release_definition_ref": "docs/v10.0-release-definition.md",
+    "operating_goal": "Ship v10.0 External Runtime Productization Decision: Decide whether AOF external runtime should advance as a product-grade capability surface or remain research-grade, using v9.x readiness evidence, explicit not-proven boundaries, and Council-governed go/defer criteria without authorizing live provider execution.",
+    "next_value_slice": "After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: After v9.9.0, advance v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, and v10.4 externally reproduced value evidence.",
+    "recommended_action": "Open an implementation task for the current frontier: After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 49,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-119.json",
+    "impact_record_count": 50,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-120.json",
     "latest_impact_status": "archmap_unaffected",
-    "latest_work_item_id": "TASK-119",
+    "latest_work_item_id": "TASK-120",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-119.json"
+      ".aof/artifacts/archmap/impact/TASK-120.json"
     ],
     "external_refs": []
   },
@@ -399,43 +399,43 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 33,
-    "latest_session_id": "SESS-V99-PROD-READINESS",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json",
+    "stream_count": 34,
+    "latest_session_id": "SESS-V100-PRODUCTIZATION",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V100-PRODUCTIZATION.json",
     "latest_actor_ref": "parent-codex",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-07-29T01:40:00.211Z",
+    "latest_recorded_at": "2026-07-30T01:47:03.288Z",
     "latest_event_count": 5,
     "latest_release_verdict": "not_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-119.json"
+      ".aof/tasks/done/TASK-120.json"
     ],
     "linked_requirement_refs": [
-      "docs/v9.9-release-definition.md"
+      "docs/v10.0-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       ".aof/context/active/release-state-audit.json"
     ],
     "linked_artifact_refs": [
-      "docs/v9.9.0-release-notes.md",
+      "docs/v10.0.0-release-notes.md",
       "docs/aof-capability-matrix.md"
     ],
     "risk_candidates": [
-      "Operator may confuse production readiness review with permission to run live provider execution.",
-      "Internal self-hosting readiness may be overread as third-party validation."
+      "Operator may confuse productization decision with live provider execution authorization.",
+      "Internal self-hosting productization evidence may be overread as third-party validation."
     ],
     "decision_candidates": [
-      "Treat v9.9 as bounded readiness review only.",
-      "Defer live production execution authorization to a future approval-bound release."
+      "Advance external runtime as a product-grade candidate surface, not as production execution permission.",
+      "Require v10.1 third-party operator validation before stronger market or adoption claims."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "AOF heartbeat required continuing the roadmap after v9.8.0 using AOF runtime.",
-        "occurred_at": "2026-07-29T01:40:00.211Z",
+        "summary": "AOF heartbeat required continuing the roadmap after v9.9.0 using AOF runtime.",
+        "occurred_at": "2026-07-30T01:47:03.288Z",
         "tool_name": "organization-status",
         "safety_level": "safe_read",
         "approval_policy": "approved",
@@ -445,8 +445,8 @@
       },
       {
         "event_type": "tool_call",
-        "summary": "AOF runtime identified v9.9 external runtime production readiness review as the next frontier.",
-        "occurred_at": "2026-07-29T01:40:00.211Z",
+        "summary": "AOF runtime identified v10.0 external runtime productization decision as the next frontier.",
+        "occurred_at": "2026-07-30T01:47:03.288Z",
         "tool_name": "roadmap-status",
         "safety_level": "safe_read",
         "approval_policy": "approved",
@@ -457,43 +457,43 @@
       },
       {
         "event_type": "artifact_write",
-        "summary": "AOF recorded TASK-119 and release docs for v9.9 production readiness review.",
-        "occurred_at": "2026-07-29T01:40:00.211Z",
+        "summary": "AOF recorded TASK-120 and release docs for the v10.0 productization decision.",
+        "occurred_at": "2026-07-30T01:47:03.288Z",
         "tool_name": null,
         "safety_level": "safe_local_write",
         "approval_policy": "approved",
         "artifact_refs": [
-          ".aof/tasks/done/TASK-119.json",
-          "docs/v9.9-release-definition.md",
-          "docs/v9.9.0-release-notes.md"
+          ".aof/tasks/done/TASK-120.json",
+          "docs/v10.0-release-definition.md",
+          "docs/v10.0.0-release-notes.md"
         ]
       },
       {
         "event_type": "verification_result",
-        "summary": "Release readiness requires release-state audit, organization verification, npm test, smoke, clean checkout, and GitHub Actions.",
-        "occurred_at": "2026-07-29T01:40:00.211Z",
+        "summary": "Release readiness requires runtime audits, npm test, smoke, clean checkout, and GitHub Actions.",
+        "occurred_at": "2026-07-30T01:47:03.288Z",
         "tool_name": "release-state-audit",
         "safety_level": "safe_read",
         "approval_policy": "approved",
         "artifact_refs": [
-          "docs/v9.9-release-checklist.md"
+          "docs/v10.0-release-checklist.md"
         ]
       },
       {
         "event_type": "stop_condition",
-        "summary": "Stop if readiness review is described as live execution permission, production safety proof, or third-party acceptance.",
-        "occurred_at": "2026-07-29T01:40:00.211Z",
+        "summary": "Stop if productization decision is described as external provider production authorization or third-party adoption proof.",
+        "occurred_at": "2026-07-30T01:47:03.288Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "docs/v9.9-release-definition.md"
+          "docs/v10.0-release-definition.md"
         ]
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "AOF runtime identified v9.9 external runtime production readiness review as the next frontier.",
+        "summary": "AOF runtime identified v10.0 external runtime productization decision as the next frontier.",
         "tool_name": "roadmap-status",
         "safety_level": "safe_read",
         "approval_policy": "approved"
@@ -507,11 +507,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 31,
+    "context_record_count": 32,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-120.json",
+        "work_item_id": "TASK-120",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity confirms productization decision references are present; it does not prove third-party validation, product-market fit, live provider execution safety, or production authorization."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-119.json",
         "work_item_id": "TASK-119",
@@ -567,14 +575,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves references were declared, not that users universally understand the release."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-112.json",
-        "work_item_id": "TASK-112",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves read/reference boundaries only, not semantic truth or production safety."
       }
     ],
     "latest_external_reference_records": [
@@ -599,8 +599,8 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-119.json",
-    "latest_work_item_id": "TASK-119",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-120.json",
+    "latest_work_item_id": "TASK-120",
     "latest_recorded_at": "2026-07-28T01:31:14.366Z",
     "coverage_status": "completed",
     "total_requirements": 2,
@@ -613,39 +613,39 @@
     "forecast": {
       "estimated_remaining_work_items": 0,
       "estimated_token_cost_range": "bounded local documentation and verification only",
-      "burndown_ref": "docs/v9.9-release-checklist.md",
+      "burndown_ref": "docs/v10.0-release-checklist.md",
       "forecast_boundary": "forecast is planning evidence, not delivery certainty"
     },
     "forecast_boundary": "forecast is planning evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V99-GONOGO-001",
-        "title": "One production readiness review surface",
+        "requirement_id": "REQ-V100-GONOGO-001",
+        "title": "One productization decision surface",
         "status": "covered",
-        "source_ref": "docs/v9.9-release-definition.md",
+        "source_ref": "docs/v10.0-release-definition.md",
         "owner_ref": "builder",
         "evidence_refs": [
-          "docs/v9.9-release-definition.md",
-          "docs/v9.9.0-release-notes.md"
+          "docs/v10.0-release-definition.md",
+          "docs/v10.0.0-release-notes.md"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V99-GONOGO-002",
+        "requirement_id": "REQ-V100-GONOGO-002",
         "title": "No live execution authorization overclaim",
         "status": "covered",
-        "source_ref": "docs/v9.9-release-definition.md",
+        "source_ref": "docs/v10.0-release-definition.md",
         "owner_ref": "guardian",
         "evidence_refs": [
-          "docs/v9.9-release-definition.md",
-          ".aof/artifacts/execution/council-reviews/CREV-TASK-119-V99.json"
+          "docs/v10.0-release-definition.md",
+          ".aof/artifacts/execution/council-reviews/CREV-TASK-120-V100.json"
         ],
         "blocker_refs": []
       }
     ],
     "not_proven": "Requirement coverage proves traceability only, not production provider safety, semantic correctness, or market value.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-119.json"
+      ".aof/artifacts/requirement-coverage/TASK-120.json"
     ]
   },
   "adoption_proof_projection": {
@@ -1154,7 +1154,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v9.9-release-definition.md",
+    "release_ref": "docs/v10.0-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1178,7 +1178,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v9.9-release-definition.md",
+    "release_ref": "docs/v10.0-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1197,7 +1197,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v9.9-release-definition.md",
+      "docs/v10.0-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1292,7 +1292,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-119.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-120.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1302,27 +1302,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V100-PRODUCTIZATION.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-119.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-120.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v9.9-release-definition.md"
+        "artifact_ref": "docs/v10.0-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-119.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-120.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-119.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-120.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V100-PRODUCTIZATION.json"
   }
 }

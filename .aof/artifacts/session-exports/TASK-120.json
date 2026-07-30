@@ -1,0 +1,130 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-120-V100",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
+  "work_item_id": "TASK-120",
+  "work_item_ref": ".aof/tasks/done/TASK-120.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V100-PRODUCTIZATION.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export summarizes local runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V100-1",
+      "event_type": "prompt",
+      "summary": "AOF selected v10.0 as the next bounded release after v9.7.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V100-2",
+      "event_type": "response",
+      "summary": "AOF framed v10.0 as a productization decision, not live provider execution.",
+      "artifact_refs": [
+        "docs/v10.0-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V100-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime recorded TASK-120 as the v10.0 release work item.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-120.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V100-4",
+      "event_type": "artifact_write",
+      "summary": "AOF created release definition, checklist, and release notes for the productization decision.",
+      "artifact_refs": [
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0-release-checklist.md",
+        "docs/v10.0.0-release-notes.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V100-5",
+      "event_type": "artifact_write",
+      "summary": "AOF updated README, Quickstart, capability matrix, active release manifest, and operating goals to v10.0.",
+      "artifact_refs": [
+        "README.md",
+        "docs/quickstart.md",
+        "docs/aof-capability-matrix.md",
+        ".aof/context/active/active-release-manifest.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V100-6",
+      "event_type": "verification",
+      "summary": "AOF runtime verified organization, archmap impact, release-state, tests, and smoke before release.",
+      "artifact_refs": [
+        ".aof/artifacts/archmap/archmap-impact-audit.json",
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V100-7",
+      "event_type": "blocker",
+      "summary": "Live provider execution safety, provider credentials, market truth, and external operator acceptance remain not proven.",
+      "artifact_refs": [
+        "docs/v10.0-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V100-8",
+      "event_type": "stop_condition",
+      "summary": "Release must stop if it presents v10.0 as production execution rather than a productization decision.",
+      "artifact_refs": [
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-120.json"
+    ],
+    "requirement_refs": [
+      "docs/v10.0-release-definition.md",
+      "docs/aof-capability-matrix.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/context/active/release-state-audit.json",
+      ".aof/artifacts/archmap/archmap-impact-audit.json"
+    ],
+    "artifact_refs": [
+      "docs/v10.0-release-definition.md",
+      "docs/v10.0-release-checklist.md",
+      "docs/v10.0.0-release-notes.md",
+      "README.md",
+      "docs/quickstart.md",
+      "docs/aof-capability-matrix.md"
+    ],
+    "risk_candidates": [
+      "Productization decision could be confused with production authorization.",
+      "Internal self-hosting productization is not third-party validation."
+    ],
+    "decision_candidates": [
+      "Proceed as product-grade candidate surface.",
+      "Defer live execution authorization and third-party validation to later releases."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v10.0-release-definition.md",
+      "docs/v10.0-release-checklist.md",
+      "docs/v10.0.0-release-notes.md",
+      ".aof/context/active/release-state-audit.json"
+    ]
+  },
+  "redaction_boundary": "The export excludes raw provider transcript and secrets; it records bounded local AOF artifact refs and summaries.",
+  "release_ready_boundary": "Release-ready means the productization decision is complete and auditable; it does not mean production execution or market validation is approved.",
+  "not_proven": "Session export does not prove third-party adoption, product-market fit, live provider execution, production safety, or external operator acceptance.",
+  "source_task_id": "TASK-120",
+  "source_parent_session_id": "SESS-V100-PROD-GONOGO",
+  "source_decision_record_id": null,
+  "notes": null
+}

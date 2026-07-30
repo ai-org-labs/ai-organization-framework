@@ -1,0 +1,28 @@
+{
+  "join_type": "role-join",
+  "recorded_at": "2026-07-28T01:31:14.366Z",
+  "join_id": "RJOIN-TASK-120-V100",
+  "join_status": "resolved",
+  "stage": "planning",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-orchestrator-decision",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit External Runtime Productization Decision to council review.",
+  "received_session_ids": [
+    "SESS-V100-PROD-GONOGO"
+  ],
+  "source_task_id": "TASK-120",
+  "source_parent_session_id": "SESS-V100-PROD-GONOGO",
+  "decision_record_ref": null,
+  "summary": "Visionary, Builder, and Guardian all returned bounded production go/no-go adoption recommendations."
+}

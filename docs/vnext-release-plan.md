@@ -2,11 +2,11 @@
 
 ## Last Released
 
-- v9.9.0: External Runtime Production Readiness Review.
+- v10.0.0: External Runtime Productization Decision.
 
 ## Next Candidate
 
-- v10.0.0: External Runtime Productization Decision.
+- v10.1.0: Third-Party Operator Validation.
 
 ## Required Gates For Next Release
 

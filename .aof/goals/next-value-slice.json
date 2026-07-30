@@ -1,5 +1,5 @@
 {
   "artifact_type": "next-value-slice",
-  "updated_at": "2026-07-29T01:40:00.211Z",
-  "content": "After v9.9.0, advance v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, and v10.4 externally reproduced value evidence."
+  "updated_at": "2026-07-30T01:47:03.288Z",
+  "content": "After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface."
 }

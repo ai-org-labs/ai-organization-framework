@@ -1,0 +1,31 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MS7KO5LH-O69TFY",
+  "recorded_at": "2026-07-30T13:51:38.069Z",
+  "release_version": "10.0.0",
+  "release_ref": "docs/v10.0-release-definition.md",
+  "work_item_id": "TASK-120",
+  "work_item_ref": ".aof/tasks/done/TASK-120.json",
+  "one_minute_value_explanation": "v10.0 lets an operator see AOF's Council-backed productization decision for external runtime: advance as a product-grade candidate while keeping live execution, third-party validation, and market proof out of scope.",
+  "thirty_second_version_delta": "v9.9 reviewed production readiness; v10.0 decides productization direction and names the remaining proof gaps.",
+  "new_capability_ids": [
+    "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PRODUCTION-READINESS-REVIEW",
+    "PCAP-PROVIDER-EXECUTION",
+    "PCAP-PRODUCT-VALUE-COMPREHENSION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.0-release-definition.md",
+    "docs/v10.0.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If an operator cannot explain productization decision versus production authorization within 30 seconds, reopen product value comprehension.",
+  "not_proven": "Capability delta does not prove live production execution, third-party validation, product-market fit, production safety, semantic truth, or market value.",
+  "source_task_id": "TASK-120",
+  "source_parent_session_id": "SESS-V100-PRODUCTIZATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

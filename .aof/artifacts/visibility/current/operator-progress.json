@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-29T16:19:36.708Z",
+  "generated_at": "2026-07-30T13:52:55.525Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-119 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-119.json"
+    "summary": "TASK-120 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-120.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-119 completed: Ship v9.9 External Runtime Production Readiness Review",
-      "artifact_ref": ".aof/tasks/done/TASK-119.json"
+      "summary": "TASK-120 completed: Ship v10.0 External Runtime Productization Decision",
+      "artifact_ref": ".aof/tasks/done/TASK-120.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v9.9.0, advance v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, and v10.4 externally reproduced value evidence.",
+      "summary": "After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-119 completed: Ship v9.9 External Runtime Production Readiness Review After v9.9.0, advance v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, and v10.4 externally reproduced value evidence.",
+    "what_changed": "TASK-120 completed: Ship v10.0 External Runtime Productization Decision After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: After v9.9.0, advance v10.0 external runtime productization decision, v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, and v10.4 externally reproduced value evidence."
+    "next_checkpoint": "Open an implementation task for the current frontier: After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface."
   }
 }

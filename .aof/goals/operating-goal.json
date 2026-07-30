@@ -1,5 +1,5 @@
 {
   "artifact_type": "operating-goal",
-  "updated_at": "2026-07-29T01:40:00.211Z",
-  "content": "Ship v9.9 External Runtime Production Readiness Review: Review whether external runtime provider-backed work is ready to move toward production, using bounded evidence, explicit not-proven boundaries, and human/operator go-no-go judgment without authorizing live execution."
+  "updated_at": "2026-07-30T01:47:03.288Z",
+  "content": "Ship v10.0 External Runtime Productization Decision: Decide whether AOF external runtime should advance as a product-grade capability surface or remain research-grade, using v9.x readiness evidence, explicit not-proven boundaries, and Council-governed go/defer criteria without authorizing live provider execution."
 }

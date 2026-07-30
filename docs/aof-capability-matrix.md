@@ -64,3 +64,15 @@ It proves that AOF no longer lets release value be hidden behind implementation 
 | Production Go/No-Go Evidence | Candidate bundle | Feeds readiness review |
 | Production Readiness Review | - | NEW |
 | Provider Execution | Bounded candidate only | Readiness reviewed; live execution still blocked |
+
+## v10.0 Delta In 30 Seconds
+
+| Version | New Capability | User-Visible Difference | Not Proven |
+|---|---|---|---|
+| v10.0 | External Runtime Productization Decision | Operator can see whether external runtime advances as a product-grade candidate and what proof remains. | Live execution, third-party validation, product-market fit, production safety. |
+
+| Capability | v9.9 | v10.0 |
+|---|---|---|
+| Production Readiness Review | Ready for review | Feeds productization decision |
+| External Runtime Productization | - | NEW |
+| Provider Execution | Live execution blocked | Product direction explicit; live execution still blocked |
