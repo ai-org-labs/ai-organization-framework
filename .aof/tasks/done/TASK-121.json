@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-121",
+  "title": "Ship v10.1 Third-Party Operator Validation Contract",
+  "status": "done",
+  "created_at": "2026-08-01T01:44:11.529Z",
+  "updated_at": "2026-08-01T01:44:11.529Z",
+  "owner": "AOF Runtime",
+  "goal": "Define the contract and evidence surface required for third-party operators to validate AOF external runtime claims, without claiming that third-party validation has already been completed.",
+  "release_track": "v10.1",
+  "evidence_refs": [
+    "docs/v10.1-release-definition.md",
+    "docs/v10.1-release-checklist.md",
+    "docs/v10.1.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V101-THIRD-PARTY-VALIDATION.json",
+    ".aof/artifacts/requirement-coverage/TASK-121.json",
+    ".aof/context/active/release-state-audit.json"
+  ],
+  "not_proven": "TASK-121 does not prove actual third-party validation, external adoption, product-market fit, live provider execution safety, or production authorization.",
+  "source_task_id": "TASK-121",
+  "source_parent_session_id": "SESS-V101-THIRD-PARTY-VALIDATION"
+}

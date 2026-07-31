@@ -2,11 +2,11 @@
 
 ## Last Released
 
-- v10.0.0: External Runtime Productization Decision.
+- v10.1.0: Third-Party Operator Validation Contract.
 
 ## Next Candidate
 
-- v10.1.0: Third-Party Operator Validation.
+- v10.2.0: External Provider Integration Pilot Selection.
 
 ## Required Gates For Next Release
 

@@ -1,0 +1,31 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MS95SK3M-VJ1TPU",
+  "recorded_at": "2026-07-31T16:30:41.602Z",
+  "release_version": "10.1.0",
+  "release_ref": "docs/v10.1-release-definition.md",
+  "work_item_id": "TASK-121",
+  "work_item_ref": ".aof/tasks/done/TASK-121.json",
+  "one_minute_value_explanation": "v10.1 defines what third-party operators must reproduce, understand, challenge, and accept before AOF external runtime claims can move beyond self-hosting evidence.",
+  "thirty_second_version_delta": "v10.0 made the productization decision; v10.1 adds the validation contract required before claiming third-party validation.",
+  "new_capability_ids": [
+    "PCAP-THIRD-PARTY-VALIDATION-CONTRACT"
+  ],
+  "updated_capability_ids": [
+    "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION",
+    "PCAP-PRODUCTION-READINESS-REVIEW",
+    "PCAP-PRODUCT-VALUE-COMPREHENSION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.1-release-definition.md",
+    "docs/v10.1.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If an operator cannot explain validation contract versus completed third-party validation within 30 seconds, reopen product value comprehension.",
+  "not_proven": "Capability delta does not prove completed third-party validation, external adoption, market value, live provider execution, production safety, semantic truth, or production authorization.",
+  "source_task_id": "TASK-121",
+  "source_parent_session_id": "SESS-V101-THIRD-PARTY-VALIDATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -76,3 +76,15 @@ It proves that AOF no longer lets release value be hidden behind implementation 
 | Production Readiness Review | Ready for review | Feeds productization decision |
 | External Runtime Productization | - | NEW |
 | Provider Execution | Live execution blocked | Product direction explicit; live execution still blocked |
+
+## v10.1 Delta In 30 Seconds
+
+| Version | New Capability | User-Visible Difference | Not Proven |
+|---|---|---|---|
+| v10.1 | Third-Party Operator Validation Contract | Operator can see what external validation must prove before self-hosting claims become third-party claims. | Completed third-party validation, adoption, market value, production authorization. |
+
+| Capability | v10.0 | v10.1 |
+|---|---|---|
+| External Runtime Productization | Product-grade candidate decision | Has explicit external validation contract |
+| Third-Party Validation | - | NEW contract only |
+| Provider Execution | Live execution blocked | Still blocked; validation contract added |

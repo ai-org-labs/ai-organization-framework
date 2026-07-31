@@ -1,5 +1,5 @@
 {
   "artifact_type": "operating-goal",
-  "updated_at": "2026-07-30T01:47:03.288Z",
-  "content": "Ship v10.0 External Runtime Productization Decision: Decide whether AOF external runtime should advance as a product-grade capability surface or remain research-grade, using v9.x readiness evidence, explicit not-proven boundaries, and Council-governed go/defer criteria without authorizing live provider execution."
+  "updated_at": "2026-08-01T01:44:11.529Z",
+  "content": "Ship v10.1 Third-Party Operator Validation Contract: Define the contract and evidence surface required for third-party operators to validate AOF external runtime claims, without claiming that third-party validation has already been completed."
 }

@@ -137,7 +137,9 @@
         "docs/v9.9-release-definition.md",
         "docs/v9.9.0-release-notes.md",
         "docs/v10.0-release-definition.md",
-        "docs/v10.0.0-release-notes.md"
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
       ]
     },
     {
@@ -190,7 +192,9 @@
         "docs/v9.9.0-release-notes.md",
         ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
         "docs/v10.0-release-definition.md",
-        "docs/v10.0.0-release-notes.md"
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
       ],
       "first_version": "v9.9.0",
       "status": "available"
@@ -205,7 +209,22 @@
       "evidence_refs": [
         "docs/v10.0-release-definition.md",
         "docs/v10.0.0-release-notes.md",
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    },
+    {
+      "capability_id": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT",
+      "name": "Third-Party Operator Validation Contract",
+      "description": "AOF can define what an external operator must verify before external runtime claims can move beyond self-hosting evidence.",
+      "user_value": "Operators can see exactly what outside validation must prove and what remains unproven.",
+      "first_version": "v10.1.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json"
       ]
     }
   ]

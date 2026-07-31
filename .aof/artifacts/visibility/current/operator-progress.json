@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-07-30T13:52:55.525Z",
+  "generated_at": "2026-07-31T16:33:33.668Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-120 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-120.json"
+    "summary": "TASK-121 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-121.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-120 completed: Ship v10.0 External Runtime Productization Decision",
-      "artifact_ref": ".aof/tasks/done/TASK-120.json"
+      "summary": "TASK-121 completed: Ship v10.1 Third-Party Operator Validation Contract",
+      "artifact_ref": ".aof/tasks/done/TASK-121.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface.",
+      "summary": "After v10.1.0, advance v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, and v10.6 third-party validation result ingestion.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-120 completed: Ship v10.0 External Runtime Productization Decision After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface.",
+    "what_changed": "TASK-121 completed: Ship v10.1 Third-Party Operator Validation Contract After v10.1.0, advance v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, and v10.6 third-party validation result ingestion.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: After v10.0.0, advance v10.1 third-party operator validation for external runtime claims, v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, and v10.5 provider-backed work lifecycle product surface."
+    "next_checkpoint": "Open an implementation task for the current frontier: After v10.1.0, advance v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, and v10.6 third-party validation result ingestion."
   }
 }
