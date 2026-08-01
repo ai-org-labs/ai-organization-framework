@@ -8,10 +8,10 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 ## Status
 
 この repo は、AOF の spec と local runtime prototype をまとめた repo である。  
-現在の stable release は `v10.1.0` である。
+現在の stable release は `v10.2.0` である。
 この release で、self-hosting runtime は次の状態に到達した。
 
-- Third-Party Operator Validation Contract を release-state governance surface として扱えること
+- External Provider Integration Pilot Selection を release-state governance surface として扱えること
 - approval / target operation / reproduction / rollback / outcome / learning / incident recovery / cost-quota / product value evidence を 1 つの operator-facing go/no-go candidate として束ねられること
 - v9.8 は production go/no-go evidence candidate であり、live provider execution permission、production safety、credential/billing safety、provider semantic correctness、market adoption の証明ではないと明示できること
 - Archmap v0.4.0 Lifecycle Traceability Baseline を release-state governance surface として扱えること
@@ -195,9 +195,9 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - public runtime readiness: [docs/v6.0-public-runtime-readiness.md](docs/v6.0-public-runtime-readiness.md)
 - Work Governance integration plan: [docs/v6.1-work-governance-integration-plan.md](docs/v6.1-work-governance-integration-plan.md)
 - Work Governance examples: [docs/v6.1-work-governance-examples.md](docs/v6.1-work-governance-examples.md)
-- current release definition: [docs/v10.1-release-definition.md](docs/v10.1-release-definition.md)
-- current release checklist: [docs/v10.1-release-checklist.md](docs/v10.1-release-checklist.md)
-- current release notes: [docs/v10.1.0-release-notes.md](docs/v10.1.0-release-notes.md)
+- current release definition: [docs/v10.2-release-definition.md](docs/v10.2-release-definition.md)
+- current release checklist: [docs/v10.2-release-checklist.md](docs/v10.2-release-checklist.md)
+- current release notes: [docs/v10.2.0-release-notes.md](docs/v10.2.0-release-notes.md)
 - actor skill packet contract: [docs/v5-actor-skill-packet-contract.md](docs/v5-actor-skill-packet-contract.md)
 - current roadmap: [docs/vnext-roadmap.md](docs/vnext-roadmap.md)
 - v6.7 → v8.0 completion roadmap: [docs/v6.7-v8.0-completion-roadmap.md](docs/v6.7-v8.0-completion-roadmap.md)

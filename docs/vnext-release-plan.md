@@ -1,17 +1,17 @@
 # AOF vNext Release Plan
 
-## Last Released
+## Current Release
 
-- v10.1.0: Third-Party Operator Validation Contract.
+v10.2.0 ships External Provider Integration Pilot Selection.
 
-## Next Candidate
+## Next Releases
 
-- v10.2.0: External Provider Integration Pilot Selection.
+- v10.3: Production Execution Authorization Model.
+- v10.4: Externally Reproduced Value Evidence.
+- v10.5: Provider-Backed Work Lifecycle Product Surface.
+- v10.6: Third-Party Validation Result Ingestion.
+- v10.7: Provider Pilot Execution Readiness.
 
-## Required Gates For Next Release
+## Release Rule
 
-- Capability-first value statement.
-- Runtime-backed task and session evidence.
-- Council review and maker/checker separation.
-- Release-state audit, organization verification, tests, smoke, clean checkout, main CI, tag CI.
-- Explicit not-proven boundary for semantic truth, production safety, third-party acceptance, and market value.
+Each release must state user-visible capability delta first, then mechanism, evidence, and not-proven boundary.

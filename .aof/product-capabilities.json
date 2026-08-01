@@ -194,7 +194,9 @@
         "docs/v10.0-release-definition.md",
         "docs/v10.0.0-release-notes.md",
         "docs/v10.1-release-definition.md",
-        "docs/v10.1.0-release-notes.md"
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md"
       ],
       "first_version": "v9.9.0",
       "status": "available"
@@ -211,7 +213,9 @@
         "docs/v10.0.0-release-notes.md",
         ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
         "docs/v10.1-release-definition.md",
-        "docs/v10.1.0-release-notes.md"
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md"
       ]
     },
     {
@@ -224,7 +228,22 @@
       "evidence_refs": [
         "docs/v10.1-release-definition.md",
         "docs/v10.1.0-release-notes.md",
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md"
+      ]
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION",
+      "name": "External Provider Pilot Selection",
+      "description": "AOF can select a bounded first external provider pilot candidate with rationale, alternatives, and blocked conditions before integration starts.",
+      "user_value": "Operators can understand which provider AOF should pilot first and why, without mistaking selection for integration or execution.",
+      "first_version": "v10.2.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json"
       ]
     }
   ]

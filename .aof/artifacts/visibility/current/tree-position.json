@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-07-31T16:33:33.668Z",
+  "generated_at": "2026-08-01T01:44:00.019Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "10.1.0",
-    "active_release_track": "v10.1",
-    "release_definition_ref": "docs/v10.1-release-definition.md"
+    "active_release_version": "10.2.0",
+    "active_release_track": "v10.2",
+    "release_definition_ref": "docs/v10.2-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v10.1.0, advance v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, and v10.6 third-party validation result ingestion."
+    "branch_summary": "After v10.2.0, advance v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, and v10.7 provider pilot execution readiness."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v10.1",
+      "label": "v10.2",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v10.1 and the next concrete branch.",
-    "why_this_branch": "Ship v10.1 Third-Party Operator Validation Contract: Define the contract and evidence surface required for third-party operators to validate AOF external runtime claims, without claiming that third-party validation has already been completed.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.1.0, advance v10.2 external provider integration pilot selection, v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, and v10.6 third-party validation result ingestion."
+    "where_are_we": "The runtime is between v10.2 and the next concrete branch.",
+    "why_this_branch": "Ship v10.2 External Provider Integration Pilot Selection: Select the first bounded external provider pilot candidate, define why it is the right first pilot, and record what remains blocked before integration or live execution.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.2.0, advance v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, and v10.7 provider pilot execution readiness."
   }
 }

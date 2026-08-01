@@ -1,0 +1,31 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MS9P95YN-6Z1R4X",
+  "recorded_at": "2026-08-01T01:55:00.000Z",
+  "release_version": "10.2.0",
+  "release_ref": "docs/v10.2-release-definition.md",
+  "work_item_id": "TASK-122",
+  "work_item_ref": ".aof/tasks/done/TASK-122.json",
+  "one_minute_value_explanation": "v10.2 selects GitHub read-first as the first bounded external provider pilot candidate, with rationale, alternatives, and blocked conditions before integration or writes.",
+  "thirty_second_version_delta": "v10.1 defined what third-party validation must prove; v10.2 chooses the first provider pilot candidate without claiming integration or execution.",
+  "new_capability_ids": [
+    "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION"
+  ],
+  "updated_capability_ids": [
+    "PCAP-THIRD-PARTY-VALIDATION-CONTRACT",
+    "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION",
+    "PCAP-PRODUCTION-READINESS-REVIEW"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.2-release-definition.md",
+    "docs/v10.2.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If an operator cannot distinguish provider pilot selection from provider integration or write authorization within 30 seconds, reopen product value comprehension.",
+  "not_proven": "Capability delta does not prove completed provider integration, provider writes, live execution, production safety, third-party validation completion, market value, or external adoption.",
+  "source_task_id": "TASK-122",
+  "source_parent_session_id": "SESS-V102-PROVIDER-PILOT-SELECTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

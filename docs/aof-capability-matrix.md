@@ -88,3 +88,16 @@ It proves that AOF no longer lets release value be hidden behind implementation 
 | External Runtime Productization | Product-grade candidate decision | Has explicit external validation contract |
 | Third-Party Validation | - | NEW contract only |
 | Provider Execution | Live execution blocked | Still blocked; validation contract added |
+
+
+## v10.2 Delta In 30 Seconds
+
+| Version | New Capability | User-Visible Difference | Not Proven |
+|---|---|---|---|
+| v10.2 | External Provider Pilot Selection | Operator can see that GitHub read-first is the selected first provider pilot, why it was selected, and what remains blocked. | Completed provider integration, provider writes, live execution, production safety, third-party validation completion. |
+
+| Capability | v10.1 | v10.2 |
+|---|---|---|
+| Third-Party Validation | Contract only | Feeds pilot selection criteria |
+| External Provider Pilot Selection | - | NEW selection contract |
+| Provider Execution | Live execution blocked | Still blocked; first provider pilot selected |

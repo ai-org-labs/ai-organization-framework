@@ -1,0 +1,21 @@
+{
+  "artifact_type": "council-review",
+  "review_id": "CREV-TASK-122-V102",
+  "recorded_at": "2026-08-01T01:55:00.000Z",
+  "source_task_id": "TASK-122",
+  "source_parent_session_id": "SESS-V102-PROVIDER-PILOT-SELECTION",
+  "council_id": "architecture-council",
+  "status": "approved",
+  "decision": "approve",
+  "summary": "Council approves v10.2 as a bounded provider pilot selection release. GitHub read-first is selected; provider writes and production claims remain blocked.",
+  "reviewed_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-122-V102.json",
+    "docs/v10.2-release-definition.md"
+  ],
+  "evidence_refs": [
+    "docs/v10.2-release-definition.md",
+    "docs/v10.2-release-checklist.md"
+  ],
+  "not_proven": "Council review does not prove live provider integration or production safety.",
+  "review_status": "approved"
+}

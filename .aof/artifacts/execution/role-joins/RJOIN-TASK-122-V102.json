@@ -1,0 +1,15 @@
+{
+  "artifact_type": "role-join",
+  "join_id": "RJOIN-TASK-122-V102",
+  "recorded_at": "2026-08-01T01:55:00.000Z",
+  "source_task_id": "TASK-122",
+  "source_parent_session_id": "SESS-V102-PROVIDER-PILOT-SELECTION",
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-122-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-122-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-122-GUARDIAN.json"
+  ],
+  "joined_summary": "Visionary, Builder, and Guardian agree v10.2 should select GitHub read-first as the first provider pilot without claiming integration or write authority.",
+  "missing_role_ids": [],
+  "not_proven": "Join does not prove external provider behavior."
+}
