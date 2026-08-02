@@ -1,0 +1,82 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": "1.0",
+  "stream_id": "STREAM-V103-PROD-AUTH-MODEL",
+  "recorded_at": "2026-08-02T01:30:23.064Z",
+  "session_id": "SESS-V103-PROD-AUTH-MODEL",
+  "parent_session_id": "SESS-V103-PROD-AUTH-MODEL",
+  "actor_ref": "aof-orchestrator",
+  "role_ref": "orchestrator",
+  "provider": "codex",
+  "model": "runtime-backed",
+  "events": [
+    {
+      "event_id": "EVT-V103-001",
+      "event_type": "runtime_command",
+      "occurred_at": "2026-08-02T01:30:23.064Z",
+      "summary": "Ran organization-status and roadmap-status to select v10.3 as the current frontier.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md",
+        ".aof/goals/next-value-slice.json"
+      ],
+      "tool_name": "organization-status / roadmap-status",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved_local_runtime"
+    },
+    {
+      "event_id": "EVT-V103-002",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-08-02T01:30:23.064Z",
+      "summary": "Defined production execution authorization as the next bounded release capability after provider pilot selection.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-123.json",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.3.0-release-notes.md"
+      ],
+      "tool_name": "runtime-backed authoring",
+      "safety_level": "project_write",
+      "approval_policy": "local_project_write"
+    },
+    {
+      "event_id": "EVT-V103-003",
+      "event_type": "verification",
+      "occurred_at": "2026-08-02T01:30:23.064Z",
+      "summary": "Release candidate requires local runtime audits, tests, smoke, clean checkout, main CI, tag CI, and GitHub Release evidence.",
+      "artifact_refs": [
+        "docs/v10.3-release-checklist.md"
+      ],
+      "tool_name": "release-state-audit",
+      "safety_level": "verify",
+      "approval_policy": "preapproved_local_runtime"
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-123.json"
+    ],
+    "requirement_refs": [
+      "docs/v10.3-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/context/active/release-state-audit.json"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "docs/v10.3.0-release-notes.md",
+      "docs/aof-capability-matrix.md"
+    ]
+  },
+  "risk_candidates": [
+    "Authorization model may be mistaken for completed live provider execution or production safety."
+  ],
+  "decision_candidates": [
+    "Require authority, approval, budget, rollback, incident, stop, reproduction, and adapter-capability gates before live provider execution."
+  ],
+  "release_ready_evidence": [
+    "docs/v10.3-release-checklist.md"
+  ],
+  "source_task_id": "TASK-123",
+  "source_parent_session_id": "SESS-V103-PROD-AUTH-MODEL",
+  "source_decision_record_id": null
+}

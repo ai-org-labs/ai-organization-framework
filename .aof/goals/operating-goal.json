@@ -1,5 +1,5 @@
 {
   "artifact_type": "operating-goal",
-  "updated_at": "2026-08-01T01:55:00.000Z",
-  "content": "Ship v10.2 External Provider Integration Pilot Selection: Select the first bounded external provider pilot candidate, define why it is the right first pilot, and record what remains blocked before integration or live execution."
+  "updated_at": "2026-08-02T01:30:23.064Z",
+  "content": "Ship v10.3 Production Execution Authorization Model: define the authority, approval, budget, rollback, incident, and stop gates that must be satisfied before any live provider execution can be allowed."
 }

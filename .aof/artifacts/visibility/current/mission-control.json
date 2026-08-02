@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-08-01T01:44:00.014Z",
+  "generated_at": "2026-08-02T01:35:47.784Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
-    "release_version": "10.2.0",
-    "release_definition_ref": "docs/v10.2-release-definition.md",
-    "operating_goal": "Ship v10.2 External Provider Integration Pilot Selection: Select the first bounded external provider pilot candidate, define why it is the right first pilot, and record what remains blocked before integration or live execution.",
-    "next_value_slice": "After v10.2.0, advance v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, and v10.7 provider pilot execution readiness.",
+    "release_version": "10.3.0",
+    "release_definition_ref": "docs/v10.3-release-definition.md",
+    "operating_goal": "Ship v10.3 Production Execution Authorization Model: define the authority, approval, budget, rollback, incident, and stop gates that must be satisfied before any live provider execution can be allowed.",
+    "next_value_slice": "After v10.3.0, advance v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, v10.7 provider pilot execution readiness, and v10.8 read-first GitHub provider observation proof.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: After v10.2.0, advance v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, and v10.7 provider pilot execution readiness.",
+    "recommended_action": "Open an implementation task for the current frontier: After v10.3.0, advance v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, v10.7 provider pilot execution readiness, and v10.8 read-first GitHub provider observation proof.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,15 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 52,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-122.json",
+    "impact_record_count": 53,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-123.json",
     "latest_impact_status": "archmap_unaffected",
-    "latest_work_item_id": "TASK-122",
+    "latest_work_item_id": "TASK-123",
     "pending_impact_count": 0,
     "pending_impacts": [],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-122.json"
+      ".aof/artifacts/archmap/impact/TASK-123.json"
     ],
     "external_refs": []
   },
@@ -399,93 +399,75 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 36,
-    "latest_session_id": "SESS-V102-PROVIDER-PILOT-SELECTION",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V102-PROVIDER-PILOT-SELECTION.json",
-    "latest_actor_ref": "parent-codex",
+    "stream_count": 37,
+    "latest_session_id": "SESS-V103-PROD-AUTH-MODEL",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V103-PROD-AUTH-MODEL.json",
+    "latest_actor_ref": "aof-orchestrator",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-08-01T01:55:00.000Z",
-    "latest_event_count": 4,
-    "latest_release_verdict": "not_ready",
+    "latest_recorded_at": "2026-08-02T01:30:23.064Z",
+    "latest_event_count": 3,
+    "latest_release_verdict": null,
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-122.json"
+      ".aof/tasks/done/TASK-123.json"
     ],
     "linked_requirement_refs": [
-      "docs/v10.2-release-definition.md"
+      "docs/v10.3-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       ".aof/context/active/release-state-audit.json"
     ],
     "linked_artifact_refs": [
-      "docs/v10.2.0-release-notes.md",
+      "docs/v10.3.0-release-notes.md",
       "docs/aof-capability-matrix.md"
     ],
     "risk_candidates": [
-      "Provider pilot selection may be mistaken for completed provider integration or write authorization."
+      "Authorization model may be mistaken for completed live provider execution or production safety."
     ],
     "decision_candidates": [
-      "Select GitHub read-first as the first bounded external provider pilot candidate."
+      "Require authority, approval, budget, rollback, incident, stop, reproduction, and adapter-capability gates before live provider execution."
     ],
     "latest_events": [
       {
-        "event_type": "prompt",
-        "summary": "AOF heartbeat requested moving from v10.1 validation contract to the next roadmap release.",
-        "occurred_at": "2026-08-01T01:55:00.000Z",
-        "tool_name": "organization-status",
+        "event_type": "runtime_command",
+        "summary": "Ran organization-status and roadmap-status to select v10.3 as the current frontier.",
+        "occurred_at": "2026-08-02T01:30:23.064Z",
+        "tool_name": "organization-status / roadmap-status",
         "safety_level": "safe_read",
-        "approval_policy": "approved",
+        "approval_policy": "preapproved_local_runtime",
         "artifact_refs": [
+          "docs/vnext-roadmap.md",
           ".aof/goals/next-value-slice.json"
         ]
       },
       {
-        "event_type": "tool_call",
-        "summary": "AOF runtime identified v10.2 external provider integration pilot selection as the next frontier.",
-        "occurred_at": "2026-08-01T01:55:00.000Z",
-        "tool_name": "roadmap-status",
-        "safety_level": "safe_read",
-        "approval_policy": "approved",
+        "event_type": "decision_candidate",
+        "summary": "Defined production execution authorization as the next bounded release capability after provider pilot selection.",
+        "occurred_at": "2026-08-02T01:30:23.064Z",
+        "tool_name": "runtime-backed authoring",
+        "safety_level": "project_write",
+        "approval_policy": "local_project_write",
         "artifact_refs": [
-          "docs/vnext-roadmap.md",
-          "docs/vnext-release-plan.md"
+          ".aof/tasks/done/TASK-123.json",
+          "docs/v10.3-release-definition.md",
+          "docs/v10.3.0-release-notes.md"
         ]
       },
       {
-        "event_type": "artifact_write",
-        "summary": "AOF recorded TASK-122 and release docs for the GitHub read-first provider pilot selection contract.",
-        "occurred_at": "2026-08-01T01:55:00.000Z",
-        "tool_name": null,
-        "safety_level": "safe_local_write",
-        "approval_policy": "approved",
-        "artifact_refs": [
-          ".aof/tasks/done/TASK-122.json",
-          "docs/v10.2-release-definition.md",
-          "docs/v10.2.0-release-notes.md"
-        ]
-      },
-      {
-        "event_type": "verification_result",
-        "summary": "Release readiness requires runtime audits, npm test, smoke, clean checkout, and GitHub Actions.",
-        "occurred_at": "2026-08-01T01:55:00.000Z",
+        "event_type": "verification",
+        "summary": "Release candidate requires local runtime audits, tests, smoke, clean checkout, main CI, tag CI, and GitHub Release evidence.",
+        "occurred_at": "2026-08-02T01:30:23.064Z",
         "tool_name": "release-state-audit",
-        "safety_level": "safe_read",
-        "approval_policy": "approved",
+        "safety_level": "verify",
+        "approval_policy": "preapproved_local_runtime",
         "artifact_refs": [
-          "docs/v10.2-release-checklist.md"
+          "docs/v10.3-release-checklist.md"
         ]
       }
     ],
-    "latest_tool_calls": [
-      {
-        "summary": "AOF runtime identified v10.2 external provider integration pilot selection as the next frontier.",
-        "tool_name": "roadmap-status",
-        "safety_level": "safe_read",
-        "approval_policy": "approved"
-      }
-    ]
+    "latest_tool_calls": []
   },
   "context_reference_integrity": {
     "present": true,
@@ -494,11 +476,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 34,
+    "context_record_count": 35,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-123.json",
+        "work_item_id": "TASK-123",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "This v10.3 evidence proves a production execution authorization model only; it does not prove live provider execution, provider write safety, production credential safety, billing safety, incident recovery performance, or third-party validation completion."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-122.json",
         "work_item_id": "TASK-122",
@@ -554,14 +544,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves declared references were available, not actual provider billing correctness or production quota enforcement."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-115.json",
-        "work_item_id": "TASK-115",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves declared references were available, not live incident recovery performance or semantic correctness."
       }
     ],
     "latest_external_reference_records": [
@@ -586,9 +568,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-122.json",
-    "latest_work_item_id": "TASK-122",
-    "latest_recorded_at": "2026-08-01T01:55:00.000Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-123.json",
+    "latest_work_item_id": "TASK-123",
+    "latest_recorded_at": "2026-08-02T01:30:23.064Z",
     "coverage_status": "completed",
     "total_requirements": 2,
     "covered_count": 2,
@@ -630,9 +612,9 @@
         "blocker_refs": []
       }
     ],
-    "not_proven": "This v10.2 evidence proves provider pilot selection structure only; it does not prove completed provider integration, provider writes, production safety, or third-party validation completion.",
+    "not_proven": "This v10.3 evidence proves a production execution authorization model only; it does not prove live provider execution, provider write safety, production credential safety, billing safety, incident recovery performance, or third-party validation completion.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-122.json"
+      ".aof/artifacts/requirement-coverage/TASK-123.json"
     ]
   },
   "adoption_proof_projection": {
@@ -1141,7 +1123,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v10.2-release-definition.md",
+    "release_ref": "docs/v10.3-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1165,7 +1147,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v10.2-release-definition.md",
+    "release_ref": "docs/v10.3-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1184,7 +1166,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v10.2-release-definition.md",
+      "docs/v10.3-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1279,7 +1261,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-122.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-123.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1289,27 +1271,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V102-PROVIDER-PILOT-SELECTION.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V103-PROD-AUTH-MODEL.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-122.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-123.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v10.2-release-definition.md"
+        "artifact_ref": "docs/v10.3-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-122.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-123.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-122.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-123.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V102-PROVIDER-PILOT-SELECTION.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V103-PROD-AUTH-MODEL.json"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "artifact_type": "role-result",
+  "record_id": "RRES-TASK-123-GUARDIAN",
+  "recorded_at": "2026-08-02T01:30:23.064Z",
+  "task_id": "TASK-123",
+  "role_id": "guardian",
+  "status": "completed",
+  "summary": "Confirms v10.3 must not claim live execution, provider write safety, or production safety.",
+  "output_refs": [
+    "docs/v10.3-release-definition.md"
+  ],
+  "source_task_id": "TASK-123",
+  "source_parent_session_id": "SESS-V103-PROD-AUTH-MODEL"
+}

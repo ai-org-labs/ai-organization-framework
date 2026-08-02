@@ -1,0 +1,31 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MSB4M9PG-P4MVLD",
+  "recorded_at": "2026-08-02T01:33:20.932Z",
+  "release_version": "10.3.0",
+  "release_ref": "docs/v10.3-release-definition.md",
+  "work_item_id": "TASK-123",
+  "work_item_ref": ".aof/tasks/done/TASK-123.json",
+  "one_minute_value_explanation": "v10.3 defines the authorization gates required before AOF can perform any live provider execution: authority, human approval, budget, rollback, incident, stop, reproduction, and adapter-capability checks.",
+  "thirty_second_version_delta": "v10.2 selected GitHub read-first as the first provider pilot; v10.3 defines the permission model that blocks live execution until required gates exist.",
+  "new_capability_ids": [
+    "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL"
+  ],
+  "updated_capability_ids": [
+    "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION",
+    "PCAP-PRODUCTION-READINESS-REVIEW",
+    "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.3-release-definition.md",
+    "docs/v10.3.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If an operator cannot distinguish authorization model from live provider execution within 30 seconds, reopen product value comprehension.",
+  "not_proven": "Capability delta does not prove live provider execution, provider write safety, production credential safety, billing safety, incident recovery performance, third-party validation completion, market value, or external adoption.",
+  "source_task_id": "TASK-123",
+  "source_parent_session_id": "SESS-V103-PROD-AUTH-MODEL",
+  "source_decision_record_id": null,
+  "notes": null
+}

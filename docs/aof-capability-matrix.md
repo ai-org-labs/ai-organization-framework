@@ -101,3 +101,9 @@ It proves that AOF no longer lets release value be hidden behind implementation 
 | Third-Party Validation | Contract only | Feeds pilot selection criteria |
 | External Provider Pilot Selection | - | NEW selection contract |
 | Provider Execution | Live execution blocked | Still blocked; first provider pilot selected |
+
+## v10.3 Capability Delta
+
+NEW: `PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL` lets operators see the exact gates required before live provider execution can be allowed.
+
+30-second delta: v10.2 selected the first provider pilot; v10.3 defines the permission model that blocks live execution until authority, approval, budget, rollback, incident, stop, reproduction, and adapter-capability gates exist.

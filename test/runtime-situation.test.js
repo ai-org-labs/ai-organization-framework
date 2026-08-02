@@ -19,7 +19,7 @@ test("situationAssessCommand diagnoses the current frontier from self-hosting ru
 
   assert.equal(result.ok, true);
   assert.equal(result.summary.artifact_type, "situation-assessment");
-  assert.equal(result.summary.active_release_version, "10.2.0");
+  assert.equal(result.summary.active_release_version, "10.3.0");
   assert.equal(result.summary.primary_frontier_task, null);
   assert.equal(result.summary.current_runtime_stage, "frontier-definition-needed");
   assert.match(result.summary.recommended_action.recommended_action, /v10\.2|provider|pilot|selection|frontier/i);
@@ -127,7 +127,7 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   const result = await visibilityExportCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.payloads.mission_control.mission_overview.release_version, "10.2.0");
+  assert.equal(result.payloads.mission_control.mission_overview.release_version, "10.3.0");
   assert.equal(result.payloads.mission_control.mission_overview.current_runtime_stage, "frontier-definition-needed");
   assert.match(result.payloads.mission_control.next_action.recommended_action, /v10\.2|provider|pilot|selection/i);
   assert.doesNotMatch(result.payloads.mission_control.next_action.recommended_action, /Mission Control visibility slice/i);
@@ -139,15 +139,15 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.ok(result.payloads.mission_control.work_governance.work_items.length >= 2);
   assert.equal(result.payloads.mission_control.archmap.present, true);
   assert.equal(result.payloads.mission_control.archmap.current_source_ref, "docs/archmaps/aof-runtime-current.archmap");
-  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-122");
+  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-123");
   assert.ok(result.payloads.mission_control.archmap.pending_impact_count >= 0);
   assert.equal(result.payloads.mission_control.organization_state.present, true);
   assert.equal(result.payloads.mission_control.organization_state.council_count, 3);
   assert.ok(result.payloads.mission_control.organization_state.roles.some((role) => role.role_id === "builder"));
   assert.equal(result.payloads.mission_control.agent_session_observability.present, true);
-  assert.equal(result.payloads.mission_control.agent_session_observability.latest_session_id, "SESS-V102-PROVIDER-PILOT-SELECTION");
+  assert.equal(result.payloads.mission_control.agent_session_observability.latest_session_id, "SESS-V103-PROD-AUTH-MODEL");
   assert.equal(result.payloads.mission_control.agent_session_observability.audit_ok, true);
-  assert.ok(result.payloads.mission_control.agent_session_observability.linked_task_refs.some((ref) => /TASK-122/.test(ref)));
+  assert.ok(result.payloads.mission_control.agent_session_observability.linked_task_refs.some((ref) => /TASK-123/.test(ref)));
   assert.ok(result.payloads.mission_control.agent_session_observability.risk_candidates.length >= 1);
   assert.ok(result.payloads.mission_control.agent_session_observability.decision_candidates.length >= 1);
   assert.equal(result.payloads.mission_control.context_reference_integrity.present, true);
@@ -244,7 +244,7 @@ test("operatorBriefCommand compresses runtime situation judgment into one operat
 
   assert.equal(result.ok, true);
   assert.equal(result.brief.view_type, "operator_brief");
-  assert.equal(result.brief.current_state.release_version, "10.2.0");
+  assert.equal(result.brief.current_state.release_version, "10.3.0");
   assert.equal(result.brief.current_state.current_runtime_stage, "frontier-definition-needed");
   assert.equal(result.brief.current_state.primary_frontier_task, null);
   assert.equal(result.brief.current_state.skillful_actor_projection?.projection_id, "SAHRI-TASK-054-PROOF");
@@ -275,7 +275,7 @@ test("treePositionCommand explains the current release trunk and frontier branch
 
   assert.equal(result.ok, true);
   assert.equal(result.tree.view_type, "tree_position");
-  assert.equal(result.tree.trunk.active_release_version, "10.2.0");
+  assert.equal(result.tree.trunk.active_release_version, "10.3.0");
   assert.equal(result.tree.branch.frontier_task_id, null);
   assert.equal(result.tree.branch.frontier_track, null);
   assert.match(result.tree.tree_answer.where_are_we, /v10\.2|provider|pilot|selection|next concrete branch/i);
@@ -286,7 +286,7 @@ test("releaseStateAuditCommand includes product value, production boundary, and 
   const result = await releaseStateAuditCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.summary.active_release.release_version, "10.2.0");
+  assert.equal(result.summary.active_release.release_version, "10.3.0");
   const externalResourceAudit = result.summary.governance_audits.find((audit) => audit.name === "external-resource-audit");
   assert.equal(externalResourceAudit.ok, true);
   const providerAdapterAudit = result.summary.governance_audits.find((audit) => audit.name === "provider-adapter-audit");

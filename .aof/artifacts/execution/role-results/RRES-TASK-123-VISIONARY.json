@@ -1,0 +1,14 @@
+{
+  "artifact_type": "role-result",
+  "record_id": "RRES-TASK-123-VISIONARY",
+  "recorded_at": "2026-08-02T01:30:23.064Z",
+  "task_id": "TASK-123",
+  "role_id": "visionary",
+  "status": "completed",
+  "summary": "Recommends v10.3 focus on permission clarity before any provider execution.",
+  "output_refs": [
+    "docs/v10.3-release-definition.md"
+  ],
+  "source_task_id": "TASK-123",
+  "source_parent_session_id": "SESS-V103-PROD-AUTH-MODEL"
+}

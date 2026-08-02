@@ -1,0 +1,13 @@
+{
+  "artifact_type": "role-join",
+  "record_id": "RJOIN-TASK-123-V103",
+  "recorded_at": "2026-08-02T01:30:23.064Z",
+  "task_id": "TASK-123",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-123-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-123-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-123-GUARDIAN.json"
+  ],
+  "source_task_id": "TASK-123",
+  "source_parent_session_id": "SESS-V103-PROD-AUTH-MODEL"
+}

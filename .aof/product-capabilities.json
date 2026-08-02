@@ -196,7 +196,8 @@
         "docs/v10.1-release-definition.md",
         "docs/v10.1.0-release-notes.md",
         "docs/v10.2-release-definition.md",
-        "docs/v10.2.0-release-notes.md"
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
       ],
       "first_version": "v9.9.0",
       "status": "available"
@@ -215,7 +216,8 @@
         "docs/v10.1-release-definition.md",
         "docs/v10.1.0-release-notes.md",
         "docs/v10.2-release-definition.md",
-        "docs/v10.2.0-release-notes.md"
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
       ]
     },
     {
@@ -243,8 +245,22 @@
       "evidence_refs": [
         "docs/v10.2-release-definition.md",
         "docs/v10.2.0-release-notes.md",
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+        "docs/v10.3-release-definition.md"
       ]
+    },
+    {
+      "capability_id": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL",
+      "name": "Production Execution Authorization Model",
+      "description": "Defines the approval, authority, budget, rollback, incident, stop, reproduction, and adapter-capability gates required before live provider execution can be allowed.",
+      "user_value": "Operators can block unsafe live provider actions until every required authorization gate exists and is reviewed.",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.3-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+        "docs/v10.3.0-release-notes.md"
+      ],
+      "first_version": "v10.3.0"
     }
   ]
 }

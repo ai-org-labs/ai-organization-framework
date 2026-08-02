@@ -1,5 +1,5 @@
 {
   "artifact_type": "next-value-slice",
-  "updated_at": "2026-08-01T01:55:00.000Z",
-  "content": "After v10.2.0, advance v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, and v10.7 provider pilot execution readiness."
+  "updated_at": "2026-08-02T01:30:23.064Z",
+  "content": "After v10.3.0, advance v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, v10.7 provider pilot execution readiness, and v10.8 read-first GitHub provider observation proof."
 }

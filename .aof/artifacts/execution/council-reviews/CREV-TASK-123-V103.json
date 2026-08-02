@@ -1,0 +1,30 @@
+{
+  "artifact_type": "council-review",
+  "recorded_at": "2026-08-02T01:30:23.064Z",
+  "task_id": "TASK-123",
+  "council_id": "operations-council",
+  "review_status": "approved",
+  "decision": "approve",
+  "summary": "Approved as an authorization model only, not as live provider execution evidence.",
+  "reviewed_refs": [
+    "docs/v10.3-release-definition.md",
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-123-V103.json"
+  ],
+  "source_task_id": "TASK-123",
+  "source_parent_session_id": "SESS-V103-PROD-AUTH-MODEL",
+  "review_id": "CREV-TASK-123-V103",
+  "status": "approved",
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-123-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-123-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-123-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v10.3-release-definition.md",
+    "docs/v10.3-release-checklist.md",
+    ".aof/artifacts/agent-sessions/SESS-V103-PROD-AUTH-MODEL.json",
+    ".aof/context/active/release-state-audit.json"
+  ],
+  "diagnosis_evidence_refs": [],
+  "not_proven": "Council review approves the authorization model only; it does not prove live provider execution, provider write safety, production credential safety, billing safety, or incident recovery performance."
+}

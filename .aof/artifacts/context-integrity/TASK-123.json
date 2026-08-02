@@ -1,0 +1,32 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CTX-TASK-123-V103",
+  "recorded_at": "2026-08-02T01:30:23.064Z",
+  "work_item_id": "TASK-123",
+  "work_item_ref": ".aof/tasks/done/TASK-123.json",
+  "required_context_refs": [
+    "docs/v10.3-release-definition.md",
+    "docs/v10.3.0-release-notes.md",
+    "docs/v10.1-release-definition.md",
+    ".aof/artifacts/operator-validation/operator-validation-audit.json"
+  ],
+  "missing_context_refs": [],
+  "not_proven": "This v10.3 evidence proves a production execution authorization model only; it does not prove live provider execution, provider write safety, production credential safety, billing safety, incident recovery performance, or third-party validation completion.",
+  "source_task_id": "TASK-123",
+  "source_parent_session_id": "SESS-V103-PROD-AUTH-MODEL",
+  "source_decision_record_id": null,
+  "context_pack_refs": [
+    ".aof/artifacts/agent-sessions/SESS-V103-PROD-AUTH-MODEL.json",
+    ".aof/goals/next-value-slice.json",
+    ".aof/goals/operating-goal.json"
+  ],
+  "declared_context_refs": [
+    "docs/v10.3-release-definition.md",
+    "docs/v10.3.0-release-notes.md",
+    "docs/aof-capability-matrix.md",
+    "docs/v10.1-release-definition.md"
+  ],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V103-PROD-AUTH-MODEL.json"
+}

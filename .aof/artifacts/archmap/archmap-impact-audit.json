@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "archmap-impact-audit",
-  "generated_at": "2026-08-01T01:44:14.688Z",
+  "generated_at": "2026-08-02T01:35:44.574Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "cutoff_task_id": "TASK-071",
   "audited_status_dirs": [
@@ -15,8 +15,8 @@
     "archmap_deferred_with_reason"
   ],
   "summary": {
-    "scoped_task_count": 52,
-    "impact_record_count": 52,
+    "scoped_task_count": 53,
+    "impact_record_count": 53,
     "missing_impact_record_count": 0,
     "failing_check_count": 0
   },
@@ -384,6 +384,13 @@
       "status": "done",
       "status_dir": "done",
       "artifact_ref": ".aof/tasks/done/TASK-122.json"
+    },
+    {
+      "task_id": "TASK-123",
+      "title": "Ship v10.3 Production Execution Authorization Model",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-123.json"
     }
   ],
   "impact_records": [
@@ -802,13 +809,21 @@
       "status": "archmap_unaffected",
       "council_review_status": "approved",
       "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-123",
+      "task_ref": ".aof/tasks/done/TASK-123.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-123.json",
+      "status": "archmap_unaffected",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
     }
   ],
   "checks": [
     {
       "name": "scoped task discovery",
       "status": "pass",
-      "detail": "52 task(s) at or after TASK-071 in open, assigned, done"
+      "detail": "53 task(s) at or after TASK-071 in open, assigned, done"
     },
     {
       "name": "TASK-071 archmap impact record presence",
@@ -2367,6 +2382,36 @@
     },
     {
       "name": "TASK-122 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-123 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-123.json"
+    },
+    {
+      "name": "TASK-123 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-123, expected=TASK-123"
+    },
+    {
+      "name": "TASK-123 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_unaffected"
+    },
+    {
+      "name": "TASK-123 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-123 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-123.json"
+    },
+    {
+      "name": "TASK-123 archmap source ref resolves",
       "status": "pass",
       "detail": "docs/archmaps/aof-runtime-current.archmap"
     }

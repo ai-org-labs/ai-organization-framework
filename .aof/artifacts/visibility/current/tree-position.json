@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-01T01:44:00.019Z",
+  "generated_at": "2026-08-02T01:35:47.794Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "10.2.0",
-    "active_release_track": "v10.2",
-    "release_definition_ref": "docs/v10.2-release-definition.md"
+    "active_release_version": "10.3.0",
+    "active_release_track": "v10.3",
+    "release_definition_ref": "docs/v10.3-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v10.2.0, advance v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, and v10.7 provider pilot execution readiness."
+    "branch_summary": "After v10.3.0, advance v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, v10.7 provider pilot execution readiness, and v10.8 read-first GitHub provider observation proof."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v10.2",
+      "label": "v10.3",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v10.2 and the next concrete branch.",
-    "why_this_branch": "Ship v10.2 External Provider Integration Pilot Selection: Select the first bounded external provider pilot candidate, define why it is the right first pilot, and record what remains blocked before integration or live execution.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.2.0, advance v10.3 production execution authorization model, v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, and v10.7 provider pilot execution readiness."
+    "where_are_we": "The runtime is between v10.3 and the next concrete branch.",
+    "why_this_branch": "Ship v10.3 Production Execution Authorization Model: define the authority, approval, budget, rollback, incident, and stop gates that must be satisfied before any live provider execution can be allowed.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.3.0, advance v10.4 externally reproduced value evidence, v10.5 provider-backed work lifecycle product surface, v10.6 third-party validation result ingestion, v10.7 provider pilot execution readiness, and v10.8 read-first GitHub provider observation proof."
   }
 }
