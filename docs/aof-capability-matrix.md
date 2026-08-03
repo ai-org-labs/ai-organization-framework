@@ -107,3 +107,9 @@ It proves that AOF no longer lets release value be hidden behind implementation 
 NEW: `PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL` lets operators see the exact gates required before live provider execution can be allowed.
 
 30-second delta: v10.2 selected the first provider pilot; v10.3 defines the permission model that blocks live execution until authority, approval, budget, rollback, incident, stop, reproduction, and adapter-capability gates exist.
+
+## v10.4 Capability Delta
+
+NEW: `PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE` lets operators hand a bounded value reproduction package to an external reviewer.
+
+30-second delta: v10.3 defined what must authorize live provider execution; v10.4 defines how an external operator should reproduce and report whether AOF value is visible outside self-hosting.

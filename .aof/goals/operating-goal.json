@@ -1,5 +1,5 @@
 {
   "artifact_type": "operating-goal",
-  "updated_at": "2026-08-02T01:30:23.064Z",
-  "content": "Ship v10.3 Production Execution Authorization Model: define the authority, approval, budget, rollback, incident, and stop gates that must be satisfied before any live provider execution can be allowed."
+  "updated_at": "2026-08-03T01:30:28.228Z",
+  "content": "Ship v10.4 External Value Reproduction Evidence Package: define the scenario, expected user-visible value, reproduction steps, evidence fields, acceptance gates, and not-proven boundary required for an external operator to reproduce AOF value."
 }

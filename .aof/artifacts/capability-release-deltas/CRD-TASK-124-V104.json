@@ -1,0 +1,31 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MSCK20A0-KIRJOZ",
+  "recorded_at": "2026-08-03T01:33:15.624Z",
+  "release_version": "10.4.0",
+  "release_ref": "docs/v10.4-release-definition.md",
+  "work_item_id": "TASK-124",
+  "work_item_ref": ".aof/tasks/done/TASK-124.json",
+  "one_minute_value_explanation": "v10.4 gives external reviewers a bounded package for reproducing and reporting AOF user-visible value outside self-hosting evidence.",
+  "thirty_second_version_delta": "v10.3 defined what must authorize live provider execution; v10.4 defines how an external operator should reproduce and report whether AOF value is visible outside self-hosting.",
+  "new_capability_ids": [
+    "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE"
+  ],
+  "updated_capability_ids": [
+    "PCAP-THIRD-PARTY-VALIDATION-CONTRACT",
+    "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL",
+    "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.4-release-definition.md",
+    "docs/v10.4.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If an operator cannot distinguish reproduction package from completed external validation within 30 seconds, reopen product value comprehension.",
+  "not_proven": "Capability delta does not prove completed external reproduction, third-party validation completion, market value, external adoption, live provider execution, provider write safety, or production safety.",
+  "source_task_id": "TASK-124",
+  "source_parent_session_id": "SESS-V104-EXTERNAL-VALUE-REPRO-PACKAGE",
+  "source_decision_record_id": null,
+  "notes": null
+}

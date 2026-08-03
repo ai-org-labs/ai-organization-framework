@@ -1,0 +1,14 @@
+{
+  "artifact_type": "role-result",
+  "record_id": "RRES-TASK-124-BUILDER",
+  "recorded_at": "2026-08-03T01:30:28.228Z",
+  "task_id": "TASK-124",
+  "role_id": "builder",
+  "status": "completed",
+  "summary": "Prepared release docs and runtime evidence chain for the external value reproduction package.",
+  "output_refs": [
+    "docs/v10.4-release-definition.md"
+  ],
+  "source_task_id": "TASK-124",
+  "source_parent_session_id": "SESS-V104-EXTERNAL-VALUE-REPRO-PACKAGE"
+}

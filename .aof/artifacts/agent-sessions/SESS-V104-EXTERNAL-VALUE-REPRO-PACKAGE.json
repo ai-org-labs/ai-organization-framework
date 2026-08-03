@@ -1,0 +1,82 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": "1.0",
+  "stream_id": "STREAM-V104-EXTERNAL-VALUE-REPRO-PACKAGE",
+  "recorded_at": "2026-08-03T01:30:28.228Z",
+  "session_id": "SESS-V104-EXTERNAL-VALUE-REPRO-PACKAGE",
+  "parent_session_id": "SESS-V104-EXTERNAL-VALUE-REPRO-PACKAGE",
+  "actor_ref": "aof-orchestrator",
+  "role_ref": "orchestrator",
+  "provider": "codex",
+  "model": "runtime-backed",
+  "events": [
+    {
+      "event_id": "EVT-V104-001",
+      "event_type": "runtime_command",
+      "occurred_at": "2026-08-03T01:30:28.228Z",
+      "summary": "Ran organization-status and roadmap-status to select v10.4 as the current frontier.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md",
+        ".aof/goals/next-value-slice.json"
+      ],
+      "tool_name": "organization-status / roadmap-status",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved_local_runtime"
+    },
+    {
+      "event_id": "EVT-V104-002",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-08-03T01:30:28.228Z",
+      "summary": "Defined an external value reproduction evidence package without claiming completed external validation.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-124.json",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md"
+      ],
+      "tool_name": "runtime-backed authoring",
+      "safety_level": "project_write",
+      "approval_policy": "local_project_write"
+    },
+    {
+      "event_id": "EVT-V104-003",
+      "event_type": "verification",
+      "occurred_at": "2026-08-03T01:30:28.228Z",
+      "summary": "Release candidate requires local runtime audits, tests, smoke, clean checkout, main CI, tag CI, and GitHub Release evidence.",
+      "artifact_refs": [
+        "docs/v10.4-release-checklist.md"
+      ],
+      "tool_name": "release-state-audit",
+      "safety_level": "verify",
+      "approval_policy": "preapproved_local_runtime"
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-124.json"
+    ],
+    "requirement_refs": [
+      "docs/v10.4-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/context/active/release-state-audit.json"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "docs/v10.4.0-release-notes.md",
+      "docs/aof-capability-matrix.md"
+    ]
+  },
+  "risk_candidates": [
+    "External value reproduction package may be mistaken for completed external reproduction or third-party validation."
+  ],
+  "decision_candidates": [
+    "Require external operator verdict fields before claiming externally reproduced value."
+  ],
+  "release_ready_evidence": [
+    "docs/v10.4-release-checklist.md"
+  ],
+  "source_task_id": "TASK-124",
+  "source_parent_session_id": "SESS-V104-EXTERNAL-VALUE-REPRO-PACKAGE",
+  "source_decision_record_id": null
+}

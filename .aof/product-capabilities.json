@@ -217,7 +217,8 @@
         "docs/v10.1.0-release-notes.md",
         "docs/v10.2-release-definition.md",
         "docs/v10.2.0-release-notes.md",
-        "docs/v10.3-release-definition.md"
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
       ]
     },
     {
@@ -232,7 +233,8 @@
         "docs/v10.1.0-release-notes.md",
         ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
         "docs/v10.2-release-definition.md",
-        "docs/v10.2.0-release-notes.md"
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md"
       ]
     },
     {
@@ -258,9 +260,23 @@
       "evidence_refs": [
         "docs/v10.3-release-definition.md",
         ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
-        "docs/v10.3.0-release-notes.md"
+        "docs/v10.3.0-release-notes.md",
+        "docs/v10.4-release-definition.md"
       ],
       "first_version": "v10.3.0"
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE",
+      "name": "External Value Reproduction Evidence Package",
+      "description": "AOF can prepare a bounded package for an external operator to reproduce and report user-visible value.",
+      "user_value": "Operators can test AOF value outside self-hosting without mistaking internal artifacts for external proof.",
+      "first_version": "v10.4.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json"
+      ]
     }
   ]
 }
