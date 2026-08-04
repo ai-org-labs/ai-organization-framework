@@ -248,7 +248,8 @@
         "docs/v10.2-release-definition.md",
         "docs/v10.2.0-release-notes.md",
         ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
-        "docs/v10.3-release-definition.md"
+        "docs/v10.3-release-definition.md",
+        "docs/v10.5-release-definition.md"
       ]
     },
     {
@@ -261,7 +262,8 @@
         "docs/v10.3-release-definition.md",
         ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
         "docs/v10.3.0-release-notes.md",
-        "docs/v10.4-release-definition.md"
+        "docs/v10.4-release-definition.md",
+        "docs/v10.5-release-definition.md"
       ],
       "first_version": "v10.3.0"
     },
@@ -275,7 +277,21 @@
       "evidence_refs": [
         "docs/v10.4-release-definition.md",
         "docs/v10.4.0-release-notes.md",
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE",
+      "name": "Provider-Backed Work Lifecycle Product Surface",
+      "description": "AOF can explain provider-backed work as a user-facing lifecycle from Need to blocked or ready next action.",
+      "user_value": "Operators can understand provider-backed work without stitching raw artifacts together.",
+      "first_version": "v10.5.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.5-release-definition.md",
+        "docs/v10.5.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json"
       ]
     }
   ]

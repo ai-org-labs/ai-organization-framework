@@ -1,0 +1,31 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MSDZJA7W-TOMYCP",
+  "recorded_at": "2026-08-04T01:34:22.076Z",
+  "release_version": "10.5.0",
+  "release_ref": "docs/v10.5-release-definition.md",
+  "work_item_id": "TASK-125",
+  "work_item_ref": ".aof/tasks/done/TASK-125.json",
+  "one_minute_value_explanation": "v10.5 shows provider-backed work as one user-facing lifecycle: need, validation, planning, provider candidate, authorization, evidence, Council review, blocker, and next action.",
+  "thirty_second_version_delta": "v10.4 gave external reviewers a value reproduction package; v10.5 turns provider-backed work into a product story instead of separate proof artifacts.",
+  "new_capability_ids": [
+    "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE"
+  ],
+  "updated_capability_ids": [
+    "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE",
+    "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION",
+    "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.5-release-definition.md",
+    "docs/v10.5.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If an operator cannot distinguish lifecycle product surface from live provider execution within 30 seconds, reopen product value comprehension.",
+  "not_proven": "Capability delta does not prove live provider execution, provider write safety, production safety, completed provider integration, external adoption, market value, or third-party validation completion.",
+  "source_task_id": "TASK-125",
+  "source_parent_session_id": "SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE",
+  "source_decision_record_id": null,
+  "notes": null
+}

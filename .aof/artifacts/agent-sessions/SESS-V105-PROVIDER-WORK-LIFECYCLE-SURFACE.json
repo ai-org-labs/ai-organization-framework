@@ -1,0 +1,82 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": "1.0",
+  "stream_id": "STREAM-V105-PROVIDER-WORK-LIFECYCLE-SURFACE",
+  "recorded_at": "2026-08-04T01:31:33.491Z",
+  "session_id": "SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE",
+  "parent_session_id": "SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE",
+  "actor_ref": "aof-orchestrator",
+  "role_ref": "orchestrator",
+  "provider": "codex",
+  "model": "runtime-backed",
+  "events": [
+    {
+      "event_id": "EVT-V105-001",
+      "event_type": "runtime_command",
+      "occurred_at": "2026-08-04T01:31:33.491Z",
+      "summary": "Ran organization-status and roadmap-status to select v10.5 as the current frontier.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md",
+        ".aof/goals/next-value-slice.json"
+      ],
+      "tool_name": "organization-status / roadmap-status",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved_local_runtime"
+    },
+    {
+      "event_id": "EVT-V105-002",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-08-04T01:31:33.491Z",
+      "summary": "Defined a provider-backed work lifecycle product surface without claiming provider execution.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-125.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.5.0-release-notes.md"
+      ],
+      "tool_name": "runtime-backed authoring",
+      "safety_level": "project_write",
+      "approval_policy": "local_project_write"
+    },
+    {
+      "event_id": "EVT-V105-003",
+      "event_type": "verification",
+      "occurred_at": "2026-08-04T01:31:33.491Z",
+      "summary": "Release candidate requires local runtime audits, tests, smoke, clean checkout, main CI, tag CI, and GitHub Release evidence.",
+      "artifact_refs": [
+        "docs/v10.5-release-checklist.md"
+      ],
+      "tool_name": "release-state-audit",
+      "safety_level": "verify",
+      "approval_policy": "preapproved_local_runtime"
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-125.json"
+    ],
+    "requirement_refs": [
+      "docs/v10.5-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/context/active/release-state-audit.json"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "docs/v10.5.0-release-notes.md",
+      "docs/aof-capability-matrix.md"
+    ]
+  },
+  "risk_candidates": [
+    "Provider-backed lifecycle surface may be mistaken for live provider integration or execution."
+  ],
+  "decision_candidates": [
+    "Require the provider-backed lifecycle surface to show blockers and next action before any execution claim."
+  ],
+  "release_ready_evidence": [
+    "docs/v10.5-release-checklist.md"
+  ],
+  "source_task_id": "TASK-125",
+  "source_parent_session_id": "SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE",
+  "source_decision_record_id": null
+}

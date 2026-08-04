@@ -113,3 +113,9 @@ NEW: `PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL` lets operators see the exac
 NEW: `PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE` lets operators hand a bounded value reproduction package to an external reviewer.
 
 30-second delta: v10.3 defined what must authorize live provider execution; v10.4 defines how an external operator should reproduce and report whether AOF value is visible outside self-hosting.
+
+## v10.5 Capability Delta
+
+NEW: `PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE` lets operators see provider-backed work as one lifecycle instead of separate proof artifacts.
+
+30-second delta: v10.4 gave external reviewers a value reproduction package; v10.5 turns provider-backed work into a product story: need, validation, planning, provider candidate, authorization, evidence, Council review, blocker, and next action.

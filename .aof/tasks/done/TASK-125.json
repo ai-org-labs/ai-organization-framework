@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-125",
+  "title": "Ship v10.5 Provider-Backed Work Lifecycle Product Surface",
+  "status": "done",
+  "created_at": "2026-08-04T01:31:33.491Z",
+  "updated_at": "2026-08-04T01:31:33.491Z",
+  "owner": "AOF Runtime",
+  "goal": "Define the user-facing lifecycle surface that connects Need, validation, planning, provider candidate, authorization, evidence, Council review, blockers, and next action.",
+  "release_track": "v10.5",
+  "evidence_refs": [
+    "docs/v10.5-release-definition.md",
+    "docs/v10.5-release-checklist.md",
+    "docs/v10.5.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE.json",
+    ".aof/artifacts/requirement-coverage/TASK-125.json",
+    ".aof/context/active/release-state-audit.json"
+  ],
+  "not_proven": "This v10.5 evidence proves a provider-backed work lifecycle product surface only; it does not prove live provider execution, provider write safety, production safety, completed provider integration, external adoption, market value, or third-party validation completion.",
+  "source_task_id": "TASK-125",
+  "source_parent_session_id": "SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE"
+}

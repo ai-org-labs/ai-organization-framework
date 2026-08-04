@@ -1,0 +1,16 @@
+{
+  "artifact_type": "team-output",
+  "record_id": "TOUT-TASK-125-V105",
+  "recorded_at": "2026-08-04T01:31:33.491Z",
+  "task_id": "TASK-125",
+  "team_id": "runtime-team",
+  "status": "completed",
+  "summary": "v10.5 provider-backed work lifecycle product surface release surface and evidence chain.",
+  "output_refs": [
+    "docs/v10.5-release-definition.md",
+    "docs/v10.5.0-release-notes.md",
+    "docs/v10.5-release-checklist.md"
+  ],
+  "source_task_id": "TASK-125",
+  "source_parent_session_id": "SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE"
+}

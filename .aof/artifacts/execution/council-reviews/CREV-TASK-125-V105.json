@@ -1,0 +1,29 @@
+{
+  "artifact_type": "council-review",
+  "review_id": "CREV-TASK-125-V105",
+  "recorded_at": "2026-08-04T01:31:33.491Z",
+  "source_task_id": "TASK-125",
+  "source_parent_session_id": "SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE",
+  "council_id": "product-council",
+  "status": "approved",
+  "review_status": "approved",
+  "decision": "approve",
+  "summary": "Approved as a provider-backed work lifecycle product surface only, not as live provider execution.",
+  "reviewed_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-125-V105.json",
+    "docs/v10.5-release-definition.md"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-125-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-125-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-125-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v10.5-release-definition.md",
+    "docs/v10.5-release-checklist.md",
+    ".aof/artifacts/agent-sessions/SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE.json",
+    ".aof/context/active/release-state-audit.json"
+  ],
+  "diagnosis_evidence_refs": [],
+  "not_proven": "Council review approves the lifecycle product surface only; it does not prove live provider execution, completed provider integration, production safety, or external adoption."
+}

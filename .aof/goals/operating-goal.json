@@ -1,5 +1,5 @@
 {
   "artifact_type": "operating-goal",
-  "updated_at": "2026-08-03T01:30:28.228Z",
-  "content": "Ship v10.4 External Value Reproduction Evidence Package: define the scenario, expected user-visible value, reproduction steps, evidence fields, acceptance gates, and not-proven boundary required for an external operator to reproduce AOF value."
+  "updated_at": "2026-08-04T01:31:33.491Z",
+  "content": "Ship v10.5 Provider-Backed Work Lifecycle Product Surface: show the user-facing lifecycle from need to provider observation/readiness without claiming live provider execution or write authority."
 }

@@ -1,0 +1,14 @@
+{
+  "artifact_type": "role-result",
+  "record_id": "RRES-TASK-125-BUILDER",
+  "recorded_at": "2026-08-04T01:31:33.491Z",
+  "task_id": "TASK-125",
+  "role_id": "builder",
+  "status": "completed",
+  "summary": "Prepared release docs and runtime evidence chain for the lifecycle product surface.",
+  "output_refs": [
+    "docs/v10.5-release-definition.md"
+  ],
+  "source_task_id": "TASK-125",
+  "source_parent_session_id": "SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE"
+}

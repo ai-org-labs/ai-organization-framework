@@ -1,0 +1,13 @@
+{
+  "artifact_type": "role-join",
+  "record_id": "RJOIN-TASK-125-V105",
+  "recorded_at": "2026-08-04T01:31:33.491Z",
+  "task_id": "TASK-125",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-125-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-125-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-125-GUARDIAN.json"
+  ],
+  "source_task_id": "TASK-125",
+  "source_parent_session_id": "SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE"
+}
