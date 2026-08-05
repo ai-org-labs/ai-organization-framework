@@ -227,6 +227,16 @@ async function writeCapabilityCoverageTask(projectRoot, taskId, goalOverrides = 
   await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "work-items", "goals", `${taskId}.json`), goal);
 }
 
+async function markCapabilityCoverageTaskDone(projectRoot, taskId) {
+  const openPath = path.join(projectRoot, ".aof", "tasks", "open", `${taskId}.json`);
+  const donePath = path.join(projectRoot, ".aof", "tasks", "done", `${taskId}.json`);
+  const payload = JSON.parse(await fs.readFile(openPath, "utf8"));
+  payload.status = "done";
+  await fs.mkdir(path.dirname(donePath), { recursive: true });
+  await writeJsonFixture(donePath, payload);
+  await fs.rm(openPath);
+}
+
 async function writeSelectedActorChain(projectRoot, taskId, roleRef, skillRef) {
   const packet = await actorSkillPacketRecordCommand({
     project: projectRoot,
@@ -288,6 +298,58 @@ async function writeSelectedActorChain(projectRoot, taskId, roleRef, skillRef) {
     gateId: `AEG-${taskId}-${roleRef}`,
     artifactPath: path.join(projectRoot, ".aof", "artifacts", "actor-execution-gates", `AEG-${taskId}-${roleRef}.json`)
   });
+}
+
+async function writeCapabilityOutputChain(projectRoot, taskId) {
+  const roleRefs = [
+    ".aof/artifacts/execution/role-results/RRES-TASK-127-builder.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-127-guardian.json"
+  ];
+  for (const role of ["builder", "guardian"]) {
+    await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "execution", "role-results", `RRES-TASK-127-${role}.json`), {
+      result_type: "role-result",
+      recorded_at: "2026-08-05T02:00:00.000Z",
+      role,
+      stage: "planning",
+      session_id: "SESS-COVERAGE-TEST",
+      status: "completed",
+      recommendation: `${role} output is ready.`,
+      rationale: `${role} submitted required output evidence.`,
+      signals: [],
+      artifact_refs: ["test/runtime-core-2.test.js"],
+      decision_required: false,
+      source_task_id: taskId,
+      source_decision_record_id: null,
+      source_parent_session_id: "SESS-COVERAGE-TEST",
+      blocking_reason: null,
+      missing_inputs: null,
+      confidence: 0.8
+    });
+  }
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "execution", "team-outputs", "TOUT-TASK-127.json"), {
+    packet_type: "team-output",
+    recorded_at: "2026-08-05T02:00:00.000Z",
+    team_output_id: "TOUT-TASK-127",
+    team_id: "runtime-team",
+    stage: "planning",
+    expected_roles: ["builder", "guardian"],
+    received_roles: ["builder", "guardian"],
+    missing_roles: [],
+    aggregate_state: "ready-for-council-review",
+    blocking_signals: [],
+    recommended_next_step: "Submit output chain to Council.",
+    joined_role_result_refs: roleRefs,
+    artifact_refs: ["test/runtime-core-2.test.js"],
+    decision_required: true,
+    summary: "Builder and Guardian outputs are joined.",
+    source_task_id: taskId,
+    source_parent_session_id: "SESS-COVERAGE-TEST",
+    source_decision_record_id: null
+  });
+  return {
+    roleRefs,
+    teamOutputRef: ".aof/artifacts/execution/team-outputs/TOUT-TASK-127.json"
+  };
 }
 
 test("actor skill packet schema defines the v5.0 contract surface", async () => {
@@ -366,6 +428,8 @@ test("capabilityCoverageAuditCommand passes only when roles, skills, actors, gat
   await writeCapabilityCoverageTask(projectRoot, taskId);
   await writeSelectedActorChain(projectRoot, taskId, "builder", "skill-schema-review");
   await writeSelectedActorChain(projectRoot, taskId, "guardian", "skill-benchmark-validation");
+  const outputChain = await writeCapabilityOutputChain(projectRoot, taskId);
+  await markCapabilityCoverageTaskDone(projectRoot, taskId);
   await councilReviewPacketCommand({
     project: projectRoot,
     councilId: "architecture-council",
@@ -374,8 +438,8 @@ test("capabilityCoverageAuditCommand passes only when roles, skills, actors, gat
     decisionSummary: "Capability coverage chain is complete.",
     rationale: "Builder and Guardian are both assigned with required skills, selected assignment evaluations, and allowed execution gates.",
     recommendation: "Proceed to build under the coverage gate.",
-    teamOutputRefs: [],
-    roleResultRefs: [],
+    teamOutputRefs: [outputChain.teamOutputRef],
+    roleResultRefs: outputChain.roleRefs,
     evidenceRefs: [
       ".aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json",
       ".aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json"
@@ -393,6 +457,71 @@ test("capabilityCoverageAuditCommand passes only when roles, skills, actors, gat
   assert.equal(result.summary.summary.missing_role_count, 0);
   assert.equal(result.summary.summary.missing_skill_count, 0);
   assert.equal(result.summary.summary.non_allowed_gate_count, 0);
+});
+
+test("capabilityCoverageAuditCommand rejects unmatched packet evaluation and gate chains", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const taskId = "TASK-127";
+  await writeCapabilityCoverageTask(projectRoot, taskId);
+  await writeSelectedActorChain(projectRoot, taskId, "builder", "skill-schema-review");
+  await writeSelectedActorChain(projectRoot, taskId, "guardian", "skill-benchmark-validation");
+  const guardianEvaluationPath = path.join(projectRoot, ".aof", "artifacts", "actor-assignment-evaluations", "AAE-TASK-127-guardian.json");
+  const guardianEvaluation = JSON.parse(await fs.readFile(guardianEvaluationPath, "utf8"));
+  guardianEvaluation.actor_skill_packet_ref = ".aof/artifacts/actor-skill-packets/ASP-TASK-127-missing.json";
+  guardianEvaluation.actor_skill_packet_id = "ASP-TASK-127-missing";
+  await writeJsonFixture(guardianEvaluationPath, guardianEvaluation);
+  await councilReviewPacketCommand({
+    project: projectRoot,
+    councilId: "architecture-council",
+    stage: "planning",
+    reviewStatus: "approved",
+    decisionSummary: "Capability coverage chain claims complete.",
+    rationale: "This fixture intentionally has an unmatched Guardian evaluation.",
+    recommendation: "Proceed only if packet linkage is verified.",
+    teamOutputRefs: [],
+    roleResultRefs: [],
+    evidenceRefs: [],
+    followUpTaskIds: [],
+    sourceTaskId: taskId,
+    sourceParentSessionId: "SESS-COVERAGE-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews", `CREV-${taskId}.json`)
+  });
+
+  const result = await capabilityCoverageAuditCommand({ project: projectRoot, cutoffTaskId: taskId });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((error) => /packet has selected assignment evaluation/.test(error)));
+});
+
+test("capabilityCoverageAuditCommand rejects done work without actor output chain", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const taskId = "TASK-127";
+  await writeCapabilityCoverageTask(projectRoot, taskId);
+  await writeSelectedActorChain(projectRoot, taskId, "builder", "skill-schema-review");
+  await writeSelectedActorChain(projectRoot, taskId, "guardian", "skill-benchmark-validation");
+  await markCapabilityCoverageTaskDone(projectRoot, taskId);
+  await councilReviewPacketCommand({
+    project: projectRoot,
+    councilId: "architecture-council",
+    stage: "planning",
+    reviewStatus: "approved",
+    decisionSummary: "Capability coverage chain is complete.",
+    rationale: "This fixture intentionally omits role and team output artifacts.",
+    recommendation: "Proceed only if output chain is verified.",
+    teamOutputRefs: [],
+    roleResultRefs: [],
+    evidenceRefs: [],
+    followUpTaskIds: [],
+    sourceTaskId: taskId,
+    sourceParentSessionId: "SESS-COVERAGE-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews", `CREV-${taskId}.json`)
+  });
+
+  const result = await capabilityCoverageAuditCommand({ project: projectRoot, cutoffTaskId: taskId });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((error) => /role result presence for done work/.test(error)));
+  assert.ok(result.summary.errors.some((error) => /team output presence for done work/.test(error)));
 });
 
 test("capabilityCoverageAuditCommand blocks Builder-only work that needs Guardian skill coverage", async (t) => {
@@ -454,6 +583,35 @@ test("capabilityCoverageAuditCommand blocks Council risk notes without follow-up
     teamOutputRefs: [],
     roleResultRefs: [],
     evidenceRefs: [".aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json"],
+    followUpTaskIds: [],
+    sourceTaskId: taskId,
+    sourceParentSessionId: "SESS-COVERAGE-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews", `CREV-${taskId}.json`)
+  });
+
+  const result = await capabilityCoverageAuditCommand({ project: projectRoot, cutoffTaskId: taskId });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((error) => /council follow-up preservation/.test(error)));
+});
+
+test("capabilityCoverageAuditCommand blocks Japanese Council risk notes without follow-up tasks", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const taskId = "TASK-127";
+  await writeCapabilityCoverageTask(projectRoot, taskId);
+  await writeSelectedActorChain(projectRoot, taskId, "builder", "skill-schema-review");
+  await writeSelectedActorChain(projectRoot, taskId, "guardian", "skill-benchmark-validation");
+  await councilReviewPacketCommand({
+    project: projectRoot,
+    councilId: "product-council",
+    stage: "planning",
+    reviewStatus: "approved",
+    decisionSummary: "必要スキル不足のリスクがあります。",
+    rationale: "追加検証が必要ですが、次のタスクが保存されていません。",
+    recommendation: "フォローアップを作るべきです。",
+    teamOutputRefs: [],
+    roleResultRefs: [],
+    evidenceRefs: [],
     followUpTaskIds: [],
     sourceTaskId: taskId,
     sourceParentSessionId: "SESS-COVERAGE-TEST",

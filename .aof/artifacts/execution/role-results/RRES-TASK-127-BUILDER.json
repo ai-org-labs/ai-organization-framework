@@ -1,5 +1,6 @@
 {
-  "artifact_type": "role-result",
+  "result_type": "role-result",
+  "recorded_at": "2026-08-05T14:05:00.000Z",
   "role": "builder",
   "stage": "planning",
   "session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
@@ -12,6 +13,9 @@
   ],
   "decision_required": false,
   "source_task_id": "TASK-127",
+  "source_decision_record_id": null,
   "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "blocking_reason": null,
+  "missing_inputs": null,
   "confidence": 0.82
 }

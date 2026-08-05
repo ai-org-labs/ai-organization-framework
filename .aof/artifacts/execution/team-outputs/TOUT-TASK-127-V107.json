@@ -1,5 +1,7 @@
 {
-  "artifact_type": "team-output",
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-05T14:05:00.000Z",
+  "team_output_id": "TOUT-TASK-127-V107",
   "team_id": "runtime-team",
   "stage": "planning",
   "expected_roles": [
@@ -15,7 +17,8 @@
   "missing_roles": [],
   "aggregate_state": "ready-for-council-review",
   "recommended_next_step": "Approve v10.7 as capability coverage gate.",
-  "role_result_refs": [
+  "blocking_signals": [],
+  "joined_role_result_refs": [
     ".aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json",
     ".aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json",
     ".aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json"
@@ -28,5 +31,6 @@
   "decision_required": true,
   "summary": "Runtime, product, and verification views agree on coverage gate scope.",
   "source_task_id": "TASK-127",
-  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE"
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "source_decision_record_id": null
 }

@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "release-state-audit",
-  "generated_at": "2026-08-05T14:10:07.517Z",
+  "generated_at": "2026-08-05T14:23:02.730Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "active_release": {
     "artifact_type": "active-release-manifest",

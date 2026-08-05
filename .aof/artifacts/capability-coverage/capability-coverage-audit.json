@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "capability-coverage-audit",
-  "generated_at": "2026-08-05T14:04:42.698Z",
+  "generated_at": "2026-08-05T14:23:07.901Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "cutoff_task_id": "TASK-127",
   "audited_status_dirs": [
@@ -211,6 +211,16 @@
       "detail": "required sections and acceptance criteria must be present"
     },
     {
+      "name": "TASK-127 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-127 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
       "name": "TASK-127 capability fit has non-blocking evidence: cap-schema-review",
       "status": "pass",
       "detail": "fit_state=sufficient, evidence_refs=2"
@@ -236,6 +246,16 @@
       "detail": "required sections and acceptance criteria must be present"
     },
     {
+      "name": "TASK-127 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-127 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
       "name": "TASK-127 capability fit has non-blocking evidence: cap-runtime-verification",
       "status": "pass",
       "detail": "fit_state=sufficient, evidence_refs=2"
@@ -259,6 +279,16 @@
       "name": "TASK-127 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-127-visionary.json",
       "status": "pass",
       "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-127 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-127-visionary.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-127 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-127-visionary.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
     },
     {
       "name": "TASK-127 capability fit has non-blocking evidence: cap-need-validation",
@@ -291,9 +321,149 @@
       "detail": "1 review(s)"
     },
     {
+      "name": "TASK-127 council review schema: .aof/artifacts/execution/council-reviews/CREV-TASK-127-V107.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-127-V107.json"
+    },
+    {
       "name": "TASK-127 council follow-up preservation",
       "status": "pass",
       "detail": "0 review(s) mention missing role/skill/risk/validation without follow_up_task_ids"
+    },
+    {
+      "name": "TASK-127 role result presence for done work",
+      "status": "pass",
+      "detail": "3 role result(s)"
+    },
+    {
+      "name": "TASK-127 done work role result exists: builder",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-127 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json"
+    },
+    {
+      "name": "TASK-127 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-127 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json",
+      "status": "pass",
+      "detail": "1 artifact ref(s)"
+    },
+    {
+      "name": "TASK-127 done work role result exists: guardian",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-127 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-127 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-127 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json",
+      "status": "pass",
+      "detail": "1 artifact ref(s)"
+    },
+    {
+      "name": "TASK-127 done work role result exists: visionary",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-127 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json"
+    },
+    {
+      "name": "TASK-127 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-127 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json",
+      "status": "pass",
+      "detail": "1 artifact ref(s)"
+    },
+    {
+      "name": "TASK-127 team output presence for done work",
+      "status": "pass",
+      "detail": "1 team output(s)"
+    },
+    {
+      "name": "TASK-127 team output schema: .aof/artifacts/execution/team-outputs/TOUT-TASK-127-V107.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-127-V107.json"
+    },
+    {
+      "name": "TASK-127 team output ready: .aof/artifacts/execution/team-outputs/TOUT-TASK-127-V107.json",
+      "status": "pass",
+      "detail": "aggregate_state=ready-for-council-review"
+    },
+    {
+      "name": "TASK-127 team output has no missing roles: .aof/artifacts/execution/team-outputs/TOUT-TASK-127-V107.json",
+      "status": "pass",
+      "detail": "0 missing role(s)"
+    },
+    {
+      "name": "TASK-127 team output received role: builder",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-127 team output received role: guardian",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-127 team output received role: visionary",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-127 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json"
+    },
+    {
+      "name": "TASK-127 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-127 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json"
+    },
+    {
+      "name": "TASK-127 council review includes team output: .aof/artifacts/execution/team-outputs/TOUT-TASK-127-V107.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-127-V107.json"
+    },
+    {
+      "name": "TASK-127 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json"
+    },
+    {
+      "name": "TASK-127 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-127 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json"
     },
     {
       "name": "TASK-127 coverage ref resolves",
@@ -354,6 +524,26 @@
       "name": "TASK-127 coverage ref resolves",
       "status": "pass",
       "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-127-V107.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-127-V107.json"
     }
   ],
   "errors": []

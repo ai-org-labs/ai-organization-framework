@@ -1,6 +1,6 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-08-05T14:10:07.435Z",
+  "generated_at": "2026-08-05T14:25:51.057Z",
   "headline": "The next frontier is defined, but no aligned implementation task is open yet: After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit.",
   "current_state": {
     "release_version": "10.7.0",

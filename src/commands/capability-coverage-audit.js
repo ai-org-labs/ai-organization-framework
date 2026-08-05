@@ -14,7 +14,14 @@ const RISK_TERMS_REQUIRING_FOLLOW_UP = [
   /missing skill/i,
   /player comprehension/i,
   /required validation/i,
-  /recommended next step/i
+  /recommended next step/i,
+  /不足/,
+  /未割り当て/,
+  /未検証/,
+  /追加検証/,
+  /フォローアップ/,
+  /次のタスク/,
+  /リスク/
 ];
 
 function taskNumber(taskId) {
@@ -114,7 +121,15 @@ function textSignalsFollowUp(review) {
 
 function extractFollowUpTaskIds(review) {
   const payload = review.payload ?? review;
-  return payload.follow_up_task_ids ?? payload.follow_up_task_ids ?? [];
+  return payload.follow_up_task_ids ?? [];
+}
+
+function refsFromTeamOutput(teamOutput) {
+  const payload = teamOutput.payload ?? teamOutput;
+  return [
+    ...(payload.joined_role_result_refs ?? []),
+    ...(payload.role_result_refs ?? [])
+  ];
 }
 
 function summarizeTaskCoverage(task, goal, packets, evaluations, gates, councilReviews) {
@@ -193,6 +208,18 @@ export async function capabilityCoverageAuditCommand(options) {
     null,
     "council review"
   )).filter((review) => buildCouncilReviewSourceTask(review) !== null);
+  const roleResults = (await loadArtifactsBySourceTask(
+    projectRoot,
+    ["execution", "role-results"],
+    null,
+    "role result"
+  )).filter((result) => result.source_task_id !== null);
+  const teamOutputs = (await loadArtifactsBySourceTask(
+    projectRoot,
+    ["execution", "team-outputs"],
+    null,
+    "team output"
+  )).filter((output) => output.source_task_id !== null);
 
   pushCheck(
     checks,
@@ -223,6 +250,8 @@ export async function capabilityCoverageAuditCommand(options) {
     const taskEvaluations = evaluations.filter((evaluation) => evaluation.source_task_id === task.task_id);
     const taskGates = gates.filter((gate) => gate.source_task_id === task.task_id);
     const taskReviews = councilReviews.filter((review) => buildCouncilReviewSourceTask(review) === task.task_id);
+    const taskRoleResults = roleResults.filter((result) => result.source_task_id === task.task_id);
+    const taskTeamOutputs = teamOutputs.filter((output) => output.source_task_id === task.task_id);
     const coverage = summarizeTaskCoverage(task, goal, taskPackets, taskEvaluations, taskGates, taskReviews);
     coverageRecords.push(coverage);
 
@@ -243,10 +272,16 @@ export async function capabilityCoverageAuditCommand(options) {
 
     pushCheck(checks, errors, `${task.task_id} actor skill packet presence`, taskPackets.length > 0, `${taskPackets.length} packet(s)`);
     for (const packet of taskPackets) {
+      const linkedEvaluations = taskEvaluations.filter((evaluation) => evaluation.payload.actor_skill_packet_ref === packet.artifact_ref || evaluation.payload.actor_skill_packet_id === packet.payload.packet_id);
+      const selectedLinkedEvaluations = linkedEvaluations.filter((evaluation) => ACCEPTED_ASSIGNMENT_STATES.has(evaluation.payload.assignment_decision?.assignment_state));
+      const linkedGates = taskGates.filter((gate) => gate.payload.actor_skill_packet_ref === packet.artifact_ref || linkedEvaluations.some((evaluation) => gate.payload.actor_assignment_evaluation_ref === evaluation.artifact_ref));
+      const allowedLinkedGates = linkedGates.filter((gate) => ACCEPTED_EXECUTION_GATE_STATES.has(gate.payload.gate_decision?.execution_gate_state));
       pushCheck(checks, errors, `${task.task_id} packet has concrete actor: ${packet.artifact_ref}`, Boolean(packet.payload.assignment?.actor_ref), `actor_ref=${packet.payload.assignment?.actor_ref ?? "missing"}`);
       pushCheck(checks, errors, `${task.task_id} packet actor exists: ${packet.artifact_ref}`, agentIds.has(packet.payload.assignment?.actor_ref), `actor_ref=${packet.payload.assignment?.actor_ref ?? "missing"}`);
       pushCheck(checks, errors, `${task.task_id} packet role exists: ${packet.artifact_ref}`, roleIds.has(packet.payload.assignment?.role_ref), `role_ref=${packet.payload.assignment?.role_ref ?? "missing"}`);
       pushCheck(checks, errors, `${task.task_id} packet output contract present: ${packet.artifact_ref}`, (packet.payload.expected_output_contract?.required_sections ?? []).length > 0 && (packet.payload.expected_output_contract?.acceptance_criteria ?? []).length > 0, "required sections and acceptance criteria must be present");
+      pushCheck(checks, errors, `${task.task_id} packet has selected assignment evaluation: ${packet.artifact_ref}`, selectedLinkedEvaluations.length > 0, `${selectedLinkedEvaluations.length} selected evaluation(s)`);
+      pushCheck(checks, errors, `${task.task_id} packet has allowed execution gate: ${packet.artifact_ref}`, allowedLinkedGates.length > 0, `${allowedLinkedGates.length} allowed gate(s)`);
       for (const fit of packet.payload.capability_fit ?? []) {
         const nonBlockingFit = !["missing", "blocked"].includes(fit.fit_state);
         pushCheck(checks, errors, `${task.task_id} capability fit has non-blocking evidence: ${fit.capability_ref}`, nonBlockingFit && (fit.evidence_refs ?? []).length > 0, `fit_state=${fit.fit_state}, evidence_refs=${fit.evidence_refs?.length ?? 0}`);
@@ -258,7 +293,61 @@ export async function capabilityCoverageAuditCommand(options) {
     pushCheck(checks, errors, `${task.task_id} actor execution gate presence`, taskGates.length >= taskEvaluations.length && taskGates.length > 0, `${taskGates.length} gate(s) for ${taskEvaluations.length} evaluation(s)`);
     pushCheck(checks, errors, `${task.task_id} execution gates allowed`, coverage.non_allowed_gate_count === 0 && taskGates.length > 0, `states=${coverage.execution_gate_states.join(", ") || "none"}`);
     pushCheck(checks, errors, `${task.task_id} council review presence`, taskReviews.length > 0, `${taskReviews.length} review(s)`);
+    for (const review of taskReviews) {
+      try {
+        await validateWithBundledSchema(review.payload, "aof-council-review-packet.schema.json", "council review");
+        pushCheck(checks, errors, `${task.task_id} council review schema: ${review.artifact_ref}`, true, review.artifact_ref);
+      } catch (error) {
+        pushCheck(checks, errors, `${task.task_id} council review schema: ${review.artifact_ref}`, false, error.message);
+      }
+    }
     pushCheck(checks, errors, `${task.task_id} council follow-up preservation`, coverage.follow_up_missing_review_count === 0, `${coverage.follow_up_missing_review_count} review(s) mention missing role/skill/risk/validation without follow_up_task_ids`);
+
+    if (task.status_dir === "done") {
+      pushCheck(checks, errors, `${task.task_id} role result presence for done work`, taskRoleResults.length > 0, `${taskRoleResults.length} role result(s)`);
+      for (const role of coverage.required_roles) {
+        const matchingResults = taskRoleResults.filter((result) => result.payload.role === role);
+        pushCheck(checks, errors, `${task.task_id} done work role result exists: ${role}`, matchingResults.length > 0, `${matchingResults.length} role result(s)`);
+        for (const result of matchingResults) {
+          try {
+            await validateWithBundledSchema(result.payload, "aof-role-result.schema.json", "role result");
+            pushCheck(checks, errors, `${task.task_id} role result schema: ${result.artifact_ref}`, true, result.artifact_ref);
+          } catch (error) {
+            pushCheck(checks, errors, `${task.task_id} role result schema: ${result.artifact_ref}`, false, error.message);
+          }
+          pushCheck(checks, errors, `${task.task_id} role result completed: ${result.artifact_ref}`, result.payload.status === "completed", `status=${result.payload.status ?? "missing"}`);
+          pushCheck(checks, errors, `${task.task_id} role result artifact refs: ${result.artifact_ref}`, (result.payload.artifact_refs ?? []).length > 0, `${result.payload.artifact_refs?.length ?? 0} artifact ref(s)`);
+        }
+      }
+
+      pushCheck(checks, errors, `${task.task_id} team output presence for done work`, taskTeamOutputs.length > 0, `${taskTeamOutputs.length} team output(s)`);
+      for (const output of taskTeamOutputs) {
+        try {
+          await validateWithBundledSchema(output.payload, "aof-team-output.schema.json", "team output");
+          pushCheck(checks, errors, `${task.task_id} team output schema: ${output.artifact_ref}`, true, output.artifact_ref);
+        } catch (error) {
+          pushCheck(checks, errors, `${task.task_id} team output schema: ${output.artifact_ref}`, false, error.message);
+        }
+        pushCheck(checks, errors, `${task.task_id} team output ready: ${output.artifact_ref}`, output.payload.aggregate_state === "ready-for-council-review", `aggregate_state=${output.payload.aggregate_state ?? "missing"}`);
+        pushCheck(checks, errors, `${task.task_id} team output has no missing roles: ${output.artifact_ref}`, (output.payload.missing_roles ?? []).length === 0, `${output.payload.missing_roles?.length ?? 0} missing role(s)`);
+        for (const role of coverage.required_roles) {
+          pushCheck(checks, errors, `${task.task_id} team output received role: ${role}`, (output.payload.received_roles ?? []).includes(role), `received=${(output.payload.received_roles ?? []).join(", ") || "none"}`);
+        }
+      }
+
+      const councilRoleRefs = new Set(taskReviews.flatMap((review) => review.payload.role_result_refs ?? []));
+      const councilTeamRefs = new Set(taskReviews.flatMap((review) => review.payload.team_output_refs ?? []));
+      for (const result of taskRoleResults) {
+        pushCheck(checks, errors, `${task.task_id} council review includes role result: ${result.artifact_ref}`, councilRoleRefs.has(result.artifact_ref), result.artifact_ref);
+      }
+      for (const output of taskTeamOutputs) {
+        const roleRefs = refsFromTeamOutput(output);
+        pushCheck(checks, errors, `${task.task_id} council review includes team output: ${output.artifact_ref}`, councilTeamRefs.has(output.artifact_ref), output.artifact_ref);
+        for (const result of taskRoleResults) {
+          pushCheck(checks, errors, `${task.task_id} team output includes role result: ${result.artifact_ref}`, roleRefs.includes(result.artifact_ref), result.artifact_ref);
+        }
+      }
+    }
 
     for (const ref of [
       task.artifact_ref,
@@ -266,7 +355,9 @@ export async function capabilityCoverageAuditCommand(options) {
       ...coverage.actor_skill_packet_refs,
       ...coverage.assignment_evaluation_refs,
       ...coverage.actor_execution_gate_refs,
-      ...coverage.council_review_refs
+      ...coverage.council_review_refs,
+      ...taskRoleResults.map((result) => result.artifact_ref),
+      ...taskTeamOutputs.map((output) => output.artifact_ref)
     ]) {
       pushCheck(checks, errors, `${task.task_id} coverage ref resolves`, await pathExists(path.resolve(projectRoot, ref)), ref);
     }
