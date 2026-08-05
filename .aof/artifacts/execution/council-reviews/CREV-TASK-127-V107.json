@@ -1,0 +1,42 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-08-05T14:05:00.000Z",
+  "review_packet_id": "CREV-TASK-127-V107",
+  "council_id": "architecture-council",
+  "stage": "planning",
+  "review_status": "approved",
+  "decision_summary": "Approve v10.7 Capability Coverage Gate as release-critical pre-build coverage enforcement.",
+  "rationale": "The release adds runtime audit, schema, tests, and release-state integration so required roles and skills must be connected to concrete actor and gate evidence before build.",
+  "recommendation": "Release v10.7 after local, clean checkout, main CI, tag CI, and GitHub Release evidence are recorded.",
+  "target_audience": "AOF operators",
+  "expected_user_reaction": "AOF now catches missing expertise before build.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": "Capability Coverage Gap",
+  "diagnosis_confidence": 0.9,
+  "diagnosis_evidence_refs": [
+    "test/runtime-core-2.test.js"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-127-V107.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-127-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-127-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-127-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v10.7-release-definition.md",
+    "docs/v10.7-release-checklist.md",
+    "src/commands/capability-coverage-audit.js",
+    "schemas/aof-capability-coverage-audit.schema.json",
+    "test/runtime-core-2.test.js"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "source_decision_record_id": null
+}

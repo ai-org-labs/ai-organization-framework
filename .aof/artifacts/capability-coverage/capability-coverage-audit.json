@@ -1,0 +1,360 @@
+{
+  "ok": true,
+  "artifact_type": "capability-coverage-audit",
+  "generated_at": "2026-08-05T14:04:42.698Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "cutoff_task_id": "TASK-127",
+  "audited_status_dirs": [
+    "open",
+    "assigned",
+    "done"
+  ],
+  "summary": {
+    "scoped_task_count": 1,
+    "coverage_record_count": 1,
+    "missing_role_count": 0,
+    "missing_skill_count": 0,
+    "blocked_assignment_count": 0,
+    "non_allowed_gate_count": 0,
+    "follow_up_missing_review_count": 0,
+    "failing_check_count": 0
+  },
+  "tasks": [
+    {
+      "task_id": "TASK-127",
+      "title": "Ship v10.7 Capability Coverage Gate",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-127.json"
+    }
+  ],
+  "coverage_records": [
+    {
+      "task_id": "TASK-127",
+      "task_ref": ".aof/tasks/done/TASK-127.json",
+      "goal_ref": ".aof/artifacts/work-items/goals/TASK-127.json",
+      "required_roles": [
+        "builder",
+        "guardian",
+        "visionary"
+      ],
+      "required_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation",
+        "skill-need-validation"
+      ],
+      "assigned_roles": [
+        "builder",
+        "guardian",
+        "visionary"
+      ],
+      "assigned_actors": [
+        "codex"
+      ],
+      "covered_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation",
+        "skill-need-validation"
+      ],
+      "missing_roles": [],
+      "missing_skills": [],
+      "actor_skill_packet_refs": [
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-127-visionary.json"
+      ],
+      "assignment_evaluation_refs": [
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-127-builder.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-127-guardian.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-127-visionary.json"
+      ],
+      "actor_execution_gate_refs": [
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-127-builder.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-127-guardian.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-127-visionary.json"
+      ],
+      "council_review_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-127-V107.json"
+      ],
+      "assignment_states": [
+        "selected"
+      ],
+      "execution_gate_states": [
+        "allowed"
+      ],
+      "blocked_assignment_count": 0,
+      "non_selected_assignment_count": 0,
+      "non_allowed_gate_count": 0,
+      "follow_up_required_review_count": 0,
+      "follow_up_missing_review_count": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "scoped task discovery",
+      "status": "pass",
+      "detail": "1 task(s) at or after TASK-127 in open, assigned, done"
+    },
+    {
+      "name": "TASK-127 work item goal presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-127.json"
+    },
+    {
+      "name": "TASK-127 work item goal schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-127.json"
+    },
+    {
+      "name": "TASK-127 required roles declared",
+      "status": "pass",
+      "detail": "3 role(s)"
+    },
+    {
+      "name": "TASK-127 required skills declared",
+      "status": "pass",
+      "detail": "3 skill(s)"
+    },
+    {
+      "name": "TASK-127 expected outputs declared",
+      "status": "pass",
+      "detail": "5 output(s)"
+    },
+    {
+      "name": "TASK-127 acceptance gates declared",
+      "status": "pass",
+      "detail": "success_criteria and go/no-go criteria must be explicit"
+    },
+    {
+      "name": "TASK-127 required role exists: builder",
+      "status": "pass",
+      "detail": "builder"
+    },
+    {
+      "name": "TASK-127 required role assigned: builder",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-127 required role exists: guardian",
+      "status": "pass",
+      "detail": "guardian"
+    },
+    {
+      "name": "TASK-127 required role assigned: guardian",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-127 required role exists: visionary",
+      "status": "pass",
+      "detail": "visionary"
+    },
+    {
+      "name": "TASK-127 required role assigned: visionary",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-127 required skill exists: skill-schema-review",
+      "status": "pass",
+      "detail": "skill-schema-review"
+    },
+    {
+      "name": "TASK-127 required skill packet-covered: skill-schema-review",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation, skill-need-validation"
+    },
+    {
+      "name": "TASK-127 required skill exists: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "skill-benchmark-validation"
+    },
+    {
+      "name": "TASK-127 required skill packet-covered: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation, skill-need-validation"
+    },
+    {
+      "name": "TASK-127 required skill exists: skill-need-validation",
+      "status": "pass",
+      "detail": "skill-need-validation"
+    },
+    {
+      "name": "TASK-127 required skill packet-covered: skill-need-validation",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation, skill-need-validation"
+    },
+    {
+      "name": "TASK-127 actor skill packet presence",
+      "status": "pass",
+      "detail": "3 packet(s)"
+    },
+    {
+      "name": "TASK-127 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-127 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-127 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json",
+      "status": "pass",
+      "detail": "role_ref=builder"
+    },
+    {
+      "name": "TASK-127 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-127 capability fit has non-blocking evidence: cap-schema-review",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-127 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-127 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-127 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json",
+      "status": "pass",
+      "detail": "role_ref=guardian"
+    },
+    {
+      "name": "TASK-127 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-127 capability fit has non-blocking evidence: cap-runtime-verification",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-127 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-127-visionary.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-127 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-127-visionary.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-127 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-127-visionary.json",
+      "status": "pass",
+      "detail": "role_ref=visionary"
+    },
+    {
+      "name": "TASK-127 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-127-visionary.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-127 capability fit has non-blocking evidence: cap-need-validation",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-127 actor assignment evaluation presence",
+      "status": "pass",
+      "detail": "3 evaluation(s) for 3 packet(s)"
+    },
+    {
+      "name": "TASK-127 assignments selected before execution",
+      "status": "pass",
+      "detail": "states=selected"
+    },
+    {
+      "name": "TASK-127 actor execution gate presence",
+      "status": "pass",
+      "detail": "3 gate(s) for 3 evaluation(s)"
+    },
+    {
+      "name": "TASK-127 execution gates allowed",
+      "status": "pass",
+      "detail": "states=allowed"
+    },
+    {
+      "name": "TASK-127 council review presence",
+      "status": "pass",
+      "detail": "1 review(s)"
+    },
+    {
+      "name": "TASK-127 council follow-up preservation",
+      "status": "pass",
+      "detail": "0 review(s) mention missing role/skill/risk/validation without follow_up_task_ids"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-127.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-127.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-127-visionary.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-127-builder.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-127-guardian.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-127-visionary.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-127-builder.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-127-guardian.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-127-visionary.json"
+    },
+    {
+      "name": "TASK-127 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-127-V107.json"
+    }
+  ],
+  "errors": []
+}

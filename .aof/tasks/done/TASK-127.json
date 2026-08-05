@@ -1,0 +1,9 @@
+{
+  "task_id": "TASK-127",
+  "title": "Ship v10.7 Capability Coverage Gate",
+  "status": "done",
+  "updated_at": "2026-08-05T14:05:00.000Z",
+  "origin": "runtime",
+  "orchestrator_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "description": "Implement and release a pre-build capability coverage audit that blocks missing required roles, skills, actor assignment evidence, execution gates, output contracts, and Council follow-up tasks."
+}

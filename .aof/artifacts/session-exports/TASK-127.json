@@ -1,0 +1,130 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEXP-TASK-127-V106",
+  "recorded_at": "2026-08-05T01:31:12.136Z",
+  "work_item_id": "TASK-127",
+  "work_item_ref": ".aof/tasks/done/TASK-127.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V101-THIRD-PARTY-VALIDATION.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export summarizes local runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-V101-1",
+      "event_type": "prompt",
+      "summary": "AOF selected v10.1 as the next bounded release after v9.7.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V101-2",
+      "event_type": "response",
+      "summary": "AOF framed v10.1 as a validation contract, not live provider execution.",
+      "artifact_refs": [
+        "docs/v10.1-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V101-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime recorded TASK-121 as the v10.1 release work item.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-121.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V101-4",
+      "event_type": "artifact_write",
+      "summary": "AOF created release definition, checklist, and release notes for the validation contract.",
+      "artifact_refs": [
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1-release-checklist.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V101-5",
+      "event_type": "artifact_write",
+      "summary": "AOF updated README, Quickstart, capability matrix, active release manifest, and operating goals to v10.1.",
+      "artifact_refs": [
+        "README.md",
+        "docs/quickstart.md",
+        "docs/aof-capability-matrix.md",
+        ".aof/context/active/active-release-manifest.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V101-6",
+      "event_type": "verification",
+      "summary": "AOF runtime verified organization, archmap impact, release-state, tests, and smoke before release.",
+      "artifact_refs": [
+        ".aof/artifacts/archmap/archmap-impact-audit.json",
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V101-7",
+      "event_type": "blocker",
+      "summary": "Live provider execution safety, provider credentials, market truth, and external operator acceptance remain not proven.",
+      "artifact_refs": [
+        "docs/v10.1-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V101-8",
+      "event_type": "stop_condition",
+      "summary": "Release must stop if it presents v10.1 as production execution rather than a validation contract.",
+      "artifact_refs": [
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-121.json"
+    ],
+    "requirement_refs": [
+      "docs/v10.1-release-definition.md",
+      "docs/aof-capability-matrix.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/context/active/release-state-audit.json",
+      ".aof/artifacts/archmap/archmap-impact-audit.json"
+    ],
+    "artifact_refs": [
+      "docs/v10.1-release-definition.md",
+      "docs/v10.1-release-checklist.md",
+      "docs/v10.1.0-release-notes.md",
+      "README.md",
+      "docs/quickstart.md",
+      "docs/aof-capability-matrix.md"
+    ],
+    "risk_candidates": [
+      "Validation contract could be confused with completed external validation.",
+      "Self-hosting operator evidence is not enough for third-party validation."
+    ],
+    "decision_candidates": [
+      "Proceed as validation contract only.",
+      "Defer validation-completed claims until external result ingestion exists."
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v10.1-release-definition.md",
+      "docs/v10.1-release-checklist.md",
+      "docs/v10.1.0-release-notes.md",
+      ".aof/context/active/release-state-audit.json"
+    ]
+  },
+  "redaction_boundary": "The export excludes raw provider transcript and secrets; it records bounded local AOF artifact refs and summaries.",
+  "release_ready_boundary": "Release-ready means the validation contract is complete and auditable; it does not mean third-party validation is complete.",
+  "not_proven": "This v10.7 evidence proves a capability coverage gate contract only; it does not prove actual external validation results, market value, external adoption, live provider execution, provider write safety, or production safety.",
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V106-PROD-AUTH-MODEL",
+  "source_decision_record_id": null,
+  "notes": null
+}

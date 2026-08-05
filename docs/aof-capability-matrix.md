@@ -125,3 +125,9 @@ NEW: `PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE` lets operators see provider-b
 NEW: `PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION` lets AOF classify external reviewer results and route uncertainty into governance.
 
 30-second delta: v10.5 made provider-backed work understandable as a lifecycle; v10.6 defines how third-party validation results enter that lifecycle as governed evidence.
+
+## v10.7 Capability Delta
+
+| Capability | v10.6 | v10.7 | User-visible change |
+|---|---|---|---|
+| Capability Coverage Gate | - | NEW | AOF can block build/release-critical work when required roles, skills, actor assignments, execution gates, outputs, acceptance gates, or Council follow-up tasks are missing. |

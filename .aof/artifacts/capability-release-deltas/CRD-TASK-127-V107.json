@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MSG5NBR8-MJEU9I",
+  "recorded_at": "2026-08-05T14:01:00.740Z",
+  "release_version": "10.7.0",
+  "release_ref": "docs/v10.7-release-definition.md",
+  "work_item_id": "TASK-127",
+  "work_item_ref": ".aof/tasks/done/TASK-127.json",
+  "one_minute_value_explanation": "v10.7 lets AOF stop build/release-critical work when required roles and skills are only nominally present and not connected to concrete actor, output, evidence, acceptance, and Council review artifacts.",
+  "thirty_second_version_delta": "v10.6 defined how validation results enter AOF; v10.7 prevents work from starting or shipping when required expertise coverage is missing.",
+  "new_capability_ids": [
+    "PCAP-CAPABILITY-COVERAGE-GATE"
+  ],
+  "updated_capability_ids": [],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.7-release-definition.md",
+    "docs/v10.7.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If an operator cannot see which required roles/skills are missing before build, reopen capability coverage UX and audit design.",
+  "not_proven": "Capability coverage does not prove semantic expert correctness, playtest truth, market truth, external adoption, or production safety.",
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "source_decision_record_id": null,
+  "notes": null
+}

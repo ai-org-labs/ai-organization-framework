@@ -309,6 +309,20 @@
         "docs/v10.6.0-release-notes.md",
         ".aof/artifacts/capability-release-deltas/CRD-TASK-126-V106.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-CAPABILITY-COVERAGE-GATE",
+      "name": "Capability Coverage Gate",
+      "description": "Block build/release-critical work when required roles, skills, concrete actor assignments, output contracts, evidence, acceptance gates, or Council follow-up tasks are missing.",
+      "user_value": "Operators can catch missing specialists before build instead of discovering role/skill gaps during playtest or release review.",
+      "first_version": "v10.7.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.7-release-definition.md",
+        "src/commands/capability-coverage-audit.js",
+        "schemas/aof-capability-coverage-audit.schema.json",
+        "test/runtime-core-2.test.js"
+      ]
     }
   ]
 }

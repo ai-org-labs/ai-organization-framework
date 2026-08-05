@@ -34,6 +34,7 @@ import { parallelLaneAuditCommand } from "./parallel-lane-audit.js";
 import { requirementCoverageAuditCommand } from "./requirement-coverage-audit.js";
 import { sessionExportAuditCommand } from "./session-export-audit.js";
 import { workReadinessAuditCommand } from "./work-readiness-audit.js";
+import { capabilityCoverageAuditCommand } from "./capability-coverage-audit.js";
 
 const DEFAULT_GOVERNANCE_AUDIT_CUTOFF_TASK_ID = "TASK-071";
 
@@ -305,6 +306,15 @@ function requiresProviderCostQuotaBoundaryAudit(releaseVersion) {
   return major > 9 || (major === 9 && minor >= 6);
 }
 
+function requiresCapabilityCoverageAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 10 || (major === 10 && minor >= 7);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -320,6 +330,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresWorkReadinessAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("work-readiness-audit", await workReadinessAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresCapabilityCoverageAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("capability-coverage-audit", await capabilityCoverageAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresContextReferenceIntegrityAudit(manifest?.release_version)) {

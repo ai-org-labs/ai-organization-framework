@@ -80,6 +80,7 @@ import { operatorAcceptanceDrillRecordCommand } from "../src/commands/operator-a
 import { productValueEvidenceAuditCommand } from "../src/commands/product-value-evidence-audit.js";
 import { productValueEvidenceRecordCommand } from "../src/commands/product-value-evidence-record.js";
 import { capabilityFirstReleaseAuditCommand } from "../src/commands/capability-first-release-audit.js";
+import { capabilityCoverageAuditCommand } from "../src/commands/capability-coverage-audit.js";
 import { capabilityReleaseDeltaRecordCommand } from "../src/commands/capability-release-delta-record.js";
 import { outcomeReportCommand } from "../src/commands/outcome-report.js";
 import { policyEvaluationReportCommand } from "../src/commands/policy-evaluation-report.js";
@@ -116,6 +117,178 @@ import { loadSession } from "../src/runtime/session.js";
 import { loadTemplate } from "../src/runtime/template-loader.js";
 import { validateWithBundledSchema } from "../src/runtime/validation.js";
 import { repoRoot, genericExampleProjectRoot, createTempProject, createTempProjectFrom, createTempProjectWithDecisions, createInitializedProject, createInitializedProjectWithDocsDecision, ensureReleaseRefFixtures, ensureReleaseContractFixture, advanceSessionToPlanning, writeVisibilityFixture } from "./runtime-test-helpers.js";
+
+async function writeJsonFixture(filePath, payload) {
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  await fs.writeFile(filePath, JSON.stringify(payload, null, 2));
+}
+
+async function ensureCapabilityCoverageRegistry(projectRoot) {
+  const organizationPath = path.join(projectRoot, ".aof", "organization.json");
+  const organization = JSON.parse(await fs.readFile(organizationPath, "utf8"));
+  organization.teams = organization.teams ?? [];
+  organization.roles = organization.roles ?? [];
+  organization.agents = organization.agents ?? [];
+  for (const team of [
+    { team_id: "runtime-team", name: "Runtime Team", mission: "Implement runtime work.", responsibilities: ["build"], authority: ["implement"], deliverables: ["runtime"], dependencies: [] },
+    { team_id: "verification-team", name: "Verification Team", mission: "Verify runtime work.", responsibilities: ["verify"], authority: ["block"], deliverables: ["tests"], dependencies: [] }
+  ]) {
+    if (!organization.teams.some((entry) => entry.team_id === team.team_id)) {
+      organization.teams.push(team);
+    }
+  }
+  for (const role of [
+    { role_id: "builder", name: "Builder", mission: "Build governed work.", authority: ["implement"], team_ref: "runtime-team", assignments: [] },
+    { role_id: "guardian", name: "Guardian", mission: "Verify governed work.", authority: ["block"], team_ref: "verification-team", assignments: [] }
+  ]) {
+    if (!organization.roles.some((entry) => entry.role_id === role.role_id)) {
+      organization.roles.push(role);
+    }
+  }
+  if (!organization.agents.some((entry) => entry.agent_id === "codex")) {
+    organization.agents.push({
+      agent_id: "codex",
+      agent_type: "ai-agent",
+      provider: "OpenAI Codex",
+      capabilities: ["artifact-authoring", "runtime-editing", "verification"]
+    });
+  }
+  await writeJsonFixture(organizationPath, organization);
+
+  await writeJsonFixture(path.join(projectRoot, ".aof", "skills.json"), {
+    skills_type: "aof-skills",
+    skills_format_version: 1,
+    organization_ref: ".aof/organization.json",
+    skills: [
+      {
+        skill_id: "skill-schema-review",
+        name: "Schema Review",
+        owner_ref: "architecture-council",
+        version: "0.1.0",
+        purpose: "Review schema changes.",
+        applicable_role_refs: ["builder"],
+        required_capability_refs: ["cap-schema-review"],
+        required_resource_refs: [],
+        inputs: ["schema"],
+        expected_outputs: ["schema review"],
+        validation_rules: ["must cite evidence"]
+      },
+      {
+        skill_id: "skill-benchmark-validation",
+        name: "Benchmark Validation",
+        owner_ref: "verification-team",
+        version: "0.1.0",
+        purpose: "Validate benchmark evidence.",
+        applicable_role_refs: ["guardian"],
+        required_capability_refs: ["cap-runtime-verification"],
+        required_resource_refs: [],
+        inputs: ["test results"],
+        expected_outputs: ["verification result"],
+        validation_rules: ["must cite evidence"]
+      }
+    ],
+    updated_at: "2026-08-05T02:00:00.000Z"
+  });
+}
+
+async function writeCapabilityCoverageTask(projectRoot, taskId, goalOverrides = {}) {
+  await ensureCapabilityCoverageRegistry(projectRoot);
+  await writeJsonFixture(path.join(projectRoot, ".aof", "tasks", "open", `${taskId}.json`), {
+    task_id: taskId,
+    title: "Capability coverage gated implementation",
+    status: "open",
+    updated_at: "2026-08-05T02:00:00.000Z"
+  });
+  const goal = {
+    artifact_type: "work-item-goal",
+    recorded_at: "2026-08-05T02:00:00.000Z",
+    work_item_id: taskId,
+    work_item_type: "feature",
+    objective: "Implement a release-critical capability coverage gate.",
+    reason_for_work: "AOF must not build when required roles and skills are not actually assigned.",
+    expected_output: ["capability coverage audit", "negative acceptance tests"],
+    consumer: ["AOF operators"],
+    downstream_dependency: ["release-state-audit"],
+    success_criteria: ["required roles and skills are assigned to concrete actors", "coverage audit fails missing assignment evidence"],
+    go_no_go_criteria: {
+      go: ["capability coverage audit passes"],
+      no_go: ["any required role, skill, actor assignment, execution gate, or follow-up task is missing"]
+    },
+    required_visualization: ["evidence-coverage-map"],
+    required_skills: ["skill-schema-review", "skill-benchmark-validation"],
+    required_actor_roles: ["builder", "guardian"],
+    council_review_need: "required",
+    external_refs: ["docs/aof-qif-quality-definition.md"],
+    source_task_id: taskId,
+    source_parent_session_id: "SESS-COVERAGE-TEST",
+    source_decision_record_id: null,
+    ...goalOverrides
+  };
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "work-items", "goals", `${taskId}.json`), goal);
+}
+
+async function writeSelectedActorChain(projectRoot, taskId, roleRef, skillRef) {
+  const packet = await actorSkillPacketRecordCommand({
+    project: projectRoot,
+    packetId: `ASP-${taskId}-${roleRef}`,
+    objective: `Cover ${roleRef} with ${skillRef}.`,
+    actorRef: "codex",
+    roleRef,
+    teamRef: roleRef === "builder" ? "runtime-team" : "verification-team",
+    assignmentReason: `${roleRef} is explicitly assigned for coverage.`,
+    executionMode: "single-actor",
+    requiredSkillRefs: [skillRef],
+    capabilityFit: [{
+      capability_ref: skillRef === "skill-schema-review" ? "cap-schema-review" : "cap-runtime-verification",
+      fit_state: "sufficient",
+      evidence_refs: ["test/runtime-core-2.test.js"],
+      rationale: "Test fixture supplies explicit capability evidence."
+    }],
+    resourceRefs: [],
+    policyRefs: [],
+    outputArtifactType: "capability-coverage-evidence",
+    outputArtifactSchemaRef: null,
+    requiredSections: ["assignment", "skill_evidence", "acceptance_gate"],
+    acceptanceCriteria: ["role and skill are covered by an actor packet"],
+    reviewCriteria: [{
+      criterion: "Assignment evidence exists before build.",
+      evaluator_ref: "guardian",
+      evidence_required: "actor assignment evaluation",
+      blocking: true
+    }],
+    blockerSemantics: [{
+      blocker_code: "missing-role-skill-coverage",
+      trigger_condition: "required role or skill has no actor packet",
+      consequence: "block-assignment",
+      recovery_action: "assign a fit actor before build"
+    }],
+    characterLabel: roleRef,
+    speechBubble: "I have explicit assignment evidence.",
+    currentAction: "Cover required role and skill",
+    confidenceLabel: "medium",
+    nextAction: "Submit assignment evaluation",
+    sourceTaskId: taskId,
+    sourceParentSessionId: "SESS-COVERAGE-TEST",
+    status: "ready-for-assignment",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "actor-skill-packets", `ASP-${taskId}-${roleRef}.json`)
+  });
+  const evaluation = await actorAssignmentEvaluationRecordCommand({
+    project: projectRoot,
+    actorSkillPacketRef: path.relative(projectRoot, packet.artifactPath),
+    sourceTaskId: taskId,
+    sourceParentSessionId: "SESS-COVERAGE-TEST",
+    evaluationId: `AAE-${taskId}-${roleRef}`,
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "actor-assignment-evaluations", `AAE-${taskId}-${roleRef}.json`)
+  });
+  await actorExecutionGateRecordCommand({
+    project: projectRoot,
+    actorAssignmentEvaluationRef: path.relative(projectRoot, evaluation.artifactPath),
+    sourceTaskId: taskId,
+    sourceParentSessionId: "SESS-COVERAGE-TEST",
+    gateId: `AEG-${taskId}-${roleRef}`,
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "actor-execution-gates", `AEG-${taskId}-${roleRef}.json`)
+  });
+}
 
 test("actor skill packet schema defines the v5.0 contract surface", async () => {
   const payload = {
@@ -185,6 +358,112 @@ test("actor skill packet schema defines the v5.0 contract surface", async () => 
     validateWithBundledSchema(missingSkillRefs, "aof-actor-skill-packet.schema.json", "actor skill packet"),
     /missing required key 'required_skill_refs'/
   );
+});
+
+test("capabilityCoverageAuditCommand passes only when roles, skills, actors, gates, and Council review are connected", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const taskId = "TASK-127";
+  await writeCapabilityCoverageTask(projectRoot, taskId);
+  await writeSelectedActorChain(projectRoot, taskId, "builder", "skill-schema-review");
+  await writeSelectedActorChain(projectRoot, taskId, "guardian", "skill-benchmark-validation");
+  await councilReviewPacketCommand({
+    project: projectRoot,
+    councilId: "architecture-council",
+    stage: "planning",
+    reviewStatus: "approved",
+    decisionSummary: "Capability coverage chain is complete.",
+    rationale: "Builder and Guardian are both assigned with required skills, selected assignment evaluations, and allowed execution gates.",
+    recommendation: "Proceed to build under the coverage gate.",
+    teamOutputRefs: [],
+    roleResultRefs: [],
+    evidenceRefs: [
+      ".aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json",
+      ".aof/artifacts/actor-skill-packets/ASP-TASK-127-guardian.json"
+    ],
+    followUpTaskIds: [],
+    sourceTaskId: taskId,
+    sourceParentSessionId: "SESS-COVERAGE-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews", `CREV-${taskId}.json`)
+  });
+
+  const result = await capabilityCoverageAuditCommand({ project: projectRoot, cutoffTaskId: taskId });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.summary.summary.scoped_task_count, 1);
+  assert.equal(result.summary.summary.missing_role_count, 0);
+  assert.equal(result.summary.summary.missing_skill_count, 0);
+  assert.equal(result.summary.summary.non_allowed_gate_count, 0);
+});
+
+test("capabilityCoverageAuditCommand blocks Builder-only work that needs Guardian skill coverage", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const taskId = "TASK-127";
+  await writeCapabilityCoverageTask(projectRoot, taskId);
+  await writeSelectedActorChain(projectRoot, taskId, "builder", "skill-schema-review");
+  await councilReviewPacketCommand({
+    project: projectRoot,
+    councilId: "architecture-council",
+    stage: "planning",
+    reviewStatus: "approved",
+    decisionSummary: "Builder-only implementation was proposed.",
+    rationale: "Missing role Guardian and missing skill benchmark validation remain unresolved.",
+    recommendation: "Assign Guardian before build.",
+    teamOutputRefs: [],
+    roleResultRefs: [],
+    evidenceRefs: [".aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json"],
+    followUpTaskIds: ["TASK-128"],
+    sourceTaskId: taskId,
+    sourceParentSessionId: "SESS-COVERAGE-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews", `CREV-${taskId}.json`)
+  });
+
+  const result = await capabilityCoverageAuditCommand({ project: projectRoot, cutoffTaskId: taskId });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((error) => /required role assigned: guardian/.test(error)));
+  assert.ok(result.summary.errors.some((error) => /required skill packet-covered: skill-benchmark-validation/.test(error)));
+});
+
+test("capabilityCoverageAuditCommand does not accept declared skills without actor task evidence", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const taskId = "TASK-127";
+  await writeCapabilityCoverageTask(projectRoot, taskId);
+
+  const result = await capabilityCoverageAuditCommand({ project: projectRoot, cutoffTaskId: taskId });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((error) => /actor skill packet presence/.test(error)));
+  assert.ok(result.summary.errors.some((error) => /actor assignment evaluation presence/.test(error)));
+  assert.ok(result.summary.errors.some((error) => /actor execution gate presence/.test(error)));
+});
+
+test("capabilityCoverageAuditCommand blocks Council risk notes without follow-up tasks", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  const taskId = "TASK-127";
+  await writeCapabilityCoverageTask(projectRoot, taskId);
+  await writeSelectedActorChain(projectRoot, taskId, "builder", "skill-schema-review");
+  await writeSelectedActorChain(projectRoot, taskId, "guardian", "skill-benchmark-validation");
+  await councilReviewPacketCommand({
+    project: projectRoot,
+    councilId: "product-council",
+    stage: "planning",
+    reviewStatus: "approved",
+    decisionSummary: "Player comprehension risk remains.",
+    rationale: "A required validation is still needed, but no follow-up task is linked.",
+    recommendation: "Recommended next step is UX validation.",
+    teamOutputRefs: [],
+    roleResultRefs: [],
+    evidenceRefs: [".aof/artifacts/actor-skill-packets/ASP-TASK-127-builder.json"],
+    followUpTaskIds: [],
+    sourceTaskId: taskId,
+    sourceParentSessionId: "SESS-COVERAGE-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "execution", "council-reviews", `CREV-${taskId}.json`)
+  });
+
+  const result = await capabilityCoverageAuditCommand({ project: projectRoot, cutoffTaskId: taskId });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((error) => /council follow-up preservation/.test(error)));
 });
 
 test("quality ledger event schema defines append-only quality evidence without semantic truth claims", async () => {

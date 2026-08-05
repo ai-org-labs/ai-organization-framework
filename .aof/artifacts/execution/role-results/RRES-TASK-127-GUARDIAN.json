@@ -1,0 +1,17 @@
+{
+  "artifact_type": "role-result",
+  "role": "guardian",
+  "stage": "planning",
+  "session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "status": "completed",
+  "recommendation": "Block build when role/skill/evidence/follow-up coverage is incomplete.",
+  "rationale": "Negative acceptance tests reproduce the failure mode before release.",
+  "signals": [],
+  "artifact_refs": [
+    "docs/v10.7-release-definition.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "confidence": 0.82
+}

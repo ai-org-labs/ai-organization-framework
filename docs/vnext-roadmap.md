@@ -1,18 +1,22 @@
 # AOF vNext Roadmap
 
-## Current State
+## Shipped Trunk
 
-- Shipped trunk: v10.6.0 Third-Party Validation Result Ingestion.
-- Current frontier after v10.6: v10.7 Provider Pilot Execution Readiness.
+- v10.7.0: Capability Coverage Gate.
 
-## Forward Roadmap
+## Current Frontier After v10.7
 
-1. v10.7: Provider Pilot Execution Readiness. Prepare the selected GitHub read-first pilot for governed execution without production write authority.
-2. v10.8: Read-first GitHub Provider Observation Proof. Record real GitHub observations through a non-writing provider path and compare them to local release artifacts.
-3. v10.9: External Operator Reproduction Drill Execution. Run the v10.4 reproduction package with an external operator and ingest the result.
-4. v11.0: First Governed External Provider Read Integration. Integrate the selected provider in read-only mode with reproducible observations and Council review.
-5. v11.1: External Validation Result Replay Audit. Prove ingested external validation results can be replayed, audited, and linked back to capability claims.
+- v10.8: Provider Pilot Execution Readiness.
 
-## Rule
+## Future Roadmap
 
-Do not claim completed provider integration, production execution, or third-party validation until external provider observations and external validation results are recorded, reproducible, and Council-reviewed.
+- v10.8: Provider Pilot Execution Readiness.
+- v10.9: Read-first GitHub Provider Observation Proof.
+- v11.0: External Operator Reproduction Drill Execution.
+- v11.1: First Governed External Provider Read Integration.
+- v11.2: External Validation Result Replay Audit.
+
+## Recently Shipped
+
+- v10.6: Third-Party Validation Result Ingestion.
+- v10.5: Provider-Backed Work Lifecycle Product Surface.

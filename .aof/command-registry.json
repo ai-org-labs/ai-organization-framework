@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-07-24T01:56:47.147Z",
+  "generated_at": "2026-08-05T14:08:20.074Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -537,6 +537,37 @@
       ],
       "outputs": [
         "cadence trigger guide runtime result"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "capability-coverage-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify release-critical work has required roles, skills, actor assignments, assignment evaluations, execution gates, Council review, output contract, and acceptance evidence before build.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "cutoff-task-id?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "capability coverage audit result"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

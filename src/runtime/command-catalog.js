@@ -55,6 +55,7 @@ const COMMAND_SPECS = [
   ["quality-ledger-audit", "./commands/quality-ledger-audit.js", "qualityLedgerAuditCommand"],
   ["work-readiness-record", "./commands/work-readiness-record.js", "workReadinessRecordCommand"],
   ["work-readiness-audit", "./commands/work-readiness-audit.js", "workReadinessAuditCommand"],
+  ["capability-coverage-audit", "./commands/capability-coverage-audit.js", "capabilityCoverageAuditCommand"],
   ["work-execution-packet-record", "./commands/work-execution-packet-record.js", "workExecutionPacketRecordCommand"],
   ["work-execution-packet-audit", "./commands/work-execution-packet-audit.js", "workExecutionPacketAuditCommand"],
   ["multi-actor-pilot-record", "./commands/multi-actor-pilot-record.js", "multiActorPilotRecordCommand"],

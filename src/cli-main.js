@@ -98,6 +98,7 @@ Usage:
   aof quality-ledger-audit [--project <path>] [--write-artifact <path>]
   aof work-readiness-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --goal "<text>" --risk "<text>" --loss-boundary "<text>" --acceptance-gate "<text>" [--acceptance-gate "<text>"] --evidence-plan "<text>" [--evidence-plan "<text>"] --maker-role <role> --checker-role <role> --council-ref <ref> --stop-condition "<text>" [--stop-condition "<text>"] --qif-ref <path> [--qif-ref <path>] [--readiness-status <ready|blocked|deferred>] [--archmap-impact-expected <yes|no|unknown>] [--source-task-id <TASK-id>] [--source-parent-session-id <id>] [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
   aof work-readiness-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
+  aof capability-coverage-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof work-execution-packet-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --context-integrity-ref <path> --actor-handoff-ref <path> [--actor-handoff-ref <path>] --execution-lineage-ref <path> --verification-evidence-ref <path> [--verification-evidence-ref <path>] --stop-continue-decision <continue|stop|defer|reopen> --stop-continue-rationale "<text>" --stop-continue-decided-by <ref> --stop-continue-evidence-ref <path> [--stop-continue-evidence-ref <path>] --not-proven "<text>" [--execution-status <draft|ready|blocked|completed>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
   aof work-execution-packet-audit [--project <path>] [--cutoff-task-id <TASK-id>] [--write-artifact <path>]
   aof multi-actor-pilot-record --project <path> --work-item-id <TASK-id> --work-item-ref <path> --parent-orchestrator-ref <path> --council-role visionary --council-role builder --council-role guardian --actor-roster-ref <path> --actor-output-handoff-ref <path> [--actor-output-handoff-ref <path>] --council-judgment-ref <path> --work-execution-packet-ref <path> --maker-checker-council-boundary "<text>" --not-proven "<text>" [--pilot-status <draft|ready|blocked|completed>] --source-task-id <TASK-id> --source-parent-session-id <id> [--source-decision-record-id <id>] [--note "<text>"] [--write-artifact <path>]
@@ -244,6 +245,7 @@ Examples:
   aof quality-ledger-audit --project . --write-artifact /tmp/aof-quality-ledger-audit.json
   aof work-readiness-record --project . --work-item-id TASK-082 --work-item-ref .aof/tasks/open/TASK-082.json --goal "Implement executable pre-implementation gates" --risk "AOF starts work without knowing what success means" --loss-boundary "No implementation-ready claim without gates" --acceptance-gate "work-readiness-audit passes" --evidence-plan "schema, command, tests, Council review" --maker-role builder --checker-role guardian --council-ref architecture-council --stop-condition "audit passes or implementation stops" --qif-ref docs/aof-qif-quality-definition.md --source-task-id TASK-082 --source-parent-session-id SESS-PARENT-001
   aof work-readiness-audit --project . --cutoff-task-id TASK-082 --write-artifact /tmp/aof-work-readiness-audit.json
+  aof capability-coverage-audit --project . --cutoff-task-id TASK-127 --write-artifact /tmp/aof-capability-coverage-audit.json
   aof work-execution-packet-record --project . --work-item-id TASK-091 --work-item-ref .aof/tasks/open/TASK-091.json --context-integrity-ref .aof/artifacts/context-integrity/TASK-091.json --actor-handoff-ref .aof/artifacts/agent-sessions/SESS-V72-WORK-EXECUTION-PACKET.json --execution-lineage-ref .aof/context/active/execution-lineage.json --verification-evidence-ref test/runtime-core-2.test.js --stop-continue-decision continue --stop-continue-rationale "all v7.2 execution packet gates are green" --stop-continue-decided-by architecture-council --stop-continue-evidence-ref .aof/artifacts/execution/council-reviews/CREV-TASK-091-V72.json --not-proven "semantic value of the work still requires operator review" --source-task-id TASK-091 --source-parent-session-id SESS-V72-WORK-EXECUTION-PACKET
   aof work-execution-packet-audit --project . --cutoff-task-id TASK-091 --write-artifact /tmp/aof-work-execution-packet-audit.json
   aof multi-actor-pilot-record --project . --work-item-id TASK-092 --work-item-ref .aof/tasks/open/TASK-092.json --parent-orchestrator-ref .aof/artifacts/agent-sessions/SESS-V73-MULTI-ACTOR-PILOT.json --council-role visionary --council-role builder --council-role guardian --actor-roster-ref .aof/artifacts/work-governance/actor-compositions/ACT-TASK-092-V73.json --actor-output-handoff-ref .aof/artifacts/execution/role-results/RRES-BUILDER.json --actor-output-handoff-ref .aof/artifacts/execution/role-results/RRES-GUARDIAN.json --council-judgment-ref .aof/artifacts/execution/council-reviews/CREV-TASK-092-V73.json --work-execution-packet-ref .aof/artifacts/work-execution-packets/TASK-092.json --maker-checker-council-boundary "Builder makes, Guardian checks, Council judges." --not-proven "multi-actor pilot evidence does not prove autonomous workforce performance" --source-task-id TASK-092 --source-parent-session-id SESS-V73-MULTI-ACTOR-PILOT
@@ -1051,6 +1053,12 @@ function parseArgs(argv) {
                 artifactPath: ""
               }
           : command === "work-readiness-audit"
+            ? {
+                project: ".",
+                cutoffTaskId: "",
+                artifactPath: ""
+              }
+          : command === "capability-coverage-audit"
             ? {
                 project: ".",
                 cutoffTaskId: "",
@@ -6749,6 +6757,12 @@ function parseArgs(argv) {
   if (command === "work-execution-packet-audit") {
     if (!options.project) {
       throw new Error("Missing --project for `work-execution-packet-audit`.");
+    }
+  }
+
+  if (command === "capability-coverage-audit") {
+    if (!options.project) {
+      throw new Error("Missing --project for `capability-coverage-audit`.");
     }
   }
 

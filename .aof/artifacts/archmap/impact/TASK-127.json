@@ -1,0 +1,24 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-127-V106",
+  "work_item_ref": ".aof/tasks/done/TASK-127.json",
+  "work_item_id": "TASK-127",
+  "status": "archmap_unaffected",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    "docs/v10.7-release-definition.md",
+    "docs/v10.7.0-release-notes.md",
+    "docs/v10.7-release-checklist.md"
+  ],
+  "recorded_at": "2026-08-05T01:31:12.136Z",
+  "updated_at": "2026-08-01T01:55:00.000Z",
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V106-EXTERNAL-VALUE-REPRO-PACKAGE",
+  "session_id": "SESS-V106-EXTERNAL-VALUE-REPRO-PACKAGE",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V106-EXTERNAL-VALUE-REPRO-PACKAGE.json",
+  "not_proven": "This v10.7 evidence proves a capability coverage gate contract only; it does not prove actual external validation results, market value, external adoption, live provider execution, provider write safety, or production safety."
+}

@@ -1,0 +1,17 @@
+{
+  "artifact_type": "role-result",
+  "role": "builder",
+  "stage": "planning",
+  "session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "status": "completed",
+  "recommendation": "Implement capability-coverage-audit and CLI integration.",
+  "rationale": "The audit can reuse existing work-item-goal and actor skill packet contracts.",
+  "signals": [],
+  "artifact_refs": [
+    "docs/v10.7-release-definition.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "confidence": 0.82
+}

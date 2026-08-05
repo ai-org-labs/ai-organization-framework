@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-05T01:37:02.922Z",
+  "generated_at": "2026-08-05T14:10:07.435Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "10.6.0",
-    "active_release_track": "v10.6",
-    "release_definition_ref": "docs/v10.6-release-definition.md"
+    "active_release_version": "10.7.0",
+    "active_release_track": "v10.7",
+    "release_definition_ref": "docs/v10.7-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v10.6.0, advance v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, v11.0 first governed external provider read integration, and v11.1 external validation result replay audit."
+    "branch_summary": "After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v10.6",
+      "label": "v10.7",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v10.6 and the next concrete branch.",
-    "why_this_branch": "Ship v10.6 Third-Party Validation Result Ingestion: define how external operator validation results are accepted, normalized, classified, linked to capabilities, and escalated into governance without claiming the results already exist.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.6.0, advance v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, v11.0 first governed external provider read integration, and v11.1 external validation result replay audit."
+    "where_are_we": "The runtime is between v10.7 and the next concrete branch.",
+    "why_this_branch": "Ship v10.7 Capability Coverage Gate: block build/release-critical work before implementation when required roles, skills, concrete actor assignments, output contracts, evidence, acceptance gates, or Council follow-up tasks are missing.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit."
   }
 }

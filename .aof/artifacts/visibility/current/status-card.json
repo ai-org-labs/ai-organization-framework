@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-08-05T01:37:02.918Z",
+  "as_of": "2026-08-05T14:10:07.431Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "After v10.6.0, advance v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, v11.0 first governed external provider read integration, and v11.1 external validation result replay audit.",
+  "current_goal": "After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "After v10.6.0, advance v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, v11.0 first governed external provider read integration, and v11.1 external validation result replay audit.",
+  "next_checkpoint": "After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

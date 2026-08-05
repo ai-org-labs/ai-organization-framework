@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-capability-coverage-audit.schema.json",
+  "title": "AOF Capability Coverage Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "artifact_type",
+    "generated_at",
+    "project_root",
+    "cutoff_task_id",
+    "audited_status_dirs",
+    "summary",
+    "tasks",
+    "coverage_records",
+    "checks",
+    "errors"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "capability-coverage-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "cutoff_task_id": { "type": "string", "minLength": 1 },
+    "audited_status_dirs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scoped_task_count",
+        "coverage_record_count",
+        "missing_role_count",
+        "missing_skill_count",
+        "blocked_assignment_count",
+        "non_allowed_gate_count",
+        "follow_up_missing_review_count",
+        "failing_check_count"
+      ],
+      "properties": {
+        "scoped_task_count": { "type": "integer", "minimum": 0 },
+        "coverage_record_count": { "type": "integer", "minimum": 0 },
+        "missing_role_count": { "type": "integer", "minimum": 0 },
+        "missing_skill_count": { "type": "integer", "minimum": 0 },
+        "blocked_assignment_count": { "type": "integer", "minimum": 0 },
+        "non_allowed_gate_count": { "type": "integer", "minimum": 0 },
+        "follow_up_missing_review_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["task_id", "title", "status", "status_dir", "artifact_ref"],
+        "properties": {
+          "task_id": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "type": "string" },
+          "status_dir": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "coverage_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "task_id",
+          "task_ref",
+          "goal_ref",
+          "required_roles",
+          "required_skills",
+          "assigned_roles",
+          "assigned_actors",
+          "covered_skills",
+          "missing_roles",
+          "missing_skills",
+          "actor_skill_packet_refs",
+          "assignment_evaluation_refs",
+          "actor_execution_gate_refs",
+          "council_review_refs",
+          "assignment_states",
+          "execution_gate_states",
+          "blocked_assignment_count",
+          "non_selected_assignment_count",
+          "non_allowed_gate_count",
+          "follow_up_required_review_count",
+          "follow_up_missing_review_count"
+        ],
+        "properties": {
+          "task_id": { "type": "string" },
+          "task_ref": { "type": "string" },
+          "goal_ref": { "type": "string" },
+          "required_roles": { "type": "array", "items": { "type": "string" } },
+          "required_skills": { "type": "array", "items": { "type": "string" } },
+          "assigned_roles": { "type": "array", "items": { "type": "string" } },
+          "assigned_actors": { "type": "array", "items": { "type": "string" } },
+          "covered_skills": { "type": "array", "items": { "type": "string" } },
+          "missing_roles": { "type": "array", "items": { "type": "string" } },
+          "missing_skills": { "type": "array", "items": { "type": "string" } },
+          "actor_skill_packet_refs": { "type": "array", "items": { "type": "string" } },
+          "assignment_evaluation_refs": { "type": "array", "items": { "type": "string" } },
+          "actor_execution_gate_refs": { "type": "array", "items": { "type": "string" } },
+          "council_review_refs": { "type": "array", "items": { "type": "string" } },
+          "assignment_states": { "type": "array", "items": { "type": "string" } },
+          "execution_gate_states": { "type": "array", "items": { "type": "string" } },
+          "blocked_assignment_count": { "type": "integer", "minimum": 0 },
+          "non_selected_assignment_count": { "type": "integer", "minimum": 0 },
+          "non_allowed_gate_count": { "type": "integer", "minimum": 0 },
+          "follow_up_required_review_count": { "type": "integer", "minimum": 0 },
+          "follow_up_missing_review_count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

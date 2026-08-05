@@ -1,0 +1,17 @@
+{
+  "artifact_type": "role-result",
+  "role": "visionary",
+  "stage": "planning",
+  "session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "status": "completed",
+  "recommendation": "Make missing expertise a product-level build blocker.",
+  "rationale": "AOF value depends on not confusing role labels with real assignment coverage.",
+  "signals": [],
+  "artifact_refs": [
+    "docs/v10.7-release-definition.md"
+  ],
+  "decision_required": false,
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "confidence": 0.82
+}

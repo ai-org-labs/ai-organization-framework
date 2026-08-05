@@ -1,5 +1,8 @@
 {
   "artifact_type": "operating-goal",
-  "updated_at": "2026-08-05T01:31:12.136Z",
-  "content": "Ship v10.6 Third-Party Validation Result Ingestion: define how external operator validation results are accepted, normalized, classified, linked to capabilities, and escalated into governance without claiming the results already exist."
+  "content": "Ship v10.7 Capability Coverage Gate: block build/release-critical work before implementation when required roles, skills, concrete actor assignments, output contracts, evidence, acceptance gates, or Council follow-up tasks are missing.",
+  "agreed_with_human": true,
+  "source_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "declared_complete": false,
+  "updated_at": "2026-08-05T14:05:00.000Z"
 }

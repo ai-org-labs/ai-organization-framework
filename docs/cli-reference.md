@@ -809,6 +809,34 @@ QIF boundary:
 - pass は pre-implementation readiness の structural/runtime evidence であり、成果物の意味的正しさ・市場価値・実装品質を証明しない
 - pass 後も maker/checker/Council/release-state の各 gate は必要
 
+### `capability-coverage-audit`
+
+build / release-critical work item が、必要な role / skill を宣言しただけで進んでいないかを narrow に検査する。これは v10.7 の Capability Coverage Gate 用 command であり、Build 前に「必要要員・必要スキル・具体 actor・assignment evaluation・execution gate・Council review」が接続されていることを要求する。
+
+```bash
+node ./src/cli.js capability-coverage-audit \
+  --project . \
+  --cutoff-task-id TASK-127 \
+  --write-artifact .aof/artifacts/capability-coverage/capability-coverage-audit.json
+```
+
+主な確認項目:
+
+- 対象 task に `.aof/artifacts/work-items/goals/<TASK-id>.json` が存在する
+- work item goal に required roles / required skills / expected outputs / acceptance gates が定義されている
+- required role が `.aof/organization.json` に存在し、actor skill packet で割り当てられている
+- required skill が `.aof/skills.json` に存在し、actor skill packet で coverage されている
+- actor skill packet が concrete actor / role / output contract / fit evidence を持つ
+- actor assignment evaluation が存在し、selected になっている
+- actor execution gate が存在し、allowed になっている
+- Council review が存在する
+- Council review が missing role / missing skill / risk / validation gap を述べる場合、follow-up task refs が保存されている
+
+QIF boundary:
+
+- pass は capability coverage の structural/runtime evidence であり、actor の専門判断、semantic truth、UX comprehension、market truth を証明しない
+- domain correctness が必要な場合は、QIF / expert review / user validation / reproduction evidence を別途 gate にする
+
 ### `requirement-coverage-record`
 
 work item の progress / forecast claim を、requirement / work / evidence / coverage count / forecast boundary に束ねる。これは v7.5 の Requirements Coverage, Forecasting, And Organization Analytics 用 command であり、task activity や dashboard 表示を品質・進捗の証明として扱わないためのもの。

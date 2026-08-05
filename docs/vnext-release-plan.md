@@ -2,16 +2,18 @@
 
 ## Current Release
 
-v10.6.0 ships Third-Party Validation Result Ingestion.
+- v10.7.0 ships Capability Coverage Gate.
+
+## Release Closure
+
+- Validate capability coverage audit.
+- Validate release-state integration.
+- Confirm local tests, smoke, clean checkout audit, GitHub main CI, tag CI, and GitHub Release.
 
 ## Next Releases
 
-- v10.7: Provider Pilot Execution Readiness.
-- v10.8: Read-first GitHub Provider Observation Proof.
-- v10.9: External Operator Reproduction Drill Execution.
-- v11.0: First Governed External Provider Read Integration.
-- v11.1: External Validation Result Replay Audit.
-
-## Release Rule
-
-Each release must state user-visible capability delta first, then mechanism, evidence, and not-proven boundary. Third-party validation language must distinguish ingestion contract, ingested result, reproduced result, and accepted external validation.
+- v10.8: Provider Pilot Execution Readiness.
+- v10.9: Read-first GitHub Provider Observation Proof.
+- v11.0: External Operator Reproduction Drill Execution.
+- v11.1: First Governed External Provider Read Integration.
+- v11.2: External Validation Result Replay Audit.

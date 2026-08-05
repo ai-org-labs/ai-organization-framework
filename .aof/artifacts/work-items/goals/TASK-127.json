@@ -1,0 +1,60 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-05T14:05:00.000Z",
+  "work_item_id": "TASK-127",
+  "work_item_type": "feature",
+  "objective": "Ship a pre-build Capability Coverage Gate for release-critical work.",
+  "reason_for_work": "AOF allowed work to proceed with missing required specialist roles because organization shape was mistaken for actual assignment coverage.",
+  "expected_output": [
+    "capability-coverage-audit command",
+    "coverage audit schema",
+    "negative acceptance tests",
+    "release-state integration",
+    "operator-facing release docs"
+  ],
+  "consumer": [
+    "AOF operators",
+    "AOF adopters"
+  ],
+  "downstream_dependency": [
+    "release-state-audit",
+    "work-readiness-audit",
+    "skillful actor runtime"
+  ],
+  "success_criteria": [
+    "missing required role/skill assignment blocks build",
+    "declared skills without actor evidence fail",
+    "Council risk notes require follow-up task IDs",
+    "v10.7 release-state-audit includes capability coverage audit"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "capability-coverage-audit passes for TASK-127",
+      "negative acceptance tests pass"
+    ],
+    "no_go": [
+      "any required role, skill, actor packet, assignment evaluation, execution gate, Council review, or follow-up task evidence is missing"
+    ]
+  },
+  "required_visualization": [
+    "evidence-coverage-map",
+    "readiness-checklist"
+  ],
+  "required_skills": [
+    "skill-schema-review",
+    "skill-benchmark-validation",
+    "skill-need-validation"
+  ],
+  "required_actor_roles": [
+    "builder",
+    "guardian",
+    "visionary"
+  ],
+  "council_review_need": "required",
+  "external_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "source_decision_record_id": null
+}

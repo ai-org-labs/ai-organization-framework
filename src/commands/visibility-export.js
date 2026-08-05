@@ -751,6 +751,10 @@ async function loadAgentSessionObservabilityProjection(projectRoot, aofRoot) {
   const latestEvents = latest?.payload.events ?? [];
   const latestLinks = latest?.payload.links ?? {};
   const latestToolEvents = latestEvents.filter((event) => event.event_type === "tool_call");
+  const mergedRefs = (linkRefs, topLevelRefs) => Array.from(new Set([
+    ...(Array.isArray(linkRefs) ? linkRefs : []),
+    ...(Array.isArray(topLevelRefs) ? topLevelRefs : [])
+  ]));
 
   return {
     present: sessions.length > 0,
@@ -767,10 +771,10 @@ async function loadAgentSessionObservabilityProjection(projectRoot, aofRoot) {
     audit_ok: audit?.ok ?? null,
     audit_failing_check_count: audit?.summary?.failing_check_count ?? null,
     latest_audit_stream_ref: latestAuditStream?.stream_ref ?? null,
-    linked_task_refs: latestLinks.task_refs ?? [],
-    linked_requirement_refs: latestLinks.requirement_refs ?? [],
-    linked_test_evidence_refs: latestLinks.test_evidence_refs ?? [],
-    linked_artifact_refs: latestLinks.artifact_refs ?? [],
+    linked_task_refs: mergedRefs(latestLinks.task_refs, latest?.payload.task_refs),
+    linked_requirement_refs: mergedRefs(latestLinks.requirement_refs, latest?.payload.requirement_refs),
+    linked_test_evidence_refs: mergedRefs(latestLinks.test_evidence_refs, latest?.payload.test_evidence_refs),
+    linked_artifact_refs: mergedRefs(latestLinks.artifact_refs, latest?.payload.artifact_refs),
     risk_candidates: latest?.payload.risk_candidates ?? [],
     decision_candidates: latest?.payload.decision_candidates ?? [],
     latest_events: latestEvents.slice(-8).map((event) => ({

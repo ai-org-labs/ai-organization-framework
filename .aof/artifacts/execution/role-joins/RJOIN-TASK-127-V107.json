@@ -1,0 +1,24 @@
+{
+  "artifact_type": "role-join",
+  "stage": "planning",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-orchestrator-decision",
+  "recommended_next_step": "Submit capability coverage gate to Council review.",
+  "received_session_ids": [
+    "SESS-V107-CAPABILITY-COVERAGE-GATE"
+  ],
+  "join_status": "resolved",
+  "summary": "All three core roles returned coverage-gate judgments.",
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE"
+}

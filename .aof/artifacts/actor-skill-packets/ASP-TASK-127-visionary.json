@@ -1,0 +1,72 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-05T14:01:00.729Z",
+  "packet_id": "ASP-TASK-127-visionary",
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "source_decision_record_id": null,
+  "objective": "Ship v10.7 Capability Coverage Gate.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "governance-team",
+    "assignment_reason": "visionary owns part of the v10.7 coverage gate release.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-need-validation"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-need-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "test/runtime-core-2.test.js",
+        "docs/v10.7-release-definition.md"
+      ],
+      "rationale": "Self-hosting evidence links runtime implementation, tests, and release contract."
+    }
+  ],
+  "resource_refs": [],
+  "policy_refs": [],
+  "expected_output_contract": {
+    "artifact_type": "capability-coverage-release-evidence",
+    "artifact_schema_ref": null,
+    "required_sections": [
+      "assignment",
+      "skill_evidence",
+      "coverage_chain",
+      "acceptance_gate"
+    ],
+    "acceptance_criteria": [
+      "capability coverage audit passes",
+      "release-state audit includes capability coverage gate"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "Required role and skill evidence exists before release build.",
+      "evaluator_ref": "guardian",
+      "evidence_required": "capability coverage audit result",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [
+    {
+      "blocker_code": "missing-role-skill-coverage",
+      "trigger_condition": "required role or skill lacks actor packet/evaluation/gate evidence",
+      "consequence": "block-assignment",
+      "recovery_action": "assign a fit actor and rerun capability-coverage-audit"
+    }
+  ],
+  "hri_projection": {
+    "character_label": "visionary",
+    "speech_bubble": "Protect product meaning: no build without real required expertise coverage.",
+    "current_action": "Protect product meaning: no build without real required expertise coverage.",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit coverage evidence to Council review."
+  },
+  "status": "ready-for-assignment"
+}
