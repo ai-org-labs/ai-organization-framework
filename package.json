@@ -1,6 +1,6 @@
 {
   "name": "ai-organization-framework",
-  "version": "10.7.0",
+  "version": "10.7.1",
   "private": true,
   "type": "module",
   "bin": {

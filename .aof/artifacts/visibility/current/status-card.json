@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-08-05T14:25:51.051Z",
+  "as_of": "2026-08-05T14:33:51.416Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit.",

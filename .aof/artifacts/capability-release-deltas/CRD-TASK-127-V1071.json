@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MSG6R103-J6JBZZ",
+  "recorded_at": "2026-08-05T14:31:53.043Z",
+  "release_version": "10.7.1",
+  "release_ref": "docs/v10.7-release-definition.md",
+  "work_item_id": "TASK-127",
+  "work_item_ref": ".aof/tasks/done/TASK-127.json",
+  "one_minute_value_explanation": "v10.7.1 makes the v10.7 Capability Coverage Gate stricter: AOF now checks that completed work has schema-valid actor outputs, team aggregation, and Council judgment rather than only nominal actor assignment evidence.",
+  "thirty_second_version_delta": "v10.7.0 introduced capability coverage; v10.7.1 closes the audit blind spot where done work could pass without a validated actor output chain.",
+  "new_capability_ids": [],
+  "updated_capability_ids": [
+    "PCAP-CAPABILITY-COVERAGE-GATE"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.7.1-release-notes.md",
+    ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+    "test/runtime-core-2.test.js"
+  ],
+  "product_review_trigger": "If AOF claims capability coverage while actor role results, team output, or Council review refs are missing or schema-invalid, reopen the audit as a release-blocking product issue.",
+  "not_proven": "v10.7.1 proves stronger structural coverage only; it still does not prove semantic expert correctness, user value, market truth, or production safety.",
+  "source_task_id": "TASK-127",
+  "source_parent_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,7 +1,7 @@
 {
   "bootstrap_type": "aof-project-bootstrap",
   "bootstrap_format_version": 1,
-  "aof_version": "10.7.0",
+  "aof_version": "10.7.1",
   "topology": "self-hosting",
   "install_mode": "runtime-on",
   "write_target": "main",
@@ -15,5 +15,5 @@
   "goals_ref": ".aof/goals",
   "tasks_ref": ".aof/tasks",
   "prompts_ref": ".aof/prompts",
-  "updated_at": "2026-08-01T01:55:00.000Z"
+  "updated_at": "2026-08-05T14:35:00.000Z"
 }

@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "capability-coverage-audit",
-  "generated_at": "2026-08-05T14:23:07.901Z",
+  "generated_at": "2026-08-05T14:30:46.569Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "cutoff_task_id": "TASK-127",
   "audited_status_dirs": [

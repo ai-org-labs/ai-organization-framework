@@ -1,12 +1,12 @@
 {
   "ok": true,
   "artifact_type": "capability-first-release-audit",
-  "generated_at": "2026-07-24T01:56:47.156Z",
+  "generated_at": "2026-08-05T14:32:23.880Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "capability_count": 12,
+    "capability_count": 23,
     "delta_count": 1,
-    "new_capability_count": 1,
+    "new_capability_count": 0,
     "updated_capability_count": 1,
     "removed_capability_count": 0,
     "failing_check_count": 0
@@ -95,35 +95,110 @@
       "user_value": "Users can understand what changed in a release within 30 seconds before reading implementation details.",
       "first_version": "v9.3.0",
       "status": "available"
+    },
+    {
+      "capability_id": "PCAP-ARCHMAP-LIFECYCLE-TRACEABILITY",
+      "name": "Archmap Lifecycle Traceability",
+      "user_value": "Users can inspect where architecture and work evidence fit in the lifecycle view instead of manually connecting separate AOF artifacts.",
+      "first_version": "v9.7.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-PRODUCTION-GONOGO",
+      "name": "Production Go/No-Go Evidence",
+      "user_value": "Users can make a production-readiness judgment from one evidence surface instead of manually assembling approval, reproduction, rollback, outcome, incident, and cost/quota records.",
+      "first_version": "v9.8.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-PRODUCTION-READINESS-REVIEW",
+      "name": "Production Readiness Review",
+      "user_value": "Operators can decide what is missing before production movement without reading every provider artifact manually.",
+      "first_version": "v9.9.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION",
+      "name": "External Runtime Productization Decision",
+      "user_value": "Operators can distinguish productization readiness from live execution permission and know what validation remains.",
+      "first_version": "v10.0.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT",
+      "name": "Third-Party Operator Validation Contract",
+      "user_value": "Operators can see exactly what outside validation must prove and what remains unproven.",
+      "first_version": "v10.1.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION",
+      "name": "External Provider Pilot Selection",
+      "user_value": "Operators can understand which provider AOF should pilot first and why, without mistaking selection for integration or execution.",
+      "first_version": "v10.2.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL",
+      "name": "Production Execution Authorization Model",
+      "user_value": "Operators can block unsafe live provider actions until every required authorization gate exists and is reviewed.",
+      "first_version": "v10.3.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE",
+      "name": "External Value Reproduction Evidence Package",
+      "user_value": "Operators can test AOF value outside self-hosting without mistaking internal artifacts for external proof.",
+      "first_version": "v10.4.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE",
+      "name": "Provider-Backed Work Lifecycle Product Surface",
+      "user_value": "Operators can understand provider-backed work without stitching raw artifacts together.",
+      "first_version": "v10.5.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION",
+      "name": "Third-Party Validation Result Ingestion",
+      "user_value": "Operators can turn external reviewer feedback into traceable governance evidence without treating it as automatic approval.",
+      "first_version": "v10.6.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-CAPABILITY-COVERAGE-GATE",
+      "name": "Capability Coverage Gate",
+      "user_value": "Operators can catch missing specialists before build instead of discovering role/skill gaps during playtest or release review.",
+      "first_version": "v10.7.0",
+      "status": "available"
     }
   ],
   "deltas": [
     {
-      "delta_id": "CRD-TASK-116-V96",
-      "release_version": "9.6.0",
-      "one_minute_value_explanation": "v9.6 lets an operator see whether a provider-backed action is allowed to spend tokens, calls, quota, retries, or money before execution advances.",
-      "thirty_second_version_delta": "v9.5 showed the failure recovery path. v9.6 adds the spend and quota gate before execution can advance.",
-      "new_capability_ids": [
-        "PCAP-PROVIDER-COST-QUOTA"
-      ],
+      "delta_id": "CRD-MSG6R103-J6JBZZ",
+      "release_version": "10.7.1",
+      "one_minute_value_explanation": "v10.7.1 makes the v10.7 Capability Coverage Gate stricter: AOF now checks that completed work has schema-valid actor outputs, team aggregation, and Council judgment rather than only nominal actor assignment evidence.",
+      "thirty_second_version_delta": "v10.7.0 introduced capability coverage; v10.7.1 closes the audit blind spot where done work could pass without a validated actor output chain.",
+      "new_capability_ids": [],
       "updated_capability_ids": [
-        "PCAP-PROVIDER-EXECUTION"
+        "PCAP-CAPABILITY-COVERAGE-GATE"
       ],
       "removed_capability_ids": [],
-      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json"
+      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json"
     }
   ],
   "checks": [
     {
       "name": "active release manifest presence",
       "status": "pass",
-      "detail": "9.6.0",
+      "detail": "10.7.1",
       "evidence_refs": []
     },
     {
       "name": "product capability register presence",
       "status": "pass",
-      "detail": "12 capability row(s)",
+      "detail": "23 capability row(s)",
       "evidence_refs": [
         ".aof/product-capabilities.json"
       ]
@@ -318,7 +393,12 @@
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
-        "docs/v9.6.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -331,7 +411,12 @@
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
-        "docs/v9.6.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -344,7 +429,12 @@
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
-        "docs/v9.6.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -357,7 +447,12 @@
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
-        "docs/v9.6.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -370,7 +465,12 @@
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
-        "docs/v9.6.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -383,7 +483,12 @@
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
-        "docs/v9.6.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -396,7 +501,12 @@
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
-        "docs/v9.6.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -409,7 +519,102 @@
         "docs/v9.2.0-release-notes.md",
         "docs/v9.4.0-release-notes.md",
         "docs/v9.5.0-release-notes.md",
-        "docs/v9.6.0-release-notes.md"
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.8.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-EXECUTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v8.5.0-release-notes.md",
+        "docs/v9.2.0-release-notes.md",
+        "docs/v9.4.0-release-notes.md",
+        "docs/v9.5.0-release-notes.md",
+        "docs/v9.6.0-release-notes.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md"
       ]
     },
     {
@@ -591,7 +796,13 @@
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v9.1-product-value-comprehension.md",
-        "docs/v9.1.0-release-notes.md"
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
       ]
     },
     {
@@ -601,7 +812,13 @@
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v9.1-product-value-comprehension.md",
-        "docs/v9.1.0-release-notes.md"
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
       ]
     },
     {
@@ -611,7 +828,13 @@
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v9.1-product-value-comprehension.md",
-        "docs/v9.1.0-release-notes.md"
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
       ]
     },
     {
@@ -621,7 +844,13 @@
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v9.1-product-value-comprehension.md",
-        "docs/v9.1.0-release-notes.md"
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
       ]
     },
     {
@@ -631,7 +860,109 @@
       "evidence_refs": [
         ".aof/product-capabilities.json",
         "docs/v9.1-product-value-comprehension.md",
-        "docs/v9.1.0-release-notes.md"
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCT-VALUE-COMPREHENSION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.1-product-value-comprehension.md",
+        "docs/v9.1.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
       ]
     },
     {
@@ -701,150 +1032,1465 @@
       ]
     },
     {
+      "name": "PCAP-ARCHMAP-LIFECYCLE-TRACEABILITY description",
+      "status": "pass",
+      "detail": "AOF can map governed work, requirements, acceptance criteria, decisions, risks, tests, and evidence into the Archmap v0.4 lifecycle provider baseline without making Archmap the source of truth.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.7-archmap-v0.4.0-adoption.md",
+        "docs/v9.7-release-definition.md",
+        "docs/v9.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ARCHMAP-LIFECYCLE-TRACEABILITY user value",
+      "status": "pass",
+      "detail": "Users can inspect where architecture and work evidence fit in the lifecycle view instead of manually connecting separate AOF artifacts.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.7-archmap-v0.4.0-adoption.md",
+        "docs/v9.7-release-definition.md",
+        "docs/v9.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ARCHMAP-LIFECYCLE-TRACEABILITY first version",
+      "status": "pass",
+      "detail": "v9.7.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.7-archmap-v0.4.0-adoption.md",
+        "docs/v9.7-release-definition.md",
+        "docs/v9.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ARCHMAP-LIFECYCLE-TRACEABILITY evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.7-archmap-v0.4.0-adoption.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.7-archmap-v0.4.0-adoption.md",
+        "docs/v9.7-release-definition.md",
+        "docs/v9.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ARCHMAP-LIFECYCLE-TRACEABILITY evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.7-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.7-archmap-v0.4.0-adoption.md",
+        "docs/v9.7-release-definition.md",
+        "docs/v9.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-ARCHMAP-LIFECYCLE-TRACEABILITY evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.7.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.7-archmap-v0.4.0-adoption.md",
+        "docs/v9.7-release-definition.md",
+        "docs/v9.7.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-GONOGO description",
+      "status": "pass",
+      "detail": "AOF can bundle provider execution readiness evidence into a bounded operator-facing production go/no-go candidate without authorizing live execution.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.8-release-definition.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-GONOGO user value",
+      "status": "pass",
+      "detail": "Users can make a production-readiness judgment from one evidence surface instead of manually assembling approval, reproduction, rollback, outcome, incident, and cost/quota records.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.8-release-definition.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-GONOGO first version",
+      "status": "pass",
+      "detail": "v9.8.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.8-release-definition.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-GONOGO evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.8-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.8-release-definition.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-GONOGO evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.8.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.8-release-definition.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-GONOGO evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.8-release-definition.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-GONOGO evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.8-release-definition.md",
+        "docs/v9.8.0-release-notes.md",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW description",
+      "status": "pass",
+      "detail": "AOF can present a bounded review of whether external runtime provider-backed work is ready for human production go/no-go judgment.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW user value",
+      "status": "pass",
+      "detail": "Operators can decide what is missing before production movement without reading every provider artifact manually.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW first version",
+      "status": "pass",
+      "detail": "v9.9.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-READINESS-REVIEW evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.3-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v9.9-release-definition.md",
+        "docs/v9.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-119-V99.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION description",
+      "status": "pass",
+      "detail": "AOF can decide whether external runtime evidence is coherent enough to advance as a product-grade capability surface.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION user value",
+      "status": "pass",
+      "detail": "Operators can distinguish productization readiness from live execution permission and know what validation remains.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION first version",
+      "status": "pass",
+      "detail": "v10.0.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.3-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-RUNTIME-PRODUCTIZATION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.4-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.0-release-definition.md",
+        "docs/v10.0.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-120-V100.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.4-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT description",
+      "status": "pass",
+      "detail": "AOF can define what an external operator must verify before external runtime claims can move beyond self-hosting evidence.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT user value",
+      "status": "pass",
+      "detail": "Operators can see exactly what outside validation must prove and what remains unproven.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT first version",
+      "status": "pass",
+      "detail": "v10.1.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.4-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-CONTRACT evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION description",
+      "status": "pass",
+      "detail": "AOF can select a bounded first external provider pilot candidate with rationale, alternatives, and blocked conditions before integration starts.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION user value",
+      "status": "pass",
+      "detail": "Operators can understand which provider AOF should pilot first and why, without mistaking selection for integration or execution.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION first version",
+      "status": "pass",
+      "detail": "v10.2.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.3-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-PROVIDER-PILOT-SELECTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.5-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.2-release-definition.md",
+        "docs/v10.2.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-122-V102.json",
+        "docs/v10.3-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL description",
+      "status": "pass",
+      "detail": "Defines the approval, authority, budget, rollback, incident, stop, reproduction, and adapter-capability gates required before live provider execution can be allowed.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.3-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+        "docs/v10.3.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL user value",
+      "status": "pass",
+      "detail": "Operators can block unsafe live provider actions until every required authorization gate exists and is reviewed.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.3-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+        "docs/v10.3.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL first version",
+      "status": "pass",
+      "detail": "v10.3.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.3-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+        "docs/v10.3.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.3-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.3-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+        "docs/v10.3.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.3-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+        "docs/v10.3.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.3.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.3-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+        "docs/v10.3.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.4-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.3-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+        "docs/v10.3.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PRODUCTION-EXECUTION-AUTHORIZATION-MODEL evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.5-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.3-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-123-V103.json",
+        "docs/v10.3.0-release-notes.md",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.5-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE description",
+      "status": "pass",
+      "detail": "AOF can prepare a bounded package for an external operator to reproduce and report user-visible value.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE user value",
+      "status": "pass",
+      "detail": "Operators can test AOF value outside self-hosting without mistaking internal artifacts for external proof.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE first version",
+      "status": "pass",
+      "detail": "v10.4.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.4-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.4.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.5-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.4-release-definition.md",
+        "docs/v10.4.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE description",
+      "status": "pass",
+      "detail": "AOF can explain provider-backed work as a user-facing lifecycle from Need to blocked or ready next action.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.5.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE user value",
+      "status": "pass",
+      "detail": "Operators can understand provider-backed work without stitching raw artifacts together.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.5.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE first version",
+      "status": "pass",
+      "detail": "v10.5.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.5.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.5-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.5.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.5.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.5.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.5.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.5-release-definition.md",
+        "docs/v10.5.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION description",
+      "status": "pass",
+      "detail": "AOF can normalize and govern third-party validation results against capability claims.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.6-release-definition.md",
+        "docs/v10.6.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-126-V106.json"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION user value",
+      "status": "pass",
+      "detail": "Operators can turn external reviewer feedback into traceable governance evidence without treating it as automatic approval.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.6-release-definition.md",
+        "docs/v10.6.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-126-V106.json"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION first version",
+      "status": "pass",
+      "detail": "v10.6.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.6-release-definition.md",
+        "docs/v10.6.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-126-V106.json"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.6-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.6-release-definition.md",
+        "docs/v10.6.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-126-V106.json"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.6.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.6-release-definition.md",
+        "docs/v10.6.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-126-V106.json"
+      ]
+    },
+    {
+      "name": "PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-126-V106.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.6-release-definition.md",
+        "docs/v10.6.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-126-V106.json"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-COVERAGE-GATE description",
+      "status": "pass",
+      "detail": "Block build/release-critical work when required roles, skills, concrete actor assignments, output contracts, evidence, acceptance gates, or Council follow-up tasks are missing.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.7-release-definition.md",
+        "src/commands/capability-coverage-audit.js",
+        "schemas/aof-capability-coverage-audit.schema.json",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-COVERAGE-GATE user value",
+      "status": "pass",
+      "detail": "Operators can catch missing specialists before build instead of discovering role/skill gaps during playtest or release review.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.7-release-definition.md",
+        "src/commands/capability-coverage-audit.js",
+        "schemas/aof-capability-coverage-audit.schema.json",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-COVERAGE-GATE first version",
+      "status": "pass",
+      "detail": "v10.7.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.7-release-definition.md",
+        "src/commands/capability-coverage-audit.js",
+        "schemas/aof-capability-coverage-audit.schema.json",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-COVERAGE-GATE evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.7-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.7-release-definition.md",
+        "src/commands/capability-coverage-audit.js",
+        "schemas/aof-capability-coverage-audit.schema.json",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-COVERAGE-GATE evidence ref resolves",
+      "status": "pass",
+      "detail": "src/commands/capability-coverage-audit.js",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.7-release-definition.md",
+        "src/commands/capability-coverage-audit.js",
+        "schemas/aof-capability-coverage-audit.schema.json",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-COVERAGE-GATE evidence ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-capability-coverage-audit.schema.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.7-release-definition.md",
+        "src/commands/capability-coverage-audit.js",
+        "schemas/aof-capability-coverage-audit.schema.json",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-CAPABILITY-COVERAGE-GATE evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.7-release-definition.md",
+        "src/commands/capability-coverage-audit.js",
+        "schemas/aof-capability-coverage-audit.schema.json",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
       "name": "active release capability delta presence",
       "status": "pass",
       "detail": "1 delta record(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json"
       ]
     },
     {
       "name": "active release capability change",
       "status": "pass",
-      "detail": "2 changed capability reference(s)",
+      "detail": "1 changed capability reference(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json"
       ]
     },
     {
-      "name": "CRD-TASK-116-V96 release ref resolves",
+      "name": "CRD-MSG6R103-J6JBZZ release ref resolves",
       "status": "pass",
-      "detail": "docs/v9.6-release-definition.md",
+      "detail": "docs/v10.7-release-definition.md",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-        "docs/v9.6-release-definition.md",
-        ".aof/tasks/done/TASK-116.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
       ]
     },
     {
-      "name": "CRD-TASK-116-V96 work item ref resolves",
+      "name": "CRD-MSG6R103-J6JBZZ work item ref resolves",
       "status": "pass",
-      "detail": ".aof/tasks/done/TASK-116.json",
+      "detail": ".aof/tasks/done/TASK-127.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-        "docs/v9.6-release-definition.md",
-        ".aof/tasks/done/TASK-116.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
       ]
     },
     {
-      "name": "CRD-TASK-116-V96 capability ref PCAP-PROVIDER-COST-QUOTA",
+      "name": "CRD-MSG6R103-J6JBZZ capability ref PCAP-CAPABILITY-COVERAGE-GATE",
       "status": "pass",
-      "detail": "PCAP-PROVIDER-COST-QUOTA",
+      "detail": "PCAP-CAPABILITY-COVERAGE-GATE",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-        "docs/v9.6-release-definition.md",
-        ".aof/tasks/done/TASK-116.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
       ]
     },
     {
-      "name": "CRD-TASK-116-V96 capability ref PCAP-PROVIDER-EXECUTION",
+      "name": "CRD-MSG6R103-J6JBZZ value evidence ref resolves",
       "status": "pass",
-      "detail": "PCAP-PROVIDER-EXECUTION",
+      "detail": "docs/v10.7.1-release-notes.md",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-        "docs/v9.6-release-definition.md",
-        ".aof/tasks/done/TASK-116.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
       ]
     },
     {
-      "name": "CRD-TASK-116-V96 value evidence ref resolves",
+      "name": "CRD-MSG6R103-J6JBZZ value evidence ref resolves",
       "status": "pass",
-      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+      "detail": ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-        "docs/v9.6-release-definition.md",
-        ".aof/tasks/done/TASK-116.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
       ]
     },
     {
-      "name": "CRD-TASK-116-V96 one minute value explanation",
+      "name": "CRD-MSG6R103-J6JBZZ value evidence ref resolves",
       "status": "pass",
-      "detail": "v9.6 lets an operator see whether a provider-backed action is allowed to spend tokens, calls, quota, retries, or money before execution advances.",
+      "detail": "test/runtime-core-2.test.js",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-        "docs/v9.6-release-definition.md",
-        ".aof/tasks/done/TASK-116.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
       ]
     },
     {
-      "name": "CRD-TASK-116-V96 thirty second version delta",
+      "name": "CRD-MSG6R103-J6JBZZ one minute value explanation",
       "status": "pass",
-      "detail": "v9.5 showed the failure recovery path. v9.6 adds the spend and quota gate before execution can advance.",
+      "detail": "v10.7.1 makes the v10.7 Capability Coverage Gate stricter: AOF now checks that completed work has schema-valid actor outputs, team aggregation, and Council judgment rather than only nominal actor assignment evidence.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-        "docs/v9.6-release-definition.md",
-        ".aof/tasks/done/TASK-116.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
       ]
     },
     {
-      "name": "CRD-TASK-116-V96 product review trigger",
+      "name": "CRD-MSG6R103-J6JBZZ thirty second version delta",
       "status": "pass",
-      "detail": "Reopen product review if users still cannot explain whether provider execution is budget-bound or merely structurally audited.",
+      "detail": "v10.7.0 introduced capability coverage; v10.7.1 closes the audit blind spot where done work could pass without a validated actor output chain.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-        "docs/v9.6-release-definition.md",
-        ".aof/tasks/done/TASK-116.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
       ]
     },
     {
-      "name": "CRD-TASK-116-V96 not-proven boundary",
+      "name": "CRD-MSG6R103-J6JBZZ product review trigger",
       "status": "pass",
-      "detail": "This delta does not prove actual provider billing correctness, quota enforcement, production execution safety, or market adoption.",
+      "detail": "If AOF claims capability coverage while actor role results, team output, or Council review refs are missing or schema-invalid, reopen the audit as a release-blocking product issue.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-116-V96.json",
-        "docs/v9.6-release-definition.md",
-        ".aof/tasks/done/TASK-116.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "name": "CRD-MSG6R103-J6JBZZ not-proven boundary",
+      "status": "pass",
+      "detail": "v10.7.1 proves stronger structural coverage only; it still does not prove semantic expert correctness, user value, market truth, or production safety.",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
+        "docs/v10.7-release-definition.md",
+        ".aof/tasks/done/TASK-127.json",
+        "docs/v10.7.1-release-notes.md",
+        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+        "test/runtime-core-2.test.js"
       ]
     },
     {
       "name": "release notes ## What You Can Do Now",
       "status": "pass",
-      "detail": "docs/v9.6.0-release-notes.md",
+      "detail": "docs/v10.7.1-release-notes.md",
       "evidence_refs": [
-        "docs/v9.6.0-release-notes.md"
+        "docs/v10.7.1-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Delta",
       "status": "pass",
-      "detail": "docs/v9.6.0-release-notes.md",
+      "detail": "docs/v10.7.1-release-notes.md",
       "evidence_refs": [
-        "docs/v9.6.0-release-notes.md"
+        "docs/v10.7.1-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Matrix",
       "status": "pass",
-      "detail": "docs/v9.6.0-release-notes.md",
+      "detail": "docs/v10.7.1-release-notes.md",
       "evidence_refs": [
-        "docs/v9.6.0-release-notes.md"
+        "docs/v10.7.1-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Value Evidence",
       "status": "pass",
-      "detail": "docs/v9.6.0-release-notes.md",
+      "detail": "docs/v10.7.1-release-notes.md",
       "evidence_refs": [
-        "docs/v9.6.0-release-notes.md"
+        "docs/v10.7.1-release-notes.md"
       ]
     },
     {
