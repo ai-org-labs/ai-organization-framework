@@ -1,0 +1,14 @@
+{
+  "artifact_type": "role-result",
+  "record_id": "RRES-TASK-126-GUARDIAN",
+  "recorded_at": "2026-08-05T01:31:12.136Z",
+  "task_id": "TASK-126",
+  "role_id": "guardian",
+  "status": "completed",
+  "summary": "Confirms v10.6 must not claim actual external validation completion or market proof.",
+  "output_refs": [
+    "docs/v10.6-release-definition.md"
+  ],
+  "source_task_id": "TASK-126",
+  "source_parent_session_id": "SESS-V106-THIRD-PARTY-VALIDATION-INGESTION"
+}

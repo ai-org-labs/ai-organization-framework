@@ -1,0 +1,31 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MSFF0J7Z-BYIM93",
+  "recorded_at": "2026-08-05T01:35:27.311Z",
+  "release_version": "10.6.0",
+  "release_ref": "docs/v10.6-release-definition.md",
+  "work_item_id": "TASK-126",
+  "work_item_ref": ".aof/tasks/done/TASK-126.json",
+  "one_minute_value_explanation": "v10.6 lets AOF ingest external reviewer results as governed evidence: classify the verdict, link it to capability claims, preserve uncertainty, and route follow-up to Council.",
+  "thirty_second_version_delta": "v10.5 made provider-backed work understandable as a lifecycle; v10.6 defines how third-party validation results enter that lifecycle as governed evidence.",
+  "new_capability_ids": [
+    "PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION"
+  ],
+  "updated_capability_ids": [
+    "PCAP-THIRD-PARTY-VALIDATION-CONTRACT",
+    "PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE",
+    "PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.6-release-definition.md",
+    "docs/v10.6.0-release-notes.md",
+    "docs/aof-capability-matrix.md"
+  ],
+  "product_review_trigger": "If an operator cannot distinguish ingestion contract from completed third-party validation within 30 seconds, reopen product value comprehension.",
+  "not_proven": "Capability delta does not prove actual external validation results, third-party validation completion, market value, external adoption, live provider execution, provider write safety, or production safety.",
+  "source_task_id": "TASK-126",
+  "source_parent_session_id": "SESS-V106-THIRD-PARTY-VALIDATION-INGESTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

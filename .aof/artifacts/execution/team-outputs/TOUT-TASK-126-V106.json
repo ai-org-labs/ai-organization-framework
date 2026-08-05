@@ -1,0 +1,16 @@
+{
+  "artifact_type": "team-output",
+  "record_id": "TOUT-TASK-126-V106",
+  "recorded_at": "2026-08-05T01:31:12.136Z",
+  "task_id": "TASK-126",
+  "team_id": "runtime-team",
+  "status": "completed",
+  "summary": "v10.6 third-party validation result ingestion release surface and evidence chain.",
+  "output_refs": [
+    "docs/v10.6-release-definition.md",
+    "docs/v10.6.0-release-notes.md",
+    "docs/v10.6-release-checklist.md"
+  ],
+  "source_task_id": "TASK-126",
+  "source_parent_session_id": "SESS-V106-THIRD-PARTY-VALIDATION-INGESTION"
+}

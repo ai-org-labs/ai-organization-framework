@@ -1,0 +1,82 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": "1.0",
+  "stream_id": "STREAM-V106-THIRD-PARTY-VALIDATION-INGESTION",
+  "recorded_at": "2026-08-05T01:31:12.136Z",
+  "session_id": "SESS-V106-THIRD-PARTY-VALIDATION-INGESTION",
+  "parent_session_id": "SESS-V106-THIRD-PARTY-VALIDATION-INGESTION",
+  "actor_ref": "aof-orchestrator",
+  "role_ref": "orchestrator",
+  "provider": "codex",
+  "model": "runtime-backed",
+  "events": [
+    {
+      "event_id": "EVT-V106-001",
+      "event_type": "runtime_command",
+      "occurred_at": "2026-08-05T01:31:12.136Z",
+      "summary": "Ran organization-status and roadmap-status to select v10.6 as the current frontier.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md",
+        ".aof/goals/next-value-slice.json"
+      ],
+      "tool_name": "organization-status / roadmap-status",
+      "safety_level": "safe_read",
+      "approval_policy": "preapproved_local_runtime"
+    },
+    {
+      "event_id": "EVT-V106-002",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-08-05T01:31:12.136Z",
+      "summary": "Defined third-party validation result ingestion without claiming actual external validation results.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-126.json",
+        "docs/v10.6-release-definition.md",
+        "docs/v10.6.0-release-notes.md"
+      ],
+      "tool_name": "runtime-backed authoring",
+      "safety_level": "project_write",
+      "approval_policy": "local_project_write"
+    },
+    {
+      "event_id": "EVT-V106-003",
+      "event_type": "verification",
+      "occurred_at": "2026-08-05T01:31:12.136Z",
+      "summary": "Release candidate requires local runtime audits, tests, smoke, clean checkout, main CI, tag CI, and GitHub Release evidence.",
+      "artifact_refs": [
+        "docs/v10.6-release-checklist.md"
+      ],
+      "tool_name": "release-state-audit",
+      "safety_level": "verify",
+      "approval_policy": "preapproved_local_runtime"
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-126.json"
+    ],
+    "requirement_refs": [
+      "docs/v10.6-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      ".aof/context/active/release-state-audit.json"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "docs/v10.6.0-release-notes.md",
+      "docs/aof-capability-matrix.md"
+    ]
+  },
+  "risk_candidates": [
+    "Third-party validation result ingestion contract may be mistaken for actual third-party validation completion."
+  ],
+  "decision_candidates": [
+    "Require external validation result verdicts to route uncertainty and rejection into governance."
+  ],
+  "release_ready_evidence": [
+    "docs/v10.6-release-checklist.md"
+  ],
+  "source_task_id": "TASK-126",
+  "source_parent_session_id": "SESS-V106-THIRD-PARTY-VALIDATION-INGESTION",
+  "source_decision_record_id": null
+}

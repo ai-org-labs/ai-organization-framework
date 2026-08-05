@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-04T01:35:42.560Z",
+  "generated_at": "2026-08-05T01:37:02.922Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-125 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-125.json"
+    "summary": "TASK-126 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-126.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-125 completed: Ship v10.5 Provider-Backed Work Lifecycle Product Surface",
-      "artifact_ref": ".aof/tasks/done/TASK-125.json"
+      "summary": "TASK-126 completed: Ship v10.6 Third-Party Validation Result Ingestion",
+      "artifact_ref": ".aof/tasks/done/TASK-126.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v10.5.0, advance v10.6 third-party validation result ingestion, v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, and v11.0 first governed external provider read integration.",
+      "summary": "After v10.6.0, advance v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, v11.0 first governed external provider read integration, and v11.1 external validation result replay audit.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-125 completed: Ship v10.5 Provider-Backed Work Lifecycle Product Surface After v10.5.0, advance v10.6 third-party validation result ingestion, v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, and v11.0 first governed external provider read integration.",
+    "what_changed": "TASK-126 completed: Ship v10.6 Third-Party Validation Result Ingestion After v10.6.0, advance v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, v11.0 first governed external provider read integration, and v11.1 external validation result replay audit.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: After v10.5.0, advance v10.6 third-party validation result ingestion, v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, and v11.0 first governed external provider read integration."
+    "next_checkpoint": "Open an implementation task for the current frontier: After v10.6.0, advance v10.7 provider pilot execution readiness, v10.8 read-first GitHub provider observation proof, v10.9 external operator reproduction drill execution, v11.0 first governed external provider read integration, and v11.1 external validation result replay audit."
   }
 }

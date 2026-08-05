@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-126",
+  "title": "Ship v10.6 Third-Party Validation Result Ingestion",
+  "status": "done",
+  "created_at": "2026-08-05T01:31:12.136Z",
+  "updated_at": "2026-08-05T01:31:12.136Z",
+  "owner": "AOF Runtime",
+  "goal": "Define how external operator validation results are accepted, normalized, classified, linked to capability claims, and escalated into governance.",
+  "release_track": "v10.6",
+  "evidence_refs": [
+    "docs/v10.6-release-definition.md",
+    "docs/v10.6-release-checklist.md",
+    "docs/v10.6.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V106-THIRD-PARTY-VALIDATION-INGESTION.json",
+    ".aof/artifacts/requirement-coverage/TASK-126.json",
+    ".aof/context/active/release-state-audit.json"
+  ],
+  "not_proven": "This v10.6 evidence proves a third-party validation result ingestion contract only; it does not prove actual external validation results, market value, external adoption, live provider execution, provider write safety, or production safety.",
+  "source_task_id": "TASK-126",
+  "source_parent_session_id": "SESS-V106-THIRD-PARTY-VALIDATION-INGESTION"
+}

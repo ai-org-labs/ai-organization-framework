@@ -234,7 +234,8 @@
         ".aof/artifacts/capability-release-deltas/CRD-TASK-121-V101.json",
         "docs/v10.2-release-definition.md",
         "docs/v10.2.0-release-notes.md",
-        "docs/v10.4-release-definition.md"
+        "docs/v10.4-release-definition.md",
+        "docs/v10.6-release-definition.md"
       ]
     },
     {
@@ -278,7 +279,8 @@
         "docs/v10.4-release-definition.md",
         "docs/v10.4.0-release-notes.md",
         ".aof/artifacts/capability-release-deltas/CRD-TASK-124-V104.json",
-        "docs/v10.5-release-definition.md"
+        "docs/v10.5-release-definition.md",
+        "docs/v10.6-release-definition.md"
       ]
     },
     {
@@ -291,7 +293,21 @@
       "evidence_refs": [
         "docs/v10.5-release-definition.md",
         "docs/v10.5.0-release-notes.md",
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-125-V105.json",
+        "docs/v10.6-release-definition.md"
+      ]
+    },
+    {
+      "capability_id": "PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION",
+      "name": "Third-Party Validation Result Ingestion",
+      "description": "AOF can normalize and govern third-party validation results against capability claims.",
+      "user_value": "Operators can turn external reviewer feedback into traceable governance evidence without treating it as automatic approval.",
+      "first_version": "v10.6.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.6-release-definition.md",
+        "docs/v10.6.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-126-V106.json"
       ]
     }
   ]

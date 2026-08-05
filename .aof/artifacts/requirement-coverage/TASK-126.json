@@ -1,0 +1,61 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCOV-TASK-126-V106",
+  "recorded_at": "2026-08-05T01:31:12.136Z",
+  "work_item_id": "TASK-126",
+  "work_item_ref": ".aof/tasks/done/TASK-126.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V101-GONOGO-001",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v10.1-release-definition.md",
+      "title": "One validation contract surface",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered only when upstream provider readiness artifacts and not-proven boundaries are named in one release candidate surface",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-121.json"
+      ],
+      "evidence_refs": [
+        "docs/v10.1-release-definition.md",
+        "docs/v10.1.0-release-notes.md"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V101-GONOGO-002",
+      "requirement_type": "non_functional",
+      "source_ref": "docs/v10.1-release-definition.md",
+      "title": "No live execution authorization overclaim",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered only when release docs and evidence say the candidate does not authorize live provider execution",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-121.json"
+      ],
+      "evidence_refs": [
+        "docs/v10.1-release-definition.md",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-121-V101.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded local documentation and verification only",
+    "burndown_ref": "docs/v10.1-release-checklist.md",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty"
+  },
+  "not_proven": "This v10.6 evidence proves a third-party validation result ingestion contract only; it does not prove actual external validation results, market value, external adoption, live provider execution, provider write safety, or production safety.",
+  "source_task_id": "TASK-126",
+  "source_parent_session_id": "SESS-V106-PROD-AUTH-MODEL",
+  "source_decision_record_id": null,
+  "notes": null
+}

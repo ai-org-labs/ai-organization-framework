@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "archmap-impact-audit",
-  "generated_at": "2026-08-04T01:35:44.627Z",
+  "generated_at": "2026-08-05T01:36:55.254Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "cutoff_task_id": "TASK-071",
   "audited_status_dirs": [
@@ -15,8 +15,8 @@
     "archmap_deferred_with_reason"
   ],
   "summary": {
-    "scoped_task_count": 55,
-    "impact_record_count": 55,
+    "scoped_task_count": 56,
+    "impact_record_count": 56,
     "missing_impact_record_count": 0,
     "failing_check_count": 0
   },
@@ -405,6 +405,13 @@
       "status": "done",
       "status_dir": "done",
       "artifact_ref": ".aof/tasks/done/TASK-125.json"
+    },
+    {
+      "task_id": "TASK-126",
+      "title": "Ship v10.6 Third-Party Validation Result Ingestion",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-126.json"
     }
   ],
   "impact_records": [
@@ -847,13 +854,21 @@
       "status": "archmap_unaffected",
       "council_review_status": "approved",
       "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "task_id": "TASK-126",
+      "task_ref": ".aof/tasks/done/TASK-126.json",
+      "impact_ref": ".aof/artifacts/archmap/impact/TASK-126.json",
+      "status": "archmap_unaffected",
+      "council_review_status": "approved",
+      "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap"
     }
   ],
   "checks": [
     {
       "name": "scoped task discovery",
       "status": "pass",
-      "detail": "55 task(s) at or after TASK-071 in open, assigned, done"
+      "detail": "56 task(s) at or after TASK-071 in open, assigned, done"
     },
     {
       "name": "TASK-071 archmap impact record presence",
@@ -2502,6 +2517,36 @@
     },
     {
       "name": "TASK-125 archmap source ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-126 archmap impact record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/archmap/impact/TASK-126.json"
+    },
+    {
+      "name": "TASK-126 impact record links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-126, expected=TASK-126"
+    },
+    {
+      "name": "TASK-126 impact status validity",
+      "status": "pass",
+      "detail": "status=archmap_unaffected"
+    },
+    {
+      "name": "TASK-126 council impact disposition",
+      "status": "pass",
+      "detail": "council_review_status=approved"
+    },
+    {
+      "name": "TASK-126 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-126.json"
+    },
+    {
+      "name": "TASK-126 archmap source ref resolves",
       "status": "pass",
       "detail": "docs/archmaps/aof-runtime-current.archmap"
     }

@@ -119,3 +119,9 @@ NEW: `PCAP-EXTERNAL-VALUE-REPRODUCTION-PACKAGE` lets operators hand a bounded va
 NEW: `PCAP-PROVIDER-BACKED-WORK-LIFECYCLE-SURFACE` lets operators see provider-backed work as one lifecycle instead of separate proof artifacts.
 
 30-second delta: v10.4 gave external reviewers a value reproduction package; v10.5 turns provider-backed work into a product story: need, validation, planning, provider candidate, authorization, evidence, Council review, blocker, and next action.
+
+## v10.6 Capability Delta
+
+NEW: `PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION` lets AOF classify external reviewer results and route uncertainty into governance.
+
+30-second delta: v10.5 made provider-backed work understandable as a lifecycle; v10.6 defines how third-party validation results enter that lifecycle as governed evidence.

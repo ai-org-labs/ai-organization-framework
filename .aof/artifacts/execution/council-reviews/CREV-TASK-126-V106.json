@@ -1,0 +1,29 @@
+{
+  "artifact_type": "council-review",
+  "review_id": "CREV-TASK-126-V106",
+  "recorded_at": "2026-08-05T01:31:12.136Z",
+  "source_task_id": "TASK-126",
+  "source_parent_session_id": "SESS-V106-THIRD-PARTY-VALIDATION-INGESTION",
+  "council_id": "product-council",
+  "status": "approved",
+  "review_status": "approved",
+  "decision": "approve",
+  "summary": "Approved as a third-party validation result ingestion contract only, not as completed third-party validation.",
+  "reviewed_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-126-V106.json",
+    "docs/v10.6-release-definition.md"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-126-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-126-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-126-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v10.6-release-definition.md",
+    "docs/v10.6-release-checklist.md",
+    ".aof/artifacts/agent-sessions/SESS-V106-THIRD-PARTY-VALIDATION-INGESTION.json",
+    ".aof/context/active/release-state-audit.json"
+  ],
+  "diagnosis_evidence_refs": [],
+  "not_proven": "Council review approves the ingestion contract only; it does not prove actual external validation, third-party validation completion, market value, or external adoption."
+}

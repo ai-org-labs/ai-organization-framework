@@ -1,0 +1,14 @@
+{
+  "artifact_type": "role-result",
+  "record_id": "RRES-TASK-126-BUILDER",
+  "recorded_at": "2026-08-05T01:31:12.136Z",
+  "task_id": "TASK-126",
+  "role_id": "builder",
+  "status": "completed",
+  "summary": "Prepared release docs and runtime evidence chain for validation result ingestion.",
+  "output_refs": [
+    "docs/v10.6-release-definition.md"
+  ],
+  "source_task_id": "TASK-126",
+  "source_parent_session_id": "SESS-V106-THIRD-PARTY-VALIDATION-INGESTION"
+}
