@@ -1,0 +1,68 @@
+{
+  "gate_type": "actor-execution-gate",
+  "gate_format_version": 1,
+  "recorded_at": "2026-08-06T01:23:51.508Z",
+  "gate_id": "AEG-TASK-129-BUILDER-CHILD",
+  "actor_assignment_evaluation_ref": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-BUILDER-CHILD.json",
+  "actor_skill_packet_ref": ".aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER-CHILD.json",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "assignment": {
+    "actor_ref": "019fd499-9bc2-7d42-8877-c65aca5f2c65",
+    "role_ref": "builder",
+    "team_ref": "runtime-team",
+    "execution_mode": "team-member",
+    "assignment_state": "selected"
+  },
+  "resource_gate": {
+    "state": "allowed",
+    "required_resource_refs": [
+      "resource-repo-main"
+    ],
+    "claim_refs": [
+      ".aof/artifacts/allocation/resource-claims/RCL-TASK-129-REPO-MAIN.json"
+    ],
+    "missing_resource_refs": [],
+    "claim_summaries": [
+      {
+        "artifact_ref": ".aof/artifacts/allocation/resource-claims/RCL-TASK-129-REPO-MAIN.json",
+        "resource_ref": "resource-repo-main",
+        "claim_status": "approved",
+        "claimant_role_ref": "builder"
+      }
+    ]
+  },
+  "policy_gate": {
+    "state": "allowed",
+    "required_policy_refs": [
+      "policy-runtime-backed-answer-discipline"
+    ],
+    "evaluation_refs": [
+      ".aof/artifacts/allocation/policy-evaluations/PER-TASK-129-RUNTIME-DISCIPLINE.json"
+    ],
+    "missing_policy_refs": [],
+    "evaluation_summaries": [
+      {
+        "artifact_ref": ".aof/artifacts/allocation/policy-evaluations/PER-TASK-129-RUNTIME-DISCIPLINE.json",
+        "policy_refs": [
+          "policy-runtime-backed-answer-discipline"
+        ],
+        "overall_outcome": "allowed"
+      }
+    ]
+  },
+  "gate_decision": {
+    "execution_gate_state": "allowed",
+    "rationale": "Assignment, resource claims, and policy evaluations are explicit and non-blocking.",
+    "recommended_action": "Proceed to governed actor execution."
+  },
+  "hri_projection": {
+    "character_label": "Builder",
+    "speech_bubble": "Resources and policies are explicit; I can execute under the gate.",
+    "current_action": "Implementation review completed",
+    "visible_state": "allowed",
+    "visible_blockers": [],
+    "next_action": "Proceed to governed actor execution."
+  }
+}

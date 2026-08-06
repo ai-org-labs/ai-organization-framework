@@ -1,0 +1,38 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-06T02:09:46.076Z",
+  "team_output_id": "TOUT-MSGVOIFV-QV6HJI",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit Mission Control Japanese operator dashboard evidence to council review.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    ".aof/tasks/done/TASK-128.json",
+    "src/commands/visibility-serve.js",
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/visibility/current/runtime-execution.json"
+  ],
+  "decision_required": true,
+  "summary": "Mission Control now exposes the requested Japanese operator dashboard views from runtime artifacts. This migration preserves the existing joined role result refs and makes received roles explicit for current schema validation.",
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "source_decision_record_id": null
+}

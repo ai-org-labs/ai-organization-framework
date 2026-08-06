@@ -1,0 +1,51 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-08-06T01:26:39.267Z",
+  "review_packet_id": "CREV-MSGU52G3-359WYZ",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "changes-requested",
+  "decision_summary": "TASK-129 runtime direction is valid, but release approval is blocked until audit evidence is closed.",
+  "rationale": "Child Visionary, Builder, and Guardian role results support the v10.8 role-routing fail-closed direction and implementation. Guardian explicitly blocked final release until schema/test/evidence/release-audit gaps are closed, and release-state-audit still reports TASK-128 legacy execution artifact schema failures.",
+  "recommendation": "Close the remaining audit blockers, then resubmit TASK-129 for release approval.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "Understand that the runtime fix is directionally correct but not yet release-approved.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [
+    "Add an explicit legacy execution evidence migration or compatibility policy before treating TASK-128 as compliant."
+  ],
+  "organization_change_recommendations": [
+    "Do not approve release when Council evidence conflicts with Guardian blocking status."
+  ],
+  "diagnosis_category": "governance-evidence-gap",
+  "diagnosis_confidence": 0.9,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json"
+  ],
+  "human_override_signal": "release approval withheld until audit green",
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-129-ROLE-ROUTING.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v10.8-release-definition.md",
+    "docs/v10.8-release-checklist.md",
+    "src/runtime/council.js",
+    "src/runtime/council-execution.js",
+    "src/runtime/packet.js",
+    "schemas/aof-session.schema.json",
+    "test/runtime-core-3.test.js",
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-129-ROLE-ROUTING.json"
+  ],
+  "follow_up_task_ids": [
+    "TASK-129"
+  ],
+  "escalation_required": true,
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null
+}

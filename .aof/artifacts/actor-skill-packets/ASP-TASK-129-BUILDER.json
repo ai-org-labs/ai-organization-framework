@@ -1,0 +1,74 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-06T01:14:53.453Z",
+  "packet_id": "ASP-TASK-129-BUILDER",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "objective": "Implement v10.8 role routing fail-closed runtime changes.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "builder",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Builder owns runtime implementation and integration changes.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-schema-review",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "src/runtime/council.js",
+        "schemas/aof-session.schema.json"
+      ],
+      "rationale": "runtime and schema changes are directly in Builder scope"
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "runtime-code-change",
+    "artifact_schema_ref": "schemas/aof-session.schema.json",
+    "required_sections": [
+      "role routing",
+      "actor_ref persistence"
+    ],
+    "acceptance_criteria": [
+      "required specialist routes to actor",
+      "missing actor fails before persistence"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "routing failure is fail-closed",
+      "evaluator_ref": "guardian",
+      "evidence_required": "negative regression test",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [
+    {
+      "blocker_code": "missing-required-role-actor",
+      "trigger_condition": "required role has no actor",
+      "consequence": "block-assignment",
+      "recovery_action": "assign an actor or remove the requirement"
+    }
+  ],
+  "hri_projection": {
+    "character_label": "Builder",
+    "speech_bubble": "I am wiring required roles to concrete actor seats.",
+    "current_action": "Implement role routing",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit routing behavior to Guardian regression tests"
+  },
+  "status": "completed"
+}

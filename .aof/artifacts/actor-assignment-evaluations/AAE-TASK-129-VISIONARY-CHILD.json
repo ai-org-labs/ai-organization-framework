@@ -1,0 +1,45 @@
+{
+  "evaluation_type": "actor-assignment-evaluation",
+  "evaluation_format_version": 1,
+  "recorded_at": "2026-08-06T01:23:07.290Z",
+  "evaluation_id": "AAE-TASK-129-VISIONARY-CHILD",
+  "actor_skill_packet_ref": ".aof/artifacts/actor-skill-packets/ASP-TASK-129-VISIONARY-CHILD.json",
+  "actor_skill_packet_id": "ASP-TASK-129-VISIONARY-CHILD",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "assignment": {
+    "actor_ref": "019fd499-8130-7760-93cd-9ceaef0af4d1",
+    "role_ref": "visionary",
+    "team_ref": "governance-team",
+    "execution_mode": "council-seat"
+  },
+  "required_skill_refs": [
+    "skill-product-direction"
+  ],
+  "capability_fit_summary": {
+    "strong_count": 0,
+    "sufficient_count": 1,
+    "weak_count": 0,
+    "missing_count": 0,
+    "blocked_count": 0,
+    "evidence_ref_count": 3
+  },
+  "assignment_decision": {
+    "assignment_state": "selected",
+    "confidence_label": "medium",
+    "rationale": "Assignment has sufficient skill and capability evidence to proceed to governed execution.",
+    "recommended_action": "Proceed to resource and policy gate evaluation."
+  },
+  "missing_evidence": [],
+  "review_required": true,
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I judged v10.8 as the correct organization-truth fix.",
+    "current_action": "Direction review completed",
+    "confidence_label": "medium",
+    "visible_state": "selected",
+    "visible_blockers": [],
+    "next_action": "Proceed to resource and policy gate evaluation."
+  }
+}

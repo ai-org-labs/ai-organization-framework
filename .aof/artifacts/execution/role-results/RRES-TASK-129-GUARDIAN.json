@@ -1,0 +1,35 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-06T01:25:37.922Z",
+  "role": "guardian",
+  "stage": "review",
+  "session_id": "019fd499-afd4-7101-92f5-82c5947747b3",
+  "status": "completed",
+  "recommendation": "Block release until remaining TASK-129 audit gaps are closed; core runtime behavior is promising but release evidence is incomplete.",
+  "rationale": "Guardian review verified focused local tests for required specialist routing, fail-closed persistence, and partial-run prevention. Release should not proceed yet because actor_ref is optional in the session schema, no prior TASK-129 execution role-result/team-output/council-review chain was present, full release checklist gates were not verified here, and no focused assertion proves persisted step actor_ref matches packet actor.actor_id.",
+  "signals": [
+    "Focused local Node tests passed for required specialist routing, fail-closed persistence, provider/model partial-run prevention, role output joins, and actor output chain audits.",
+    "Session schema exposes actor_ref but does not require steps[].actor_ref, leaving an audit acceptance loophole for missing actor routing evidence.",
+    "No TASK-129 role-result, team-output, or council-review execution artifacts were found before this Guardian result was created.",
+    "Do not claim later parent fixes are complete unless independently verified."
+  ],
+  "artifact_refs": [
+    "src/runtime/council.js",
+    "src/runtime/council-execution.js",
+    "src/runtime/packet.js",
+    "src/commands/council-exec.js",
+    "schemas/aof-session.schema.json",
+    "test/runtime-core-2.test.js",
+    "test/runtime-core-3.test.js",
+    "test/runtime-core-4.test.js",
+    "docs/v10.8-release-checklist.md",
+    ".aof/tasks/open/TASK-129.json"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-129",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.78
+}

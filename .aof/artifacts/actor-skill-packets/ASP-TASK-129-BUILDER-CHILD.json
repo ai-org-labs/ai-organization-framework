@@ -1,0 +1,75 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-06T01:22:51.141Z",
+  "packet_id": "ASP-TASK-129-BUILDER-CHILD",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "objective": "Review and implement v10.8 role routing fail-closed runtime changes.",
+  "assignment": {
+    "actor_ref": "019fd499-9bc2-7d42-8877-c65aca5f2c65",
+    "role_ref": "builder",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Actual child Builder agent completed the implementation review for TASK-129.",
+    "execution_mode": "team-member"
+  },
+  "required_skill_refs": [
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-runtime-implementation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "test/runtime-core-3.test.js"
+      ],
+      "rationale": "child Builder output identified the runtime routing and persistence control points"
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "runtime-code-change",
+    "artifact_schema_ref": "schemas/aof-session.schema.json",
+    "required_sections": [
+      "role routing",
+      "actor_ref persistence"
+    ],
+    "acceptance_criteria": [
+      "required specialist routes to actor",
+      "missing actor fails before persistence"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "routing failure is fail-closed",
+      "evaluator_ref": "guardian",
+      "evidence_required": "negative regression test",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [
+    {
+      "blocker_code": "missing-required-role-actor",
+      "trigger_condition": "required role has no actor",
+      "consequence": "block-assignment",
+      "recovery_action": "assign an actor or remove the requirement"
+    }
+  ],
+  "hri_projection": {
+    "character_label": "Builder",
+    "speech_bubble": "I confirmed required roles route before persistence.",
+    "current_action": "Implementation review completed",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit to Guardian"
+  },
+  "status": "completed"
+}

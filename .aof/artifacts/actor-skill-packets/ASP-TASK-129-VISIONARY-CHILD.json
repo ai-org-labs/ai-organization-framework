@@ -1,0 +1,74 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-06T01:22:49.050Z",
+  "packet_id": "ASP-TASK-129-VISIONARY-CHILD",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "objective": "Define whether v10.8 role routing fail-closed is the correct next AOF product move.",
+  "assignment": {
+    "actor_ref": "019fd499-8130-7760-93cd-9ceaef0af4d1",
+    "role_ref": "visionary",
+    "team_ref": "governance-team",
+    "assignment_reason": "Actual child Visionary agent completed the direction review for TASK-129.",
+    "execution_mode": "council-seat"
+  },
+  "required_skill_refs": [
+    "skill-product-direction"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-product-direction",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v10.8-release-definition.md",
+        "docs/v10.8-release-checklist.md",
+        ".aof/tasks/open/TASK-129.json"
+      ],
+      "rationale": "child Visionary output judged v10.8 as the correct product and organization-truth fix"
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "direction-review",
+    "artifact_schema_ref": "docs/v10.8-release-definition.md",
+    "required_sections": [
+      "product direction",
+      "release boundary"
+    ],
+    "acceptance_criteria": [
+      "v10.8 resolves registration/execution divergence without weakening governance"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "direction is grounded in runtime evidence",
+      "evaluator_ref": "guardian",
+      "evidence_required": "child Visionary output and runtime tests",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [
+    {
+      "blocker_code": "direction-not-runtime-backed",
+      "trigger_condition": "direction review has no runtime evidence",
+      "consequence": "require-council-review",
+      "recovery_action": "rerun direction through runtime-backed evidence"
+    }
+  ],
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I judged v10.8 as the correct organization-truth fix.",
+    "current_action": "Direction review completed",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit to council"
+  },
+  "status": "completed"
+}

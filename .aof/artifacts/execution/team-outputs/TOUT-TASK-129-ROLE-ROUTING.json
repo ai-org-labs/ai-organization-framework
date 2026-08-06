@@ -1,0 +1,42 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-06T01:26:13.631Z",
+  "team_output_id": "TOUT-MSGU4INZ-EPXC5E",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit TASK-129 role routing fail-closed evidence to Architecture Council for release judgment.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v10.8-release-definition.md",
+    "src/runtime/council.js",
+    "src/runtime/council-execution.js",
+    "src/runtime/packet.js",
+    "schemas/aof-session.schema.json",
+    "test/runtime-core-3.test.js",
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json"
+  ],
+  "decision_required": true,
+  "summary": "TASK-129 child Visionary, Builder, and Guardian outputs are joined for Council review; the runtime change makes required-role routing concrete and fail-closed.",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null
+}

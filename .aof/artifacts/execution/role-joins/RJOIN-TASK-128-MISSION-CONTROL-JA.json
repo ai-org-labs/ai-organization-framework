@@ -1,0 +1,26 @@
+{
+  "artifact_type": "role-join-record",
+  "join_id": "RJOIN-TASK-128-MISSION-CONTROL-JA",
+  "recorded_at": "2026-08-05T18:18:36.352Z",
+  "work_item_id": "TASK-128",
+  "work_item_ref": ".aof/tasks/done/TASK-128.json",
+  "joined_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "role_refs": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "join_reason": "Mission Control UI work needs product framing, implementation, and independent verification.",
+  "output_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json"
+  ],
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "source_decision_record_id": null
+}

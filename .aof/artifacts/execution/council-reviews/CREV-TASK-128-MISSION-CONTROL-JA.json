@@ -1,0 +1,41 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-08-06T01:38:37.435Z",
+  "review_packet_id": "CREV-MSGUKGL7-DO6V5D",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve TASK-128 as a bounded Mission Control operator visibility improvement, subject to release-state-audit and full test verification.",
+  "rationale": "The implementation is tied to canonical runtime artifacts and adds the requested Japanese, task, organization, product completion, and test-status surfaces. Remaining Japanese copy/UX nuance is operator-validation risk, not a release blocker after structural verification passes.",
+  "recommendation": "Proceed with release verification using the migrated execution evidence.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "Confirm the dashboard is Japanese-readable and runtime-backed.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": null,
+  "diagnosis_confidence": null,
+  "diagnosis_evidence_refs": [],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-128-MISSION-CONTROL-JA.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    ".aof/tasks/done/TASK-128.json",
+    "src/commands/visibility-serve.js",
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/visibility/current/runtime-execution.json",
+    ".aof/context/active/release-state-audit.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "source_decision_record_id": null
+}

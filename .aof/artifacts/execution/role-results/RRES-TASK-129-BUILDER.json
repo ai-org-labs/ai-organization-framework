@@ -1,0 +1,30 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-06T01:25:15.895Z",
+  "role": "builder",
+  "stage": "execution",
+  "session_id": "019fd499-9bc2-7d42-8877-c65aca5f2c65",
+  "status": "completed",
+  "recommendation": "Approve TASK-129 required-role routing and fail-closed runtime implementation with a small follow-up to add explicit persisted-session required_role_refs coverage.",
+  "rationale": "Builder review found the runtime routes stage seats plus session and CLI required roles, resolves each required role to a concrete actor before preparing execution, and throws before persistence when a required specialist role is missing. council-exec builds execution before appendCouncilExecutionRun, so missing-role failures do not create partial council execution runs.",
+  "signals": [
+    "Local evidence: src/runtime/council.js builds specialist seats and fails closed on missing actors; src/runtime/packet.js independently fails missing packet actor resolution; src/commands/council-exec.js persists only after execution construction; test/runtime-core-3.test.js covers specialist routing and fail-before-persistence; node --test test/runtime-core-3.test.js test/runtime-core-4.test.js passed 59/59."
+  ],
+  "artifact_refs": [
+    "src/runtime/council.js",
+    "src/runtime/council-execution.js",
+    "src/runtime/packet.js",
+    "src/commands/council-exec.js",
+    "src/cli-main.js",
+    "schemas/aof-session.schema.json",
+    "test/runtime-core-3.test.js",
+    "test/runtime-core-4.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-129",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.86
+}

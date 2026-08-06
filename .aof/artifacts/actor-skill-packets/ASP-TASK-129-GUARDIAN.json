@@ -1,0 +1,73 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-06T01:14:56.473Z",
+  "packet_id": "ASP-TASK-129-GUARDIAN",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "objective": "Verify v10.8 role routing fail-closed behavior.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "guardian",
+    "team_ref": "verification-team",
+    "assignment_reason": "Guardian owns negative tests and release safety checks.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-runtime-verification",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "test/runtime-core-3.test.js"
+      ],
+      "rationale": "runtime regression tests prove both pass and fail routes"
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "verification-evidence",
+    "artifact_schema_ref": "test/runtime-core-3.test.js",
+    "required_sections": [
+      "positive specialist route",
+      "negative missing actor route"
+    ],
+    "acceptance_criteria": [
+      "focused tests pass",
+      "missing actor leaves no persisted council run"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "no silent specialist skip",
+      "evaluator_ref": "guardian",
+      "evidence_required": "test/runtime-core-3.test.js",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [
+    {
+      "blocker_code": "silent-role-skip",
+      "trigger_condition": "required role is absent but execution proceeds",
+      "consequence": "block-assignment",
+      "recovery_action": "fail closed before persistence"
+    }
+  ],
+  "hri_projection": {
+    "character_label": "Guardian",
+    "speech_bubble": "I am checking that missing actors stop execution.",
+    "current_action": "Run routing regressions",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Report whether release gates can proceed"
+  },
+  "status": "completed"
+}
