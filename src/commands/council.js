@@ -19,7 +19,8 @@ export async function councilCommand(options) {
     session,
     stage: options.stage,
     includeOptional: options.includeOptional,
-    roleOverride: options.role
+    roleOverride: options.role,
+    requiredRoles: options.requiredRoles ?? []
   });
 
   return {

@@ -196,7 +196,7 @@ Usage:
   aof visibility-session [--project <path>] [--artifact-dir <path>] [--host <host>] [--port <port>] [--title <text>] [--open-browser]
   aof packet --session <path> --stage <stage> [--project <path>] [--role <role>]
   aof council --session <path> --stage <stage> [--project <path>] [--role <role>] [--include-optional]
-  aof council-exec --session <path> --stage <stage> [--project <path>] [--role <role>] [--include-optional] [--invoke-model] [--provider <provider>] [--model <name>] [--mock-seat-decision <Role=decision>] [--mock-seat-veto <Role=yes|no>] [--write-artifact <path>] [--timeout-ms <ms>] [--max-retries <n>]
+  aof council-exec --session <path> --stage <stage> [--project <path>] [--role <role>] [--required-role <role>] [--include-optional] [--invoke-model] [--provider <provider>] [--model <name>] [--mock-seat-decision <Role=decision>] [--mock-seat-veto <Role=yes|no>] [--write-artifact <path>] [--timeout-ms <ms>] [--max-retries <n>]
   aof provider-check [--provider <provider>] [--model <name>] [--base-url <url>] [--api-key-env <name>] [--ping] [--write-artifact <path>] [--timeout-ms <ms>] [--max-retries <n>]
   aof escalation-resolve --session <path> --resolution <approve|reopen|stop> --note "<text>"
   aof signal --session <path> --signal <path>
@@ -691,6 +691,7 @@ function parseArgs(argv) {
               session: "",
               stage: "",
               role: "",
+              requiredRoles: [],
               includeOptional: false,
               invokeModel: false,
               provider: "",
@@ -5735,6 +5736,15 @@ function parseArgs(argv) {
     }
     if (part === "--include-optional") {
       options.includeOptional = true;
+      continue;
+    }
+    if (part === "--required-role") {
+      const value = rest[i + 1];
+      if (!value) {
+        throw new Error("Missing value after --required-role.");
+      }
+      options.requiredRoles.push(value);
+      i += 1;
       continue;
     }
     if (part === "--invoke-model") {

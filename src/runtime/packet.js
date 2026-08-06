@@ -32,8 +32,19 @@ const OUTPUT_KIND_BY_STAGE = {
   reopen: "reopen-recommendation"
 };
 
-function firstActorWithRole(actors, role) {
-  return actors.find((actor) => Array.isArray(actor.roles) && actor.roles.includes(role));
+function normalizeRoleName(role) {
+  return String(role ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+export function firstActorWithRole(actors, role) {
+  const requestedRole = normalizeRoleName(role);
+  return actors.find((actor) =>
+    Array.isArray(actor.roles) &&
+    actor.roles.some((actorRole) => normalizeRoleName(actorRole) === requestedRole)
+  );
 }
 
 function requireRoleForStage(stage, role) {

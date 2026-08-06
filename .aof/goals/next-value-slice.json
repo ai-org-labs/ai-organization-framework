@@ -1,8 +1,9 @@
 {
-  "artifact_type": "next-value-slice",
-  "content": "After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit.",
+  "goal_type": "next-value-slice",
+  "content": "After v10.8.0, resume v10.9 provider pilot execution readiness, v11.0 read-first GitHub provider observation proof, v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, and v11.3 external validation result replay audit.",
+  "updated_at": "2026-08-06T00:45:22.444Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
-  "declared_complete": false,
-  "updated_at": "2026-08-05T14:05:00.000Z"
+  "source_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "declared_complete_at": null
 }

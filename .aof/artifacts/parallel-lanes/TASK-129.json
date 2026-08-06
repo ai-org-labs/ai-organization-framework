@@ -1,0 +1,65 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-MSGT5BHW-9P5S34",
+  "recorded_at": "2026-08-06T00:58:51.380Z",
+  "work_item_id": "TASK-129",
+  "work_item_ref": ".aof/tasks/done/TASK-129.json",
+  "pilot_status": "ready",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-129.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-129.json",
+  "lanes": [
+    {
+      "lane_id": "routing",
+      "goal": "resolve required roles to concrete actors before council execution",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        "docs/v10.8-release-definition.md"
+      ],
+      "expected_output": "role routing and actor_ref evidence",
+      "output_refs": [
+        "src/runtime/council.js",
+        "src/runtime/packet.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-3.test.js"
+      ],
+      "stop_condition": "stop if a required role resolves to no actor",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "verification",
+      "goal": "prove missing actor execution fails before persistence",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "docs/v10.8-release-definition.md"
+      ],
+      "expected_output": "negative routing regression tests",
+      "output_refs": [
+        "test/runtime-core-3.test.js"
+      ],
+      "verification_refs": [
+        "test/runtime-core-3.test.js"
+      ],
+      "stop_condition": "stop if missing actor execution persists a run",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "ready",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "routing",
+      "verification"
+    ],
+    "conflict_summary": "No unresolved lane conflict; Council approval remains separate from local implementation readiness.",
+    "blocker_summary": "Blocked if required specialist role has no concrete actor.",
+    "merge_rationale": "The implementation lane and verification lane jointly prove the runtime cannot silently skip required roles.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": "docs/v10.8-release-definition.md",
+  "not_proven": "Parallel lane evidence proves local implementation/verification join only; it does not assert human Council approval was executed in this session.",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "notes": null
+}

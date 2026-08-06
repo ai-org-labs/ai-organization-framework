@@ -865,7 +865,7 @@ function deriveCadenceSummary(statusCard = {}) {
 
 export function buildVisibilityPageHtml(title) {
   return `<!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -896,7 +896,7 @@ export function buildVisibilityPageHtml(title) {
       }
       body {
         margin: 0;
-        font-family: "Iowan Old Style", "Palatino Linotype", serif;
+        font-family: "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", system-ui, sans-serif;
         background:
           radial-gradient(circle at top left, rgba(19,59,74,0.08), transparent 28%),
           radial-gradient(circle at top right, rgba(143,95,7,0.08), transparent 24%),
@@ -932,6 +932,7 @@ export function buildVisibilityPageHtml(title) {
         margin: 0 0 6px;
         font-size: clamp(24px, 2.15vw, 34px);
         letter-spacing: -0.02em;
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Iowan Old Style", serif;
       }
       header p {
         margin: 0;
@@ -2076,6 +2077,31 @@ export function buildVisibilityPageHtml(title) {
         grid-template-columns: minmax(0, 1fr) minmax(280px, 0.28fr);
         gap: clamp(10px, 1vw, 14px);
       }
+      .tab-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .tab-button {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #f7efe5;
+        color: var(--ink);
+        padding: 7px 12px;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .tab-button.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fffdf8;
+      }
+      .tab-panel[hidden] {
+        display: none;
+      }
       .kanban-shell, .summary-shell, .lower-panel {
         min-height: 0;
         border-radius: 24px;
@@ -2116,6 +2142,41 @@ export function buildVisibilityPageHtml(title) {
         gap: 10px;
         overflow: auto;
         scrollbar-width: thin;
+      }
+      .task-list-view {
+        min-height: 0;
+        height: 100%;
+        padding: clamp(10px, 1vw, 14px);
+        overflow: auto;
+        display: grid;
+        gap: 9px;
+        align-content: start;
+        scrollbar-width: thin;
+      }
+      .task-list-row {
+        display: grid;
+        grid-template-columns: minmax(90px, 0.18fr) minmax(0, 0.5fr) minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        padding: 12px 14px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: #fffdf8;
+      }
+      .task-list-row.current {
+        background: #eaf5f7;
+        border-color: #b9d4dd;
+      }
+      .task-state-pill {
+        display: inline-flex;
+        width: fit-content;
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: #f3eadf;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
       }
       .kanban-column {
         min-height: 0;
@@ -2284,6 +2345,9 @@ export function buildVisibilityPageHtml(title) {
         gap: clamp(10px, 1vw, 14px);
         min-height: 0;
       }
+      .mission-lower.focus-tabs {
+        grid-template-columns: minmax(0, 1fr);
+      }
       .lower-panel {
         min-height: 0;
       }
@@ -2295,6 +2359,95 @@ export function buildVisibilityPageHtml(title) {
         gap: 9px;
         align-content: start;
         scrollbar-width: thin;
+      }
+      .overview-tabs-body {
+        min-height: 0;
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+      }
+      .overview-tab-content {
+        min-height: 0;
+        overflow: auto;
+        padding: clamp(10px, 1vw, 14px);
+        scrollbar-width: thin;
+      }
+      .overview-grid-wide {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        align-items: start;
+      }
+      .org-tree {
+        display: grid;
+        gap: 12px;
+      }
+      .org-node {
+        padding: 12px 14px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: #fffdf8;
+      }
+      .org-node.team {
+        margin-left: 18px;
+        background: #f8f2e9;
+      }
+      .org-node.role {
+        margin-left: 36px;
+        background: #eef6f8;
+        border-color: #bfd5dc;
+      }
+      .org-node.agent {
+        margin-left: 54px;
+        background: #eef7f1;
+        border-color: #b7d5c4;
+      }
+      .utilization {
+        margin-top: 8px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        align-items: center;
+      }
+      .util-bar {
+        height: 8px;
+        border-radius: 999px;
+        background: #eadfce;
+        overflow: hidden;
+      }
+      .util-bar > span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--accent-2), var(--good));
+      }
+      .completion-meter {
+        padding: 14px 16px;
+        border: 1px solid #bfd5dc;
+        border-radius: 18px;
+        background: #eef6f8;
+      }
+      .completion-number {
+        font-size: clamp(28px, 3vw, 44px);
+        font-weight: 900;
+        line-height: 1;
+      }
+      .progress-track {
+        margin-top: 12px;
+        height: 14px;
+        border-radius: 999px;
+        background: #d8c7b3;
+        overflow: hidden;
+      }
+      .progress-track > span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--accent), var(--good));
+      }
+      .status-grid-ja {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
       }
       .mini-row {
         padding: 10px 11px;
@@ -2524,8 +2677,8 @@ export function buildVisibilityPageHtml(title) {
     <div id="fit-stage">
     <div id="app-shell">
     <header>
-      <h1>AOF Mission Control Dashboard</h1>
-      <p>Runtime-backed command center for mission, release/frontier, kanban flow, blockers, workload, and proof coverage.</p>
+      <h1>AOF ミッションコントロール</h1>
+      <p>ランタイム証跡から、現在地、タスク、組織、完成度、テスト/監査状況を一画面で確認します。</p>
     </header>
     <div id="dashboard-root" class="mission-dashboard"></div>
     </div>
@@ -2652,7 +2805,7 @@ export function buildVisibilityPageHtml(title) {
           '<div class="task-id">' + escapeHtml(card.id ?? card.kind ?? "runtime") + '</div>' +
           '<div class="task-title">' + escapeHtml(card.title ?? "-") + '</div>' +
           '<div class="task-detail">' + escapeHtml(card.detail ?? card.description ?? card.artifact_ref ?? "-") + '</div>' +
-          '<div class="detail-hint">Click for full detail</div>' +
+          '<div class="detail-hint">詳細を開く</div>' +
         '</div>';
       }
 
@@ -2665,7 +2818,7 @@ export function buildVisibilityPageHtml(title) {
           metadata: metadata ?? null
         };
         return '<div class="mini-row detail-trigger"' + detailPayloadAttributes(payload) + '><strong>' +
-          escapeHtml(payload.title) + '</strong><span>' + escapeHtml(payload.body) + '</span><div class="detail-hint">Click for full detail</div></div>';
+          escapeHtml(payload.title) + '</strong><span>' + escapeHtml(payload.body) + '</span><div class="detail-hint">詳細を開く</div></div>';
       }
 
       function summarizeTask(task) {
@@ -2689,7 +2842,7 @@ export function buildVisibilityPageHtml(title) {
         const progress = derived.operator_progress ?? {};
         const currentId = tree.branch?.frontier_task_id ?? progress.current_checkpoint?.frontier_task_id ?? null;
         const openTasks = Array.isArray(taskBoard.open_tasks) ? taskBoard.open_tasks.map(summarizeTask) : [];
-        const doneTasks = Array.isArray(taskBoard.done_tasks) ? taskBoard.done_tasks.slice(0, 4).map(summarizeTask) : [];
+        const doneTasks = Array.isArray(taskBoard.done_tasks) ? taskBoard.done_tasks.slice(0, 2).map(summarizeTask) : [];
         const roleCards = Array.isArray(loop.organization_assembly?.role_results)
           ? loop.organization_assembly.role_results.map((role) => ({
               id: role.role ?? "role",
@@ -2726,17 +2879,207 @@ export function buildVisibilityPageHtml(title) {
           });
         }
         return [
-          { id: "backlog", title: "Backlog", cards: backlogCards },
-          { id: "discovery", title: "Discovery", cards: evidence.current_state?.discovery_handoff_ref ? [{ id: "discovery", title: "Discovery handoff available", detail: evidence.current_state.discovery_handoff_ref }] : [] },
-          { id: "need-validation", title: "Need Validation", cards: evidence.current_state?.release_definition_ref ? [{ id: "need-validation", title: firstText(evidence.current_state.current_runtime_stage, "Need validation context"), detail: firstText(evidence.answer_to_proof?.headline?.claim, evidence.current_state.release_definition_ref) }] : [] },
-          { id: "planning", title: "Planning", cards: [frontierCard] },
-          { id: "role-work", title: "Role Work", cards: roleCards },
-          { id: "council-review", title: "Council Review", cards: councilCards },
-          { id: "done", title: "Approved / Done", cards: doneTasks }
+          { id: "backlog", title: "バックログ", cards: backlogCards },
+          { id: "discovery", title: "発見", cards: evidence.current_state?.discovery_handoff_ref ? [{ id: "discovery", title: "Discovery handoff available", detail: evidence.current_state.discovery_handoff_ref }] : [] },
+          { id: "need-validation", title: "必要性検証", cards: evidence.current_state?.release_definition_ref ? [{ id: "need-validation", title: firstText(evidence.current_state.current_runtime_stage, "Need validation context"), detail: firstText(evidence.answer_to_proof?.headline?.claim, evidence.current_state.release_definition_ref) }] : [] },
+          { id: "planning", title: "計画", cards: [frontierCard] },
+          { id: "role-work", title: "役割作業", cards: roleCards },
+          { id: "council-review", title: "評議会レビュー", cards: councilCards },
+          { id: "done", title: "承認/完了（最新）", cards: doneTasks }
         ].map((column) => ({
           ...column,
           state: column.id === "planning" ? "active" : (column.id === "done" ? "done" : "")
         }));
+      }
+
+      function jaStateLabel(value) {
+        const state = String(value ?? "").toLowerCase();
+        if (state === "open") return "未着手";
+        if (state === "assigned") return "割当済み";
+        if (state === "done" || state === "completed") return "完了";
+        if (state === "blocked" || state === "stale") return "要確認";
+        if (state === "pass" || state === "ready" || state === "covered") return "合格";
+        if (state === "partial") return "一部";
+        if (state === "fail" || state === "missing" || state === "not_proven") return "未証明";
+        if (state === "frontier-definition-needed") return "次の実装タスク選定が必要";
+        return value ?? "-";
+      }
+
+      function percentFromRatio(value, fallbackDone, fallbackTotal) {
+        if (typeof value === "number" && Number.isFinite(value)) {
+          return Math.max(0, Math.min(100, value <= 1 ? Math.round(value * 100) : Math.round(value)));
+        }
+        if (fallbackTotal > 0) {
+          return Math.max(0, Math.min(100, Math.round((fallbackDone / fallbackTotal) * 100)));
+        }
+        return 0;
+      }
+
+      function buildTaskListItems(payload) {
+        const derived = payload.derived ?? {};
+        const taskBoard = derived.task_board ?? payload.task_board ?? {};
+        const tree = derived.tree_position ?? {};
+        const currentId = tree.branch?.frontier_task_id ?? null;
+        const rows = [];
+        for (const state of ["open", "assigned"]) {
+          const source = state === "open" ? taskBoard.open_tasks : taskBoard.assigned_tasks;
+          for (const task of (Array.isArray(source) ? source : [])) {
+            rows.push({ ...summarizeTask(task), state, current: task.task_id === currentId || task.id === currentId });
+          }
+        }
+        const blocked = Array.isArray(taskBoard.top_blocked_tasks) ? taskBoard.top_blocked_tasks : [];
+        for (const task of blocked) {
+          const id = task.task_id ?? task.id;
+          if (!rows.some((row) => row.id === id)) {
+            rows.push({ ...summarizeTask(task), state: "blocked", current: id === currentId });
+          }
+        }
+        return rows;
+      }
+
+      function renderTaskList(payload) {
+        const rows = buildTaskListItems(payload);
+        return '<div class="task-list-view">' +
+          (rows.length > 0 ? rows.map((row) => {
+            const payload = {
+              title: firstText(row.title, row.id, "Task detail"),
+              subtitle: firstText(row.id, row.state, "task"),
+              body: firstText(row.detail, row.description, row.artifact_ref),
+              ref: row.artifact_ref ?? extractFileRef(row.detail),
+              metadata: row
+            };
+            return '<div class="task-list-row detail-trigger ' + (row.current ? "current" : "") + '"' + detailPayloadAttributes(payload) + '>' +
+              '<div><span class="task-state-pill">' + escapeHtml(jaStateLabel(row.state)) + '</span><div class="task-id">' + escapeHtml(row.id ?? "-") + '</div></div>' +
+              '<div class="task-title">' + escapeHtml(row.title ?? "-") + '</div>' +
+              '<div class="task-detail">' + escapeHtml(row.detail ?? row.artifact_ref ?? "-") + '<div class="detail-hint">詳細を開く</div></div>' +
+            '</div>';
+          }).join("") : '<div class="mini-row"><strong>表示対象タスクなし</strong><span>古い完了タスクはデフォルトでは表示しません。必要なら詳細から完了アーカイブを確認してください。</span></div>') +
+        '</div>';
+      }
+
+      function utilizationForRole(role, workload) {
+        const roleId = role.role_id ?? role.name ?? "";
+        const found = workload.find((entry) =>
+          String(entry.role ?? "").toLowerCase() === String(roleId).toLowerCase() ||
+          String(entry.role ?? "").toLowerCase() === String(role.name ?? "").toLowerCase()
+        );
+        const total = Number(found?.total_results ?? 0);
+        return {
+          percent: Math.max(0, Math.min(100, total * 25)),
+          label: total > 0 ? String(total) + "件の成果物" : "稼働証跡なし",
+          latest: found?.latest_artifact_ref ?? null
+        };
+      }
+
+      function renderUtilization(utilization) {
+        return '<div class="utilization"><div class="util-bar"><span style="width:' + escapeHtml(String(utilization.percent)) + '%"></span></div><span>' + escapeHtml(utilization.percent) + '% / ' + escapeHtml(utilization.label) + '</span></div>';
+      }
+
+      function renderOrganizationHierarchy(organizationState, workload) {
+        const councils = Array.isArray(organizationState.councils) ? organizationState.councils : [];
+        const teams = Array.isArray(organizationState.teams) ? organizationState.teams : [];
+        const roles = Array.isArray(organizationState.roles) ? organizationState.roles : [];
+        const agents = Array.isArray(organizationState.agents) ? organizationState.agents : [];
+        const teamBlocks = teams.map((team) => {
+          const teamRoles = roles.filter((role) => role.team_ref === team.team_id);
+          return '<div class="org-node team"><strong>チーム: ' + escapeHtml(firstText(team.name, team.team_id)) + '</strong><span>' + escapeHtml(firstText(team.mission, "-")) + '</span></div>' +
+            teamRoles.map((role) => {
+              const utilization = utilizationForRole(role, workload);
+              return '<div class="org-node role detail-trigger"' + detailPayloadAttributes({
+                title: "Role: " + firstText(role.name, role.role_id),
+                subtitle: firstText(role.team_ref, "role"),
+                body: firstText(role.mission, "-"),
+                ref: organizationState.organization_ref,
+                metadata: { ...role, utilization }
+              }) + '><strong>役割: ' + escapeHtml(firstText(role.name, role.role_id)) + '</strong><span>' + escapeHtml(firstText(role.mission, "-")) + '</span>' + renderUtilization(utilization) + '<div class="detail-hint">詳細を開く</div></div>';
+            }).join("");
+        }).join("");
+        const agentBlocks = agents.map((agent) =>
+          '<div class="org-node agent detail-trigger"' + detailPayloadAttributes({
+            title: "Agent: " + firstText(agent.agent_id, agent.provider),
+            subtitle: firstText(agent.agent_type, "agent"),
+            body: formatArray(agent.capabilities),
+            ref: organizationState.organization_ref,
+            metadata: agent
+          }) + '><strong>エージェント: ' + escapeHtml(firstText(agent.agent_id, agent.provider)) + '</strong><span>' + escapeHtml(firstText(agent.provider, agent.agent_type, "-")) + ' / capability: ' + escapeHtml(formatArray(agent.capabilities)) + '</span><div class="detail-hint">詳細を開く</div></div>'
+        ).join("");
+        return '<div class="org-tree">' +
+          '<div class="org-node"><strong>組織トポロジー</strong><span>' + escapeHtml(firstText(organizationState.topology, "unknown")) + ' / 評議会 ' + escapeHtml(String(organizationState.council_count ?? councils.length)) + ' / チーム ' + escapeHtml(String(organizationState.team_count ?? teams.length)) + ' / 役割 ' + escapeHtml(String(organizationState.role_count ?? roles.length)) + '</span></div>' +
+          councils.map((council) => '<div class="org-node detail-trigger"' + detailPayloadAttributes({
+            title: "Council: " + firstText(council.name, council.council_id),
+            subtitle: firstText(council.approval_policy, "council"),
+            body: firstText(council.mission, "-"),
+            ref: organizationState.organization_ref,
+            metadata: council
+          }) + '><strong>評議会: ' + escapeHtml(firstText(council.name, council.council_id)) + '</strong><span>' + escapeHtml(firstText(council.mission, "-")) + ' / 承認: ' + escapeHtml(firstText(council.approval_policy, "-")) + '</span><div class="detail-hint">詳細を開く</div></div>').join("") +
+          teamBlocks +
+          agentBlocks +
+        '</div>';
+      }
+
+      function buildProductCompletion(mission, taskBoard) {
+        const coverage = mission.requirement_coverage_projection ?? {};
+        const total = Number(coverage.total_requirements ?? 0);
+        const covered = Number(coverage.covered_count ?? 0);
+        const ratio = percentFromRatio(coverage.coverage_ratio, covered, total);
+        const fallbackTotal = Number(taskBoard.counts?.open ?? 0) + Number(taskBoard.counts?.assigned ?? 0) + Number(taskBoard.counts?.done ?? 0);
+        const fallbackDone = Number(taskBoard.counts?.done ?? 0);
+        const percent = coverage.present ? ratio : percentFromRatio(null, fallbackDone, fallbackTotal);
+        return {
+          percent,
+          status: coverage.present ? firstText(coverage.coverage_status, "coverage-present") : "task-count-fallback",
+          total,
+          covered,
+          partial: Number(coverage.partial_count ?? 0),
+          blocked: Number(coverage.blocked_count ?? 0),
+          atRisk: Number(coverage.at_risk_count ?? 0),
+          unstarted: Number(coverage.unstarted_count ?? 0),
+          requirements: Array.isArray(coverage.requirements) ? coverage.requirements : [],
+          ref: coverage.latest_record_ref ?? null,
+          notProven: coverage.not_proven ?? "要件カバレッジartifactがない場合、完成度はタスク数の粗い代替指標です。"
+        };
+      }
+
+      function renderProductCompletion(completion) {
+        const requirementRows = completion.requirements.slice(0, 8).map((req) => detailRow(
+          firstText(req.requirement_id, req.title, "requirement") + " / " + jaStateLabel(req.status),
+          firstText(req.title, req.acceptance_boundary, "-"),
+          Array.isArray(req.evidence_refs) ? req.evidence_refs[0] : req.source_ref,
+          req
+        )).join("");
+        return '<div class="overview-grid-wide">' +
+          '<div class="completion-meter"><div class="mission-label">プロダクト完成度</div><div class="completion-number">' + escapeHtml(String(completion.percent)) + '%</div><div class="progress-track"><span style="width:' + escapeHtml(String(completion.percent)) + '%"></span></div><div class="mission-detail">要件カバレッジ: ' + escapeHtml(jaStateLabel(completion.status)) + ' / covered ' + escapeHtml(String(completion.covered)) + ' of ' + escapeHtml(String(completion.total)) + '</div></div>' +
+          '<div class="status-grid-ja">' +
+            '<div class="summary-card good"><div class="mission-label">達成</div><div class="value">' + escapeHtml(String(completion.covered)) + '</div></div>' +
+            '<div class="summary-card warn"><div class="mission-label">一部/リスク</div><div class="value">' + escapeHtml(String(completion.partial + completion.atRisk)) + '</div></div>' +
+            '<div class="summary-card warn"><div class="mission-label">未着手/ブロック</div><div class="value">' + escapeHtml(String(completion.unstarted + completion.blocked)) + '</div></div>' +
+          '</div>' +
+          '<div class="lower-body">' + (requirementRows || '<div class="mini-row"><strong>要件明細なし</strong><span>' + escapeHtml(completion.notProven) + '</span></div>') + '</div>' +
+          '<div class="lower-body">' + detailRow("完成度の証跡", firstText(completion.ref, completion.notProven), completion.ref, completion) + '</div>' +
+        '</div>';
+      }
+
+      function renderTestStatus(mission, sessionObservability, runtimeExecution) {
+        const completeness = mission.evidence_completeness_projection ?? {};
+        const sources = Array.isArray(completeness.required_sources) ? completeness.required_sources : [];
+        const linkedTests = Array.isArray(sessionObservability.linked_test_evidence_refs) ? sessionObservability.linked_test_evidence_refs : [];
+        const externalSafety = mission.external_runtime_safety_projection ?? {};
+        const cards = [
+          { label: "Visibility runtime", status: runtimeExecution.last_execution?.status, detail: runtimeExecution.last_execution?.execution_log_ref },
+          { label: "Agent session audit", status: sessionObservability.audit_ok === true ? "pass" : (sessionObservability.audit_ok === false ? "fail" : "not_proven"), detail: sessionObservability.audit_ref },
+          { label: "Evidence completeness", status: completeness.completeness_status, detail: completeness.latest_requirement_coverage_ref },
+          { label: "External safety boundary", status: externalSafety.safety_status, detail: externalSafety.safety_summary }
+        ];
+        return '<div class="status-grid-ja">' + cards.map((card) => detailRow(
+          card.label + " / " + jaStateLabel(card.status),
+          firstText(card.detail, "No artifact projected."),
+          isLikelyFileRef(card.detail) ? extractFileRef(card.detail) : null,
+          card
+        )).join("") + '</div>' +
+        '<div class="lower-body">' +
+          (linkedTests.length > 0 ? linkedTests.map((ref, index) => detailRow(String(index + 1) + ". テスト証跡", ref, ref, { test_evidence_ref: ref })).join("") : '<div class="mini-row"><strong>リンク済みテスト証跡なし</strong><span>現時点のMissionControlは監査artifactとsession linkageを表示します。npm test/smokeの実行事実は検証コマンドの出力またはrelease-state artifactで別途確認します。</span></div>') +
+          (sources.length > 0 ? sources.map((source) => detailRow("証跡ソース: " + source.source_id, (source.present ? "present" : "missing") + " / " + firstText(source.artifact_ref, "-"), source.artifact_ref, source)).join("") : "") +
+        '</div>';
       }
 
       let lastMissionDashboardHtml = "";
@@ -2799,59 +3142,68 @@ export function buildVisibilityPageHtml(title) {
           ...(Array.isArray(sessionObservability.linked_requirement_refs) ? sessionObservability.linked_requirement_refs : []),
           ...(Array.isArray(sessionObservability.linked_test_evidence_refs) ? sessionObservability.linked_test_evidence_refs : [])
         ];
+        const completion = buildProductCompletion(mission, taskBoard);
+        const testStatusHtml = renderTestStatus(mission, sessionObservability, runtimeExecution);
+        const organizationHtml = renderOrganizationHierarchy(organizationState, workload);
 
         return (
           '<section class="mission-top">' +
-            '<div class="mission-tile primary"><div><div class="mission-label">Current Mission</div><div class="mission-value">' + escapeHtml(firstText(mission.mission_overview?.mission, status.current_goal)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(mission.mission_overview?.operating_goal, mission.mission_overview?.next_value_slice)) + '</div></div>' +
-            '<div class="mission-tile"><div><div class="mission-label">Current Release / Frontier</div><div class="mission-value">' + escapeHtml(firstText(tree.trunk?.active_release_track, tree.trunk?.active_release_version, mission.mission_overview?.release_version)) + ' → ' + escapeHtml(firstText(tree.branch?.frontier_track, "next")) + '</div></div><div class="mission-detail">Frontier: ' + escapeHtml(firstText(tree.branch?.frontier_task_id, "not selected")) + '</div></div>' +
-            '<div class="mission-tile good"><div><div class="mission-label">Runtime-backed status</div><div class="mission-value">' + escapeHtml(lastExecution.status === "pass" ? "Backed" : "Incomplete") + '</div></div><div class="mission-detail">' + escapeHtml(firstText(lastExecution.primary_command, status.usage_level, "no command")) + '</div></div>' +
-            '<div class="mission-tile ' + (riskCount > 0 ? "attention" : "good") + '"><div><div class="mission-label">Risk / Blocker count</div><div class="mission-value">' + escapeHtml(String(riskCount)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.claim, "No active blocker claim")) + '</div></div>' +
-            '<div class="mission-tile attention"><div><div class="mission-label">Next recommended action</div><div class="mission-value">' + escapeHtml(firstText(mission.next_action?.recommended_action, status.next_checkpoint)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(mission.next_action?.rationale, progress.progress_answer?.next_checkpoint)) + '</div></div>' +
+            '<div class="mission-tile primary"><div><div class="mission-label">現在のミッション</div><div class="mission-value">' + escapeHtml(firstText(mission.mission_overview?.mission, status.current_goal)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(mission.mission_overview?.operating_goal, mission.mission_overview?.next_value_slice)) + '</div></div>' +
+            '<div class="mission-tile"><div><div class="mission-label">リリース / フロンティア</div><div class="mission-value">' + escapeHtml(firstText(tree.trunk?.active_release_track, tree.trunk?.active_release_version, mission.mission_overview?.release_version)) + ' → ' + escapeHtml(firstText(tree.branch?.frontier_track, "次")) + '</div></div><div class="mission-detail">現在タスク: ' + escapeHtml(firstText(tree.branch?.frontier_task_id, "未選定")) + '</div></div>' +
+            '<div class="mission-tile good"><div><div class="mission-label">ランタイム証跡</div><div class="mission-value">' + escapeHtml(lastExecution.status === "pass" ? "実行済み" : "未完了") + '</div></div><div class="mission-detail">' + escapeHtml(firstText(lastExecution.primary_command, status.usage_level, "no command")) + '</div></div>' +
+            '<div class="mission-tile ' + (riskCount > 0 ? "attention" : "good") + '"><div><div class="mission-label">リスク/ブロッカー</div><div class="mission-value">' + escapeHtml(String(riskCount)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.claim, "強いブロッカーなし")) + '</div></div>' +
+            '<div class="mission-tile attention"><div><div class="mission-label">次にやること</div><div class="mission-value">' + escapeHtml(firstText(mission.next_action?.recommended_action, status.next_checkpoint)) + '</div></div><div class="mission-detail">' + escapeHtml(firstText(mission.next_action?.rationale, progress.progress_answer?.next_checkpoint)) + '</div></div>' +
           '</section>' +
           '<section class="mission-main">' +
-            '<div class="kanban-shell"><div class="section-head"><h2>AOF Kanban Board</h2><p>Backlog → Discovery → Need Validation → Planning → Role Work → Council Review → Approved / Done. Cards are derived from runtime tasks, evidence, loop, and council artifacts.</p></div><div class="kanban-board">' +
+            '<div class="kanban-shell"><div class="section-head"><h2>タスク状況</h2><p>古い完了タスクは初期表示から外し、現在進行・未着手・要レビューを中心に表示します。</p><div class="tab-bar" data-tab-scope="tasks"><button class="tab-button active" type="button" data-tab-target="task-kanban">KANBAN</button><button class="tab-button" type="button" data-tab-target="task-list">リスト</button></div></div><div id="task-kanban" class="tab-panel kanban-board" data-tab-panel="tasks">' +
               kanbanColumns.map((column) =>
                 '<div class="kanban-column ' + escapeHtml(column.state) + '"><div class="kanban-title"><span>' + escapeHtml(column.title) + '</span><span class="kanban-count">' + escapeHtml(String(column.cards.length)) + '</span></div><div class="kanban-cards">' +
-                  (column.cards.length > 0 ? column.cards.map((card) => taskCard(card, tree.branch?.frontier_task_id)).join("") : '<div class="task-card"><div class="task-id">empty</div><div class="task-title">No artifact here</div><div class="task-detail">The runtime currently has no card for this lane.</div></div>') +
+                  (column.cards.length > 0 ? column.cards.map((card) => taskCard(card, tree.branch?.frontier_task_id)).join("") : '<div class="task-card"><div class="task-id">空</div><div class="task-title">該当artifactなし</div><div class="task-detail">このレーンに表示できるランタイムカードはありません。</div></div>') +
                 '</div></div>'
               ).join("") +
-            '</div></div>' +
-            '<aside class="summary-shell"><div class="section-head"><h2>Overall Summary</h2><p>Compact operator state from the same artifacts that power the board.</p></div><div class="summary-body">' +
-              '<div class="summary-card"><div class="mission-label">Active loops</div><div class="value">' + escapeHtml(String(activeLoops)) + '</div><div class="detail">Council execution runs visible for the selected runtime context.</div></div>' +
-              '<div class="summary-card"><div class="mission-label">Open tasks</div><div class="value">' + escapeHtml(String(taskBoard.counts?.open ?? 0)) + '</div><div class="detail">Assigned: ' + escapeHtml(String(taskBoard.counts?.assigned ?? 0)) + ' / Done: ' + escapeHtml(String(taskBoard.counts?.done ?? 0)) + '</div></div>' +
-              '<div class="summary-card ' + (riskCount > 0 ? "warn" : "good") + '"><div class="mission-label">Top blockers</div><div class="value">' + escapeHtml(riskCount > 0 ? firstText(blockers[0]?.summary, blockedTasks[0]?.title, "Review blocker list") : "No blocker") + '</div><div class="detail">' + escapeHtml(firstText(blockers[0]?.artifact_ref, blockedTasks[0]?.artifact_ref, "No blocking artifact surfaced")) + '</div></div>' +
-              '<div class="summary-card"><div class="mission-label">Current frontier branch</div><div class="value">' + escapeHtml(firstText(tree.branch?.frontier_track, "not selected")) + '</div><div class="detail">' + escapeHtml(firstText(tree.branch?.branch_summary, mission.mission_overview?.next_value_slice)) + '</div></div>' +
-              '<div class="summary-card"><div class="mission-label">Key risks</div><div class="value">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.claim, "No key risk claim")) + '</div><div class="detail">' + escapeHtml(firstText(evidence.answer_to_proof?.blockers?.rationale, "Risk summary comes from evidence drill-down.")) + '</div></div>' +
-              '<div class="summary-card ' + operatorAcceptanceClass(operatorAcceptance) + '"><div class="mission-label">Operator acceptance</div><div class="value">' + escapeHtml(operatorAcceptance) + '</div><div class="detail">' + escapeHtml(firstText(primaryOperatorValidation?.feedback_summary, operatorValidation.not_proven, "No operator validation record is projected.")) + '</div></div>' +
-              '<div class="summary-card ' + externalSafetyClass(externalSafety.safety_status) + '"><div class="mission-label">External runtime safety</div><div class="value">' + escapeHtml(firstText(externalSafety.safety_status, "not_proven")) + '</div><div class="detail">' + escapeHtml(firstText(externalSafety.safety_summary, externalSafety.not_proven, "No external safety projection.")) + '</div></div>' +
+            '</div><div id="task-list" class="tab-panel" data-tab-panel="tasks" hidden>' + renderTaskList(payload) + '</div></div>' +
+            '<aside class="summary-shell"><div class="section-head"><h2>全体概要</h2><p>同じruntime artifactから得た現在の運用状態です。</p></div><div class="summary-body">' +
+              '<div class="summary-card"><div class="mission-label">アクティブループ</div><div class="value">' + escapeHtml(String(activeLoops)) + '</div><div class="detail">選択されたruntime contextで見える評議会実行数。</div></div>' +
+              '<div class="summary-card"><div class="mission-label">オープンタスク</div><div class="value">' + escapeHtml(String(taskBoard.counts?.open ?? 0)) + '</div><div class="detail">割当: ' + escapeHtml(String(taskBoard.counts?.assigned ?? 0)) + ' / 完了累計: ' + escapeHtml(String(taskBoard.counts?.done ?? 0)) + '</div></div>' +
+              '<div class="summary-card good"><div class="mission-label">プロダクト完成度</div><div class="value">' + escapeHtml(String(completion.percent)) + '%</div><div class="detail">要件達成 ' + escapeHtml(String(completion.covered)) + ' / ' + escapeHtml(String(completion.total)) + '</div></div>' +
+              '<div class="summary-card ' + (riskCount > 0 ? "warn" : "good") + '"><div class="mission-label">上位ブロッカー</div><div class="value">' + escapeHtml(riskCount > 0 ? firstText(blockers[0]?.summary, blockedTasks[0]?.title, "ブロッカー確認") : "なし") + '</div><div class="detail">' + escapeHtml(firstText(blockers[0]?.artifact_ref, blockedTasks[0]?.artifact_ref, "ブロックartifactなし")) + '</div></div>' +
+              '<div class="summary-card"><div class="mission-label">現在の分岐</div><div class="value">' + escapeHtml(firstText(tree.branch?.frontier_track, "未選定")) + '</div><div class="detail">' + escapeHtml(firstText(tree.branch?.branch_summary, mission.mission_overview?.next_value_slice)) + '</div></div>' +
+              '<div class="summary-card ' + operatorAcceptanceClass(operatorAcceptance) + '"><div class="mission-label">利用者受容</div><div class="value">' + escapeHtml(jaStateLabel(operatorAcceptance)) + '</div><div class="detail">' + escapeHtml(firstText(primaryOperatorValidation?.feedback_summary, operatorValidation.not_proven, "operator validation recordなし")) + '</div></div>' +
+              '<div class="summary-card ' + externalSafetyClass(externalSafety.safety_status) + '"><div class="mission-label">外部実行安全境界</div><div class="value">' + escapeHtml(jaStateLabel(firstText(externalSafety.safety_status, "not_proven"))) + '</div><div class="detail">' + escapeHtml(firstText(externalSafety.safety_summary, externalSafety.not_proven, "外部安全projectionなし")) + '</div></div>' +
             '</div></aside>' +
           '</section>' +
-          '<section class="mission-lower">' +
-            '<div class="lower-panel"><div class="section-head"><h2>Ticket / Task Flow</h2><p>Recent runtime and task changes.</p></div><div class="lower-body">' +
+          '<section class="mission-lower focus-tabs">' +
+            '<div class="lower-panel"><div class="section-head"><h2>詳細ビュー</h2><p>現在地、組織、完成度、テスト状況をタブで切り替えます。</p><div class="tab-bar" data-tab-scope="lower"><button class="tab-button active" type="button" data-tab-target="tab-now">現在地</button><button class="tab-button" type="button" data-tab-target="tab-org">組織</button><button class="tab-button" type="button" data-tab-target="tab-product">完成度</button><button class="tab-button" type="button" data-tab-target="tab-tests">テスト/監査</button><button class="tab-button" type="button" data-tab-target="tab-proof">証跡</button></div></div>' +
+            '<div id="tab-now" class="overview-tab-content tab-panel" data-tab-panel="lower">' +
+              '<div class="overview-grid-wide">' +
+              '<div><h2>チケット / タスクフロー</h2><div class="lower-body">' +
               (timelineEntries.length > 0 ? timelineEntries.map((entry, index) => detailRow(
                 String(index + 1) + ". " + firstText(entry.summary, entry.event_type),
                 firstText(entry.actor, "-") + " / " + firstText(entry.at, "-") + " / " + firstText(entry.next, entry.rationale),
                 Array.isArray(entry.artifact_refs) ? entry.artifact_refs[0] : entry.artifact_ref,
                 entry
-              )).join("") : '<div class="mini-row"><strong>No timeline</strong><span>No timeline entries are currently available.</span></div>') +
-            '</div></div>' +
-            '<div class="lower-panel"><div class="section-head"><h2>Top Blocked Tasks</h2><p>Blocked or stale task signals.</p></div><div class="lower-body">' +
+              )).join("") : '<div class="mini-row"><strong>タイムラインなし</strong><span>現在表示できる更新履歴はありません。</span></div>') +
+              '</div></div><div><h2>上位ブロックタスク</h2><div class="lower-body">' +
               (blockedTasks.length > 0 ? blockedTasks.map((task) => detailRow(
                 firstText(task.task_id, "task") + " " + firstText(task.title, ""),
                 firstText(task.triage_notes, task.description, task.artifact_ref),
                 task.artifact_ref,
                 task
-              )).join("") : '<div class="mini-row"><strong>No blocked tasks</strong><span>No blocked/stale task artifact was detected.</span></div>') +
-            '</div></div>' +
-            '<div class="lower-panel"><div class="section-head"><h2>Role Workload</h2><p>Role-result count and latest recommendation.</p></div><div class="lower-body">' +
+              )).join("") : '<div class="mini-row"><strong>ブロックタスクなし</strong><span>blocked/stale task artifactは検出されていません。</span></div>') +
+              '</div></div></div></div>' +
+            '<div id="tab-org" class="overview-tab-content tab-panel" data-tab-panel="lower" hidden>' + organizationHtml +
+              '<h2>役割別ワークロード</h2><div class="lower-body">' +
               (workload.length > 0 ? workload.map((role) => detailRow(
                 role.role + " / " + role.total_results + " result(s)",
                 firstText(role.latest_status, "-") + " / " + firstText(role.latest_recommendation, role.latest_artifact_ref),
                 role.latest_artifact_ref,
                 role
-              )).join("") : '<div class="mini-row"><strong>No role workload</strong><span>No execution role-result artifacts are visible.</span></div>') +
-            '</div></div>' +
-            '<div class="lower-panel"><div class="section-head"><h2>External Runtime Safety</h2><p>Permission, approval, provenance, freshness, risk, and not-proven boundaries before externalized execution advances.</p></div><div class="lower-body">' +
+              )).join("") : '<div class="mini-row"><strong>役割ワークロードなし</strong><span>execution role-result artifactは見つかりません。</span></div>') +
+              '</div></div>' +
+            '<div id="tab-product" class="overview-tab-content tab-panel" data-tab-panel="lower" hidden>' + renderProductCompletion(completion) + '</div>' +
+            '<div id="tab-tests" class="overview-tab-content tab-panel" data-tab-panel="lower" hidden>' + testStatusHtml + '</div>' +
+            '<div id="tab-proof" class="overview-tab-content tab-panel" data-tab-panel="lower" hidden>' +
+              '<div class="overview-grid-wide"><div><h2>外部実行安全性</h2><div class="lower-body">' +
               '<div class="mini-row ' + externalSafetyClass(externalSafety.safety_status) + '"><strong>Status: ' + escapeHtml(firstText(externalSafety.safety_status, "not_proven")) + '</strong><span>' + escapeHtml(firstText(externalSafety.safety_summary, externalSafety.not_proven, "No external runtime safety evidence is projected.")) + '</span></div>' +
               '<div class="mini-row detail-trigger"' + detailPayloadAttributes({
                 title: "External runtime safety boundary",
@@ -2865,67 +3217,43 @@ export function buildVisibilityPageHtml(title) {
                 firstText(check.summary, "-"),
                 check.evidence_ref,
                 check
-              )).join("") : '<div class="mini-row"><strong>No safety checks</strong><span>No external runtime safety checks are currently projected.</span></div>') +
-            '</div></div>' +
-            '<div class="lower-panel"><div class="section-head"><h2>Operator Acceptance Evidence</h2><p>Acceptance, rejection, clarification, reproduction state, governance action, and proof refs from operator-validation-audit.</p></div><div class="lower-body">' +
+              )).join("") : '<div class="mini-row"><strong>安全性チェックなし</strong><span>外部runtime safety checksは投影されていません。</span></div>') +
+              '</div></div><div><h2>オペレーター受容証跡</h2><div class="lower-body">' +
               '<div class="mini-row"><strong>Status: ' + escapeHtml(operatorAcceptance) + '</strong><span>Accepted: ' + escapeHtml(String(operatorValidation.accepted_count ?? 0)) + ' / Rejected: ' + escapeHtml(String(operatorValidation.rejected_count ?? 0)) + ' / Clarification: ' + escapeHtml(String(operatorValidation.needs_clarification_count ?? 0)) + ' / Not reproduced: ' + escapeHtml(String(operatorValidation.not_reproduced_count ?? 0)) + '</span></div>' +
               (operatorValidationRecords.length > 0 ? operatorValidationRecords.map((record) => detailRow(
                 firstText(record.validation_id, "operator validation") + " / " + firstText(record.acceptance_outcome, "not checked"),
                 "Understanding: " + firstText(record.understanding_outcome, "-") + " / Reproduction: " + firstText(record.reproduction_outcome, "-") + " / Governance: " + firstText(record.governance_action, "-") + " / " + firstText(record.feedback_summary, record.not_proven, "-"),
                 record.artifact_ref,
                 record
-              )).join("") : '<div class="mini-row"><strong>No operator validation</strong><span>Mission Control cannot claim operator acceptance without a projected operator-validation-audit record.</span></div>') +
+              )).join("") : '<div class="mini-row"><strong>operator validationなし</strong><span>operator-validation-audit recordなしに利用者受容は主張できません。</span></div>') +
               '<div class="mini-row detail-trigger"' + detailPayloadAttributes({
                 title: "Operator validation audit",
                 subtitle: "Audit ref",
                 body: firstText(operatorValidation.not_proven, "Operator validation audit boundary."),
                 ref: operatorValidation.audit_ref,
                 metadata: operatorValidation
-              }) + '><strong>Audit artifact</strong><span>' + escapeHtml(firstText(operatorValidation.audit_ref, "missing")) + '</span><div class="detail-hint">Click for audit detail</div></div>' +
-            '</div></div>' +
-            '<div class="lower-panel"><div class="section-head"><h2>Work Governance Chain</h2><p>Work item goal → actors → council output → Go/No-Go → Operational Map → Context Pack.</p></div><div class="lower-body">' +
+              }) + '><strong>Audit artifact</strong><span>' + escapeHtml(firstText(operatorValidation.audit_ref, "missing")) + '</span><div class="detail-hint">詳細を開く</div></div>' +
+              '</div></div><div><h2>ワークガバナンスチェーン</h2><div class="lower-body">' +
               (workGovernanceItems.length > 0 ? workGovernanceItems.map((item) => detailRow(
                 firstText(item.work_item_id, "work item") + " / " + firstText(item.go_no_go_state, item.council_status, "pending"),
                 firstText(item.objective, "-") + " / Actors: " + String((item.selected_actors ?? []).length) + " / Next: " + firstText(item.next_recommended_action, "-"),
                 item.refs?.work_item_goal,
                 item
-              )).join("") : '<div class="mini-row"><strong>No Work Governance chain</strong><span>No work-governance artifacts are visible.</span></div>') +
-            '</div></div>' +
-            '<div class="lower-panel persistent-panel"><div class="section-head"><h2>Current Organization</h2><p>Persistent councils, teams, roles, and agents from .aof/organization.json.</p></div><div class="lower-body">' +
-              '<div class="mini-row"><strong>Topology</strong><span>' + escapeHtml(firstText(organizationState.topology, "unknown")) + ' / Councils: ' + escapeHtml(String(organizationState.council_count ?? 0)) + ' / Teams: ' + escapeHtml(String(organizationState.team_count ?? 0)) + ' / Roles: ' + escapeHtml(String(organizationState.role_count ?? 0)) + '</span></div>' +
-              (orgCouncils.length > 0 ? orgCouncils.map((council) => detailRow(
-                "Council: " + firstText(council.name, council.council_id),
-                firstText(council.approval_policy, "-") + " / " + firstText(council.mission, "-"),
-                organizationState.organization_ref,
-                council
-              )).join("") : '<div class="mini-row"><strong>No councils</strong><span>No council definition is visible.</span></div>') +
-              (orgRoles.length > 0 ? orgRoles.map((role) => detailRow(
-                "Role: " + firstText(role.name, role.role_id),
-                firstText(role.team_name, role.team_ref, "-") + " / " + firstText(role.mission, "-"),
-                organizationState.organization_ref,
-                role
-              )).join("") : '<div class="mini-row"><strong>No roles</strong><span>No role definition is visible.</span></div>') +
-              (orgTeams.length > 0 ? orgTeams.slice(0, 4).map((team) => detailRow(
-                "Team: " + firstText(team.name, team.team_id),
-                firstText(team.mission, "-"),
-                organizationState.organization_ref,
-                team
-              )).join("") : "") +
-            '</div></div>' +
-            '<div class="lower-panel persistent-panel"><div class="section-head"><h2>Agent Session Evidence</h2><p>Latest AI work stream, audit status, linked refs, risks, and decisions. This remains visible after execution.</p></div><div class="lower-body">' +
+              )).join("") : '<div class="mini-row"><strong>Work Governance chainなし</strong><span>work-governance artifactは表示できません。</span></div>') +
+              '</div></div><div><h2>エージェントセッション証跡</h2><div class="lower-body">' +
               '<div class="mini-row"><strong>' + escapeHtml(firstText(sessionObservability.latest_session_id, "No session stream")) + '</strong><span>Actor: ' + escapeHtml(firstText(sessionObservability.latest_actor_ref, "-")) + ' / Role: ' + escapeHtml(firstText(sessionObservability.latest_role_ref, "-")) + ' / Verdict: ' + escapeHtml(firstText(sessionObservability.latest_release_verdict, "-")) + ' / Audit: ' + escapeHtml(sessionObservability.audit_ok === true ? "pass" : (sessionObservability.audit_ok === false ? "fail" : "unknown")) + '</span></div>' +
               (sessionEvents.length > 0 ? sessionEvents.map((event, index) => detailRow(
                 String(index + 1) + ". " + firstText(event.event_type, "event"),
                 firstText(event.summary, "-"),
                 Array.isArray(event.artifact_refs) ? event.artifact_refs[0] : sessionObservability.latest_session_ref,
                 event
-              )).join("") : '<div class="mini-row"><strong>No session events</strong><span>No agent session event stream is visible.</span></div>') +
+              )).join("") : '<div class="mini-row"><strong>session eventなし</strong><span>agent session event streamは表示できません。</span></div>') +
               (sessionLinkedRefs.length > 0 ? detailRow(
-                "Linked proof refs",
+                "リンク済み証跡refs",
                 sessionLinkedRefs.join(" / "),
                 sessionLinkedRefs[0],
                 { linked_refs: sessionLinkedRefs }
-              ) : '<div class="mini-row"><strong>No linked proof refs</strong><span>Session stream has no task/requirement/test linkage visible.</span></div>') +
+              ) : '<div class="mini-row"><strong>リンク済み証跡なし</strong><span>Session streamにtask/requirement/test linkageがありません。</span></div>') +
               (Array.isArray(sessionObservability.risk_candidates) && sessionObservability.risk_candidates.length > 0 ? detailRow(
                 "Risk candidate",
                 sessionObservability.risk_candidates[0],
@@ -2938,15 +3266,15 @@ export function buildVisibilityPageHtml(title) {
                 sessionObservability.latest_session_ref,
                 { decision_candidates: sessionObservability.decision_candidates }
               ) : "") +
-            '</div></div>' +
-            '<div class="lower-panel"><div class="section-head"><h2>Evidence / Proof Coverage</h2><p>Refs behind headline, next action, and runtime-backed claim.</p></div><div class="lower-body">' +
+              '</div></div><div><h2>証跡 / Proof Coverage</h2><div class="lower-body">' +
               (evidenceRefs.length > 0 ? Array.from(new Set(evidenceRefs)).slice(0, 8).map((ref, index) => detailRow(
-                String(index + 1) + ". evidence",
+                String(index + 1) + ". 証跡",
                 ref,
                 ref,
                 { evidence_ref: ref }
-              )).join("") : '<div class="mini-row"><strong>No evidence refs</strong><span>The current packet did not expose evidence references.</span></div>') +
-            '</div></div>' +
+              )).join("") : '<div class="mini-row"><strong>証跡refsなし</strong><span>現在のpacketに証跡参照がありません。</span></div>') +
+              '</div></div></div></div>' +
+            '</div>' +
           '</section>'
         );
       }
@@ -3324,12 +3652,12 @@ export function buildVisibilityPageHtml(title) {
         const title = document.getElementById("detail-modal-title");
         const meta = document.getElementById("detail-modal-meta");
         const body = document.getElementById("detail-modal-body");
-        title.textContent = payload.title || "Detail";
-        meta.textContent = payload.ref ? (payload.subtitle || "Ref") + " / " + payload.ref : (payload.subtitle || "Runtime detail");
+        title.textContent = payload.title || "詳細";
+        meta.textContent = payload.ref ? (payload.subtitle || "Ref") + " / " + payload.ref : (payload.subtitle || "ランタイム詳細");
         body.innerHTML =
-          detailSection("Full item text", payload.body || "-") +
-          (payload.metadata ? detailSection("Runtime metadata", JSON.stringify(payload.metadata, null, 2)) : "") +
-          (payload.ref ? detailSection("File content", "Loading " + payload.ref + " ...") : "");
+          detailSection("全文", payload.body || "-") +
+          (payload.metadata ? detailSection("ランタイムメタデータ", JSON.stringify(payload.metadata, null, 2)) : "") +
+          (payload.ref ? detailSection("ファイル内容", "Loading " + payload.ref + " ...") : "");
         modal.hidden = false;
         document.getElementById("detail-modal-close").focus();
 
@@ -3337,16 +3665,16 @@ export function buildVisibilityPageHtml(title) {
           try {
             const refContent = await loadRefContent(payload.ref);
             const sections = [
-              detailSection("Full item text", payload.body || "-"),
-              payload.metadata ? detailSection("Runtime metadata", JSON.stringify(payload.metadata, null, 2)) : "",
-              detailSection("File content: " + refContent.path, refContent.content + (refContent.truncated ? "\\n\\n[content truncated]" : ""))
+              detailSection("全文", payload.body || "-"),
+              payload.metadata ? detailSection("ランタイムメタデータ", JSON.stringify(payload.metadata, null, 2)) : "",
+              detailSection("ファイル内容: " + refContent.path, refContent.content + (refContent.truncated ? "\\n\\n[content truncated]" : ""))
             ];
             body.innerHTML = sections.join("");
           } catch (error) {
             const sections = [
-              detailSection("Full item text", payload.body || "-"),
-              payload.metadata ? detailSection("Runtime metadata", JSON.stringify(payload.metadata, null, 2)) : "",
-              detailSection("File content unavailable", error instanceof Error ? error.message : String(error))
+              detailSection("全文", payload.body || "-"),
+              payload.metadata ? detailSection("ランタイムメタデータ", JSON.stringify(payload.metadata, null, 2)) : "",
+              detailSection("ファイル内容を取得できません", error instanceof Error ? error.message : String(error))
             ];
             body.innerHTML = sections.join("");
           }
@@ -3389,12 +3717,26 @@ export function buildVisibilityPageHtml(title) {
           closeDetailModal();
           return;
         }
+        const tabButton = event.target.closest(".tab-button[data-tab-target]");
+        if (tabButton) {
+          const scope = tabButton.closest("[data-tab-scope]")?.dataset.tabScope;
+          const targetId = tabButton.dataset.tabTarget;
+          if (scope && targetId) {
+            document.querySelectorAll('[data-tab-scope="' + scope + '"] .tab-button').forEach((button) => {
+              button.classList.toggle("active", button === tabButton);
+            });
+            document.querySelectorAll('[data-tab-panel="' + scope + '"]').forEach((panel) => {
+              panel.hidden = panel.id !== targetId;
+            });
+          }
+          return;
+        }
         const trigger = event.target.closest(".detail-trigger");
         if (!trigger) {
           return;
         }
         openDetailModal(parseDetailPayload(trigger)).catch((error) => {
-          openDetailModal({ title: "Detail error", body: error instanceof Error ? error.message : String(error) });
+          openDetailModal({ title: "詳細表示エラー", body: error instanceof Error ? error.message : String(error) });
         });
       });
 
@@ -3407,7 +3749,7 @@ export function buildVisibilityPageHtml(title) {
         if ((event.key === "Enter" || event.key === " ") && event.target?.classList?.contains("detail-trigger")) {
           event.preventDefault();
           openDetailModal(parseDetailPayload(event.target)).catch((error) => {
-            openDetailModal({ title: "Detail error", body: error instanceof Error ? error.message : String(error) });
+            openDetailModal({ title: "詳細表示エラー", body: error instanceof Error ? error.message : String(error) });
           });
         }
       });

@@ -159,6 +159,36 @@
         "schema-review",
         "runtime-editing"
       ]
+    },
+    {
+      "agent_id": "019fd499-8130-7760-93cd-9ceaef0af4d1",
+      "agent_type": "ai-agent",
+      "provider": "OpenAI Codex child role agent",
+      "capabilities": [
+        "product-direction-review",
+        "organization-truth-review",
+        "release-framing"
+      ]
+    },
+    {
+      "agent_id": "019fd499-9bc2-7d42-8877-c65aca5f2c65",
+      "agent_type": "ai-agent",
+      "provider": "OpenAI Codex child role agent",
+      "capabilities": [
+        "runtime-implementation-review",
+        "integration-review",
+        "execution-sequencing"
+      ]
+    },
+    {
+      "agent_id": "019fd499-afd4-7101-92f5-82c5947747b3",
+      "agent_type": "ai-agent",
+      "provider": "OpenAI Codex child role agent",
+      "capabilities": [
+        "release-safety-review",
+        "negative-test-review",
+        "audit-gap-detection"
+      ]
     }
   ],
   "contracts": [
@@ -174,7 +204,7 @@
       "name": "Governance To Release Contract",
       "owner_team_ref": "governance-team",
       "contract_type": "release-definition",
-      "artifact_ref": "docs/v10.7-release-definition.md"
+      "artifact_ref": "docs/v10.8-release-definition.md"
     },
     {
       "contract_id": "contract-verification-to-runtime",

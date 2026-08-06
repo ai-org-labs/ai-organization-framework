@@ -1,0 +1,68 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLANES-TASK-128-MISSION-CONTROL-JA",
+  "recorded_at": "2026-08-05T18:18:36.352Z",
+  "work_item_id": "TASK-128",
+  "work_item_ref": ".aof/tasks/done/TASK-128.json",
+  "pilot_status": "completed",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-128.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-128.json",
+  "lanes": [
+    {
+      "lane_id": "mission-control-ui",
+      "goal": "Implement Japanese dashboard tabs and computed views.",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        ".aof/tasks/done/TASK-128.json",
+        "src/commands/visibility-serve.js"
+      ],
+      "expected_output": "Japanese Mission Control UI shell and tabs",
+      "output_refs": [
+        "src/commands/visibility-serve.js",
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if requested operator views remain hidden",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "runtime-proof",
+      "goal": "Verify runtime-backed evidence and release audit readiness.",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/tasks/done/TASK-128.json",
+        "test/runtime-core-2.test.js"
+      ],
+      "expected_output": "guardian evidence and council judgment",
+      "output_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json"
+      ],
+      "verification_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "stop_condition": "stop if release-state-audit fails",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "merged",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "mission-control-ui",
+      "runtime-proof"
+    ],
+    "conflict_summary": "No unresolved lane conflict; UI improvement and proof boundary are both required.",
+    "blocker_summary": "Release audit must pass before release-ready claim.",
+    "merge_rationale": "Mission Control implementation and runtime proof are joined through TASK-128 Council review.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json",
+  "not_proven": "This TASK-128 evidence proves structural/runtime-backed Mission Control visibility changes only; it does not prove semantic Japanese copy quality, third-party operator comprehension, or perfect layout across all browser sizes.",
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "source_decision_record_id": null,
+  "notes": null
+}

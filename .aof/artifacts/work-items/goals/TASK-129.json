@@ -1,0 +1,62 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-06T00:58:00.000Z",
+  "work_item_id": "TASK-129",
+  "work_item_type": "bug",
+  "objective": "Make council execution fail closed when a required role cannot be routed to a concrete actor before planning or build work proceeds.",
+  "reason_for_work": "AOF organization registration could diverge from runtime execution: a specialist role such as Game Planner could be declared but not actually summoned, resolved, or joined before Council judgment.",
+  "expected_output": [
+    "role-to-actor normalized routing",
+    "required role fail-closed council execution",
+    "specialist seat injection for required roles",
+    "execution run actor_ref evidence",
+    "regression tests for routed specialist and missing actor failure"
+  ],
+  "consumer": [
+    "AOF operators",
+    "projects using AOF for specialist organizations",
+    "Council reviewers"
+  ],
+  "downstream_dependency": [
+    "council-exec",
+    "capability-coverage-audit",
+    "Mission Control organization state"
+  ],
+  "success_criteria": [
+    "Builder Visionary and Guardian are always present in deep planning Council",
+    "additional required roles resolve to actors before council execution",
+    "missing required roles stop before session persistence",
+    "execution summaries expose actor_ref for each seat",
+    "tests cover both successful specialist routing and missing actor fail-closed behavior"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "focused runtime tests pass",
+      "organization-verify passes",
+      "release-state-audit no longer reports TASK-129 missing governance evidence"
+    ],
+    "no_go": [
+      "Council can proceed with a required role that has no actor",
+      "specialist outputs can be skipped without a blocking state",
+      "routing succeeds only by organization registration without concrete actor evidence"
+    ]
+  },
+  "required_visualization": [
+    "actor-responsibility-map",
+    "evidence-coverage-map",
+    "readiness-checklist"
+  ],
+  "required_skills": [
+    "skill-schema-review",
+    "skill-benchmark-validation"
+  ],
+  "required_actor_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "council_review_need": "required",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null
+}

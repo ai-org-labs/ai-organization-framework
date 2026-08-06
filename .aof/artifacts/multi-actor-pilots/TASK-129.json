@@ -1,0 +1,27 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-MSGTDPGL-5NYQV1",
+  "recorded_at": "2026-08-06T01:05:22.725Z",
+  "work_item_id": "TASK-129",
+  "work_item_ref": ".aof/tasks/done/TASK-129.json",
+  "pilot_status": "ready",
+  "parent_orchestrator_ref": ".aof/tasks/done/TASK-129.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/organization.json",
+  "actor_output_handoff_refs": [
+    "src/runtime/council.js",
+    "src/runtime/council-execution.js"
+  ],
+  "council_judgment_ref": "docs/v10.8-release-definition.md",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-129.json",
+  "maker_checker_council_boundary": "Builder makes routing changes, Guardian verifies fail-closed behavior, Council approval remains a separate release gate and is not asserted by this record.",
+  "not_proven": "Multi-actor pilot proves the runtime contract for role routing only; it does not prove every domain specialist role has a useful prompt or complete skill model.",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "notes": null
+}

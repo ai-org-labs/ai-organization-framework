@@ -1,0 +1,110 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCOV-TASK-128-MISSION-CONTROL-JA",
+  "recorded_at": "2026-08-05T18:21:10.695Z",
+  "work_item_id": "TASK-128",
+  "work_item_ref": ".aof/tasks/done/TASK-128.json",
+  "coverage_status": "completed",
+  "requirements": [
+    {
+      "requirement_id": "REQ-TASK-128-JA-001",
+      "requirement_type": "functional",
+      "source_ref": ".aof/tasks/done/TASK-128.json",
+      "title": "Japanese Mission Control shell",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered only when Mission Control renders Japanese shell and labels directly",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-128.json"
+      ],
+      "evidence_refs": [
+        "src/commands/visibility-serve.js",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "requirement_id": "REQ-TASK-128-TASKS-002",
+      "requirement_type": "functional",
+      "source_ref": ".aof/tasks/done/TASK-128.json",
+      "title": "Task Kanban/list switching",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered only when task status can be viewed as Kanban and list, with old Done tasks trimmed by default",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-128.json"
+      ],
+      "evidence_refs": [
+        "src/commands/visibility-serve.js",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "requirement_id": "REQ-TASK-128-ORG-003",
+      "requirement_type": "functional",
+      "source_ref": ".aof/tasks/done/TASK-128.json",
+      "title": "Organization hierarchy and utilization",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered only when organization hierarchy and member utilization are derived from runtime artifacts",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-128.json"
+      ],
+      "evidence_refs": [
+        "src/commands/visibility-serve.js",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "requirement_id": "REQ-TASK-128-PRODUCT-004",
+      "requirement_type": "functional",
+      "source_ref": ".aof/tasks/done/TASK-128.json",
+      "title": "Product completion view",
+      "owner_ref": "visionary",
+      "acceptance_boundary": "covered only when feature/requirement completion is summarized for the operator",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-128.json"
+      ],
+      "evidence_refs": [
+        "src/commands/visibility-serve.js",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "requirement_id": "REQ-TASK-128-TESTS-005",
+      "requirement_type": "non_functional",
+      "source_ref": ".aof/tasks/done/TASK-128.json",
+      "title": "Test and audit status view",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered only when Mission Control exposes test/audit state from runtime evidence",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-128.json"
+      ],
+      "evidence_refs": [
+        "src/commands/visibility-serve.js",
+        "test/runtime-core-2.test.js",
+        ".aof/artifacts/visibility/current/runtime-execution.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 5,
+    "covered_count": 5,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded local UI and verification only",
+    "burndown_ref": ".aof/tasks/done/TASK-128.json",
+    "forecast_boundary": "forecast is planning evidence, not delivery certainty"
+  },
+  "not_proven": "This TASK-128 evidence proves structural/runtime-backed Mission Control visibility changes only; it does not prove semantic Japanese copy quality, third-party operator comprehension, or perfect layout across all browser sizes.",
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "source_decision_record_id": null,
+  "notes": null
+}

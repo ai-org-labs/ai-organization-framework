@@ -1,0 +1,35 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CTX-TASK-128-MISSION-CONTROL-JA",
+  "recorded_at": "2026-08-05T18:18:36.352Z",
+  "work_item_id": "TASK-128",
+  "work_item_ref": ".aof/tasks/done/TASK-128.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json",
+  "context_pack_refs": [
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/visibility/current/runtime-execution.json",
+    ".aof/goals/next-value-slice.json",
+    ".aof/goals/operating-goal.json"
+  ],
+  "declared_context_refs": [
+    ".aof/tasks/done/TASK-128.json",
+    "src/commands/visibility-serve.js",
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/visibility/current/runtime-execution.json"
+  ],
+  "required_context_refs": [
+    ".aof/tasks/done/TASK-128.json",
+    "src/commands/visibility-serve.js",
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/visibility/current/runtime-execution.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "This record proves the working context refs were declared and resolved; it does not prove every browser layout nuance or Japanese copy quality for all datasets.",
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "source_decision_record_id": null
+}

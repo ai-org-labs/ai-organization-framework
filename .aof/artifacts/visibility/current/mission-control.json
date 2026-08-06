@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-08-05T14:33:51.416Z",
+  "generated_at": "2026-08-06T02:16:52.464Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
-    "release_version": "10.7.1",
-    "release_definition_ref": "docs/v10.7-release-definition.md",
-    "operating_goal": "Ship v10.7 Capability Coverage Gate: block build/release-critical work before implementation when required roles, skills, concrete actor assignments, output contracts, evidence, acceptance gates, or Council follow-up tasks are missing.",
-    "next_value_slice": "After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit.",
+    "release_version": "10.8.0",
+    "release_definition_ref": "docs/v10.8-release-definition.md",
+    "operating_goal": "Ship v10.8 Role Routing Fail-Closed Runtime: resolve required Council roles to concrete actors before execution, join required specialist roles into the plan, and fail closed before persistence when any required role is unroutable.",
+    "next_value_slice": "After v10.8.0, resume v10.9 provider pilot execution readiness, v11.0 read-first GitHub provider observation proof, v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, and v11.3 external validation result replay audit.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit.",
+    "recommended_action": "Open an implementation task for the current frontier: After v10.8.0, resume v10.9 provider pilot execution readiness, v11.0 read-first GitHub provider observation proof, v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, and v11.3 external validation result replay audit.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,15 +245,22 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 57,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-127.json",
-    "latest_impact_status": "archmap_unaffected",
-    "latest_work_item_id": "TASK-127",
-    "pending_impact_count": 0,
-    "pending_impacts": [],
+    "impact_record_count": 59,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-129.json",
+    "latest_impact_status": "archmap_deferred_with_reason",
+    "latest_work_item_id": "TASK-129",
+    "pending_impact_count": 1,
+    "pending_impacts": [
+      {
+        "work_item_id": "TASK-129",
+        "status": "archmap_deferred_with_reason",
+        "council_review_status": "deferred_with_reason",
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-129.json"
+      }
+    ],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-127.json"
+      ".aof/artifacts/archmap/impact/TASK-129.json"
     ],
     "external_refs": []
   },
@@ -264,7 +271,7 @@
     "council_count": 3,
     "team_count": 3,
     "role_count": 3,
-    "agent_count": 1,
+    "agent_count": 4,
     "councils": [
       {
         "council_id": "product-council",
@@ -392,6 +399,36 @@
           "schema-review",
           "runtime-editing"
         ]
+      },
+      {
+        "agent_id": "019fd499-8130-7760-93cd-9ceaef0af4d1",
+        "agent_type": "ai-agent",
+        "provider": "OpenAI Codex child role agent",
+        "capabilities": [
+          "product-direction-review",
+          "organization-truth-review",
+          "release-framing"
+        ]
+      },
+      {
+        "agent_id": "019fd499-9bc2-7d42-8877-c65aca5f2c65",
+        "agent_type": "ai-agent",
+        "provider": "OpenAI Codex child role agent",
+        "capabilities": [
+          "runtime-implementation-review",
+          "integration-review",
+          "execution-sequencing"
+        ]
+      },
+      {
+        "agent_id": "019fd499-afd4-7101-92f5-82c5947747b3",
+        "agent_type": "ai-agent",
+        "provider": "OpenAI Codex child role agent",
+        "capabilities": [
+          "release-safety-review",
+          "negative-test-review",
+          "audit-gap-detection"
+        ]
       }
     ]
   },
@@ -471,11 +508,27 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 39,
+    "context_record_count": 41,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-129.json",
+        "work_item_id": "TASK-129",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves the required files and runtime evidence are declared and linked; it does not prove semantic correctness beyond tests and review."
+      },
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-128.json",
+        "work_item_id": "TASK-128",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "This record proves the working context refs were declared and resolved; it does not prove every browser layout nuance or Japanese copy quality for all datasets."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-127.json",
         "work_item_id": "TASK-127",
@@ -523,22 +576,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "This v10.2 evidence proves provider pilot selection structure only; it does not prove completed provider integration, provider writes, production safety, or third-party validation completion."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-121.json",
-        "work_item_id": "TASK-121",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity confirms validation contract references are present; it does not prove actual third-party validation, external adoption, product-market fit, or production authorization."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-120.json",
-        "work_item_id": "TASK-120",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity confirms productization decision references are present; it does not prove third-party validation, product-market fit, live provider execution safety, or production authorization."
       }
     ],
     "latest_external_reference_records": [
@@ -563,10 +600,10 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-127.json",
-    "latest_work_item_id": "TASK-127",
-    "latest_recorded_at": "2026-08-05T01:31:12.136Z",
-    "coverage_status": "completed",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-129.json",
+    "latest_work_item_id": "TASK-129",
+    "latest_recorded_at": "2026-08-06T00:56:52.250Z",
+    "coverage_status": "ready",
     "total_requirements": 2,
     "covered_count": 2,
     "partial_count": 0,
@@ -576,40 +613,42 @@
     "coverage_ratio": null,
     "forecast": {
       "estimated_remaining_work_items": 0,
-      "estimated_token_cost_range": "bounded local documentation and verification only",
-      "burndown_ref": "docs/v10.1-release-checklist.md",
-      "forecast_boundary": "forecast is planning evidence, not delivery certainty"
+      "estimated_token_cost_range": "bounded runtime regression and release audit only",
+      "burndown_ref": "docs/v10.8-release-checklist.md",
+      "forecast_boundary": "forecast is planning evidence, not release certainty"
     },
-    "forecast_boundary": "forecast is planning evidence, not delivery certainty",
+    "forecast_boundary": "forecast is planning evidence, not release certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V101-GONOGO-001",
-        "title": "One validation contract surface",
+        "requirement_id": "REQ-V108-001",
+        "title": "Required roles must resolve to concrete actors before Council execution",
         "status": "covered",
-        "source_ref": "docs/v10.1-release-definition.md",
+        "source_ref": "docs/v10.8-release-definition.md",
         "owner_ref": "builder",
         "evidence_refs": [
-          "docs/v10.1-release-definition.md",
-          "docs/v10.1.0-release-notes.md"
+          "src/runtime/council.js",
+          "src/runtime/council-execution.js",
+          "test/runtime-core-3.test.js"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V101-GONOGO-002",
-        "title": "No live execution authorization overclaim",
+        "requirement_id": "REQ-V108-002",
+        "title": "Council execution evidence must expose actor_ref per routed seat",
         "status": "covered",
-        "source_ref": "docs/v10.1-release-definition.md",
+        "source_ref": "docs/v10.8-release-definition.md",
         "owner_ref": "guardian",
         "evidence_refs": [
-          "docs/v10.1-release-definition.md",
-          ".aof/artifacts/execution/council-reviews/CREV-TASK-121-V101.json"
+          "src/runtime/council-execution.js",
+          "schemas/aof-session.schema.json",
+          "test/runtime-core-3.test.js"
         ],
         "blocker_refs": []
       }
     ],
-    "not_proven": "This v10.7 evidence proves a capability coverage gate contract only; it does not prove actual external validation results, market value, external adoption, live provider execution, provider write safety, or production safety.",
+    "not_proven": "Requirement coverage proves structural linkage and regression coverage only; it does not prove every future domain specialist taxonomy is complete.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-127.json"
+      ".aof/artifacts/requirement-coverage/TASK-129.json"
     ]
   },
   "adoption_proof_projection": {
@@ -1118,7 +1157,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v10.7-release-definition.md",
+    "release_ref": "docs/v10.8-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1142,7 +1181,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v10.7-release-definition.md",
+    "release_ref": "docs/v10.8-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1161,7 +1200,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v10.7-release-definition.md",
+      "docs/v10.8-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1256,7 +1295,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-127.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-129.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1271,21 +1310,21 @@
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-127.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-129.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v10.7-release-definition.md"
+        "artifact_ref": "docs/v10.8-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-127.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-129.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-127.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-129.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
     "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V107-CAPABILITY-COVERAGE-GATE.json"
   }

@@ -1,0 +1,25 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-128-MISSION-CONTROL-JA",
+  "work_item_ref": ".aof/tasks/done/TASK-128.json",
+  "work_item_id": "TASK-128",
+  "status": "archmap_unaffected",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    "src/commands/visibility-serve.js",
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json"
+  ],
+  "recorded_at": "2026-08-05T18:21:10.695Z",
+  "updated_at": "2026-08-05T18:21:10.695Z",
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json",
+  "not_proven": "This TASK-128 evidence proves structural/runtime-backed Mission Control visibility changes only; it does not prove semantic Japanese copy quality, third-party operator comprehension, or perfect layout across all browser sizes."
+}

@@ -1,0 +1,29 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-129-V108",
+  "recorded_at": "2026-08-06T00:56:16.755Z",
+  "release_version": "10.8.0",
+  "release_ref": "docs/v10.8-release-definition.md",
+  "work_item_id": "TASK-129",
+  "work_item_ref": ".aof/tasks/done/TASK-129.json",
+  "one_minute_value_explanation": "AOF now stops Council execution before planning/build work proceeds when a required specialist role cannot be routed to a concrete actor.",
+  "thirty_second_version_delta": "v10.7 checked that required capabilities were declared before build; v10.8 enforces that declared required roles are actually resolved into actor seats at Council execution time.",
+  "new_capability_ids": [
+    "PCAP-ROLE-ROUTING-FAIL-CLOSED"
+  ],
+  "updated_capability_ids": [
+    "PCAP-GOVERNANCE",
+    "PCAP-TRACEABILITY"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.8-release-definition.md",
+    "test/runtime-core-3.test.js"
+  ],
+  "product_review_trigger": "If an operator sees a registered specialist role missing from actual Council execution, reopen role routing as a product correctness issue, not a documentation issue.",
+  "not_proven": "This delta proves structural runtime fail-closed routing only; it does not prove external project quality, game design correctness, or third-party adoption.",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "notes": null
+}

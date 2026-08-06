@@ -1,0 +1,63 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-MSGT2RKQ-0SQC4E",
+  "recorded_at": "2026-08-06T00:56:52.250Z",
+  "work_item_id": "TASK-129",
+  "work_item_ref": ".aof/tasks/done/TASK-129.json",
+  "coverage_status": "ready",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V108-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v10.8-release-definition.md",
+      "title": "Required roles must resolve to concrete actors before Council execution",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered when tests prove both successful specialist routing and missing actor fail-closed behavior",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-129.json"
+      ],
+      "evidence_refs": [
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V108-002",
+      "requirement_type": "functional",
+      "source_ref": "docs/v10.8-release-definition.md",
+      "title": "Council execution evidence must expose actor_ref per routed seat",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered when council execution persists actor_ref on run steps and summary exposes actor identity",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-129.json"
+      ],
+      "evidence_refs": [
+        "src/runtime/council-execution.js",
+        "schemas/aof-session.schema.json",
+        "test/runtime-core-3.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded runtime regression and release audit only",
+    "burndown_ref": "docs/v10.8-release-checklist.md",
+    "forecast_boundary": "forecast is planning evidence, not release certainty"
+  },
+  "not_proven": "Requirement coverage proves structural linkage and regression coverage only; it does not prove every future domain specialist taxonomy is complete.",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,41 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-128-MISSION-CONTROL-JA",
+  "recorded_at": "2026-08-05T18:18:36.352Z",
+  "work_item_id": "TASK-128",
+  "work_item_ref": ".aof/tasks/done/TASK-128.json",
+  "readiness_status": "ready",
+  "goal": "Ship Japanese-readable Mission Control with task, organization, product completion, and test status views.",
+  "risk": "A viewer-only implementation could look translated while still hiding current work, organization responsibility, or proof status from the operator.",
+  "loss_boundary": "Do not claim operator visibility improved unless the screen exposes the requested status categories and the runtime audit chain resolves.",
+  "acceptance_gates": [
+    "Japanese shell and labels are rendered by visibility-serve",
+    "task Kanban/list tabs exist and default Done task noise is trimmed",
+    "organization hierarchy and utilization are computed from canonical runtime artifacts",
+    "product completion and test/audit panels exist",
+    "release-state-audit passes after TASK-128 is marked done"
+  ],
+  "evidence_plan": [
+    "src/commands/visibility-serve.js",
+    "test/runtime-core-2.test.js",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/visibility/current/runtime-execution.json",
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "operations-council",
+  "stop_conditions": [
+    "runtime audit failure",
+    "Mission Control cannot render",
+    "requested operator categories remain invisible"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": "Work was opened after the UI request and backfilled with full governance artifacts when release-state-audit detected missing TASK-128 evidence.",
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "source_decision_record_id": null
+}

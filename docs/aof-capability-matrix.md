@@ -131,3 +131,16 @@ NEW: `PCAP-THIRD-PARTY-VALIDATION-RESULT-INGESTION` lets AOF classify external r
 | Capability | v10.6 | v10.7 | User-visible change |
 |---|---|---|---|
 | Capability Coverage Gate | - | NEW | AOF can block build/release-critical work when required roles, skills, actor assignments, execution gates, outputs, acceptance gates, or Council follow-up tasks are missing. |
+
+## v10.8 Capability Delta
+
+NEW: `PCAP-ROLE-ROUTING-FAIL-CLOSED` ensures required specialist roles are actually routed to actors before Council execution proceeds.
+
+30-second delta: v10.7 could catch missing capability coverage after work was represented as governed. v10.8 moves the protection earlier: if a required role such as `Game Planner`, `UX`, `Level Designer`, or `QA` has no actor, Council execution stops before a plan is persisted.
+
+| Capability | v10.7.1 | v10.8.0 | User-visible change |
+|---|---|---|---|
+| Capability Coverage Gate | full actor output chain coverage | still available | post-work audit remains available |
+| Role Routing Fail-Closed | - | NEW | required roles must resolve to actors before Council execution |
+| Specialist Council Seats | manual/implicit | explicit via `--required-role` or session role requirements | domain specialists are joined into the plan |
+| Missing Specialist Handling | can be found later | fail-closed before persistence | missing required roles cannot silently proceed |

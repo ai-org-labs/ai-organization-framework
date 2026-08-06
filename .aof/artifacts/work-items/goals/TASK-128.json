@@ -1,0 +1,64 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-05T18:18:36.352Z",
+  "work_item_id": "TASK-128",
+  "work_item_type": "feature",
+  "objective": "Make Mission Control readable and actionable for Japanese operators.",
+  "reason_for_work": "Operators could not quickly understand task state, organization shape, product completion, or test/audit status from the previous English-first Mission Control surface.",
+  "expected_output": [
+    "Japanese Mission Control shell and labels",
+    "task Kanban/list view switch",
+    "hierarchical organization view with member utilization",
+    "product completion view derived from requirements/features",
+    "test and audit status panel"
+  ],
+  "consumer": [
+    "AOF operators",
+    "AOF adopters using Japanese browser translation or native Japanese UI"
+  ],
+  "downstream_dependency": [
+    "visibility-export",
+    "visibility-serve",
+    "release-state-audit",
+    "Mission Control operator workflow"
+  ],
+  "success_criteria": [
+    "Mission Control renders Japanese labels without relying on browser auto-translation",
+    "task status is available as Kanban and list views with old done tasks hidden by default",
+    "organization hierarchy and role utilization are visible from runtime artifacts",
+    "product completion is summarized from requirement/task coverage signals",
+    "test/audit status is visible from runtime evidence"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "focused Mission Control runtime test passes",
+      "organization verification passes",
+      "release-state-audit passes"
+    ],
+    "no_go": [
+      "UI-only change without canonical runtime mapping",
+      "missing maker/checker/council evidence",
+      "release-state-audit failure"
+    ]
+  },
+  "required_visualization": [
+    "actor-responsibility-map",
+    "evidence-coverage-map",
+    "readiness-checklist"
+  ],
+  "required_skills": [
+    "skill-schema-review",
+    "skill-benchmark-validation",
+    "skill-need-validation"
+  ],
+  "required_actor_roles": [
+    "builder",
+    "guardian",
+    "visionary"
+  ],
+  "council_review_need": "required",
+  "external_refs": [],
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "source_decision_record_id": null
+}

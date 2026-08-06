@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-05T14:33:51.425Z",
+  "generated_at": "2026-08-06T02:16:52.468Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "10.7.1",
-    "active_release_track": "v10.7",
-    "release_definition_ref": "docs/v10.7-release-definition.md"
+    "active_release_version": "10.8.0",
+    "active_release_track": "v10.8",
+    "release_definition_ref": "docs/v10.8-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit."
+    "branch_summary": "After v10.8.0, resume v10.9 provider pilot execution readiness, v11.0 read-first GitHub provider observation proof, v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, and v11.3 external validation result replay audit."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v10.7",
+      "label": "v10.8",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v10.7 and the next concrete branch.",
-    "why_this_branch": "Ship v10.7 Capability Coverage Gate: block build/release-critical work before implementation when required roles, skills, concrete actor assignments, output contracts, evidence, acceptance gates, or Council follow-up tasks are missing.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.7.0, advance v10.8 provider pilot execution readiness, v10.9 read-first GitHub provider observation proof, v11.0 external operator reproduction drill execution, v11.1 first governed external provider read integration, and v11.2 external validation result replay audit."
+    "where_are_we": "The runtime is between v10.8 and the next concrete branch.",
+    "why_this_branch": "Ship v10.8 Role Routing Fail-Closed Runtime: resolve required Council roles to concrete actors before execution, join required specialist roles into the plan, and fail closed before persistence when any required role is unroutable.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.8.0, resume v10.9 provider pilot execution readiness, v11.0 read-first GitHub provider observation proof, v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, and v11.3 external validation result replay audit."
   }
 }

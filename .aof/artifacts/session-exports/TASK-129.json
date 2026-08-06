@@ -1,0 +1,108 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-MSGTDLPF-YW6Z07",
+  "recorded_at": "2026-08-06T01:05:17.860Z",
+  "work_item_id": "TASK-129",
+  "work_item_ref": ".aof/tasks/done/TASK-129.json",
+  "export_status": "ready",
+  "source_session_ref": ".aof/tasks/done/TASK-129.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-runtime-command-and-code-diff",
+    "source_of_truth_boundary": "AOF artifacts and tests are canonical; chat text is not release evidence"
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-TASK-129-1",
+      "event_type": "prompt",
+      "summary": "Operator reported registered specialist roles were not necessarily routed into actual Council execution.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-129.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-129-2",
+      "event_type": "response",
+      "summary": "Orchestrator reframed the issue as Role Routing Fail-Closed Runtime for v10.8.",
+      "artifact_refs": [
+        "docs/v10.8-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-129-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime commands opened TASK-129 and generated work governance artifacts.",
+      "artifact_refs": [
+        ".aof/artifacts/work-items/goals/TASK-129.json",
+        ".aof/artifacts/work-readiness/TASK-129.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-129-4",
+      "event_type": "artifact_write",
+      "summary": "Runtime code, schema, tests, release docs, and governance artifacts were changed for required-role routing.",
+      "artifact_refs": [
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-129-5",
+      "event_type": "verification",
+      "summary": "Focused runtime tests and release audits are used as acceptance evidence.",
+      "artifact_refs": [
+        "test/runtime-core-3.test.js",
+        "docs/v10.8-release-checklist.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-129-6",
+      "event_type": "blocker",
+      "summary": "Synthetic role/Council evidence is blocked unless actual actor output exists.",
+      "artifact_refs": [
+        ".aof/artifacts/work-items/goals/TASK-129.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-129-7",
+      "event_type": "stop_condition",
+      "summary": "Stop before persistence if any required role cannot resolve to a concrete actor.",
+      "artifact_refs": [
+        "src/runtime/council.js",
+        "test/runtime-core-3.test.js"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-129.json"
+    ],
+    "requirement_refs": [
+      "docs/v10.8-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-3.test.js"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/work-items/goals/TASK-129.json"
+    ],
+    "risk_candidates": [
+      "organization registration may be mistaken for actual execution"
+    ],
+    "decision_candidates": [
+      "make required role routing fail-closed before planning/build execution"
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v10.8-release-checklist.md"
+    ]
+  },
+  "redaction_boundary": "summaries only; no secrets or raw private prompts exported",
+  "release_ready_boundary": "release-ready requires tests and audits, not this export alone",
+  "not_proven": "Session export proves traceability of this work item only; it does not prove all future provider sessions can be replayed.",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -369,11 +369,174 @@ test("council planning differs between deep-path and fast-track", async (t) => {
   });
 
   assert.equal(deepPlan.routing_mode, "deep-path");
-  assert.equal(deepPlan.seats.length, 2);
+  assert.equal(deepPlan.seats.length, 3);
   assert.equal(deepPlan.seats[1].role, "Visionary");
+  assert.equal(deepPlan.seats[2].role, "Guardian");
+  assert.deepEqual(
+    deepPlan.seats.map((seat) => seat.actor_ref),
+    ["implementation-worker-01", "visionary-worker-01", "review-worker-01"]
+  );
   assert.equal(fastPlan.routing_mode, "fast-track");
   assert.equal(fastPlan.seats.length, 1);
   assert.equal(fastPlan.primary_role, "Builder");
+});
+
+test("council planning routes additional required specialist roles to actors", async (t) => {
+  const projectRoot = await createTempProject(t);
+  await fs.writeFile(
+    path.join(projectRoot, ".aof", "actors", "game-planner.yaml"),
+    [
+      "actor_id: game-planner-01",
+      "display_name: Game Planner",
+      "kind: ai",
+      "roles:",
+      "  - Game Planner",
+      "capabilities:",
+      "  - game-loop-design",
+      "  - evidence-rule-design",
+      "policy_profile: default-product-policy",
+      ""
+    ].join("\n"),
+    "utf8"
+  );
+  const manifestPath = path.join(projectRoot, ".aof", "aof.yaml");
+  const manifest = await fs.readFile(manifestPath, "utf8");
+  await fs.writeFile(
+    manifestPath,
+    manifest.replace("  - actors/guardian.yaml\n", "  - actors/guardian.yaml\n  - actors/game-planner.yaml\n"),
+    "utf8"
+  );
+  const template = await loadTemplate(projectRoot);
+  const runResult = await runCommand({
+    project: projectRoot,
+    request: "ゲーム内の証拠確認を必須にするか任意にするか決めたい"
+  });
+  const session = await loadSession(runResult.sessionPath);
+  const plan = buildCouncilExecutionPlan({
+    template,
+    session,
+    stage: "planning",
+    requiredRoles: ["game-planner"]
+  });
+
+  assert.equal(plan.routing_status, "ready");
+  assert.deepEqual(
+    plan.seats.map((seat) => [seat.role, seat.actor_ref, seat.lane]),
+    [
+      ["Builder", "implementation-worker-01", "primary"],
+      ["Visionary", "visionary-worker-01", "follow-up"],
+      ["Guardian", "review-worker-01", "follow-up"],
+      ["game-planner", "game-planner-01", "specialist"]
+    ]
+  );
+});
+
+test("councilExecCommand fails closed before persistence when a required specialist role has no actor", async (t) => {
+  const projectRoot = await createTempProject(t);
+  const runResult = await runCommand({
+    project: projectRoot,
+    request: "ゲーム内の証拠確認を必須にするか任意にするか決めたい"
+  });
+  await answerCommand({
+    session: runResult.sessionPath,
+    responses: [
+      "Roblox推理ゲームの証拠確認フロー",
+      "プレイヤーに公平な推論体験を提供する",
+      "サーバー権威とプレイヤー観測証跡は壊さない"
+    ]
+  });
+  await advanceSessionToPlanning(projectRoot, runResult.sessionPath);
+
+  await assert.rejects(
+    councilExecCommand({
+      session: runResult.sessionPath,
+      stage: "planning",
+      project: projectRoot,
+      role: "",
+      requiredRoles: ["Game Planner"],
+      includeOptional: false,
+      invokeModel: false,
+      provider: "",
+      model: "",
+      baseUrl: "",
+      apiKey: "",
+      apiKeyEnv: "",
+      mockSeatDecisions: [],
+      mockSeatVetos: [],
+      temperature: undefined
+    }),
+    /Role routing failed closed: no actor found for required role 'Game Planner' during planning/
+  );
+
+  const session = await loadSession(runResult.sessionPath);
+  assert.equal(session.council_execution_runs?.length ?? 0, 0);
+  assert.equal(session.last_council_execution_id, undefined);
+});
+
+test("councilExecCommand persists specialist actor_ref matching the packet actor", async (t) => {
+  const projectRoot = await createTempProject(t);
+  await fs.writeFile(
+    path.join(projectRoot, ".aof", "actors", "game-planner.yaml"),
+    [
+      "actor_id: game-planner-01",
+      "display_name: Game Planner",
+      "kind: ai",
+      "roles:",
+      "  - Game Planner",
+      "capabilities:",
+      "  - game-loop-design",
+      "  - evidence-rule-design",
+      "policy_profile: default-product-policy",
+      ""
+    ].join("\n"),
+    "utf8"
+  );
+  const manifestPath = path.join(projectRoot, ".aof", "aof.yaml");
+  const manifest = await fs.readFile(manifestPath, "utf8");
+  await fs.writeFile(
+    manifestPath,
+    manifest.replace("  - actors/guardian.yaml\n", "  - actors/guardian.yaml\n  - actors/game-planner.yaml\n"),
+    "utf8"
+  );
+
+  const runResult = await runCommand({
+    project: projectRoot,
+    request: "ゲーム内の証拠確認を必須にするか任意にするか決めたい"
+  });
+  await answerCommand({
+    session: runResult.sessionPath,
+    responses: [
+      "Roblox推理ゲームの証拠確認フロー",
+      "プレイヤーに公平な推論体験を提供する",
+      "サーバー権威とプレイヤー観測証跡は壊さない"
+    ]
+  });
+  await advanceSessionToPlanning(projectRoot, runResult.sessionPath);
+
+  await councilExecCommand({
+    session: runResult.sessionPath,
+    stage: "planning",
+    project: projectRoot,
+    role: "",
+    requiredRoles: ["game-planner"],
+    includeOptional: false,
+    invokeModel: false,
+    provider: "",
+    model: "",
+    baseUrl: "",
+    apiKey: "",
+    apiKeyEnv: "",
+    mockSeatDecisions: [],
+    mockSeatVetos: [],
+    temperature: undefined
+  });
+
+  const session = await loadSession(runResult.sessionPath);
+  assert.equal(session.council_execution_runs.length, 1);
+  const specialistStep = session.council_execution_runs[0].steps.find((step) => step.role === "game-planner");
+  assert.ok(specialistStep);
+  assert.equal(specialistStep.actor_ref, "game-planner-01");
+  assert.equal(specialistStep.packet.actor.actor_id, "game-planner-01");
 });
 
 test("fast-track approval uses a single Guardian reviewer", async (t) => {
@@ -1487,4 +1650,3 @@ test("verifyLogCommand appends verification entries and deduplicates by bundle p
   assert.equal(firstResult.ok, true);
   assert.equal(secondResult.ok, true);
 });
-

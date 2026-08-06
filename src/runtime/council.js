@@ -1,4 +1,4 @@
-import { buildModelInputPacket } from "./packet.js";
+import { buildModelInputPacket, firstActorWithRole } from "./packet.js";
 
 const STAGE_MATRIX = {
   clarification: {
@@ -8,7 +8,10 @@ const STAGE_MATRIX = {
   },
   planning: {
     primary: "Builder",
-    participants: [{ role: "Visionary", mode: "required" }],
+    participants: [
+      { role: "Visionary", mode: "required" },
+      { role: "Guardian", mode: "required" }
+    ],
     approvalMode: "single"
   },
   proposal: {
@@ -103,8 +106,13 @@ function stageConfigFor(stage, session, roleOverride) {
 }
 
 function buildSeatPlan({ template, session, stage, role, mode, lane }) {
+  const actor = firstActorWithRole(template.actors, role);
+  if (!actor) {
+    throw new Error(`Role routing failed closed: no actor found for required role '${role}' during ${stage}.`);
+  }
   return {
     role,
+    actor_ref: actor.actor_id,
     participation_mode: mode,
     lane,
     packet: buildModelInputPacket({
@@ -116,7 +124,34 @@ function buildSeatPlan({ template, session, stage, role, mode, lane }) {
   };
 }
 
-export function buildCouncilExecutionPlan({ template, session, stage, includeOptional = false, roleOverride = "" }) {
+function normalizeRoleName(role) {
+  return String(role ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+function uniqueRoles(roles) {
+  const seen = new Set();
+  const unique = [];
+  for (const role of roles) {
+    const roleText = String(role ?? "").trim();
+    const key = normalizeRoleName(roleText);
+    if (!roleText || seen.has(key)) {
+      continue;
+    }
+    seen.add(key);
+    unique.push(roleText);
+  }
+  return unique;
+}
+
+function additionalRequiredRoles({ seats, requiredRoles }) {
+  const planned = new Set(seats.map((seat) => normalizeRoleName(seat.role)));
+  return uniqueRoles(requiredRoles).filter((role) => !planned.has(normalizeRoleName(role)));
+}
+
+export function buildCouncilExecutionPlan({ template, session, stage, includeOptional = false, roleOverride = "", requiredRoles = [] }) {
   const config = stageConfigFor(stage, session, roleOverride);
   const primary = buildSeatPlan({
     template,
@@ -139,6 +174,25 @@ export function buildCouncilExecutionPlan({ template, session, stage, includeOpt
         lane: "follow-up"
       })
     );
+  const explicitRequiredRoles = uniqueRoles([
+    ...(session.required_actor_roles ?? []),
+    ...(session.required_role_refs ?? []),
+    ...requiredRoles
+  ]);
+  const specialistParticipants = additionalRequiredRoles({
+    seats: [primary, ...participants],
+    requiredRoles: explicitRequiredRoles
+  }).map((requiredRole) =>
+    buildSeatPlan({
+      template,
+      session,
+      stage,
+      role: requiredRole,
+      mode: "required-specialist",
+      lane: "specialist"
+    })
+  );
+  const seats = [primary, ...participants, ...specialistParticipants];
 
   return {
     stage,
@@ -146,6 +200,9 @@ export function buildCouncilExecutionPlan({ template, session, stage, includeOpt
     execution_model: "single-instance-role-switching",
     primary_role: config.primary,
     approval_mode: config.approvalMode,
-    seats: [primary, ...participants]
+    required_roles: uniqueRoles([config.primary, ...participants.filter((participant) => participant.participation_mode !== "optional").map((participant) => participant.role), ...explicitRequiredRoles]),
+    unresolved_roles: [],
+    routing_status: "ready",
+    seats
   };
 }

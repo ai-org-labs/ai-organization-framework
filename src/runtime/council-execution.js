@@ -3,12 +3,12 @@ import { invokeModel } from "../sdk/model-adapter.js";
 import { makeId, nowIso } from "./utils.js";
 
 function summarizeSeatStep(seat) {
-  return `prepare ${seat.role} ${seat.packet.metadata.stage} call as ${seat.participation_mode}`;
+  return `prepare ${seat.role} ${seat.packet.metadata.stage} call for actor ${seat.actor_ref} as ${seat.participation_mode}`;
 }
 
 function summarizeRun(plan) {
-  const roles = plan.seats.map((seat) => seat.role).join(" -> ");
-  return `prototype council execution prepared ${plan.seats.length} seat calls in ${plan.execution_model}: ${roles}`;
+  const roles = plan.seats.map((seat) => `${seat.role}(${seat.actor_ref})`).join(" -> ");
+  return `prototype council execution prepared ${plan.seats.length} routed seat calls in ${plan.execution_model}: ${roles}`;
 }
 
 function buildApprovalOutcome(steps) {
@@ -35,13 +35,14 @@ function buildApprovalOutcome(steps) {
   };
 }
 
-export function executeCouncilStage({ template, session, stage, includeOptional = false, roleOverride = "" }) {
+export function executeCouncilStage({ template, session, stage, includeOptional = false, roleOverride = "", requiredRoles = [] }) {
   const plan = buildCouncilExecutionPlan({
     template,
     session,
     stage,
     includeOptional,
-    roleOverride
+    roleOverride,
+    requiredRoles
   });
   const startedAt = nowIso();
   const executionId = makeId("crun");
@@ -49,6 +50,7 @@ export function executeCouncilStage({ template, session, stage, includeOptional 
   const steps = plan.seats.map((seat, index) => ({
     step_id: `${executionId}-STEP-${String(index + 1).padStart(2, "0")}`,
     role: seat.role,
+    actor_ref: seat.actor_ref,
     participation_mode: seat.participation_mode,
     lane: seat.lane,
     call_purpose: seat.packet.metadata.call_purpose,
@@ -61,6 +63,9 @@ export function executeCouncilStage({ template, session, stage, includeOptional 
     execution_id: executionId,
     stage,
     routing_mode: plan.routing_mode,
+    routing_status: plan.routing_status,
+    required_roles: plan.required_roles,
+    unresolved_roles: plan.unresolved_roles,
     execution_model: plan.execution_model,
     primary_role: plan.primary_role,
     approval_mode: plan.approval_mode,
@@ -78,6 +83,7 @@ export async function executeCouncilStageWithModel({
   stage,
   includeOptional = false,
   roleOverride = "",
+  requiredRoles = [],
   modelConfig = {}
 }) {
   const prepared = executeCouncilStage({
@@ -85,7 +91,8 @@ export async function executeCouncilStageWithModel({
     session,
     stage,
     includeOptional,
-    roleOverride
+    roleOverride,
+    requiredRoles
   });
 
   const completedSteps = [];

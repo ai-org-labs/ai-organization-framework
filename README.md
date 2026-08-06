@@ -8,7 +8,7 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 ## Status
 
 この repo は、AOF の spec と local runtime prototype をまとめた repo である。  
-現在の stable release は `v10.7.1` である。
+現在の stable release は `v10.8.0` である。
 この release で、self-hosting runtime は次の状態に到達した。
 
 - External Provider Integration Pilot Selection を release-state governance surface として扱えること
@@ -18,6 +18,10 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - AOF work / requirement / acceptance / decision / risk / test / evidence artifacts を Archmap v0.4 lifecycle concept へ投影できること
 - Archmap と Mission Control は recognition/projection surface であり、AOF artifacts が source of truth であると明示できること
 - v9.7 は lifecycle traceability baseline evidence であり、rendered UX quality、third-party comprehension、semantic correctness、provider package availability、production provider execution safety、market adoption の証明ではないと明示できること
+- Role Routing Fail-Closed Runtime により、Council実行前に必須Roleを具体Actorへ解決できること
+- `council` / `council-exec --required-role "Game Planner"` によって、Game Planner / UX / Level Designer / QA などの専門Roleを計画Councilへ明示的にJoinできること
+- 必須RoleがActorへ解決できない場合、AOFはモデル呼び出し前・session persistence前にfail-closedできること
+- Council実行stepに`actor_ref`を残し、誰がどのRoleを実行したかを追跡できること
 - Provider Execution Cost and Quota Boundary を release-state governance gate として扱えること
 - `provider-cost-quota-boundary-record` によって controlled execution candidate / approval / incident recovery を provider scope、budget owner、budget period、cost ceiling、token/call/retry caps、rate limit、quota、billing、overage policy、stop conditions に束ねられること
 - `provider-cost-quota-boundary-audit` によって cost/quota refs、positive budget limits、quota/rate-limit boundary、billing boundary、runtime provenance、hidden execution permission の欠落を検査できること
@@ -195,9 +199,9 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - public runtime readiness: [docs/v6.0-public-runtime-readiness.md](docs/v6.0-public-runtime-readiness.md)
 - Work Governance integration plan: [docs/v6.1-work-governance-integration-plan.md](docs/v6.1-work-governance-integration-plan.md)
 - Work Governance examples: [docs/v6.1-work-governance-examples.md](docs/v6.1-work-governance-examples.md)
-- current release definition: [docs/v10.7-release-definition.md](docs/v10.7-release-definition.md)
-- current release checklist: [docs/v10.7.1-release-checklist.md](docs/v10.7.1-release-checklist.md)
-- current release notes: [docs/v10.7.1-release-notes.md](docs/v10.7.1-release-notes.md)
+- current release definition: [docs/v10.8-release-definition.md](docs/v10.8-release-definition.md)
+- current release checklist: [docs/v10.8-release-checklist.md](docs/v10.8-release-checklist.md)
+- current release notes: [docs/v10.8.0-release-notes.md](docs/v10.8.0-release-notes.md)
 - actor skill packet contract: [docs/v5-actor-skill-packet-contract.md](docs/v5-actor-skill-packet-contract.md)
 - current roadmap: [docs/vnext-roadmap.md](docs/vnext-roadmap.md)
 - v6.7 → v8.0 completion roadmap: [docs/v6.7-v8.0-completion-roadmap.md](docs/v6.7-v8.0-completion-roadmap.md)

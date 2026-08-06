@@ -1,0 +1,117 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEXP-TASK-128-MISSION-CONTROL-JA",
+  "recorded_at": "2026-08-05T18:18:36.352Z",
+  "work_item_id": "TASK-128",
+  "work_item_ref": ".aof/tasks/done/TASK-128.json",
+  "export_status": "completed",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-agent-session-record",
+    "source_of_truth_boundary": "AOF export summarizes local runtime evidence, not raw provider transcript truth."
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-TASK-128-1",
+      "event_type": "prompt",
+      "summary": "Operator requested Japanese Mission Control with task, organization, product completion, and test status views.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-128.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-128-2",
+      "event_type": "response",
+      "summary": "AOF opened TASK-128 and scoped the dashboard improvement as runtime-backed operator visibility work.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-128.json",
+        ".aof/artifacts/work-items/goals/TASK-128.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-128-3",
+      "event_type": "tool_call",
+      "summary": "AOF runtime commands assessed status, exported visibility payloads, updated task state, and audited release readiness.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/runtime-execution.json",
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-128-4",
+      "event_type": "artifact_write",
+      "summary": "Mission Control implementation and focused runtime test were updated.",
+      "artifact_refs": [
+        "src/commands/visibility-serve.js",
+        "test/runtime-core-2.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-128-5",
+      "event_type": "verification",
+      "summary": "Focused runtime tests, organization verification, smoke, and release audit are required evidence for completion.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js",
+        ".aof/artifacts/visibility/current/runtime-execution.json",
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-128-6",
+      "event_type": "blocker",
+      "summary": "Release-state-audit detected missing TASK-128 governance artifacts after the implementation was marked done.",
+      "artifact_refs": [
+        ".aof/context/active/release-state-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-128-7",
+      "event_type": "stop_condition",
+      "summary": "TASK-128 cannot be release-ready until the governance chain and full tests pass.",
+      "artifact_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json",
+        ".aof/context/active/release-state-audit.json"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-128.json"
+    ],
+    "requirement_refs": [
+      ".aof/artifacts/requirement-coverage/TASK-128.json"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js",
+      ".aof/context/active/release-state-audit.json"
+    ],
+    "artifact_refs": [
+      "src/commands/visibility-serve.js",
+      "test/runtime-core-2.test.js",
+      ".aof/artifacts/visibility/current/mission-control.json",
+      ".aof/artifacts/visibility/current/runtime-execution.json",
+      ".aof/artifacts/execution/team-outputs/TOUT-TASK-128-MISSION-CONTROL-JA.json",
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json"
+    ],
+    "risk_candidates": [
+      "Japanese dashboard may still need browser/operator visual review after structural tests pass."
+    ],
+    "decision_candidates": [
+      "Treat TASK-128 as a localized operator visibility improvement, not a full Mission Control redesign."
+    ],
+    "release_ready_evidence_refs": [
+      "test/runtime-core-2.test.js",
+      ".aof/context/active/release-state-audit.json",
+      ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json"
+    ]
+  },
+  "redaction_boundary": "The export excludes raw provider transcript and secrets; it records bounded local AOF artifact refs and summaries.",
+  "release_ready_boundary": "Release-ready means TASK-128 has code, runtime evidence, governance artifacts, and tests; it does not prove every future dataset renders perfectly.",
+  "not_proven": "This record does not prove semantic Japanese copy quality or third-party operator comprehension.",
+  "source_task_id": "TASK-128",
+  "source_parent_session_id": "SESS-V108-MISSION-CONTROL-JA",
+  "source_decision_record_id": null,
+  "notes": "Created after release-state-audit exposed missing governance evidence for TASK-128."
+}

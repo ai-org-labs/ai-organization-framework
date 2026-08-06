@@ -1,8 +1,9 @@
 {
-  "artifact_type": "operating-goal",
-  "content": "Ship v10.7 Capability Coverage Gate: block build/release-critical work before implementation when required roles, skills, concrete actor assignments, output contracts, evidence, acceptance gates, or Council follow-up tasks are missing.",
+  "goal_type": "operating-goal",
+  "content": "Ship v10.8 Role Routing Fail-Closed Runtime: resolve required Council roles to concrete actors before execution, join required specialist roles into the plan, and fail closed before persistence when any required role is unroutable.",
+  "updated_at": "2026-08-06T00:45:48.063Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
-  "declared_complete": false,
-  "updated_at": "2026-08-05T14:05:00.000Z"
+  "source_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null,
+  "declared_complete_at": null
 }

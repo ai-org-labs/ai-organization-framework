@@ -323,6 +323,21 @@
         "schemas/aof-capability-coverage-audit.schema.json",
         "test/runtime-core-2.test.js"
       ]
+    },
+    {
+      "capability_id": "PCAP-ROLE-ROUTING-FAIL-CLOSED",
+      "name": "Role Routing Fail-Closed Runtime",
+      "description": "Resolve every required Council role to a concrete actor before execution and stop before persistence when a required specialist cannot be routed.",
+      "user_value": "Operators can require domain specialists such as Game Planner, UX, Level Designer, or QA and trust AOF not to silently skip them.",
+      "first_version": "v10.8.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.8-release-definition.md",
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "src/runtime/packet.js",
+        "test/runtime-core-3.test.js"
+      ]
     }
   ]
 }

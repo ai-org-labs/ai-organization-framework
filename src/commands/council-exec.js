@@ -39,6 +39,7 @@ export async function councilExecCommand(options, deps = {}) {
           stage: options.stage,
           includeOptional: options.includeOptional,
           roleOverride: options.role,
+          requiredRoles: options.requiredRoles ?? [],
           modelConfig: {
             provider: options.provider,
             model: options.model,
@@ -57,7 +58,8 @@ export async function councilExecCommand(options, deps = {}) {
           session,
           stage: options.stage,
           includeOptional: options.includeOptional,
-          roleOverride: options.role
+          roleOverride: options.role,
+          requiredRoles: options.requiredRoles ?? []
         });
     let nextSession = await appendCouncilExecutionRun(session, execution);
     let escalation = null;

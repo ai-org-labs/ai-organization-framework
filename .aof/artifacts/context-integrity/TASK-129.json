@@ -1,0 +1,28 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MSGT1XEA-LZ9H3L",
+  "recorded_at": "2026-08-06T00:56:13.138Z",
+  "work_item_id": "TASK-129",
+  "work_item_ref": ".aof/tasks/done/TASK-129.json",
+  "session_ref": ".aof/tasks/done/TASK-129.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-items/goals/TASK-129.json"
+  ],
+  "declared_context_refs": [
+    "docs/v10.8-release-definition.md",
+    "docs/v5-actor-skill-packet-contract.md"
+  ],
+  "required_context_refs": [
+    "src/runtime/council.js",
+    "src/runtime/council-execution.js",
+    "src/runtime/packet.js",
+    "test/runtime-core-3.test.js"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves the required files and runtime evidence are declared and linked; it does not prove semantic correctness beyond tests and review.",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_decision_record_id": null
+}

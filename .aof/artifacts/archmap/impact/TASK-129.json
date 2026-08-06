@@ -1,0 +1,29 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-129-V108",
+  "work_item_ref": ".aof/tasks/done/TASK-129.json",
+  "work_item_id": "TASK-129",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "council-execution",
+    "role-to-actor-routing",
+    "required-specialist-seat"
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "deferred_with_reason",
+  "evidence_refs": [
+    "docs/v10.8-release-definition.md",
+    "src/runtime/council.js",
+    "src/runtime/council-execution.js",
+    "test/runtime-core-3.test.js"
+  ],
+  "recorded_at": "2026-08-06T00:59:00.000Z",
+  "updated_at": "2026-08-06T00:59:00.000Z",
+  "source_task_id": "TASK-129",
+  "source_parent_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "session_ref": ".aof/tasks/done/TASK-129.json",
+  "not_proven": "Archmap impact is deferred because TASK-129 is still an open implementation task; this record does not assert Council approval or final architecture map completion."
+}

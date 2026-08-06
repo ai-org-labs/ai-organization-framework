@@ -198,6 +198,16 @@
       "type": "array",
       "items": { "type": "string" }
     },
+    "required_actor_roles": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Additional role seats that must be resolved to concrete actors before council execution can proceed."
+    },
+    "required_role_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Alias for additional role refs used by work governance artifacts."
+    },
     "signal_refs": {
       "type": "array",
       "items": { "type": "string" }
@@ -363,6 +373,18 @@
             "type": "string",
             "enum": ["fast-track", "deep-path"]
           },
+          "routing_status": {
+            "type": "string",
+            "enum": ["ready", "blocked"]
+          },
+          "required_roles": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "unresolved_roles": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
           "execution_model": { "type": "string" },
           "primary_role": { "type": "string" },
           "approval_mode": { "type": "string" },
@@ -377,6 +399,7 @@
               "required": [
                 "step_id",
                 "role",
+                "actor_ref",
                 "participation_mode",
                 "lane",
                 "call_purpose",
@@ -387,6 +410,7 @@
               "properties": {
                 "step_id": { "type": "string" },
                 "role": { "type": "string" },
+                "actor_ref": { "type": "string" },
                 "participation_mode": { "type": "string" },
                 "lane": { "type": "string" },
                 "call_purpose": {
