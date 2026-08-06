@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-129",
+  "title": "Ship v10.8 Role Routing Fail-Closed Runtime",
+  "description": "Make council execution resolve every required role to a concrete actor before execution, include all required specialist roles such as Game Planner, fail closed on missing actors before persisting council runs, and preserve actor_ref routing evidence in session execution steps.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": ".aof/goals/next-value-slice.json",
+  "created_at": "2026-08-06T00:41:47.653Z",
+  "updated_at": "2026-08-06T02:12:53.930Z",
+  "assigned_at": null,
+  "done_at": "2026-08-06T02:12:53.930Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Opened from operator feedback: organization registration and council execution can diverge; required specialist roles must not be skipped."
+}
