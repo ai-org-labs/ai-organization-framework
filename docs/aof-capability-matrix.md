@@ -156,3 +156,14 @@ NEW: `PCAP-PROVIDER-PILOT-EXECUTION-READINESS` turns scattered provider prefligh
 | Provider Execution | separate governed evidence records | release-level readiness chain | Operators can ask if the pilot is ready without reading every raw provider artifact. |
 | Product Value Comprehension | release value explained | provider readiness value explained | The release states what operator work is reduced. |
 | Release-State Governance | gate audit chain | readiness chain checked before release | Green release means structural readiness evidence exists, not live execution permission. |
+
+## v11.0 Capability Delta
+
+NEW: `PCAP-GITHUB-READONLY-OBSERVATION-PROOF` lets AOF inspect real GitHub repository state without write authority and select the next most important task with Japanese, evidence-backed reasoning.
+
+30-second delta: v10.9 answered whether a provider pilot was structurally ready. v11.0 answers what the next task should be after reading the actual GitHub repository state, while explicitly denying GitHub writes.
+
+| Capability | v10.9.0 | v11.0.0 | User-visible change |
+|---|---|---|---|
+| GitHub Read-Only Observation Proof | - | NEW | AOF can pick the next task from real GitHub state without write permission. |
+| Release-State Governance | provider readiness chain | GitHub observation gate added | Release readiness now checks that provider observation is bounded and auditable. |

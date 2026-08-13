@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "product-value-evidence-audit",
-  "generated_at": "2026-08-13T08:03:06.188Z",
+  "generated_at": "2026-08-13T15:04:56.923Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "record_count": 7,
-    "understood_count": 7,
+    "record_count": 8,
+    "understood_count": 8,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 11,
+    "capability_row_count": 12,
     "missing_link_count": 0,
     "failing_check_count": 0
   },
@@ -103,13 +103,26 @@
       "understanding_outcome": "understood",
       "governance_action": "none",
       "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+    },
+    {
+      "value_evidence_id": "PVE-MSRNGBH2-LZKR5H",
+      "release_ref": "docs/v11.0-release-definition.md",
+      "work_item_id": "TASK-131",
+      "capability_statement": "AOF can read GitHub state without write authority and select the next most important task with Japanese evidence-backed reasoning.",
+      "before_state": "The operator had to manually compare releases, issues, pull requests, Actions, and roadmap before deciding what AOF should do next.",
+      "after_state": "AOF records a bounded read-only GitHub observation, candidate tasks, selected task, Go/No-Go, and explicit no-write boundaries.",
+      "scenario": "Ask AOF to handle this repository and decide the next most important task from current GitHub and roadmap evidence.",
+      "five_minute_demo": "Run github-readonly-observation-audit and inspect TASK-131-github-readonly-observation.json to see the selected task, evidence, and no-write boundary.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
     }
   ],
   "checks": [
     {
       "name": "product value evidence presence",
       "status": "pass",
-      "detail": "7 record(s) found",
+      "detail": "8 record(s) found",
       "evidence_refs": [
         ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
@@ -117,7 +130,8 @@
         ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
       ]
     },
     {
@@ -1541,6 +1555,174 @@
         ".aof/artifacts/visibility/current/mission-control.json",
         "docs/v10.9-release-definition.md",
         "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H release ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.0-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-131.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H capability statement",
+      "status": "pass",
+      "detail": "AOF can read GitHub state without write authority and select the next most important task with Japanese evidence-backed reasoning.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H before state",
+      "status": "pass",
+      "detail": "The operator had to manually compare releases, issues, pull requests, Actions, and roadmap before deciding what AOF should do next.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H after state",
+      "status": "pass",
+      "detail": "AOF records a bounded read-only GitHub observation, candidate tasks, selected task, Go/No-Go, and explicit no-write boundaries.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H product scenario",
+      "status": "pass",
+      "detail": "Ask AOF to handle this repository and decide the next most important task from current GitHub and roadmap evidence.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H five minute demo",
+      "status": "pass",
+      "detail": "Run github-readonly-observation-audit and inspect TASK-131-github-readonly-observation.json to see the selected task, evidence, and no-write boundary.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H capability matrix",
+      "status": "pass",
+      "detail": "1 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H not-proven boundary",
+      "status": "pass",
+      "detail": "This does not prove GitHub writes, productivity gain, semantic truth, or external adoption.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-131, source_parent_session_id=SESS-V110-GITHUB-OBSERVATION-PROOF",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-MSRNGBH2-LZKR5H missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
       ]
     }
   ],

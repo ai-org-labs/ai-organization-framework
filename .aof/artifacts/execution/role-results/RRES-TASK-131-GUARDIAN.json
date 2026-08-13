@@ -1,0 +1,27 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-13T15:06:10.000Z",
+  "role": "guardian",
+  "stage": "review",
+  "session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "status": "completed",
+  "recommendation": "Approve v11.0 only as read-only observation proof; block any interpretation that it authorizes GitHub writes.",
+  "rationale": "The audit checks read-only mode, denies issue creation, PR creation, push, secrets, and external writes, and keeps not-proven boundaries explicit.",
+  "signals": [
+    "The selected task is grounded in observation evidence and local roadmap state.",
+    "The release explicitly does not prove productivity improvement, semantic truth, GitHub writes, or external adoption."
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+    ".aof/artifacts/provider-observations/github-readonly-observation-audit.json",
+    "docs/v11.0-release-definition.md",
+    "docs/v11.0.0-release-notes.md"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-131",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.87
+}

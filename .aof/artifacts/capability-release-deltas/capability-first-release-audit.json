@@ -1,13 +1,13 @@
 {
   "ok": true,
   "artifact_type": "capability-first-release-audit",
-  "generated_at": "2026-08-05T14:32:23.880Z",
+  "generated_at": "2026-08-13T15:05:06.927Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "capability_count": 23,
+    "capability_count": 26,
     "delta_count": 1,
-    "new_capability_count": 0,
-    "updated_capability_count": 1,
+    "new_capability_count": 1,
+    "updated_capability_count": 0,
     "removed_capability_count": 0,
     "failing_check_count": 0
   },
@@ -172,33 +172,54 @@
       "user_value": "Operators can catch missing specialists before build instead of discovering role/skill gaps during playtest or release review.",
       "first_version": "v10.7.0",
       "status": "available"
+    },
+    {
+      "capability_id": "PCAP-ROLE-ROUTING-FAIL-CLOSED",
+      "name": "Role Routing Fail-Closed Runtime",
+      "user_value": "Operators can require domain specialists such as Game Planner, UX, Level Designer, or QA and trust AOF not to silently skip them.",
+      "first_version": "v10.8.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-PILOT-EXECUTION-READINESS",
+      "name": "Provider Pilot Execution Readiness",
+      "user_value": "Operators can decide whether a provider-backed pilot is structurally ready to advance without confusing readiness with live provider execution permission.",
+      "first_version": "v10.9.0",
+      "status": "available"
+    },
+    {
+      "capability_id": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF",
+      "name": "GitHub Read-Only Observation Proof",
+      "user_value": "Operators can ask what should happen next and receive a concrete Japanese answer grounded in GitHub state without granting write authority.",
+      "first_version": "v11.0.0",
+      "status": "available"
     }
   ],
   "deltas": [
     {
-      "delta_id": "CRD-MSG6R103-J6JBZZ",
-      "release_version": "10.7.1",
-      "one_minute_value_explanation": "v10.7.1 makes the v10.7 Capability Coverage Gate stricter: AOF now checks that completed work has schema-valid actor outputs, team aggregation, and Council judgment rather than only nominal actor assignment evidence.",
-      "thirty_second_version_delta": "v10.7.0 introduced capability coverage; v10.7.1 closes the audit blind spot where done work could pass without a validated actor output chain.",
-      "new_capability_ids": [],
-      "updated_capability_ids": [
-        "PCAP-CAPABILITY-COVERAGE-GATE"
+      "delta_id": "CRD-MSRNCYPB-XCIATC",
+      "release_version": "11.0.0",
+      "one_minute_value_explanation": "AOF can now look at the real GitHub repository in read-only mode and choose the next most important task with Japanese, evidence-backed reasoning and explicit no-write boundaries.",
+      "thirty_second_version_delta": "v10.9 framed provider pilot readiness; v11.0 reads actual GitHub state and selects the next task without write authority.",
+      "new_capability_ids": [
+        "PCAP-GITHUB-READONLY-OBSERVATION-PROOF"
       ],
+      "updated_capability_ids": [],
       "removed_capability_ids": [],
-      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json"
+      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json"
     }
   ],
   "checks": [
     {
       "name": "active release manifest presence",
       "status": "pass",
-      "detail": "10.7.1",
+      "detail": "11.0.0",
       "evidence_refs": []
     },
     {
       "name": "product capability register presence",
       "status": "pass",
-      "detail": "23 capability row(s)",
+      "detail": "26 capability row(s)",
       "evidence_refs": [
         ".aof/product-capabilities.json"
       ]
@@ -2316,11 +2337,283 @@
       ]
     },
     {
+      "name": "PCAP-ROLE-ROUTING-FAIL-CLOSED description",
+      "status": "pass",
+      "detail": "Resolve every required Council role to a concrete actor before execution and stop before persistence when a required specialist cannot be routed.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.8-release-definition.md",
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "src/runtime/packet.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-ROLE-ROUTING-FAIL-CLOSED user value",
+      "status": "pass",
+      "detail": "Operators can require domain specialists such as Game Planner, UX, Level Designer, or QA and trust AOF not to silently skip them.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.8-release-definition.md",
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "src/runtime/packet.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-ROLE-ROUTING-FAIL-CLOSED first version",
+      "status": "pass",
+      "detail": "v10.8.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.8-release-definition.md",
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "src/runtime/packet.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-ROLE-ROUTING-FAIL-CLOSED evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.8-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.8-release-definition.md",
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "src/runtime/packet.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-ROLE-ROUTING-FAIL-CLOSED evidence ref resolves",
+      "status": "pass",
+      "detail": "src/runtime/council.js",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.8-release-definition.md",
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "src/runtime/packet.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-ROLE-ROUTING-FAIL-CLOSED evidence ref resolves",
+      "status": "pass",
+      "detail": "src/runtime/council-execution.js",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.8-release-definition.md",
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "src/runtime/packet.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-ROLE-ROUTING-FAIL-CLOSED evidence ref resolves",
+      "status": "pass",
+      "detail": "src/runtime/packet.js",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.8-release-definition.md",
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "src/runtime/packet.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-ROLE-ROUTING-FAIL-CLOSED evidence ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-3.test.js",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.8-release-definition.md",
+        "src/runtime/council.js",
+        "src/runtime/council-execution.js",
+        "src/runtime/packet.js",
+        "test/runtime-core-3.test.js"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-PILOT-EXECUTION-READINESS description",
+      "status": "pass",
+      "detail": "AOF can bundle provider adapter, pilot, approval, target, reproduction, rollback, outcome, learning, operator acceptance, production boundary, controlled candidate, incident recovery, cost/quota, product value, and release-state evidence into one pre-execution readiness decision.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-PILOT-EXECUTION-READINESS user value",
+      "status": "pass",
+      "detail": "Operators can decide whether a provider-backed pilot is structurally ready to advance without confusing readiness with live provider execution permission.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-PILOT-EXECUTION-READINESS first version",
+      "status": "pass",
+      "detail": "v10.9.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-PILOT-EXECUTION-READINESS evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-PILOT-EXECUTION-READINESS evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.9.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-PILOT-EXECUTION-READINESS evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-PILOT-EXECUTION-READINESS evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+      ]
+    },
+    {
+      "name": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF description",
+      "status": "pass",
+      "detail": "AOF can inspect real GitHub repository state in read-only mode, compare it with local runtime and roadmap state, and select one next most important task with evidence, Go/No-Go, and no-write boundaries.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0.0-release-notes.md",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF user value",
+      "status": "pass",
+      "detail": "Operators can ask what should happen next and receive a concrete Japanese answer grounded in GitHub state without granting write authority.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0.0-release-notes.md",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF first version",
+      "status": "pass",
+      "detail": "v11.0.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0.0-release-notes.md",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.0-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0.0-release-notes.md",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.0.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0.0-release-notes.md",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0.0-release-notes.md",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observations/github-readonly-observation-audit.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0.0-release-notes.md",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ]
+    },
+    {
       "name": "active release capability delta presence",
       "status": "pass",
       "detail": "1 delta record(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json"
       ]
     },
     {
@@ -2328,169 +2621,127 @@
       "status": "pass",
       "detail": "1 changed capability reference(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json"
       ]
     },
     {
-      "name": "CRD-MSG6R103-J6JBZZ release ref resolves",
+      "name": "CRD-MSRNCYPB-XCIATC release ref resolves",
       "status": "pass",
-      "detail": "docs/v10.7-release-definition.md",
+      "detail": "docs/v11.0-release-definition.md",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
       ]
     },
     {
-      "name": "CRD-MSG6R103-J6JBZZ work item ref resolves",
+      "name": "CRD-MSRNCYPB-XCIATC work item ref resolves",
       "status": "pass",
-      "detail": ".aof/tasks/done/TASK-127.json",
+      "detail": ".aof/tasks/done/TASK-131.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
       ]
     },
     {
-      "name": "CRD-MSG6R103-J6JBZZ capability ref PCAP-CAPABILITY-COVERAGE-GATE",
+      "name": "CRD-MSRNCYPB-XCIATC capability ref PCAP-GITHUB-READONLY-OBSERVATION-PROOF",
       "status": "pass",
-      "detail": "PCAP-CAPABILITY-COVERAGE-GATE",
+      "detail": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
       ]
     },
     {
-      "name": "CRD-MSG6R103-J6JBZZ value evidence ref resolves",
+      "name": "CRD-MSRNCYPB-XCIATC value evidence ref resolves",
       "status": "pass",
-      "detail": "docs/v10.7.1-release-notes.md",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
       ]
     },
     {
-      "name": "CRD-MSG6R103-J6JBZZ value evidence ref resolves",
+      "name": "CRD-MSRNCYPB-XCIATC one minute value explanation",
       "status": "pass",
-      "detail": ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
+      "detail": "AOF can now look at the real GitHub repository in read-only mode and choose the next most important task with Japanese, evidence-backed reasoning and explicit no-write boundaries.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
       ]
     },
     {
-      "name": "CRD-MSG6R103-J6JBZZ value evidence ref resolves",
+      "name": "CRD-MSRNCYPB-XCIATC thirty second version delta",
       "status": "pass",
-      "detail": "test/runtime-core-2.test.js",
+      "detail": "v10.9 framed provider pilot readiness; v11.0 reads actual GitHub state and selects the next task without write authority.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
       ]
     },
     {
-      "name": "CRD-MSG6R103-J6JBZZ one minute value explanation",
+      "name": "CRD-MSRNCYPB-XCIATC product review trigger",
       "status": "pass",
-      "detail": "v10.7.1 makes the v10.7 Capability Coverage Gate stricter: AOF now checks that completed work has schema-valid actor outputs, team aggregation, and Council judgment rather than only nominal actor assignment evidence.",
+      "detail": "If the operator still cannot understand why the selected task is most important, reopen product value explanation rather than claiming release success.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
       ]
     },
     {
-      "name": "CRD-MSG6R103-J6JBZZ thirty second version delta",
+      "name": "CRD-MSRNCYPB-XCIATC not-proven boundary",
       "status": "pass",
-      "detail": "v10.7.0 introduced capability coverage; v10.7.1 closes the audit blind spot where done work could pass without a validated actor output chain.",
+      "detail": "This does not prove GitHub writes, productivity gain, semantic truth, or external adoption.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
-      ]
-    },
-    {
-      "name": "CRD-MSG6R103-J6JBZZ product review trigger",
-      "status": "pass",
-      "detail": "If AOF claims capability coverage while actor role results, team output, or Council review refs are missing or schema-invalid, reopen the audit as a release-blocking product issue.",
-      "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
-      ]
-    },
-    {
-      "name": "CRD-MSG6R103-J6JBZZ not-proven boundary",
-      "status": "pass",
-      "detail": "v10.7.1 proves stronger structural coverage only; it still does not prove semantic expert correctness, user value, market truth, or production safety.",
-      "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-127-V1071.json",
-        "docs/v10.7-release-definition.md",
-        ".aof/tasks/done/TASK-127.json",
-        "docs/v10.7.1-release-notes.md",
-        ".aof/artifacts/capability-coverage/capability-coverage-audit.json",
-        "test/runtime-core-2.test.js"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+        "docs/v11.0-release-definition.md",
+        ".aof/tasks/done/TASK-131.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
       ]
     },
     {
       "name": "release notes ## What You Can Do Now",
       "status": "pass",
-      "detail": "docs/v10.7.1-release-notes.md",
+      "detail": "docs/v11.0.0-release-notes.md",
       "evidence_refs": [
-        "docs/v10.7.1-release-notes.md"
+        "docs/v11.0.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Delta",
       "status": "pass",
-      "detail": "docs/v10.7.1-release-notes.md",
+      "detail": "docs/v11.0.0-release-notes.md",
       "evidence_refs": [
-        "docs/v10.7.1-release-notes.md"
+        "docs/v11.0.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Matrix",
       "status": "pass",
-      "detail": "docs/v10.7.1-release-notes.md",
+      "detail": "docs/v11.0.0-release-notes.md",
       "evidence_refs": [
-        "docs/v10.7.1-release-notes.md"
+        "docs/v11.0.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Value Evidence",
       "status": "pass",
-      "detail": "docs/v10.7.1-release-notes.md",
+      "detail": "docs/v11.0.0-release-notes.md",
       "evidence_refs": [
-        "docs/v10.7.1-release-notes.md"
+        "docs/v11.0.0-release-notes.md"
       ]
     },
     {

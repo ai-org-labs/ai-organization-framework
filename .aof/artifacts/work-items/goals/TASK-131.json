@@ -1,0 +1,66 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-13T15:05:30.000Z",
+  "work_item_id": "TASK-131",
+  "work_item_type": "release",
+  "objective": "Ship v11.0 Read-first GitHub Provider Observation Proof as a bounded read-only task-selection capability.",
+  "reason_for_work": "AOF must prove it can inspect real GitHub state and explain the next most important task without implying external write permission.",
+  "expected_output": [
+    "v11.0 release definition",
+    "v11.0 release checklist",
+    "v11.0 release notes",
+    "GitHub read-only observation artifact",
+    "GitHub read-only observation audit",
+    "capability delta evidence",
+    "product value evidence",
+    "release-state audit evidence"
+  ],
+  "consumer": [
+    "AOF operators",
+    "external provider reviewers",
+    "release council"
+  ],
+  "downstream_dependency": [
+    "release-state-audit",
+    "GitHub provider observation governance",
+    "Mission Control"
+  ],
+  "success_criteria": [
+    "v11.0 explains what AOF can do from read-only GitHub observation",
+    "GitHub writes, Issue/PR creation, push, and secret access are explicitly denied",
+    "candidate tasks and selected task are human-readable Japanese",
+    "github-readonly-observation-audit passes",
+    "release-state-audit no longer reports TASK-131 missing governance evidence"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "github-readonly-observation-audit passes",
+      "capability-first-release-audit passes",
+      "product-value-evidence-audit passes",
+      "release-state-audit passes"
+    ],
+    "no_go": [
+      "GitHub observation implies write authority",
+      "selected task is not evidence-backed",
+      "operator cannot understand what to do next"
+    ]
+  },
+  "required_visualization": [
+    "information-flow-map",
+    "risk-heatmap",
+    "evidence-coverage-map"
+  ],
+  "required_skills": [
+    "skill-schema-review",
+    "skill-benchmark-validation"
+  ],
+  "required_actor_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "council_review_need": "required",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null
+}

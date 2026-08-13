@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-github-readonly-observation-record.schema.json",
+  "title": "AOF GitHub Read-Only Observation Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "record_id",
+    "recorded_at",
+    "work_item_id",
+    "repository",
+    "permission_boundary",
+    "observations",
+    "candidate_tasks",
+    "selected_task",
+    "human_next_action",
+    "not_proven"
+  ],
+  "properties": {
+    "artifact_type": { "const": "github-readonly-observation" },
+    "record_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_id": { "type": "string", "pattern": "^TASK-[0-9]+$" },
+    "repository": { "type": "string", "minLength": 1 },
+    "permission_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "allowed", "not_authorized"],
+      "properties": {
+        "mode": { "const": "read_only" },
+        "allowed": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "not_authorized": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "observations": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "default_branch",
+        "latest_release",
+        "open_issue_count",
+        "open_pull_request_count",
+        "latest_actions",
+        "local_runtime_state",
+        "roadmap_frontier"
+      ],
+      "properties": {
+        "default_branch": { "type": "string", "minLength": 1 },
+        "latest_release": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["tag", "name", "url", "published_at"],
+          "properties": {
+            "tag": { "type": "string", "minLength": 1 },
+            "name": { "type": "string", "minLength": 1 },
+            "url": { "type": "string", "minLength": 1 },
+            "published_at": { "type": "string", "format": "date-time" }
+          }
+        },
+        "open_issue_count": { "type": "integer", "minimum": 0 },
+        "open_pull_request_count": { "type": "integer", "minimum": 0 },
+        "latest_actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["branch", "title", "conclusion", "url"],
+            "properties": {
+              "branch": { "type": "string", "minLength": 1 },
+              "title": { "type": "string", "minLength": 1 },
+              "conclusion": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "local_runtime_state": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "active_release",
+            "current_stage",
+            "new_task_id"
+          ],
+          "properties": {
+            "active_release": { "type": "string", "minLength": 1 },
+            "current_stage": { "type": "string", "minLength": 1 },
+            "primary_frontier_task_before_observation": {},
+            "new_task_id": { "type": "string", "pattern": "^TASK-[0-9]+$" }
+          }
+        },
+        "roadmap_frontier": { "type": "string", "minLength": 1 }
+      }
+    },
+    "candidate_tasks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "label_ja", "why", "evidence_refs"],
+        "properties": {
+          "candidate_id": { "type": "string", "minLength": 1 },
+          "label_ja": { "type": "string", "minLength": 1 },
+          "why": { "type": "string", "minLength": 1 },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "selected_task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_id", "title_ja", "go_no_go", "go_boundary", "no_go_boundary"],
+      "properties": {
+        "task_id": { "type": "string", "pattern": "^TASK-[0-9]+$" },
+        "title_ja": { "type": "string", "minLength": 1 },
+        "go_no_go": { "type": "string", "enum": ["go", "no_go", "defer"] },
+        "go_boundary": { "type": "string", "minLength": 1 },
+        "no_go_boundary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "human_next_action": { "type": "string", "minLength": 1 },
+    "not_proven": { "type": "string", "minLength": 1 }
+  }
+}

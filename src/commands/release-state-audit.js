@@ -9,6 +9,7 @@ import { contextReferenceIntegrityAuditCommand } from "./context-reference-integ
 import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
 import { externalizationReadinessAuditCommand } from "./externalization-readiness-audit.js";
 import { externalResourceAuditCommand } from "./external-resource-audit.js";
+import { githubReadonlyObservationAuditCommand } from "./github-readonly-observation-audit.js";
 import { operatorAcceptanceDrillAuditCommand } from "./operator-acceptance-drill-audit.js";
 import { operatorValidationAuditCommand } from "./operator-validation-audit.js";
 import { pathExists, readJson } from "./operator-surface-helpers.js";
@@ -315,6 +316,15 @@ function requiresCapabilityCoverageAudit(releaseVersion) {
   return major > 10 || (major === 10 && minor >= 7);
 }
 
+function requiresGithubReadonlyObservationAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major] = match.map(Number);
+  return major >= 11;
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -455,6 +465,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderCostQuotaBoundaryAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-cost-quota-boundary-audit", await providerCostQuotaBoundaryAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresGithubReadonlyObservationAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("github-readonly-observation-audit", await githubReadonlyObservationAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

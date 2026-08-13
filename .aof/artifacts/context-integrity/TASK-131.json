@@ -1,0 +1,33 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-131-V110",
+  "recorded_at": "2026-08-13T15:05:45.000Z",
+  "work_item_id": "TASK-131",
+  "work_item_ref": ".aof/tasks/done/TASK-131.json",
+  "session_ref": ".aof/tasks/done/TASK-131.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-items/goals/TASK-131.json"
+  ],
+  "declared_context_refs": [
+    "docs/v11.0-release-definition.md",
+    "docs/v11.0.0-release-notes.md",
+    "docs/vnext-roadmap.md",
+    ".aof/product-capabilities.json"
+  ],
+  "required_context_refs": [
+    "src/commands/github-readonly-observation-audit.js",
+    "schemas/aof-github-readonly-observation-record.schema.json",
+    "schemas/aof-github-readonly-observation-audit.schema.json",
+    ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+    ".aof/artifacts/provider-observations/github-readonly-observation-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves v11.0 release context is declared and linked; it does not prove GitHub write safety, semantic truth, or adoption.",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null
+}

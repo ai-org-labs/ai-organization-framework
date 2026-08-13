@@ -352,6 +352,20 @@
         ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF",
+      "name": "GitHub Read-Only Observation Proof",
+      "description": "AOF can inspect real GitHub repository state in read-only mode, compare it with local runtime and roadmap state, and select one next most important task with evidence, Go/No-Go, and no-write boundaries.",
+      "user_value": "Operators can ask what should happen next and receive a concrete Japanese answer grounded in GitHub state without granting write authority.",
+      "first_version": "v11.0.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0.0-release-notes.md",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ]
     }
   ]
 }

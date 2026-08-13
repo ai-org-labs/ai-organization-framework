@@ -47,6 +47,7 @@ import { providerControlledExecutionCandidateAuditCommand } from "../src/command
 import { providerControlledExecutionCandidateRecordCommand } from "../src/commands/provider-controlled-execution-candidate-record.js";
 import { providerCostQuotaBoundaryAuditCommand } from "../src/commands/provider-cost-quota-boundary-audit.js";
 import { providerCostQuotaBoundaryRecordCommand } from "../src/commands/provider-cost-quota-boundary-record.js";
+import { githubReadonlyObservationAuditCommand } from "../src/commands/github-readonly-observation-audit.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
 import { providerExecutionReproductionAuditCommand } from "../src/commands/provider-execution-reproduction-audit.js";
@@ -5145,6 +5146,144 @@ test("provider cost quota boundary audit blocks hidden execution permission", as
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("no hidden execution permission")));
   assert.ok(audit.summary.errors.some((entry) => entry.includes("overage blocks or escalates")));
+});
+
+test("githubReadonlyObservationAuditCommand verifies read-only observation proof", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "evidence.md"), "# Evidence\n", "utf8");
+  await fs.mkdir(path.join(projectRoot, ".aof", "tasks", "done"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, ".aof", "tasks", "done", "TASK-999.json"), "{}\n", "utf8");
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "provider-observations"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "provider-observations", "GRO-TEST.json"), {
+    artifact_type: "github-readonly-observation",
+    record_id: "GRO-TEST",
+    recorded_at: "2026-08-13T00:00:00.000Z",
+    work_item_id: "TASK-999",
+    repository: "ai-org-labs/ai-organization-framework",
+    permission_boundary: {
+      mode: "read_only",
+      allowed: ["repo metadata read", "actions run list read"],
+      not_authorized: ["issue creation", "pull request creation", "push", "secret access", "external write"]
+    },
+    observations: {
+      default_branch: "main",
+      latest_release: {
+        tag: "v10.9.0",
+        name: "AOF v10.9.0",
+        url: "https://github.com/ai-org-labs/ai-organization-framework/releases/tag/v10.9.0",
+        published_at: "2026-08-13T00:00:00.000Z"
+      },
+      open_issue_count: 0,
+      open_pull_request_count: 0,
+      latest_actions: [
+        {
+          branch: "main",
+          title: "Release AOF v10.9.0",
+          conclusion: "success",
+          url: "https://github.com/ai-org-labs/ai-organization-framework/actions/runs/1"
+        }
+      ],
+      local_runtime_state: {
+        active_release: "v10.9.0",
+        current_stage: "frontier-definition-needed",
+        primary_frontier_task_before_observation: null,
+        new_task_id: "TASK-999"
+      },
+      roadmap_frontier: "v11.0 Read-first GitHub Provider Observation Proof"
+    },
+    candidate_tasks: [
+      {
+        candidate_id: "CAND-001",
+        label_ja: "GitHubを読み取って、AOFが次の仕事を判断できるか試す",
+        why: "実GitHub文脈から人間に説明できる判断を返せるかが未証明だから。",
+        evidence_refs: ["docs/evidence.md"]
+      }
+    ],
+    selected_task: {
+      task_id: "TASK-999",
+      title_ja: "GitHubを読み取って、AOFが本当に次の仕事を判断できるか試す",
+      go_no_go: "go",
+      go_boundary: "read-only GitHub observation only",
+      no_go_boundary: "no GitHub writes"
+    },
+    human_next_action: "TASK-999をread-only観測proofとして進める。",
+    not_proven: "This does not prove safe external writes or user adoption."
+  });
+
+  const audit = await githubReadonlyObservationAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true);
+  assert.equal(audit.summary.summary.observation_count, 1);
+  assert.equal(audit.summary.summary.external_write_authorized_count, 0);
+});
+
+test("githubReadonlyObservationAuditCommand blocks allowed write authority", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "evidence.md"), "# Evidence\n", "utf8");
+  await fs.mkdir(path.join(projectRoot, ".aof", "tasks", "open"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, ".aof", "tasks", "open", "TASK-999.json"), "{}\n", "utf8");
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "provider-observations"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "provider-observations", "GRO-TEST.json"), {
+    artifact_type: "github-readonly-observation",
+    record_id: "GRO-TEST",
+    recorded_at: "2026-08-13T00:00:00.000Z",
+    work_item_id: "TASK-999",
+    repository: "ai-org-labs/ai-organization-framework",
+    permission_boundary: {
+      mode: "read_only",
+      allowed: ["repo metadata read", "issue creation"],
+      not_authorized: ["issue creation", "pull request creation", "push", "secret access", "external write"]
+    },
+    observations: {
+      default_branch: "main",
+      latest_release: {
+        tag: "v10.9.0",
+        name: "AOF v10.9.0",
+        url: "https://github.com/ai-org-labs/ai-organization-framework/releases/tag/v10.9.0",
+        published_at: "2026-08-13T00:00:00.000Z"
+      },
+      open_issue_count: 0,
+      open_pull_request_count: 0,
+      latest_actions: [
+        {
+          branch: "main",
+          title: "Release AOF v10.9.0",
+          conclusion: "success",
+          url: "https://github.com/ai-org-labs/ai-organization-framework/actions/runs/1"
+        }
+      ],
+      local_runtime_state: {
+        active_release: "v10.9.0",
+        current_stage: "frontier-definition-needed",
+        primary_frontier_task_before_observation: null,
+        new_task_id: "TASK-999"
+      },
+      roadmap_frontier: "v11.0 Read-first GitHub Provider Observation Proof"
+    },
+    candidate_tasks: [
+      {
+        candidate_id: "CAND-001",
+        label_ja: "GitHubを読み取って、AOFが次の仕事を判断できるか試す",
+        why: "実GitHub文脈から人間に説明できる判断を返せるかが未証明だから。",
+        evidence_refs: ["docs/evidence.md"]
+      }
+    ],
+    selected_task: {
+      task_id: "TASK-999",
+      title_ja: "GitHubを読み取って、AOFが本当に次の仕事を判断できるか試す",
+      go_no_go: "go",
+      go_boundary: "read-only GitHub observation only",
+      no_go_boundary: "no GitHub writes"
+    },
+    human_next_action: "TASK-999をread-only観測proofとして進める。",
+    not_proven: "This does not prove safe external writes or user adoption."
+  });
+
+  const audit = await githubReadonlyObservationAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("no allowed write authority")));
+  assert.equal(audit.summary.summary.external_write_authorized_count, 1);
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

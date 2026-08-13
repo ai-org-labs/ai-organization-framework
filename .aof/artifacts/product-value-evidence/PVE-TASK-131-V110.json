@@ -1,0 +1,34 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-MSRNGBH2-LZKR5H",
+  "recorded_at": "2026-08-13T15:04:54.806Z",
+  "release_ref": "docs/v11.0-release-definition.md",
+  "work_item_id": "TASK-131",
+  "work_item_ref": ".aof/tasks/done/TASK-131.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "AOF can read GitHub state without write authority and select the next most important task with Japanese evidence-backed reasoning.",
+  "before_state": "The operator had to manually compare releases, issues, pull requests, Actions, and roadmap before deciding what AOF should do next.",
+  "after_state": "AOF records a bounded read-only GitHub observation, candidate tasks, selected task, Go/No-Go, and explicit no-write boundaries.",
+  "scenario": "Ask AOF to handle this repository and decide the next most important task from current GitHub and roadmap evidence.",
+  "five_minute_demo": "Run github-readonly-observation-audit and inspect TASK-131-github-readonly-observation.json to see the selected task, evidence, and no-write boundary.",
+  "time_saved_or_work_reduced": "Removes manual cross-checking of latest release, open issues, open PRs, recent Actions, and roadmap before choosing the next task.",
+  "cognitive_load_removed": "The operator no longer needs to infer whether AOF had current GitHub context or whether write permission was implied.",
+  "capability_matrix": [
+    {
+      "capability": "GitHub Read-Only Observation Proof",
+      "before": "manual GitHub and roadmap comparison",
+      "after": "read-only observation selects one next task",
+      "user_value": "operator gets a Japanese evidence-backed next-task decision without granting write permission"
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "This does not prove GitHub writes, productivity gain, semantic truth, or external adoption.",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null,
+  "notes": null
+}

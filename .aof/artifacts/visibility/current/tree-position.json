@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-13T08:04:04.018Z",
+  "generated_at": "2026-08-13T15:22:15.540Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "10.9.0",
-    "active_release_track": "v10.9",
-    "release_definition_ref": "docs/v10.9-release-definition.md"
+    "active_release_version": "11.0.0",
+    "active_release_track": "v11.0",
+    "release_definition_ref": "docs/v11.0-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "After v10.9.0, advance v11.0 read-first GitHub provider observation proof, then v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, v11.3 external validation result replay audit, and v11.4 agent session contract and tool governance evidence."
+    "branch_summary": "v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v10.9",
+      "label": "v11.0",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v10.9 and the next concrete branch.",
+    "where_are_we": "The runtime is between v11.0 and the next concrete branch.",
     "why_this_branch": "Close v10.9.0 Provider Pilot Execution Readiness with runtime-backed audits, test evidence, smoke validation, tag, and GitHub release; then move the active frontier to v11.0 read-first GitHub provider observation proof.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: After v10.9.0, advance v11.0 read-first GitHub provider observation proof, then v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, v11.3 external validation result replay audit, and v11.4 agent session contract and tool governance evidence."
+    "what_branch_comes_next": "Open an implementation task for the current frontier: v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes."
   }
 }

@@ -1,0 +1,25 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-MSRNCYPB-XCIATC",
+  "recorded_at": "2026-08-13T15:02:18.287Z",
+  "release_version": "11.0.0",
+  "release_ref": "docs/v11.0-release-definition.md",
+  "work_item_id": "TASK-131",
+  "work_item_ref": ".aof/tasks/done/TASK-131.json",
+  "one_minute_value_explanation": "AOF can now look at the real GitHub repository in read-only mode and choose the next most important task with Japanese, evidence-backed reasoning and explicit no-write boundaries.",
+  "thirty_second_version_delta": "v10.9 framed provider pilot readiness; v11.0 reads actual GitHub state and selects the next task without write authority.",
+  "new_capability_ids": [
+    "PCAP-GITHUB-READONLY-OBSERVATION-PROOF"
+  ],
+  "updated_capability_ids": [],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
+  ],
+  "product_review_trigger": "If the operator still cannot understand why the selected task is most important, reopen product value explanation rather than claiming release success.",
+  "not_proven": "This does not prove GitHub writes, productivity gain, semantic truth, or external adoption.",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null,
+  "notes": null
+}

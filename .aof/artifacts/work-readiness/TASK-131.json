@@ -1,0 +1,36 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-131-V110",
+  "recorded_at": "2026-08-13T15:05:35.000Z",
+  "work_item_id": "TASK-131",
+  "work_item_ref": ".aof/tasks/done/TASK-131.json",
+  "readiness_status": "ready",
+  "goal": "Release v11.0 as read-only GitHub observation proof without authorizing GitHub writes.",
+  "risk": "AOF may imply that observing GitHub authorizes issue creation, PR creation, push, secret access, or external writes.",
+  "loss_boundary": "No v11.0 wording may claim GitHub write permission, provider execution, semantic truth, productivity improvement, or external adoption.",
+  "acceptance_gates": [
+    "github-readonly-observation-audit passes",
+    "capability-first-release-audit passes",
+    "product-value-evidence-audit passes",
+    "release-state-audit passes"
+  ],
+  "evidence_plan": [
+    "GitHub observation artifact, audit artifact, release docs, capability register, capability delta, product value evidence, Council review, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if GitHub observation is described as write permission",
+    "Stop if selected task lacks evidence or Japanese explanation",
+    "Stop if release-state-audit reports missing TASK-131 governance evidence"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null
+}

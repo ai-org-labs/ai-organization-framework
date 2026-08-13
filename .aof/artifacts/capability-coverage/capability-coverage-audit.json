@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "capability-coverage-audit",
-  "generated_at": "2026-08-05T14:30:46.569Z",
+  "generated_at": "2026-08-13T15:13:43.730Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "cutoff_task_id": "TASK-127",
   "audited_status_dirs": [
@@ -10,8 +10,8 @@
     "done"
   ],
   "summary": {
-    "scoped_task_count": 1,
-    "coverage_record_count": 1,
+    "scoped_task_count": 5,
+    "coverage_record_count": 5,
     "missing_role_count": 0,
     "missing_skill_count": 0,
     "blocked_assignment_count": 0,
@@ -26,6 +26,34 @@
       "status": "done",
       "status_dir": "done",
       "artifact_ref": ".aof/tasks/done/TASK-127.json"
+    },
+    {
+      "task_id": "TASK-128",
+      "title": "Improve Mission Control Japanese operator dashboard",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-128.json"
+    },
+    {
+      "task_id": "TASK-129",
+      "title": "Ship v10.8 Role Routing Fail-Closed Runtime",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-129.json"
+    },
+    {
+      "task_id": "TASK-130",
+      "title": "Ship v10.9 Provider Pilot Execution Readiness",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-130.json"
+    },
+    {
+      "task_id": "TASK-131",
+      "title": "v11.0 proof: read-only GitHub observation selects the next task",
+      "status": "open",
+      "status_dir": "open",
+      "artifact_ref": ".aof/tasks/done/TASK-131.json"
     }
   ],
   "coverage_records": [
@@ -87,13 +115,253 @@
       "non_allowed_gate_count": 0,
       "follow_up_required_review_count": 0,
       "follow_up_missing_review_count": 0
+    },
+    {
+      "task_id": "TASK-128",
+      "task_ref": ".aof/tasks/done/TASK-128.json",
+      "goal_ref": ".aof/artifacts/work-items/goals/TASK-128.json",
+      "required_roles": [
+        "builder",
+        "guardian",
+        "visionary"
+      ],
+      "required_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation",
+        "skill-need-validation"
+      ],
+      "assigned_roles": [
+        "builder",
+        "guardian",
+        "visionary"
+      ],
+      "assigned_actors": [
+        "codex"
+      ],
+      "covered_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation",
+        "skill-need-validation"
+      ],
+      "missing_roles": [],
+      "missing_skills": [],
+      "actor_skill_packet_refs": [
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-128-builder.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-128-guardian.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-128-visionary.json"
+      ],
+      "assignment_evaluation_refs": [
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-128-builder.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-128-guardian.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-128-visionary.json"
+      ],
+      "actor_execution_gate_refs": [
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-128-builder.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-128-guardian.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-128-visionary.json"
+      ],
+      "council_review_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json"
+      ],
+      "assignment_states": [
+        "selected"
+      ],
+      "execution_gate_states": [
+        "allowed"
+      ],
+      "blocked_assignment_count": 0,
+      "non_selected_assignment_count": 0,
+      "non_allowed_gate_count": 0,
+      "follow_up_required_review_count": 0,
+      "follow_up_missing_review_count": 0
+    },
+    {
+      "task_id": "TASK-129",
+      "task_ref": ".aof/tasks/done/TASK-129.json",
+      "goal_ref": ".aof/artifacts/work-items/goals/TASK-129.json",
+      "required_roles": [
+        "visionary",
+        "builder",
+        "guardian"
+      ],
+      "required_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation"
+      ],
+      "assigned_roles": [
+        "builder",
+        "guardian",
+        "visionary"
+      ],
+      "assigned_actors": [
+        "019fd499-9bc2-7d42-8877-c65aca5f2c65",
+        "codex",
+        "019fd499-afd4-7101-92f5-82c5947747b3",
+        "019fd499-8130-7760-93cd-9ceaef0af4d1"
+      ],
+      "covered_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation",
+        "skill-product-direction"
+      ],
+      "missing_roles": [],
+      "missing_skills": [],
+      "actor_skill_packet_refs": [
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER-CHILD.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN-CHILD.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-129-VISIONARY-CHILD.json"
+      ],
+      "assignment_evaluation_refs": [
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-BUILDER-CHILD.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-BUILDER.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-GUARDIAN-CHILD.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-GUARDIAN.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-VISIONARY-CHILD.json"
+      ],
+      "actor_execution_gate_refs": [
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-129-BUILDER-CHILD.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-129-BUILDER.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-129-GUARDIAN-CHILD.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-129-GUARDIAN.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-129-VISIONARY-CHILD.json"
+      ],
+      "council_review_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-129-ROLE-ROUTING.json"
+      ],
+      "assignment_states": [
+        "selected"
+      ],
+      "execution_gate_states": [
+        "allowed"
+      ],
+      "blocked_assignment_count": 0,
+      "non_selected_assignment_count": 0,
+      "non_allowed_gate_count": 0,
+      "follow_up_required_review_count": 0,
+      "follow_up_missing_review_count": 0
+    },
+    {
+      "task_id": "TASK-130",
+      "task_ref": ".aof/tasks/done/TASK-130.json",
+      "goal_ref": ".aof/artifacts/work-items/goals/TASK-130.json",
+      "required_roles": [
+        "visionary",
+        "builder",
+        "guardian"
+      ],
+      "required_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation"
+      ],
+      "assigned_roles": [
+        "builder",
+        "guardian",
+        "visionary"
+      ],
+      "assigned_actors": [
+        "codex"
+      ],
+      "covered_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation"
+      ],
+      "missing_roles": [],
+      "missing_skills": [],
+      "actor_skill_packet_refs": [
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-130-BUILDER.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-130-GUARDIAN.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-130-VISIONARY.json"
+      ],
+      "assignment_evaluation_refs": [
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-130-BUILDER.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-130-GUARDIAN.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-130-VISIONARY.json"
+      ],
+      "actor_execution_gate_refs": [
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-130-BUILDER.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-130-GUARDIAN.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-130-VISIONARY.json"
+      ],
+      "council_review_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-130-V109.json"
+      ],
+      "assignment_states": [
+        "selected"
+      ],
+      "execution_gate_states": [
+        "allowed"
+      ],
+      "blocked_assignment_count": 0,
+      "non_selected_assignment_count": 0,
+      "non_allowed_gate_count": 0,
+      "follow_up_required_review_count": 0,
+      "follow_up_missing_review_count": 0
+    },
+    {
+      "task_id": "TASK-131",
+      "task_ref": ".aof/tasks/done/TASK-131.json",
+      "goal_ref": ".aof/artifacts/work-items/goals/TASK-131.json",
+      "required_roles": [
+        "visionary",
+        "builder",
+        "guardian"
+      ],
+      "required_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation"
+      ],
+      "assigned_roles": [
+        "builder",
+        "guardian",
+        "visionary"
+      ],
+      "assigned_actors": [
+        "codex"
+      ],
+      "covered_skills": [
+        "skill-schema-review",
+        "skill-benchmark-validation"
+      ],
+      "missing_roles": [],
+      "missing_skills": [],
+      "actor_skill_packet_refs": [
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-131-BUILDER.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-131-GUARDIAN.json",
+        ".aof/artifacts/actor-skill-packets/ASP-TASK-131-VISIONARY.json"
+      ],
+      "assignment_evaluation_refs": [
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-131-BUILDER.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-131-GUARDIAN.json",
+        ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-131-VISIONARY.json"
+      ],
+      "actor_execution_gate_refs": [
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-131-BUILDER.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-131-GUARDIAN.json",
+        ".aof/artifacts/actor-execution-gates/AEG-TASK-131-VISIONARY.json"
+      ],
+      "council_review_refs": [
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-131-V110.json"
+      ],
+      "assignment_states": [
+        "selected"
+      ],
+      "execution_gate_states": [
+        "allowed"
+      ],
+      "blocked_assignment_count": 0,
+      "non_selected_assignment_count": 0,
+      "non_allowed_gate_count": 0,
+      "follow_up_required_review_count": 0,
+      "follow_up_missing_review_count": 0
     }
   ],
   "checks": [
     {
       "name": "scoped task discovery",
       "status": "pass",
-      "detail": "1 task(s) at or after TASK-127 in open, assigned, done"
+      "detail": "5 task(s) at or after TASK-127 in open, assigned, done"
     },
     {
       "name": "TASK-127 work item goal presence",
@@ -544,6 +812,1741 @@
       "name": "TASK-127 coverage ref resolves",
       "status": "pass",
       "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-127-V107.json"
+    },
+    {
+      "name": "TASK-128 work item goal presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-128.json"
+    },
+    {
+      "name": "TASK-128 work item goal schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-128.json"
+    },
+    {
+      "name": "TASK-128 required roles declared",
+      "status": "pass",
+      "detail": "3 role(s)"
+    },
+    {
+      "name": "TASK-128 required skills declared",
+      "status": "pass",
+      "detail": "3 skill(s)"
+    },
+    {
+      "name": "TASK-128 expected outputs declared",
+      "status": "pass",
+      "detail": "5 output(s)"
+    },
+    {
+      "name": "TASK-128 acceptance gates declared",
+      "status": "pass",
+      "detail": "success_criteria and go/no-go criteria must be explicit"
+    },
+    {
+      "name": "TASK-128 required role exists: builder",
+      "status": "pass",
+      "detail": "builder"
+    },
+    {
+      "name": "TASK-128 required role assigned: builder",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-128 required role exists: guardian",
+      "status": "pass",
+      "detail": "guardian"
+    },
+    {
+      "name": "TASK-128 required role assigned: guardian",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-128 required role exists: visionary",
+      "status": "pass",
+      "detail": "visionary"
+    },
+    {
+      "name": "TASK-128 required role assigned: visionary",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-128 required skill exists: skill-schema-review",
+      "status": "pass",
+      "detail": "skill-schema-review"
+    },
+    {
+      "name": "TASK-128 required skill packet-covered: skill-schema-review",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation, skill-need-validation"
+    },
+    {
+      "name": "TASK-128 required skill exists: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "skill-benchmark-validation"
+    },
+    {
+      "name": "TASK-128 required skill packet-covered: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation, skill-need-validation"
+    },
+    {
+      "name": "TASK-128 required skill exists: skill-need-validation",
+      "status": "pass",
+      "detail": "skill-need-validation"
+    },
+    {
+      "name": "TASK-128 required skill packet-covered: skill-need-validation",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation, skill-need-validation"
+    },
+    {
+      "name": "TASK-128 actor skill packet presence",
+      "status": "pass",
+      "detail": "3 packet(s)"
+    },
+    {
+      "name": "TASK-128 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-128-builder.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-128 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-128-builder.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-128 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-128-builder.json",
+      "status": "pass",
+      "detail": "role_ref=builder"
+    },
+    {
+      "name": "TASK-128 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-128-builder.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-128 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-128-builder.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-128 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-128-builder.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-128 capability fit has non-blocking evidence: cap-schema-review",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-128 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-128-guardian.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-128 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-128-guardian.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-128 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-128-guardian.json",
+      "status": "pass",
+      "detail": "role_ref=guardian"
+    },
+    {
+      "name": "TASK-128 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-128-guardian.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-128 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-128-guardian.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-128 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-128-guardian.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-128 capability fit has non-blocking evidence: cap-runtime-verification",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-128 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-128-visionary.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-128 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-128-visionary.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-128 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-128-visionary.json",
+      "status": "pass",
+      "detail": "role_ref=visionary"
+    },
+    {
+      "name": "TASK-128 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-128-visionary.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-128 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-128-visionary.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-128 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-128-visionary.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-128 capability fit has non-blocking evidence: cap-need-validation",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-128 actor assignment evaluation presence",
+      "status": "pass",
+      "detail": "3 evaluation(s) for 3 packet(s)"
+    },
+    {
+      "name": "TASK-128 assignments selected before execution",
+      "status": "pass",
+      "detail": "states=selected"
+    },
+    {
+      "name": "TASK-128 actor execution gate presence",
+      "status": "pass",
+      "detail": "3 gate(s) for 3 evaluation(s)"
+    },
+    {
+      "name": "TASK-128 execution gates allowed",
+      "status": "pass",
+      "detail": "states=allowed"
+    },
+    {
+      "name": "TASK-128 council review presence",
+      "status": "pass",
+      "detail": "1 review(s)"
+    },
+    {
+      "name": "TASK-128 council review schema: .aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json"
+    },
+    {
+      "name": "TASK-128 council follow-up preservation",
+      "status": "pass",
+      "detail": "0 review(s) mention missing role/skill/risk/validation without follow_up_task_ids"
+    },
+    {
+      "name": "TASK-128 role result presence for done work",
+      "status": "pass",
+      "detail": "3 role result(s)"
+    },
+    {
+      "name": "TASK-128 done work role result exists: builder",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-128 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json"
+    },
+    {
+      "name": "TASK-128 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-128 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json",
+      "status": "pass",
+      "detail": "5 artifact ref(s)"
+    },
+    {
+      "name": "TASK-128 done work role result exists: guardian",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-128 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-128 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-128 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json",
+      "status": "pass",
+      "detail": "5 artifact ref(s)"
+    },
+    {
+      "name": "TASK-128 done work role result exists: visionary",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-128 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json"
+    },
+    {
+      "name": "TASK-128 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-128 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json",
+      "status": "pass",
+      "detail": "5 artifact ref(s)"
+    },
+    {
+      "name": "TASK-128 team output presence for done work",
+      "status": "pass",
+      "detail": "1 team output(s)"
+    },
+    {
+      "name": "TASK-128 team output schema: .aof/artifacts/execution/team-outputs/TOUT-TASK-128-MISSION-CONTROL-JA.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-128-MISSION-CONTROL-JA.json"
+    },
+    {
+      "name": "TASK-128 team output ready: .aof/artifacts/execution/team-outputs/TOUT-TASK-128-MISSION-CONTROL-JA.json",
+      "status": "pass",
+      "detail": "aggregate_state=ready-for-council-review"
+    },
+    {
+      "name": "TASK-128 team output has no missing roles: .aof/artifacts/execution/team-outputs/TOUT-TASK-128-MISSION-CONTROL-JA.json",
+      "status": "pass",
+      "detail": "0 missing role(s)"
+    },
+    {
+      "name": "TASK-128 team output received role: builder",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-128 team output received role: guardian",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-128 team output received role: visionary",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-128 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json"
+    },
+    {
+      "name": "TASK-128 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-128 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json"
+    },
+    {
+      "name": "TASK-128 council review includes team output: .aof/artifacts/execution/team-outputs/TOUT-TASK-128-MISSION-CONTROL-JA.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-128-MISSION-CONTROL-JA.json"
+    },
+    {
+      "name": "TASK-128 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json"
+    },
+    {
+      "name": "TASK-128 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-128 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-128.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-128.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-128-builder.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-128-guardian.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-128-visionary.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-128-builder.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-128-guardian.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-128-visionary.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-128-builder.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-128-guardian.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-128-visionary.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-128-MISSION-CONTROL-JA.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-BUILDER.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-128-VISIONARY.json"
+    },
+    {
+      "name": "TASK-128 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-128-MISSION-CONTROL-JA.json"
+    },
+    {
+      "name": "TASK-129 work item goal presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-129.json"
+    },
+    {
+      "name": "TASK-129 work item goal schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-129.json"
+    },
+    {
+      "name": "TASK-129 required roles declared",
+      "status": "pass",
+      "detail": "3 role(s)"
+    },
+    {
+      "name": "TASK-129 required skills declared",
+      "status": "pass",
+      "detail": "2 skill(s)"
+    },
+    {
+      "name": "TASK-129 expected outputs declared",
+      "status": "pass",
+      "detail": "5 output(s)"
+    },
+    {
+      "name": "TASK-129 acceptance gates declared",
+      "status": "pass",
+      "detail": "success_criteria and go/no-go criteria must be explicit"
+    },
+    {
+      "name": "TASK-129 required role exists: visionary",
+      "status": "pass",
+      "detail": "visionary"
+    },
+    {
+      "name": "TASK-129 required role assigned: visionary",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-129 required role exists: builder",
+      "status": "pass",
+      "detail": "builder"
+    },
+    {
+      "name": "TASK-129 required role assigned: builder",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-129 required role exists: guardian",
+      "status": "pass",
+      "detail": "guardian"
+    },
+    {
+      "name": "TASK-129 required role assigned: guardian",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-129 required skill exists: skill-schema-review",
+      "status": "pass",
+      "detail": "skill-schema-review"
+    },
+    {
+      "name": "TASK-129 required skill packet-covered: skill-schema-review",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation, skill-product-direction"
+    },
+    {
+      "name": "TASK-129 required skill exists: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "skill-benchmark-validation"
+    },
+    {
+      "name": "TASK-129 required skill packet-covered: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation, skill-product-direction"
+    },
+    {
+      "name": "TASK-129 actor skill packet presence",
+      "status": "pass",
+      "detail": "5 packet(s)"
+    },
+    {
+      "name": "TASK-129 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER-CHILD.json",
+      "status": "pass",
+      "detail": "actor_ref=019fd499-9bc2-7d42-8877-c65aca5f2c65"
+    },
+    {
+      "name": "TASK-129 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER-CHILD.json",
+      "status": "pass",
+      "detail": "actor_ref=019fd499-9bc2-7d42-8877-c65aca5f2c65"
+    },
+    {
+      "name": "TASK-129 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER-CHILD.json",
+      "status": "pass",
+      "detail": "role_ref=builder"
+    },
+    {
+      "name": "TASK-129 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER-CHILD.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-129 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER-CHILD.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-129 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER-CHILD.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-129 capability fit has non-blocking evidence: cap-runtime-implementation",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=3"
+    },
+    {
+      "name": "TASK-129 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-129 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-129 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": "role_ref=builder"
+    },
+    {
+      "name": "TASK-129 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-129 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-129 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-129 capability fit has non-blocking evidence: cap-schema-review",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-129 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN-CHILD.json",
+      "status": "pass",
+      "detail": "actor_ref=019fd499-afd4-7101-92f5-82c5947747b3"
+    },
+    {
+      "name": "TASK-129 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN-CHILD.json",
+      "status": "pass",
+      "detail": "actor_ref=019fd499-afd4-7101-92f5-82c5947747b3"
+    },
+    {
+      "name": "TASK-129 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN-CHILD.json",
+      "status": "pass",
+      "detail": "role_ref=guardian"
+    },
+    {
+      "name": "TASK-129 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN-CHILD.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-129 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN-CHILD.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-129 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN-CHILD.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-129 capability fit has non-blocking evidence: cap-runtime-verification",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=3"
+    },
+    {
+      "name": "TASK-129 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-129 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-129 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": "role_ref=guardian"
+    },
+    {
+      "name": "TASK-129 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-129 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-129 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-129 capability fit has non-blocking evidence: cap-runtime-verification",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=1"
+    },
+    {
+      "name": "TASK-129 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-129-VISIONARY-CHILD.json",
+      "status": "pass",
+      "detail": "actor_ref=019fd499-8130-7760-93cd-9ceaef0af4d1"
+    },
+    {
+      "name": "TASK-129 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-VISIONARY-CHILD.json",
+      "status": "pass",
+      "detail": "actor_ref=019fd499-8130-7760-93cd-9ceaef0af4d1"
+    },
+    {
+      "name": "TASK-129 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-129-VISIONARY-CHILD.json",
+      "status": "pass",
+      "detail": "role_ref=visionary"
+    },
+    {
+      "name": "TASK-129 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-129-VISIONARY-CHILD.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-129 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-129-VISIONARY-CHILD.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-129 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-129-VISIONARY-CHILD.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-129 capability fit has non-blocking evidence: cap-product-direction",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=3"
+    },
+    {
+      "name": "TASK-129 actor assignment evaluation presence",
+      "status": "pass",
+      "detail": "5 evaluation(s) for 5 packet(s)"
+    },
+    {
+      "name": "TASK-129 assignments selected before execution",
+      "status": "pass",
+      "detail": "states=selected"
+    },
+    {
+      "name": "TASK-129 actor execution gate presence",
+      "status": "pass",
+      "detail": "5 gate(s) for 5 evaluation(s)"
+    },
+    {
+      "name": "TASK-129 execution gates allowed",
+      "status": "pass",
+      "detail": "states=allowed"
+    },
+    {
+      "name": "TASK-129 council review presence",
+      "status": "pass",
+      "detail": "1 review(s)"
+    },
+    {
+      "name": "TASK-129 council review schema: .aof/artifacts/execution/council-reviews/CREV-TASK-129-ROLE-ROUTING.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-129-ROLE-ROUTING.json"
+    },
+    {
+      "name": "TASK-129 council follow-up preservation",
+      "status": "pass",
+      "detail": "0 review(s) mention missing role/skill/risk/validation without follow_up_task_ids"
+    },
+    {
+      "name": "TASK-129 role result presence for done work",
+      "status": "pass",
+      "detail": "3 role result(s)"
+    },
+    {
+      "name": "TASK-129 done work role result exists: visionary",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-129 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json"
+    },
+    {
+      "name": "TASK-129 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-129 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json",
+      "status": "pass",
+      "detail": "5 artifact ref(s)"
+    },
+    {
+      "name": "TASK-129 done work role result exists: builder",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-129 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json"
+    },
+    {
+      "name": "TASK-129 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-129 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": "8 artifact ref(s)"
+    },
+    {
+      "name": "TASK-129 done work role result exists: guardian",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-129 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-129 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-129 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": "10 artifact ref(s)"
+    },
+    {
+      "name": "TASK-129 team output presence for done work",
+      "status": "pass",
+      "detail": "1 team output(s)"
+    },
+    {
+      "name": "TASK-129 team output schema: .aof/artifacts/execution/team-outputs/TOUT-TASK-129-ROLE-ROUTING.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-129-ROLE-ROUTING.json"
+    },
+    {
+      "name": "TASK-129 team output ready: .aof/artifacts/execution/team-outputs/TOUT-TASK-129-ROLE-ROUTING.json",
+      "status": "pass",
+      "detail": "aggregate_state=ready-for-council-review"
+    },
+    {
+      "name": "TASK-129 team output has no missing roles: .aof/artifacts/execution/team-outputs/TOUT-TASK-129-ROLE-ROUTING.json",
+      "status": "pass",
+      "detail": "0 missing role(s)"
+    },
+    {
+      "name": "TASK-129 team output received role: visionary",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-129 team output received role: builder",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-129 team output received role: guardian",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-129 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json"
+    },
+    {
+      "name": "TASK-129 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-129 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json"
+    },
+    {
+      "name": "TASK-129 council review includes team output: .aof/artifacts/execution/team-outputs/TOUT-TASK-129-ROLE-ROUTING.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-129-ROLE-ROUTING.json"
+    },
+    {
+      "name": "TASK-129 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json"
+    },
+    {
+      "name": "TASK-129 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-129 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-129.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-129.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER-CHILD.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-129-BUILDER.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN-CHILD.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-129-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-129-VISIONARY-CHILD.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-BUILDER-CHILD.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-BUILDER.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-GUARDIAN-CHILD.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-129-VISIONARY-CHILD.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-129-BUILDER-CHILD.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-129-BUILDER.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-129-GUARDIAN-CHILD.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-129-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-129-VISIONARY-CHILD.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-129-ROLE-ROUTING.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-BUILDER.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-129-VISIONARY.json"
+    },
+    {
+      "name": "TASK-129 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-129-ROLE-ROUTING.json"
+    },
+    {
+      "name": "TASK-130 work item goal presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-130.json"
+    },
+    {
+      "name": "TASK-130 work item goal schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-130.json"
+    },
+    {
+      "name": "TASK-130 required roles declared",
+      "status": "pass",
+      "detail": "3 role(s)"
+    },
+    {
+      "name": "TASK-130 required skills declared",
+      "status": "pass",
+      "detail": "2 skill(s)"
+    },
+    {
+      "name": "TASK-130 expected outputs declared",
+      "status": "pass",
+      "detail": "6 output(s)"
+    },
+    {
+      "name": "TASK-130 acceptance gates declared",
+      "status": "pass",
+      "detail": "success_criteria and go/no-go criteria must be explicit"
+    },
+    {
+      "name": "TASK-130 required role exists: visionary",
+      "status": "pass",
+      "detail": "visionary"
+    },
+    {
+      "name": "TASK-130 required role assigned: visionary",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-130 required role exists: builder",
+      "status": "pass",
+      "detail": "builder"
+    },
+    {
+      "name": "TASK-130 required role assigned: builder",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-130 required role exists: guardian",
+      "status": "pass",
+      "detail": "guardian"
+    },
+    {
+      "name": "TASK-130 required role assigned: guardian",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-130 required skill exists: skill-schema-review",
+      "status": "pass",
+      "detail": "skill-schema-review"
+    },
+    {
+      "name": "TASK-130 required skill packet-covered: skill-schema-review",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation"
+    },
+    {
+      "name": "TASK-130 required skill exists: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "skill-benchmark-validation"
+    },
+    {
+      "name": "TASK-130 required skill packet-covered: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation"
+    },
+    {
+      "name": "TASK-130 actor skill packet presence",
+      "status": "pass",
+      "detail": "3 packet(s)"
+    },
+    {
+      "name": "TASK-130 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-130 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-130 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": "role_ref=builder"
+    },
+    {
+      "name": "TASK-130 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-130 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-130 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-130 capability fit has non-blocking evidence: cap-schema-review",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-130 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-130 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-130 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": "role_ref=guardian"
+    },
+    {
+      "name": "TASK-130 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-130 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-130 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-130 capability fit has non-blocking evidence: cap-benchmark-validation",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-130 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-130 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-130 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": "role_ref=visionary"
+    },
+    {
+      "name": "TASK-130 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-130 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-130 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-130 capability fit has non-blocking evidence: cap-schema-review",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=1"
+    },
+    {
+      "name": "TASK-130 actor assignment evaluation presence",
+      "status": "pass",
+      "detail": "3 evaluation(s) for 3 packet(s)"
+    },
+    {
+      "name": "TASK-130 assignments selected before execution",
+      "status": "pass",
+      "detail": "states=selected"
+    },
+    {
+      "name": "TASK-130 actor execution gate presence",
+      "status": "pass",
+      "detail": "3 gate(s) for 3 evaluation(s)"
+    },
+    {
+      "name": "TASK-130 execution gates allowed",
+      "status": "pass",
+      "detail": "states=allowed"
+    },
+    {
+      "name": "TASK-130 council review presence",
+      "status": "pass",
+      "detail": "1 review(s)"
+    },
+    {
+      "name": "TASK-130 council review schema: .aof/artifacts/execution/council-reviews/CREV-TASK-130-V109.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-130-V109.json"
+    },
+    {
+      "name": "TASK-130 council follow-up preservation",
+      "status": "pass",
+      "detail": "0 review(s) mention missing role/skill/risk/validation without follow_up_task_ids"
+    },
+    {
+      "name": "TASK-130 role result presence for done work",
+      "status": "pass",
+      "detail": "3 role result(s)"
+    },
+    {
+      "name": "TASK-130 done work role result exists: visionary",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-130 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json"
+    },
+    {
+      "name": "TASK-130 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-130 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": "3 artifact ref(s)"
+    },
+    {
+      "name": "TASK-130 done work role result exists: builder",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-130 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json"
+    },
+    {
+      "name": "TASK-130 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-130 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": "7 artifact ref(s)"
+    },
+    {
+      "name": "TASK-130 done work role result exists: guardian",
+      "status": "pass",
+      "detail": "1 role result(s)"
+    },
+    {
+      "name": "TASK-130 role result schema: .aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-130 role result completed: .aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": "status=completed"
+    },
+    {
+      "name": "TASK-130 role result artifact refs: .aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": "5 artifact ref(s)"
+    },
+    {
+      "name": "TASK-130 team output presence for done work",
+      "status": "pass",
+      "detail": "1 team output(s)"
+    },
+    {
+      "name": "TASK-130 team output schema: .aof/artifacts/execution/team-outputs/TOUT-TASK-130-PROVIDER-READINESS.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-130-PROVIDER-READINESS.json"
+    },
+    {
+      "name": "TASK-130 team output ready: .aof/artifacts/execution/team-outputs/TOUT-TASK-130-PROVIDER-READINESS.json",
+      "status": "pass",
+      "detail": "aggregate_state=ready-for-council-review"
+    },
+    {
+      "name": "TASK-130 team output has no missing roles: .aof/artifacts/execution/team-outputs/TOUT-TASK-130-PROVIDER-READINESS.json",
+      "status": "pass",
+      "detail": "0 missing role(s)"
+    },
+    {
+      "name": "TASK-130 team output received role: visionary",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-130 team output received role: builder",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-130 team output received role: guardian",
+      "status": "pass",
+      "detail": "received=visionary, builder, guardian"
+    },
+    {
+      "name": "TASK-130 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json"
+    },
+    {
+      "name": "TASK-130 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-130 council review includes role result: .aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json"
+    },
+    {
+      "name": "TASK-130 council review includes team output: .aof/artifacts/execution/team-outputs/TOUT-TASK-130-PROVIDER-READINESS.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-130-PROVIDER-READINESS.json"
+    },
+    {
+      "name": "TASK-130 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json"
+    },
+    {
+      "name": "TASK-130 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-130 team output includes role result: .aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-130.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-130.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-130-BUILDER.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-130-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-130-VISIONARY.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-130-BUILDER.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-130-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-130-VISIONARY.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-130-BUILDER.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-130-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-130-VISIONARY.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-130-V109.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json"
+    },
+    {
+      "name": "TASK-130 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-130-PROVIDER-READINESS.json"
+    },
+    {
+      "name": "TASK-131 work item goal presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-131.json"
+    },
+    {
+      "name": "TASK-131 work item goal schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-131.json"
+    },
+    {
+      "name": "TASK-131 required roles declared",
+      "status": "pass",
+      "detail": "3 role(s)"
+    },
+    {
+      "name": "TASK-131 required skills declared",
+      "status": "pass",
+      "detail": "2 skill(s)"
+    },
+    {
+      "name": "TASK-131 expected outputs declared",
+      "status": "pass",
+      "detail": "8 output(s)"
+    },
+    {
+      "name": "TASK-131 acceptance gates declared",
+      "status": "pass",
+      "detail": "success_criteria and go/no-go criteria must be explicit"
+    },
+    {
+      "name": "TASK-131 required role exists: visionary",
+      "status": "pass",
+      "detail": "visionary"
+    },
+    {
+      "name": "TASK-131 required role assigned: visionary",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-131 required role exists: builder",
+      "status": "pass",
+      "detail": "builder"
+    },
+    {
+      "name": "TASK-131 required role assigned: builder",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-131 required role exists: guardian",
+      "status": "pass",
+      "detail": "guardian"
+    },
+    {
+      "name": "TASK-131 required role assigned: guardian",
+      "status": "pass",
+      "detail": "assigned=builder, guardian, visionary"
+    },
+    {
+      "name": "TASK-131 required skill exists: skill-schema-review",
+      "status": "pass",
+      "detail": "skill-schema-review"
+    },
+    {
+      "name": "TASK-131 required skill packet-covered: skill-schema-review",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation"
+    },
+    {
+      "name": "TASK-131 required skill exists: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "skill-benchmark-validation"
+    },
+    {
+      "name": "TASK-131 required skill packet-covered: skill-benchmark-validation",
+      "status": "pass",
+      "detail": "covered=skill-schema-review, skill-benchmark-validation"
+    },
+    {
+      "name": "TASK-131 actor skill packet presence",
+      "status": "pass",
+      "detail": "3 packet(s)"
+    },
+    {
+      "name": "TASK-131 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-131-BUILDER.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-131 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-131-BUILDER.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-131 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-131-BUILDER.json",
+      "status": "pass",
+      "detail": "role_ref=builder"
+    },
+    {
+      "name": "TASK-131 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-131-BUILDER.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-131 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-131-BUILDER.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-131 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-131-BUILDER.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-131 capability fit has non-blocking evidence: cap-schema-review",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-131 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-131-GUARDIAN.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-131 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-131-GUARDIAN.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-131 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-131-GUARDIAN.json",
+      "status": "pass",
+      "detail": "role_ref=guardian"
+    },
+    {
+      "name": "TASK-131 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-131-GUARDIAN.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-131 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-131-GUARDIAN.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-131 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-131-GUARDIAN.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-131 capability fit has non-blocking evidence: cap-benchmark-validation",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-131 packet has concrete actor: .aof/artifacts/actor-skill-packets/ASP-TASK-131-VISIONARY.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-131 packet actor exists: .aof/artifacts/actor-skill-packets/ASP-TASK-131-VISIONARY.json",
+      "status": "pass",
+      "detail": "actor_ref=codex"
+    },
+    {
+      "name": "TASK-131 packet role exists: .aof/artifacts/actor-skill-packets/ASP-TASK-131-VISIONARY.json",
+      "status": "pass",
+      "detail": "role_ref=visionary"
+    },
+    {
+      "name": "TASK-131 packet output contract present: .aof/artifacts/actor-skill-packets/ASP-TASK-131-VISIONARY.json",
+      "status": "pass",
+      "detail": "required sections and acceptance criteria must be present"
+    },
+    {
+      "name": "TASK-131 packet has selected assignment evaluation: .aof/artifacts/actor-skill-packets/ASP-TASK-131-VISIONARY.json",
+      "status": "pass",
+      "detail": "1 selected evaluation(s)"
+    },
+    {
+      "name": "TASK-131 packet has allowed execution gate: .aof/artifacts/actor-skill-packets/ASP-TASK-131-VISIONARY.json",
+      "status": "pass",
+      "detail": "1 allowed gate(s)"
+    },
+    {
+      "name": "TASK-131 capability fit has non-blocking evidence: cap-benchmark-validation",
+      "status": "pass",
+      "detail": "fit_state=sufficient, evidence_refs=2"
+    },
+    {
+      "name": "TASK-131 actor assignment evaluation presence",
+      "status": "pass",
+      "detail": "3 evaluation(s) for 3 packet(s)"
+    },
+    {
+      "name": "TASK-131 assignments selected before execution",
+      "status": "pass",
+      "detail": "states=selected"
+    },
+    {
+      "name": "TASK-131 actor execution gate presence",
+      "status": "pass",
+      "detail": "3 gate(s) for 3 evaluation(s)"
+    },
+    {
+      "name": "TASK-131 execution gates allowed",
+      "status": "pass",
+      "detail": "states=allowed"
+    },
+    {
+      "name": "TASK-131 council review presence",
+      "status": "pass",
+      "detail": "1 review(s)"
+    },
+    {
+      "name": "TASK-131 council review schema: .aof/artifacts/execution/council-reviews/CREV-TASK-131-V110.json",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-131-V110.json"
+    },
+    {
+      "name": "TASK-131 council follow-up preservation",
+      "status": "pass",
+      "detail": "0 review(s) mention missing role/skill/risk/validation without follow_up_task_ids"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-131.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-131.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-131-BUILDER.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-131-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-skill-packets/ASP-TASK-131-VISIONARY.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-131-BUILDER.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-131-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-assignment-evaluations/AAE-TASK-131-VISIONARY.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-131-BUILDER.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-131-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/actor-execution-gates/AEG-TASK-131-VISIONARY.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/council-reviews/CREV-TASK-131-V110.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-131-BUILDER.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-131-GUARDIAN.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/role-results/RRES-TASK-131-VISIONARY.json"
+    },
+    {
+      "name": "TASK-131 coverage ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/execution/team-outputs/TOUT-TASK-131-GITHUB-OBSERVATION.json"
     }
   ],
   "errors": []

@@ -1,0 +1,43 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-13T15:06:15.000Z",
+  "team_output_id": "TOUT-TASK-131-GITHUB-OBSERVATION",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v11.0 GitHub read-only observation proof to Architecture Council for release judgment.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-131-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-131-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-131-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v11.0-release-definition.md",
+    "docs/v11.0-release-checklist.md",
+    "docs/v11.0.0-release-notes.md",
+    ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+    ".aof/artifacts/provider-observations/github-readonly-observation-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-131-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-131-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-131-GUARDIAN.json"
+  ],
+  "decision_required": true,
+  "summary": "TASK-131 Visionary, Builder, and Guardian outputs are joined for Council review; the release frames GitHub provider observation as read-only task selection, not write permission.",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null
+}

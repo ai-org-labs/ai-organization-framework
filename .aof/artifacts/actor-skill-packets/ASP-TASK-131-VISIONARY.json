@@ -1,0 +1,67 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-13T15:10:50.000Z",
+  "packet_id": "ASP-TASK-131-VISIONARY",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null,
+  "objective": "Frame v11.0 as a user-visible read-only GitHub observation capability.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "strategy-team",
+    "assignment_reason": "Visionary owns release direction and operator-facing value framing.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-benchmark-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v11.0-release-definition.md",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ],
+      "rationale": "Release direction is grounded in observed GitHub and roadmap evidence."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-direction-framing",
+    "artifact_schema_ref": "docs/v11.0-release-definition.md",
+    "required_sections": [
+      "What You Can Do Now",
+      "Not Proven"
+    ],
+    "acceptance_criteria": [
+      "read-only boundary is explicit",
+      "task selection is operator-readable"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "value framing is bounded",
+      "evaluator_ref": "guardian",
+      "evidence_required": "council-review",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I am framing GitHub observation as next-task selection, not write permission.",
+    "current_action": "Define release value",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit direction to Council"
+  },
+  "status": "completed"
+}

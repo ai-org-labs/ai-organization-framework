@@ -1,0 +1,46 @@
+{
+  "evaluation_type": "actor-assignment-evaluation",
+  "evaluation_format_version": 1,
+  "recorded_at": "2026-08-13T15:11:15.000Z",
+  "evaluation_id": "AAE-TASK-131-GUARDIAN",
+  "actor_skill_packet_ref": ".aof/artifacts/actor-skill-packets/ASP-TASK-131-GUARDIAN.json",
+  "actor_skill_packet_id": "ASP-TASK-131-GUARDIAN",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null,
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "guardian",
+    "team_ref": "verification-team",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation",
+    "skill-schema-review"
+  ],
+  "capability_fit_summary": {
+    "strong_count": 0,
+    "sufficient_count": 1,
+    "weak_count": 0,
+    "missing_count": 0,
+    "blocked_count": 0,
+    "evidence_ref_count": 2
+  },
+  "assignment_decision": {
+    "assignment_state": "selected",
+    "confidence_label": "medium",
+    "rationale": "Guardian has sufficient runtime audit and test evidence to review the no-write boundary.",
+    "recommended_action": "Proceed to execution gate."
+  },
+  "missing_evidence": [],
+  "review_required": true,
+  "hri_projection": {
+    "character_label": "Guardian",
+    "speech_bubble": "I can block any hidden write-permission claim.",
+    "current_action": "Selected for boundary verification",
+    "confidence_label": "medium",
+    "visible_state": "selected",
+    "visible_blockers": [],
+    "next_action": "Proceed to execution gate."
+  }
+}

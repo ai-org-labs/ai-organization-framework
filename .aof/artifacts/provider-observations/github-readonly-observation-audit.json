@@ -1,0 +1,146 @@
+{
+  "ok": true,
+  "artifact_type": "github-readonly-observation-audit",
+  "generated_at": "2026-08-13T15:21:59.493Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "observation_count": 1,
+    "ready_observation_count": 1,
+    "selected_task_count": 1,
+    "external_write_authorized_count": 0,
+    "failing_check_count": 0
+  },
+  "observations": [
+    {
+      "record_id": "GRO-TASK-131-V110",
+      "work_item_id": "TASK-131",
+      "repository": "ai-org-labs/ai-organization-framework",
+      "selected_task_id": "TASK-131",
+      "go_no_go": "go",
+      "artifact_ref": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "github read-only observation presence",
+      "status": "pass",
+      "detail": "1 observation(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 selected task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-131.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 permission mode",
+      "status": "pass",
+      "detail": "mode=read_only",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 no allowed write authority",
+      "status": "pass",
+      "detail": "repo metadata read, open issue list read, open pull request list read, release metadata read, actions run list read, local README and roadmap read",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 denied write authority",
+      "status": "pass",
+      "detail": "issue creation, pull request creation, push, release mutation, workflow mutation, secret access, external write",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 candidate task count",
+      "status": "pass",
+      "detail": "3 candidate(s)",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 selected task is candidate-aligned",
+      "status": "pass",
+      "detail": "GitHubを読み取って、AOFが本当に次の仕事を判断できるか試す",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 human next action",
+      "status": "pass",
+      "detail": "この判断が妥当なら、TASK-131をv11.0実装タスクとして進める。必要なら人間は『GitHub read-only観測proofとして進めてよい』と確認するだけでよい。",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 not-proven boundary",
+      "status": "pass",
+      "detail": "This observation proves that AOF can inspect GitHub read-only and select a next task from available evidence. It does not prove user adoption, semantic correctness, productivity improvement, or safe external writes.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 latest actions observed",
+      "status": "pass",
+      "detail": "2 action run(s)",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "GRO-TASK-131-V110 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    }
+  ],
+  "errors": []
+}

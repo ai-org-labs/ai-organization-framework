@@ -1,0 +1,68 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-13T15:10:55.000Z",
+  "packet_id": "ASP-TASK-131-BUILDER",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null,
+  "objective": "Implement v11.0 GitHub read-only observation audit, registry metadata, tests, and release artifacts.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "builder",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Builder owns schema, command, registry, and release artifact integration.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-schema-review",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "schemas/aof-github-readonly-observation-record.schema.json",
+        "src/commands/github-readonly-observation-audit.js"
+      ],
+      "rationale": "The implementation is schema-backed and command-backed."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "runtime-command-change",
+    "artifact_schema_ref": "schemas/aof-github-readonly-observation-audit.schema.json",
+    "required_sections": [
+      "audit command",
+      "schema",
+      "tests"
+    ],
+    "acceptance_criteria": [
+      "github-readonly-observation-audit passes",
+      "negative write-authority test exists"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "runtime command validates no-write boundary",
+      "evaluator_ref": "guardian",
+      "evidence_required": "runtime test",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Builder",
+    "speech_bubble": "I am wiring GitHub read-only observation into the runtime audit surface.",
+    "current_action": "Implement audit and evidence",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Run release audits"
+  },
+  "status": "completed"
+}

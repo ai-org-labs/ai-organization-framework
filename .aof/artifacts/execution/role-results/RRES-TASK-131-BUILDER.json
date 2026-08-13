@@ -1,0 +1,29 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-13T15:06:05.000Z",
+  "role": "builder",
+  "stage": "execution",
+  "session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "status": "completed",
+  "recommendation": "Accept the v11.0 command, schema, release artifact, and manifest integration.",
+  "rationale": "Builder added GitHub read-only observation schemas, audit command, command registry metadata, release-state gate integration, tests, release docs, capability registration, and product value evidence.",
+  "signals": [
+    "github-readonly-observation-audit passes with zero external write authorization.",
+    "runtime-core-2 test coverage includes positive and negative audit cases."
+  ],
+  "artifact_refs": [
+    "src/commands/github-readonly-observation-audit.js",
+    "schemas/aof-github-readonly-observation-record.schema.json",
+    "schemas/aof-github-readonly-observation-audit.schema.json",
+    "test/runtime-core-2.test.js",
+    "docs/v11.0-release-definition.md",
+    ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-131",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.88
+}

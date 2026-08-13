@@ -1,0 +1,69 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-13T15:11:00.000Z",
+  "packet_id": "ASP-TASK-131-GUARDIAN",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null,
+  "objective": "Verify v11.0 does not overclaim GitHub write authority or semantic truth.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "guardian",
+    "team_ref": "verification-team",
+    "assignment_reason": "Guardian owns boundary verification, negative tests, and not-proven review.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation",
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-benchmark-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "test/runtime-core-2.test.js",
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ],
+      "rationale": "Positive and negative audit checks cover the read-only boundary."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-boundary-review",
+    "artifact_schema_ref": "schemas/aof-github-readonly-observation-audit.schema.json",
+    "required_sections": [
+      "permission boundary",
+      "not-proven",
+      "negative test"
+    ],
+    "acceptance_criteria": [
+      "external_write_authorized_count is zero",
+      "release notes deny GitHub writes"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "no hidden GitHub write permission",
+      "evaluator_ref": "architecture-council",
+      "evidence_required": "github-readonly-observation-audit",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Guardian",
+    "speech_bubble": "I am checking that read-only observation is not misread as GitHub write permission.",
+    "current_action": "Verify boundary",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit review to Council"
+  },
+  "status": "completed"
+}

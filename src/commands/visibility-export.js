@@ -1771,21 +1771,22 @@ function buildMissionControl({
     });
   }
 
-  const nextAction = useChainStageFallback
-    ? {
-        recommended_action: chain?.projectCharter
-          ? "Open an implementation task for the bounded Mission Control visibility slice."
-          : chain?.discoveryHandoff
-            ? "Run Need Validation on the current discovery handoff."
-            : "Complete the current visibility direction-setting chain before implementation.",
-        rationale: chain?.projectCharter
-          ? "Need Validation and project charter are already present, so the next move is execution planning."
-          : chain?.discoveryHandoff
-            ? "Discovery is complete enough to promote into Need Validation, but project authorization is not yet recorded."
-            : "The runtime chain is not yet complete enough to justify implementation claims.",
-        artifact_ref: chain?.refs?.project_charter ?? chain?.refs?.need_validation ?? chain?.refs?.discovery_handoff ?? null
-      }
-    : situation.recommended_action;
+  const fallbackNextAction = {
+    recommended_action: chain?.projectCharter
+      ? "Open an implementation task from the current runtime-backed situation judgment."
+      : chain?.discoveryHandoff
+        ? "Run Need Validation on the current discovery handoff."
+        : "Complete the current visibility direction-setting chain before implementation.",
+    rationale: chain?.projectCharter
+      ? "Need Validation and project charter are already present, but the concrete next move must come from the current situation assessment."
+      : chain?.discoveryHandoff
+        ? "Discovery is complete enough to promote into Need Validation, but project authorization is not yet recorded."
+        : "The runtime chain is not yet complete enough to justify implementation claims.",
+    artifact_ref: chain?.refs?.project_charter ?? chain?.refs?.need_validation ?? chain?.refs?.discovery_handoff ?? null
+  };
+  const nextAction = situation.recommended_action?.recommended_action
+    ? situation.recommended_action
+    : fallbackNextAction;
 
   return {
     view_type: "mission_control",

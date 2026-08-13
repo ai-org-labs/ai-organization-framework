@@ -1,0 +1,29 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-131-V110",
+  "work_item_ref": ".aof/tasks/done/TASK-131.json",
+  "work_item_id": "TASK-131",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "github-readonly-observation",
+    "provider-observation-boundary",
+    "next-task-selection"
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "deferred_with_reason",
+  "evidence_refs": [
+    "docs/v11.0-release-definition.md",
+    "docs/v11.0.0-release-notes.md",
+    ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+    ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+  ],
+  "recorded_at": "2026-08-13T15:05:40.000Z",
+  "updated_at": "2026-08-13T15:05:40.000Z",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "session_ref": ".aof/tasks/done/TASK-131.json",
+  "not_proven": "Archmap impact records the provider-observation concept; it does not prove rendered UX quality, GitHub write safety, or external adoption."
+}

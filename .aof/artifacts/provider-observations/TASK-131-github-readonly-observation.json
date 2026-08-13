@@ -1,0 +1,96 @@
+{
+  "artifact_type": "github-readonly-observation",
+  "record_id": "GRO-TASK-131-V110",
+  "recorded_at": "2026-08-13T13:25:00.000Z",
+  "work_item_id": "TASK-131",
+  "repository": "ai-org-labs/ai-organization-framework",
+  "permission_boundary": {
+    "mode": "read_only",
+    "allowed": [
+      "repo metadata read",
+      "open issue list read",
+      "open pull request list read",
+      "release metadata read",
+      "actions run list read",
+      "local README and roadmap read"
+    ],
+    "not_authorized": [
+      "issue creation",
+      "pull request creation",
+      "push",
+      "release mutation",
+      "workflow mutation",
+      "secret access",
+      "external write"
+    ]
+  },
+  "observations": {
+    "default_branch": "main",
+    "latest_release": {
+      "tag": "v10.9.0",
+      "name": "AOF v10.9.0",
+      "url": "https://github.com/ai-org-labs/ai-organization-framework/releases/tag/v10.9.0",
+      "published_at": "2026-08-13T08:06:22Z"
+    },
+    "open_issue_count": 0,
+    "open_pull_request_count": 0,
+    "latest_actions": [
+      {
+        "branch": "v10.9.0",
+        "title": "Release AOF v10.9.0",
+        "conclusion": "success",
+        "url": "https://github.com/ai-org-labs/ai-organization-framework/actions/runs/31680583615"
+      },
+      {
+        "branch": "main",
+        "title": "Release AOF v10.9.0",
+        "conclusion": "success",
+        "url": "https://github.com/ai-org-labs/ai-organization-framework/actions/runs/31680583429"
+      }
+    ],
+    "local_runtime_state": {
+      "active_release": "v10.9.0",
+      "current_stage": "frontier-definition-needed",
+      "primary_frontier_task_before_observation": null,
+      "new_task_id": "TASK-131"
+    },
+    "roadmap_frontier": "v11.0 Read-first GitHub Provider Observation Proof"
+  },
+  "candidate_tasks": [
+    {
+      "candidate_id": "CAND-001",
+      "label_ja": "GitHubを読み取って、AOFが次の仕事を判断できるか試す",
+      "why": "v10.9までの最大の未証明点は、実GitHub文脈から人間に有用な判断を返せるかである。",
+      "evidence_refs": [
+        ".aof/goals/next-value-slice.json",
+        "docs/vnext-roadmap.md",
+        "docs/v10.9-release-definition.md"
+      ]
+    },
+    {
+      "candidate_id": "CAND-002",
+      "label_ja": "AOFを初めて使う人が、同じ手順を再現できるか試す",
+      "why": "operator validation はまだ self-hosting 中心で、第三者再現の証拠が弱い。",
+      "evidence_refs": [
+        ".aof/artifacts/operator-validation/OVR-TASK-102-SELF-HOSTING.json"
+      ]
+    },
+    {
+      "candidate_id": "CAND-003",
+      "label_ja": "GitHubのIssueやPRをAOFの管理対象として安全に読み取れるようにする",
+      "why": "open Issue/PR が0件のため、まず観測proofを作り、次に継続的なread integrationへ進める必要がある。",
+      "evidence_refs": [
+        "docs/vnext-release-plan.md"
+      ]
+    }
+  ],
+  "selected_task": {
+    "task_id": "TASK-131",
+    "title_ja": "GitHubを読み取って、AOFが本当に次の仕事を判断できるか試す",
+    "go_no_go": "go",
+    "go_boundary": "read-only GitHub observation and local AOF artifact recording only",
+    "no_go_boundary": "no GitHub writes, no issue creation, no PR creation, no push, no secrets"
+  },
+  "human_next_action": "この判断が妥当なら、TASK-131をv11.0実装タスクとして進める。必要なら人間は『GitHub read-only観測proofとして進めてよい』と確認するだけでよい。",
+  "not_proven": "This observation proves that AOF can inspect GitHub read-only and select a next task from available evidence. It does not prove user adoption, semantic correctness, productivity improvement, or safe external writes."
+}

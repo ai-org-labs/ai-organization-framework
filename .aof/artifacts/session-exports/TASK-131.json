@@ -1,0 +1,128 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-131-V110",
+  "recorded_at": "2026-08-13T15:06:40.000Z",
+  "work_item_id": "TASK-131",
+  "work_item_ref": ".aof/tasks/done/TASK-131.json",
+  "export_status": "ready",
+  "source_session_ref": ".aof/tasks/done/TASK-131.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-runtime-command-and-github-readonly-observation",
+    "source_of_truth_boundary": "AOF artifacts, GitHub read-only observation output, release docs, and runtime audits are canonical; chat text is not release evidence"
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-TASK-131-1",
+      "event_type": "prompt",
+      "summary": "Operator asked AOF to handle the repository and decide the next most important task with evidence.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-131.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-131-2",
+      "event_type": "tool_call",
+      "summary": "AOF runtime situation-assess selected TASK-131 as the implementation-ready frontier.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-131.json",
+        "docs/vnext-roadmap.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-131-3",
+      "event_type": "tool_call",
+      "summary": "Read-only GitHub observation inspected repo metadata, latest release, open issues, open PRs, and recent Actions runs.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-131-4",
+      "event_type": "artifact_write",
+      "summary": "v11.0 release docs, schema, audit command, command registry, active manifest, README, capability register, and capability matrix were updated.",
+      "artifact_refs": [
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0-release-checklist.md",
+        "docs/v11.0.0-release-notes.md",
+        "src/commands/github-readonly-observation-audit.js",
+        ".aof/product-capabilities.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-131-5",
+      "event_type": "verification",
+      "summary": "GitHub read-only observation audit passed with zero external write authorization.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-131-6",
+      "event_type": "response",
+      "summary": "Role outputs and Council review framed v11.0 as read-only observation proof, not GitHub write permission.",
+      "artifact_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-131-VISIONARY.json",
+        ".aof/artifacts/execution/role-results/RRES-TASK-131-BUILDER.json",
+        ".aof/artifacts/execution/role-results/RRES-TASK-131-GUARDIAN.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-131-V110.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-131-7",
+      "event_type": "blocker",
+      "summary": "GitHub observation must not be misread as permission for issue creation, PR creation, push, secret access, or external writes.",
+      "artifact_refs": [
+        "docs/v11.0-release-definition.md",
+        "docs/v11.0.0-release-notes.md",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-131-V110.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-131-8",
+      "event_type": "stop_condition",
+      "summary": "Stop release if v11.0 claims GitHub write safety or if release-state-audit fails.",
+      "artifact_refs": [
+        "docs/v11.0-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-131.json"
+    ],
+    "requirement_refs": [
+      "docs/v11.0-release-definition.md",
+      ".aof/artifacts/requirement-coverage/TASK-131.json"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/provider-observations/github-readonly-observation-audit.json",
+      ".aof/artifacts/release-state/release-state-audit.json",
+      "docs/v11.0-release-checklist.md"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/work-items/goals/TASK-131.json",
+      ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json",
+      ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
+    ],
+    "risk_candidates": [
+      "read-only GitHub observation may be mistaken for GitHub write permission"
+    ],
+    "decision_candidates": [
+      "advance to v11.1 external operator reproduction drill only after v11.0 release verification"
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v11.0-release-checklist.md",
+      ".aof/artifacts/release-state/release-state-audit.json"
+    ]
+  },
+  "redaction_boundary": "summaries only; no secrets, credentials, provider payload bodies, or private transcript content exported",
+  "release_ready_boundary": "release-ready requires runtime audits, tests, smoke, and CI/tag validation, not this export alone",
+  "not_proven": "Session export proves traceability for v11.0 release work only; it does not prove GitHub writes, semantic truth, productivity gain, or external adoption.",
+  "source_task_id": "TASK-131",
+  "source_parent_session_id": "SESS-V110-GITHUB-OBSERVATION-PROOF",
+  "source_decision_record_id": null,
+  "notes": null
+}
