@@ -144,3 +144,15 @@ NEW: `PCAP-ROLE-ROUTING-FAIL-CLOSED` ensures required specialist roles are actua
 | Role Routing Fail-Closed | - | NEW | required roles must resolve to actors before Council execution |
 | Specialist Council Seats | manual/implicit | explicit via `--required-role` or session role requirements | domain specialists are joined into the plan |
 | Missing Specialist Handling | can be found later | fail-closed before persistence | missing required roles cannot silently proceed |
+
+## v10.9 Capability Delta
+
+NEW: `PCAP-PROVIDER-PILOT-EXECUTION-READINESS` turns scattered provider preflight records into one operator-facing readiness chain.
+
+30-second delta: v10.8 stopped Council work when required roles were missing. v10.9 answers a different operator question: whether a provider-backed pilot is structurally ready to advance, with adapter, approval, target, reproduction, rollback, outcome, learning, incident, cost/quota, product value, and release-state evidence connected.
+
+| Capability | v10.8.0 | v10.9.0 | User-visible change |
+|---|---|---|---|
+| Provider Execution | separate governed evidence records | release-level readiness chain | Operators can ask if the pilot is ready without reading every raw provider artifact. |
+| Product Value Comprehension | release value explained | provider readiness value explained | The release states what operator work is reduced. |
+| Release-State Governance | gate audit chain | readiness chain checked before release | Green release means structural readiness evidence exists, not live execution permission. |

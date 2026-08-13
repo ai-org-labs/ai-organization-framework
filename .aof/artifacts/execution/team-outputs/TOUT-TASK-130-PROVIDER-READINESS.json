@@ -1,0 +1,41 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-13T07:49:45.000Z",
+  "team_output_id": "TOUT-TASK-130-PROVIDER-READINESS",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v10.9 provider readiness evidence to Architecture Council for release judgment.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v10.9-release-definition.md",
+    "docs/v10.9-release-checklist.md",
+    "docs/v10.9.0-release-notes.md",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json"
+  ],
+  "decision_required": true,
+  "summary": "TASK-130 Visionary, Builder, and Guardian outputs are joined for Council review; the release frames provider pilot readiness as one bounded pre-execution decision chain.",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null
+}

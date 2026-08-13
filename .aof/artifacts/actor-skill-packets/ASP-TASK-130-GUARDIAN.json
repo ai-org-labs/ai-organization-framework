@@ -1,0 +1,74 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-13T07:49:27.000Z",
+  "packet_id": "ASP-TASK-130-GUARDIAN",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null,
+  "objective": "Verify v10.9 does not overclaim provider pilot readiness as live execution safety.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "guardian",
+    "team_ref": "verification-team",
+    "assignment_reason": "Guardian owns release safety, evidence quality, and not-proven boundaries.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-benchmark-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v10.9-release-checklist.md",
+        "src/commands/release-state-audit.js"
+      ],
+      "rationale": "release gate review and benchmark validation are Guardian scope"
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-safety-review",
+    "artifact_schema_ref": "schemas/aof-release-state-audit.schema.json",
+    "required_sections": [
+      "not-proven boundary",
+      "audit evidence"
+    ],
+    "acceptance_criteria": [
+      "release-state-audit passes",
+      "live execution is not authorized"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "not-proven boundary is explicit",
+      "evaluator_ref": "guardian",
+      "evidence_required": "release definition and release notes",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [
+    {
+      "blocker_code": "provider-readiness-overclaim",
+      "trigger_condition": "release wording implies production execution safety",
+      "consequence": "require-council-review",
+      "recovery_action": "restore structural-readiness-only boundary"
+    }
+  ],
+  "hri_projection": {
+    "character_label": "Guardian",
+    "speech_bubble": "I am blocking any wording that turns readiness into execution permission.",
+    "current_action": "Verify release boundary",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit Council safety judgment"
+  },
+  "status": "completed"
+}

@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "product-value-evidence-audit",
-  "generated_at": "2026-07-24T01:56:47.366Z",
+  "generated_at": "2026-08-13T08:03:06.188Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "record_count": 6,
-    "understood_count": 6,
+    "record_count": 7,
+    "understood_count": 7,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 10,
+    "capability_row_count": 11,
     "missing_link_count": 0,
     "failing_check_count": 0
   },
@@ -90,20 +90,34 @@
       "understanding_outcome": "understood",
       "governance_action": "none",
       "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+    },
+    {
+      "value_evidence_id": "PVE-TASK-130-V109",
+      "release_ref": "docs/v10.9-release-definition.md",
+      "work_item_id": "TASK-130",
+      "capability_statement": "Provider Pilot Execution Readiness: decide whether a provider-backed pilot can advance from one governed evidence chain.",
+      "before_state": "Operators had to inspect separate provider records and infer readiness manually.",
+      "after_state": "Operators can use the release contract and audits to see whether the full pre-execution chain is present and bounded.",
+      "scenario": "Before starting a GitHub read-first provider pilot, an operator checks whether adapter, approval, target, reproduction, rollback, outcome, learning, incident, cost/quota, product value, and release-state evidence are connected.",
+      "five_minute_demo": "Read docs/v10.9-release-definition.md, inspect CRD-TASK-130-V109, run release-state-audit, and confirm live provider execution remains not authorized.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
     }
   ],
   "checks": [
     {
       "name": "product value evidence presence",
       "status": "pass",
-      "detail": "6 record(s) found",
+      "detail": "7 record(s) found",
       "evidence_refs": [
         ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-113-V93.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-114-V94.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json"
+        ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
       ]
     },
     {
@@ -1332,6 +1346,201 @@
         ".aof/artifacts/visibility/current/mission-control.json",
         "docs/v9.6-release-definition.md",
         ".aof/artifacts/provider-cost-quota-boundaries/PCQB-TASK-116-V96.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-130.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.9-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.9.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 capability statement",
+      "status": "pass",
+      "detail": "Provider Pilot Execution Readiness: decide whether a provider-backed pilot can advance from one governed evidence chain.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 before state",
+      "status": "pass",
+      "detail": "Operators had to inspect separate provider records and infer readiness manually.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 after state",
+      "status": "pass",
+      "detail": "Operators can use the release contract and audits to see whether the full pre-execution chain is present and bounded.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 product scenario",
+      "status": "pass",
+      "detail": "Before starting a GitHub read-first provider pilot, an operator checks whether adapter, approval, target, reproduction, rollback, outcome, learning, incident, cost/quota, product value, and release-state evidence are connected.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 five minute demo",
+      "status": "pass",
+      "detail": "Read docs/v10.9-release-definition.md, inspect CRD-TASK-130-V109, run release-state-audit, and confirm live provider execution remains not authorized.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 capability matrix",
+      "status": "pass",
+      "detail": "1 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 not-proven boundary",
+      "status": "pass",
+      "detail": "This value evidence does not prove external adoption, production safety, billing safety, or provider output correctness.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-130, source_parent_session_id=SESS-V109-PROVIDER-PILOT-READINESS",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "PVE-TASK-130-V109 missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
+        "docs/v10.9-release-definition.md",
+        ".aof/tasks/done/TASK-130.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md"
       ]
     }
   ],

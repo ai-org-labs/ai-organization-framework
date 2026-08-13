@@ -338,6 +338,20 @@
         "src/runtime/packet.js",
         "test/runtime-core-3.test.js"
       ]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-PILOT-EXECUTION-READINESS",
+      "name": "Provider Pilot Execution Readiness",
+      "description": "AOF can bundle provider adapter, pilot, approval, target, reproduction, rollback, outcome, learning, operator acceptance, production boundary, controlled candidate, incident recovery, cost/quota, product value, and release-state evidence into one pre-execution readiness decision.",
+      "user_value": "Operators can decide whether a provider-backed pilot is structurally ready to advance without confusing readiness with live provider execution permission.",
+      "first_version": "v10.9.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+      ]
     }
   ]
 }

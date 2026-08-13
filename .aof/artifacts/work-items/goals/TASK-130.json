@@ -1,0 +1,63 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-13T07:49:00.000Z",
+  "work_item_id": "TASK-130",
+  "work_item_type": "release",
+  "objective": "Ship v10.9 Provider Pilot Execution Readiness as a release-level operator decision chain.",
+  "reason_for_work": "AOF has many provider preflight records, but operators need one bounded readiness framing before a provider pilot can advance.",
+  "expected_output": [
+    "v10.9 release definition",
+    "v10.9 release checklist",
+    "v10.9 release notes",
+    "capability delta evidence",
+    "product value evidence",
+    "release-state audit evidence"
+  ],
+  "consumer": [
+    "AOF operators",
+    "provider pilot reviewers",
+    "release council"
+  ],
+  "downstream_dependency": [
+    "release-state-audit",
+    "provider execution governance",
+    "Mission Control"
+  ],
+  "success_criteria": [
+    "v10.9 explains provider pilot readiness as one operator decision chain",
+    "v10.9 does not claim live provider execution permission",
+    "product value evidence and capability delta validate",
+    "release-state-audit no longer reports TASK-130 missing governance evidence"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "capability-first-release-audit passes",
+      "product-value-evidence-audit passes",
+      "release-state-audit passes",
+      "organization-verify passes"
+    ],
+    "no_go": [
+      "provider readiness is described as live execution authorization",
+      "operator must still manually reconstruct readiness from scattered artifacts",
+      "TASK-130 lacks Council review or independent evidence"
+    ]
+  },
+  "required_visualization": [
+    "readiness-checklist",
+    "evidence-coverage-map",
+    "decision-matrix"
+  ],
+  "required_skills": [
+    "skill-schema-review",
+    "skill-benchmark-validation"
+  ],
+  "required_actor_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "council_review_need": "required",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null
+}

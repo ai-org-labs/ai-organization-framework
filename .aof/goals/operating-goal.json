@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Ship v10.8 Role Routing Fail-Closed Runtime: resolve required Council roles to concrete actors before execution, join required specialist roles into the plan, and fail closed before persistence when any required role is unroutable.",
-  "updated_at": "2026-08-06T00:45:48.063Z",
+  "content": "Close v10.9.0 Provider Pilot Execution Readiness with runtime-backed audits, test evidence, smoke validation, tag, and GitHub release; then move the active frontier to v11.0 read-first GitHub provider observation proof.",
+  "updated_at": "2026-08-13T08:00:56.419Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V108-ROLE-ROUTING-FAIL-CLOSED",
+  "source_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
   "source_decision_record_id": null,
-  "declared_complete_at": null
+  "declared_complete_at": "2026-08-13T08:00:56.419Z"
 }

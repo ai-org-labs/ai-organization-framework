@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-06T02:20:01.205Z",
+  "generated_at": "2026-08-13T08:04:04.018Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-129 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-129.json"
+    "summary": "TASK-130 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-130.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-129 completed: Ship v10.8 Role Routing Fail-Closed Runtime",
-      "artifact_ref": ".aof/tasks/done/TASK-129.json"
+      "summary": "TASK-130 completed: Ship v10.9 Provider Pilot Execution Readiness",
+      "artifact_ref": ".aof/tasks/done/TASK-130.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "After v10.8.0, resume v10.9 provider pilot execution readiness, v11.0 read-first GitHub provider observation proof, v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, and v11.3 external validation result replay audit.",
+      "summary": "After v10.9.0, advance v11.0 read-first GitHub provider observation proof, then v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, v11.3 external validation result replay audit, and v11.4 agent session contract and tool governance evidence.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-129 completed: Ship v10.8 Role Routing Fail-Closed Runtime After v10.8.0, resume v10.9 provider pilot execution readiness, v11.0 read-first GitHub provider observation proof, v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, and v11.3 external validation result replay audit.",
+    "what_changed": "TASK-130 completed: Ship v10.9 Provider Pilot Execution Readiness After v10.9.0, advance v11.0 read-first GitHub provider observation proof, then v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, v11.3 external validation result replay audit, and v11.4 agent session contract and tool governance evidence.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: After v10.8.0, resume v10.9 provider pilot execution readiness, v11.0 read-first GitHub provider observation proof, v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, and v11.3 external validation result replay audit."
+    "next_checkpoint": "Open an implementation task for the current frontier: After v10.9.0, advance v11.0 read-first GitHub provider observation proof, then v11.1 external operator reproduction drill execution, v11.2 first governed external provider read integration, v11.3 external validation result replay audit, and v11.4 agent session contract and tool governance evidence."
   }
 }

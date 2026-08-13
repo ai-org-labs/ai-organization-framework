@@ -1,0 +1,45 @@
+{
+  "evaluation_type": "actor-assignment-evaluation",
+  "evaluation_format_version": 1,
+  "recorded_at": "2026-08-13T07:49:30.000Z",
+  "evaluation_id": "AAE-TASK-130-VISIONARY",
+  "actor_skill_packet_ref": ".aof/artifacts/actor-skill-packets/ASP-TASK-130-VISIONARY.json",
+  "actor_skill_packet_id": "ASP-TASK-130-VISIONARY",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null,
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "governance-team",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-schema-review"
+  ],
+  "capability_fit_summary": {
+    "strong_count": 0,
+    "sufficient_count": 1,
+    "weak_count": 0,
+    "missing_count": 0,
+    "blocked_count": 0,
+    "evidence_ref_count": 1
+  },
+  "assignment_decision": {
+    "assignment_state": "selected",
+    "confidence_label": "medium",
+    "rationale": "Visionary has sufficient release framing evidence to judge the v10.9 direction.",
+    "recommended_action": "Proceed to execution gate."
+  },
+  "missing_evidence": [],
+  "review_required": true,
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "The release direction is bounded to operator readiness.",
+    "current_action": "Selected for direction review",
+    "confidence_label": "medium",
+    "visible_state": "selected",
+    "visible_blockers": [],
+    "next_action": "Proceed to execution gate."
+  }
+}

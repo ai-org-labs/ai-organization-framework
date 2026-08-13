@@ -1,0 +1,63 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-130-V109",
+  "recorded_at": "2026-08-13T07:49:20.000Z",
+  "work_item_id": "TASK-130",
+  "work_item_ref": ".aof/tasks/done/TASK-130.json",
+  "coverage_status": "ready",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V109-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v10.9-release-definition.md",
+      "title": "Provider pilot readiness must be framed as one governed evidence chain",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered when release docs, capability delta, product value evidence, and release-state audit reference the readiness chain",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-130.json"
+      ],
+      "evidence_refs": [
+        "docs/v10.9-release-definition.md",
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V109-002",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v10.9-release-checklist.md",
+      "title": "v10.9 must not authorize live provider execution",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered when release boundary and not-proven sections explicitly block live execution, credential safety, billing safety, and provider truth claims",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-130.json"
+      ],
+      "evidence_refs": [
+        "docs/v10.9-release-definition.md",
+        "docs/v10.9.0-release-notes.md",
+        "docs/v10.9-release-checklist.md"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded release framing, runtime audits, test and smoke verification",
+    "burndown_ref": "docs/v10.9-release-checklist.md",
+    "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves structural linkage only; it does not prove provider pilot execution is actually safe or valuable.",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null,
+  "notes": null
+}

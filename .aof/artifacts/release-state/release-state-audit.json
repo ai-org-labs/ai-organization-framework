@@ -1,0 +1,492 @@
+{
+  "ok": true,
+  "artifact_type": "release-state-audit",
+  "generated_at": "2026-08-13T08:04:04.077Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "active_release": {
+    "artifact_type": "active-release-manifest",
+    "recorded_at": "2026-08-13T01:31:46.094Z",
+    "release_version": "10.9.0",
+    "release_tag": "v10.9.0",
+    "release_definition_ref": "docs/v10.9-release-definition.md",
+    "release_notes_ref": "docs/v10.9.0-release-notes.md",
+    "release_checklist_ref": "docs/v10.9-release-checklist.md",
+    "roadmap_ref": "docs/vnext-roadmap.md",
+    "release_plan_ref": "docs/vnext-release-plan.md"
+  },
+  "governance_audit_cutoff_task_id": "TASK-071",
+  "governance_audits": [
+    {
+      "name": "archmap-impact-audit",
+      "ok": true,
+      "artifact_type": "archmap-impact-audit",
+      "scoped_task_count": 60,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "review-provenance-audit",
+      "ok": true,
+      "artifact_type": "review-provenance-audit",
+      "scoped_task_count": 60,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "evidence-independence-audit",
+      "ok": true,
+      "artifact_type": "evidence-independence-audit",
+      "scoped_task_count": 60,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "quality-ledger-audit",
+      "ok": true,
+      "artifact_type": "quality-ledger-audit",
+      "scoped_task_count": 1,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "work-readiness-audit",
+      "ok": true,
+      "artifact_type": "work-readiness-audit",
+      "scoped_task_count": 49,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "capability-coverage-audit",
+      "ok": true,
+      "artifact_type": "capability-coverage-audit",
+      "scoped_task_count": 4,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "context-reference-integrity-audit",
+      "ok": true,
+      "artifact_type": "context-reference-integrity-audit",
+      "scoped_task_count": 41,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "work-execution-packet-audit",
+      "ok": true,
+      "artifact_type": "work-execution-packet-audit",
+      "scoped_task_count": 40,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "multi-actor-pilot-audit",
+      "ok": true,
+      "artifact_type": "multi-actor-pilot-audit",
+      "scoped_task_count": 39,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "parallel-lane-audit",
+      "ok": true,
+      "artifact_type": "parallel-lane-audit",
+      "scoped_task_count": 38,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "requirement-coverage-audit",
+      "ok": true,
+      "artifact_type": "requirement-coverage-audit",
+      "scoped_task_count": 37,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "session-export-audit",
+      "ok": true,
+      "artifact_type": "session-export-audit",
+      "scoped_task_count": 36,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "adoption-proof-benchmark",
+      "ok": true,
+      "artifact_type": "adoption-proof-benchmark",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "mission-control-projection-audit",
+      "ok": true,
+      "artifact_type": "mission-control-projection-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "externalization-readiness-audit",
+      "ok": true,
+      "artifact_type": "externalization-readiness-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "external-resource-audit",
+      "ok": true,
+      "artifact_type": "external-resource-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-adapter-audit",
+      "ok": true,
+      "artifact_type": "provider-adapter-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-adapter-pilot-audit",
+      "ok": true,
+      "artifact_type": "provider-adapter-pilot-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-execution-approval-audit",
+      "ok": true,
+      "artifact_type": "provider-execution-approval-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-execution-reproduction-audit",
+      "ok": true,
+      "artifact_type": "provider-execution-reproduction-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-rollback-proof-audit",
+      "ok": true,
+      "artifact_type": "provider-rollback-proof-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-outcome-evidence-audit",
+      "ok": true,
+      "artifact_type": "provider-outcome-evidence-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-learning-loop-audit",
+      "ok": true,
+      "artifact_type": "provider-learning-loop-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "operator-acceptance-drill-audit",
+      "ok": true,
+      "artifact_type": "operator-acceptance-drill-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "product-value-evidence-audit",
+      "ok": true,
+      "artifact_type": "product-value-evidence-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-production-boundary-audit",
+      "ok": true,
+      "artifact_type": "provider-production-boundary-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "capability-first-release-audit",
+      "ok": true,
+      "artifact_type": "capability-first-release-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-controlled-execution-candidate-audit",
+      "ok": true,
+      "artifact_type": "provider-controlled-execution-candidate-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-incident-recovery-audit",
+      "ok": true,
+      "artifact_type": "provider-incident-recovery-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-cost-quota-boundary-audit",
+      "ok": true,
+      "artifact_type": "provider-cost-quota-boundary-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "operator-validation-audit",
+      "ok": true,
+      "artifact_type": "operator-validation-audit",
+      "scoped_task_count": null,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    }
+  ],
+  "checks": [
+    {
+      "name": "release definition ref",
+      "status": "pass",
+      "detail": "docs/v10.9-release-definition.md"
+    },
+    {
+      "name": "release notes ref",
+      "status": "pass",
+      "detail": "docs/v10.9.0-release-notes.md"
+    },
+    {
+      "name": "release checklist ref",
+      "status": "pass",
+      "detail": "docs/v10.9-release-checklist.md"
+    },
+    {
+      "name": "roadmap ref",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "release plan ref",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "bootstrap version alignment",
+      "status": "pass",
+      "detail": "bootstrap.aof_version=10.9.0, manifest.release_version=10.9.0"
+    },
+    {
+      "name": "governance release contract alignment",
+      "status": "pass",
+      "detail": "contract-governance-to-release artifact_ref=docs/v10.9-release-definition.md, manifest.release_definition_ref=docs/v10.9-release-definition.md"
+    },
+    {
+      "name": "archmap-impact-audit release gate",
+      "status": "pass",
+      "detail": "60 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "review-provenance-audit release gate",
+      "status": "pass",
+      "detail": "60 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "evidence-independence-audit release gate",
+      "status": "pass",
+      "detail": "60 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "quality-ledger-audit release gate",
+      "status": "pass",
+      "detail": "1 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "work-readiness-audit release gate",
+      "status": "pass",
+      "detail": "49 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "capability-coverage-audit release gate",
+      "status": "pass",
+      "detail": "4 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "context-reference-integrity-audit release gate",
+      "status": "pass",
+      "detail": "41 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "work-execution-packet-audit release gate",
+      "status": "pass",
+      "detail": "40 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "multi-actor-pilot-audit release gate",
+      "status": "pass",
+      "detail": "39 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "parallel-lane-audit release gate",
+      "status": "pass",
+      "detail": "38 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "requirement-coverage-audit release gate",
+      "status": "pass",
+      "detail": "37 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "session-export-audit release gate",
+      "status": "pass",
+      "detail": "36 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "adoption-proof-benchmark release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "mission-control-projection-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "externalization-readiness-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "external-resource-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-adapter-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-adapter-pilot-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-execution-approval-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-execution-reproduction-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-rollback-proof-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-outcome-evidence-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-learning-loop-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "operator-acceptance-drill-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "product-value-evidence-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-production-boundary-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "capability-first-release-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-controlled-execution-candidate-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-incident-recovery-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-cost-quota-boundary-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "operator-validation-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
+    }
+  ],
+  "errors": []
+}

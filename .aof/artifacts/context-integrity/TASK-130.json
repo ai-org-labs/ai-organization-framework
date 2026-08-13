@@ -1,0 +1,31 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-130-V109",
+  "recorded_at": "2026-08-13T07:49:10.000Z",
+  "work_item_id": "TASK-130",
+  "work_item_ref": ".aof/tasks/done/TASK-130.json",
+  "session_ref": ".aof/tasks/done/TASK-130.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-items/goals/TASK-130.json"
+  ],
+  "declared_context_refs": [
+    "docs/v10.9-release-definition.md",
+    "docs/v10.9.0-release-notes.md",
+    "docs/vnext-roadmap.md",
+    ".aof/product-capabilities.json"
+  ],
+  "required_context_refs": [
+    "src/commands/release-state-audit.js",
+    "src/commands/capability-first-release-audit.js",
+    "src/commands/product-value-evidence-audit.js",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves v10.9 release context is declared and linked; it does not prove live provider execution safety or provider semantic correctness.",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null
+}

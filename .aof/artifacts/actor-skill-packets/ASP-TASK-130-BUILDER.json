@@ -1,0 +1,68 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-13T07:49:26.000Z",
+  "packet_id": "ASP-TASK-130-BUILDER",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null,
+  "objective": "Assemble v10.9 release docs, capability register updates, and runtime evidence refs.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "builder",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Builder owns implementation, artifact integration, and release state alignment.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-schema-review",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        ".aof/context/active/active-release-manifest.json"
+      ],
+      "rationale": "release artifacts and manifests are schema-backed integration work"
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-artifact-change",
+    "artifact_schema_ref": "schemas/aof-product-capability-register.schema.json",
+    "required_sections": [
+      "release docs",
+      "capability register",
+      "manifest alignment"
+    ],
+    "acceptance_criteria": [
+      "release-state refs resolve",
+      "capability-first audit passes"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "release artifacts validate",
+      "evaluator_ref": "guardian",
+      "evidence_required": "release-state-audit",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Builder",
+    "speech_bubble": "I am wiring the release and capability artifacts into the runtime state.",
+    "current_action": "Update release artifacts",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Run release audits"
+  },
+  "status": "completed"
+}

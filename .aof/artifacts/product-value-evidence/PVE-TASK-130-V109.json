@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-130-V109",
+  "recorded_at": "2026-08-13T07:48:30.619Z",
+  "release_ref": "docs/v10.9-release-definition.md",
+  "work_item_id": "TASK-130",
+  "work_item_ref": ".aof/tasks/done/TASK-130.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "Provider Pilot Execution Readiness: decide whether a provider-backed pilot can advance from one governed evidence chain.",
+  "before_state": "Operators had to inspect separate provider records and infer readiness manually.",
+  "after_state": "Operators can use the release contract and audits to see whether the full pre-execution chain is present and bounded.",
+  "scenario": "Before starting a GitHub read-first provider pilot, an operator checks whether adapter, approval, target, reproduction, rollback, outcome, learning, incident, cost/quota, product value, and release-state evidence are connected.",
+  "five_minute_demo": "Read docs/v10.9-release-definition.md, inspect CRD-TASK-130-V109, run release-state-audit, and confirm live provider execution remains not authorized.",
+  "time_saved_or_work_reduced": "Reduces manual reconstruction of provider readiness from scattered artifacts.",
+  "cognitive_load_removed": "Operators no longer have to remember every provider preflight artifact category before asking if the pilot can advance.",
+  "capability_matrix": [
+    {
+      "capability": "Provider Pilot Execution Readiness",
+      "before": "scattered provider preflight records",
+      "after": "one readiness chain",
+      "user_value": "operator can judge pilot readiness without mistaking it for live execution permission"
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    "docs/v10.9-release-definition.md",
+    "docs/v10.9.0-release-notes.md"
+  ],
+  "governance_action": "none",
+  "not_proven": "This value evidence does not prove external adoption, production safety, billing safety, or provider output correctness.",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,66 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-13T07:49:25.000Z",
+  "packet_id": "ASP-TASK-130-VISIONARY",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null,
+  "objective": "Validate v10.9 provider readiness as the correct product frontier after v10.8.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "governance-team",
+    "assignment_reason": "Visionary owns release direction and product framing.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-schema-review",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v10.9-release-definition.md"
+      ],
+      "rationale": "release framing and contract review are in scope"
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-direction-review",
+    "artifact_schema_ref": "schemas/aof-capability-release-delta.schema.json",
+    "required_sections": [
+      "capability delta",
+      "not-proven boundary"
+    ],
+    "acceptance_criteria": [
+      "user-visible capability is explicit",
+      "live provider execution is not claimed"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "direction is capability-first",
+      "evaluator_ref": "guardian",
+      "evidence_required": "release notes and capability delta",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I am checking whether v10.9 is a real operator capability, not another artifact list.",
+    "current_action": "Review provider readiness framing",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit release framing to Council"
+  },
+  "status": "completed"
+}

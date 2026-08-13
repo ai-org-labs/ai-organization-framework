@@ -1,0 +1,30 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-130-V109",
+  "recorded_at": "2026-08-13T07:48:01.382Z",
+  "release_version": "10.9.0",
+  "release_ref": "docs/v10.9-release-definition.md",
+  "work_item_id": "TASK-130",
+  "work_item_ref": ".aof/tasks/done/TASK-130.json",
+  "one_minute_value_explanation": "AOF can now answer whether a provider-backed pilot is structurally ready to advance from one governed evidence chain, without confusing readiness with live provider execution permission.",
+  "thirty_second_version_delta": "v10.8 stopped missing required roles before Council execution; v10.9 bundles the provider pre-execution evidence chain into one operator readiness decision.",
+  "new_capability_ids": [
+    "PCAP-PROVIDER-PILOT-EXECUTION-READINESS"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-EXECUTION",
+    "PCAP-PRODUCT-VALUE-COMPREHENSION",
+    "PCAP-CAPABILITY-FIRST-RELEASE"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    "docs/v10.9-release-definition.md",
+    "docs/v10.9.0-release-notes.md"
+  ],
+  "product_review_trigger": "If an operator cannot tell whether provider pilot readiness is different from live provider execution permission, reopen release framing as a product issue.",
+  "not_proven": "This delta proves release-level structural readiness framing only; it does not prove live provider execution, production safety, billing safety, semantic truth, or external adoption.",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null,
+  "notes": null
+}

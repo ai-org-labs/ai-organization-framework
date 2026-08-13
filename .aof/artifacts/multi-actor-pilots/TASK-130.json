@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-TASK-130-V109",
+  "recorded_at": "2026-08-13T07:50:00.000Z",
+  "work_item_id": "TASK-130",
+  "work_item_ref": ".aof/tasks/done/TASK-130.json",
+  "pilot_status": "ready",
+  "parent_orchestrator_ref": ".aof/tasks/done/TASK-130.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/organization.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-130-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-130-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-130-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-130-V109.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-130.json",
+  "maker_checker_council_boundary": "Builder assembles release artifacts, Guardian verifies not-proven boundaries, and Council approves only structural provider readiness.",
+  "not_proven": "Multi-actor pilot proves role handoff and Council judgment for v10.9 only; it does not prove autonomous provider execution or provider truth.",
+  "source_task_id": "TASK-130",
+  "source_parent_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_decision_record_id": null,
+  "notes": null
+}
