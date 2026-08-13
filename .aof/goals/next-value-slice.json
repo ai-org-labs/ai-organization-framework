@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes.",
-  "updated_at": "2026-08-13T13:10:15.251Z",
-  "agreed_with_human": null,
-  "source_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "content": "v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
+  "updated_at": "2026-08-14T00:10:00.000Z",
+  "agreed_with_human": true,
+  "source_session_id": "SESS-V111-RELEASE-CLOSURE",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

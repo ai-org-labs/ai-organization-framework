@@ -1,0 +1,69 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-13T16:22:10.000Z",
+  "packet_id": "ASP-TASK-132-GUARDIAN",
+  "source_task_id": "TASK-132",
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "source_decision_record_id": null,
+  "objective": "Verify v11.1 does not overclaim external adoption, semantic truth, or broad UX proof.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "guardian",
+    "team_ref": "verification-team",
+    "assignment_reason": "Guardian owns boundary verification, negative tests, and not-proven review.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation",
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-benchmark-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "test/runtime-core-2.test.js",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ],
+      "rationale": "Positive and negative audit checks cover bounded reproduction and failed comprehension."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-boundary-review",
+    "artifact_schema_ref": "schemas/aof-external-operator-reproduction-audit.schema.json",
+    "required_sections": [
+      "operator reproduction",
+      "not-proven",
+      "negative test"
+    ],
+    "acceptance_criteria": [
+      "comprehension checks pass",
+      "release notes deny external adoption proof"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "no hidden third-party validation claim",
+      "evaluator_ref": "architecture-council",
+      "evidence_required": "external-operator-reproduction-audit",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Guardian",
+    "speech_bubble": "I am checking that reproduction proof is not misread as adoption proof.",
+    "current_action": "Verify boundary",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit review to Council"
+  },
+  "status": "completed"
+}

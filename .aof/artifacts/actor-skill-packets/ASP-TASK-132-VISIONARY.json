@@ -1,0 +1,67 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-13T16:22:00.000Z",
+  "packet_id": "ASP-TASK-132-VISIONARY",
+  "source_task_id": "TASK-132",
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "source_decision_record_id": null,
+  "objective": "Frame v11.1 as a user-visible external operator reproduction capability.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "strategy-team",
+    "assignment_reason": "Visionary owns release direction and operator-facing value framing.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-benchmark-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v11.1-release-definition.md",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ],
+      "rationale": "Release direction is grounded in a bounded reproduction drill and runtime audit evidence."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-direction-framing",
+    "artifact_schema_ref": "docs/v11.1-release-definition.md",
+    "required_sections": [
+      "What You Can Do Now",
+      "Not Proven"
+    ],
+    "acceptance_criteria": [
+      "operator reproduction boundary is explicit",
+      "task selection is operator-readable"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "value framing is bounded",
+      "evaluator_ref": "guardian",
+      "evidence_required": "council-review",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I am framing the next-task judgment as something a human can replay.",
+    "current_action": "Define release value",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit direction to Council"
+  },
+  "status": "completed"
+}

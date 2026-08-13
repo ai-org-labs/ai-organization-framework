@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-13T15:22:15.540Z",
+  "generated_at": "2026-08-13T15:55:37.194Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-131 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-131.json"
+    "summary": "TASK-132 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-132.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-131 completed: v11.0 proof: read-only GitHub observation selects the next task",
-      "artifact_ref": ".aof/tasks/done/TASK-131.json"
+      "summary": "TASK-132 completed: v11.1 proof: external operator can reproduce AOF next-task judgment",
+      "artifact_ref": ".aof/tasks/done/TASK-132.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes.",
+      "summary": "v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-131 completed: v11.0 proof: read-only GitHub observation selects the next task v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes.",
+    "what_changed": "TASK-132 completed: v11.1 proof: external operator can reproduce AOF next-task judgment v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes."
+    "next_checkpoint": "Open an implementation task for the current frontier: v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes."
   }
 }

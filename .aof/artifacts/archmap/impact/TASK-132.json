@@ -1,0 +1,29 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-132-V111",
+  "work_item_ref": ".aof/tasks/done/TASK-132.json",
+  "work_item_id": "TASK-132",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "external-operator-reproduction",
+    "next-task-judgment-replay",
+    "bounded-evidence-path"
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "deferred_with_reason",
+  "evidence_refs": [
+    "docs/v11.1-release-definition.md",
+    "docs/v11.1.0-release-notes.md",
+    ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+    ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+  ],
+  "recorded_at": "2026-08-13T16:20:10.000Z",
+  "updated_at": "2026-08-13T16:20:10.000Z",
+  "source_task_id": "TASK-132",
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "session_ref": ".aof/tasks/done/TASK-132.json",
+  "not_proven": "Archmap impact records the reproduction-drill concept; it does not prove rendered UX quality, actual third-party comprehension, or external adoption."
+}

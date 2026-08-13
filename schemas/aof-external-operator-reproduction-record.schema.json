@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-external-operator-reproduction-record.schema.json",
+  "title": "AOF External Operator Reproduction Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "record_id",
+    "recorded_at",
+    "work_item_id",
+    "operator_profile",
+    "timebox_minutes",
+    "judgment_to_reproduce",
+    "candidate_tasks",
+    "evidence_path",
+    "reproduction_steps",
+    "comprehension_checks",
+    "go_no_go_result",
+    "human_next_action",
+    "not_proven"
+  ],
+  "properties": {
+    "artifact_type": { "const": "external-operator-reproduction" },
+    "record_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "work_item_id": { "type": "string", "pattern": "^TASK-[0-9]+$" },
+    "operator_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "description", "aof_prior_knowledge"],
+      "properties": {
+        "profile_id": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "aof_prior_knowledge": { "type": "string", "enum": ["none", "limited", "experienced"] }
+      }
+    },
+    "timebox_minutes": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "judgment_to_reproduce": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["current_situation_ja", "selected_task_id", "selected_task_title_ja", "why_selected_ja", "loss_if_not_done_ja"],
+      "properties": {
+        "current_situation_ja": { "type": "string", "minLength": 1 },
+        "selected_task_id": { "type": "string", "pattern": "^TASK-[0-9]+$" },
+        "selected_task_title_ja": { "type": "string", "minLength": 1 },
+        "why_selected_ja": { "type": "string", "minLength": 1 },
+        "loss_if_not_done_ja": { "type": "string", "minLength": 1 }
+      }
+    },
+    "candidate_tasks": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "task_id", "title_ja", "reason_ja", "evidence_refs"],
+        "properties": {
+          "candidate_id": { "type": "string", "minLength": 1 },
+          "task_id": { "type": "string", "minLength": 1 },
+          "title_ja": { "type": "string", "minLength": 1 },
+          "reason_ja": { "type": "string", "minLength": 1 },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "evidence_path": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step", "question_ja", "artifact_ref", "expected_reading_ja"],
+        "properties": {
+          "step": { "type": "integer", "minimum": 1 },
+          "question_ja": { "type": "string", "minLength": 1 },
+          "artifact_ref": { "type": "string", "minLength": 1 },
+          "expected_reading_ja": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "reproduction_steps": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "comprehension_checks": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["question_ja", "expected_answer_ja", "status"],
+        "properties": {
+          "question_ja": { "type": "string", "minLength": 1 },
+          "expected_answer_ja": { "type": "string", "minLength": 1 },
+          "status": { "type": "string", "enum": ["pass", "fail", "not_run"] }
+        }
+      }
+    },
+    "go_no_go_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "reason_ja", "operator_can_reproduce"],
+      "properties": {
+        "decision": { "type": "string", "enum": ["go", "no_go", "defer"] },
+        "reason_ja": { "type": "string", "minLength": 1 },
+        "operator_can_reproduce": { "type": "boolean" }
+      }
+    },
+    "human_next_action": { "type": "string", "minLength": 1 },
+    "not_proven": { "type": "string", "minLength": 1 }
+  }
+}

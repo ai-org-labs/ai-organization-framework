@@ -1,13 +1,13 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-08-13T15:22:15.534Z",
+  "generated_at": "2026-08-13T15:55:37.188Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
-    "release_version": "11.0.0",
-    "release_definition_ref": "docs/v11.0-release-definition.md",
-    "operating_goal": "Close v10.9.0 Provider Pilot Execution Readiness with runtime-backed audits, test evidence, smoke validation, tag, and GitHub release; then move the active frontier to v11.0 read-first GitHub provider observation proof.",
-    "next_value_slice": "v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes.",
-    "current_runtime_stage": "planning-ready",
+    "release_version": "11.1.0",
+    "release_definition_ref": "docs/v11.1-release-definition.md",
+    "operating_goal": "After v11.1, prepare v11.2 First Governed External Provider Read Integration while preserving the read-only/no-write boundary and external operator reproduction discipline.",
+    "next_value_slice": "v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
+    "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
   "artifact_graph": {
@@ -16,19 +16,13 @@
     "current_node_id": null
   },
   "runtime_position": {
-    "current_phase": "planning-ready",
+    "current_phase": "frontier-definition-needed",
     "current_step_label": null,
     "current_step_state": null
   },
-  "blockers": [
-    {
-      "summary": "Live GitHub push/release remains credential-blocked until ai-org-labs write access is available",
-      "severity": "attention",
-      "artifact_ref": null
-    }
-  ],
+  "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes.",
+    "recommended_action": "Open an implementation task for the current frontier: v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -251,12 +245,18 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 61,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-131.json",
+    "impact_record_count": 62,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-132.json",
     "latest_impact_status": "archmap_deferred_with_reason",
-    "latest_work_item_id": "TASK-131",
-    "pending_impact_count": 3,
+    "latest_work_item_id": "TASK-132",
+    "pending_impact_count": 4,
     "pending_impacts": [
+      {
+        "work_item_id": "TASK-132",
+        "status": "archmap_deferred_with_reason",
+        "council_review_status": "deferred_with_reason",
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-132.json"
+      },
       {
         "work_item_id": "TASK-131",
         "status": "archmap_deferred_with_reason",
@@ -278,7 +278,7 @@
     ],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-131.json"
+      ".aof/artifacts/archmap/impact/TASK-132.json"
     ],
     "external_refs": []
   },
@@ -526,11 +526,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 43,
+    "context_record_count": 44,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-132.json",
+        "work_item_id": "TASK-132",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves v11.1 release context is declared and linked; it does not prove actual third-party comprehension, semantic truth, or adoption."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-131.json",
         "work_item_id": "TASK-131",
@@ -586,14 +594,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "This v10.5 evidence proves a provider-backed work lifecycle product surface only; it does not prove live provider execution, provider write safety, production safety, completed provider integration, external adoption, market value, or third-party validation completion."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-124.json",
-        "work_item_id": "TASK-124",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "This v10.4 evidence proves an external value reproduction evidence package only; it does not prove completed external reproduction, third-party validation completion, market value, external adoption, live provider execution, or production safety."
       }
     ],
     "latest_external_reference_records": [
@@ -618,9 +618,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-131.json",
-    "latest_work_item_id": "TASK-131",
-    "latest_recorded_at": "2026-08-13T15:05:50.000Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-132.json",
+    "latest_work_item_id": "TASK-132",
+    "latest_recorded_at": "2026-08-13T16:20:20.000Z",
     "coverage_status": "ready",
     "total_requirements": 2,
     "covered_count": 2,
@@ -631,41 +631,41 @@
     "coverage_ratio": null,
     "forecast": {
       "estimated_remaining_work_items": 0,
-      "estimated_token_cost_range": "bounded release framing, runtime audits, test and smoke verification",
-      "burndown_ref": "docs/v11.0-release-checklist.md",
+      "estimated_token_cost_range": "bounded release framing, reproduction audit, test and smoke verification",
+      "burndown_ref": "docs/v11.1-release-checklist.md",
       "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
     },
     "forecast_boundary": "forecast is release planning evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V110-001",
-        "title": "AOF must select one next task from read-only GitHub observation",
+        "requirement_id": "REQ-V111-001",
+        "title": "AOF must provide a bounded reproduction drill for next-task judgment",
         "status": "covered",
-        "source_ref": "docs/v11.0-release-definition.md",
+        "source_ref": "docs/v11.1-release-definition.md",
         "owner_ref": "builder",
         "evidence_refs": [
-          ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
-          ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+          ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+          ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V110-002",
-        "title": "v11.0 must not authorize GitHub writes",
+        "requirement_id": "REQ-V111-002",
+        "title": "v11.1 must not overclaim external validation",
         "status": "covered",
-        "source_ref": "docs/v11.0-release-checklist.md",
+        "source_ref": "docs/v11.1-release-checklist.md",
         "owner_ref": "guardian",
         "evidence_refs": [
-          "docs/v11.0-release-definition.md",
-          "docs/v11.0.0-release-notes.md",
-          ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+          "docs/v11.1-release-definition.md",
+          "docs/v11.1.0-release-notes.md",
+          ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
         ],
         "blocker_refs": []
       }
     ],
-    "not_proven": "Requirement coverage proves structural linkage only; it does not prove GitHub writes, semantic truth, productivity gain, or adoption.",
+    "not_proven": "Requirement coverage proves structural linkage only; it does not prove actual external operator success, semantic truth, productivity gain, or adoption.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-131.json"
+      ".aof/artifacts/requirement-coverage/TASK-132.json"
     ]
   },
   "adoption_proof_projection": {
@@ -1083,11 +1083,11 @@
     "present": true,
     "audit_ref": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json",
     "audit_ok": true,
-    "record_count": 8,
-    "understood_count": 8,
+    "record_count": 9,
+    "understood_count": 9,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 12,
+    "capability_row_count": 13,
     "records": [
       {
         "value_evidence_id": "PVE-TASK-111-V91",
@@ -1192,6 +1192,19 @@
         "understanding_outcome": "understood",
         "governance_action": "none",
         "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
+      },
+      {
+        "value_evidence_id": "PVE-TASK-132-V111",
+        "release_ref": "docs/v11.1-release-definition.md",
+        "work_item_id": "TASK-132",
+        "capability_statement": "AOF can package its next-task judgment so a first-time or external operator can replay the reasoning path and make a Go/No-Go decision within five minutes.",
+        "before_state": "The operator had to ask the AI to translate internal candidate task labels and infer what AOF was actually asking them to approve.",
+        "after_state": "AOF records the situation, candidate tasks, selected task, evidence path, reproduction steps, comprehension checks, Go/No-Go, and next human action in one bounded artifact.",
+        "scenario": "Ask AOF what the next most important task is; inspect the v11.1 reproduction packet and confirm whether the reasoning can be replayed without reading the whole repo.",
+        "five_minute_demo": "Open TASK-132-external-operator-reproduction.json and follow the five reproduction steps, then run external-operator-reproduction-audit to verify the packet is complete.",
+        "understanding_outcome": "understood",
+        "governance_action": "none",
+        "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
       }
     ],
     "not_proven": "Product value evidence projection proves a bounded capability explanation and understanding check exists; it does not prove market value, broad adoption, or semantic correctness."
@@ -1200,7 +1213,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v11.0-release-definition.md",
+    "release_ref": "docs/v11.1-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1224,7 +1237,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v11.0-release-definition.md",
+    "release_ref": "docs/v11.1-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1243,7 +1256,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v11.0-release-definition.md",
+      "docs/v11.1-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1338,7 +1351,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-131.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-132.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1353,21 +1366,21 @@
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-131.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-132.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v11.0-release-definition.md"
+        "artifact_ref": "docs/v11.1-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-131.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-132.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-131.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-132.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
     "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V107-CAPABILITY-COVERAGE-GATE.json"
   }

@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "product-value-evidence-audit",
-  "generated_at": "2026-08-13T15:04:56.923Z",
+  "generated_at": "2026-08-13T15:52:26.940Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "record_count": 8,
-    "understood_count": 8,
+    "record_count": 9,
+    "understood_count": 9,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 12,
+    "capability_row_count": 13,
     "missing_link_count": 0,
     "failing_check_count": 0
   },
@@ -116,13 +116,26 @@
       "understanding_outcome": "understood",
       "governance_action": "none",
       "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
+    },
+    {
+      "value_evidence_id": "PVE-TASK-132-V111",
+      "release_ref": "docs/v11.1-release-definition.md",
+      "work_item_id": "TASK-132",
+      "capability_statement": "AOF can package its next-task judgment so a first-time or external operator can replay the reasoning path and make a Go/No-Go decision within five minutes.",
+      "before_state": "The operator had to ask the AI to translate internal candidate task labels and infer what AOF was actually asking them to approve.",
+      "after_state": "AOF records the situation, candidate tasks, selected task, evidence path, reproduction steps, comprehension checks, Go/No-Go, and next human action in one bounded artifact.",
+      "scenario": "Ask AOF what the next most important task is; inspect the v11.1 reproduction packet and confirm whether the reasoning can be replayed without reading the whole repo.",
+      "five_minute_demo": "Open TASK-132-external-operator-reproduction.json and follow the five reproduction steps, then run external-operator-reproduction-audit to verify the packet is complete.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
     }
   ],
   "checks": [
     {
       "name": "product value evidence presence",
       "status": "pass",
-      "detail": "8 record(s) found",
+      "detail": "9 record(s) found",
       "evidence_refs": [
         ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
@@ -131,7 +144,8 @@
         ".aof/artifacts/product-value-evidence/PVE-TASK-115-V95.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
+        ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
       ]
     },
     {
@@ -1723,6 +1737,201 @@
         ".aof/tasks/done/TASK-131.json",
         ".aof/artifacts/visibility/current/mission-control.json",
         ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.1-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-132.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 capability statement",
+      "status": "pass",
+      "detail": "AOF can package its next-task judgment so a first-time or external operator can replay the reasoning path and make a Go/No-Go decision within five minutes.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 before state",
+      "status": "pass",
+      "detail": "The operator had to ask the AI to translate internal candidate task labels and infer what AOF was actually asking them to approve.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 after state",
+      "status": "pass",
+      "detail": "AOF records the situation, candidate tasks, selected task, evidence path, reproduction steps, comprehension checks, Go/No-Go, and next human action in one bounded artifact.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 product scenario",
+      "status": "pass",
+      "detail": "Ask AOF what the next most important task is; inspect the v11.1 reproduction packet and confirm whether the reasoning can be replayed without reading the whole repo.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 five minute demo",
+      "status": "pass",
+      "detail": "Open TASK-132-external-operator-reproduction.json and follow the five reproduction steps, then run external-operator-reproduction-audit to verify the packet is complete.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 capability matrix",
+      "status": "pass",
+      "detail": "1 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 not-proven boundary",
+      "status": "pass",
+      "detail": "This does not prove actual third-party adoption, market value, semantic truth, productivity gain, or broad UX quality.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-132, source_parent_session_id=SESS-V111-OPERATOR-REPRODUCTION",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-132-V111 missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        "docs/v11.1-release-definition.md",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
       ]
     }
   ],

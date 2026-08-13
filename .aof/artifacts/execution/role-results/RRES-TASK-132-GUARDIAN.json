@@ -1,0 +1,26 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-13T16:21:10.000Z",
+  "role": "guardian",
+  "stage": "execution",
+  "session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "status": "completed",
+  "recommendation": "Approve only if v11.1 remains a bounded reproduction proof and does not claim real third-party adoption or semantic correctness.",
+  "rationale": "The main failure mode is overclaiming: passing a structural reproduction audit does not prove that a real external operator succeeded in the field.",
+  "signals": [
+    "The reproduction packet explicitly records not_proven boundaries.",
+    "Release notes and product value evidence describe five-minute replay proof, not adoption proof."
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-132",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.83
+}

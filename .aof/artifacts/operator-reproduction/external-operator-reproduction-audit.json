@@ -1,0 +1,203 @@
+{
+  "ok": true,
+  "artifact_type": "external-operator-reproduction-audit",
+  "generated_at": "2026-08-13T15:52:33.630Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "record_count": 1,
+    "go_count": 1,
+    "reproducible_count": 1,
+    "timebox_pass_count": 1,
+    "failing_check_count": 0
+  },
+  "records": [
+    {
+      "record_id": "EOR-TASK-132-V111",
+      "work_item_id": "TASK-132",
+      "selected_task_id": "TASK-132",
+      "operator_profile_id": "first-time-or-external-operator",
+      "decision": "go",
+      "operator_can_reproduce": true,
+      "artifact_ref": ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "external operator reproduction presence",
+      "status": "pass",
+      "detail": "1 record(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 selected task ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-132.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 first-time operator profile",
+      "status": "pass",
+      "detail": "limited",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 five minute timebox",
+      "status": "pass",
+      "detail": "5 minute(s)",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 candidate comparison",
+      "status": "pass",
+      "detail": "3 candidate(s)",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 selected task appears in candidates",
+      "status": "pass",
+      "detail": "TASK-132",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 evidence path length",
+      "status": "pass",
+      "detail": "4 evidence step(s)",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 bounded reproduction steps",
+      "status": "pass",
+      "detail": "5 step(s)",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 comprehension checks pass",
+      "status": "pass",
+      "detail": "3/3 pass",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 go/no-go reproducible",
+      "status": "pass",
+      "detail": "true",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 human next action",
+      "status": "pass",
+      "detail": "この4つの証拠だけを読み、TASK-132をv11.1として進めてよいか確認してください。",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 not-proven boundary",
+      "status": "pass",
+      "detail": "This proves one bounded self-hosting reproduction drill structure, not broad external adoption, market value, semantic truth, production safety, or real third-party comprehension.",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 evidence path ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.0.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 evidence path ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 evidence path ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-132.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 evidence path ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-132.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    },
+    {
+      "name": "EOR-TASK-132-V111 candidate evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md",
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+      ]
+    }
+  ],
+  "errors": []
+}

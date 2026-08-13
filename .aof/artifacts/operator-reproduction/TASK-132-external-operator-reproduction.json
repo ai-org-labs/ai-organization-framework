@@ -1,0 +1,108 @@
+{
+  "artifact_type": "external-operator-reproduction",
+  "record_id": "EOR-TASK-132-V111",
+  "recorded_at": "2026-08-14T00:05:00.000Z",
+  "work_item_id": "TASK-132",
+  "operator_profile": {
+    "profile_id": "first-time-or-external-operator",
+    "description": "A human operator who has not followed the full AOF release history and needs to understand the next-task judgment without reading the whole repository.",
+    "aof_prior_knowledge": "limited"
+  },
+  "timebox_minutes": 5,
+  "judgment_to_reproduce": {
+    "current_situation_ja": "v11.0でAOFはGitHubをread-onlyで観測して次タスクを選べることを示したが、その判断を初見の人間が短時間で追えるかはまだ弱い。",
+    "selected_task_id": "TASK-132",
+    "selected_task_title_ja": "外部オペレーターがAOFの次タスク判断を5分で再現できるか試す",
+    "why_selected_ja": "AOFの判断が正しくても、人間が理由を追えなければ実運用では採用できないため。外部Provider統合より先に、判断の再現性を証明する必要がある。",
+    "loss_if_not_done_ja": "AOFは内部的に証跡を増やすだけになり、利用者は『なぜそれをやるのか』を毎回AIに聞き直す状態が続く。"
+  },
+  "candidate_tasks": [
+    {
+      "candidate_id": "CAND-V111-001",
+      "task_id": "TASK-132",
+      "title_ja": "外部オペレーター再現ドリル",
+      "reason_ja": "AOFの次タスク判断を人間が5分で理解・再現・Go/No-Go判断できるかを直接検証するため。",
+      "evidence_refs": [
+        ".aof/goals/next-value-slice.json",
+        ".aof/tasks/done/TASK-132.json",
+        ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+      ]
+    },
+    {
+      "candidate_id": "CAND-V111-002",
+      "task_id": "v11.2",
+      "title_ja": "最初の外部Provider read統合",
+      "reason_ja": "価値は高いが、人間がAOFの判断を再現できない状態で外部連携を進めると、判断不能な自動化が増えるため後回し。",
+      "evidence_refs": [
+        "docs/vnext-roadmap.md",
+        "docs/vnext-release-plan.md"
+      ]
+    },
+    {
+      "candidate_id": "CAND-V111-003",
+      "task_id": "v11.5",
+      "title_ja": "Provider観測結果の人間向けリプレイ",
+      "reason_ja": "v11.1の再現ドリルで不足が見えた後に具体化する方がよい。",
+      "evidence_refs": [
+        "docs/vnext-roadmap.md"
+      ]
+    }
+  ],
+  "evidence_path": [
+    {
+      "step": 1,
+      "question_ja": "今のAOFは何を達成済みか？",
+      "artifact_ref": "docs/v11.0.0-release-notes.md",
+      "expected_reading_ja": "v11.0はGitHubをread-onlyで観測し、次タスクを選ぶ証明まで完了している。"
+    },
+    {
+      "step": 2,
+      "question_ja": "次に何が弱点として残っているか？",
+      "artifact_ref": ".aof/goals/next-value-slice.json",
+      "expected_reading_ja": "人間がAOFの判断を短時間で理解・再現・Go/No-Go判断できるかが次の検証対象。"
+    },
+    {
+      "step": 3,
+      "question_ja": "なぜTASK-132が先なのか？",
+      "artifact_ref": ".aof/tasks/done/TASK-132.json",
+      "expected_reading_ja": "外部Provider統合より前に、AOFの判断が人間に追えることを証明するため。"
+    },
+    {
+      "step": 4,
+      "question_ja": "前提証拠はどこにあるか？",
+      "artifact_ref": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+      "expected_reading_ja": "v11.0で候補比較、選定理由、Go/No-Go、no-write境界が記録されている。"
+    }
+  ],
+  "reproduction_steps": [
+    "v11.0の完了内容を読む。",
+    "v11.1のnext-value-sliceを読む。",
+    "候補3件を比較し、なぜTASK-132が先か確認する。",
+    "証拠パス4点だけを開く。",
+    "Go/No-Goと、まだ証明していないことを確認する。"
+  ],
+  "comprehension_checks": [
+    {
+      "question_ja": "v11.1で一番確認したいことは何か？",
+      "expected_answer_ja": "AOFの次タスク判断を人間が5分以内に理解・再現・Go/No-Go判断できるか。",
+      "status": "pass"
+    },
+    {
+      "question_ja": "なぜ外部Provider統合より先なのか？",
+      "expected_answer_ja": "人間が判断を追えないまま外部連携を進めると、判断不能な自動化になるため。",
+      "status": "pass"
+    },
+    {
+      "question_ja": "この証跡でまだ証明していないことは何か？",
+      "expected_answer_ja": "広範な第三者採用、市場価値、semantic truth、本番外部書き込み安全性は未証明。",
+      "status": "pass"
+    }
+  ],
+  "go_no_go_result": {
+    "decision": "go",
+    "reason_ja": "候補比較、証拠パス、理解確認、Go/No-Go境界が5分以内に追える形で揃っているため。",
+    "operator_can_reproduce": true
+  },
+  "human_next_action": "この4つの証拠だけを読み、TASK-132をv11.1として進めてよいか確認してください。",
+  "not_proven": "This proves one bounded self-hosting reproduction drill structure, not broad external adoption, market value, semantic truth, production safety, or real third-party comprehension."
+}

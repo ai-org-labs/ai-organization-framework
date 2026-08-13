@@ -167,3 +167,15 @@ NEW: `PCAP-GITHUB-READONLY-OBSERVATION-PROOF` lets AOF inspect real GitHub repos
 |---|---|---|---|
 | GitHub Read-Only Observation Proof | - | NEW | AOF can pick the next task from real GitHub state without write permission. |
 | Release-State Governance | provider readiness chain | GitHub observation gate added | Release readiness now checks that provider observation is bounded and auditable. |
+
+## v11.1 Capability Delta
+
+NEW: `PCAP-EXTERNAL-OPERATOR-REPRODUCTION-PROOF` lets a first-time or external operator reproduce AOF's next-task judgment from a bounded Japanese evidence path.
+
+30-second delta: v11.0 lets AOF select the next task from read-only GitHub state. v11.1 lets a human verify why that task is selected without reading the whole repository.
+
+| Capability | v11.0.0 | v11.1.0 | User-visible change |
+|---|---|---|---|
+| GitHub Read-Only Observation Proof | AOF selects next task | Feeds reproduction drill | GitHub-grounded judgment becomes human-replayable. |
+| External Operator Reproduction Proof | - | NEW | Operator gets current situation, candidate comparison, evidence path, Go/No-Go, and not-proven boundary. |
+| Next Task Judgment | AI-readable evidence | five-minute human replay | Operator can decide whether to accept the judgment. |

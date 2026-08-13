@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-132-V111",
+  "recorded_at": "2026-08-13T16:20:45.000Z",
+  "release_ref": "docs/v11.1-release-definition.md",
+  "work_item_id": "TASK-132",
+  "work_item_ref": ".aof/tasks/done/TASK-132.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "AOF can package its next-task judgment so a first-time or external operator can replay the reasoning path and make a Go/No-Go decision within five minutes.",
+  "before_state": "The operator had to ask the AI to translate internal candidate task labels and infer what AOF was actually asking them to approve.",
+  "after_state": "AOF records the situation, candidate tasks, selected task, evidence path, reproduction steps, comprehension checks, Go/No-Go, and next human action in one bounded artifact.",
+  "scenario": "Ask AOF what the next most important task is; inspect the v11.1 reproduction packet and confirm whether the reasoning can be replayed without reading the whole repo.",
+  "five_minute_demo": "Open TASK-132-external-operator-reproduction.json and follow the five reproduction steps, then run external-operator-reproduction-audit to verify the packet is complete.",
+  "time_saved_or_work_reduced": "Removes repeated clarification cycles where the operator asks what the English task names mean and why the selected task matters.",
+  "cognitive_load_removed": "The operator no longer needs to decode internal release labels, search for evidence manually, or guess whether Go/No-Go is being requested.",
+  "capability_matrix": [
+    {
+      "capability": "External Operator Reproduction Proof",
+      "before": "internal next-task judgment needed AI translation",
+      "after": "bounded Japanese reproduction packet supports five-minute Go/No-Go",
+      "user_value": "operator can understand the current task decision and next action without repository-wide reading"
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+    ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "This does not prove actual third-party adoption, market value, semantic truth, productivity gain, or broad UX quality.",
+  "source_task_id": "TASK-132",
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,27 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-13T16:21:05.000Z",
+  "role": "builder",
+  "stage": "execution",
+  "session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "status": "completed",
+  "recommendation": "Implement v11.1 by adding a narrow external-operator-reproduction-audit command, schemas, fixture tests, reproduction artifact, and release governance evidence.",
+  "rationale": "A dedicated narrow audit is safer than broad UX scoring because the required proof is concrete: bounded evidence path, timebox, candidate comparison, comprehension checks, Go/No-Go, and next human action.",
+  "signals": [
+    "The audit fails closed when the selected task is not in candidates, evidence refs are missing, or comprehension checks fail.",
+    "The release-state audit now requires external operator reproduction for v11.1 and later."
+  ],
+  "artifact_refs": [
+    "src/commands/external-operator-reproduction-audit.js",
+    "schemas/aof-external-operator-reproduction-record.schema.json",
+    "schemas/aof-external-operator-reproduction-audit.schema.json",
+    "test/runtime-core-2.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-132",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

@@ -366,6 +366,20 @@
         ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
         ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-OPERATOR-REPRODUCTION-PROOF",
+      "name": "External Operator Reproduction Proof",
+      "description": "AOF can provide a bounded five-minute Japanese replay path so a first-time or external operator can understand and reproduce a next-task judgment.",
+      "user_value": "Operators can decide whether AOF's next-task judgment is acceptable without reading the entire repository or asking the AI to explain again.",
+      "first_version": "v11.1.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.1-release-definition.md",
+        "docs/v11.1.0-release-notes.md",
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
     }
   ]
 }

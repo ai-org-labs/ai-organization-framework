@@ -1,0 +1,67 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-13T16:20:00.000Z",
+  "work_item_id": "TASK-132",
+  "work_item_type": "release",
+  "objective": "Ship v11.1 External Operator Reproduction Drill as a bounded five-minute reproduction proof for AOF next-task judgment.",
+  "reason_for_work": "AOF must prove that a first-time or external operator can understand what AOF selected, why it matters, what evidence supports it, and whether to proceed without reading the whole repository.",
+  "expected_output": [
+    "v11.1 release definition",
+    "v11.1 release checklist",
+    "v11.1 release notes",
+    "external operator reproduction record",
+    "external operator reproduction audit",
+    "capability delta evidence",
+    "product value evidence",
+    "release-state audit evidence"
+  ],
+  "consumer": [
+    "AOF operators",
+    "external reviewers",
+    "release council"
+  ],
+  "downstream_dependency": [
+    "release-state-audit",
+    "external operator reproduction governance",
+    "Mission Control"
+  ],
+  "success_criteria": [
+    "v11.1 explains the current situation in Japanese",
+    "candidate tasks and selected task are understandable without repository-wide reading",
+    "evidence path is bounded and reproducible",
+    "Go/No-Go and human next action are explicit",
+    "external-operator-reproduction-audit passes",
+    "release-state-audit no longer reports TASK-132 missing governance evidence"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "external-operator-reproduction-audit passes",
+      "capability-first-release-audit passes",
+      "product-value-evidence-audit passes",
+      "release-state-audit passes"
+    ],
+    "no_go": [
+      "operator cannot explain why TASK-132 is selected",
+      "evidence path requires full repository reading",
+      "v11.1 implies actual third-party adoption proof"
+    ]
+  },
+  "required_visualization": [
+    "decision-matrix",
+    "information-flow-map",
+    "evidence-coverage-map"
+  ],
+  "required_skills": [
+    "skill-benchmark-validation",
+    "skill-schema-review"
+  ],
+  "required_actor_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "council_review_need": "required",
+  "source_task_id": "TASK-132",
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "source_decision_record_id": null
+}

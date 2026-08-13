@@ -1,0 +1,25 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-132-V111",
+  "recorded_at": "2026-08-13T16:20:50.000Z",
+  "release_version": "11.1.0",
+  "release_ref": "docs/v11.1-release-definition.md",
+  "work_item_id": "TASK-132",
+  "work_item_ref": ".aof/tasks/done/TASK-132.json",
+  "one_minute_value_explanation": "AOF can now turn its next-task judgment into a bounded Japanese reproduction drill: what is happening, what options exist, which task is selected, why it matters, what evidence to check, whether to proceed, and what the human should do next.",
+  "thirty_second_version_delta": "v11.0 let AOF observe GitHub read-only and select a task; v11.1 makes that decision reproducible by a first-time or external operator within five minutes.",
+  "new_capability_ids": [
+    "PCAP-EXTERNAL-OPERATOR-REPRODUCTION-PROOF"
+  ],
+  "updated_capability_ids": [],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+  ],
+  "product_review_trigger": "If the operator still asks what the selected task means or why it is most important, reopen product value explanation and reproduction packet design.",
+  "not_proven": "This does not prove actual third-party adoption, market value, semantic truth, productivity gain, or broad UX quality.",
+  "source_task_id": "TASK-132",
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "source_decision_record_id": null,
+  "notes": null
+}

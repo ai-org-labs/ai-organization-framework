@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Close v10.9.0 Provider Pilot Execution Readiness with runtime-backed audits, test evidence, smoke validation, tag, and GitHub release; then move the active frontier to v11.0 read-first GitHub provider observation proof.",
-  "updated_at": "2026-08-13T08:00:56.419Z",
+  "content": "After v11.1, prepare v11.2 First Governed External Provider Read Integration while preserving the read-only/no-write boundary and external operator reproduction discipline.",
+  "updated_at": "2026-08-14T00:10:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V109-PROVIDER-PILOT-READINESS",
+  "source_session_id": "SESS-V111-RELEASE-CLOSURE",
   "source_decision_record_id": null,
-  "declared_complete_at": "2026-08-13T08:00:56.419Z"
+  "declared_complete_at": null
 }

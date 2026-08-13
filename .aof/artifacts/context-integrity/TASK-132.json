@@ -1,0 +1,33 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-132-V111",
+  "recorded_at": "2026-08-13T16:20:15.000Z",
+  "work_item_id": "TASK-132",
+  "work_item_ref": ".aof/tasks/done/TASK-132.json",
+  "session_ref": ".aof/tasks/done/TASK-132.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-items/goals/TASK-132.json"
+  ],
+  "declared_context_refs": [
+    "docs/v11.1-release-definition.md",
+    "docs/v11.1.0-release-notes.md",
+    "docs/vnext-roadmap.md",
+    ".aof/product-capabilities.json"
+  ],
+  "required_context_refs": [
+    "src/commands/external-operator-reproduction-audit.js",
+    "schemas/aof-external-operator-reproduction-record.schema.json",
+    "schemas/aof-external-operator-reproduction-audit.schema.json",
+    ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+    ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves v11.1 release context is declared and linked; it does not prove actual third-party comprehension, semantic truth, or adoption.",
+  "source_task_id": "TASK-132",
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "source_decision_record_id": null
+}

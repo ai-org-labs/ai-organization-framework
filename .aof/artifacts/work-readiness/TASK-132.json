@@ -1,0 +1,36 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-132-V111",
+  "recorded_at": "2026-08-13T16:20:05.000Z",
+  "work_item_id": "TASK-132",
+  "work_item_ref": ".aof/tasks/done/TASK-132.json",
+  "readiness_status": "ready",
+  "goal": "Release v11.1 as a five-minute external operator reproduction drill for AOF next-task judgment.",
+  "risk": "AOF may claim users can understand its decision when the evidence path is still too vague, too long, or too internally framed.",
+  "loss_boundary": "No v11.1 wording may claim third-party adoption, market truth, semantic truth, production provider execution, or broad usability proof.",
+  "acceptance_gates": [
+    "external-operator-reproduction-audit passes",
+    "capability-first-release-audit passes",
+    "product-value-evidence-audit passes",
+    "release-state-audit passes"
+  ],
+  "evidence_plan": [
+    "operator reproduction artifact, audit artifact, release docs, capability register, capability delta, product value evidence, Council review, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if the drill requires reading the whole repository",
+    "Stop if the operator cannot reproduce the selected task reasoning",
+    "Stop if release-state-audit reports missing TASK-132 governance evidence"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-132",
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "source_decision_record_id": null
+}

@@ -8,6 +8,7 @@ import { adoptionProofBenchmarkCommand } from "./adoption-proof-benchmark.js";
 import { contextReferenceIntegrityAuditCommand } from "./context-reference-integrity-audit.js";
 import { evidenceIndependenceAuditCommand } from "./evidence-independence-audit.js";
 import { externalizationReadinessAuditCommand } from "./externalization-readiness-audit.js";
+import { externalOperatorReproductionAuditCommand } from "./external-operator-reproduction-audit.js";
 import { externalResourceAuditCommand } from "./external-resource-audit.js";
 import { githubReadonlyObservationAuditCommand } from "./github-readonly-observation-audit.js";
 import { operatorAcceptanceDrillAuditCommand } from "./operator-acceptance-drill-audit.js";
@@ -325,6 +326,15 @@ function requiresGithubReadonlyObservationAudit(releaseVersion) {
   return major >= 11;
 }
 
+function requiresExternalOperatorReproductionAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 11 || (major === 11 && minor >= 1);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -470,6 +480,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresGithubReadonlyObservationAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("github-readonly-observation-audit", await githubReadonlyObservationAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresExternalOperatorReproductionAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("external-operator-reproduction-audit", await externalOperatorReproductionAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

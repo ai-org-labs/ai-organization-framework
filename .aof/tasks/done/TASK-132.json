@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-132",
+  "title": "v11.1 proof: external operator can reproduce AOF next-task judgment",
+  "description": "Create a bounded Japanese operator reproduction drill that lets a first-time or external operator understand AOF's current situation, compare candidate tasks, inspect evidence refs, and make a Go/No-Go decision within five minutes without reading the whole repository.",
+  "status": "done",
+  "origin": null,
+  "orchestrator_session_id": null,
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": null,
+  "created_at": "2026-08-13T15:31:41.676Z",
+  "updated_at": "2026-08-13T15:51:29.328Z",
+  "assigned_at": null,
+  "done_at": "2026-08-13T15:51:29.328Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v11.1 External Operator Reproduction Drill; runtime selected after v11.0 read-only GitHub observation proof."
+}

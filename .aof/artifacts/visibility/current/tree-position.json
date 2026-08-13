@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-13T15:22:15.540Z",
+  "generated_at": "2026-08-13T15:55:37.194Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "11.0.0",
-    "active_release_track": "v11.0",
-    "release_definition_ref": "docs/v11.0-release-definition.md"
+    "active_release_version": "11.1.0",
+    "active_release_track": "v11.1",
+    "release_definition_ref": "docs/v11.1-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes."
+    "branch_summary": "v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v11.0",
+      "label": "v11.1",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v11.0 and the next concrete branch.",
-    "why_this_branch": "Close v10.9.0 Provider Pilot Execution Readiness with runtime-backed audits, test evidence, smoke validation, tag, and GitHub release; then move the active frontier to v11.0 read-first GitHub provider observation proof.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: v11.0 must prove that AOF can observe a real GitHub provider context read-only, bind observations to tasks/requirements/evidence, and produce a human-readable value judgment without external writes."
+    "where_are_we": "The runtime is between v11.1 and the next concrete branch.",
+    "why_this_branch": "After v11.1, prepare v11.2 First Governed External Provider Read Integration while preserving the read-only/no-write boundary and external operator reproduction discipline.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes."
   }
 }

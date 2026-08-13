@@ -47,6 +47,7 @@ import { providerControlledExecutionCandidateAuditCommand } from "../src/command
 import { providerControlledExecutionCandidateRecordCommand } from "../src/commands/provider-controlled-execution-candidate-record.js";
 import { providerCostQuotaBoundaryAuditCommand } from "../src/commands/provider-cost-quota-boundary-audit.js";
 import { providerCostQuotaBoundaryRecordCommand } from "../src/commands/provider-cost-quota-boundary-record.js";
+import { externalOperatorReproductionAuditCommand } from "../src/commands/external-operator-reproduction-audit.js";
 import { githubReadonlyObservationAuditCommand } from "../src/commands/github-readonly-observation-audit.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
@@ -5284,6 +5285,144 @@ test("githubReadonlyObservationAuditCommand blocks allowed write authority", asy
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("no allowed write authority")));
   assert.equal(audit.summary.summary.external_write_authorized_count, 1);
+});
+
+async function writeExternalOperatorReproductionFixture(projectRoot, overrides = {}) {
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "evidence.md"), "# Evidence\n", "utf8");
+  await fs.mkdir(path.join(projectRoot, ".aof", "tasks", "open"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, ".aof", "tasks", "open", "TASK-999.json"), "{}\n", "utf8");
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "operator-reproduction"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "operator-reproduction", "EOR-TEST.json"), {
+    artifact_type: "external-operator-reproduction",
+    record_id: "EOR-TEST",
+    recorded_at: "2026-08-14T00:00:00.000Z",
+    work_item_id: "TASK-999",
+    operator_profile: {
+      profile_id: "first-time-operator",
+      description: "A first-time operator who has not followed the full AOF release history.",
+      aof_prior_knowledge: "none"
+    },
+    timebox_minutes: 5,
+    judgment_to_reproduce: {
+      current_situation_ja: "AOFは次のタスク判断を出せるが、人間がその根拠を短時間で追えるかは未証明です。",
+      selected_task_id: "TASK-999",
+      selected_task_title_ja: "外部オペレーターがAOFの次タスク判断を再現できるか試す",
+      why_selected_ja: "AOFの判断が人間に伝わらなければ、実運用で価値がないためです。",
+      loss_if_not_done_ja: "AOFが正しく判断しても、利用者は理由を理解できず採用判断できません。"
+    },
+    candidate_tasks: [
+      {
+        candidate_id: "CAND-001",
+        task_id: "TASK-999",
+        title_ja: "外部オペレーター再現ドリル",
+        reason_ja: "人間が判断根拠を再現できるかが未証明だから。",
+        evidence_refs: ["docs/evidence.md"]
+      },
+      {
+        candidate_id: "CAND-002",
+        task_id: "TASK-LATER",
+        title_ja: "次の外部Provider統合",
+        reason_ja: "再現できない判断を先に外部統合しても危険だから後回し。",
+        evidence_refs: ["docs/evidence.md"]
+      }
+    ],
+    evidence_path: [
+      {
+        step: 1,
+        question_ja: "いまAOFは何を問題にしているか？",
+        artifact_ref: "docs/evidence.md",
+        expected_reading_ja: "人間が判断を追えるかが問題です。"
+      },
+      {
+        step: 2,
+        question_ja: "候補は比較されているか？",
+        artifact_ref: "docs/evidence.md",
+        expected_reading_ja: "再現ドリルが外部Provider統合より先です。"
+      },
+      {
+        step: 3,
+        question_ja: "Go/No-Goに到達できるか？",
+        artifact_ref: "docs/evidence.md",
+        expected_reading_ja: "5分以内にGo判断できます。"
+      }
+    ],
+    reproduction_steps: [
+      "現在状況を読む。",
+      "候補タスクを比較する。",
+      "証拠パスを3点だけ開く。",
+      "Go/No-Goを判断する。"
+    ],
+    comprehension_checks: [
+      {
+        question_ja: "なぜこのタスクが先か？",
+        expected_answer_ja: "人間が判断を再現できることが外部統合より先だから。",
+        status: "pass"
+      },
+      {
+        question_ja: "何を見ればよいか？",
+        expected_answer_ja: "証拠パスの3点だけ見ればよい。",
+        status: "pass"
+      },
+      {
+        question_ja: "まだ証明していないことは？",
+        expected_answer_ja: "市場価値や第三者全体での理解は未証明。",
+        status: "pass"
+      }
+    ],
+    go_no_go_result: {
+      decision: "go",
+      reason_ja: "5分以内に判断根拠を再現できる構造があるため。",
+      operator_can_reproduce: true
+    },
+    human_next_action: "このパケットを読んで、TASK-999を進めてよいかだけ判断してください。",
+    not_proven: "This proves one bounded reproduction drill structure, not broad adoption, market value, or semantic truth.",
+    ...overrides
+  });
+}
+
+test("externalOperatorReproductionAuditCommand verifies five-minute operator reproduction proof", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeExternalOperatorReproductionFixture(projectRoot);
+
+  const audit = await externalOperatorReproductionAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.record_count, 1);
+  assert.equal(audit.summary.summary.reproducible_count, 1);
+  assert.equal(audit.summary.summary.timebox_pass_count, 1);
+});
+
+test("externalOperatorReproductionAuditCommand blocks failed comprehension", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeExternalOperatorReproductionFixture(projectRoot, {
+    comprehension_checks: [
+      {
+        question_ja: "なぜこのタスクが先か？",
+        expected_answer_ja: "人間が判断を再現できることが外部統合より先だから。",
+        status: "fail"
+      },
+      {
+        question_ja: "何を見ればよいか？",
+        expected_answer_ja: "証拠パスの3点だけ見ればよい。",
+        status: "pass"
+      },
+      {
+        question_ja: "まだ証明していないことは？",
+        expected_answer_ja: "市場価値や第三者全体での理解は未証明。",
+        status: "pass"
+      }
+    ],
+    go_no_go_result: {
+      decision: "defer",
+      reason_ja: "理解確認が落ちたため、進行しない。",
+      operator_can_reproduce: false
+    }
+  });
+
+  const audit = await externalOperatorReproductionAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("comprehension checks pass")));
+  assert.equal(audit.summary.summary.reproducible_count, 0);
 });
 
 test("operator validation commands write governed feedback and audit acceptance", async (t) => {

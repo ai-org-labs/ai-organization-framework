@@ -1,0 +1,62 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-132-V111",
+  "recorded_at": "2026-08-13T16:20:20.000Z",
+  "work_item_id": "TASK-132",
+  "work_item_ref": ".aof/tasks/done/TASK-132.json",
+  "coverage_status": "ready",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V111-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v11.1-release-definition.md",
+      "title": "AOF must provide a bounded reproduction drill for next-task judgment",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered when the reproduction record contains current situation, candidate comparison, selected task, bounded evidence path, Go/No-Go, and human next action",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-132.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V111-002",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v11.1-release-checklist.md",
+      "title": "v11.1 must not overclaim external validation",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered when release boundary and audit explicitly state that actual third-party comprehension, market truth, semantic truth, and adoption are not proven",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-132.json"
+      ],
+      "evidence_refs": [
+        "docs/v11.1-release-definition.md",
+        "docs/v11.1.0-release-notes.md",
+        ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded release framing, reproduction audit, test and smoke verification",
+    "burndown_ref": "docs/v11.1-release-checklist.md",
+    "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves structural linkage only; it does not prove actual external operator success, semantic truth, productivity gain, or adoption.",
+  "source_task_id": "TASK-132",
+  "source_parent_session_id": "SESS-V111-OPERATOR-REPRODUCTION",
+  "source_decision_record_id": null,
+  "notes": null
+}
