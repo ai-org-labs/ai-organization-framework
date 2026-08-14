@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-133",
+  "title": "v11.2 proof: first governed external provider read integration",
+  "description": "Prove AOF can read a real external GitHub provider through a bounded read-only adapter, persist provider observations as runtime evidence, deny external writes, and audit the integration before release.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "assigned_session_ids": [],
+  "related_decision_record_id": null,
+  "operating_goal_ref": ".aof/goals/operating-goal.json",
+  "created_at": "2026-08-14T01:36:44.863Z",
+  "updated_at": "2026-08-14T01:47:36.800Z",
+  "assigned_at": null,
+  "done_at": "2026-08-14T01:47:36.800Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v11.2 Provider Read Integration Proof: real GitHub read resource, read-only adapter, integration record, audit command, release-state gate, release docs, product value evidence, and Council review are present."
+}
