@@ -1,0 +1,24 @@
+{
+  "artifact_type": "provider-adapter-record",
+  "adapter_id": "PAD-MSSA3NV9-NKR1TC",
+  "recorded_at": "2026-08-14T01:38:55.509Z",
+  "display_name": "GitHub repository read adapter",
+  "provider_ref": "docs/v11.2-release-definition.md",
+  "resource_ref": ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+  "adapter_kind": "read_only",
+  "operation_modes": [
+    "read"
+  ],
+  "read_authority_boundary": "Adapter may run read-only GitHub inspection commands for repo metadata, releases, issues, pull requests, and workflow runs.",
+  "write_authority_boundary": "Adapter has no GitHub write authority and must not create, update, close, delete, dispatch, publish, or mutate anything.",
+  "freshness_check": "Observed provider output must be timestamped and refreshed if release state or GitHub state changes before sign-off.",
+  "approval_policy_ref": "docs/v11.2-release-definition.md",
+  "side_effect_boundary": "Read-only provider calls only; no external side effects are authorized.",
+  "escalation_required_for": [],
+  "readiness_status": "ready",
+  "not_proven": "Adapter readiness does not prove provider output correctness, credential safety, billing safety, write safety, production safety, or market value.",
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

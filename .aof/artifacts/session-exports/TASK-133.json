@@ -1,0 +1,128 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-133-V112",
+  "recorded_at": "2026-08-14T01:44:25.000Z",
+  "work_item_id": "TASK-133",
+  "work_item_ref": ".aof/tasks/done/TASK-133.json",
+  "export_status": "ready",
+  "source_session_ref": ".aof/tasks/done/TASK-133.json",
+  "provider_source": {
+    "provider": "local+github",
+    "model": "codex",
+    "source_format": "aof-runtime-command-and-github-read-artifacts",
+    "source_of_truth_boundary": "AOF artifacts, GitHub read outputs summarized in provider read integration record, release docs, and runtime audits are canonical; chat text is not release evidence"
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-TASK-133-1",
+      "event_type": "prompt",
+      "summary": "Heartbeat required AOF to use the latest runtime and AI development trends to continue the roadmap and release the nearest target.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-133-2",
+      "event_type": "tool_call",
+      "summary": "AOF runtime visibility and release-state audit selected v11.2 as the next frontier after v11.1.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json",
+        "docs/vnext-roadmap.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-133-3",
+      "event_type": "tool_call",
+      "summary": "Read-only gh commands observed repository metadata, v11.1 release, open issues, open pull requests, and workflow runs.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-133-4",
+      "event_type": "artifact_write",
+      "summary": "Provider read integration schemas, audit command, command registry entries, release docs, and evidence artifacts were added.",
+      "artifact_refs": [
+        "src/commands/provider-read-integration-audit.js",
+        "schemas/aof-provider-read-integration-record.schema.json",
+        "schemas/aof-provider-read-integration-audit.schema.json",
+        "docs/v11.2-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-133-5",
+      "event_type": "verification",
+      "summary": "provider-read-integration-audit passed for one live read integration with zero write attempts and zero write authorization.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-133-6",
+      "event_type": "response",
+      "summary": "Role outputs and Council review framed v11.2 as governed read-only provider integration proof, not write permission.",
+      "artifact_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-133-VISIONARY.json",
+        ".aof/artifacts/execution/role-results/RRES-TASK-133-BUILDER.json",
+        ".aof/artifacts/execution/role-results/RRES-TASK-133-GUARDIAN.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-133-V112.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-133-7",
+      "event_type": "blocker",
+      "summary": "Provider read integration must not be misread as GitHub write execution, production safety, or provider semantic truth.",
+      "artifact_refs": [
+        "docs/v11.2-release-definition.md",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-133-V112.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-133-8",
+      "event_type": "stop_condition",
+      "summary": "Stop release if v11.2 claims provider write authority, live automation, production safety, or semantic truth.",
+      "artifact_refs": [
+        "docs/v11.2-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-133.json"
+    ],
+    "requirement_refs": [
+      "docs/v11.2-release-definition.md",
+      ".aof/artifacts/requirement-coverage/TASK-133.json"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+      ".aof/artifacts/release-state/release-state-audit.json",
+      "test/runtime-core-2.test.js",
+      "docs/v11.2-release-checklist.md"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/work-items/goals/TASK-133.json",
+      ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+      ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
+    ],
+    "risk_candidates": [
+      "provider read integration may be mistaken for provider write permission"
+    ],
+    "decision_candidates": [
+      "advance to v11.3 only after v11.2 proves governed read-only provider integration"
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v11.2-release-checklist.md",
+      ".aof/artifacts/release-state/release-state-audit.json"
+    ]
+  },
+  "redaction_boundary": "summaries only; no secrets, credentials, private provider payload bodies, or private transcript content exported",
+  "release_ready_boundary": "release-ready requires runtime audits, tests, smoke, and CI/tag validation, not this export alone",
+  "not_proven": "Session export proves traceability for v11.2 release work only; it does not prove provider semantic truth, GitHub write safety, production safety, productivity gain, or adoption.",
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "product-value-evidence-audit",
-  "generated_at": "2026-08-13T15:52:26.940Z",
+  "generated_at": "2026-08-14T01:48:25.842Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "record_count": 9,
-    "understood_count": 9,
+    "record_count": 10,
+    "understood_count": 10,
     "not_understood_count": 0,
     "blocking_record_count": 0,
-    "capability_row_count": 13,
+    "capability_row_count": 14,
     "missing_link_count": 0,
     "failing_check_count": 0
   },
@@ -129,13 +129,26 @@
       "understanding_outcome": "understood",
       "governance_action": "none",
       "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+    },
+    {
+      "value_evidence_id": "PVE-TASK-133-V112",
+      "release_ref": "docs/v11.2-release-definition.md",
+      "work_item_id": "TASK-133",
+      "capability_statement": "AOF can now represent a real GitHub read as governed runtime work with adapter/resource refs, observed outputs, no-write boundary, decision, evidence refs, and audit result.",
+      "before_state": "The operator could see GitHub-grounded judgment, but the external provider read was still mostly a one-off observation artifact.",
+      "after_state": "AOF records the provider read as an integration artifact and verifies it with provider-read-integration-audit.",
+      "scenario": "Ask AOF to inspect the GitHub repo; inspect the provider read integration record and audit to confirm what was read and that no write was authorized.",
+      "five_minute_demo": "Open TASK-133-github-provider-read-integration.json and provider-read-integration-audit.json; confirm provider, adapter, observed objects, decision, and no-write boundary.",
+      "understanding_outcome": "understood",
+      "governance_action": "none",
+      "artifact_ref": ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
     }
   ],
   "checks": [
     {
       "name": "product value evidence presence",
       "status": "pass",
-      "detail": "9 record(s) found",
+      "detail": "10 record(s) found",
       "evidence_refs": [
         ".aof/artifacts/product-value-evidence/PVE-TASK-111-V91.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-112-V92.json",
@@ -145,7 +158,8 @@
         ".aof/artifacts/product-value-evidence/PVE-TASK-116-V96.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json",
         ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
       ]
     },
     {
@@ -1932,6 +1946,201 @@
         ".aof/artifacts/visibility/current/mission-control.json",
         ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
         ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 release ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-133.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 Mission Control ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 capability statement",
+      "status": "pass",
+      "detail": "AOF can now represent a real GitHub read as governed runtime work with adapter/resource refs, observed outputs, no-write boundary, decision, evidence refs, and audit result.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 before state",
+      "status": "pass",
+      "detail": "The operator could see GitHub-grounded judgment, but the external provider read was still mostly a one-off observation artifact.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 after state",
+      "status": "pass",
+      "detail": "AOF records the provider read as an integration artifact and verifies it with provider-read-integration-audit.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 product scenario",
+      "status": "pass",
+      "detail": "Ask AOF to inspect the GitHub repo; inspect the provider read integration record and audit to confirm what was read and that no write was authorized.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 five minute demo",
+      "status": "pass",
+      "detail": "Open TASK-133-github-provider-read-integration.json and provider-read-integration-audit.json; confirm provider, adapter, observed objects, decision, and no-write boundary.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 user benefit",
+      "status": "pass",
+      "detail": "time_saved_or_work_reduced and cognitive_load_removed must be explicit",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 capability matrix",
+      "status": "pass",
+      "detail": "1 row(s)",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 not-proven boundary",
+      "status": "pass",
+      "detail": "This does not prove provider semantic truth, GitHub write safety, credential safety, production automation, market value, productivity gain, or broad adoption.",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-133, source_parent_session_id=SESS-V112-PROVIDER-READ-INTEGRATION",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PVE-TASK-133-V112 missing understanding escalates",
+      "status": "pass",
+      "detail": "understanding_outcome=understood, governance_action=none",
+      "evidence_refs": [
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
       ]
     }
   ],

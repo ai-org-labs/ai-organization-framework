@@ -49,6 +49,7 @@ import { providerCostQuotaBoundaryAuditCommand } from "../src/commands/provider-
 import { providerCostQuotaBoundaryRecordCommand } from "../src/commands/provider-cost-quota-boundary-record.js";
 import { externalOperatorReproductionAuditCommand } from "../src/commands/external-operator-reproduction-audit.js";
 import { githubReadonlyObservationAuditCommand } from "../src/commands/github-readonly-observation-audit.js";
+import { providerReadIntegrationAuditCommand } from "../src/commands/provider-read-integration-audit.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
 import { providerExecutionReproductionAuditCommand } from "../src/commands/provider-execution-reproduction-audit.js";
@@ -3275,6 +3276,121 @@ test("providerAdapterAuditCommand fails write-capable adapters without escalatio
   const audit = await providerAdapterAuditCommand({ project: projectRoot });
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("write modes require escalation")));
+});
+
+async function writeProviderReadIntegrationFixture(projectRoot, overrides = {}) {
+  await fs.mkdir(path.join(projectRoot, "docs"), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, "docs", "provider-read.md"), "# Provider Read\n", "utf8");
+  await taskOpenCommand({
+    project: projectRoot,
+    title: "Integrate provider read",
+    description: "Fixture task for provider read integration.",
+    origin: "human"
+  });
+
+  const resourceResult = await externalRuntimeResourceRecordCommand({
+    project: projectRoot,
+    resourceId: "ERR-TEST-GITHUB-READ",
+    resourceKind: "provider",
+    displayName: "GitHub read provider",
+    canonicalRef: "https://github.com/ai-org-labs/ai-organization-framework",
+    sourceSystem: "github",
+    ownerRef: "runtime-team",
+    sourceOfTruth: "GitHub repo metadata and workflow runs are provider state.",
+    permissionBoundary: "Read-only GitHub metadata access.",
+    freshnessBoundary: "Refresh before release sign-off.",
+    availabilityBoundary: "gh must be available.",
+    approvalBoundary: "Read does not require approval; write requires human approval.",
+    sideEffectBoundary: "Read-only commands have no side effects.",
+    allowedOperations: ["read"],
+    readinessStatus: "ready",
+    notProven: "This fixture does not prove provider semantic truth.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PROVIDER-READ"
+  });
+  const resourceRef = path.relative(projectRoot, resourceResult.artifactPath).replaceAll(path.sep, "/");
+
+  const adapterResult = await providerAdapterRecordCommand({
+    project: projectRoot,
+    adapterId: "PAD-TEST-GITHUB-READ",
+    displayName: "GitHub read adapter",
+    providerRef: "docs/provider-read.md",
+    resourceRef,
+    adapterKind: "read_only",
+    operationModes: ["read"],
+    readAuthorityBoundary: "Adapter may read GitHub metadata.",
+    writeAuthorityBoundary: "Adapter has no write authority.",
+    freshnessCheck: "Provider output must be current for the release.",
+    approvalPolicyRef: "docs/provider-read.md",
+    sideEffectBoundary: "No external side effects are allowed.",
+    escalationRequiredFor: [],
+    readinessStatus: "ready",
+    notProven: "Adapter readiness does not prove provider output correctness.",
+    sourceTaskId: "TASK-001",
+    sourceParentSessionId: "SESS-PROVIDER-READ"
+  });
+  const adapterRef = path.relative(projectRoot, adapterResult.artifactPath).replaceAll(path.sep, "/");
+
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "provider-read-integrations"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "provider-read-integrations", "PRI-TEST.json"), {
+    artifact_type: "provider-read-integration-record",
+    integration_id: "PRI-TEST",
+    recorded_at: "2026-08-14T00:00:00.000Z",
+    provider: "github",
+    repository: "ai-org-labs/ai-organization-framework",
+    adapter_ref: adapterRef,
+    resource_ref: resourceRef,
+    read_mode: "read_only_live",
+    read_authority_boundary: "Only metadata, release, issue, PR, and workflow run lists were read.",
+    write_authority_boundary: "No external write was attempted or authorized.",
+    side_effect_boundary: "Read-only gh commands only.",
+    freshness_boundary: "Provider state must be refreshed before later release claims.",
+    external_read_commands: [
+      { command: "gh repo view", operation_type: "read", result_state: "observed", summary: "repo metadata observed" },
+      { command: "gh run list", operation_type: "read", result_state: "observed", summary: "workflow runs observed" }
+    ],
+    observed_objects: {
+      repo_metadata: { nameWithOwner: "ai-org-labs/ai-organization-framework" },
+      latest_release: { tagName: "v11.1.0" },
+      open_issues: [],
+      open_pull_requests: [],
+      workflow_runs: [{ databaseId: 1, status: "completed", conclusion: "success" }]
+    },
+    output_summary: "Provider read observed GitHub state.",
+    external_write_attempted: false,
+    external_write_authorized: false,
+    selected_decision: {
+      decision: "go",
+      rationale: "Read-only provider state was observed.",
+      next_action: "Use provider read evidence for release sign-off."
+    },
+    evidence_refs: ["docs/provider-read.md", adapterRef, resourceRef, ".aof/tasks/open/TASK-001.json"],
+    not_proven: "This does not prove provider semantic truth, write safety, or production automation.",
+    source_task_id: "TASK-001",
+    source_parent_session_id: "SESS-PROVIDER-READ",
+    notes: null,
+    ...overrides
+  });
+}
+
+test("providerReadIntegrationAuditCommand verifies governed read-only provider integration", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeProviderReadIntegrationFixture(projectRoot);
+
+  const audit = await providerReadIntegrationAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.integration_count, 1);
+  assert.equal(audit.summary.summary.live_read_count, 1);
+  assert.equal(audit.summary.summary.external_write_authorized_count, 0);
+});
+
+test("providerReadIntegrationAuditCommand blocks hidden external write authority", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeProviderReadIntegrationFixture(projectRoot, { external_write_authorized: true });
+  const audit = await providerReadIntegrationAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("no external write authorized")));
+  assert.equal(audit.summary.summary.external_write_authorized_count, 1);
 });
 
 test("providerAdapterPilot commands write dry-run pilot evidence and audit pass", async (t) => {

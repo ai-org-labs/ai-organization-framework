@@ -4,21 +4,23 @@
 
 - v11.0.0: Read-first GitHub Provider Observation Proof.
 - v11.1.0: External Operator Reproduction Drill.
+- v11.2.0: First Governed External Provider Read Integration.
 
-## Current Frontier After v11.1.0
+## Current Frontier After v11.2.0
 
-- v11.2: First Governed External Provider Read Integration.
+- v11.3: External Validation Result Replay Audit.
 
 ## Future Roadmap
 
-- v11.2: First Governed External Provider Read Integration.
 - v11.3: External Validation Result Replay Audit.
 - v11.4: Agent Session Contract and Tool Governance Evidence.
 - v11.5: Human-readable Provider Observation Replay.
 - v11.6: External Operator Reproduction Feedback Intake.
+- v11.7: Provider Read Decision Replay in Mission Control.
 
 ## Recently Shipped
 
+- v11.2: First Governed External Provider Read Integration.
 - v11.1: External Operator Reproduction Drill.
 - v11.0: Read-first GitHub Provider Observation Proof.
 - v10.9: Provider Pilot Execution Readiness.

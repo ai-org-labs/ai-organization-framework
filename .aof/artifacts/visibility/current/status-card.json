@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-08-13T15:55:37.188Z",
+  "as_of": "2026-08-14T01:52:54.518Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
+  "current_goal": "v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
+  "next_checkpoint": "v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

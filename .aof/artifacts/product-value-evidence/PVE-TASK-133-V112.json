@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-133-V112",
+  "recorded_at": "2026-08-14T01:44:15.000Z",
+  "release_ref": "docs/v11.2-release-definition.md",
+  "work_item_id": "TASK-133",
+  "work_item_ref": ".aof/tasks/done/TASK-133.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "AOF can now represent a real GitHub read as governed runtime work with adapter/resource refs, observed outputs, no-write boundary, decision, evidence refs, and audit result.",
+  "before_state": "The operator could see GitHub-grounded judgment, but the external provider read was still mostly a one-off observation artifact.",
+  "after_state": "AOF records the provider read as an integration artifact and verifies it with provider-read-integration-audit.",
+  "scenario": "Ask AOF to inspect the GitHub repo; inspect the provider read integration record and audit to confirm what was read and that no write was authorized.",
+  "five_minute_demo": "Open TASK-133-github-provider-read-integration.json and provider-read-integration-audit.json; confirm provider, adapter, observed objects, decision, and no-write boundary.",
+  "time_saved_or_work_reduced": "Removes manual reconstruction of which gh commands were read-only and which provider outputs informed the release decision.",
+  "cognitive_load_removed": "The operator no longer needs to infer whether a GitHub read was governed, persisted, or accidentally write-capable.",
+  "capability_matrix": [
+    {
+      "capability": "Provider Read Integration Proof",
+      "before": "provider read was a one-off observation",
+      "after": "provider read is a governed runtime integration with audit coverage",
+      "user_value": "operator can inspect provider output and no-write boundary in one evidence path"
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+    ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "This does not prove provider semantic truth, GitHub write safety, credential safety, production automation, market value, productivity gain, or broad adoption.",
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

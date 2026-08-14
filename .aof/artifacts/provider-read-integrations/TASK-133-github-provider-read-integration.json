@@ -1,0 +1,108 @@
+{
+  "artifact_type": "provider-read-integration-record",
+  "integration_id": "PRI-TASK-133-GITHUB-READ",
+  "recorded_at": "2026-08-14T01:39:30.000Z",
+  "provider": "github",
+  "repository": "ai-org-labs/ai-organization-framework",
+  "adapter_ref": ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+  "resource_ref": ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+  "read_mode": "read_only_live",
+  "read_authority_boundary": "Only repo metadata, release metadata, open issue list, open pull request list, and workflow run list were read.",
+  "write_authority_boundary": "No GitHub write operation was requested, attempted, approved, or represented as available.",
+  "side_effect_boundary": "The integration used read-only gh commands and produced local AOF artifacts only.",
+  "freshness_boundary": "Observed provider state is current for the 2026-08-14T01:31Z heartbeat cycle and must be refreshed before a later release claim.",
+  "external_read_commands": [
+    {
+      "command": "gh repo view ai-org-labs/ai-organization-framework --json nameWithOwner,defaultBranchRef,visibility,url",
+      "operation_type": "read",
+      "result_state": "observed",
+      "summary": "Repository metadata observed."
+    },
+    {
+      "command": "gh release view v11.1.0 --repo ai-org-labs/ai-organization-framework --json tagName,name,publishedAt,url",
+      "operation_type": "read",
+      "result_state": "observed",
+      "summary": "Latest shipped release v11.1.0 observed."
+    },
+    {
+      "command": "gh issue list --repo ai-org-labs/ai-organization-framework --state open --limit 20 --json number,title,state,url,updatedAt",
+      "operation_type": "read",
+      "result_state": "empty",
+      "summary": "No open issues observed."
+    },
+    {
+      "command": "gh pr list --repo ai-org-labs/ai-organization-framework --state open --limit 20 --json number,title,state,url,updatedAt",
+      "operation_type": "read",
+      "result_state": "empty",
+      "summary": "No open pull requests observed."
+    },
+    {
+      "command": "gh run list --repo ai-org-labs/ai-organization-framework --limit 10 --json databaseId,status,conclusion,workflowName,createdAt,url",
+      "operation_type": "read",
+      "result_state": "observed",
+      "summary": "Recent CI workflow runs observed; latest runs include success."
+    }
+  ],
+  "observed_objects": {
+    "repo_metadata": {
+      "nameWithOwner": "ai-org-labs/ai-organization-framework",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "visibility": "PUBLIC",
+      "url": "https://github.com/ai-org-labs/ai-organization-framework"
+    },
+    "latest_release": {
+      "name": "AOF v11.1.0",
+      "publishedAt": "2026-08-13T16:00:12Z",
+      "tagName": "v11.1.0",
+      "url": "https://github.com/ai-org-labs/ai-organization-framework/releases/tag/v11.1.0"
+    },
+    "open_issues": [],
+    "open_pull_requests": [],
+    "workflow_runs": [
+      {
+        "databaseId": 31718420968,
+        "status": "completed",
+        "conclusion": "success",
+        "workflowName": "CI",
+        "createdAt": "2026-08-13T16:00:14Z",
+        "url": "https://github.com/ai-org-labs/ai-organization-framework/actions/runs/31718420968"
+      },
+      {
+        "databaseId": 31718420631,
+        "status": "completed",
+        "conclusion": "success",
+        "workflowName": "CI",
+        "createdAt": "2026-08-13T16:00:13Z",
+        "url": "https://github.com/ai-org-labs/ai-organization-framework/actions/runs/31718420631"
+      },
+      {
+        "databaseId": 31715207638,
+        "status": "completed",
+        "conclusion": "failure",
+        "workflowName": "CI",
+        "createdAt": "2026-08-13T15:24:19Z",
+        "url": "https://github.com/ai-org-labs/ai-organization-framework/actions/runs/31715207638"
+      }
+    ]
+  },
+  "output_summary": "GitHub read integration confirms main repository visibility, latest shipped v11.1.0 release, no open issues, no open pull requests, and recent CI history. The next bounded step is to complete v11.2 as governed provider read integration proof.",
+  "external_write_attempted": false,
+  "external_write_authorized": false,
+  "selected_decision": {
+    "decision": "go",
+    "rationale": "The read-only provider integration succeeded, no conflicting open GitHub work was observed, and v11.2 is the active roadmap frontier after v11.1.",
+    "next_action": "Finish v11.2 release artifacts, run provider-read-integration-audit, release-state-audit, organization-verify, tests, smoke, then tag v11.2.0."
+  },
+  "evidence_refs": [
+    "docs/v11.2-release-definition.md",
+    ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+    ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+    ".aof/tasks/done/TASK-133.json"
+  ],
+  "not_proven": "This record does not prove GitHub semantic correctness, GitHub write safety, credential safety, production automation safety, market value, or third-party adoption.",
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "notes": "Provider data was collected with gh read/list/view commands only."
+}

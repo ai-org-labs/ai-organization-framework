@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-13T15:55:37.194Z",
+  "generated_at": "2026-08-14T01:52:54.523Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-132 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-132.json"
+    "summary": "TASK-133 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-133.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-132 completed: v11.1 proof: external operator can reproduce AOF next-task judgment",
-      "artifact_ref": ".aof/tasks/done/TASK-132.json"
+      "summary": "TASK-133 completed: v11.2 proof: first governed external provider read integration",
+      "artifact_ref": ".aof/tasks/done/TASK-133.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
+      "summary": "v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-132 completed: v11.1 proof: external operator can reproduce AOF next-task judgment v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
+    "what_changed": "TASK-133 completed: v11.2 proof: first governed external provider read integration v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes."
+    "next_checkpoint": "Open an implementation task for the current frontier: v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it."
   }
 }

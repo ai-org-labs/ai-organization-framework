@@ -25,6 +25,7 @@ import { providerIncidentRecoveryAuditCommand } from "./provider-incident-recove
 import { providerLearningLoopAuditCommand } from "./provider-learning-loop-audit.js";
 import { providerOutcomeEvidenceAuditCommand } from "./provider-outcome-evidence-audit.js";
 import { providerProductionBoundaryAuditCommand } from "./provider-production-boundary-audit.js";
+import { providerReadIntegrationAuditCommand } from "./provider-read-integration-audit.js";
 import { providerRollbackProofAuditCommand } from "./provider-rollback-proof-audit.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
 import { loadActiveReleaseManifest } from "./release-state-helpers.js";
@@ -335,6 +336,15 @@ function requiresExternalOperatorReproductionAudit(releaseVersion) {
   return major > 11 || (major === 11 && minor >= 1);
 }
 
+function requiresProviderReadIntegrationAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 11 || (major === 11 && minor >= 2);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -485,6 +495,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresExternalOperatorReproductionAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("external-operator-reproduction-audit", await externalOperatorReproductionAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderReadIntegrationAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-read-integration-audit", await providerReadIntegrationAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

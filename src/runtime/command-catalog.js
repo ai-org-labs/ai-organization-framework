@@ -153,6 +153,7 @@ const COMMAND_SPECS = [
   ["provider-cost-quota-boundary-audit", "./commands/provider-cost-quota-boundary-audit.js", "providerCostQuotaBoundaryAuditCommand"],
   ["github-readonly-observation-audit", "./commands/github-readonly-observation-audit.js", "githubReadonlyObservationAuditCommand"],
   ["external-operator-reproduction-audit", "./commands/external-operator-reproduction-audit.js", "externalOperatorReproductionAuditCommand"],
+  ["provider-read-integration-audit", "./commands/provider-read-integration-audit.js", "providerReadIntegrationAuditCommand"],
   ["escalation-resolve", "./commands/escalation-resolve.js", "escalationResolveCommand"],
   ["role-result-record", "./commands/role-result-record.js", "roleResultRecordCommand"],
   ["role-join-record", "./commands/role-join-record.js", "roleJoinRecordCommand"],

@@ -1,0 +1,35 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-133-V112",
+  "recorded_at": "2026-08-14T01:42:15.000Z",
+  "work_item_id": "TASK-133",
+  "work_item_ref": ".aof/tasks/done/TASK-133.json",
+  "session_ref": ".aof/tasks/done/TASK-133.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-items/goals/TASK-133.json"
+  ],
+  "declared_context_refs": [
+    "docs/v11.2-release-definition.md",
+    "docs/v11.2.0-release-notes.md",
+    "docs/vnext-roadmap.md",
+    ".aof/product-capabilities.json"
+  ],
+  "required_context_refs": [
+    "src/commands/provider-read-integration-audit.js",
+    "schemas/aof-provider-read-integration-record.schema.json",
+    "schemas/aof-provider-read-integration-audit.schema.json",
+    ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+    ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+    ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+    ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves v11.2 release context is declared and linked; it does not prove provider semantic truth, write safety, production safety, or adoption.",
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null
+}

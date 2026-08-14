@@ -1,13 +1,13 @@
 {
   "ok": true,
   "artifact_type": "capability-first-release-audit",
-  "generated_at": "2026-08-13T15:52:32.819Z",
+  "generated_at": "2026-08-14T01:48:25.939Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "capability_count": 27,
+    "capability_count": 28,
     "delta_count": 1,
     "new_capability_count": 1,
-    "updated_capability_count": 0,
+    "updated_capability_count": 1,
     "removed_capability_count": 0,
     "failing_check_count": 0
   },
@@ -200,33 +200,42 @@
       "user_value": "Operators can decide whether AOF's next-task judgment is acceptable without reading the entire repository or asking the AI to explain again.",
       "first_version": "v11.1.0",
       "status": "available"
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-READ-INTEGRATION-PROOF",
+      "name": "Provider Read Integration Proof",
+      "user_value": "Operators can confirm that AOF read GitHub through a bounded no-write path and can inspect the provider output that informed the next decision.",
+      "first_version": "v11.2.0",
+      "status": "available"
     }
   ],
   "deltas": [
     {
-      "delta_id": "CRD-TASK-132-V111",
-      "release_version": "11.1.0",
-      "one_minute_value_explanation": "AOF can now turn its next-task judgment into a bounded Japanese reproduction drill: what is happening, what options exist, which task is selected, why it matters, what evidence to check, whether to proceed, and what the human should do next.",
-      "thirty_second_version_delta": "v11.0 let AOF observe GitHub read-only and select a task; v11.1 makes that decision reproducible by a first-time or external operator within five minutes.",
+      "delta_id": "CRD-TASK-133-V112",
+      "release_version": "11.2.0",
+      "one_minute_value_explanation": "AOF can now turn a real GitHub read into governed runtime evidence: provider, read-only adapter, observed repo/release/issue/PR/workflow data, decision, evidence refs, no-write boundary, and not-proven limits.",
+      "thirty_second_version_delta": "v11.1 made AOF's next-task judgment reproducible by a human; v11.2 makes the upstream GitHub read itself a first-class audited runtime integration.",
       "new_capability_ids": [
-        "PCAP-EXTERNAL-OPERATOR-REPRODUCTION-PROOF"
+        "PCAP-PROVIDER-READ-INTEGRATION-PROOF"
       ],
-      "updated_capability_ids": [],
+      "updated_capability_ids": [
+        "PCAP-GITHUB-READONLY-OBSERVATION-PROOF"
+      ],
       "removed_capability_ids": [],
-      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json"
+      "artifact_ref": ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json"
     }
   ],
   "checks": [
     {
       "name": "active release manifest presence",
       "status": "pass",
-      "detail": "11.1.0",
+      "detail": "11.2.0",
       "evidence_refs": []
     },
     {
       "name": "product capability register presence",
       "status": "pass",
-      "detail": "27 capability row(s)",
+      "detail": "28 capability row(s)",
       "evidence_refs": [
         ".aof/product-capabilities.json"
       ]
@@ -2700,139 +2709,234 @@
       ]
     },
     {
+      "name": "PCAP-PROVIDER-READ-INTEGRATION-PROOF description",
+      "status": "pass",
+      "detail": "AOF can represent a real external provider read as governed runtime work with adapter/resource refs, observed provider output, no-write boundaries, decision output, evidence refs, and a release audit gate.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.2-release-definition.md",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-READ-INTEGRATION-PROOF user value",
+      "status": "pass",
+      "detail": "Operators can confirm that AOF read GitHub through a bounded no-write path and can inspect the provider output that informed the next decision.",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.2-release-definition.md",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-READ-INTEGRATION-PROOF first version",
+      "status": "pass",
+      "detail": "v11.2.0",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.2-release-definition.md",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-READ-INTEGRATION-PROOF evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.2-release-definition.md",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-READ-INTEGRATION-PROOF evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.2.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.2-release-definition.md",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-READ-INTEGRATION-PROOF evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.2-release-definition.md",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "name": "PCAP-PROVIDER-READ-INTEGRATION-PROOF evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+      "evidence_refs": [
+        ".aof/product-capabilities.json",
+        "docs/v11.2-release-definition.md",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
       "name": "active release capability delta presence",
       "status": "pass",
       "detail": "1 delta record(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json"
       ]
     },
     {
       "name": "active release capability change",
       "status": "pass",
-      "detail": "1 changed capability reference(s)",
+      "detail": "2 changed capability reference(s)",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json"
       ]
     },
     {
-      "name": "CRD-TASK-132-V111 release ref resolves",
+      "name": "CRD-TASK-133-V112 release ref resolves",
       "status": "pass",
-      "detail": "docs/v11.1-release-definition.md",
+      "detail": "docs/v11.2-release-definition.md",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json",
-        "docs/v11.1-release-definition.md",
-        ".aof/tasks/done/TASK-132.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
       ]
     },
     {
-      "name": "CRD-TASK-132-V111 work item ref resolves",
+      "name": "CRD-TASK-133-V112 work item ref resolves",
       "status": "pass",
-      "detail": ".aof/tasks/done/TASK-132.json",
+      "detail": ".aof/tasks/done/TASK-133.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json",
-        "docs/v11.1-release-definition.md",
-        ".aof/tasks/done/TASK-132.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
       ]
     },
     {
-      "name": "CRD-TASK-132-V111 capability ref PCAP-EXTERNAL-OPERATOR-REPRODUCTION-PROOF",
+      "name": "CRD-TASK-133-V112 capability ref PCAP-PROVIDER-READ-INTEGRATION-PROOF",
       "status": "pass",
-      "detail": "PCAP-EXTERNAL-OPERATOR-REPRODUCTION-PROOF",
+      "detail": "PCAP-PROVIDER-READ-INTEGRATION-PROOF",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json",
-        "docs/v11.1-release-definition.md",
-        ".aof/tasks/done/TASK-132.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
       ]
     },
     {
-      "name": "CRD-TASK-132-V111 value evidence ref resolves",
+      "name": "CRD-TASK-133-V112 capability ref PCAP-GITHUB-READONLY-OBSERVATION-PROOF",
       "status": "pass",
-      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json",
+      "detail": "PCAP-GITHUB-READONLY-OBSERVATION-PROOF",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json",
-        "docs/v11.1-release-definition.md",
-        ".aof/tasks/done/TASK-132.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
       ]
     },
     {
-      "name": "CRD-TASK-132-V111 one minute value explanation",
+      "name": "CRD-TASK-133-V112 value evidence ref resolves",
       "status": "pass",
-      "detail": "AOF can now turn its next-task judgment into a bounded Japanese reproduction drill: what is happening, what options exist, which task is selected, why it matters, what evidence to check, whether to proceed, and what the human should do next.",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json",
-        "docs/v11.1-release-definition.md",
-        ".aof/tasks/done/TASK-132.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
       ]
     },
     {
-      "name": "CRD-TASK-132-V111 thirty second version delta",
+      "name": "CRD-TASK-133-V112 one minute value explanation",
       "status": "pass",
-      "detail": "v11.0 let AOF observe GitHub read-only and select a task; v11.1 makes that decision reproducible by a first-time or external operator within five minutes.",
+      "detail": "AOF can now turn a real GitHub read into governed runtime evidence: provider, read-only adapter, observed repo/release/issue/PR/workflow data, decision, evidence refs, no-write boundary, and not-proven limits.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json",
-        "docs/v11.1-release-definition.md",
-        ".aof/tasks/done/TASK-132.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
       ]
     },
     {
-      "name": "CRD-TASK-132-V111 product review trigger",
+      "name": "CRD-TASK-133-V112 thirty second version delta",
       "status": "pass",
-      "detail": "If the operator still asks what the selected task means or why it is most important, reopen product value explanation and reproduction packet design.",
+      "detail": "v11.1 made AOF's next-task judgment reproducible by a human; v11.2 makes the upstream GitHub read itself a first-class audited runtime integration.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json",
-        "docs/v11.1-release-definition.md",
-        ".aof/tasks/done/TASK-132.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
       ]
     },
     {
-      "name": "CRD-TASK-132-V111 not-proven boundary",
+      "name": "CRD-TASK-133-V112 product review trigger",
       "status": "pass",
-      "detail": "This does not prove actual third-party adoption, market value, semantic truth, productivity gain, or broad UX quality.",
+      "detail": "If the operator still cannot tell what provider was read, what output was observed, or whether writes were blocked, reopen provider read recognition design.",
       "evidence_refs": [
-        ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json",
-        "docs/v11.1-release-definition.md",
-        ".aof/tasks/done/TASK-132.json",
-        ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
+      ]
+    },
+    {
+      "name": "CRD-TASK-133-V112 not-proven boundary",
+      "status": "pass",
+      "detail": "This does not prove provider semantic truth, GitHub write safety, credential safety, production automation, market value, productivity gain, or broad adoption.",
+      "evidence_refs": [
+        ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/tasks/done/TASK-133.json",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
       ]
     },
     {
       "name": "release notes ## What You Can Do Now",
       "status": "pass",
-      "detail": "docs/v11.1.0-release-notes.md",
+      "detail": "docs/v11.2.0-release-notes.md",
       "evidence_refs": [
-        "docs/v11.1.0-release-notes.md"
+        "docs/v11.2.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Delta",
       "status": "pass",
-      "detail": "docs/v11.1.0-release-notes.md",
+      "detail": "docs/v11.2.0-release-notes.md",
       "evidence_refs": [
-        "docs/v11.1.0-release-notes.md"
+        "docs/v11.2.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Capability Matrix",
       "status": "pass",
-      "detail": "docs/v11.1.0-release-notes.md",
+      "detail": "docs/v11.2.0-release-notes.md",
       "evidence_refs": [
-        "docs/v11.1.0-release-notes.md"
+        "docs/v11.2.0-release-notes.md"
       ]
     },
     {
       "name": "release notes ## Value Evidence",
       "status": "pass",
-      "detail": "docs/v11.1.0-release-notes.md",
+      "detail": "docs/v11.2.0-release-notes.md",
       "evidence_refs": [
-        "docs/v11.1.0-release-notes.md"
+        "docs/v11.2.0-release-notes.md"
       ]
     },
     {

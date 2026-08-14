@@ -1,0 +1,62 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-133-V112",
+  "recorded_at": "2026-08-14T01:42:20.000Z",
+  "work_item_id": "TASK-133",
+  "work_item_ref": ".aof/tasks/done/TASK-133.json",
+  "coverage_status": "ready",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V112-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v11.2-release-definition.md",
+      "title": "AOF must persist a real external provider read as governed runtime evidence",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered when the integration record links provider, adapter, resource, observed provider output, decision, and evidence refs",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-133.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V112-002",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v11.2-release-checklist.md",
+      "title": "v11.2 must fail if provider read hides write authority",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered when audit checks external_write_attempted=false, external_write_authorized=false, and adapter_kind=read_only",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-133.json"
+      ],
+      "evidence_refs": [
+        "src/commands/provider-read-integration-audit.js",
+        "test/runtime-core-2.test.js",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded provider read integration release verification",
+    "burndown_ref": "docs/v11.2-release-checklist.md",
+    "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves structural linkage only; it does not prove provider semantic truth, write safety, production safety, or market value.",
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

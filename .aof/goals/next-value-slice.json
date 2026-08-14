@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
-  "updated_at": "2026-08-14T00:10:00.000Z",
+  "content": "v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it.",
+  "updated_at": "2026-08-14T01:48:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V111-RELEASE-CLOSURE",
+  "source_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

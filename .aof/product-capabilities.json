@@ -380,6 +380,20 @@
         ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json",
         ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-READ-INTEGRATION-PROOF",
+      "name": "Provider Read Integration Proof",
+      "description": "AOF can represent a real external provider read as governed runtime work with adapter/resource refs, observed provider output, no-write boundaries, decision output, evidence refs, and a release audit gate.",
+      "user_value": "Operators can confirm that AOF read GitHub through a bounded no-write path and can inspect the provider output that informed the next decision.",
+      "first_version": "v11.2.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.2-release-definition.md",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+      ]
     }
   ]
 }

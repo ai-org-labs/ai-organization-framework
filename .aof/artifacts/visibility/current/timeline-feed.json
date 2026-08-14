@@ -2,18 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-08-14T00:10:00.000Z",
-      "actor": "AOF Runtime",
-      "event_type": "next_value_slice_updated",
-      "summary": "v11.2 should prove the first governed external provider read integration: AOF can read from a real external provider through a bounded read-only contract, preserve evidence, and still deny external writes.",
-      "rationale": "Project memory was updated to reflect the current operating focus.",
-      "next": "Project the current slice into operator visibility outputs.",
-      "refs": [
-        ".aof/goals/next-value-slice.json"
-      ]
-    },
-    {
-      "at": "2026-08-13T15:55:37.188Z",
+      "at": "2026-08-14T01:52:54.518Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -24,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-08-13T15:55:37.180Z",
+      "at": "2026-08-14T01:52:54.502Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -32,6 +21,28 @@
       "next": "Use the visibility packet to inspect operator-facing runtime health.",
       "refs": [
         ".aof/context/active/metrics-snapshot.json"
+      ]
+    },
+    {
+      "at": "2026-08-14T01:48:00.000Z",
+      "actor": "AOF Runtime",
+      "event_type": "next_value_slice_updated",
+      "summary": "v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it.",
+      "rationale": "Project memory was updated to reflect the current operating focus.",
+      "next": "Project the current slice into operator visibility outputs.",
+      "refs": [
+        ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-08-14T01:47:36.800Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "v11.2 proof: first governed external provider read integration",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-133.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-131.json"
-      ]
-    },
-    {
-      "at": "2026-08-13T07:47:34.152Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "Ship v10.9 Provider Pilot Execution Readiness",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-130.json"
       ]
     }
   ]

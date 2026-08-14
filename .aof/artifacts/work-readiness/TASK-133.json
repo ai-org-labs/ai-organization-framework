@@ -1,0 +1,36 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-133-V112",
+  "recorded_at": "2026-08-14T01:42:00.000Z",
+  "work_item_id": "TASK-133",
+  "work_item_ref": ".aof/tasks/done/TASK-133.json",
+  "readiness_status": "ready",
+  "goal": "Release v11.2 as the first governed external provider read integration proof.",
+  "risk": "AOF may claim external integration while only recording an ad hoc observation or may hide a write-capable provider path.",
+  "loss_boundary": "No v11.2 wording may claim GitHub writes, live automation, production safety, credential safety, provider semantic truth, market value, or third-party adoption.",
+  "acceptance_gates": [
+    "provider-read-integration-audit passes",
+    "capability-first-release-audit passes",
+    "product-value-evidence-audit passes",
+    "release-state-audit passes"
+  ],
+  "evidence_plan": [
+    "GitHub read resource, read-only adapter, provider read integration record, provider read integration audit, release docs, capability delta, product value evidence, Council review, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if any GitHub write is attempted or authorized",
+    "Stop if observed provider output is not persisted",
+    "Stop if provider-read-integration-audit fails"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null
+}

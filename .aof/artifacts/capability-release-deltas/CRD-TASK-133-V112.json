@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-133-V112",
+  "recorded_at": "2026-08-14T01:44:20.000Z",
+  "release_version": "11.2.0",
+  "release_ref": "docs/v11.2-release-definition.md",
+  "work_item_id": "TASK-133",
+  "work_item_ref": ".aof/tasks/done/TASK-133.json",
+  "one_minute_value_explanation": "AOF can now turn a real GitHub read into governed runtime evidence: provider, read-only adapter, observed repo/release/issue/PR/workflow data, decision, evidence refs, no-write boundary, and not-proven limits.",
+  "thirty_second_version_delta": "v11.1 made AOF's next-task judgment reproducible by a human; v11.2 makes the upstream GitHub read itself a first-class audited runtime integration.",
+  "new_capability_ids": [
+    "PCAP-PROVIDER-READ-INTEGRATION-PROOF"
+  ],
+  "updated_capability_ids": [
+    "PCAP-GITHUB-READONLY-OBSERVATION-PROOF"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
+  ],
+  "product_review_trigger": "If the operator still cannot tell what provider was read, what output was observed, or whether writes were blocked, reopen provider read recognition design.",
+  "not_proven": "This does not prove provider semantic truth, GitHub write safety, credential safety, production automation, market value, productivity gain, or broad adoption.",
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null,
+  "notes": null
+}

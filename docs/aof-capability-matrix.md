@@ -179,3 +179,15 @@ NEW: `PCAP-EXTERNAL-OPERATOR-REPRODUCTION-PROOF` lets a first-time or external o
 | GitHub Read-Only Observation Proof | AOF selects next task | Feeds reproduction drill | GitHub-grounded judgment becomes human-replayable. |
 | External Operator Reproduction Proof | - | NEW | Operator gets current situation, candidate comparison, evidence path, Go/No-Go, and not-proven boundary. |
 | Next Task Judgment | AI-readable evidence | five-minute human replay | Operator can decide whether to accept the judgment. |
+
+## v11.2 Capability Delta
+
+NEW: `PCAP-PROVIDER-READ-INTEGRATION-PROOF` lets AOF represent a real external provider read as governed runtime work with adapter/resource refs, observed provider data, no-write boundaries, decision output, evidence refs, and an audit gate.
+
+30-second delta: v11.1 made the next-task judgment reproducible for humans. v11.2 makes the upstream GitHub read itself a first-class governed integration instead of a one-off observation.
+
+| Capability | v11.1.0 | v11.2.0 | User-visible change |
+|---|---|---|---|
+| External Operator Reproduction Proof | five-minute replay path | still available | The human can still replay the decision. |
+| Provider Read Integration Proof | - | NEW | Operator can inspect the provider, adapter, read output, no-write boundary, and decision in one audited record. |
+| GitHub Read-Only Observation Proof | observation packet | governed integration record | GitHub read is now a runtime integration with release-state audit coverage. |

@@ -1,0 +1,69 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-14T01:42:05.000Z",
+  "work_item_id": "TASK-133",
+  "work_item_type": "release",
+  "objective": "Ship v11.2 Provider Read Integration Proof as a bounded real GitHub read integration with no external write authority.",
+  "reason_for_work": "AOF must move from one-off provider observation to a governed runtime integration where provider, adapter, observed outputs, decision, evidence, and uncertainty are auditable.",
+  "expected_output": [
+    "v11.2 release definition",
+    "v11.2 release checklist",
+    "v11.2 release notes",
+    "GitHub read external resource",
+    "GitHub read adapter",
+    "provider read integration record",
+    "provider read integration audit",
+    "capability delta evidence",
+    "product value evidence",
+    "release-state audit evidence"
+  ],
+  "consumer": [
+    "AOF operators",
+    "release council",
+    "external reviewers"
+  ],
+  "downstream_dependency": [
+    "release-state-audit",
+    "provider read governance",
+    "Mission Control"
+  ],
+  "success_criteria": [
+    "real GitHub provider data is read in read-only mode",
+    "adapter and resource refs resolve",
+    "observed provider outputs are persisted",
+    "external writes are neither attempted nor authorized",
+    "provider-read-integration-audit passes",
+    "release-state-audit no longer reports TASK-133 missing governance evidence"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "provider-read-integration-audit passes",
+      "capability-first-release-audit passes",
+      "product-value-evidence-audit passes",
+      "release-state-audit passes"
+    ],
+    "no_go": [
+      "GitHub write is attempted",
+      "provider output is not persisted",
+      "v11.2 implies production provider automation"
+    ]
+  },
+  "required_visualization": [
+    "operational-flow",
+    "evidence-coverage-map",
+    "readiness-checklist"
+  ],
+  "required_skills": [
+    "skill-benchmark-validation",
+    "skill-schema-review"
+  ],
+  "required_actor_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "council_review_need": "required",
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null
+}

@@ -1,0 +1,385 @@
+{
+  "ok": true,
+  "artifact_type": "provider-read-integration-audit",
+  "generated_at": "2026-08-14T01:51:03.427Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "integration_count": 1,
+    "live_read_count": 1,
+    "go_count": 1,
+    "external_write_attempt_count": 0,
+    "external_write_authorized_count": 0,
+    "failing_check_count": 0
+  },
+  "integrations": [
+    {
+      "integration_id": "PRI-TASK-133-GITHUB-READ",
+      "provider": "github",
+      "repository": "ai-org-labs/ai-organization-framework",
+      "read_mode": "read_only_live",
+      "decision": "go",
+      "artifact_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider read integration presence",
+      "status": "pass",
+      "detail": "1 integration(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ adapter ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ resource ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.2-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-133.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ adapter is known",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ adapter is read-only",
+      "status": "pass",
+      "detail": "adapter_kind=read_only",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ adapter allows read",
+      "status": "pass",
+      "detail": "operation_modes=read",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ live or cached read mode",
+      "status": "pass",
+      "detail": "read_mode=read_only_live",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ read commands are read-only",
+      "status": "pass",
+      "detail": "all command operation_type values must be read",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ at least one observed command",
+      "status": "pass",
+      "detail": "at least one provider command must observe data",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ observed repo_metadata",
+      "status": "pass",
+      "detail": "repo_metadata",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ observed latest_release",
+      "status": "pass",
+      "detail": "latest_release",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ observed open_issues",
+      "status": "pass",
+      "detail": "open_issues",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ observed open_pull_requests",
+      "status": "pass",
+      "detail": "open_pull_requests",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ observed workflow_runs",
+      "status": "pass",
+      "detail": "workflow_runs",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ repo metadata has owner/name",
+      "status": "pass",
+      "detail": "ai-org-labs/ai-organization-framework",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ latest release observed",
+      "status": "pass",
+      "detail": "v11.1.0",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ workflow run list observed",
+      "status": "pass",
+      "detail": "3 workflow run(s)",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ no external write attempted",
+      "status": "pass",
+      "detail": "external_write_attempted=false",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ no external write authorized",
+      "status": "pass",
+      "detail": "external_write_authorized=false",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ boundary text present",
+      "status": "pass",
+      "detail": "read/write/side-effect/freshness/not-proven boundaries required",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ selected decision present",
+      "status": "pass",
+      "detail": "go",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    },
+    {
+      "name": "PRI-TASK-133-GITHUB-READ provenance present",
+      "status": "pass",
+      "detail": "source_task_id=TASK-133, source_parent_session_id=SESS-V112-PROVIDER-READ-INTEGRATION",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "docs/v11.2-release-definition.md",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json",
+        ".aof/tasks/done/TASK-133.json"
+      ]
+    }
+  ],
+  "errors": []
+}

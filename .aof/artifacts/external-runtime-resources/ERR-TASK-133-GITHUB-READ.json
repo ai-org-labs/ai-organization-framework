@@ -1,0 +1,25 @@
+{
+  "artifact_type": "external-runtime-resource-record",
+  "resource_id": "ERR-MSSA3NT1-YTVNES",
+  "recorded_at": "2026-08-14T01:38:55.429Z",
+  "resource_kind": "provider",
+  "display_name": "GitHub repository read provider",
+  "canonical_ref": "https://github.com/ai-org-labs/ai-organization-framework",
+  "source_system": "github",
+  "owner_ref": "runtime-team",
+  "source_of_truth": "GitHub repository metadata, releases, issues, pull requests, and Actions runs are external provider state for ai-org-labs/ai-organization-framework.",
+  "permission_boundary": "Read-only GitHub metadata access only; no issue, pull request, release, workflow, secret, or repository mutation is allowed.",
+  "freshness_boundary": "Provider read evidence must record observed_at and be refreshed before release sign-off if the release target changes.",
+  "availability_boundary": "GitHub and gh CLI authentication must be available for live reads; absence blocks live provider read claims.",
+  "approval_boundary": "Read access is allowed for this release proof; any write or credential expansion requires explicit human approval.",
+  "side_effect_boundary": "Read-only gh commands have no intended provider side effects.",
+  "allowed_operations": [
+    "read"
+  ],
+  "readiness_status": "ready",
+  "not_proven": "This resource record does not prove GitHub data semantic correctness, credential safety, billing safety, write safety, or production automation.",
+  "source_task_id": "TASK-133",
+  "source_parent_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null,
+  "notes": null
+}
