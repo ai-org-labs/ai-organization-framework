@@ -1,0 +1,65 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-TASK-134-V113",
+  "recorded_at": "2026-08-15T01:52:30.000Z",
+  "work_item_id": "TASK-134",
+  "work_item_ref": ".aof/tasks/done/TASK-134.json",
+  "pilot_status": "ready",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-134.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-134.json",
+  "lanes": [
+    {
+      "lane_id": "replay-contract",
+      "goal": "implement schema and audit command for validation replay",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        ".aof/tasks/done/TASK-134.json"
+      ],
+      "expected_output": "external validation replay artifacts",
+      "output_refs": [
+        "schemas/aof-external-validation-replay-record.schema.json",
+        "src/commands/external-validation-replay-audit.js"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json"
+      ],
+      "stop_condition": "stop if replay lacks provider-read linkage or permits external write authority",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "governance-boundary",
+      "goal": "verify partial/conflicting validation cannot be overclaimed",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json"
+      ],
+      "expected_output": "fail-closed validation replay regression",
+      "output_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-134-GUARDIAN.json"
+      ],
+      "stop_condition": "stop if conflicting validation can be accepted without escalation",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "ready",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "replay-contract",
+      "governance-boundary"
+    ],
+    "conflict_summary": "No unresolved lane conflict; both lanes preserve read-only provider integration and not-proven boundaries.",
+    "blocker_summary": "Blocked if release-state-audit fails or if v11.3 wording implies actual independent third-party validation.",
+    "merge_rationale": "Replay contract and governance boundary jointly support v11.3 as confidence-aware validation replay evidence.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-134-V113.json",
+  "not_proven": "Parallel lane evidence proves local release-readiness join only; it does not prove provider truth, independent validation, write safety, or market value.",
+  "source_task_id": "TASK-134",
+  "source_parent_session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

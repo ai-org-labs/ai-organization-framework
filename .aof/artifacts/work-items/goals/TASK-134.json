@@ -1,0 +1,62 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-15T01:50:30.000Z",
+  "work_item_id": "TASK-134",
+  "work_item_type": "release",
+  "objective": "Ship v11.3 External Validation Result Replay Audit.",
+  "reason_for_work": "v11.2 can govern provider reads, but external validation results still need to be replayed into confidence and governance routing.",
+  "expected_output": [
+    "external validation replay schema",
+    "external validation replay audit command",
+    "v11.3 release docs",
+    "product value evidence",
+    "capability delta evidence",
+    "release-state audit evidence"
+  ],
+  "consumer": [
+    "AOF operators",
+    "release council",
+    "external reviewers"
+  ],
+  "downstream_dependency": [
+    "release-state-audit",
+    "provider read confidence",
+    "Mission Control"
+  ],
+  "success_criteria": [
+    "external-validation-replay-audit passes",
+    "conflicting validation fail-closed regression exists",
+    "release-state-audit includes external-validation-replay-audit",
+    "product value and capability delta evidence exist"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "external-validation-replay-audit passes",
+      "capability-first-release-audit passes",
+      "product-value-evidence-audit passes",
+      "release-state-audit passes"
+    ],
+    "no_go": [
+      "conflicting validation can be silently accepted",
+      "provider-read evidence linkage is missing",
+      "v11.3 implies actual independent third-party validation"
+    ]
+  },
+  "required_visualization": [
+    "evidence-coverage-map",
+    "readiness-checklist"
+  ],
+  "required_skills": [
+    "skill-benchmark-validation",
+    "skill-schema-review"
+  ],
+  "required_actor_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "council_review_need": "required",
+  "source_task_id": "TASK-134",
+  "source_parent_session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "source_decision_record_id": null
+}

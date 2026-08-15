@@ -8,7 +8,7 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 ## Status
 
 この repo は、AOF の spec と local runtime prototype をまとめた repo である。  
-現在の stable release は `v11.2.0` である。
+現在の stable release は `v11.3.0` である。
 この release で、self-hosting runtime は次の状態に到達した。
 
 - External Provider Integration Pilot Selection を release-state governance surface として扱えること
@@ -30,6 +30,8 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - v11.1 は bounded reproduction drill proof であり、広範な外部採用、market value、semantic truth、production safety、real third-party comprehension の証明ではないと明示できること
 - Provider Read Integration Proof により、実GitHub provider read を adapter/resource 契約、観測output、no-write境界、判断、証拠、not-proven として runtime に保存・監査できること
 - v11.2 は governed read-only integration proof であり、GitHub書き込み、live automation、production safety、credential safety、provider semantic truth、market value の証明ではないと明示できること
+- External Validation Result Replay Audit により、外部validation結果を provider-read evidence へ接続し、confidence before/after、replay steps、governance route、no-write境界、not-proven を監査できること
+- v11.3 は validation replay audit proof であり、provider semantic truth、actual independent third-party validation、GitHub write safety、credential safety、production automation safety、market value、broad adoption の証明ではないと明示できること
 - Provider Execution Cost and Quota Boundary を release-state governance gate として扱えること
 - `provider-cost-quota-boundary-record` によって controlled execution candidate / approval / incident recovery を provider scope、budget owner、budget period、cost ceiling、token/call/retry caps、rate limit、quota、billing、overage policy、stop conditions に束ねられること
 - `provider-cost-quota-boundary-audit` によって cost/quota refs、positive budget limits、quota/rate-limit boundary、billing boundary、runtime provenance、hidden execution permission の欠落を検査できること
@@ -207,9 +209,9 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - public runtime readiness: [docs/v6.0-public-runtime-readiness.md](docs/v6.0-public-runtime-readiness.md)
 - Work Governance integration plan: [docs/v6.1-work-governance-integration-plan.md](docs/v6.1-work-governance-integration-plan.md)
 - Work Governance examples: [docs/v6.1-work-governance-examples.md](docs/v6.1-work-governance-examples.md)
-- current release definition: [docs/v11.2-release-definition.md](docs/v11.2-release-definition.md)
-- current release checklist: [docs/v11.2-release-checklist.md](docs/v11.2-release-checklist.md)
-- current release notes: [docs/v11.2.0-release-notes.md](docs/v11.2.0-release-notes.md)
+- current release definition: [docs/v11.3-release-definition.md](docs/v11.3-release-definition.md)
+- current release checklist: [docs/v11.3-release-checklist.md](docs/v11.3-release-checklist.md)
+- current release notes: [docs/v11.3.0-release-notes.md](docs/v11.3.0-release-notes.md)
 - actor skill packet contract: [docs/v5-actor-skill-packet-contract.md](docs/v5-actor-skill-packet-contract.md)
 - current roadmap: [docs/vnext-roadmap.md](docs/vnext-roadmap.md)
 - v6.7 → v8.0 completion roadmap: [docs/v6.7-v8.0-completion-roadmap.md](docs/v6.7-v8.0-completion-roadmap.md)

@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-08-14T01:52:54.518Z",
+  "as_of": "2026-08-15T01:57:32.543Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it.",
+  "current_goal": "v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it.",
+  "next_checkpoint": "v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

@@ -1,0 +1,71 @@
+{
+  "artifact_type": "external-validation-replay-record",
+  "replay_id": "EVR-TASK-134-V113-GITHUB-READ",
+  "recorded_at": "2026-08-15T01:45:00.000Z",
+  "provider_read_integration_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+  "external_validation_result": {
+    "validator": "AOF self-hosting external-read reviewer",
+    "source": "v11.2 release and CI replay after GitHub read integration",
+    "result": "partial",
+    "summary": "The v11.2 GitHub provider read chain is reproducible as read-only evidence, but it remains supporting evidence only and must not be treated as semantic truth or write safety.",
+    "observed_at": "2026-08-15T01:45:00.000Z"
+  },
+  "confidence_before": {
+    "level": "medium",
+    "score": 0.62,
+    "basis": "provider-read-integration-audit passed and v11.2 release CI succeeded, but the external validation result had not yet been replayed into a confidence decision."
+  },
+  "confidence_after": {
+    "level": "medium",
+    "score": 0.72,
+    "basis": "The external validation result supports the read-only evidence chain while keeping freshness, semantic truth, write safety, and adoption limits explicit."
+  },
+  "confidence_delta": {
+    "direction": "increased",
+    "score_delta": 0.1,
+    "rationale": "Replay increases confidence that the provider-read chain is inspectable and bounded, without upgrading it to semantic truth or production safety."
+  },
+  "replay_steps": [
+    {
+      "step": "Replay provider read integration evidence",
+      "input_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "observation": "Provider, repository, adapter, resource, observed objects, decision, no-write boundary, and not-proven boundary are present.",
+      "confidence_effect": "Supports the structural and runtime confidence of the v11.2 provider read chain."
+    },
+    {
+      "step": "Replay provider read audit result",
+      "input_ref": ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+      "observation": "Audit verifies read-only command classification, observed provider outputs, resolvable evidence refs, and no external writes.",
+      "confidence_effect": "Supports confidence that the chain is governed and not merely an ad hoc observation."
+    },
+    {
+      "step": "Replay release and CI evidence",
+      "input_ref": "docs/v11.2.0-release-notes.md",
+      "observation": "Release evidence documents the provider-read capability and its explicit not-proven boundaries.",
+      "confidence_effect": "Prevents the validation result from being overclaimed as provider truth, write safety, or adoption proof."
+    }
+  ],
+  "governance_route": {
+    "uncertainty_escalated": false,
+    "route": "accept_as_supporting_evidence",
+    "reason": "The result is partial but non-conflicting; it strengthens the provider-read confidence chain while preserving all not-proven boundaries.",
+    "next_action": "Release v11.3 as a replay audit that accepts external validation results only as bounded supporting evidence unless stronger independent validation exists."
+  },
+  "selected_decision": {
+    "decision": "accept",
+    "rationale": "The external validation replay is coherent, references the v11.2 provider read chain, updates confidence explicitly, and does not authorize writes.",
+    "next_action": "Run external-validation-replay-audit and include it in release-state-audit for v11.3."
+  },
+  "external_write_attempted": false,
+  "external_write_authorized": false,
+  "evidence_refs": [
+    ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+    ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+    "docs/v11.2.0-release-notes.md",
+    ".aof/tasks/done/TASK-134.json"
+  ],
+  "not_proven": "This replay does not prove provider semantic truth, credential safety, GitHub write safety, production automation safety, market value, broad adoption, or independent third-party validation.",
+  "source_task_id": "TASK-134",
+  "source_parent_session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "notes": "v11.3 accepts external validation results as confidence-changing evidence only; conflicting or weak results must route to governance."
+}

@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-external-validation-replay-record.schema.json",
+  "title": "AOF External Validation Replay Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "replay_id",
+    "recorded_at",
+    "provider_read_integration_ref",
+    "external_validation_result",
+    "confidence_before",
+    "confidence_after",
+    "confidence_delta",
+    "replay_steps",
+    "governance_route",
+    "selected_decision",
+    "external_write_attempted",
+    "external_write_authorized",
+    "evidence_refs",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "external-validation-replay-record" },
+    "replay_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "provider_read_integration_ref": { "type": "string", "minLength": 1 },
+    "external_validation_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validator", "source", "result", "summary"],
+      "properties": {
+        "validator": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "minLength": 1 },
+        "result": { "type": "string", "enum": ["pass", "partial", "fail", "conflicting", "context_mismatch", "unknown"] },
+        "summary": { "type": "string", "minLength": 1 },
+        "observed_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "confidence_before": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "score", "basis"],
+      "properties": {
+        "level": { "type": "string", "enum": ["low", "medium", "high", "blocked"] },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "basis": { "type": "string", "minLength": 1 }
+      }
+    },
+    "confidence_after": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "score", "basis"],
+      "properties": {
+        "level": { "type": "string", "enum": ["low", "medium", "high", "blocked"] },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "basis": { "type": "string", "minLength": 1 }
+      }
+    },
+    "confidence_delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["direction", "rationale"],
+      "properties": {
+        "direction": { "type": "string", "enum": ["increased", "unchanged", "decreased", "blocked"] },
+        "score_delta": { "type": "number", "minimum": -1, "maximum": 1 },
+        "rationale": { "type": "string", "minLength": 1 }
+      }
+    },
+    "replay_steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step", "input_ref", "observation", "confidence_effect"],
+        "properties": {
+          "step": { "type": "string", "minLength": 1 },
+          "input_ref": { "type": "string", "minLength": 1 },
+          "observation": { "type": "string", "minLength": 1 },
+          "confidence_effect": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "governance_route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uncertainty_escalated", "route", "reason", "next_action"],
+      "properties": {
+        "uncertainty_escalated": { "type": "boolean" },
+        "route": { "type": "string", "enum": ["accept_as_supporting_evidence", "council_review", "request_more_evidence", "block_release_claim", "defer"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "next_action": { "type": "string", "minLength": 1 }
+      }
+    },
+    "selected_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "rationale", "next_action"],
+      "properties": {
+        "decision": { "type": "string", "enum": ["accept", "review", "request_evidence", "block", "defer"] },
+        "rationale": { "type": "string", "minLength": 1 },
+        "next_action": { "type": "string", "minLength": 1 }
+      }
+    },
+    "external_write_attempted": { "const": false },
+    "external_write_authorized": { "const": false },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "notes": { "type": ["string", "null"] }
+  }
+}

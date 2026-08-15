@@ -1,6 +1,6 @@
 {
   "goal_type": "operating-goal",
-  "content": "After v11.2, prepare v11.3 External Validation Result Replay Audit while preserving the read-only/no-write provider boundary and external operator reproduction discipline.",
+  "content": "After v11.3, prepare v11.4 Agent Session Contract and Tool Governance Evidence while preserving validation replay, provider-read no-write boundaries, and external operator reproduction discipline.",
   "updated_at": "2026-08-14T01:48:00.000Z",
   "agreed_with_human": true,
   "source_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",

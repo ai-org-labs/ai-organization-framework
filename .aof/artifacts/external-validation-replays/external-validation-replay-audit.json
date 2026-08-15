@@ -1,0 +1,387 @@
+{
+  "ok": true,
+  "artifact_type": "external-validation-replay-audit",
+  "generated_at": "2026-08-15T01:43:44.909Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "replay_count": 1,
+    "governance_escalation_count": 0,
+    "accepted_supporting_evidence_count": 1,
+    "external_write_attempt_count": 0,
+    "external_write_authorized_count": 0,
+    "failing_check_count": 0
+  },
+  "replays": [
+    {
+      "replay_id": "EVR-TASK-134-V113-GITHUB-READ",
+      "validation_result": "partial",
+      "confidence_delta": "increased",
+      "governance_route": "accept_as_supporting_evidence",
+      "decision": "accept",
+      "artifact_ref": ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "external validation replay presence",
+      "status": "pass",
+      "detail": "1 replay(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ provider read integration ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.2.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-134.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ replay step input ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ replay step explains confidence effect",
+      "status": "pass",
+      "detail": "Replay provider read integration evidence",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ replay step input ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ replay step explains confidence effect",
+      "status": "pass",
+      "detail": "Replay provider read audit result",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ replay step input ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.2.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ replay step explains confidence effect",
+      "status": "pass",
+      "detail": "Replay release and CI evidence",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ provider read integration is known",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ external validation source present",
+      "status": "pass",
+      "detail": "AOF self-hosting external-read reviewer: v11.2 release and CI replay after GitHub read integration",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ confidence basis present",
+      "status": "pass",
+      "detail": "before/after/delta basis required",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ confidence scores are bounded",
+      "status": "pass",
+      "detail": "before=0.62, after=0.72",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ governance route has next action",
+      "status": "pass",
+      "detail": "accept_as_supporting_evidence",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ weak or conflicting validation escalates",
+      "status": "pass",
+      "detail": "result=partial, uncertainty_escalated=false",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ weak or conflicting validation is not blindly accepted",
+      "status": "pass",
+      "detail": "result=partial, route=accept_as_supporting_evidence",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ no external write attempted",
+      "status": "pass",
+      "detail": "external_write_attempted=false",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ no external write authorized",
+      "status": "pass",
+      "detail": "external_write_authorized=false",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ not-proven boundary present",
+      "status": "pass",
+      "detail": "This replay does not prove provider semantic truth, credential safety, GitHub write safety, production automation safety, market value, broad adoption, or independent third-party validation.",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    },
+    {
+      "name": "EVR-TASK-134-V113-GITHUB-READ provenance present",
+      "status": "pass",
+      "detail": "source_task_id=TASK-134, source_parent_session_id=SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+      "evidence_refs": [
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md",
+        ".aof/tasks/done/TASK-134.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.2.0-release-notes.md"
+      ]
+    }
+  ],
+  "errors": []
+}

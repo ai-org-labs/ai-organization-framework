@@ -43,6 +43,10 @@ function pushCheck(checks, errors, name, condition, detail) {
   }
 }
 
+function isExternalRef(ref) {
+  return /^https?:\/\//i.test(String(ref ?? ""));
+}
+
 async function validatePayload(payload, schemaFileName, label) {
   const schema = await loadBundledSchema(schemaFileName);
   validateAgainstSchema(payload, schema, label);
@@ -285,6 +289,10 @@ export async function capabilityCoverageAuditCommand(options) {
       for (const fit of packet.payload.capability_fit ?? []) {
         const nonBlockingFit = !["missing", "blocked"].includes(fit.fit_state);
         pushCheck(checks, errors, `${task.task_id} capability fit has non-blocking evidence: ${fit.capability_ref}`, nonBlockingFit && (fit.evidence_refs ?? []).length > 0, `fit_state=${fit.fit_state}, evidence_refs=${fit.evidence_refs?.length ?? 0}`);
+        for (const evidenceRef of fit.evidence_refs ?? []) {
+          const resolved = isExternalRef(evidenceRef) || await pathExists(path.resolve(projectRoot, evidenceRef));
+          pushCheck(checks, errors, `${task.task_id} capability fit evidence resolves: ${fit.capability_ref}`, resolved, evidenceRef);
+        }
       }
     }
 

@@ -9,7 +9,7 @@
       "description": "AOF can link work, requirements, sessions, decisions, evidence, and release readiness into an auditable chain.",
       "user_value": "Users can reconstruct why work exists and what evidence supports it without reading every raw artifact.",
       "first_version": "v7.0.0",
-      "status": "available",
+      "status": "improved",
       "evidence_refs": [
         "docs/v7.0.0-release-notes.md"
       ]
@@ -392,7 +392,25 @@
         "docs/v11.2-release-definition.md",
         "docs/v11.2.0-release-notes.md",
         ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
-        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+        ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json",
+        "docs/v11.3-release-definition.md",
+        "docs/v11.3.0-release-notes.md",
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json"
+      ]
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-VALIDATION-REPLAY",
+      "name": "External Validation Replay",
+      "description": "AOF can represent an external validation result, replay it against provider-read evidence, update confidence before/after, and route uncertainty into governance.",
+      "user_value": "Operators can see whether validation strengthened, weakened, blocked, or escalated a provider-read claim instead of trusting a prose summary.",
+      "first_version": "v11.3.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.3-release-definition.md",
+        "docs/v11.3.0-release-notes.md",
+        ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+        ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json"
       ]
     }
   ]

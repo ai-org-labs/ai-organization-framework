@@ -1,0 +1,45 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-08-14T01:42:50.000Z",
+  "review_packet_id": "CREV-TASK-134-V113",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v11.3 External Validation Result Replay Audit as a bounded real GitHub read integration with explicit no-write boundary.",
+  "rationale": "Visionary, Builder, and Guardian agree that v11.3 advances AOF by making external provider validation replays first-class runtime evidence while refusing to imply write authority, production safety, or provider truth.",
+  "recommendation": "Proceed to release verification and tag v11.3.0 if release-state-audit, organization-verify, npm test, and smoke are green.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "Understand what provider was read, what data was observed, what boundary was enforced, and why the release can proceed.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": "external-validation-replay-release-framing",
+  "diagnosis_confidence": 0.86,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-134-GUARDIAN.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-134-VALIDATION-REPLAY.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-134-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-134-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-134-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v11.3-release-definition.md",
+    "docs/v11.3-release-checklist.md",
+    "docs/v11.3.0-release-notes.md",
+    ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+    ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-134-V113.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-134-V113.json",
+    ".aof/artifacts/release-state/release-state-audit.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-134",
+  "source_parent_session_id": "SESS-V113-VALIDATION-REPLAY-INTEGRATION",
+  "source_decision_record_id": null
+}

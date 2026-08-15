@@ -24,7 +24,7 @@
       "evidence_refs": [
         "docs/v10.8-release-definition.md",
         "docs/v10.8-release-checklist.md",
-        ".aof/tasks/open/TASK-129.json"
+        ".aof/tasks/done/TASK-129.json"
       ],
       "rationale": "child Visionary output judged v10.8 as the correct product and organization-truth fix"
     }

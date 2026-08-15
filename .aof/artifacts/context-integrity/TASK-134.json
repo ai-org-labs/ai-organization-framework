@@ -1,0 +1,32 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-134-V113",
+  "recorded_at": "2026-08-15T01:49:30.000Z",
+  "work_item_id": "TASK-134",
+  "work_item_ref": ".aof/tasks/done/TASK-134.json",
+  "session_ref": ".aof/tasks/done/TASK-134.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-items/goals/TASK-134.json"
+  ],
+  "declared_context_refs": [
+    "docs/vnext-roadmap.md",
+    "docs/vnext-release-plan.md",
+    ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json"
+  ],
+  "required_context_refs": [
+    "src/commands/external-validation-replay-audit.js",
+    "schemas/aof-external-validation-replay-record.schema.json",
+    "schemas/aof-external-validation-replay-audit.schema.json",
+    ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+    ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-134-V113.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-134-V113.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or external validation quality.",
+  "source_task_id": "TASK-134",
+  "source_parent_session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "source_decision_record_id": null
+}

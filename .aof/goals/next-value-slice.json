@@ -1,6 +1,6 @@
 {
   "goal_type": "next-value-slice",
-  "content": "v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it.",
+  "content": "v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority.",
   "updated_at": "2026-08-14T01:48:00.000Z",
   "agreed_with_human": true,
   "source_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",

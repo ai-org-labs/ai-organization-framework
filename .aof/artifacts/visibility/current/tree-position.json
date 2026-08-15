@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-14T01:52:54.523Z",
+  "generated_at": "2026-08-15T01:57:32.547Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "11.2.0",
-    "active_release_track": "v11.2",
-    "release_definition_ref": "docs/v11.2-release-definition.md"
+    "active_release_version": "11.3.0",
+    "active_release_track": "v11.3",
+    "release_definition_ref": "docs/v11.3-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it."
+    "branch_summary": "v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v11.2",
+      "label": "v11.3",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v11.2 and the next concrete branch.",
-    "why_this_branch": "After v11.2, prepare v11.3 External Validation Result Replay Audit while preserving the read-only/no-write provider boundary and external operator reproduction discipline.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: v11.3 should prove external validation result replay: AOF can represent an external validation result, replay how it changes provider-read confidence, and route uncertainty into governance instead of hiding it."
+    "where_are_we": "The runtime is between v11.3 and the next concrete branch.",
+    "why_this_branch": "After v11.3, prepare v11.4 Agent Session Contract and Tool Governance Evidence while preserving validation replay, provider-read no-write boundaries, and external operator reproduction discipline.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority."
   }
 }

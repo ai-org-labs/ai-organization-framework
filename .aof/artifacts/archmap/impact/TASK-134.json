@@ -1,0 +1,31 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-134-V113",
+  "work_item_ref": ".aof/tasks/done/TASK-134.json",
+  "work_item_id": "TASK-134",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "external-validation-replay",
+    "provider-read-confidence",
+    "governance-routing",
+    "release-state-audit"
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "deferred_with_reason",
+  "evidence_refs": [
+    "src/commands/external-validation-replay-audit.js",
+    "schemas/aof-external-validation-replay-record.schema.json",
+    "schemas/aof-external-validation-replay-audit.schema.json",
+    ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+    ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json"
+  ],
+  "recorded_at": "2026-08-15T01:49:30.000Z",
+  "updated_at": "2026-08-15T01:49:30.000Z",
+  "source_task_id": "TASK-134",
+  "source_parent_session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "session_ref": ".aof/tasks/done/TASK-134.json",
+  "not_proven": "Archmap impact is a projection surface and does not prove rendered UX quality or semantic truth."
+}

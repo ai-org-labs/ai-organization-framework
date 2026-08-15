@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-134",
+  "title": "v11.3 proof: external validation result replay audit",
+  "description": "Prove AOF can ingest an external validation result, replay how it changes provider-read confidence, keep the no-write boundary, and route uncertainty into governance instead of hiding it.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "assigned_session_ids": [
+    "SESS-V113-EXTERNAL-VALIDATION-REPLAY"
+  ],
+  "related_decision_record_id": null,
+  "operating_goal_ref": ".aof/goals/operating-goal.json",
+  "created_at": "2026-08-15T01:34:48.345Z",
+  "updated_at": "2026-08-15T01:39:50.159Z",
+  "assigned_at": null,
+  "done_at": "2026-08-15T01:39:50.159Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v11.3 external validation result replay audit implementation, evidence, tests, and release docs."
+}

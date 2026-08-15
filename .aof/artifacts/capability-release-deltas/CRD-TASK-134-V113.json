@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-134-V113",
+  "recorded_at": "2026-08-15T01:48:30.000Z",
+  "release_version": "11.3.0",
+  "release_ref": "docs/v11.3-release-definition.md",
+  "work_item_id": "TASK-134",
+  "work_item_ref": ".aof/tasks/done/TASK-134.json",
+  "one_minute_value_explanation": "AOF can now take a validation result about a provider-read chain, replay the evidence path, update confidence explicitly, and route uncertainty to governance instead of hiding it.",
+  "thirty_second_version_delta": "v11.2 made a GitHub provider read governed and auditable; v11.3 makes external validation of that read replayable and confidence-aware.",
+  "new_capability_ids": [
+    "PCAP-EXTERNAL-VALIDATION-REPLAY"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-READ-INTEGRATION-PROOF"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-134-V113.json"
+  ],
+  "product_review_trigger": "If the operator still cannot tell whether external validation strengthened, weakened, blocked, or escalated a provider-read claim, reopen validation replay recognition design.",
+  "not_proven": "This does not prove provider semantic truth, actual independent third-party validation, GitHub write safety, credential safety, production automation, market value, productivity gain, or broad adoption.",
+  "source_task_id": "TASK-134",
+  "source_parent_session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

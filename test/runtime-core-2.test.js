@@ -48,6 +48,7 @@ import { providerControlledExecutionCandidateRecordCommand } from "../src/comman
 import { providerCostQuotaBoundaryAuditCommand } from "../src/commands/provider-cost-quota-boundary-audit.js";
 import { providerCostQuotaBoundaryRecordCommand } from "../src/commands/provider-cost-quota-boundary-record.js";
 import { externalOperatorReproductionAuditCommand } from "../src/commands/external-operator-reproduction-audit.js";
+import { externalValidationReplayAuditCommand } from "../src/commands/external-validation-replay-audit.js";
 import { githubReadonlyObservationAuditCommand } from "../src/commands/github-readonly-observation-audit.js";
 import { providerReadIntegrationAuditCommand } from "../src/commands/provider-read-integration-audit.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
@@ -241,6 +242,13 @@ async function markCapabilityCoverageTaskDone(projectRoot, taskId) {
 }
 
 async function writeSelectedActorChain(projectRoot, taskId, roleRef, skillRef) {
+  const evidenceRef = `.aof/artifacts/capability-coverage/${taskId}-${roleRef}-evidence.json`;
+  await writeJsonFixture(path.join(projectRoot, evidenceRef), {
+    artifact_type: "capability-coverage-test-evidence",
+    task_id: taskId,
+    role_ref: roleRef,
+    skill_ref: skillRef
+  });
   const packet = await actorSkillPacketRecordCommand({
     project: projectRoot,
     packetId: `ASP-${taskId}-${roleRef}`,
@@ -254,7 +262,7 @@ async function writeSelectedActorChain(projectRoot, taskId, roleRef, skillRef) {
     capabilityFit: [{
       capability_ref: skillRef === "skill-schema-review" ? "cap-schema-review" : "cap-runtime-verification",
       fit_state: "sufficient",
-      evidence_refs: ["test/runtime-core-2.test.js"],
+      evidence_refs: [evidenceRef],
       rationale: "Test fixture supplies explicit capability evidence."
     }],
     resourceRefs: [],
@@ -3391,6 +3399,104 @@ test("providerReadIntegrationAuditCommand blocks hidden external write authority
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("no external write authorized")));
   assert.equal(audit.summary.summary.external_write_authorized_count, 1);
+});
+
+async function writeExternalValidationReplayFixture(projectRoot, overrides = {}) {
+  await writeProviderReadIntegrationFixture(projectRoot);
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "external-validation-replays"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "external-validation-replays", "EVR-TEST.json"), {
+    artifact_type: "external-validation-replay-record",
+    replay_id: "EVR-TEST",
+    recorded_at: "2026-08-15T00:00:00.000Z",
+    provider_read_integration_ref: ".aof/artifacts/provider-read-integrations/PRI-TEST.json",
+    external_validation_result: {
+      validator: "external operator",
+      source: "manual replay drill",
+      result: "partial",
+      summary: "The provider read was reproducible, but the latest release freshness was stale.",
+      observed_at: "2026-08-15T00:00:00.000Z"
+    },
+    confidence_before: {
+      level: "medium",
+      score: 0.62,
+      basis: "Provider read integration audit passed before external replay."
+    },
+    confidence_after: {
+      level: "medium",
+      score: 0.7,
+      basis: "External replay supports read structure but keeps freshness uncertainty visible."
+    },
+    confidence_delta: {
+      direction: "increased",
+      score_delta: 0.08,
+      rationale: "Independent replay increased structural confidence without proving semantic truth."
+    },
+    replay_steps: [
+      {
+        step: "Load provider read integration",
+        input_ref: ".aof/artifacts/provider-read-integrations/PRI-TEST.json",
+        observation: "The provider, adapter, observed objects, and no-write boundary are present.",
+        confidence_effect: "Supports the provider-read chain."
+      },
+      {
+        step: "Compare external validation result",
+        input_ref: "docs/provider-read.md",
+        observation: "The external operator replayed the chain but found freshness uncertainty.",
+        confidence_effect: "Requires governance to keep freshness uncertainty explicit."
+      }
+    ],
+    governance_route: {
+      uncertainty_escalated: false,
+      route: "accept_as_supporting_evidence",
+      reason: "Partial result supports the structure and does not conflict with the provider-read boundary.",
+      next_action: "Keep result as supporting evidence and refresh provider data before later release claims."
+    },
+    selected_decision: {
+      decision: "accept",
+      rationale: "The external validation replay is supporting evidence only.",
+      next_action: "Use the replay audit as v11.3 evidence."
+    },
+    external_write_attempted: false,
+    external_write_authorized: false,
+    evidence_refs: [
+      ".aof/artifacts/provider-read-integrations/PRI-TEST.json",
+      "docs/provider-read.md"
+    ],
+    not_proven: "This replay does not prove provider semantic truth, production automation, market value, or broad adoption.",
+    source_task_id: "TASK-001",
+    source_parent_session_id: "SESS-EXTERNAL-VALIDATION-REPLAY",
+    notes: null,
+    ...overrides
+  });
+}
+
+test("externalValidationReplayAuditCommand verifies replayed validation updates provider-read confidence", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeExternalValidationReplayFixture(projectRoot);
+
+  const audit = await externalValidationReplayAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.replay_count, 1);
+  assert.equal(audit.summary.summary.accepted_supporting_evidence_count, 1);
+  assert.equal(audit.summary.summary.external_write_authorized_count, 0);
+});
+
+test("externalValidationReplayAuditCommand escalates conflicting validation results", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeExternalValidationReplayFixture(projectRoot, {
+    external_validation_result: {
+      validator: "external operator",
+      source: "manual replay drill",
+      result: "conflicting",
+      summary: "The external replay contradicts the provider-read confidence claim.",
+      observed_at: "2026-08-15T00:00:00.000Z"
+    }
+  });
+
+  const audit = await externalValidationReplayAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("weak or conflicting validation escalates")));
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("weak or conflicting validation is not blindly accepted")));
 });
 
 test("providerAdapterPilot commands write dry-run pilot evidence and audit pass", async (t) => {

@@ -23,7 +23,7 @@
       "fit_state": "sufficient",
       "evidence_refs": [
         "test/runtime-core-2.test.js",
-        "docs/v10.7.1-release-definition.md"
+        "docs/v10.7-release-definition.md"
       ],
       "rationale": "Self-hosting evidence links runtime implementation, tests, and release contract."
     }

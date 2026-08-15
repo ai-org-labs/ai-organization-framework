@@ -191,3 +191,15 @@ NEW: `PCAP-PROVIDER-READ-INTEGRATION-PROOF` lets AOF represent a real external p
 | External Operator Reproduction Proof | five-minute replay path | still available | The human can still replay the decision. |
 | Provider Read Integration Proof | - | NEW | Operator can inspect the provider, adapter, read output, no-write boundary, and decision in one audited record. |
 | GitHub Read-Only Observation Proof | observation packet | governed integration record | GitHub read is now a runtime integration with release-state audit coverage. |
+
+## v11.3 Capability Delta
+
+NEW: `PCAP-EXTERNAL-VALIDATION-REPLAY` lets AOF replay external validation results against provider-read evidence and route uncertainty into governance.
+
+30-second delta: v11.2 made the upstream GitHub read a governed integration. v11.3 makes external validation of that read confidence-aware and auditable.
+
+| Capability | v11.2.0 | v11.3.0 | User-visible change |
+|---|---|---|---|
+| Provider Read Integration Proof | governed provider read | improved with validation replay | Provider-read confidence can now be strengthened or challenged by replayed validation results. |
+| External Validation Replay | - | NEW | Operator can inspect validation result, confidence before/after, governance route, and no-write boundary. |
+| Release-State Governance | provider-read audit gate | validation replay audit gate added | Green release now checks validation replay evidence and fail-closed uncertainty routing. |

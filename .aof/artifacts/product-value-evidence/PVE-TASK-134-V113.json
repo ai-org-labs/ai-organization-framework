@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-134-V113",
+  "recorded_at": "2026-08-15T01:48:00.000Z",
+  "release_ref": "docs/v11.3-release-definition.md",
+  "work_item_id": "TASK-134",
+  "work_item_ref": ".aof/tasks/done/TASK-134.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "AOF can replay an external validation result against provider-read evidence and show whether confidence increased, decreased, stayed unchanged, or must be escalated.",
+  "before_state": "External validation results could be mentioned in release notes, but AOF did not audit how the result changed provider-read confidence.",
+  "after_state": "AOF records validation result, confidence before/after, replay steps, governance route, no-write boundary, and not-proven limits in one audit chain.",
+  "scenario": "A reviewer says the v11.2 GitHub read is only partially validated; inspect the replay record and audit to see how AOF treats that result without overclaiming it.",
+  "five_minute_demo": "Open TASK-134-external-validation-replay.json and external-validation-replay-audit.json; confirm validation result, confidence delta, governance route, and zero write authority.",
+  "time_saved_or_work_reduced": "Removes manual argument about whether a validation result supports, blocks, or weakens the provider-read claim.",
+  "cognitive_load_removed": "The operator no longer has to infer whether partial or conflicting validation was hidden; the route is explicit.",
+  "capability_matrix": [
+    {
+      "capability": "External Validation Replay",
+      "before": "validation result was prose-only or release-note-only evidence",
+      "after": "validation result is replayed into confidence and governance routing",
+      "user_value": "operator can see what changed in confidence and whether uncertainty was escalated"
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+    ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "This does not prove provider semantic truth, actual independent third-party validation, GitHub write safety, credential safety, production automation, market value, productivity gain, or broad adoption.",
+  "source_task_id": "TASK-134",
+  "source_parent_session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

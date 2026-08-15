@@ -1,0 +1,36 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-134-V113",
+  "recorded_at": "2026-08-15T01:49:00.000Z",
+  "work_item_id": "TASK-134",
+  "work_item_ref": ".aof/tasks/done/TASK-134.json",
+  "readiness_status": "ready",
+  "goal": "Release v11.3 as external validation result replay audit.",
+  "risk": "AOF may treat external validation as a prose claim, or silently accept conflicting validation without governance escalation.",
+  "loss_boundary": "No v11.3 wording may claim provider semantic truth, actual independent third-party validation, GitHub write safety, credential safety, production automation, market value, or broad adoption.",
+  "acceptance_gates": [
+    "external-validation-replay-audit passes",
+    "conflicting validation replay fails closed in tests",
+    "release-state-audit includes external-validation-replay-audit",
+    "product value and capability delta evidence exist"
+  ],
+  "evidence_plan": [
+    "External validation replay record, replay audit, test coverage for pass and conflicting fail case, release docs, product value evidence, capability delta, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if conflicting validation can be accepted without escalation",
+    "Stop if replay lacks provider-read evidence linkage",
+    "Stop if any external write is attempted or authorized"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-134",
+  "source_parent_session_id": "SESS-V113-EXTERNAL-VALIDATION-REPLAY",
+  "source_decision_record_id": null
+}
