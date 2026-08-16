@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-135",
+  "title": "v11.4 proof: agent session contract and tool governance evidence",
+  "description": "Prove AOF can treat agent session prompts, responses, tool calls, task refs, requirement refs, test refs, risk candidates, and decision candidates as release-ready evidence only when tool authority and reference integrity are explicit.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+  "assigned_session_ids": [
+    "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE"
+  ],
+  "related_decision_record_id": null,
+  "operating_goal_ref": ".aof/goals/operating-goal.json",
+  "created_at": "2026-08-16T01:32:05.187Z",
+  "updated_at": "2026-08-16T01:39:56.756Z",
+  "assigned_at": null,
+  "done_at": "2026-08-16T01:39:56.756Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Completed v11.4 agent session contract and tool governance evidence implementation, release docs, tests, and runtime evidence."
+}

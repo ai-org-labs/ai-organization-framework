@@ -1,0 +1,20 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-14T01:43:10.000Z",
+  "packet_id": "ASP-TASK-135-GUARDIAN",
+  "source_task_id": "TASK-135",
+  "source_parent_session_id": "SESS-V114-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null,
+  "objective": "Verify v11.4 does not overclaim session contract as write safety or production automation.",
+  "assignment": {"actor_ref": "codex", "role_ref": "guardian", "team_ref": "verification-team", "assignment_reason": "Guardian owns boundary, no-write, and release gate validation.", "execution_mode": "single-actor"},
+  "required_skill_refs": ["skill-benchmark-validation"],
+  "capability_fit": [{"capability_ref": "cap-benchmark-validation", "fit_state": "sufficient", "evidence_refs": [".aof/artifacts/agent-session-contracts/agent-session-contract-audit.json", "test/runtime-core-2.test.js"], "rationale": "Guardian can verify fail-closed audit and overclaim boundaries."}],
+  "resource_refs": ["resource-repo-main"],
+  "policy_refs": ["policy-runtime-backed-answer-discipline"],
+  "expected_output_contract": {"artifact_type": "guardian-verification", "artifact_schema_ref": "docs/v11.4-release-checklist.md", "required_sections": ["Verification", "Boundary"], "acceptance_criteria": ["no write attempted", "not-proven boundary explicit"]},
+  "review_criteria": [{"criterion": "release does not overclaim", "evaluator_ref": "architecture-council", "evidence_required": "council-review", "blocking": true}],
+  "blocker_semantics": [],
+  "hri_projection": {"character_label": "Guardian", "speech_bubble": "I am checking that read integration does not become hidden write authority.", "current_action": "Verify no-write boundary", "confidence_label": "medium", "visible_blockers": [], "next_action": "Submit role result."},
+  "status": "completed"
+}

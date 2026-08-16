@@ -6,6 +6,7 @@ import path from "node:path";
 import test from "node:test";
 import { actorAssignmentEvaluationRecordCommand } from "../src/commands/actor-assignment-evaluation-record.js";
 import { actorExecutionGateRecordCommand } from "../src/commands/actor-execution-gate-record.js";
+import { agentSessionContractAuditCommand } from "../src/commands/agent-session-contract-audit.js";
 import { agentSessionRecordCommand } from "../src/commands/agent-session-record.js";
 import { actorSkillPacketRecordCommand } from "../src/commands/actor-skill-packet-record.js";
 import { answerCommand } from "../src/commands/answer.js";
@@ -1529,6 +1530,81 @@ test("sessionObservabilityAuditCommand fails weak streams and passes complete re
   const passing = await sessionObservabilityAuditCommand({ project: projectRoot });
   assert.equal(passing.ok, true);
   assert.equal(passing.summary.summary.stream_count, 1);
+});
+
+test("agentSessionContractAuditCommand verifies release-ready session tool governance", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeSessionObservabilityFixtures(projectRoot);
+  await fs.writeFile(path.join(projectRoot, "docs", "v11.4-release-definition.md"), "# v11.4\n");
+  await agentSessionRecordCommand({
+    ...completeAgentSessionOptions(projectRoot),
+    sessionId: "SESS-V114-TEST",
+    events: [
+      { event_type: "prompt", summary: "User requested v11.4 session contract evidence." },
+      { event_type: "response", summary: "Agent selected agent session contract and tool governance." },
+      { event_type: "tool_call", summary: "Ran release-state audit.", tool_name: "node ./src/cli.js release-state-audit", safety_level: "safe_read", approval_policy: "preapproved", artifact_refs: ["test/runtime-core-2.test.js"] },
+      { event_type: "tool_call", summary: "Updated project release files.", tool_name: "apply_patch", safety_level: "project_write", approval_policy: "approved_run_contract", artifact_refs: ["docs/v11.4-release-definition.md"] },
+      { event_type: "verification_result", summary: "Tests passed.", artifact_refs: ["test/runtime-core-2.test.js"] },
+      { event_type: "risk_candidate", summary: "Tool calls can be mistaken for permission without explicit approval policy." },
+      { event_type: "decision_candidate", summary: "Promote governed session logs to release-state evidence." },
+      { event_type: "stop_condition", summary: "Stop after audit, tests, and release-state pass." }
+    ],
+    taskRefs: [".aof/tasks/open/TASK-001.json"],
+    requirementRefs: ["docs/v11.4-release-definition.md"],
+    testEvidenceRefs: ["test/runtime-core-2.test.js"],
+    artifactRefs: ["schemas/aof-agent-session-record.schema.json"],
+    riskCandidates: ["Tool calls can be mistaken for permission without explicit approval policy."],
+    decisionCandidates: ["Promote governed session logs to release-state evidence."],
+    releaseReadyClaim: "Agent session contract has governed tool-call evidence.",
+    releaseReadyEvidenceRefs: ["docs/v11.4-release-definition.md", "test/runtime-core-2.test.js"],
+    releaseReadyVerdict: "runtime_ready",
+    sourceTaskId: "TASK-135",
+    sourceParentSessionId: "SESS-V114-TEST",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "agent-sessions", "SESS-V114-TEST.json")
+  });
+
+  const result = await agentSessionContractAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-135" });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.summary.summary.session_count, 1);
+  assert.equal(result.summary.summary.tool_call_count, 2);
+  assert.equal(result.summary.summary.governed_tool_call_count, 2);
+});
+
+test("agentSessionContractAuditCommand rejects hidden external-write permission", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeSessionObservabilityFixtures(projectRoot);
+  await fs.writeFile(path.join(projectRoot, "docs", "v11.4-release-definition.md"), "# v11.4\n");
+  await agentSessionRecordCommand({
+    ...completeAgentSessionOptions(projectRoot),
+    sessionId: "SESS-V114-BAD-TOOL",
+    events: [
+      { event_type: "prompt", summary: "User requested a provider write." },
+      { event_type: "response", summary: "Agent attempted to treat the provider write as preapproved." },
+      { event_type: "tool_call", summary: "Tried provider write without human approval.", tool_name: "gh issue create", safety_level: "external_write", approval_policy: "preapproved" },
+      { event_type: "verification_result", summary: "No valid approval was present.", artifact_refs: ["test/runtime-core-2.test.js"] },
+      { event_type: "risk_candidate", summary: "External write permission is hidden." },
+      { event_type: "decision_candidate", summary: "Block release-ready session evidence." },
+      { event_type: "stop_condition", summary: "Stop because approval boundary failed." }
+    ],
+    taskRefs: [".aof/tasks/open/TASK-001.json"],
+    requirementRefs: ["docs/v11.4-release-definition.md"],
+    testEvidenceRefs: ["test/runtime-core-2.test.js"],
+    artifactRefs: ["schemas/aof-agent-session-record.schema.json"],
+    riskCandidates: ["External write permission is hidden."],
+    decisionCandidates: ["Block release-ready session evidence."],
+    releaseReadyClaim: "This should not be release-ready.",
+    releaseReadyEvidenceRefs: ["docs/v11.4-release-definition.md", "test/runtime-core-2.test.js"],
+    releaseReadyVerdict: "runtime_ready",
+    sourceTaskId: "TASK-135",
+    sourceParentSessionId: "SESS-V114-BAD-TOOL",
+    artifactPath: path.join(projectRoot, ".aof", "artifacts", "agent-sessions", "SESS-V114-BAD-TOOL.json")
+  });
+
+  const result = await agentSessionContractAuditCommand({ project: projectRoot, cutoffTaskId: "TASK-135" });
+
+  assert.equal(result.ok, false);
+  assert.ok(result.summary.errors.some((entry) => entry.includes("governed tool call")));
 });
 
 test("context integrity schemas require explicit not-proven and reference status boundaries", async () => {

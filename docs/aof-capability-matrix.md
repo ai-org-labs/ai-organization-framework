@@ -203,3 +203,15 @@ NEW: `PCAP-EXTERNAL-VALIDATION-REPLAY` lets AOF replay external validation resul
 | Provider Read Integration Proof | governed provider read | improved with validation replay | Provider-read confidence can now be strengthened or challenged by replayed validation results. |
 | External Validation Replay | - | NEW | Operator can inspect validation result, confidence before/after, governance route, and no-write boundary. |
 | Release-State Governance | provider-read audit gate | validation replay audit gate added | Green release now checks validation replay evidence and fail-closed uncertainty routing. |
+
+## v11.4 Capability Delta
+
+NEW: `PCAP-AGENT-SESSION-CONTRACT` lets AOF treat AI work sessions as release evidence only when tool authority and proof links are explicit.
+
+30-second delta: v11.3 made external validation replay confidence-aware. v11.4 makes the AI work session itself auditable: prompt, response, tool calls, tool safety, approval policy, task/requirement/test links, risks, decisions, and stop condition.
+
+| Capability | v11.3.0 | v11.4.0 | User-visible change |
+|---|---|---|---|
+| Agent Session Evidence | reconstructable session records existed | governed release-ready session contract | Operator can see whether the AI session is safe enough to count as release evidence. |
+| Tool Governance Evidence | scattered across command safety and approvals | checked in session contract audit | Hidden external-write permission fails closed. |
+| Release-State Governance | validation replay audit gate | agent-session contract audit gate added | Green release now checks AI work-session authority as part of release readiness. |

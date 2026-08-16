@@ -1,0 +1,144 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTR-MSV4WQS6-7SDAQE",
+  "recorded_at": "2026-08-16T01:36:53.142Z",
+  "session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+  "parent_session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+  "actor_ref": "codex",
+  "role_ref": "builder",
+  "provider": "codex-local",
+  "model": "gpt-5-codex",
+  "events": [
+    {
+      "event_id": "ASEV1-MSV4WQS6-TY6SOT",
+      "event_type": "prompt",
+      "occurred_at": "2026-08-16T01:36:53.142Z",
+      "summary": "Heartbeat required AOF to continue beyond v11.3 using latest runtime and AI development trend context.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-135.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV2-MSV4WQS6-VS7D97",
+      "event_type": "response",
+      "occurred_at": "2026-08-16T01:36:53.142Z",
+      "summary": "AOF selected v11.4 Agent Session Contract and Tool Governance Evidence as the next frontier.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md",
+        "docs/v11.4-release-definition.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV3-MSV4WQS6-1BAQ6P",
+      "event_type": "tool_call",
+      "occurred_at": "2026-08-16T01:36:53.142Z",
+      "summary": "Ran AOF visibility-export and roadmap inspection to establish the runtime-backed frontier.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/runtime-execution.json"
+      ],
+      "tool_name": "node ./src/cli.js visibility-export",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved_run_contract"
+    },
+    {
+      "event_id": "ASEV4-MSV4WQS6-XH6K94",
+      "event_type": "tool_call",
+      "occurred_at": "2026-08-16T01:36:53.142Z",
+      "summary": "Implemented local schema, command, tests, docs, and evidence artifacts for v11.4.",
+      "artifact_refs": [
+        "src/commands/agent-session-contract-audit.js",
+        "schemas/aof-agent-session-contract-audit.schema.json",
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": "apply_patch",
+      "safety_level": "project_write",
+      "approval_policy": "approved_run_contract"
+    },
+    {
+      "event_id": "ASEV5-MSV4WQS6-TLXCJB",
+      "event_type": "verification_result",
+      "occurred_at": "2026-08-16T01:36:53.142Z",
+      "summary": "Focused runtime-core-2 tests passed for agent session contract audit.",
+      "artifact_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV6-MSV4WQS6-QJKUWB",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-08-16T01:36:53.142Z",
+      "summary": "Agent session logs can be overclaimed if tool calls do not carry explicit safety level and approval policy.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV7-MSV4WQS6-080ELI",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-08-16T01:36:53.142Z",
+      "summary": "Require agent-session-contract-audit as a v11.4+ release-state gate.",
+      "artifact_refs": [],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "ASEV8-MSV4WQS6-Q881LR",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-08-16T01:36:53.142Z",
+      "summary": "Stop release if hidden external-write permission can pass as release-ready session evidence.",
+      "artifact_refs": [
+        "docs/v11.4-release-checklist.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-135.json"
+    ],
+    "requirement_refs": [
+      "docs/v11.4-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      "src/commands/agent-session-contract-audit.js",
+      "schemas/aof-agent-session-contract-audit.schema.json",
+      "docs/v11.4-release-definition.md"
+    ]
+  },
+  "risk_candidates": [
+    "Agent session logs can be overclaimed if tool calls do not carry explicit safety level and approval policy."
+  ],
+  "decision_candidates": [
+    "Require agent-session-contract-audit as a v11.4+ release-state gate."
+  ],
+  "release_ready_evidence": {
+    "claim": "Agent session contract and tool governance evidence is runtime-ready for v11.4 structural release gating.",
+    "evidence_refs": [
+      "docs/v11.4-release-definition.md",
+      "test/runtime-core-2.test.js"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-135",
+  "source_parent_session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+  "source_decision_record_id": null
+}

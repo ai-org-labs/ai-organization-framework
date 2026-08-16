@@ -412,6 +412,20 @@
         ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
         ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-AGENT-SESSION-CONTRACT",
+      "name": "Agent Session Contract and Tool Governance Evidence",
+      "description": "AOF can treat an agent session as release-ready evidence only when prompts, responses, tool calls, task links, requirement links, test evidence, risk candidates, decision candidates, stop conditions, and tool authority are explicit and auditable.",
+      "user_value": "Operators can see whether an AI work session is genuinely governed instead of trusting that tool calls happened safely.",
+      "first_version": "v11.4.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.4-release-definition.md",
+        "docs/v11.4.0-release-notes.md",
+        ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json",
+        ".aof/artifacts/agent-session-contracts/agent-session-contract-audit.json"
+      ]
     }
   ]
 }

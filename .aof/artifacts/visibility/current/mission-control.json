@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-08-15T01:57:32.543Z",
+  "generated_at": "2026-08-16T01:45:12.926Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
-    "release_version": "11.3.0",
-    "release_definition_ref": "docs/v11.3-release-definition.md",
-    "operating_goal": "After v11.3, prepare v11.4 Agent Session Contract and Tool Governance Evidence while preserving validation replay, provider-read no-write boundaries, and external operator reproduction discipline.",
-    "next_value_slice": "v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority.",
+    "release_version": "11.4.0",
+    "release_definition_ref": "docs/v11.4-release-definition.md",
+    "operating_goal": "After v11.4, prepare v11.5 Human-readable Provider Observation Replay while preserving agent-session contract, tool-governance evidence, validation replay, provider-read no-write boundaries, and external operator reproduction discipline.",
+    "next_value_slice": "v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority.",
+    "recommended_action": "Open an implementation task for the current frontier: v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,12 +245,18 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 64,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-134.json",
+    "impact_record_count": 65,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-135.json",
     "latest_impact_status": "archmap_deferred_with_reason",
-    "latest_work_item_id": "TASK-134",
-    "pending_impact_count": 6,
+    "latest_work_item_id": "TASK-135",
+    "pending_impact_count": 7,
     "pending_impacts": [
+      {
+        "work_item_id": "TASK-135",
+        "status": "archmap_deferred_with_reason",
+        "council_review_status": "deferred_with_reason",
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-135.json"
+      },
       {
         "work_item_id": "TASK-134",
         "status": "archmap_deferred_with_reason",
@@ -290,7 +296,7 @@
     ],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-134.json"
+      ".aof/artifacts/archmap/impact/TASK-135.json"
     ],
     "external_refs": []
   },
@@ -466,68 +472,138 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 41,
-    "latest_session_id": "SESS-V107-CAPABILITY-COVERAGE-GATE",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V107-CAPABILITY-COVERAGE-GATE.json",
+    "stream_count": 42,
+    "latest_session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json",
     "latest_actor_ref": "codex",
-    "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-08-05T14:05:00.000Z",
-    "latest_event_count": 3,
-    "latest_release_verdict": null,
+    "latest_role_ref": "builder",
+    "latest_recorded_at": "2026-08-16T01:36:53.142Z",
+    "latest_event_count": 8,
+    "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-127.json"
+      ".aof/tasks/done/TASK-135.json"
     ],
     "linked_requirement_refs": [
-      "docs/v10.7-release-definition.md"
+      "docs/v11.4-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js"
     ],
-    "linked_artifact_refs": [],
+    "linked_artifact_refs": [
+      "src/commands/agent-session-contract-audit.js",
+      "schemas/aof-agent-session-contract-audit.schema.json",
+      "docs/v11.4-release-definition.md"
+    ],
     "risk_candidates": [
-      "Coverage gate proves structure, not semantic expert correctness."
+      "Agent session logs can be overclaimed if tool calls do not carry explicit safety level and approval policy."
     ],
     "decision_candidates": [
-      "Make capability coverage mandatory for v10.7+ release-state audit."
+      "Require agent-session-contract-audit as a v11.4+ release-state gate."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Implement AOF improvement request for pre-build role and skill coverage.",
-        "occurred_at": "2026-08-05T14:05:00.000Z",
+        "summary": "Heartbeat required AOF to continue beyond v11.3 using latest runtime and AI development trend context.",
+        "occurred_at": "2026-08-16T01:36:53.142Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
-        "artifact_refs": []
-      },
-      {
-        "event_type": "tool_call",
-        "summary": "Ran AOF runtime status and implemented capability coverage audit.",
-        "occurred_at": "2026-08-05T14:06:00.000Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": []
+        "artifact_refs": [
+          ".aof/tasks/done/TASK-135.json"
+        ]
       },
       {
         "event_type": "response",
-        "summary": "Prepared v10.7 release chain.",
-        "occurred_at": "2026-08-05T14:07:00.000Z",
+        "summary": "AOF selected v11.4 Agent Session Contract and Tool Governance Evidence as the next frontier.",
+        "occurred_at": "2026-08-16T01:36:53.142Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          "docs/vnext-roadmap.md",
+          "docs/v11.4-release-definition.md"
+        ]
+      },
+      {
+        "event_type": "tool_call",
+        "summary": "Ran AOF visibility-export and roadmap inspection to establish the runtime-backed frontier.",
+        "occurred_at": "2026-08-16T01:36:53.142Z",
+        "tool_name": "node ./src/cli.js visibility-export",
+        "safety_level": "safe_local_write",
+        "approval_policy": "approved_run_contract",
+        "artifact_refs": [
+          ".aof/artifacts/visibility/current/runtime-execution.json"
+        ]
+      },
+      {
+        "event_type": "tool_call",
+        "summary": "Implemented local schema, command, tests, docs, and evidence artifacts for v11.4.",
+        "occurred_at": "2026-08-16T01:36:53.142Z",
+        "tool_name": "apply_patch",
+        "safety_level": "project_write",
+        "approval_policy": "approved_run_contract",
+        "artifact_refs": [
+          "src/commands/agent-session-contract-audit.js",
+          "schemas/aof-agent-session-contract-audit.schema.json",
+          "test/runtime-core-2.test.js"
+        ]
+      },
+      {
+        "event_type": "verification_result",
+        "summary": "Focused runtime-core-2 tests passed for agent session contract audit.",
+        "occurred_at": "2026-08-16T01:36:53.142Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          "test/runtime-core-2.test.js"
+        ]
+      },
+      {
+        "event_type": "risk_candidate",
+        "summary": "Agent session logs can be overclaimed if tool calls do not carry explicit safety level and approval policy.",
+        "occurred_at": "2026-08-16T01:36:53.142Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": []
+      },
+      {
+        "event_type": "decision_candidate",
+        "summary": "Require agent-session-contract-audit as a v11.4+ release-state gate.",
+        "occurred_at": "2026-08-16T01:36:53.142Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": []
+      },
+      {
+        "event_type": "stop_condition",
+        "summary": "Stop release if hidden external-write permission can pass as release-ready session evidence.",
+        "occurred_at": "2026-08-16T01:36:53.142Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          "docs/v11.4-release-checklist.md"
+        ]
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "Ran AOF runtime status and implemented capability coverage audit.",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null
+        "summary": "Ran AOF visibility-export and roadmap inspection to establish the runtime-backed frontier.",
+        "tool_name": "node ./src/cli.js visibility-export",
+        "safety_level": "safe_local_write",
+        "approval_policy": "approved_run_contract"
+      },
+      {
+        "summary": "Implemented local schema, command, tests, docs, and evidence artifacts for v11.4.",
+        "tool_name": "apply_patch",
+        "safety_level": "project_write",
+        "approval_policy": "approved_run_contract"
       }
     ]
   },
@@ -538,11 +614,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 46,
+    "context_record_count": 47,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-135.json",
+        "work_item_id": "TASK-135",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-134.json",
         "work_item_id": "TASK-134",
@@ -598,14 +682,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "This record proves the working context refs were declared and resolved; it does not prove every browser layout nuance or Japanese copy quality for all datasets."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-127.json",
-        "work_item_id": "TASK-127",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "This v10.7 evidence proves structural/runtime capability coverage gating only; it does not prove semantic expert correctness, playtest truth, market truth, or production execution safety."
       }
     ],
     "latest_external_reference_records": [
@@ -630,8 +706,8 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-134.json",
-    "latest_work_item_id": "TASK-134",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-135.json",
+    "latest_work_item_id": "TASK-135",
     "latest_recorded_at": "2026-08-15T01:50:00.000Z",
     "coverage_status": "ready",
     "total_requirements": 2,
@@ -643,41 +719,41 @@
     "coverage_ratio": null,
     "forecast": {
       "estimated_remaining_work_items": 0,
-      "estimated_token_cost_range": "bounded validation replay release verification",
-      "burndown_ref": "docs/v11.3-release-checklist.md",
+      "estimated_token_cost_range": "bounded session contract release verification",
+      "burndown_ref": "docs/v11.4-release-checklist.md",
       "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
     },
     "forecast_boundary": "forecast is release planning evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V113-001",
-        "title": "AOF must replay an external validation result against provider-read evidence",
+        "requirement_id": "REQ-V114-001",
+        "title": "AOF must replay an external session contract against session evidence",
         "status": "covered",
-        "source_ref": "docs/v11.3-release-definition.md",
+        "source_ref": "docs/v11.4-release-definition.md",
         "owner_ref": "builder",
         "evidence_refs": [
-          ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
-          ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json"
+          ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json",
+          ".aof/artifacts/agent-session-contracts/agent-session-contract-audit.json"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V113-002",
-        "title": "v11.3 must fail if conflicting validation can be accepted silently",
+        "requirement_id": "REQ-V114-002",
+        "title": "v11.4 must fail if conflicting validation can be accepted silently",
         "status": "covered",
-        "source_ref": "docs/v11.3-release-checklist.md",
+        "source_ref": "docs/v11.4-release-checklist.md",
         "owner_ref": "guardian",
         "evidence_refs": [
-          "src/commands/external-validation-replay-audit.js",
+          "src/commands/agent-session-contract-audit.js",
           "test/runtime-core-2.test.js",
-          ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json"
+          ".aof/artifacts/agent-session-contracts/agent-session-contract-audit.json"
         ],
         "blocker_refs": []
       }
     ],
     "not_proven": "Requirement coverage proves structural linkage only; it does not prove provider semantic truth, independent validation, write safety, production safety, or market value.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-134.json"
+      ".aof/artifacts/requirement-coverage/TASK-135.json"
     ]
   },
   "adoption_proof_projection": {
@@ -1238,7 +1314,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v11.3-release-definition.md",
+    "release_ref": "docs/v11.4-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1262,7 +1338,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v11.3-release-definition.md",
+    "release_ref": "docs/v11.4-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1281,7 +1357,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v11.3-release-definition.md",
+      "docs/v11.4-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1376,7 +1452,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-134.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-135.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1386,27 +1462,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V107-CAPABILITY-COVERAGE-GATE.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-134.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-135.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v11.3-release-definition.md"
+        "artifact_ref": "docs/v11.4-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-134.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-135.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-134.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-135.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V107-CAPABILITY-COVERAGE-GATE.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json"
   }
 }

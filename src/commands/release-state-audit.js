@@ -2,6 +2,7 @@ import path from "node:path";
 
 import { writeJsonArtifact } from "../runtime/utils.js";
 import { loadBundledSchema, validateAgainstSchema } from "../runtime/validation.js";
+import { agentSessionContractAuditCommand } from "./agent-session-contract-audit.js";
 import { archmapImpactAuditCommand } from "./archmap-impact-audit.js";
 import { capabilityFirstReleaseAuditCommand } from "./capability-first-release-audit.js";
 import { adoptionProofBenchmarkCommand } from "./adoption-proof-benchmark.js";
@@ -355,6 +356,15 @@ function requiresExternalValidationReplayAudit(releaseVersion) {
   return major > 11 || (major === 11 && minor >= 3);
 }
 
+function requiresAgentSessionContractAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 11 || (major === 11 && minor >= 4);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -515,6 +525,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresExternalValidationReplayAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("external-validation-replay-audit", await externalValidationReplayAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresAgentSessionContractAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("agent-session-contract-audit", await agentSessionContractAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

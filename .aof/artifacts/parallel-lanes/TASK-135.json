@@ -1,0 +1,65 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-TASK-135-V114",
+  "recorded_at": "2026-08-15T01:52:30.000Z",
+  "work_item_id": "TASK-135",
+  "work_item_ref": ".aof/tasks/done/TASK-135.json",
+  "pilot_status": "ready",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-135.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-135.json",
+  "lanes": [
+    {
+      "lane_id": "replay-contract",
+      "goal": "implement schema and audit command for session contract",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        ".aof/tasks/done/TASK-135.json"
+      ],
+      "expected_output": "agent session contract artifacts",
+      "output_refs": [
+        "schemas/aof-agent-session-contract-audit.schema.json",
+        "src/commands/agent-session-contract-audit.js"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/agent-session-contracts/agent-session-contract-audit.json"
+      ],
+      "stop_condition": "stop if replay lacks session-linkage or permits external write authority",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "governance-boundary",
+      "goal": "verify partial/conflicting validation cannot be overclaimed",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json"
+      ],
+      "expected_output": "fail-closed session contract regression",
+      "output_refs": [
+        "test/runtime-core-2.test.js"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-135-GUARDIAN.json"
+      ],
+      "stop_condition": "stop if conflicting validation can be accepted without escalation",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "ready",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "replay-contract",
+      "governance-boundary"
+    ],
+    "conflict_summary": "No unresolved lane conflict; both lanes preserve read-only provider integration and not-proven boundaries.",
+    "blocker_summary": "Blocked if release-state-audit fails or if v11.4 wording implies actual independent third-party validation.",
+    "merge_rationale": "Replay contract and governance boundary jointly support v11.4 as confidence-aware session contract evidence.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-135-V114.json",
+  "not_proven": "Parallel lane evidence proves local release-readiness join only; it does not prove provider truth, independent validation, write safety, or market value.",
+  "source_task_id": "TASK-135",
+  "source_parent_session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,197 @@
+{
+  "ok": true,
+  "artifact_type": "agent-session-contract-audit",
+  "generated_at": "2026-08-16T01:41:08.138Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "scoped_task_count": 1,
+    "session_count": 1,
+    "runtime_ready_session_count": 1,
+    "tool_call_count": 2,
+    "governed_tool_call_count": 2,
+    "failing_check_count": 0
+  },
+  "sessions": [
+    {
+      "session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json",
+      "source_task_id": "TASK-135",
+      "event_count": 8,
+      "tool_call_count": 2,
+      "release_verdict": "runtime_ready"
+    }
+  ],
+  "checks": [
+    {
+      "name": "scoped agent session presence",
+      "status": "pass",
+      "detail": "1 session(s) at or after TASK-135"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE test evidence linkage",
+      "status": "pass",
+      "detail": "1 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 2 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE governed tool call ASEV3-MSV4WQS6-1BAQ6P",
+      "status": "pass",
+      "detail": "tool=node ./src/cli.js visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE governed tool call ASEV4-MSV4WQS6-XH6K94",
+      "status": "pass",
+      "detail": "tool=apply_patch, safety=project_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "src/commands/agent-session-contract-audit.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-contract-audit.schema.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/runtime-execution.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "src/commands/agent-session-contract-audit.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-contract-audit.schema.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-checklist.md"
+    }
+  ],
+  "errors": []
+}

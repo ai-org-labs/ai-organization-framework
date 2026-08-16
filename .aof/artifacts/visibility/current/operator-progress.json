@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-15T01:57:32.547Z",
+  "generated_at": "2026-08-16T01:45:12.931Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-134 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-134.json"
+    "summary": "TASK-135 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-135.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-134 completed: v11.3 proof: external validation result replay audit",
-      "artifact_ref": ".aof/tasks/done/TASK-134.json"
+      "summary": "TASK-135 completed: v11.4 proof: agent session contract and tool governance evidence",
+      "artifact_ref": ".aof/tasks/done/TASK-135.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority.",
+      "summary": "v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-134 completed: v11.3 proof: external validation result replay audit v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority.",
+    "what_changed": "TASK-135 completed: v11.4 proof: agent session contract and tool governance evidence v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority."
+    "next_checkpoint": "Open an implementation task for the current frontier: v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts."
   }
 }

@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-135-V114",
+  "recorded_at": "2026-08-15T01:48:30.000Z",
+  "release_version": "11.4.0",
+  "release_ref": "docs/v11.4-release-definition.md",
+  "work_item_id": "TASK-135",
+  "work_item_ref": ".aof/tasks/done/TASK-135.json",
+  "one_minute_value_explanation": "AOF can now take a session contract about a agent session evidence chain, replay the evidence path, update confidence explicitly, and route uncertainty to governance instead of hiding it.",
+  "thirty_second_version_delta": "v11.2 made a GitHub session log governed and auditable; v11.4 makes session contract of that read replayable and confidence-aware.",
+  "new_capability_ids": [
+    "PCAP-EXTERNAL-VALIDATION-REPLAY"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-READ-INTEGRATION-PROOF"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-135-V114.json"
+  ],
+  "product_review_trigger": "If the operator still cannot tell whether session contract strengthened, weakened, blocked, or escalated a session-evidence claim, reopen session contract recognition design.",
+  "not_proven": "This does not prove provider semantic truth, actual independent third-party validation, GitHub write safety, credential safety, production automation, market value, productivity gain, or broad adoption.",
+  "source_task_id": "TASK-135",
+  "source_parent_session_id": "SESS-V114-EXTERNAL-VALIDATION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,27 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-14T01:42:35.000Z",
+  "role": "builder",
+  "stage": "execution",
+  "session_id": "SESS-V114-VALIDATION-REPLAY-INTEGRATION",
+  "status": "completed",
+  "recommendation": "Implement v11.4 by adding agent-session-contract schemas, a narrow audit command, registry/release-state integration, fixture tests, GitHub read artifacts, and release docs.",
+  "rationale": "A dedicated audit is safer than broad provider scoring because the required proof is concrete: read-only adapter, observed provider objects, no-write boundary, decision output, evidence refs, and not-proven.",
+  "signals": [
+    "The audit fails closed when integration evidence is missing or external write authority is present.",
+    "The release-state audit now requires agent-session-contract-audit for v11.4 and later."
+  ],
+  "artifact_refs": [
+    "src/commands/agent-session-contract-audit.js",
+    "schemas/aof-agent-session-contract-audit.schema.json",
+    "schemas/aof-agent-session-contract-audit.schema.json",
+    "test/runtime-core-2.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-135",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V114-VALIDATION-REPLAY-INTEGRATION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

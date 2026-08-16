@@ -68,6 +68,7 @@ const COMMAND_SPECS = [
   ["session-export-audit", "./commands/session-export-audit.js", "sessionExportAuditCommand"],
   ["agent-session-record", "./commands/agent-session-record.js", "agentSessionRecordCommand"],
   ["session-observability-audit", "./commands/session-observability-audit.js", "sessionObservabilityAuditCommand"],
+  ["agent-session-contract-audit", "./commands/agent-session-contract-audit.js", "agentSessionContractAuditCommand"],
   ["context-integrity-record", "./commands/context-integrity-record.js", "contextIntegrityRecordCommand"],
   ["external-reference-integrity-record", "./commands/external-reference-integrity-record.js", "externalReferenceIntegrityRecordCommand"],
   ["context-reference-integrity-audit", "./commands/context-reference-integrity-audit.js", "contextReferenceIntegrityAuditCommand"],

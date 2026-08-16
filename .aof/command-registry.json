@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-08-15T01:53:25.153Z",
+  "generated_at": "2026-08-16T01:40:08.699Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -162,6 +162,37 @@
       ],
       "outputs": [
         "benchmark report"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "agent-session-contract-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify release-ready agent session streams have prompt/response/tool-call evidence, governed tool authority, task/requirement/test links, risks, decision candidates, and resolvable proof refs.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "cutoff-task-id?",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "agent session contract audit result"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

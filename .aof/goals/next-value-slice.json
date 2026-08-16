@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "v11.4 should prove agent session contract and tool governance evidence: AOF can link prompts, responses, tool calls, task refs, requirement refs, test refs, risks, and decision candidates into release-ready evidence without hiding tool authority.",
-  "updated_at": "2026-08-14T01:48:00.000Z",
+  "content": "v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts.",
+  "updated_at": "2026-08-16T01:45:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V112-PROVIDER-READ-INTEGRATION",
+  "source_session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }
