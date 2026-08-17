@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-136-V115",
+  "recorded_at": "2026-08-17T14:58:00.000Z",
+  "release_version": "11.5.0",
+  "release_ref": "docs/v11.5-release-definition.md",
+  "work_item_id": "TASK-136",
+  "work_item_ref": ".aof/tasks/done/TASK-136.json",
+  "one_minute_value_explanation": "AOF can now turn raw provider observations into an operator-readable replay that explains what external state was read, why it mattered, what changed, and what remains unproven.",
+  "thirty_second_version_delta": "v11.4 made agent sessions and tool governance auditable; v11.5 makes provider-read evidence understandable without raw JSON reconstruction.",
+  "new_capability_ids": [
+    "PCAP-PROVIDER-OBSERVATION-REPLAY"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-READ-INTEGRATION-PROOF"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-136-V115.json"
+  ],
+  "product_review_trigger": "If an operator still cannot explain what provider state was read and what remains unproven in 30 seconds, reopen provider replay UX and record structure.",
+  "not_proven": "This does not prove provider semantic truth, credential safety, GitHub write safety, production automation, market value, productivity gain, or broad adoption.",
+  "source_task_id": "TASK-136",
+  "source_parent_session_id": "SESS-V115-PROVIDER-OBSERVATION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

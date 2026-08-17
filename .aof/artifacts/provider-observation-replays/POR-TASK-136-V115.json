@@ -1,0 +1,86 @@
+{
+  "artifact_type": "provider-observation-replay-record",
+  "replay_id": "POR-TASK-136-V115",
+  "recorded_at": "2026-08-17T14:58:00.000Z",
+  "provider": "github",
+  "repository": "ai-org-labs/ai-organization-framework",
+  "provider_read_integration_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+  "github_readonly_observation_ref": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+  "external_validation_replay_ref": ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+  "operator_summary": {
+    "headline": "The GitHub provider read is understandable as bounded evidence, not write authority.",
+    "plain_language_summary": "AOF read repository metadata, release metadata, issue/PR state, and workflow history, then replayed why that external state mattered to release judgment without asking the operator to inspect raw provider JSON.",
+    "operator_can_conclude": "The provider-read chain is present, no-write bounded, linked to validation replay, and suitable as supporting release evidence.",
+    "operator_must_not_conclude": "This does not prove GitHub semantic truth, credential safety, production automation safety, or any permission to write to GitHub."
+  },
+  "what_was_read": [
+    {
+      "object_type": "repository metadata",
+      "source_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "plain_language_observation": "The repository identity, default branch, public visibility, and URL were observed through read-only provider commands.",
+      "freshness": "Observed during the v11.2 provider-read cycle; refresh before future release claims."
+    },
+    {
+      "object_type": "release metadata",
+      "source_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "plain_language_observation": "The provider read captured the then-current release metadata and made release freshness explicit.",
+      "freshness": "Historical evidence; not a current provider truth claim."
+    },
+    {
+      "object_type": "issue and pull request state",
+      "source_ref": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+      "plain_language_observation": "Open issue and pull request counts were observed as inputs to the next-task judgment.",
+      "freshness": "Historical observation; must be refreshed before operational decisions."
+    },
+    {
+      "object_type": "workflow runs",
+      "source_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "plain_language_observation": "Recent CI workflow state was observed so release readiness could cite provider state instead of local claims only.",
+      "freshness": "Historical observation; current CI must still be checked at release time."
+    }
+  ],
+  "why_it_mattered": "Raw provider artifacts can be structurally correct while still failing operator comprehension. v11.5 makes the provider-read evidence reviewable by a human without weakening the no-write and not-proven boundaries.",
+  "what_changed": [
+    {
+      "before": "AOF could store GitHub read-only observations and validation replay records.",
+      "after": "AOF can produce one replay packet that explains the provider-read chain in operator language.",
+      "meaning": "The operator no longer has to manually connect observation, integration, validation, confidence, and boundary artifacts."
+    },
+    {
+      "before": "Release evidence could appear stronger than its actual proof boundary.",
+      "after": "The replay states what can and cannot be concluded from the provider read.",
+      "meaning": "AOF reduces overclaim risk while improving comprehension."
+    }
+  ],
+  "replay_timeline": [
+    {
+      "step": "Read GitHub as bounded provider state",
+      "input_ref": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+      "operator_reading": "The external provider was observed in read-only mode; no issue, PR, release, workflow, push, or secret operation was authorized."
+    },
+    {
+      "step": "Integrate the read into AOF provider evidence",
+      "input_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "operator_reading": "The provider read became an auditable integration with explicit read/write/freshness/not-proven boundaries."
+    },
+    {
+      "step": "Replay external validation against confidence",
+      "input_ref": ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+      "operator_reading": "The validation result can support confidence without proving semantic truth or write safety."
+    }
+  ],
+  "external_write_attempted": false,
+  "external_write_authorized": false,
+  "not_proven": "This replay does not prove provider semantic truth, credential safety, GitHub write safety, production automation safety, market value, productivity gain, broad adoption, or current provider freshness after the recorded observation window.",
+  "next_action": "Use provider-observation-replay-audit as the v11.5 release gate, then move to v11.6 external operator reproduction feedback intake.",
+  "evidence_refs": [
+    "docs/v11.5-release-definition.md",
+    ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json",
+    ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+    ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json",
+    ".aof/tasks/done/TASK-136.json"
+  ],
+  "source_task_id": "TASK-136",
+  "source_parent_session_id": "SESS-V115-PROVIDER-OBSERVATION-REPLAY",
+  "notes": "v11.5 is a replay and recognition release. It does not perform new provider writes."
+}

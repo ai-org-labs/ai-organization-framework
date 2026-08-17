@@ -1,18 +1,19 @@
 {
   "ok": true,
   "artifact_type": "release-state-audit",
-  "generated_at": "2026-08-16T01:45:07.422Z",
+  "generated_at": "2026-08-17T15:08:54.952Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "active_release": {
     "artifact_type": "active-release-manifest",
     "recorded_at": "2026-08-16T01:45:00.000Z",
-    "release_version": "11.4.0",
-    "release_tag": "v11.4.0",
-    "release_definition_ref": "docs/v11.4-release-definition.md",
-    "release_notes_ref": "docs/v11.4.0-release-notes.md",
-    "release_checklist_ref": "docs/v11.4-release-checklist.md",
+    "release_version": "11.5.0",
+    "release_tag": "v11.5.0",
+    "release_definition_ref": "docs/v11.5-release-definition.md",
+    "release_notes_ref": "docs/v11.5.0-release-notes.md",
+    "release_checklist_ref": "docs/v11.5-release-checklist.md",
     "roadmap_ref": "docs/vnext-roadmap.md",
-    "release_plan_ref": "docs/vnext-release-plan.md"
+    "release_plan_ref": "docs/vnext-release-plan.md",
+    "release_track": "v11.5"
   },
   "governance_audit_cutoff_task_id": "TASK-071",
   "governance_audits": [
@@ -20,7 +21,7 @@
       "name": "archmap-impact-audit",
       "ok": true,
       "artifact_type": "archmap-impact-audit",
-      "scoped_task_count": 65,
+      "scoped_task_count": 66,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -29,7 +30,7 @@
       "name": "review-provenance-audit",
       "ok": true,
       "artifact_type": "review-provenance-audit",
-      "scoped_task_count": 65,
+      "scoped_task_count": 66,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -38,7 +39,7 @@
       "name": "evidence-independence-audit",
       "ok": true,
       "artifact_type": "evidence-independence-audit",
-      "scoped_task_count": 65,
+      "scoped_task_count": 66,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -56,7 +57,7 @@
       "name": "work-readiness-audit",
       "ok": true,
       "artifact_type": "work-readiness-audit",
-      "scoped_task_count": 54,
+      "scoped_task_count": 55,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -65,7 +66,7 @@
       "name": "capability-coverage-audit",
       "ok": true,
       "artifact_type": "capability-coverage-audit",
-      "scoped_task_count": 9,
+      "scoped_task_count": 10,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -74,7 +75,7 @@
       "name": "context-reference-integrity-audit",
       "ok": true,
       "artifact_type": "context-reference-integrity-audit",
-      "scoped_task_count": 46,
+      "scoped_task_count": 47,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -83,7 +84,7 @@
       "name": "work-execution-packet-audit",
       "ok": true,
       "artifact_type": "work-execution-packet-audit",
-      "scoped_task_count": 45,
+      "scoped_task_count": 46,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -92,7 +93,7 @@
       "name": "multi-actor-pilot-audit",
       "ok": true,
       "artifact_type": "multi-actor-pilot-audit",
-      "scoped_task_count": 44,
+      "scoped_task_count": 45,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -101,7 +102,7 @@
       "name": "parallel-lane-audit",
       "ok": true,
       "artifact_type": "parallel-lane-audit",
-      "scoped_task_count": 43,
+      "scoped_task_count": 44,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -110,7 +111,7 @@
       "name": "requirement-coverage-audit",
       "ok": true,
       "artifact_type": "requirement-coverage-audit",
-      "scoped_task_count": 42,
+      "scoped_task_count": 43,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -119,7 +120,7 @@
       "name": "session-export-audit",
       "ok": true,
       "artifact_type": "session-export-audit",
-      "scoped_task_count": 41,
+      "scoped_task_count": 42,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -326,7 +327,16 @@
       "name": "agent-session-contract-audit",
       "ok": true,
       "artifact_type": "agent-session-contract-audit",
-      "scoped_task_count": 1,
+      "scoped_task_count": 2,
+      "failing_check_count": 0,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "name": "provider-observation-replay-audit",
+      "ok": true,
+      "artifact_type": "provider-observation-replay-audit",
+      "scoped_task_count": null,
       "failing_check_count": 0,
       "error_count": 0,
       "errors": []
@@ -345,17 +355,17 @@
     {
       "name": "release definition ref",
       "status": "pass",
-      "detail": "docs/v11.4-release-definition.md"
+      "detail": "docs/v11.5-release-definition.md"
     },
     {
       "name": "release notes ref",
       "status": "pass",
-      "detail": "docs/v11.4.0-release-notes.md"
+      "detail": "docs/v11.5.0-release-notes.md"
     },
     {
       "name": "release checklist ref",
       "status": "pass",
-      "detail": "docs/v11.4-release-checklist.md"
+      "detail": "docs/v11.5-release-checklist.md"
     },
     {
       "name": "roadmap ref",
@@ -370,27 +380,27 @@
     {
       "name": "bootstrap version alignment",
       "status": "pass",
-      "detail": "bootstrap.aof_version=11.4.0, manifest.release_version=11.4.0"
+      "detail": "bootstrap.aof_version=11.5.0, manifest.release_version=11.5.0"
     },
     {
       "name": "governance release contract alignment",
       "status": "pass",
-      "detail": "contract-governance-to-release artifact_ref=docs/v11.4-release-definition.md, manifest.release_definition_ref=docs/v11.4-release-definition.md"
+      "detail": "contract-governance-to-release artifact_ref=docs/v11.5-release-definition.md, manifest.release_definition_ref=docs/v11.5-release-definition.md"
     },
     {
       "name": "archmap-impact-audit release gate",
       "status": "pass",
-      "detail": "65 scoped task(s), 0 failing check(s)"
+      "detail": "66 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "review-provenance-audit release gate",
       "status": "pass",
-      "detail": "65 scoped task(s), 0 failing check(s)"
+      "detail": "66 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "evidence-independence-audit release gate",
       "status": "pass",
-      "detail": "65 scoped task(s), 0 failing check(s)"
+      "detail": "66 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "quality-ledger-audit release gate",
@@ -400,42 +410,42 @@
     {
       "name": "work-readiness-audit release gate",
       "status": "pass",
-      "detail": "54 scoped task(s), 0 failing check(s)"
+      "detail": "55 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "capability-coverage-audit release gate",
       "status": "pass",
-      "detail": "9 scoped task(s), 0 failing check(s)"
+      "detail": "10 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "context-reference-integrity-audit release gate",
       "status": "pass",
-      "detail": "46 scoped task(s), 0 failing check(s)"
+      "detail": "47 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "work-execution-packet-audit release gate",
       "status": "pass",
-      "detail": "45 scoped task(s), 0 failing check(s)"
+      "detail": "46 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "multi-actor-pilot-audit release gate",
       "status": "pass",
-      "detail": "44 scoped task(s), 0 failing check(s)"
+      "detail": "45 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "parallel-lane-audit release gate",
       "status": "pass",
-      "detail": "43 scoped task(s), 0 failing check(s)"
+      "detail": "44 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "requirement-coverage-audit release gate",
       "status": "pass",
-      "detail": "42 scoped task(s), 0 failing check(s)"
+      "detail": "43 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "session-export-audit release gate",
       "status": "pass",
-      "detail": "41 scoped task(s), 0 failing check(s)"
+      "detail": "42 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "adoption-proof-benchmark release gate",
@@ -550,7 +560,12 @@
     {
       "name": "agent-session-contract-audit release gate",
       "status": "pass",
-      "detail": "1 scoped task(s), 0 failing check(s)"
+      "detail": "2 scoped task(s), 0 failing check(s)"
+    },
+    {
+      "name": "provider-observation-replay-audit release gate",
+      "status": "pass",
+      "detail": "0 scoped task(s), 0 failing check(s)"
     },
     {
       "name": "operator-validation-audit release gate",

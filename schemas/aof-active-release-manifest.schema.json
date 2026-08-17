@@ -42,6 +42,9 @@
     },
     "release_plan_ref": {
       "type": "string"
+    },
+    "release_track": {
+      "type": "string"
     }
   },
   "additionalProperties": false

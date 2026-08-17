@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "After v11.4, prepare v11.5 Human-readable Provider Observation Replay while preserving agent-session contract, tool-governance evidence, validation replay, provider-read no-write boundaries, and external operator reproduction discipline.",
-  "updated_at": "2026-08-16T01:45:00.000Z",
+  "content": "After v11.5, prepare v11.6 External Operator Reproduction Feedback Intake while preserving human-readable provider observation replay, agent-session contract, tool-governance evidence, validation replay, provider-read no-write boundaries, and external operator reproduction discipline.",
+  "updated_at": "2026-08-17T15:10:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+  "source_session_id": "SESS-V115-PROVIDER-OBSERVATION-REPLAY",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

@@ -1,0 +1,68 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-14T01:43:05.000Z",
+  "packet_id": "ASP-TASK-136-BUILDER",
+  "source_task_id": "TASK-136",
+  "source_parent_session_id": "SESS-V115-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null,
+  "objective": "Build the session contract audit, schemas, release docs, and runtime artifacts.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "builder",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Builder owns runtime command, schema, docs, and artifact implementation.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-schema-review",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "src/commands/provider-observation-replay-audit.js",
+        "schemas/aof-provider-observation-replay-audit.schema.json"
+      ],
+      "rationale": "Implementation is bounded to schema and audit command surfaces."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "runtime-implementation",
+    "artifact_schema_ref": "schemas/aof-provider-observation-replay-audit.schema.json",
+    "required_sections": [
+      "schema",
+      "audit",
+      "test"
+    ],
+    "acceptance_criteria": [
+      "audit passes",
+      "negative write-authority test exists"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "implementation is fail-closed",
+      "evaluator_ref": "guardian",
+      "evidence_required": "test/runtime-core-2.test.js",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Builder",
+    "speech_bubble": "I am turning the provider session contract into a runtime-audited contract.",
+    "current_action": "Implement audit and artifacts",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit role result."
+  },
+  "status": "completed"
+}

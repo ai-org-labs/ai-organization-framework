@@ -215,3 +215,15 @@ NEW: `PCAP-AGENT-SESSION-CONTRACT` lets AOF treat AI work sessions as release ev
 | Agent Session Evidence | reconstructable session records existed | governed release-ready session contract | Operator can see whether the AI session is safe enough to count as release evidence. |
 | Tool Governance Evidence | scattered across command safety and approvals | checked in session contract audit | Hidden external-write permission fails closed. |
 | Release-State Governance | validation replay audit gate | agent-session contract audit gate added | Green release now checks AI work-session authority as part of release readiness. |
+
+## v11.5 Capability Delta
+
+NEW: `PCAP-PROVIDER-OBSERVATION-REPLAY` turns provider-read evidence into an operator-readable replay packet.
+
+30-second delta: v11.4 made AI session tool authority auditable. v11.5 makes external provider observation evidence understandable without raw JSON reconstruction.
+
+| Capability | v11.4.0 | v11.5.0 | User-visible change |
+|---|---|---|---|
+| Provider Read Integration Proof | raw records and audits | human-readable replay added | Operator can see what was read, why it mattered, what changed, and what remains unproven. |
+| External Validation Replay | confidence and governance routing | included in provider observation story | Validation result becomes part of a readable provider evidence chain. |
+| Release-State Governance | agent-session contract audit gate | provider-observation replay audit gate added | Green release now checks provider evidence comprehension, not just raw artifact presence. |

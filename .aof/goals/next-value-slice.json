@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts.",
-  "updated_at": "2026-08-16T01:45:00.000Z",
+  "content": "v11.6 should ingest external operator reproduction feedback as product evidence: AOF should record whether an external operator understood, reproduced, or rejected the provider replay, then route that outcome into governance.",
+  "updated_at": "2026-08-17T15:10:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+  "source_session_id": "SESS-V115-PROVIDER-OBSERVATION-REPLAY",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-16T01:45:12.931Z",
+  "generated_at": "2026-08-17T15:09:02.244Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-135 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-135.json"
+    "summary": "TASK-136 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-136.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-135 completed: v11.4 proof: agent session contract and tool governance evidence",
-      "artifact_ref": ".aof/tasks/done/TASK-135.json"
+      "summary": "TASK-136 completed: v11.5 proof: human-readable provider observation replay",
+      "artifact_ref": ".aof/tasks/done/TASK-136.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts.",
+      "summary": "v11.6 should ingest external operator reproduction feedback as product evidence: AOF should record whether an external operator understood, reproduced, or rejected the provider replay, then route that outcome into governance.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-135 completed: v11.4 proof: agent session contract and tool governance evidence v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts.",
+    "what_changed": "TASK-136 completed: v11.5 proof: human-readable provider observation replay v11.6 should ingest external operator reproduction feedback as product evidence: AOF should record whether an external operator understood, reproduced, or rejected the provider replay, then route that outcome into governance.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: v11.5 should make provider observation replay human-readable: an operator should understand what external state was read, why it mattered, what changed, and what remains unproven without reading raw provider artifacts."
+    "next_checkpoint": "Open an implementation task for the current frontier: v11.6 should ingest external operator reproduction feedback as product evidence: AOF should record whether an external operator understood, reproduced, or rejected the provider replay, then route that outcome into governance."
   }
 }

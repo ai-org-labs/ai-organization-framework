@@ -1,0 +1,62 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-136-V115",
+  "recorded_at": "2026-08-15T01:50:00.000Z",
+  "work_item_id": "TASK-136",
+  "work_item_ref": ".aof/tasks/done/TASK-136.json",
+  "coverage_status": "ready",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V115-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v11.5-release-definition.md",
+      "title": "AOF must replay an external session contract against session evidence",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered when the replay record links session contract, session evidence, confidence before/after, and governance route",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-136.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/agent-sessions/SESS-V115-PROVIDER-OBSERVATION-REPLAY.json",
+        ".aof/artifacts/provider-observation-replays/provider-observation-replay-audit.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V115-002",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v11.5-release-checklist.md",
+      "title": "v11.5 must fail if conflicting validation can be accepted silently",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered when test/runtime-core-2.test.js includes a conflicting validation failure case and the audit requires escalation",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-136.json"
+      ],
+      "evidence_refs": [
+        "src/commands/provider-observation-replay-audit.js",
+        "test/runtime-core-2.test.js",
+        ".aof/artifacts/provider-observation-replays/provider-observation-replay-audit.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded session contract release verification",
+    "burndown_ref": "docs/v11.5-release-checklist.md",
+    "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves structural linkage only; it does not prove provider semantic truth, independent validation, write safety, production safety, or market value.",
+  "source_task_id": "TASK-136",
+  "source_parent_session_id": "SESS-V115-EXTERNAL-VALIDATION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

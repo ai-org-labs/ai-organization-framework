@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-136-V115",
+  "recorded_at": "2026-08-17T14:58:00.000Z",
+  "release_ref": "docs/v11.5-release-definition.md",
+  "work_item_id": "TASK-136",
+  "work_item_ref": ".aof/tasks/done/TASK-136.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "AOF can convert raw provider-read evidence into a human-readable replay that states what was read, why it mattered, what changed, and what remains unproven.",
+  "before_state": "Provider evidence was auditable but still required operators to connect raw JSON artifacts manually.",
+  "after_state": "Provider evidence is replayed in one operator-readable packet with no-write and not-proven boundaries.",
+  "scenario": "A reviewer asks what GitHub provider state influenced a release decision; inspect POR-TASK-136-V115 instead of reading multiple raw artifacts.",
+  "five_minute_demo": "Run provider-observation-replay-audit and open POR-TASK-136-V115.json; confirm what_was_read, why_it_mattered, what_changed, not_proven, and next_action.",
+  "time_saved_or_work_reduced": "Reduces manual provider-evidence reconstruction for release review.",
+  "cognitive_load_removed": "The operator no longer has to infer what provider evidence means or whether it authorizes writes.",
+  "capability_matrix": [
+    {
+      "capability": "Human-readable Provider Observation Replay",
+      "before": "raw provider records and audits",
+      "after": "operator-readable replay packet",
+      "user_value": "understand provider evidence and proof limits without raw JSON reconstruction"
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+    ".aof/artifacts/provider-observation-replays/provider-observation-replay-audit.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "This does not prove provider semantic truth, credential safety, GitHub write safety, production automation, market value, productivity gain, or broad adoption.",
+  "source_task_id": "TASK-136",
+  "source_parent_session_id": "SESS-V115-PROVIDER-OBSERVATION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

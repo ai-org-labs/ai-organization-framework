@@ -156,6 +156,7 @@ const COMMAND_SPECS = [
   ["external-operator-reproduction-audit", "./commands/external-operator-reproduction-audit.js", "externalOperatorReproductionAuditCommand"],
   ["provider-read-integration-audit", "./commands/provider-read-integration-audit.js", "providerReadIntegrationAuditCommand"],
   ["external-validation-replay-audit", "./commands/external-validation-replay-audit.js", "externalValidationReplayAuditCommand"],
+  ["provider-observation-replay-audit", "./commands/provider-observation-replay-audit.js", "providerObservationReplayAuditCommand"],
   ["escalation-resolve", "./commands/escalation-resolve.js", "escalationResolveCommand"],
   ["role-result-record", "./commands/role-result-record.js", "roleResultRecordCommand"],
   ["role-join-record", "./commands/role-join-record.js", "roleJoinRecordCommand"],

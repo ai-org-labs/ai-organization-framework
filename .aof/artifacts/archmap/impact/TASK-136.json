@@ -1,0 +1,31 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-136-V115",
+  "work_item_ref": ".aof/tasks/done/TASK-136.json",
+  "work_item_id": "TASK-136",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "agent-session-contract",
+    "agent-session-tool-governance",
+    "governance-routing",
+    "release-state-audit"
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "deferred_with_reason",
+  "evidence_refs": [
+    "src/commands/provider-observation-replay-audit.js",
+    "schemas/aof-provider-observation-replay-audit.schema.json",
+    "schemas/aof-provider-observation-replay-audit.schema.json",
+    ".aof/artifacts/agent-sessions/SESS-V115-PROVIDER-OBSERVATION-REPLAY.json",
+    ".aof/artifacts/provider-observation-replays/provider-observation-replay-audit.json"
+  ],
+  "recorded_at": "2026-08-15T01:49:30.000Z",
+  "updated_at": "2026-08-15T01:49:30.000Z",
+  "source_task_id": "TASK-136",
+  "source_parent_session_id": "SESS-V115-EXTERNAL-VALIDATION-REPLAY",
+  "session_id": "SESS-V115-EXTERNAL-VALIDATION-REPLAY",
+  "session_ref": ".aof/tasks/done/TASK-136.json",
+  "not_proven": "Archmap impact is a projection surface and does not prove rendered UX quality or semantic truth."
+}

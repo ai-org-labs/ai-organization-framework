@@ -426,6 +426,19 @@
         ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json",
         ".aof/artifacts/agent-session-contracts/agent-session-contract-audit.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-OBSERVATION-REPLAY",
+      "name": "Human-readable Provider Observation Replay",
+      "description": "Replay provider read evidence in operator-readable language with proof boundaries.",
+      "user_value": "Operators can understand provider evidence without reconstructing raw JSON.",
+      "first_version": "v11.5.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.5-release-definition.md",
+        "docs/v11.5.0-release-notes.md",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
     }
   ]
 }

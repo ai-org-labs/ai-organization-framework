@@ -1,7 +1,7 @@
 {
   "artifact_type": "command-registry",
   "registry_format_version": 1,
-  "generated_at": "2026-08-16T01:40:08.699Z",
+  "generated_at": "2026-08-17T15:04:19.366Z",
   "detail_ref": "docs/cli-reference.md",
   "commands": [
     {
@@ -3555,6 +3555,36 @@
       ],
       "outputs": [
         "provider learning loop artifact"
+      ],
+      "detail_ref": "docs/cli-reference.md"
+    },
+    {
+      "command": "provider-observation-replay-audit",
+      "category": "verify",
+      "safety_level": "safe_read",
+      "approval_policy": {
+        "default_run_permission": "preapproved",
+        "requires_per_run_approval_for": [
+          "git push",
+          "npm publish",
+          "deploy",
+          "external service write",
+          "secrets access",
+          "billing operation",
+          "destructive operation",
+          "production mutation",
+          "irreversible operation"
+        ]
+      },
+      "purpose": "Verify provider observation evidence is replayed in human-readable form: what external state was read, why it mattered, what changed, what remains unproven, and what happens next.",
+      "operator_path": "integrity-and-benchmarking",
+      "top_command": false,
+      "inputs": [
+        "project",
+        "write-artifact?"
+      ],
+      "outputs": [
+        "provider observation replay audit result"
       ],
       "detail_ref": "docs/cli-reference.md"
     },

@@ -51,6 +51,7 @@ import { providerCostQuotaBoundaryRecordCommand } from "../src/commands/provider
 import { externalOperatorReproductionAuditCommand } from "../src/commands/external-operator-reproduction-audit.js";
 import { externalValidationReplayAuditCommand } from "../src/commands/external-validation-replay-audit.js";
 import { githubReadonlyObservationAuditCommand } from "../src/commands/github-readonly-observation-audit.js";
+import { providerObservationReplayAuditCommand } from "../src/commands/provider-observation-replay-audit.js";
 import { providerReadIntegrationAuditCommand } from "../src/commands/provider-read-integration-audit.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
@@ -3573,6 +3574,123 @@ test("externalValidationReplayAuditCommand escalates conflicting validation resu
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("weak or conflicting validation escalates")));
   assert.ok(audit.summary.errors.some((entry) => entry.includes("weak or conflicting validation is not blindly accepted")));
+});
+
+async function writeProviderObservationReplayFixture(projectRoot, overrides = {}) {
+  await writeExternalValidationReplayFixture(projectRoot);
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "provider-observations"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "provider-observations", "GRO-TEST.json"), {
+    artifact_type: "github-readonly-observation",
+    record_id: "GRO-TEST",
+    recorded_at: "2026-08-17T00:00:00.000Z",
+    work_item_id: "TASK-001",
+    repository: "ai-org-labs/ai-organization-framework",
+    permission_boundary: {
+      mode: "read_only",
+      allowed: ["repo metadata read", "actions run list read", "release metadata read"],
+      not_authorized: ["issue creation", "pull request creation", "push", "external write"]
+    },
+    observations: {
+      default_branch: "main",
+      latest_release: { tag: "v11.4.0", name: "AOF v11.4.0", url: "https://example.invalid/release", published_at: "2026-08-16T01:46:00.000Z" },
+      open_issue_count: 0,
+      open_pull_request_count: 0,
+      latest_actions: [{ branch: "main", title: "Release AOF v11.4.0", conclusion: "success", url: "https://example.invalid/actions" }],
+      local_runtime_state: { active_release: "v11.4.0", current_stage: "frontier-definition-needed", primary_frontier_task_before_observation: null, new_task_id: "TASK-001" },
+      roadmap_frontier: "v11.5 Human-readable Provider Observation Replay"
+    },
+    candidate_tasks: [{
+      candidate_id: "CAND-001",
+      label_ja: "外部状態の読み取り結果を人間が理解できる形で再生する",
+      why: "raw provider artifacts are too expensive for operator review.",
+      evidence_refs: ["docs/provider-read.md"]
+    }],
+    selected_task: {
+      task_id: "TASK-001",
+      title_ja: "Provider observation replayを人間が読める形にする",
+      go_no_go: "go",
+      go_boundary: "local replay artifact only",
+      no_go_boundary: "no external write"
+    },
+    human_next_action: "Run the human-readable replay audit.",
+    not_proven: "This does not prove provider semantic truth or write safety."
+  });
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "provider-observation-replays"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "provider-observation-replays", "POR-TEST.json"), {
+    artifact_type: "provider-observation-replay-record",
+    replay_id: "POR-TEST",
+    recorded_at: "2026-08-17T00:00:00.000Z",
+    provider: "github",
+    repository: "ai-org-labs/ai-organization-framework",
+    provider_read_integration_ref: ".aof/artifacts/provider-read-integrations/PRI-TEST.json",
+    github_readonly_observation_ref: ".aof/artifacts/provider-observations/GRO-TEST.json",
+    external_validation_replay_ref: ".aof/artifacts/external-validation-replays/EVR-TEST.json",
+    operator_summary: {
+      headline: "GitHub was read as bounded evidence, not as write authority.",
+      plain_language_summary: "AOF read repo metadata, release state, and CI history, then converted the raw provider evidence into a reviewable story.",
+      operator_can_conclude: "The provider read chain is inspectable and no-write bounded.",
+      operator_must_not_conclude: "The replay does not prove semantic truth, production automation safety, or external write safety."
+    },
+    what_was_read: [
+      { object_type: "repository", source_ref: ".aof/artifacts/provider-read-integrations/PRI-TEST.json", plain_language_observation: "The target repository identity was observed.", freshness: "fixture-current" },
+      { object_type: "release", source_ref: ".aof/artifacts/provider-observations/GRO-TEST.json", plain_language_observation: "The latest release was visible to the provider read.", freshness: "fixture-current" },
+      { object_type: "workflow_runs", source_ref: ".aof/artifacts/provider-read-integrations/PRI-TEST.json", plain_language_observation: "Recent CI history was visible as provider state.", freshness: "fixture-current" }
+    ],
+    why_it_mattered: "Operators need to understand why provider evidence changed the next release judgment without opening raw JSON.",
+    what_changed: [
+      {
+        before: "Provider evidence existed as raw records and audits.",
+        after: "Provider evidence is replayed as an operator-readable explanation.",
+        meaning: "AOF can now distinguish inspected external state from unproven provider truth."
+      }
+    ],
+    replay_timeline: [
+      { step: "Read provider integration", input_ref: ".aof/artifacts/provider-read-integrations/PRI-TEST.json", operator_reading: "A read-only GitHub integration produced bounded provider evidence." },
+      { step: "Replay validation result", input_ref: ".aof/artifacts/external-validation-replays/EVR-TEST.json", operator_reading: "The validation replay changed confidence without authorizing writes." }
+    ],
+    external_write_attempted: false,
+    external_write_authorized: false,
+    not_proven: "This replay does not prove provider semantic truth, credential safety, write safety, production automation safety, market value, or broad adoption.",
+    next_action: "Use provider-observation-replay-audit as the v11.5 release gate.",
+    evidence_refs: [
+      ".aof/artifacts/provider-read-integrations/PRI-TEST.json",
+      ".aof/artifacts/provider-observations/GRO-TEST.json",
+      ".aof/artifacts/external-validation-replays/EVR-TEST.json",
+      "docs/provider-read.md"
+    ],
+    source_task_id: "TASK-001",
+    source_parent_session_id: "SESS-PROVIDER-OBSERVATION-REPLAY",
+    notes: null,
+    ...overrides
+  });
+}
+
+test("providerObservationReplayAuditCommand verifies human-readable provider observation replay", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeProviderObservationReplayFixture(projectRoot);
+
+  const audit = await providerObservationReplayAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.replay_count, 1);
+  assert.equal(audit.summary.summary.human_readable_replay_count, 1);
+  assert.equal(audit.summary.summary.external_write_authorized_count, 0);
+});
+
+test("providerObservationReplayAuditCommand rejects raw provider refs without operator-readable replay", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeProviderObservationReplayFixture(projectRoot, {
+    operator_summary: {
+      headline: "Raw refs only",
+      plain_language_summary: "",
+      operator_can_conclude: "",
+      operator_must_not_conclude: ""
+    }
+  });
+
+  await assert.rejects(
+    providerObservationReplayAuditCommand({ project: projectRoot }),
+    /provider observation replay record/
+  );
 });
 
 test("providerAdapterPilot commands write dry-run pilot evidence and audit pass", async (t) => {

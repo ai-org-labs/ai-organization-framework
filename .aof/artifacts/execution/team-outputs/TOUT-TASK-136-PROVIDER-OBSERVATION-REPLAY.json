@@ -1,0 +1,43 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-14T01:42:45.000Z",
+  "team_output_id": "TOUT-TASK-136-PROVIDER-OBSERVATION-REPLAY",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v11.5 Human-readable Provider Observation Replay to Architecture Council for release judgment.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-136-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-136-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-136-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v11.5-release-definition.md",
+    "docs/v11.5-release-checklist.md",
+    "docs/v11.5.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V115-PROVIDER-OBSERVATION-REPLAY.json",
+    ".aof/artifacts/provider-observation-replays/provider-observation-replay-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-136-V115.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-136-V115.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-136-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-136-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-136-GUARDIAN.json"
+  ],
+  "decision_required": true,
+  "summary": "TASK-136 Visionary, Builder, and Guardian outputs are joined for Council review; the release frames provider observation replay as human-readable read evidence, not external write permission.",
+  "source_task_id": "TASK-136",
+  "source_parent_session_id": "SESS-V115-PROVIDER-OBSERVATION-REPLAY",
+  "source_decision_record_id": null
+}

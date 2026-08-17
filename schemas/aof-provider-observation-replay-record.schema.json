@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-observation-replay-record.schema.json",
+  "title": "AOF Provider Observation Replay Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "replay_id",
+    "recorded_at",
+    "provider",
+    "repository",
+    "provider_read_integration_ref",
+    "github_readonly_observation_ref",
+    "external_validation_replay_ref",
+    "operator_summary",
+    "what_was_read",
+    "why_it_mattered",
+    "what_changed",
+    "replay_timeline",
+    "external_write_attempted",
+    "external_write_authorized",
+    "not_proven",
+    "next_action",
+    "evidence_refs",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "provider-observation-replay-record" },
+    "replay_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "provider": { "type": "string", "minLength": 1 },
+    "repository": { "type": "string", "minLength": 1 },
+    "provider_read_integration_ref": { "type": "string", "minLength": 1 },
+    "github_readonly_observation_ref": { "type": "string", "minLength": 1 },
+    "external_validation_replay_ref": { "type": "string", "minLength": 1 },
+    "operator_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["headline", "plain_language_summary", "operator_can_conclude", "operator_must_not_conclude"],
+      "properties": {
+        "headline": { "type": "string", "minLength": 1 },
+        "plain_language_summary": { "type": "string", "minLength": 1 },
+        "operator_can_conclude": { "type": "string", "minLength": 1 },
+        "operator_must_not_conclude": { "type": "string", "minLength": 1 }
+      }
+    },
+    "what_was_read": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["object_type", "source_ref", "plain_language_observation", "freshness"],
+        "properties": {
+          "object_type": { "type": "string", "minLength": 1 },
+          "source_ref": { "type": "string", "minLength": 1 },
+          "plain_language_observation": { "type": "string", "minLength": 1 },
+          "freshness": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "why_it_mattered": { "type": "string", "minLength": 1 },
+    "what_changed": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["before", "after", "meaning"],
+        "properties": {
+          "before": { "type": "string", "minLength": 1 },
+          "after": { "type": "string", "minLength": 1 },
+          "meaning": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "replay_timeline": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step", "input_ref", "operator_reading"],
+        "properties": {
+          "step": { "type": "string", "minLength": 1 },
+          "input_ref": { "type": "string", "minLength": 1 },
+          "operator_reading": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "external_write_attempted": { "const": false },
+    "external_write_authorized": { "const": false },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "next_action": { "type": "string", "minLength": 1 },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "notes": { "type": ["string", "null"] }
+  }
+}
