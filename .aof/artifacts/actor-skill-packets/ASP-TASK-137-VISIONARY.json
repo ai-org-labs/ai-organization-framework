@@ -1,0 +1,67 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-14T01:43:00.000Z",
+  "packet_id": "ASP-TASK-137-VISIONARY",
+  "source_task_id": "TASK-137",
+  "source_parent_session_id": "SESS-V116-PROVIDER-READ-INTEGRATION",
+  "source_decision_record_id": null,
+  "objective": "Frame v11.6 as a user-visible governed session contract capability.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "strategy-team",
+    "assignment_reason": "Visionary owns release direction and session-evidence value framing.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-benchmark-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v11.6-release-definition.md",
+        ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json"
+      ],
+      "rationale": "Release direction is grounded in real provider session contract evidence and audit boundary."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-direction-framing",
+    "artifact_schema_ref": "docs/v11.6-release-definition.md",
+    "required_sections": [
+      "What You Can Do Now",
+      "Release Boundary"
+    ],
+    "acceptance_criteria": [
+      "session contract boundary is explicit",
+      "no-write claim is visible"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "value framing is bounded",
+      "evaluator_ref": "guardian",
+      "evidence_required": "council-review",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I am framing the GitHub read as governed provider evidence, not automation permission.",
+    "current_action": "Define release value",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit direction to Council"
+  },
+  "status": "completed"
+}
