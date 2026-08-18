@@ -1,0 +1,43 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-14T01:42:45.000Z",
+  "team_output_id": "TOUT-TASK-137-EXTERNAL-OPERATOR-FEEDBACK",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v11.6 Human-readable External Operator Reproduction Feedback Intake to Architecture Council for release judgment.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-137-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-137-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-137-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v11.6-release-definition.md",
+    "docs/v11.6-release-checklist.md",
+    "docs/v11.6.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json",
+    ".aof/artifacts/external-operator-feedback/external-operator-feedback-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-137-V116.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-137-V116.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-137-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-137-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-137-GUARDIAN.json"
+  ],
+  "decision_required": true,
+  "summary": "TASK-137 Visionary, Builder, and Guardian outputs are joined for Council review; the release frames external operator reproduction feedback as human-readable read evidence, not external write permission.",
+  "source_task_id": "TASK-137",
+  "source_parent_session_id": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK",
+  "source_decision_record_id": null
+}

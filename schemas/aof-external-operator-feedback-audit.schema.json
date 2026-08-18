@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-external-operator-feedback-audit.schema.json",
+  "title": "AOF External Operator Feedback Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ok", "artifact_type", "generated_at", "project_root", "summary", "feedback", "checks", "errors"],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "external-operator-feedback-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["feedback_count", "accepted_count", "review_required_count", "failing_check_count"],
+      "properties": {
+        "feedback_count": { "type": "integer", "minimum": 0 },
+        "accepted_count": { "type": "integer", "minimum": 0 },
+        "review_required_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "feedback": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["feedback_id", "operator_ref", "understanding_result", "reproduction_result", "route", "artifact_ref"],
+        "properties": {
+          "feedback_id": { "type": "string" },
+          "operator_ref": { "type": "string" },
+          "understanding_result": { "type": "string" },
+          "reproduction_result": { "type": "string" },
+          "route": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" },
+          "evidence_refs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "errors": { "type": "array", "items": { "type": "string" } }
+  }
+}

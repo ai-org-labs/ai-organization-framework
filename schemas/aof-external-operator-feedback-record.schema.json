@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-external-operator-feedback-record.schema.json",
+  "title": "AOF External Operator Feedback Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "feedback_id",
+    "recorded_at",
+    "operator_ref",
+    "provider_observation_replay_ref",
+    "scenario",
+    "understanding_result",
+    "reproduction_result",
+    "feedback_summary",
+    "operator_questions",
+    "blocked_or_confusing_points",
+    "governance_route",
+    "product_evidence_value",
+    "evidence_refs",
+    "not_proven",
+    "source_task_id",
+    "source_parent_session_id"
+  ],
+  "properties": {
+    "artifact_type": { "const": "external-operator-feedback-record" },
+    "feedback_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "operator_ref": { "type": "string", "minLength": 1 },
+    "provider_observation_replay_ref": { "type": "string", "minLength": 1 },
+    "scenario": { "type": "string", "minLength": 1 },
+    "understanding_result": { "type": "string", "enum": ["understood", "partial", "confused", "rejected"] },
+    "reproduction_result": { "type": "string", "enum": ["reproduced", "partial", "failed", "not_attempted"] },
+    "feedback_summary": { "type": "string", "minLength": 1 },
+    "operator_questions": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "blocked_or_confusing_points": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "governance_route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route", "reason", "next_action", "requires_product_review"],
+      "properties": {
+        "route": { "type": "string", "enum": ["accept_as_product_evidence", "request_clarification", "reopen_product_work", "block_release_claim", "defer"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "next_action": { "type": "string", "minLength": 1 },
+        "requires_product_review": { "type": "boolean" }
+      }
+    },
+    "product_evidence_value": { "type": "string", "minLength": 1 },
+    "evidence_refs": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "not_proven": { "type": "string", "minLength": 1 },
+    "source_task_id": { "type": "string", "minLength": 1 },
+    "source_parent_session_id": { "type": "string", "minLength": 1 },
+    "notes": { "type": ["string", "null"] }
+  }
+}

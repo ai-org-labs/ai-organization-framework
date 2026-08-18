@@ -1,0 +1,32 @@
+{
+  "artifact_type": "external-operator-feedback-record",
+  "feedback_id": "EOF-TASK-137-V116",
+  "recorded_at": "2026-08-18T01:45:00.000Z",
+  "operator_ref": "self-hosting-operator",
+  "provider_observation_replay_ref": ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+  "scenario": "An operator inspects the v11.5 provider observation replay and decides whether the replay is understandable and reproducible enough to support the next product-governance decision.",
+  "understanding_result": "understood",
+  "reproduction_result": "reproduced",
+  "feedback_summary": "The operator can identify what provider state was read, why it mattered, what changed, what remains unproven, and the next action from the replay packet without reconstructing raw JSON.",
+  "operator_questions": [
+    "Would a first-time third-party operator produce the same result without project history?",
+    "Should rejected feedback automatically block a release claim?"
+  ],
+  "blocked_or_confusing_points": [],
+  "governance_route": {
+    "route": "accept_as_product_evidence",
+    "reason": "The feedback record demonstrates that the provider observation replay can be understood and reproduced by the current self-hosting operator, while still preserving the not-proven boundary.",
+    "next_action": "Use this intake surface for an external non-self-hosting operator drill before claiming broad adoption.",
+    "requires_product_review": false
+  },
+  "product_evidence_value": "This converts operator comprehension from an informal comment into a governed product-evidence artifact that can pass, block, or reopen work.",
+  "evidence_refs": [
+    ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+    "docs/v11.6-release-definition.md",
+    "test/runtime-core-2.test.js"
+  ],
+  "not_proven": "This does not prove broad adoption, market value, semantic truth, provider correctness, production automation safety, credential safety, GitHub write safety, or productivity improvement.",
+  "source_task_id": "TASK-137",
+  "source_parent_session_id": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK",
+  "notes": "Self-hosting operator feedback is accepted as release evidence for v11.6 only; broader third-party validation remains a future requirement."
+}

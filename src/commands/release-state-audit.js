@@ -12,6 +12,7 @@ import { externalizationReadinessAuditCommand } from "./externalization-readines
 import { externalOperatorReproductionAuditCommand } from "./external-operator-reproduction-audit.js";
 import { externalResourceAuditCommand } from "./external-resource-audit.js";
 import { externalValidationReplayAuditCommand } from "./external-validation-replay-audit.js";
+import { externalOperatorFeedbackAuditCommand } from "./external-operator-feedback-audit.js";
 import { githubReadonlyObservationAuditCommand } from "./github-readonly-observation-audit.js";
 import { operatorAcceptanceDrillAuditCommand } from "./operator-acceptance-drill-audit.js";
 import { operatorValidationAuditCommand } from "./operator-validation-audit.js";
@@ -375,6 +376,15 @@ function requiresProviderObservationReplayAudit(releaseVersion) {
   return major > 11 || (major === 11 && minor >= 5);
 }
 
+function requiresExternalOperatorFeedbackAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 11 || (major === 11 && minor >= 6);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -545,6 +555,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresProviderObservationReplayAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("provider-observation-replay-audit", await providerObservationReplayAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresExternalOperatorFeedbackAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("external-operator-feedback-audit", await externalOperatorFeedbackAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

@@ -1,0 +1,62 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-15T01:50:30.000Z",
+  "work_item_id": "TASK-137",
+  "work_item_type": "release",
+  "objective": "Ship v11.6 Human-readable External Operator Reproduction Feedback Intake.",
+  "reason_for_work": "v11.2 can govern session logs, but external session contracts still need to be replayed into confidence and governance routing.",
+  "expected_output": [
+    "agent session contract schema",
+    "agent session contract audit command",
+    "v11.6 release docs",
+    "product value evidence",
+    "capability delta evidence",
+    "release-state audit evidence"
+  ],
+  "consumer": [
+    "AOF operators",
+    "release council",
+    "external reviewers"
+  ],
+  "downstream_dependency": [
+    "release-state-audit",
+    "session log confidence",
+    "Mission Control"
+  ],
+  "success_criteria": [
+    "external-operator-feedback-audit passes",
+    "conflicting validation fail-closed regression exists",
+    "release-state-audit includes external-operator-feedback-audit",
+    "product value and capability delta evidence exist"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "external-operator-feedback-audit passes",
+      "capability-first-release-audit passes",
+      "product-value-evidence-audit passes",
+      "release-state-audit passes"
+    ],
+    "no_go": [
+      "conflicting validation can be silently accepted",
+      "session evidence linkage is missing",
+      "v11.6 implies actual independent third-party validation"
+    ]
+  },
+  "required_visualization": [
+    "evidence-coverage-map",
+    "readiness-checklist"
+  ],
+  "required_skills": [
+    "skill-benchmark-validation",
+    "skill-schema-review"
+  ],
+  "required_actor_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "council_review_need": "required",
+  "source_task_id": "TASK-137",
+  "source_parent_session_id": "SESS-V116-EXTERNAL-VALIDATION-REPLAY",
+  "source_decision_record_id": null
+}

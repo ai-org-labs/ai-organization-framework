@@ -49,6 +49,7 @@ import { providerControlledExecutionCandidateRecordCommand } from "../src/comman
 import { providerCostQuotaBoundaryAuditCommand } from "../src/commands/provider-cost-quota-boundary-audit.js";
 import { providerCostQuotaBoundaryRecordCommand } from "../src/commands/provider-cost-quota-boundary-record.js";
 import { externalOperatorReproductionAuditCommand } from "../src/commands/external-operator-reproduction-audit.js";
+import { externalOperatorFeedbackAuditCommand } from "../src/commands/external-operator-feedback-audit.js";
 import { externalValidationReplayAuditCommand } from "../src/commands/external-validation-replay-audit.js";
 import { githubReadonlyObservationAuditCommand } from "../src/commands/github-readonly-observation-audit.js";
 import { providerObservationReplayAuditCommand } from "../src/commands/provider-observation-replay-audit.js";
@@ -3691,6 +3692,64 @@ test("providerObservationReplayAuditCommand rejects raw provider refs without op
     providerObservationReplayAuditCommand({ project: projectRoot }),
     /provider observation replay record/
   );
+});
+
+async function writeExternalOperatorFeedbackFixture(projectRoot, overrides = {}) {
+  await writeProviderObservationReplayFixture(projectRoot);
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "external-operator-feedback"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "external-operator-feedback", "EOF-TEST.json"), {
+    artifact_type: "external-operator-feedback-record",
+    feedback_id: "EOF-TEST",
+    recorded_at: "2026-08-18T00:00:00.000Z",
+    operator_ref: "external-operator-fixture",
+    provider_observation_replay_ref: ".aof/artifacts/provider-observation-replays/POR-TEST.json",
+    scenario: "External operator reviews the provider observation replay and attempts to explain the evidence boundary.",
+    understanding_result: "understood",
+    reproduction_result: "reproduced",
+    feedback_summary: "The operator understood that the provider replay explains read-only evidence and does not authorize writes.",
+    operator_questions: ["When must provider state be refreshed?"],
+    blocked_or_confusing_points: [],
+    governance_route: {
+      route: "accept_as_product_evidence",
+      reason: "The operator reproduced the provider replay and understood the not-proven boundary.",
+      next_action: "Use the feedback as v11.6 product evidence.",
+      requires_product_review: false
+    },
+    product_evidence_value: "Confirms the provider replay can be understood without raw JSON reconstruction.",
+    evidence_refs: [
+      ".aof/artifacts/provider-observation-replays/POR-TEST.json",
+      "docs/provider-read.md"
+    ],
+    not_proven: "This fixture does not prove broad adoption, market value, semantic truth, or production safety.",
+    source_task_id: "TASK-001",
+    source_parent_session_id: "SESS-EXTERNAL-OPERATOR-FEEDBACK",
+    notes: null,
+    ...overrides
+  });
+}
+
+test("externalOperatorFeedbackAuditCommand accepts reproduced operator feedback as product evidence", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeExternalOperatorFeedbackFixture(projectRoot);
+
+  const audit = await externalOperatorFeedbackAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.feedback_count, 1);
+  assert.equal(audit.summary.summary.accepted_count, 1);
+  assert.equal(audit.summary.summary.review_required_count, 0);
+});
+
+test("externalOperatorFeedbackAuditCommand escalates rejected or failed feedback", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeExternalOperatorFeedbackFixture(projectRoot, {
+    understanding_result: "rejected",
+    reproduction_result: "failed"
+  });
+
+  const audit = await externalOperatorFeedbackAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("weak feedback escalates")));
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("not accepted as product evidence")));
 });
 
 test("providerAdapterPilot commands write dry-run pilot evidence and audit pass", async (t) => {

@@ -2,10 +2,10 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-08-17T15:10:00.000Z",
+      "at": "2026-08-18T01:45:00.000Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "v11.6 should ingest external operator reproduction feedback as product evidence: AOF should record whether an external operator understood, reproduced, or rejected the provider replay, then route that outcome into governance.",
+      "summary": "v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-08-17T15:09:02.239Z",
+      "at": "2026-08-18T01:44:53.793Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "at": "2026-08-17T15:09:02.224Z",
+      "at": "2026-08-18T01:44:53.773Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -32,6 +32,17 @@
       "next": "Use the visibility packet to inspect operator-facing runtime health.",
       "refs": [
         ".aof/context/active/metrics-snapshot.json"
+      ]
+    },
+    {
+      "at": "2026-08-18T01:40:42.830Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "v11.6 proof: external operator reproduction feedback intake",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-137.json"
       ]
     },
     {
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-135.json"
-      ]
-    },
-    {
-      "at": "2026-08-15T01:39:50.159Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "v11.3 proof: external validation result replay audit",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-134.json"
       ]
     }
   ]

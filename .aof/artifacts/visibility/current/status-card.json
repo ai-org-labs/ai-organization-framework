@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-08-17T15:09:02.239Z",
+  "as_of": "2026-08-18T01:44:53.793Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "v11.6 should ingest external operator reproduction feedback as product evidence: AOF should record whether an external operator understood, reproduced, or rejected the provider replay, then route that outcome into governance.",
+  "current_goal": "v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "v11.6 should ingest external operator reproduction feedback as product evidence: AOF should record whether an external operator understood, reproduced, or rejected the provider replay, then route that outcome into governance.",
+  "next_checkpoint": "v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

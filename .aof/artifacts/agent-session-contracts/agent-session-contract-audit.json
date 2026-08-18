@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "agent-session-contract-audit",
-  "generated_at": "2026-08-17T15:07:00.686Z",
+  "generated_at": "2026-08-18T01:43:02.424Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "scoped_task_count": 2,
-    "session_count": 2,
-    "runtime_ready_session_count": 2,
-    "tool_call_count": 4,
-    "governed_tool_call_count": 4,
+    "scoped_task_count": 3,
+    "session_count": 3,
+    "runtime_ready_session_count": 3,
+    "tool_call_count": 6,
+    "governed_tool_call_count": 6,
     "failing_check_count": 0
   },
   "sessions": [
@@ -27,13 +27,21 @@
       "event_count": 8,
       "tool_call_count": 2,
       "release_verdict": "runtime_ready"
+    },
+    {
+      "session_id": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json",
+      "source_task_id": "TASK-137",
+      "event_count": 8,
+      "tool_call_count": 2,
+      "release_verdict": "runtime_ready"
     }
   ],
   "checks": [
     {
       "name": "scoped agent session presence",
       "status": "pass",
-      "detail": "2 session(s) at or after TASK-135"
+      "detail": "3 session(s) at or after TASK-135"
     },
     {
       "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE schema",
@@ -367,6 +375,176 @@
     },
     {
       "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-checklist.md"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK test evidence linkage",
+      "status": "pass",
+      "detail": "2 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 3 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK governed tool call ASEV3-MSV4WQS6-1BAQ6P",
+      "status": "pass",
+      "detail": "tool=node ./src/cli.js visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK governed tool call ASEV4-MSV4WQS6-XH6K94",
+      "status": "pass",
+      "detail": "tool=apply_patch, safety=project_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-137.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.6-release-definition.md"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/external-operator-feedback-audit.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/external-operator-feedback-audit.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/external-operator-feedback-audit.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/runtime-execution.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "src/commands/agent-session-contract-audit.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-contract-audit.schema.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
       "status": "pass",
       "detail": "docs/v11.4-release-checklist.md"
     }

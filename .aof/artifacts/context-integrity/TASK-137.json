@@ -1,0 +1,32 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-137-V116",
+  "recorded_at": "2026-08-15T01:49:30.000Z",
+  "work_item_id": "TASK-137",
+  "work_item_ref": ".aof/tasks/done/TASK-137.json",
+  "session_ref": ".aof/tasks/done/TASK-137.json",
+  "context_pack_refs": [
+    ".aof/artifacts/work-items/goals/TASK-137.json"
+  ],
+  "declared_context_refs": [
+    "docs/vnext-roadmap.md",
+    "docs/vnext-release-plan.md",
+    ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json"
+  ],
+  "required_context_refs": [
+    "src/commands/external-operator-feedback-audit.js",
+    "schemas/aof-external-operator-feedback-audit.schema.json",
+    "schemas/aof-external-operator-feedback-audit.schema.json",
+    ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json",
+    ".aof/artifacts/external-operator-feedback/external-operator-feedback-audit.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-137-V116.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-137-V116.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality.",
+  "source_task_id": "TASK-137",
+  "source_parent_session_id": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK",
+  "source_decision_record_id": null
+}

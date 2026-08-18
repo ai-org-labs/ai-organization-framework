@@ -439,6 +439,19 @@
         "docs/v11.5.0-release-notes.md",
         ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-EXTERNAL-OPERATOR-FEEDBACK",
+      "name": "External Operator Reproduction Feedback Intake",
+      "description": "AOF can capture external operator understanding, reproduction, rejection, or confusion as product evidence with governance routing.",
+      "user_value": "Operators can see whether provider replay evidence actually landed with a human reviewer and whether confusion triggered product governance.",
+      "first_version": "v11.6.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.6-release-definition.md",
+        "docs/v11.6.0-release-notes.md",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
     }
   ]
 }

@@ -227,3 +227,15 @@ NEW: `PCAP-PROVIDER-OBSERVATION-REPLAY` turns provider-read evidence into an ope
 | Provider Read Integration Proof | raw records and audits | human-readable replay added | Operator can see what was read, why it mattered, what changed, and what remains unproven. |
 | External Validation Replay | confidence and governance routing | included in provider observation story | Validation result becomes part of a readable provider evidence chain. |
 | Release-State Governance | agent-session contract audit gate | provider-observation replay audit gate added | Green release now checks provider evidence comprehension, not just raw artifact presence. |
+
+## v11.6 Capability Delta
+
+NEW: `PCAP-EXTERNAL-OPERATOR-FEEDBACK` records whether an external operator understood, reproduced, rejected, or was confused by a provider observation replay.
+
+30-second delta: v11.5 made provider observation evidence readable. v11.6 makes operator comprehension and reproduction feedback auditable, and weak feedback must route to product review.
+
+| Capability | v11.5.0 | v11.6.0 | User-visible change |
+|---|---|---|---|
+| Human-readable Provider Observation Replay | readable replay packet | feedback intake linked to replay | Operator can see whether the replay actually landed with a reviewer. |
+| Product Value Comprehension | value evidence stated before/after | feedback route becomes product evidence | Confusion, rejection, or failed reproduction is treated as a product issue, not prose feedback. |
+| Release-State Governance | provider-observation replay audit gate | external-operator feedback audit gate added | Green release now checks that weak feedback cannot silently pass as accepted evidence. |

@@ -1,0 +1,28 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-137-V116",
+  "recorded_at": "2026-08-18T01:45:00.000Z",
+  "release_version": "11.6.0",
+  "release_ref": "docs/v11.6-release-definition.md",
+  "work_item_id": "TASK-137",
+  "work_item_ref": ".aof/tasks/done/TASK-137.json",
+  "one_minute_value_explanation": "AOF can now treat external operator comprehension and reproduction results as governed product evidence instead of informal review comments.",
+  "thirty_second_version_delta": "v11.5 made provider observations readable; v11.6 records whether an operator understood and reproduced that replay, and routes weak feedback into product governance.",
+  "new_capability_ids": [
+    "PCAP-EXTERNAL-OPERATOR-FEEDBACK"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-OBSERVATION-REPLAY",
+    "PCAP-PRODUCT-VALUE-COMPREHENSION"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-137-V116.json"
+  ],
+  "product_review_trigger": "If an operator is confused, rejects the replay, or cannot reproduce it, the feedback must require product review and cannot be accepted as product evidence.",
+  "not_proven": "This does not prove broad adoption, market value, semantic truth, provider correctness, production automation safety, credential safety, GitHub write safety, or productivity improvement.",
+  "source_task_id": "TASK-137",
+  "source_parent_session_id": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK",
+  "source_decision_record_id": null,
+  "notes": null
+}

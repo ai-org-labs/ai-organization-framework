@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-17T15:09:02.244Z",
+  "generated_at": "2026-08-18T01:44:53.804Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "11.5.0",
-    "active_release_track": "v11.5",
-    "release_definition_ref": "docs/v11.5-release-definition.md"
+    "active_release_version": "11.6.0",
+    "active_release_track": "v11.6",
+    "release_definition_ref": "docs/v11.6-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "v11.6 should ingest external operator reproduction feedback as product evidence: AOF should record whether an external operator understood, reproduced, or rejected the provider replay, then route that outcome into governance."
+    "branch_summary": "v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v11.5",
+      "label": "v11.6",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v11.5 and the next concrete branch.",
-    "why_this_branch": "After v11.5, prepare v11.6 External Operator Reproduction Feedback Intake while preserving human-readable provider observation replay, agent-session contract, tool-governance evidence, validation replay, provider-read no-write boundaries, and external operator reproduction discipline.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: v11.6 should ingest external operator reproduction feedback as product evidence: AOF should record whether an external operator understood, reproduced, or rejected the provider replay, then route that outcome into governance."
+    "where_are_we": "The runtime is between v11.6 and the next concrete branch.",
+    "why_this_branch": "Prepare v11.7 so provider read decisions can be replayed in Mission Control with operator feedback status, decision state, and governance route visible from canonical artifacts.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work."
   }
 }
