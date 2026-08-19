@@ -1,0 +1,43 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-14T01:42:45.000Z",
+  "team_output_id": "TOUT-TASK-138-PROVIDER-READ-DECISION-REPLAY",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v11.7 Human-readable Provider Read Decision Replay in Mission Control to Architecture Council for release judgment.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v11.7-release-definition.md",
+    "docs/v11.7-release-checklist.md",
+    "docs/v11.7.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json",
+    ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-138-V117.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-138-V117.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-GUARDIAN.json"
+  ],
+  "decision_required": true,
+  "summary": "TASK-138 Visionary, Builder, and Guardian outputs are joined for Council review; the release frames provider read decision replay as Mission Control decision visibility, not provider truth or external write permission.",
+  "source_task_id": "TASK-138",
+  "source_parent_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "source_decision_record_id": null
+}

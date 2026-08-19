@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-18T01:44:53.804Z",
+  "generated_at": "2026-08-19T01:49:26.928Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "11.6.0",
-    "active_release_track": "v11.6",
-    "release_definition_ref": "docs/v11.6-release-definition.md"
+    "active_release_version": "11.7.0",
+    "active_release_track": "v11.7",
+    "release_definition_ref": "docs/v11.7-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work."
+    "branch_summary": "v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v11.6",
+      "label": "v11.7",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v11.6 and the next concrete branch.",
-    "why_this_branch": "Prepare v11.7 so provider read decisions can be replayed in Mission Control with operator feedback status, decision state, and governance route visible from canonical artifacts.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work."
+    "where_are_we": "The runtime is between v11.7 and the next concrete branch.",
+    "why_this_branch": "Prepare v11.8 so external provider-read freshness is refreshed and made explicit before provider-read decisions are reused as current evidence.",
+    "what_branch_comes_next": "Run a runtime-backed direction review before opening the next implementation task: v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions."
   }
 }

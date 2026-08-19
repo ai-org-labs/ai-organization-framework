@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-138-V117",
+  "recorded_at": "2026-08-19T01:45:00.000Z",
+  "release_ref": "docs/v11.7-release-definition.md",
+  "work_item_id": "TASK-138",
+  "work_item_ref": ".aof/tasks/done/TASK-138.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "Operators can see whether provider-read feedback accepted, blocked, reopened, deferred, or needs review directly in Mission Control.",
+  "before_state": "The operator had to open provider integration, observation replay, and external operator feedback artifacts and infer the decision state manually.",
+  "after_state": "Mission Control exposes the decision state, feedback route, summary, next action, evidence refs, and not-proven boundary in one projection.",
+  "scenario": "After a provider observation replay receives operator feedback, the release operator checks Mission Control to decide whether the chain is accepted or must reopen product work.",
+  "five_minute_demo": "Run visibility-export, open mission-control.json, and inspect provider_read_decision_replay_projection.latest_decision_state and latest_next_action.",
+  "time_saved_or_work_reduced": "Removes manual reconstruction across three provider-read artifacts for routine go/no-go inspection.",
+  "cognitive_load_removed": "The operator no longer needs to remember how external feedback routes map to accepted, blocked, reopened, deferred, or needs-review states.",
+  "capability_matrix": [
+    {
+      "capability": "Provider Read Decision Replay",
+      "before": "No first-class Mission Control decision state for provider-read feedback.",
+      "after": "Decision state and next action are visible in Mission Control.",
+      "user_value": "Provider-read evidence can be operated as a decision, not a pile of artifacts."
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    "docs/v11.7-release-definition.md",
+    ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "This product value evidence is self-hosting evidence and does not prove broad third-party adoption or market value.",
+  "source_task_id": "TASK-138",
+  "source_parent_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

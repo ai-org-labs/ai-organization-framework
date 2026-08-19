@@ -1,0 +1,26 @@
+{
+  "artifact_type": "provider-read-decision-replay-record",
+  "replay_id": "PRDR-TASK-138-V117",
+  "recorded_at": "2026-08-19T01:45:00.000Z",
+  "provider_read_integration_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+  "provider_observation_replay_ref": ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+  "external_operator_feedback_ref": ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+  "decision_state": "accepted",
+  "feedback_route": "accept_as_product_evidence",
+  "operator_summary": "The provider-read chain is accepted as v11.7 release evidence because the linked observation replay and operator feedback were reproduced, while broad adoption and provider truth remain explicitly unproven.",
+  "why_this_decision": "External operator feedback accepted the provider observation replay as understandable and reproducible. v11.7 turns that conclusion into a visible decision state instead of forcing operators to inspect multiple raw artifacts.",
+  "what_changed": "Mission Control now exposes provider read decision state, feedback route, summary, next action, and not-proven boundary from canonical runtime artifacts.",
+  "mission_control_summary": "Provider read decision accepted; feedback route is accept_as_product_evidence; next frontier is provider-read freshness refresh before reusing old provider evidence.",
+  "next_action": "Proceed to v11.8 provider-read freshness refresh gate before using older provider observations as current decision evidence.",
+  "evidence_refs": [
+    "docs/v11.7-release-definition.md",
+    "docs/v11.7.0-release-notes.md",
+    ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+    ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+    ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+  ],
+  "not_proven": "This does not prove provider semantic truth, live provider availability, GitHub write safety, credential safety, production automation safety, market value, broad adoption, or productivity improvement.",
+  "source_task_id": "TASK-138",
+  "source_parent_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "notes": "Self-hosting decision replay accepted for v11.7 release evidence only."
+}

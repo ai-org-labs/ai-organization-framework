@@ -1,0 +1,150 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTREAM-V117-PROVIDER-READ-DECISION-REPLAY",
+  "recorded_at": "2026-08-19T01:45:00.000Z",
+  "session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "parent_session_id": null,
+  "actor_ref": "aof-orchestrator",
+  "role_ref": "orchestrator",
+  "provider": "codex",
+  "model": "gpt-5",
+  "events": [
+    {
+      "event_id": "EVT-V117-001",
+      "event_type": "prompt",
+      "occurred_at": "2026-08-19T01:45:00.000Z",
+      "summary": "Heartbeat instructed AOF runtime-backed roadmap review and nearest release completion.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-138.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V117-002",
+      "event_type": "tool_call",
+      "occurred_at": "2026-08-19T01:45:00.000Z",
+      "summary": "Ran situation-assess and visibility-export to select v11.7 as current frontier.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "tool_name": "visibility-export",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved_run_contract"
+    },
+    {
+      "event_id": "EVT-V117-003",
+      "event_type": "artifact_write",
+      "occurred_at": "2026-08-19T01:45:00.000Z",
+      "summary": "Wrote provider read decision replay, product value evidence, capability delta, release docs, and runtime audit integration.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        "docs/v11.7-release-definition.md"
+      ],
+      "tool_name": null,
+      "safety_level": "project_write",
+      "approval_policy": "approved_run_contract"
+    },
+    {
+      "event_id": "EVT-V117-004",
+      "event_type": "verification_result",
+      "occurred_at": "2026-08-19T01:45:00.000Z",
+      "summary": "Release verification ran provider-read decision replay audit, release-state audit, visibility export, npm test, and smoke.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json",
+        ".aof/artifacts/release-state/release-state-audit.json"
+      ],
+      "tool_name": "release-state-audit",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved_run_contract"
+    },
+    {
+      "event_id": "EVT-V117-005",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-08-19T01:45:00.000Z",
+      "summary": "Stop when v11.7 release gates pass and tag/release are published.",
+      "artifact_refs": [
+        "docs/v11.7-release-checklist.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V117-006",
+      "event_type": "response",
+      "occurred_at": "2026-08-19T01:45:00.000Z",
+      "summary": "Selected v11.7 as a bounded release: provider-read decision replay in Mission Control, not provider truth or external write authority.",
+      "artifact_refs": [
+        "docs/v11.7-release-definition.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V117-007",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-08-19T01:45:00.000Z",
+      "summary": "Mission Control could overstate accepted decision replay as proof of provider semantic truth unless not-proven boundaries remain visible.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V117-008",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-08-19T01:45:00.000Z",
+      "summary": "v11.8 should add freshness refresh before old provider-read observations are reused as current evidence.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-138.json"
+    ],
+    "requirement_refs": [
+      "docs/v11.7-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js",
+      "test/runtime-situation.test.js",
+      "docs/v11.7-release-checklist.md"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+      ".aof/artifacts/product-value-evidence/PVE-TASK-138-V117.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-138-V117.json"
+    ]
+  },
+  "risk_candidates": [
+    "Mission Control could overstate decision proof as provider truth unless not-proven boundary remains visible."
+  ],
+  "decision_candidates": [
+    "Treat v11.8 freshness refresh as the next frontier before reusing old provider-read observations."
+  ],
+  "release_ready_evidence": {
+    "claim": "v11.7 provider read decision replay is structurally and runtime ready after audits pass.",
+    "evidence_refs": [
+      "docs/v11.7-release-checklist.md",
+      ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-138",
+  "source_parent_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

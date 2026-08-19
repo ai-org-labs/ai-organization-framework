@@ -1,0 +1,45 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-08-14T01:42:50.000Z",
+  "review_packet_id": "CREV-TASK-138-V117",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v11.7 Human-readable Provider Read Decision Replay in Mission Control as a bounded real GitHub read integration with explicit no-write boundary.",
+  "rationale": "Visionary, Builder, and Guardian agree that v11.7 advances AOF by making agent session contracts first-class runtime evidence while refusing to imply write authority, production safety, or provider truth.",
+  "recommendation": "Proceed to release verification and tag v11.7.0 if release-state-audit, organization-verify, npm test, and smoke are green.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "Understand what session was governed, what data was observed, what boundary was enforced, and why the release can proceed.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": "agent-session-contract-release-framing",
+  "diagnosis_confidence": 0.86,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-GUARDIAN.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-138-PROVIDER-READ-DECISION-REPLAY.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-138-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v11.7-release-definition.md",
+    "docs/v11.7-release-checklist.md",
+    "docs/v11.7.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json",
+    ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-138-V117.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-138-V117.json",
+    ".aof/artifacts/release-state/release-state-audit.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-138",
+  "source_parent_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "source_decision_record_id": null
+}

@@ -239,3 +239,15 @@ NEW: `PCAP-EXTERNAL-OPERATOR-FEEDBACK` records whether an external operator unde
 | Human-readable Provider Observation Replay | readable replay packet | feedback intake linked to replay | Operator can see whether the replay actually landed with a reviewer. |
 | Product Value Comprehension | value evidence stated before/after | feedback route becomes product evidence | Confusion, rejection, or failed reproduction is treated as a product issue, not prose feedback. |
 | Release-State Governance | provider-observation replay audit gate | external-operator feedback audit gate added | Green release now checks that weak feedback cannot silently pass as accepted evidence. |
+
+## v11.7 Capability Delta
+
+NEW: `PCAP-PROVIDER-READ-DECISION-REPLAY` shows provider-read decision state in Mission Control.
+
+30-second delta: v11.6 captured operator feedback. v11.7 turns that feedback into a visible provider-read decision replay.
+
+| Capability | v11.6.0 | v11.7.0 | User-visible change |
+|---|---|---|---|
+| Provider Read Decision Replay | no Mission Control decision projection | accepted / blocked / reopened / deferred / needs-review state visible | Operators can inspect decision state without reconstructing raw artifacts. |
+| External Operator Feedback | feedback record exists | feedback route drives decision state | Feedback becomes an operational decision input. |
+| Provider Observation Replay | readable replay exists | replay linked to downstream decision | Provider evidence becomes visible as part of a governed decision chain. |

@@ -1,0 +1,26 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-14T01:42:40.000Z",
+  "role": "guardian",
+  "stage": "execution",
+  "session_id": "SESS-V117-VALIDATION-REPLAY-INTEGRATION",
+  "status": "completed",
+  "recommendation": "Approve only if v11.7 remains a read-only integration proof and does not claim GitHub write execution, production safety, provider truth, or external adoption.",
+  "rationale": "The main failure mode is overclaiming: a real provider session contract and green structural audit do not prove that future provider writes are safe.",
+  "signals": [
+    "The integration record explicitly sets external_write_attempted=false and external_write_authorized=false.",
+    "Release notes and release definition keep not-proven boundaries explicit."
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-138-V117.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-138-V117.json"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-138",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V117-VALIDATION-REPLAY-INTEGRATION",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.83
+}

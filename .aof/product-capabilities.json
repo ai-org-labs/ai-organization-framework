@@ -452,6 +452,20 @@
         "docs/v11.6.0-release-notes.md",
         ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-READ-DECISION-REPLAY",
+      "name": "Provider Read Decision Replay in Mission Control",
+      "description": "AOF can replay provider-read evidence and external operator feedback into a visible Mission Control decision state with next action and not-proven boundary.",
+      "user_value": "Operators can tell whether provider-read work was accepted, blocked, reopened, deferred, or needs review without reconstructing raw artifacts.",
+      "first_version": "v11.7.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+      ]
     }
   ]
 }

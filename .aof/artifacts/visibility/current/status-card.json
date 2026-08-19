@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-08-18T01:44:53.793Z",
+  "as_of": "2026-08-19T01:49:26.923Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
+  "current_goal": "v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
+  "next_checkpoint": "v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

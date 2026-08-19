@@ -1,0 +1,261 @@
+{
+  "ok": true,
+  "artifact_type": "provider-read-decision-replay-audit",
+  "generated_at": "2026-08-19T01:46:41.046Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "replay_count": 1,
+    "accepted_count": 1,
+    "blocked_count": 0,
+    "reopened_count": 0,
+    "deferred_count": 0,
+    "needs_review_count": 0,
+    "failing_check_count": 0
+  },
+  "replays": [
+    {
+      "replay_id": "PRDR-TASK-138-V117",
+      "decision_state": "accepted",
+      "feedback_route": "accept_as_product_evidence",
+      "operator_summary": "The provider-read chain is accepted as v11.7 release evidence because the linked observation replay and operator feedback were reproduced, while broad adoption and provider truth remain explicitly unproven.",
+      "mission_control_summary": "Provider read decision accepted; feedback route is accept_as_product_evidence; next frontier is provider-read freshness refresh before reusing old provider evidence.",
+      "next_action": "Proceed to v11.8 provider-read freshness refresh gate before using older provider observations as current decision evidence.",
+      "artifact_ref": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider read decision replay presence",
+      "status": "pass",
+      "detail": "1 replay record(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 provider read integration ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 provider observation replay ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 external operator feedback ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 summaries are operator-readable",
+      "status": "pass",
+      "detail": "Provider read decision accepted; feedback route is accept_as_product_evidence; next frontier is provider-read freshness refresh before reusing old provider evidence.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 decision reason and delta are present",
+      "status": "pass",
+      "detail": "External operator feedback accepted the provider observation replay as understandable and reproducible. v11.7 turns that conclusion into a visible decision state instead of forcing operators to inspect multiple raw artifacts.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 next action is present",
+      "status": "pass",
+      "detail": "Proceed to v11.8 provider-read freshness refresh gate before using older provider observations as current decision evidence.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 feedback route maps to decision state",
+      "status": "pass",
+      "detail": "route=accept_as_product_evidence, decision_state=accepted, expected=accepted",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 not-proven boundary present",
+      "status": "pass",
+      "detail": "This does not prove provider semantic truth, live provider availability, GitHub write safety, credential safety, production automation safety, market value, broad adoption, or productivity improvement.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    },
+    {
+      "name": "PRDR-TASK-138-V117 provenance present",
+      "status": "pass",
+      "detail": "source_task_id=TASK-138, source_parent_session_id=SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json",
+        "docs/v11.7-release-definition.md",
+        "docs/v11.7.0-release-notes.md",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+      ]
+    }
+  ],
+  "errors": []
+}

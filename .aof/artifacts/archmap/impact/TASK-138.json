@@ -1,0 +1,31 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-138-V117",
+  "work_item_ref": ".aof/tasks/done/TASK-138.json",
+  "work_item_id": "TASK-138",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "agent-session-contract",
+    "agent-session-tool-governance",
+    "governance-routing",
+    "release-state-audit"
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "deferred_with_reason",
+  "evidence_refs": [
+    "src/commands/provider-read-decision-replay-audit.js",
+    "schemas/aof-provider-read-decision-replay-audit.schema.json",
+    "schemas/aof-provider-read-decision-replay-audit.schema.json",
+    ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json",
+    ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+  ],
+  "recorded_at": "2026-08-15T01:49:30.000Z",
+  "updated_at": "2026-08-15T01:49:30.000Z",
+  "source_task_id": "TASK-138",
+  "source_parent_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "session_ref": ".aof/tasks/done/TASK-138.json",
+  "not_proven": "Archmap impact is a projection surface and does not prove rendered UX quality or semantic truth."
+}

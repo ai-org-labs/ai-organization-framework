@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
-  "updated_at": "2026-08-18T01:45:00.000Z",
+  "content": "v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
+  "updated_at": "2026-08-19T01:45:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK",
+  "source_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

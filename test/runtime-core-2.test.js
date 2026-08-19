@@ -53,6 +53,7 @@ import { externalOperatorFeedbackAuditCommand } from "../src/commands/external-o
 import { externalValidationReplayAuditCommand } from "../src/commands/external-validation-replay-audit.js";
 import { githubReadonlyObservationAuditCommand } from "../src/commands/github-readonly-observation-audit.js";
 import { providerObservationReplayAuditCommand } from "../src/commands/provider-observation-replay-audit.js";
+import { providerReadDecisionReplayAuditCommand } from "../src/commands/provider-read-decision-replay-audit.js";
 import { providerReadIntegrationAuditCommand } from "../src/commands/provider-read-integration-audit.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
@@ -3750,6 +3751,59 @@ test("externalOperatorFeedbackAuditCommand escalates rejected or failed feedback
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("weak feedback escalates")));
   assert.ok(audit.summary.errors.some((entry) => entry.includes("not accepted as product evidence")));
+});
+
+async function writeProviderReadDecisionReplayFixture(projectRoot, overrides = {}) {
+  await writeExternalOperatorFeedbackFixture(projectRoot);
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "provider-read-decision-replays"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "provider-read-decision-replays", "PRDR-TEST.json"), {
+    artifact_type: "provider-read-decision-replay-record",
+    replay_id: "PRDR-TEST",
+    recorded_at: "2026-08-19T00:00:00.000Z",
+    provider_read_integration_ref: ".aof/artifacts/provider-read-integrations/PRI-TEST.json",
+    provider_observation_replay_ref: ".aof/artifacts/provider-observation-replays/POR-TEST.json",
+    external_operator_feedback_ref: ".aof/artifacts/external-operator-feedback/EOF-TEST.json",
+    decision_state: "accepted",
+    feedback_route: "accept_as_product_evidence",
+    operator_summary: "The operator can see the provider read decision and the feedback route without opening raw JSON.",
+    why_this_decision: "The linked operator feedback was reproduced and accepted as product evidence.",
+    what_changed: "The provider read chain is now visible as a decision state rather than separate raw artifacts.",
+    mission_control_summary: "Provider read decision accepted; feedback was reproduced and no product-review blocker is active.",
+    next_action: "Use Mission Control to inspect decision state before opening the next provider-read freshness task.",
+    evidence_refs: [
+      ".aof/artifacts/provider-read-integrations/PRI-TEST.json",
+      ".aof/artifacts/provider-observation-replays/POR-TEST.json",
+      ".aof/artifacts/external-operator-feedback/EOF-TEST.json"
+    ],
+    not_proven: "This fixture does not prove provider truth, semantic truth, broad adoption, live provider availability, or production safety.",
+    source_task_id: "TASK-001",
+    source_parent_session_id: "SESS-PROVIDER-READ-DECISION-REPLAY",
+    notes: null,
+    ...overrides
+  });
+}
+
+test("providerReadDecisionReplayAuditCommand accepts a complete accepted decision replay", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeProviderReadDecisionReplayFixture(projectRoot);
+
+  const audit = await providerReadDecisionReplayAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.replay_count, 1);
+  assert.equal(audit.summary.summary.accepted_count, 1);
+  assert.equal(audit.summary.summary.failing_check_count, 0);
+});
+
+test("providerReadDecisionReplayAuditCommand fails when feedback route and decision state disagree", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeProviderReadDecisionReplayFixture(projectRoot, {
+    decision_state: "accepted",
+    feedback_route: "block_release_claim"
+  });
+
+  const audit = await providerReadDecisionReplayAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("feedback route maps to decision state")));
 });
 
 test("providerAdapterPilot commands write dry-run pilot evidence and audit pass", async (t) => {

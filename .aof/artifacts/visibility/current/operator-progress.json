@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-18T01:44:53.804Z",
+  "generated_at": "2026-08-19T01:49:26.928Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-137 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-137.json"
+    "summary": "TASK-138 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-138.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-137 completed: v11.6 proof: external operator reproduction feedback intake",
-      "artifact_ref": ".aof/tasks/done/TASK-137.json"
+      "summary": "TASK-138 completed: v11.7 proof: provider read decision replay in Mission Control",
+      "artifact_ref": ".aof/tasks/done/TASK-138.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
+      "summary": "v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-137 completed: v11.6 proof: external operator reproduction feedback intake v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
+    "what_changed": "TASK-138 completed: v11.7 proof: provider read decision replay in Mission Control v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work."
+    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions."
   }
 }

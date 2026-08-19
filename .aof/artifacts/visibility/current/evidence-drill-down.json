@@ -1,20 +1,20 @@
 {
   "view_type": "evidence_drill_down",
-  "generated_at": "2026-08-18T01:44:53.804Z",
+  "generated_at": "2026-08-19T01:49:26.928Z",
   "brief_ref": ".aof/artifacts/visibility/current/operator-brief.json",
   "current_state": {
-    "release_version": "11.6.0",
-    "active_release_track": "v11.6",
-    "release_definition_ref": "docs/v11.6-release-definition.md",
+    "release_version": "11.7.0",
+    "active_release_track": "v11.7",
+    "release_definition_ref": "docs/v11.7-release-definition.md",
     "current_runtime_stage": "frontier-definition-needed",
     "primary_frontier_task": null
   },
   "answer_to_proof": {
     "headline": {
-      "claim": "The next frontier is defined, but no aligned implementation task is open yet: v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
+      "claim": "The next frontier is defined, but no aligned implementation task is open yet: v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
       "rationale": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
       "evidence_refs": [
-        "docs/v11.6-release-definition.md",
+        "docs/v11.7-release-definition.md",
         ".aof/context/active/active-release-manifest.json",
         ".aof/goals/operating-goal.json",
         ".aof/goals/next-value-slice.json",
@@ -22,7 +22,7 @@
       ],
       "evidence_items": [
         {
-          "artifact_ref": "docs/v11.6-release-definition.md",
+          "artifact_ref": "docs/v11.7-release-definition.md",
           "why_it_matters": "Supports why the current frontier and headline are the live operator truth."
         },
         {
@@ -63,13 +63,13 @@
       ]
     },
     "next_action": {
-      "claim": "Open an implementation task for the current frontier: v11.7 should surface provider read decision replay and external operator feedback status in Mission Control, so operators do not need to open raw artifacts to know whether feedback accepted, blocked, or reopened work.",
-      "rationale": "No current open implementation task is aligned to the current operating goal.",
+      "claim": "Run a runtime-backed direction review before opening the next implementation task: v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
+      "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
       "artifact_ref": ".aof/goals/next-value-slice.json",
       "evidence_refs": [
         ".aof/goals/next-value-slice.json",
         ".aof/goals/operating-goal.json",
-        "docs/v11.6-release-definition.md"
+        "docs/v11.7-release-definition.md"
       ],
       "evidence_items": [
         {
@@ -81,7 +81,7 @@
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
         },
         {
-          "artifact_ref": "docs/v11.6-release-definition.md",
+          "artifact_ref": "docs/v11.7-release-definition.md",
           "why_it_matters": "Supports why this next action is the highest-leverage current move."
         }
       ]
@@ -117,6 +117,6 @@
   "operator_questions": {
     "why_headline_true": "The runtime has a named goal surface, but it still needs an aligned implementation task before the operator path is fully concrete.",
     "what_proves_blockers": "No blocker is currently strong enough to displace the live frontier.",
-    "what_proves_next_action": "No current open implementation task is aligned to the current operating goal."
+    "what_proves_next_action": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work."
   }
 }

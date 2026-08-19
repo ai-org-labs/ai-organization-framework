@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ai-org-labs.github.io/aof/schemas/aof-provider-read-decision-replay-audit.schema.json",
+  "title": "AOF Provider Read Decision Replay Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ok", "artifact_type", "generated_at", "project_root", "summary", "replays", "checks", "errors"],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "artifact_type": { "const": "provider-read-decision-replay-audit" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project_root": { "type": "string", "minLength": 1 },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["replay_count", "accepted_count", "blocked_count", "reopened_count", "deferred_count", "needs_review_count", "failing_check_count"],
+      "properties": {
+        "replay_count": { "type": "integer", "minimum": 0 },
+        "accepted_count": { "type": "integer", "minimum": 0 },
+        "blocked_count": { "type": "integer", "minimum": 0 },
+        "reopened_count": { "type": "integer", "minimum": 0 },
+        "deferred_count": { "type": "integer", "minimum": 0 },
+        "needs_review_count": { "type": "integer", "minimum": 0 },
+        "failing_check_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "replays": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["replay_id", "decision_state", "feedback_route", "operator_summary", "mission_control_summary", "next_action", "artifact_ref"],
+        "properties": {
+          "replay_id": { "type": "string" },
+          "decision_state": { "type": "string" },
+          "feedback_route": { "type": "string" },
+          "operator_summary": { "type": "string" },
+          "mission_control_summary": { "type": "string" },
+          "next_action": { "type": "string" },
+          "artifact_ref": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["pass", "fail"] },
+          "detail": { "type": "string" },
+          "evidence_refs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "errors": { "type": "array", "items": { "type": "string" } }
+  }
+}

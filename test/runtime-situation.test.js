@@ -19,7 +19,7 @@ test("situationAssessCommand diagnoses the current frontier from self-hosting ru
 
   assert.equal(result.ok, true);
   assert.equal(result.summary.artifact_type, "situation-assessment");
-  assert.equal(result.summary.active_release_version, "11.6.0");
+  assert.equal(result.summary.active_release_version, "11.7.0");
   assert.equal(result.summary.primary_frontier_task, null);
   assert.equal(result.summary.current_runtime_stage, "frontier-definition-needed");
   assert.match(result.summary.recommended_action.recommended_action, /v11\.7|provider read decision|decision replay|Mission Control/i);
@@ -141,8 +141,8 @@ test("roadmapStatusCommand keeps committed release evidence on the correct track
   assert.ok(result.release_tracks["v11.4"].some((task) => task.task_id === "TASK-135"));
   assert.ok(Array.isArray(result.release_tracks["v11.5"]));
   assert.ok(result.release_tracks["v11.5"].some((task) => task.task_id === "TASK-136"));
-  assert.ok(Array.isArray(result.release_tracks["v11.6"]));
-  assert.ok(result.release_tracks["v11.6"].some((task) => task.task_id === "TASK-137"));
+  assert.ok(Array.isArray(result.release_tracks["v11.7"]));
+  assert.ok(result.release_tracks["v11.7"].some((task) => task.task_id === "TASK-138"));
 });
 
 test("visibilityExportCommand surfaces situation judgment rather than stale release work", async () => {
@@ -150,9 +150,9 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   const result = await visibilityExportCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.payloads.mission_control.mission_overview.release_version, "11.6.0");
+  assert.equal(result.payloads.mission_control.mission_overview.release_version, "11.7.0");
   assert.equal(result.payloads.mission_control.mission_overview.current_runtime_stage, "frontier-definition-needed");
-  assert.match(result.payloads.mission_control.next_action.recommended_action, /v11\.7|provider read decision|decision replay|Mission Control/i);
+  assert.match(result.payloads.mission_control.next_action.recommended_action, /v11\.8|freshness|provider-read freshness/i);
   assert.doesNotMatch(result.payloads.mission_control.next_action.recommended_action, /Mission Control visibility slice/i);
   assert.equal(result.payloads.mission_control.blockers.some((blocker) => /alignment pulse/i.test(blocker.summary)), false);
   assert.equal(result.payloads.mission_control.blockers.some((blocker) => /frontier task/i.test(blocker.summary)), false);
@@ -162,15 +162,15 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.ok(result.payloads.mission_control.work_governance.work_items.length >= 2);
   assert.equal(result.payloads.mission_control.archmap.present, true);
   assert.equal(result.payloads.mission_control.archmap.current_source_ref, "docs/archmaps/aof-runtime-current.archmap");
-  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-137");
+  assert.equal(result.payloads.mission_control.archmap.latest_work_item_id, "TASK-138");
   assert.ok(result.payloads.mission_control.archmap.pending_impact_count >= 0);
   assert.equal(result.payloads.mission_control.organization_state.present, true);
   assert.equal(result.payloads.mission_control.organization_state.council_count, 3);
   assert.ok(result.payloads.mission_control.organization_state.roles.some((role) => role.role_id === "builder"));
   assert.equal(result.payloads.mission_control.agent_session_observability.present, true);
-  assert.equal(result.payloads.mission_control.agent_session_observability.latest_session_id, "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK");
+  assert.equal(result.payloads.mission_control.agent_session_observability.latest_session_id, "SESS-V117-PROVIDER-READ-DECISION-REPLAY");
   assert.equal(result.payloads.mission_control.agent_session_observability.audit_ok, true);
-  assert.ok(result.payloads.mission_control.agent_session_observability.linked_task_refs.some((ref) => /TASK-137/.test(ref)));
+  assert.ok(result.payloads.mission_control.agent_session_observability.linked_task_refs.some((ref) => /TASK-138/.test(ref)));
   assert.ok(result.payloads.mission_control.agent_session_observability.risk_candidates.length >= 1);
   assert.ok(result.payloads.mission_control.agent_session_observability.decision_candidates.length >= 1);
   assert.equal(result.payloads.mission_control.context_reference_integrity.present, true);
@@ -256,6 +256,13 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.match(result.payloads.mission_control.operator_validation_projection.records[0].feedback_summary, /operator/i);
   assert.equal(result.payloads.mission_control.operator_validation_projection.records[0].mission_control_ref, ".aof/artifacts/visibility/current/mission-control.json");
   assert.ok(result.payloads.mission_control.operator_validation_projection.records[0].evidence_refs.includes("docs/v8.2-release-definition.md"));
+  assert.equal(result.payloads.mission_control.provider_read_decision_replay_projection.present, true);
+  assert.equal(result.payloads.mission_control.provider_read_decision_replay_projection.audit_ok, true);
+  assert.equal(result.payloads.mission_control.provider_read_decision_replay_projection.replay_count, 1);
+  assert.equal(result.payloads.mission_control.provider_read_decision_replay_projection.accepted_count, 1);
+  assert.equal(result.payloads.mission_control.provider_read_decision_replay_projection.latest_decision_state, "accepted");
+  assert.equal(result.payloads.mission_control.provider_read_decision_replay_projection.latest_feedback_route, "accept_as_product_evidence");
+  assert.match(result.payloads.mission_control.provider_read_decision_replay_projection.latest_next_action, /freshness/i);
   assert.equal(result.payloads.operator_progress.view_type, "operator_progress");
   assert.equal(result.payloads.tree_position.view_type, "tree_position");
   assert.equal(result.payloads.evidence_drill_down.view_type, "evidence_drill_down");
@@ -267,11 +274,11 @@ test("operatorBriefCommand compresses runtime situation judgment into one operat
 
   assert.equal(result.ok, true);
   assert.equal(result.brief.view_type, "operator_brief");
-  assert.equal(result.brief.current_state.release_version, "11.6.0");
+  assert.equal(result.brief.current_state.release_version, "11.7.0");
   assert.equal(result.brief.current_state.current_runtime_stage, "frontier-definition-needed");
   assert.equal(result.brief.current_state.primary_frontier_task, null);
   assert.equal(result.brief.current_state.skillful_actor_projection?.projection_id, "SAHRI-TASK-054-PROOF");
-  assert.match(result.brief.operator_answers.what_should_happen_next, /v11\.7|provider read decision|decision replay|Mission Control/i);
+  assert.match(result.brief.operator_answers.what_should_happen_next, /v11\.8|freshness|provider-read freshness/i);
 });
 
 test("organizationStatusCommand exposes the post-v10.1 direction goal and next value slice", async () => {
@@ -279,8 +286,8 @@ test("organizationStatusCommand exposes the post-v10.1 direction goal and next v
   const result = await organizationStatusCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.match(result.goals.operating_goal, /v11\.7|provider read decision|decision replay|Mission Control/i);
-  assert.match(result.goals.next_value_slice, /v11\.7|provider read decision|decision replay|Mission Control/i);
+  assert.match(result.goals.operating_goal, /v11\.8|freshness|provider-read freshness/i);
+  assert.match(result.goals.next_value_slice, /v11\.8|freshness|provider-read freshness/i);
 });
 
 test("operatorProgressCommand explains what changed since the last checkpoint", async () => {
@@ -298,10 +305,10 @@ test("treePositionCommand explains the current release trunk and frontier branch
 
   assert.equal(result.ok, true);
   assert.equal(result.tree.view_type, "tree_position");
-  assert.equal(result.tree.trunk.active_release_version, "11.6.0");
+  assert.equal(result.tree.trunk.active_release_version, "11.7.0");
   assert.equal(result.tree.branch.frontier_task_id, null);
   assert.equal(result.tree.branch.frontier_track, null);
-  assert.match(result.tree.tree_answer.where_are_we, /between v11\.6 and the next concrete branch/i);
+  assert.match(result.tree.tree_answer.where_are_we, /between v11\.7 and the next concrete branch/i);
 });
 
 test("releaseStateAuditCommand includes product value, production boundary, and controlled candidate release gates", async () => {
@@ -309,7 +316,7 @@ test("releaseStateAuditCommand includes product value, production boundary, and 
   const result = await releaseStateAuditCommand({ project: projectRoot });
 
   assert.equal(result.ok, true);
-  assert.equal(result.summary.active_release.release_version, "11.6.0");
+  assert.equal(result.summary.active_release.release_version, "11.7.0");
   const externalResourceAudit = result.summary.governance_audits.find((audit) => audit.name === "external-resource-audit");
   assert.equal(externalResourceAudit.ok, true);
   const providerAdapterAudit = result.summary.governance_audits.find((audit) => audit.name === "provider-adapter-audit");
@@ -342,6 +349,8 @@ test("releaseStateAuditCommand includes product value, production boundary, and 
   assert.equal(providerCostQuotaBoundaryAudit.ok, true);
   const externalOperatorFeedbackAudit = result.summary.governance_audits.find((audit) => audit.name === "external-operator-feedback-audit");
   assert.equal(externalOperatorFeedbackAudit.ok, true);
+  const providerReadDecisionReplayAudit = result.summary.governance_audits.find((audit) => audit.name === "provider-read-decision-replay-audit");
+  assert.equal(providerReadDecisionReplayAudit.ok, true);
   assert.equal(result.summary.errors.length, 0);
 });
 

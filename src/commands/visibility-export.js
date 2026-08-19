@@ -1608,6 +1608,51 @@ async function loadOperatorValidationProjection(projectRoot) {
   };
 }
 
+async function loadProviderReadDecisionReplayProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider read decision replay audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      replay_count: 0,
+      accepted_count: 0,
+      blocked_count: 0,
+      reopened_count: 0,
+      deferred_count: 0,
+      needs_review_count: 0,
+      latest_decision_state: null,
+      latest_feedback_route: null,
+      latest_summary: null,
+      latest_next_action: null,
+      latest_replay_ref: null,
+      replays: [],
+      not_proven: "No provider read decision replay audit artifact is present."
+    };
+  }
+  const replays = audit.replays ?? [];
+  const latest = replays[replays.length - 1] ?? null;
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    replay_count: audit.summary?.replay_count ?? 0,
+    accepted_count: audit.summary?.accepted_count ?? 0,
+    blocked_count: audit.summary?.blocked_count ?? 0,
+    reopened_count: audit.summary?.reopened_count ?? 0,
+    deferred_count: audit.summary?.deferred_count ?? 0,
+    needs_review_count: audit.summary?.needs_review_count ?? 0,
+    latest_decision_state: latest?.decision_state ?? null,
+    latest_feedback_route: latest?.feedback_route ?? null,
+    latest_summary: latest?.mission_control_summary ?? latest?.operator_summary ?? null,
+    latest_next_action: latest?.next_action ?? null,
+    latest_replay_ref: latest?.artifact_ref ?? null,
+    replays,
+    not_proven: "Provider read decision replay projection proves decision/evidence linkage is visible in Mission Control; it does not prove provider truth, semantic truth, live provider availability, or external adoption."
+  };
+}
+
 async function loadProductValueEvidenceProjection(projectRoot) {
   const auditRef = ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json";
   const audit = await maybeReadJsonByRef(projectRoot, auditRef, "product value evidence audit");
@@ -1722,6 +1767,7 @@ function buildMissionControl({
   providerAdapterPilotReadinessProjection = null,
   externalRuntimeSafetyProjection = null,
   operatorValidationProjection = null,
+  providerReadDecisionReplayProjection = null,
   evidenceCompletenessProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
@@ -2136,6 +2182,24 @@ function buildMissionControl({
       records: [],
       not_proven: "No operator validation audit artifact is present."
     },
+    provider_read_decision_replay_projection: providerReadDecisionReplayProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json",
+      audit_ok: null,
+      replay_count: 0,
+      accepted_count: 0,
+      blocked_count: 0,
+      reopened_count: 0,
+      deferred_count: 0,
+      needs_review_count: 0,
+      latest_decision_state: null,
+      latest_feedback_route: null,
+      latest_summary: null,
+      latest_next_action: null,
+      latest_replay_ref: null,
+      replays: [],
+      not_proven: "No provider read decision replay audit artifact is present."
+    },
     evidence_completeness_projection: evidenceCompletenessProjection ?? {
       completeness_status: "incomplete",
       source_of_truth_boundary: "Mission Control is a read-only projection of canonical AOF artifacts.",
@@ -2153,7 +2217,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, providerIncidentRecoveryProjection, providerCostQuotaBoundaryProjection, providerProductionBoundaryProjection, operatorAcceptanceDrillProjection, productValueEvidenceProjection, operatorValidationProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, providerIncidentRecoveryProjection, providerCostQuotaBoundaryProjection, providerProductionBoundaryProjection, operatorAcceptanceDrillProjection, productValueEvidenceProjection, operatorValidationProjection, providerReadDecisionReplayProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -2184,7 +2248,8 @@ export async function visibilityExportCommand(options) {
     loadProviderProductionBoundaryProjection(projectRoot),
     loadOperatorAcceptanceDrillProjection(projectRoot),
     loadProductValueEvidenceProjection(projectRoot),
-    loadOperatorValidationProjection(projectRoot)
+    loadOperatorValidationProjection(projectRoot),
+    loadProviderReadDecisionReplayProjection(projectRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -2263,6 +2328,7 @@ export async function visibilityExportCommand(options) {
     providerAdapterPilotReadinessProjection,
     externalRuntimeSafetyProjection,
     operatorValidationProjection,
+    providerReadDecisionReplayProjection,
     evidenceCompletenessProjection
   });
   const operatorBrief = buildOperatorBriefView({

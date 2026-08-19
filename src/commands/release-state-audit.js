@@ -29,6 +29,7 @@ import { providerLearningLoopAuditCommand } from "./provider-learning-loop-audit
 import { providerOutcomeEvidenceAuditCommand } from "./provider-outcome-evidence-audit.js";
 import { providerProductionBoundaryAuditCommand } from "./provider-production-boundary-audit.js";
 import { providerReadIntegrationAuditCommand } from "./provider-read-integration-audit.js";
+import { providerReadDecisionReplayAuditCommand } from "./provider-read-decision-replay-audit.js";
 import { providerObservationReplayAuditCommand } from "./provider-observation-replay-audit.js";
 import { providerRollbackProofAuditCommand } from "./provider-rollback-proof-audit.js";
 import { qualityLedgerAuditCommand } from "./quality-ledger-audit.js";
@@ -385,6 +386,15 @@ function requiresExternalOperatorFeedbackAudit(releaseVersion) {
   return major > 11 || (major === 11 && minor >= 6);
 }
 
+function requiresProviderReadDecisionReplayAudit(releaseVersion) {
+  const match = String(releaseVersion ?? "").match(/^(\d+)\.(\d+)\.(\d+)/);
+  if (!match) {
+    return false;
+  }
+  const [, major, minor] = match.map(Number);
+  return major > 11 || (major === 11 && minor >= 7);
+}
+
 async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   const options = { project: projectRoot, cutoffTaskId };
   const auditResults = [
@@ -560,6 +570,11 @@ async function runGovernanceAudits(projectRoot, cutoffTaskId, manifest) {
   if (requiresExternalOperatorFeedbackAudit(manifest?.release_version)) {
     auditResults.push(
       summarizeGovernanceAudit("external-operator-feedback-audit", await externalOperatorFeedbackAuditCommand({ project: projectRoot }))
+    );
+  }
+  if (requiresProviderReadDecisionReplayAudit(manifest?.release_version)) {
+    auditResults.push(
+      summarizeGovernanceAudit("provider-read-decision-replay-audit", await providerReadDecisionReplayAuditCommand({ project: projectRoot }))
     );
   }
   if (requiresOperatorValidationAudit(manifest?.release_version)) {

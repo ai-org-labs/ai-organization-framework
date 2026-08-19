@@ -28,6 +28,7 @@
     "provider_adapter_pilot_readiness_projection",
     "external_runtime_safety_projection",
     "operator_validation_projection",
+    "provider_read_decision_replay_projection",
     "evidence_completeness_projection"
   ],
   "properties": {
@@ -1577,6 +1578,62 @@
                 "items": { "type": "string" }
               },
               "not_proven": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_read_decision_replay_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "replay_count",
+        "accepted_count",
+        "blocked_count",
+        "reopened_count",
+        "deferred_count",
+        "needs_review_count",
+        "latest_decision_state",
+        "latest_feedback_route",
+        "latest_summary",
+        "latest_next_action",
+        "latest_replay_ref",
+        "replays",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "replay_count": { "type": "integer" },
+        "accepted_count": { "type": "integer" },
+        "blocked_count": { "type": "integer" },
+        "reopened_count": { "type": "integer" },
+        "deferred_count": { "type": "integer" },
+        "needs_review_count": { "type": "integer" },
+        "latest_decision_state": { "type": ["string", "null"] },
+        "latest_feedback_route": { "type": ["string", "null"] },
+        "latest_summary": { "type": ["string", "null"] },
+        "latest_next_action": { "type": ["string", "null"] },
+        "latest_replay_ref": { "type": ["string", "null"] },
+        "replays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["replay_id", "decision_state", "feedback_route", "operator_summary", "mission_control_summary", "next_action", "artifact_ref"],
+            "properties": {
+              "replay_id": { "type": "string" },
+              "decision_state": { "type": "string" },
+              "feedback_route": { "type": "string" },
+              "operator_summary": { "type": "string" },
+              "mission_control_summary": { "type": "string" },
+              "next_action": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },
             "additionalProperties": false

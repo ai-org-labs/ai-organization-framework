@@ -158,6 +158,7 @@ const COMMAND_SPECS = [
   ["external-validation-replay-audit", "./commands/external-validation-replay-audit.js", "externalValidationReplayAuditCommand"],
   ["provider-observation-replay-audit", "./commands/provider-observation-replay-audit.js", "providerObservationReplayAuditCommand"],
   ["external-operator-feedback-audit", "./commands/external-operator-feedback-audit.js", "externalOperatorFeedbackAuditCommand"],
+  ["provider-read-decision-replay-audit", "./commands/provider-read-decision-replay-audit.js", "providerReadDecisionReplayAuditCommand"],
   ["escalation-resolve", "./commands/escalation-resolve.js", "escalationResolveCommand"],
   ["role-result-record", "./commands/role-result-record.js", "roleResultRecordCommand"],
   ["role-join-record", "./commands/role-join-record.js", "roleJoinRecordCommand"],

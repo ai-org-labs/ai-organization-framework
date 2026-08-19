@@ -1,0 +1,28 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-138-V117",
+  "recorded_at": "2026-08-19T01:45:00.000Z",
+  "release_version": "11.7.0",
+  "release_ref": "docs/v11.7-release-definition.md",
+  "work_item_id": "TASK-138",
+  "work_item_ref": ".aof/tasks/done/TASK-138.json",
+  "one_minute_value_explanation": "v11.7 lets operators see the provider-read decision state in Mission Control: accepted, blocked, reopened, deferred, or needs review, with the feedback route and next action attached.",
+  "thirty_second_version_delta": "v11.6 captured external operator feedback; v11.7 turns that feedback into a visible provider-read decision replay.",
+  "new_capability_ids": [
+    "PCAP-PROVIDER-READ-DECISION-REPLAY"
+  ],
+  "updated_capability_ids": [
+    "PCAP-EXTERNAL-OPERATOR-FEEDBACK",
+    "PCAP-PROVIDER-OBSERVATION-REPLAY"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-138-V117.json"
+  ],
+  "product_review_trigger": "If an operator cannot tell whether provider-read feedback accepted, blocked, or reopened work from Mission Control, reopen this capability as a product issue.",
+  "not_proven": "Capability delta does not prove broad adoption, market value, or provider truth.",
+  "source_task_id": "TASK-138",
+  "source_parent_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

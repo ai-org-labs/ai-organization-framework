@@ -1,9 +1,9 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v11.7 so provider read decisions can be replayed in Mission Control with operator feedback status, decision state, and governance route visible from canonical artifacts.",
-  "updated_at": "2026-08-18T01:45:00.000Z",
+  "content": "Prepare v11.8 so external provider-read freshness is refreshed and made explicit before provider-read decisions are reused as current evidence.",
+  "updated_at": "2026-08-19T01:45:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK",
+  "source_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "agent-session-contract-audit",
-  "generated_at": "2026-08-18T01:43:02.424Z",
+  "generated_at": "2026-08-19T01:46:41.139Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "scoped_task_count": 3,
-    "session_count": 3,
-    "runtime_ready_session_count": 3,
-    "tool_call_count": 6,
-    "governed_tool_call_count": 6,
+    "scoped_task_count": 4,
+    "session_count": 4,
+    "runtime_ready_session_count": 4,
+    "tool_call_count": 7,
+    "governed_tool_call_count": 7,
     "failing_check_count": 0
   },
   "sessions": [
@@ -35,13 +35,21 @@
       "event_count": 8,
       "tool_call_count": 2,
       "release_verdict": "runtime_ready"
+    },
+    {
+      "session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json",
+      "source_task_id": "TASK-138",
+      "event_count": 8,
+      "tool_call_count": 1,
+      "release_verdict": "runtime_ready"
     }
   ],
   "checks": [
     {
       "name": "scoped agent session presence",
       "status": "pass",
-      "detail": "3 session(s) at or after TASK-135"
+      "detail": "4 session(s) at or after TASK-135"
     },
     {
       "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE schema",
@@ -547,6 +555,181 @@
       "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
       "status": "pass",
       "detail": "docs/v11.4-release-checklist.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY test evidence linkage",
+      "status": "pass",
+      "detail": "3 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 2 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY governed tool call EVT-V117-002",
+      "status": "pass",
+      "detail": "tool=visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-138.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-definition.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-checklist.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-checklist.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-138.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-definition.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/release-state/release-state-audit.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-checklist.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-definition.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
     }
   ],
   "errors": []
