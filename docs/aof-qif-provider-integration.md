@@ -11,11 +11,10 @@ The active provider profile is:
 The current pinned source is:
 
 - repository: `ai-org-labs/quality-intent-framework`
-- tag: `v0.3.1`
-- release: `https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.1`
-- tree: `https://github.com/ai-org-labs/quality-intent-framework/tree/v0.3.1`
-- tag SHA: `f175e583008c9490eb2fb35ea910854244dd8800`
-- commit SHA: `1ba7c9c17216acaa24f20dbbae67172ef3a00dd2`
+- tag: `v0.5.4`
+- release: `https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.5.4`
+- tree: `https://github.com/ai-org-labs/quality-intent-framework/tree/v0.5.4`
+- tag SHA: `21740be7adf69f613645343ab7cb823c210e3aaf`
 
 ## Design Decision
 
@@ -32,15 +31,16 @@ AOF therefore stores only a provider profile and adapter contract:
 
 ## Layer Model
 
-QIF v0.3.1 keeps the Discovery Layer design boundary and adds pre-implementation review guidance. AOF treats the selected provider as three connected layers:
+QIF v0.5.4 keeps the Discovery Layer design boundary and adds an executable Guided Elicitation Runtime. AOF treats the selected provider as four connected layers:
 
 - QIF Core: Quality Intent, risk, loss boundary, evidence, verdict, confidence, uncertainty, acceptance gate, and governance trigger.
 - QIF Discovery Layer: discovery of candidate Quality Intents before a formal QIF package is authored, including solution-bias discovery, boundary-confusion discovery, and concept-comprehension discovery.
+- QIF Guided Elicitation Runtime: schema-backed, verifier-backed plain-language elicitation for users who do not know QIF terminology, including raw answer preservation, teach-back confirmation, and low-confidence governance routing.
 - AOF Integration: mapping AOF runtime commands, benchmark results, release gates, work artifacts, and council evidence into QIF-governed quality claims.
 
 Important boundary:
 
-QIF v0.3.1 does not yet replace the executable v0.2.1 package baseline. It adds documentation guidance for pre-implementation review, negative acceptance, evidence independence, done-before Guardian questions, rubric-based visual verification, Living QIF Ledger behavior, and v0.4 quality gate runtime requirements. Until QIF publishes v0.3+ schemas, example packages, and verifier rules, AOF keeps `.aof/quality/QIFPKG-AOF-V5-001.json` as the active machine-readable package and uses v0.3.1 for provider-level guidance alignment.
+QIF v0.5.4 publishes an executable guided-elicitation package type, schema, example, verifier, and negative fixture corpus. AOF adopts that as an external provider capability for quality-intent discovery and operator elicitation guidance. It does not automatically replace AOF runtime gates or the active local machine-readable package. AOF keeps `.aof/quality/QIFPKG-AOF-V5-001.json` as the active AOF quality baseline until guided elicitation packages are explicitly mapped into AOF runtime commands.
 
 ## Adapter Responsibility
 
@@ -97,7 +97,7 @@ Required upgrade steps:
 3. Mark compatibility as active, candidate, or deprecated.
 4. Run governance review before using the new QIF version for release-quality claims.
 5. Preserve the prior profile as fallback until the new profile is verified.
-6. If the new QIF version introduces a Discovery Layer without executable schemas, record that layer as a provider boundary and do not overclaim verifier support.
+6. If the new QIF version introduces executable provider capability, record exactly which capability is executable and do not overclaim semantic truth, user consent, expert correctness, or AOF runtime replacement.
 
 ## Boundary
 

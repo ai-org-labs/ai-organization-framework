@@ -1,0 +1,31 @@
+{
+  "artifact_type": "external-resource-use-record",
+  "use_id": "ERU-TASK-140-QIF-V054",
+  "recorded_at": "2026-08-21T00:20:00.000Z",
+  "work_item_id": "TASK-140",
+  "work_item_ref": ".aof/tasks/archived/TASK-140.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-QIF-V054-UPGRADE.json",
+  "resource_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
+  "use_purpose": "Use QIF v0.5.4 as a read-only external quality reference while updating the active AOF QIF provider profile.",
+  "operation_type": "read",
+  "approval_status": "not_required",
+  "approval_ref": null,
+  "execution_status": "executed",
+  "output_artifact_refs": [
+    ".aof/quality/qif-provider-profile.json",
+    "docs/aof-qif-provider-integration.md",
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "risk_candidates": [
+    "guided elicitation verifier could be overclaimed as semantic truth",
+    "AOF could imply QIF runtime replacement before explicit mapping"
+  ],
+  "decision_candidates": [
+    "treat QIF v0.5.4 guided elicitation as an external provider capability and future AOF integration candidate"
+  ],
+  "not_proven": "This use record proves only that a bounded read-only external reference was linked to TASK-140; it does not prove QIF correctness, AOF runtime integration completeness, or operator acceptance.",
+  "source_task_id": "TASK-140",
+  "source_parent_session_id": "SESS-QIF-V054-UPGRADE",
+  "source_decision_record_id": null,
+  "notes": null
+}

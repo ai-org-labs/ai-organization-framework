@@ -1,7 +1,7 @@
 {
   "ok": true,
   "artifact_type": "context-reference-integrity-audit",
-  "generated_at": "2026-07-21T02:11:04.272Z",
+  "generated_at": "2026-08-20T15:22:47.952Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "cutoff_task_id": "TASK-090",
   "audited_status_dirs": [
@@ -10,9 +10,9 @@
     "done"
   ],
   "summary": {
-    "scoped_task_count": 23,
-    "context_record_count": 23,
-    "external_reference_record_count": 2,
+    "scoped_task_count": 50,
+    "context_record_count": 50,
+    "external_reference_record_count": 3,
     "missing_context_record_count": 0,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
@@ -179,6 +179,195 @@
       "status": "done",
       "status_dir": "done",
       "artifact_ref": ".aof/tasks/done/TASK-112.json"
+    },
+    {
+      "task_id": "TASK-113",
+      "title": "Ship v9.3 Capability-First Release Comprehension",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-113.json"
+    },
+    {
+      "task_id": "TASK-114",
+      "title": "Ship v9.4 Provider-backed Controlled Execution Candidate",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-114.json"
+    },
+    {
+      "task_id": "TASK-115",
+      "title": "Ship v9.5 External Runtime Incident Drill and Recovery Evidence",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-115.json"
+    },
+    {
+      "task_id": "TASK-116",
+      "title": "Ship v9.6 Provider Execution Cost and Quota Boundary",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-116.json"
+    },
+    {
+      "task_id": "TASK-117",
+      "title": "Ship v9.7 Archmap v0.4.0 Lifecycle Traceability Baseline",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-117.json"
+    },
+    {
+      "task_id": "TASK-118",
+      "title": "Ship v9.8 Production Execution Go/No-Go Evidence Candidate",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-118.json"
+    },
+    {
+      "task_id": "TASK-119",
+      "title": "Ship v9.9 External Runtime Production Readiness Review",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-119.json"
+    },
+    {
+      "task_id": "TASK-120",
+      "title": "Ship v10.0 External Runtime Productization Decision",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-120.json"
+    },
+    {
+      "task_id": "TASK-121",
+      "title": "Ship v10.1 Third-Party Operator Validation Contract",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-121.json"
+    },
+    {
+      "task_id": "TASK-122",
+      "title": "Ship v10.2 External Provider Integration Pilot Selection",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-122.json"
+    },
+    {
+      "task_id": "TASK-123",
+      "title": "Ship v10.3 Production Execution Authorization Model",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-123.json"
+    },
+    {
+      "task_id": "TASK-124",
+      "title": "Ship v10.4 External Value Reproduction Evidence Package",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-124.json"
+    },
+    {
+      "task_id": "TASK-125",
+      "title": "Ship v10.5 Provider-Backed Work Lifecycle Product Surface",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-125.json"
+    },
+    {
+      "task_id": "TASK-126",
+      "title": "Ship v10.6 Third-Party Validation Result Ingestion",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-126.json"
+    },
+    {
+      "task_id": "TASK-127",
+      "title": "Ship v10.7 Capability Coverage Gate",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-127.json"
+    },
+    {
+      "task_id": "TASK-128",
+      "title": "Improve Mission Control Japanese operator dashboard",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-128.json"
+    },
+    {
+      "task_id": "TASK-129",
+      "title": "Ship v10.8 Role Routing Fail-Closed Runtime",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-129.json"
+    },
+    {
+      "task_id": "TASK-130",
+      "title": "Ship v10.9 Provider Pilot Execution Readiness",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-130.json"
+    },
+    {
+      "task_id": "TASK-131",
+      "title": "v11.0 proof: read-only GitHub observation selects the next task",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-131.json"
+    },
+    {
+      "task_id": "TASK-132",
+      "title": "v11.1 proof: external operator can reproduce AOF next-task judgment",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-132.json"
+    },
+    {
+      "task_id": "TASK-133",
+      "title": "v11.2 proof: first governed external provider read integration",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-133.json"
+    },
+    {
+      "task_id": "TASK-134",
+      "title": "v11.3 proof: external validation result replay audit",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-134.json"
+    },
+    {
+      "task_id": "TASK-135",
+      "title": "v11.4 proof: agent session contract and tool governance evidence",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "task_id": "TASK-136",
+      "title": "v11.5 proof: human-readable provider observation replay",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-136.json"
+    },
+    {
+      "task_id": "TASK-137",
+      "title": "v11.6 proof: external operator reproduction feedback intake",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-137.json"
+    },
+    {
+      "task_id": "TASK-138",
+      "title": "v11.7 proof: provider read decision replay in Mission Control",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-138.json"
+    },
+    {
+      "task_id": "TASK-139",
+      "title": "v11.8 proof: provider read freshness refresh gate",
+      "status": "done",
+      "status_dir": "done",
+      "artifact_ref": ".aof/tasks/done/TASK-139.json"
     }
   ],
   "context_integrity_records": [
@@ -365,6 +554,222 @@
       "integrity_status": "ready",
       "missing_context_count": 0,
       "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-113",
+      "task_ref": ".aof/tasks/done/TASK-113.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-113.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-114",
+      "task_ref": ".aof/tasks/done/TASK-114.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-114.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-115",
+      "task_ref": ".aof/tasks/done/TASK-115.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-115.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-116",
+      "task_ref": ".aof/tasks/done/TASK-116.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-116.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-117",
+      "task_ref": ".aof/tasks/done/TASK-117.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-117.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-118",
+      "task_ref": ".aof/tasks/done/TASK-118.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-118.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-119",
+      "task_ref": ".aof/tasks/done/TASK-119.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-119.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-120",
+      "task_ref": ".aof/tasks/done/TASK-120.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-120.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-121",
+      "task_ref": ".aof/tasks/done/TASK-121.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-121.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-122",
+      "task_ref": ".aof/tasks/done/TASK-122.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-122.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-123",
+      "task_ref": ".aof/tasks/done/TASK-123.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-123.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-124",
+      "task_ref": ".aof/tasks/done/TASK-124.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-124.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-125",
+      "task_ref": ".aof/tasks/done/TASK-125.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-125.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-126",
+      "task_ref": ".aof/tasks/done/TASK-126.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-126.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-127",
+      "task_ref": ".aof/tasks/done/TASK-127.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-127.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-128",
+      "task_ref": ".aof/tasks/done/TASK-128.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-128.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-129",
+      "task_ref": ".aof/tasks/done/TASK-129.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-129.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-130",
+      "task_ref": ".aof/tasks/done/TASK-130.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-130.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-131",
+      "task_ref": ".aof/tasks/done/TASK-131.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-131.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-132",
+      "task_ref": ".aof/tasks/done/TASK-132.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-132.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-133",
+      "task_ref": ".aof/tasks/done/TASK-133.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-133.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-134",
+      "task_ref": ".aof/tasks/done/TASK-134.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-134.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-135",
+      "task_ref": ".aof/tasks/done/TASK-135.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-135.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-136",
+      "task_ref": ".aof/tasks/done/TASK-136.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-136.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-137",
+      "task_ref": ".aof/tasks/done/TASK-137.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-137.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-138",
+      "task_ref": ".aof/tasks/done/TASK-138.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-138.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
+    },
+    {
+      "task_id": "TASK-139",
+      "task_ref": ".aof/tasks/done/TASK-139.json",
+      "context_integrity_ref": ".aof/artifacts/context-integrity/TASK-139.json",
+      "integrity_status": "ready",
+      "missing_context_count": 0,
+      "hidden_signal_count": 0
     }
   ],
   "external_reference_integrity_records": [
@@ -372,6 +777,14 @@
       "external_ref": "QIF-v0.3.0",
       "external_ref_artifact_ref": ".aof/external-refs/QIF-v0.3.0.json",
       "integrity_ref": ".aof/artifacts/external-reference-integrity/QIF-v0.3.0.json",
+      "freshness_status": "current",
+      "availability_status": "available",
+      "integrity_status": "ready"
+    },
+    {
+      "external_ref": "QIF-v0.5.4",
+      "external_ref_artifact_ref": ".aof/external-refs/QIF-v0.5.4.json",
+      "integrity_ref": ".aof/artifacts/external-reference-integrity/QIF-v0.5.4.json",
       "freshness_status": "current",
       "availability_status": "available",
       "integrity_status": "ready"
@@ -389,7 +802,7 @@
     {
       "name": "scoped task discovery",
       "status": "pass",
-      "detail": "23 task(s) at or after TASK-090 in open, assigned, done"
+      "detail": "50 task(s) at or after TASK-090 in open, assigned, done"
     },
     {
       "name": "QIF-v0.3.0 external reference schema",
@@ -413,6 +826,31 @@
     },
     {
       "name": "QIF-v0.3.0 stale/unavailable refs are accepted or repaired",
+      "status": "pass",
+      "detail": "freshness=current, availability=available, integrity=ready"
+    },
+    {
+      "name": "QIF-v0.5.4 external reference schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-reference-integrity/QIF-v0.5.4.json"
+    },
+    {
+      "name": "QIF-v0.5.4 external artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/external-refs/QIF-v0.5.4.json"
+    },
+    {
+      "name": "QIF-v0.5.4 not_proven boundary present",
+      "status": "pass",
+      "detail": "Availability and profile alignment do not prove semantic truth, user consent, expert correctness, or that QIF guided elicitation should replace AOF runtime gates without explicit mapping."
+    },
+    {
+      "name": "QIF-v0.5.4 is not blocked",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "QIF-v0.5.4 stale/unavailable refs are accepted or repaired",
       "status": "pass",
       "detail": "freshness=current, availability=available, integrity=ready"
     },
@@ -2040,6 +2478,2466 @@
       "name": "TASK-112 context ref resolves",
       "status": "pass",
       "detail": ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json"
+    },
+    {
+      "name": "TASK-113 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-113.json"
+    },
+    {
+      "name": "TASK-113 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-113.json"
+    },
+    {
+      "name": "TASK-113 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-113, expected=TASK-113"
+    },
+    {
+      "name": "TASK-113 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-113 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-113 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves references were declared, not that users universally understand the release."
+    },
+    {
+      "name": "TASK-113 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-113.json"
+    },
+    {
+      "name": "TASK-113 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V93-CAPABILITY-FIRST.json"
+    },
+    {
+      "name": "TASK-113 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-113 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-113 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.1-product-value-comprehension.md"
+    },
+    {
+      "name": "TASK-113 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2-release-definition.md"
+    },
+    {
+      "name": "TASK-114 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-114.json"
+    },
+    {
+      "name": "TASK-114 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-114.json"
+    },
+    {
+      "name": "TASK-114 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-114, expected=TASK-114"
+    },
+    {
+      "name": "TASK-114 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-114 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-114 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared references were available, not production provider safety or semantic correctness."
+    },
+    {
+      "name": "TASK-114 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-114.json"
+    },
+    {
+      "name": "TASK-114 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V94-CONTROLLED-EXECUTION.json"
+    },
+    {
+      "name": "TASK-114 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-114 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-114 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.4-release-definition.md"
+    },
+    {
+      "name": "TASK-114 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.3-release-definition.md"
+    },
+    {
+      "name": "TASK-114 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.2-release-definition.md"
+    },
+    {
+      "name": "TASK-114 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json"
+    },
+    {
+      "name": "TASK-115 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-115.json"
+    },
+    {
+      "name": "TASK-115 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-115.json"
+    },
+    {
+      "name": "TASK-115 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-115, expected=TASK-115"
+    },
+    {
+      "name": "TASK-115 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-115 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-115 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared references were available, not live incident recovery performance or semantic correctness."
+    },
+    {
+      "name": "TASK-115 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-115.json"
+    },
+    {
+      "name": "TASK-115 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V95-INCIDENT-RECOVERY.json"
+    },
+    {
+      "name": "TASK-115 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-115 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-115 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.5-release-definition.md"
+    },
+    {
+      "name": "TASK-115 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.4-release-definition.md"
+    },
+    {
+      "name": "TASK-115 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json"
+    },
+    {
+      "name": "TASK-115 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/PPB-TASK-112-V92.json"
+    },
+    {
+      "name": "TASK-116 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-116.json"
+    },
+    {
+      "name": "TASK-116 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-116.json"
+    },
+    {
+      "name": "TASK-116 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-116, expected=TASK-116"
+    },
+    {
+      "name": "TASK-116 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-116 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-116 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared references were available, not actual provider billing correctness or production quota enforcement."
+    },
+    {
+      "name": "TASK-116 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-116.json"
+    },
+    {
+      "name": "TASK-116 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V96-COST-QUOTA.json"
+    },
+    {
+      "name": "TASK-116 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-116 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-116 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.6-release-definition.md"
+    },
+    {
+      "name": "TASK-116 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.5-release-definition.md"
+    },
+    {
+      "name": "TASK-116 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-incident-recoveries/PIR-TASK-115-V95.json"
+    },
+    {
+      "name": "TASK-116 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-controlled-execution-candidates/PCEC-TASK-114-V94.json"
+    },
+    {
+      "name": "TASK-117 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-117.json"
+    },
+    {
+      "name": "TASK-117 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-117.json"
+    },
+    {
+      "name": "TASK-117 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-117, expected=TASK-117"
+    },
+    {
+      "name": "TASK-117 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-117 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-117 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared references were available, not rendered Archmap usability or third-party comprehension."
+    },
+    {
+      "name": "TASK-117 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-117.json"
+    },
+    {
+      "name": "TASK-117 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V97-ARCHMAP-V040.json"
+    },
+    {
+      "name": "TASK-117 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v6.6-archmap-integration.md"
+    },
+    {
+      "name": "TASK-117 context ref resolves",
+      "status": "pass",
+      "detail": "docs/archmaps/aof-runtime-current.archmap"
+    },
+    {
+      "name": "TASK-117 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/external-refs/Archmap-v0.4.0.json"
+    },
+    {
+      "name": "TASK-117 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.7-archmap-v0.4.0-adoption.md"
+    },
+    {
+      "name": "TASK-118 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-118.json"
+    },
+    {
+      "name": "TASK-118 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-118.json"
+    },
+    {
+      "name": "TASK-118 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-118, expected=TASK-118"
+    },
+    {
+      "name": "TASK-118 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-118 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-118 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity confirms the go/no-go evidence chain is present and connected; it does not prove live provider execution safety, provider credentials, market truth, or external operator acceptance."
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-118.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V98-PROD-GONOGO.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V98-PROD-GONOGO.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.8-release-definition.md"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.7-release-definition.md"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-incident-recoveries/provider-incident-recovery-audit.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.8-release-definition.md"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.8.0-release-notes.md"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json"
+    },
+    {
+      "name": "TASK-118 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-incident-recoveries/provider-incident-recovery-audit.json"
+    },
+    {
+      "name": "TASK-119 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-119.json"
+    },
+    {
+      "name": "TASK-119 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-119.json"
+    },
+    {
+      "name": "TASK-119 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-119, expected=TASK-119"
+    },
+    {
+      "name": "TASK-119 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-119 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-119 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity confirms readiness review references are present; it does not prove live provider execution safety, production credentials, billing safety, semantic truth, or third-party acceptance."
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-119.json"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9-release-definition.md"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9.0-release-notes.md"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9-release-definition.md"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9.0-release-notes.md"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json"
+    },
+    {
+      "name": "TASK-119 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-incident-recoveries/provider-incident-recovery-audit.json"
+    },
+    {
+      "name": "TASK-120 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-120.json"
+    },
+    {
+      "name": "TASK-120 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-120.json"
+    },
+    {
+      "name": "TASK-120 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-120, expected=TASK-120"
+    },
+    {
+      "name": "TASK-120 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-120 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-120 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity confirms productization decision references are present; it does not prove third-party validation, product-market fit, live provider execution safety, or production authorization."
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-120.json"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V100-PRODUCTIZATION.json"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V100-PRODUCTIZATION.json"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0-release-definition.md"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0.0-release-notes.md"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9-release-definition.md"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0-release-definition.md"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0.0-release-notes.md"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v9.9-release-definition.md"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-production-boundaries/provider-production-boundary-audit.json"
+    },
+    {
+      "name": "TASK-120 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-cost-quota-boundaries/provider-cost-quota-boundary-audit.json"
+    },
+    {
+      "name": "TASK-121 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-121.json"
+    },
+    {
+      "name": "TASK-121 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-121.json"
+    },
+    {
+      "name": "TASK-121 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-121, expected=TASK-121"
+    },
+    {
+      "name": "TASK-121 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-121 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-121 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity confirms validation contract references are present; it does not prove actual third-party validation, external adoption, product-market fit, or production authorization."
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-121.json"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V101-THIRD-PARTY-VALIDATION.json"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V101-THIRD-PARTY-VALIDATION.json"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1.0-release-notes.md"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0-release-definition.md"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1.0-release-notes.md"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.0-release-definition.md"
+    },
+    {
+      "name": "TASK-121 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-122 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-122.json"
+    },
+    {
+      "name": "TASK-122 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-122.json"
+    },
+    {
+      "name": "TASK-122 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-122, expected=TASK-122"
+    },
+    {
+      "name": "TASK-122 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-122 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-122 not_proven boundary present",
+      "status": "pass",
+      "detail": "This v10.2 evidence proves provider pilot selection structure only; it does not prove completed provider integration, provider writes, production safety, or third-party validation completion."
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-122.json"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V102-PROVIDER-PILOT-SELECTION.json"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V102-PROVIDER-PILOT-SELECTION.json"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2-release-definition.md"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2.0-release-notes.md"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2-release-definition.md"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.2.0-release-notes.md"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-122 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-123 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-123.json"
+    },
+    {
+      "name": "TASK-123 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-123.json"
+    },
+    {
+      "name": "TASK-123 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-123, expected=TASK-123"
+    },
+    {
+      "name": "TASK-123 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-123 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-123 not_proven boundary present",
+      "status": "pass",
+      "detail": "This v10.3 evidence proves a production execution authorization model only; it does not prove live provider execution, provider write safety, production credential safety, billing safety, incident recovery performance, or third-party validation completion."
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-123.json"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V103-PROD-AUTH-MODEL.json"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V103-PROD-AUTH-MODEL.json"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.3-release-definition.md"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.3.0-release-notes.md"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.3-release-definition.md"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.3.0-release-notes.md"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-123 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-124 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-124.json"
+    },
+    {
+      "name": "TASK-124 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-124.json"
+    },
+    {
+      "name": "TASK-124 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-124, expected=TASK-124"
+    },
+    {
+      "name": "TASK-124 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-124 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-124 not_proven boundary present",
+      "status": "pass",
+      "detail": "This v10.4 evidence proves an external value reproduction evidence package only; it does not prove completed external reproduction, third-party validation completion, market value, external adoption, live provider execution, or production safety."
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-124.json"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V104-EXTERNAL-VALUE-REPRO-PACKAGE.json"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V104-EXTERNAL-VALUE-REPRO-PACKAGE.json"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.4-release-definition.md"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.4.0-release-notes.md"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.4-release-definition.md"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.4.0-release-notes.md"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-124 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-125 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-125.json"
+    },
+    {
+      "name": "TASK-125 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-125.json"
+    },
+    {
+      "name": "TASK-125 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-125, expected=TASK-125"
+    },
+    {
+      "name": "TASK-125 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-125 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-125 not_proven boundary present",
+      "status": "pass",
+      "detail": "This v10.5 evidence proves a provider-backed work lifecycle product surface only; it does not prove live provider execution, provider write safety, production safety, completed provider integration, external adoption, market value, or third-party validation completion."
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-125.json"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE.json"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V105-PROVIDER-WORK-LIFECYCLE-SURFACE.json"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.5-release-definition.md"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.5.0-release-notes.md"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.5-release-definition.md"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.5.0-release-notes.md"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-125 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-126 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-126.json"
+    },
+    {
+      "name": "TASK-126 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-126.json"
+    },
+    {
+      "name": "TASK-126 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-126, expected=TASK-126"
+    },
+    {
+      "name": "TASK-126 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-126 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-126 not_proven boundary present",
+      "status": "pass",
+      "detail": "This v10.6 evidence proves a third-party validation result ingestion contract only; it does not prove actual external validation results, market value, external adoption, live provider execution, provider write safety, or production safety."
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-126.json"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V106-THIRD-PARTY-VALIDATION-INGESTION.json"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V106-THIRD-PARTY-VALIDATION-INGESTION.json"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.6-release-definition.md"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.6.0-release-notes.md"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.6-release-definition.md"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.6.0-release-notes.md"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.1-release-definition.md"
+    },
+    {
+      "name": "TASK-126 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-validation/operator-validation-audit.json"
+    },
+    {
+      "name": "TASK-127 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-127.json"
+    },
+    {
+      "name": "TASK-127 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-127.json"
+    },
+    {
+      "name": "TASK-127 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-127, expected=TASK-127"
+    },
+    {
+      "name": "TASK-127 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-127 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-127 not_proven boundary present",
+      "status": "pass",
+      "detail": "This v10.7 evidence proves structural/runtime capability coverage gating only; it does not prove semantic expert correctness, playtest truth, market truth, or production execution safety."
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-127.json"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V107-CAPABILITY-COVERAGE-GATE.json"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V107-CAPABILITY-COVERAGE-GATE.json"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.7-release-definition.md"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.7.0-release-notes.md"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-capability-matrix.md"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v5-actor-skill-packet-contract.md"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.7-release-definition.md"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.7.0-release-notes.md"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v5-actor-skill-packet-contract.md"
+    },
+    {
+      "name": "TASK-127 context ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-quality-definition.md"
+    },
+    {
+      "name": "TASK-128 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-128.json"
+    },
+    {
+      "name": "TASK-128 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-128.json"
+    },
+    {
+      "name": "TASK-128 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-128, expected=TASK-128"
+    },
+    {
+      "name": "TASK-128 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-128 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-128 not_proven boundary present",
+      "status": "pass",
+      "detail": "This record proves the working context refs were declared and resolved; it does not prove every browser layout nuance or Japanese copy quality for all datasets."
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-128.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V99-PROD-READINESS.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/runtime-execution.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/operating-goal.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-128.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-serve.js"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/runtime-execution.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-128.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-serve.js"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "TASK-128 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/runtime-execution.json"
+    },
+    {
+      "name": "TASK-129 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-129.json"
+    },
+    {
+      "name": "TASK-129 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-129.json"
+    },
+    {
+      "name": "TASK-129 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-129, expected=TASK-129"
+    },
+    {
+      "name": "TASK-129 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-129 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-129 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves the required files and runtime evidence are declared and linked; it does not prove semantic correctness beyond tests and review."
+    },
+    {
+      "name": "TASK-129 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-129.json"
+    },
+    {
+      "name": "TASK-129 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-129.json"
+    },
+    {
+      "name": "TASK-129 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-129.json"
+    },
+    {
+      "name": "TASK-129 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.8-release-definition.md"
+    },
+    {
+      "name": "TASK-129 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v5-actor-skill-packet-contract.md"
+    },
+    {
+      "name": "TASK-129 context ref resolves",
+      "status": "pass",
+      "detail": "src/runtime/council.js"
+    },
+    {
+      "name": "TASK-129 context ref resolves",
+      "status": "pass",
+      "detail": "src/runtime/council-execution.js"
+    },
+    {
+      "name": "TASK-129 context ref resolves",
+      "status": "pass",
+      "detail": "src/runtime/packet.js"
+    },
+    {
+      "name": "TASK-129 context ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-3.test.js"
+    },
+    {
+      "name": "TASK-130 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-130.json"
+    },
+    {
+      "name": "TASK-130 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-130.json"
+    },
+    {
+      "name": "TASK-130 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-130, expected=TASK-130"
+    },
+    {
+      "name": "TASK-130 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-130 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-130 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves v10.9 release context is declared and linked; it does not prove live provider execution safety or provider semantic correctness."
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-130.json"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-130.json"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-130.json"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.9-release-definition.md"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v10.9.0-release-notes.md"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/product-capabilities.json"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/release-state-audit.js"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/capability-first-release-audit.js"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/product-value-evidence-audit.js"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-130-V109.json"
+    },
+    {
+      "name": "TASK-130 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-130-V109.json"
+    },
+    {
+      "name": "TASK-131 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-131.json"
+    },
+    {
+      "name": "TASK-131 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-131.json"
+    },
+    {
+      "name": "TASK-131 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-131, expected=TASK-131"
+    },
+    {
+      "name": "TASK-131 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-131 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-131 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves v11.0 release context is declared and linked; it does not prove GitHub write safety, semantic truth, or adoption."
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-131.json"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-131.json"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-131.json"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.0-release-definition.md"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.0.0-release-notes.md"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/product-capabilities.json"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/github-readonly-observation-audit.js"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-github-readonly-observation-record.schema.json"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-github-readonly-observation-audit.schema.json"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observations/TASK-131-github-readonly-observation.json"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observations/github-readonly-observation-audit.json"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-131-V110.json"
+    },
+    {
+      "name": "TASK-131 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-131-V110.json"
+    },
+    {
+      "name": "TASK-132 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-132.json"
+    },
+    {
+      "name": "TASK-132 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-132.json"
+    },
+    {
+      "name": "TASK-132 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-132, expected=TASK-132"
+    },
+    {
+      "name": "TASK-132 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-132 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-132 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves v11.1 release context is declared and linked; it does not prove actual third-party comprehension, semantic truth, or adoption."
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-132.json"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-132.json"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-132.json"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.1-release-definition.md"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.1.0-release-notes.md"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/product-capabilities.json"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/external-operator-reproduction-audit.js"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-operator-reproduction-record.schema.json"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-operator-reproduction-audit.schema.json"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-reproduction/TASK-132-external-operator-reproduction.json"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/operator-reproduction/external-operator-reproduction-audit.json"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-132-V111.json"
+    },
+    {
+      "name": "TASK-132 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-132-V111.json"
+    },
+    {
+      "name": "TASK-133 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-133.json"
+    },
+    {
+      "name": "TASK-133 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-133.json"
+    },
+    {
+      "name": "TASK-133 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-133, expected=TASK-133"
+    },
+    {
+      "name": "TASK-133 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-133 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-133 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves v11.2 release context is declared and linked; it does not prove provider semantic truth, write safety, production safety, or adoption."
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-133.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-133.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-133.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.2-release-definition.md"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.2.0-release-notes.md"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/product-capabilities.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-read-integration-audit.js"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-read-integration-record.schema.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-read-integration-audit.schema.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-adapters/PAD-TASK-133-GITHUB-READ.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/provider-read-integration-audit.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-133-V112.json"
+    },
+    {
+      "name": "TASK-133 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-133-V112.json"
+    },
+    {
+      "name": "TASK-134 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-134.json"
+    },
+    {
+      "name": "TASK-134 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-134.json"
+    },
+    {
+      "name": "TASK-134 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-134, expected=TASK-134"
+    },
+    {
+      "name": "TASK-134 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-134 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-134 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or external validation quality."
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-134.json"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-134.json"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-134.json"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/external-validation-replay-audit.js"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-validation-replay-record.schema.json"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-validation-replay-audit.schema.json"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-validation-replays/TASK-134-external-validation-replay.json"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-validation-replays/external-validation-replay-audit.json"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-134-V113.json"
+    },
+    {
+      "name": "TASK-134 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-134-V113.json"
+    },
+    {
+      "name": "TASK-135 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-135.json"
+    },
+    {
+      "name": "TASK-135 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-135.json"
+    },
+    {
+      "name": "TASK-135 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-135, expected=TASK-135"
+    },
+    {
+      "name": "TASK-135 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-135 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-135 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality."
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-135.json"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/agent-session-contract-audit.js"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-contract-audit.schema.json"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-contract-audit.schema.json"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-session-contracts/agent-session-contract-audit.json"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-135-V114.json"
+    },
+    {
+      "name": "TASK-135 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-135-V114.json"
+    },
+    {
+      "name": "TASK-136 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-136.json"
+    },
+    {
+      "name": "TASK-136 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-136.json"
+    },
+    {
+      "name": "TASK-136 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-136, expected=TASK-136"
+    },
+    {
+      "name": "TASK-136 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-136 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-136 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality."
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-136.json"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-136.json"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-136.json"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V115-PROVIDER-OBSERVATION-REPLAY.json"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-observation-replay-audit.js"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-observation-replay-audit.schema.json"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-observation-replay-audit.schema.json"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V115-PROVIDER-OBSERVATION-REPLAY.json"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/provider-observation-replay-audit.json"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-136-V115.json"
+    },
+    {
+      "name": "TASK-136 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-136-V115.json"
+    },
+    {
+      "name": "TASK-137 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-137.json"
+    },
+    {
+      "name": "TASK-137 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-137.json"
+    },
+    {
+      "name": "TASK-137 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-137, expected=TASK-137"
+    },
+    {
+      "name": "TASK-137 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-137 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-137 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality."
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-137.json"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-137.json"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-137.json"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/external-operator-feedback-audit.js"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-operator-feedback-audit.schema.json"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-external-operator-feedback-audit.schema.json"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/external-operator-feedback-audit.json"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-137-V116.json"
+    },
+    {
+      "name": "TASK-137 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-137-V116.json"
+    },
+    {
+      "name": "TASK-138 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-138.json"
+    },
+    {
+      "name": "TASK-138 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-138.json"
+    },
+    {
+      "name": "TASK-138 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-138, expected=TASK-138"
+    },
+    {
+      "name": "TASK-138 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-138 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-138 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality."
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-138.json"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-138.json"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-138.json"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-read-decision-replay-audit.js"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-read-decision-replay-audit.schema.json"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-read-decision-replay-audit.schema.json"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-138-V117.json"
+    },
+    {
+      "name": "TASK-138 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-138-V117.json"
+    },
+    {
+      "name": "TASK-139 context integrity record presence",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-139.json"
+    },
+    {
+      "name": "TASK-139 context schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/context-integrity/TASK-139.json"
+    },
+    {
+      "name": "TASK-139 context links to task",
+      "status": "pass",
+      "detail": "work_item_id=TASK-139, expected=TASK-139"
+    },
+    {
+      "name": "TASK-139 context is release-usable",
+      "status": "pass",
+      "detail": "integrity_status=ready"
+    },
+    {
+      "name": "TASK-139 hidden/missing context is explicit",
+      "status": "pass",
+      "detail": "missing=0, hidden=0, status=ready"
+    },
+    {
+      "name": "TASK-139 not_proven boundary present",
+      "status": "pass",
+      "detail": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality."
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-139.json"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-139.json"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/work-items/goals/TASK-139.json"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-release-plan.md"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": "src/commands/provider-read-freshness-refresh-audit.js"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-read-freshness-refresh-audit.schema.json"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-provider-read-freshness-refresh-audit.schema.json"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-139-V118.json"
+    },
+    {
+      "name": "TASK-139 context ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-139-V118.json"
     }
   ],
   "errors": []

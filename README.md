@@ -168,8 +168,8 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - QIFを一回限りの事後レポートではなく、bug / correction / contradicted assumptionで更新されるliving ledgerとして扱えること
 - AI orchestrator が巨大な CLI reference を読まずに `aof --help --json` / `aof <command> --help --json` から command purpose, category, inputs, outputs, failure meaning, QIF boundary を取得できること
 - `cli-help-benchmark` によって supported command help coverage を検証できること
-- QIF `v0.3.1` provider profile を採用し、QIF Discovery Layer / QIF Core / AOF Integration の層を記録できること
-- QIF v0.3.1 guidance はまだ executable verifier replacement ではないと明示できること
+- QIF `v0.5.4` provider profile を採用し、QIF Core / Discovery Layer / Guided Elicitation Runtime / AOF Integration の層を記録できること
+- QIF v0.5.4 Guided Elicitation Runtime は外部provider capabilityとして扱い、semantic truth、user consent、expert correctness、AOF runtime replacementを証明しないと明示できること
 - 新規 managed project に AOF を導入し、最初の governed work item まで到達できること
 - 最初の governed work item を machine-verifiable な artifact chain と human-readable な recognition summary の両方で説明できること
 - Work Governance を、software task だけではなく Human + AI + Tool の cross-domain work item を扱う core concept として表現できること

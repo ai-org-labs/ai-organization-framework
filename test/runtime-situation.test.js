@@ -184,8 +184,8 @@ test("visibilityExportCommand surfaces situation judgment rather than stale rele
   assert.ok(result.payloads.mission_control.externalization_readiness_projection.externalization_claim_count >= 1);
   assert.equal(result.payloads.mission_control.external_resource_projection.present, true);
   assert.equal(result.payloads.mission_control.external_resource_projection.audit_ok, true);
-  assert.equal(result.payloads.mission_control.external_resource_projection.resource_count, 3);
-  assert.equal(result.payloads.mission_control.external_resource_projection.use_count, 1);
+  assert.equal(result.payloads.mission_control.external_resource_projection.resource_count, 5);
+  assert.equal(result.payloads.mission_control.external_resource_projection.use_count, 2);
   assert.equal(result.payloads.mission_control.provider_adapter_projection.present, true);
   assert.equal(result.payloads.mission_control.provider_adapter_projection.audit_ok, true);
   assert.equal(result.payloads.mission_control.provider_adapter_projection.adapter_count, 2);

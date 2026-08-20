@@ -1,0 +1,34 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-MT1O29ZE-4NFVTS",
+  "recorded_at": "2026-08-20T15:19:41.066Z",
+  "work_item_id": "TASK-140",
+  "work_item_ref": ".aof/tasks/archived/TASK-140.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-QIF-V054-UPGRADE.json",
+  "context_pack_refs": [],
+  "declared_context_refs": [
+    ".aof/tasks/archived/TASK-140.json",
+    ".aof/quality/qif-provider-profile.json",
+    ".aof/external-refs/QIF-v0.5.4.json",
+    ".aof/artifacts/external-reference-integrity/QIF-v0.5.4.json",
+    ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
+    ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+    "docs/aof-qif-provider-integration.md",
+    "docs/aof-qif-quality-definition.md",
+    "docs/AI_AUTHORING_GUIDE.md",
+    "docs/cli-reference.md"
+  ],
+  "required_context_refs": [
+    ".aof/quality/qif-provider-profile.json",
+    "docs/aof-qif-provider-integration.md",
+    "docs/aof-qif-quality-definition.md",
+    ".aof/external-refs/QIF-v0.5.4.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared refs were present for TASK-140 only; it does not prove QIF semantic truth, user consent, expert correctness, or AOF runtime integration completeness.",
+  "source_task_id": "TASK-140",
+  "source_parent_session_id": "SESS-QIF-V054-UPGRADE",
+  "source_decision_record_id": null
+}

@@ -1,6 +1,6 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-08-20T01:51:11.327Z",
+  "generated_at": "2026-08-20T15:24:58.585Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
     "release_version": "11.8.0",
@@ -496,7 +496,7 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 46,
+    "stream_count": 47,
     "latest_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
     "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json",
     "latest_actor_ref": "aof-orchestrator",
@@ -625,11 +625,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 51,
-    "external_reference_record_count": 2,
+    "context_record_count": 52,
+    "external_reference_record_count": 3,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-140.json",
+        "work_item_id": "TASK-140",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared refs were present for TASK-140 only; it does not prove QIF semantic truth, user consent, expert correctness, or AOF runtime integration completeness."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-139.json",
         "work_item_id": "TASK-139",
@@ -685,14 +693,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves v11.2 release context is declared and linked; it does not prove provider semantic truth, write safety, production safety, or adoption."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-132.json",
-        "work_item_id": "TASK-132",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves v11.1 release context is declared and linked; it does not prove actual third-party comprehension, semantic truth, or adoption."
       }
     ],
     "latest_external_reference_records": [
@@ -700,6 +700,14 @@
         "ref": ".aof/artifacts/external-reference-integrity/V79-EXTERNALIZATION-READINESS.json",
         "external_ref": "v8-externalized-organization-runtime-candidate",
         "external_ref_artifact_ref": "docs/v7.9-release-definition.md",
+        "freshness_status": "current",
+        "availability_status": "available",
+        "integrity_status": "ready"
+      },
+      {
+        "ref": ".aof/artifacts/external-reference-integrity/QIF-v0.5.4.json",
+        "external_ref": "QIF-v0.5.4",
+        "external_ref_artifact_ref": ".aof/external-refs/QIF-v0.5.4.json",
         "freshness_status": "current",
         "availability_status": "available",
         "integrity_status": "ready"
@@ -840,10 +848,10 @@
     "present": true,
     "audit_ref": ".aof/artifacts/external-resources/external-resource-audit.json",
     "audit_ok": true,
-    "resource_count": 3,
-    "ready_resource_count": 3,
-    "use_count": 1,
-    "approved_or_not_required_use_count": 1,
+    "resource_count": 5,
+    "ready_resource_count": 5,
+    "use_count": 2,
+    "approved_or_not_required_use_count": 2,
     "blocked_use_count": 0,
     "missing_boundary_count": 0,
     "resources": [
@@ -858,6 +866,16 @@
         ]
       },
       {
+        "resource_id": "ERR-QIF-V054",
+        "resource_kind": "reference",
+        "display_name": "QIF v0.5.4 release reference",
+        "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
+        "readiness_status": "ready",
+        "allowed_operations": [
+          "read"
+        ]
+      },
+      {
         "resource_id": "ERR-TASK-107-GITHUB-ISSUE-WRITE",
         "resource_kind": "provider",
         "display_name": "GitHub issue write provider preflight",
@@ -865,6 +883,16 @@
         "readiness_status": "ready",
         "allowed_operations": [
           "external_write"
+        ]
+      },
+      {
+        "resource_id": "ERR-MSSA3NT1-YTVNES",
+        "resource_kind": "provider",
+        "display_name": "GitHub repository read provider",
+        "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+        "readiness_status": "ready",
+        "allowed_operations": [
+          "read"
         ]
       },
       {
@@ -887,6 +915,15 @@
         "approval_status": "not_required",
         "execution_status": "executed",
         "artifact_ref": ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
+      },
+      {
+        "use_id": "ERU-TASK-140-QIF-V054",
+        "work_item_id": "TASK-140",
+        "resource_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
+        "operation_type": "read",
+        "approval_status": "not_required",
+        "execution_status": "executed",
+        "artifact_ref": ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json"
       }
     ],
     "not_proven": "External resource projection is structural/runtime evidence; it does not prove semantic correctness of external output or operator acceptance."
@@ -1357,9 +1394,12 @@
     ],
     "resource_refs": [
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+      ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
       ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+      ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
-      ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
+      ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+      ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json"
     ],
     "evidence_refs": [
       ".aof/artifacts/externalization/externalization-readiness-audit.json",
@@ -1372,9 +1412,12 @@
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+      ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
       ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+      ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json",
-      ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
+      ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+      ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json"
     ],
     "governance_action": "operator-review-allowed",
     "permission_boundary": "Externalized execution cannot advance unless resource, provider, approval, provenance, freshness, and not-proven boundaries are visible and pass governance checks.",
@@ -1391,7 +1434,7 @@
       {
         "check_id": "external-resource-use",
         "status": "pass",
-        "summary": "1/1 external resource use(s) approved or not required.",
+        "summary": "2/2 external resource use(s) approved or not required.",
         "evidence_ref": ".aof/artifacts/external-resources/external-resource-audit.json"
       },
       {
@@ -1535,7 +1578,7 @@
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-139.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-140.json"
       },
       {
         "source_id": "release-definition",

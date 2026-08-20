@@ -1,13 +1,13 @@
 {
   "ok": true,
   "artifact_type": "external-resource-audit",
-  "generated_at": "2026-07-20T09:31:21.473Z",
+  "generated_at": "2026-08-20T15:22:44.561Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "resource_count": 3,
-    "ready_resource_count": 3,
-    "use_count": 1,
-    "approved_or_not_required_use_count": 1,
+    "resource_count": 5,
+    "ready_resource_count": 5,
+    "use_count": 2,
+    "approved_or_not_required_use_count": 2,
     "blocked_use_count": 0,
     "missing_boundary_count": 0,
     "failing_check_count": 0
@@ -24,6 +24,16 @@
       ]
     },
     {
+      "resource_id": "ERR-QIF-V054",
+      "resource_kind": "reference",
+      "display_name": "QIF v0.5.4 release reference",
+      "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
+      "readiness_status": "ready",
+      "allowed_operations": [
+        "read"
+      ]
+    },
+    {
       "resource_id": "ERR-TASK-107-GITHUB-ISSUE-WRITE",
       "resource_kind": "provider",
       "display_name": "GitHub issue write provider preflight",
@@ -31,6 +41,16 @@
       "readiness_status": "ready",
       "allowed_operations": [
         "external_write"
+      ]
+    },
+    {
+      "resource_id": "ERR-MSSA3NT1-YTVNES",
+      "resource_kind": "provider",
+      "display_name": "GitHub repository read provider",
+      "artifact_ref": ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
+      "readiness_status": "ready",
+      "allowed_operations": [
+        "read"
       ]
     },
     {
@@ -53,25 +73,37 @@
       "approval_status": "not_required",
       "execution_status": "executed",
       "artifact_ref": ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
+    },
+    {
+      "use_id": "ERU-TASK-140-QIF-V054",
+      "work_item_id": "TASK-140",
+      "resource_ref": ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
+      "operation_type": "read",
+      "approval_status": "not_required",
+      "execution_status": "executed",
+      "artifact_ref": ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json"
     }
   ],
   "checks": [
     {
       "name": "external runtime resource presence",
       "status": "pass",
-      "detail": "3 resource(s) found",
+      "detail": "5 resource(s) found",
       "evidence_refs": [
         ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
         ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json",
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json",
         ".aof/artifacts/external-runtime-resources/ERR-V81-PROVIDER-ADAPTER-POLICY.json"
       ]
     },
     {
       "name": "external resource use presence",
       "status": "pass",
-      "detail": "1 use record(s) found",
+      "detail": "2 use record(s) found",
       "evidence_refs": [
-        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json"
+        ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json"
       ]
     },
     {
@@ -155,6 +187,86 @@
       ]
     },
     {
+      "name": "ERR-QIF-V054 source-of-truth boundary",
+      "status": "pass",
+      "detail": "QIF v0.5.4 release tag and local external-ref artifact are the source boundary",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V054 permission boundary",
+      "status": "pass",
+      "detail": "read-only reference; no external writes authorized",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V054 freshness boundary",
+      "status": "pass",
+      "detail": "freshness_required:current",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V054 availability boundary",
+      "status": "pass",
+      "detail": "available as local external-ref artifact observed from GitHub release metadata",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V054 approval boundary",
+      "status": "pass",
+      "detail": "release-linked quality provider dependency; external updates require Council approval before use for release-quality claims",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V054 side-effect boundary",
+      "status": "pass",
+      "detail": "read-only; no provider execution, billing, secrets, deploy, or production write",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V054 allowed operations",
+      "status": "pass",
+      "detail": "read",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V054 readiness status",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V054 not-proven boundary",
+      "status": "pass",
+      "detail": "This resource record does not prove QIF semantic suitability, guided elicitation semantic truth, user consent, expert correctness, or AOF runtime replacement readiness.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERR-QIF-V054 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-140, source_parent_session_id=SESS-QIF-V054-UPGRADE",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
       "name": "ERR-TASK-107-GITHUB-ISSUE-WRITE source-of-truth boundary",
       "status": "pass",
       "detail": "GitHub repository issues API",
@@ -232,6 +344,86 @@
       "detail": "source_task_id=TASK-107, source_parent_session_id=SESS-V87-APPROVAL-AUTHENTICITY",
       "evidence_refs": [
         ".aof/artifacts/external-runtime-resources/ERR-TASK-107-GITHUB-ISSUE-WRITE.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES source-of-truth boundary",
+      "status": "pass",
+      "detail": "GitHub repository metadata, releases, issues, pull requests, and Actions runs are external provider state for ai-org-labs/ai-organization-framework.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES permission boundary",
+      "status": "pass",
+      "detail": "Read-only GitHub metadata access only; no issue, pull request, release, workflow, secret, or repository mutation is allowed.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES freshness boundary",
+      "status": "pass",
+      "detail": "Provider read evidence must record observed_at and be refreshed before release sign-off if the release target changes.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES availability boundary",
+      "status": "pass",
+      "detail": "GitHub and gh CLI authentication must be available for live reads; absence blocks live provider read claims.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES approval boundary",
+      "status": "pass",
+      "detail": "Read access is allowed for this release proof; any write or credential expansion requires explicit human approval.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES side-effect boundary",
+      "status": "pass",
+      "detail": "Read-only gh commands have no intended provider side effects.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES allowed operations",
+      "status": "pass",
+      "detail": "read",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES readiness status",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES not-proven boundary",
+      "status": "pass",
+      "detail": "This resource record does not prove GitHub data semantic correctness, credential safety, billing safety, write safety, or production automation.",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
+      ]
+    },
+    {
+      "name": "ERR-MSSA3NT1-YTVNES runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-133, source_parent_session_id=SESS-V112-PROVIDER-READ-INTEGRATION",
+      "evidence_refs": [
+        ".aof/artifacts/external-runtime-resources/ERR-TASK-133-GITHUB-READ.json"
       ]
     },
     {
@@ -411,6 +603,114 @@
       "evidence_refs": [
         ".aof/artifacts/external-resource-uses/TASK-100-QIF-V030.json",
         ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 work item ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/archived/TASK-140.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 session ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-QIF-V054-UPGRADE.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 resource ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 resource is audited",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 operation allowed by resource",
+      "status": "pass",
+      "detail": "operation_type=read",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 resource readiness",
+      "status": "pass",
+      "detail": "readiness_status=ready",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 approval status",
+      "status": "pass",
+      "detail": "operation_type=read, approval_status=not_required",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 output artifact ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/qif-provider-profile.json",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 output artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-provider-integration.md",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 output artifact ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-quality-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 not-proven boundary",
+      "status": "pass",
+      "detail": "This use record proves only that a bounded read-only external reference was linked to TASK-140; it does not prove QIF correctness, AOF runtime integration completeness, or operator acceptance.",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
+      ]
+    },
+    {
+      "name": "ERU-TASK-140-QIF-V054 runtime provenance",
+      "status": "pass",
+      "detail": "source_task_id=TASK-140, source_parent_session_id=SESS-QIF-V054-UPGRADE",
+      "evidence_refs": [
+        ".aof/artifacts/external-resource-uses/TASK-140-QIF-V054.json",
+        ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
       ]
     }
   ],

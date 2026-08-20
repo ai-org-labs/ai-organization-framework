@@ -1,0 +1,22 @@
+{
+  "artifact_type": "external-reference-integrity-record",
+  "record_id": "QIF-v0.5.4",
+  "recorded_at": "2026-08-21T00:20:00.000Z",
+  "external_ref": "QIF-v0.5.4",
+  "external_ref_artifact_ref": ".aof/external-refs/QIF-v0.5.4.json",
+  "source_system": "github",
+  "url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.5.4",
+  "relationship": "quality provider dependency",
+  "source_of_truth": "GitHub release tag",
+  "sync_policy": "manual release-linked check",
+  "usage_purpose": "Update AOF active QIF provider profile to the latest QIF v0.5.4 guided elicitation runtime baseline.",
+  "freshness_required": true,
+  "observed_at": "2026-08-21T00:20:00.000Z",
+  "freshness_status": "current",
+  "availability_status": "available",
+  "integrity_status": "ready",
+  "not_proven": "Availability and profile alignment do not prove semantic truth, user consent, expert correctness, or that QIF guided elicitation should replace AOF runtime gates without explicit mapping.",
+  "source_task_id": "TASK-140",
+  "source_parent_session_id": "SESS-QIF-V054-UPGRADE",
+  "source_decision_record_id": null
+}

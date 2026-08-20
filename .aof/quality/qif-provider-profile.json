@@ -1,29 +1,31 @@
 {
   "artifact_type": "aof-qif-provider-profile",
-  "profile_id": "QIFPROF-AOF-V0.3.1",
+  "profile_id": "QIFPROF-AOF-V0.5.4",
   "status": "active",
   "provider": "Quality Intent Framework",
-  "qif_version": "0.3.1",
+  "qif_version": "0.5.4",
   "source": {
     "repository": "ai-org-labs/quality-intent-framework",
-    "tag": "v0.3.1",
-    "release_url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.3.1",
-    "tree_url": "https://github.com/ai-org-labs/quality-intent-framework/tree/v0.3.1",
-    "tag_sha": "f175e583008c9490eb2fb35ea910854244dd8800"
+    "tag": "v0.5.4",
+    "release_url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.5.4",
+    "tree_url": "https://github.com/ai-org-labs/quality-intent-framework/tree/v0.5.4",
+    "tag_sha": "21740be7adf69f613645343ab7cb823c210e3aaf"
   },
   "active_package_ref": ".aof/quality/QIFPKG-AOF-V5-001.json",
   "layer_model": {
     "supported_layers": [
       "QIF Core",
       "QIF Discovery Layer",
+      "QIF Guided Elicitation Runtime",
       "AOF Integration"
     ],
     "active_layer_usage": {
       "QIF Core": "Represent Quality Intent, risk, loss boundary, evidence, verdict, confidence, uncertainty, acceptance gates, and governance triggers.",
       "QIF Discovery Layer": "Discover candidate Quality Intents before QIF artifacts are authored by using concern sources, loss-boundary exploration, solution-bias discovery, boundary-confusion discovery, concept-comprehension discovery, and failure-oriented discovery patterns.",
-      "AOF Integration": "Map AOF runtime commands, benchmark results, release gates, work artifacts, and council evidence into QIF-governed quality claims."
+      "AOF Integration": "Map AOF runtime commands, benchmark results, release gates, work artifacts, and council evidence into QIF-governed quality claims.",
+      "QIF Guided Elicitation Runtime": "Help users who do not know QIF terminology express candidate quality knowledge through schema-backed, verifier-backed guided elicitation packages, raw-answer preservation, teach-back confirmation, and low-confidence governance routing."
     },
-    "current_executable_baseline": "QIF v0.3.1 provides pre-implementation review guidance, negative acceptance guidance, evidence independence guidance, visual verification guidance, Living QIF Ledger guidance, and extended Discovery Layer taxonomy. It does not publish replacement runtime schemas, example packages, or verifier rules. AOF keeps the active package .aof/quality/QIFPKG-AOF-V5-001.json v0.2.1-compatible until QIF publishes executable v0.3+ artifacts."
+    "current_executable_baseline": "QIF v0.5.4 adds an executable guided-elicitation package type with schema, verifier, example package, and retained negative fixtures. AOF adopts it as an external provider capability for quality-intent discovery and operator elicitation guidance, while the active AOF quality package .aof/quality/QIFPKG-AOF-V5-001.json remains the local machine-readable AOF baseline until AOF explicitly maps the guided elicitation package into runtime commands."
   },
   "compatibility": {
     "mode": "external-versioned-profile",
@@ -38,7 +40,11 @@
       "negative acceptance guidance",
       "evidence independence guidance",
       "visual verification rubric guidance",
-      "living ledger guidance"
+      "living ledger guidance",
+      "guided elicitation package",
+      "plain-language quality elicitation",
+      "teach-back confirmation",
+      "low-confidence governance routing"
     ],
     "semantic_truth_boundary": "QIF validator and profile compatibility checks can prove structure, traceability, reference resolution, confidence reproducibility, and rule compliance. They do not prove semantic truth, market truth, expert correctness, or operator comprehension."
   },
@@ -62,14 +68,19 @@
       "verdict",
       "confidence",
       "uncertainty",
-      "governance_trigger"
+      "governance_trigger",
+      "guided_elicitation_package",
+      "plain_language_prompt",
+      "raw_answer_preservation",
+      "teach_back_confirmation",
+      "low_confidence_governance_route"
     ],
     "not_allowed": [
       "Do not vendor QIF schemas or docs into AOF as the source of truth.",
       "Do not claim QIF validator pass proves semantic quality truth.",
       "Do not treat tests, artifact count, actor count, dashboard existence, or release tags as quality by themselves.",
       "Do not upgrade QIF compatibility silently without recording the selected provider profile.",
-      "Do not treat QIF v0.3.1 guidance as an executable verifier until QIF publishes the corresponding schemas and verifier rules."
+      "Do not treat QIF v0.5.4 guided elicitation verifier pass as proof of semantic truth, user consent, expert correctness, or best possible questioning."
     ]
   },
   "upgrade_policy": {

@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-140",
+  "title": "Update QIF provider baseline to v0.5.4",
+  "description": "Update the active AOF QIF provider profile and external reference records to QIF v0.5.4, preserving the external-versioned boundary and not overclaiming semantic truth or executable verifier replacement.",
+  "status": "archived",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-QIF-V054-UPGRADE",
+  "assigned_session_ids": [
+    "SESS-QIF-V054-UPGRADE"
+  ],
+  "related_decision_record_id": null,
+  "operating_goal_ref": ".aof/goals/operating-goal.json",
+  "created_at": "2026-08-20T15:12:16.111Z",
+  "updated_at": "2026-08-20T15:22:10.785Z",
+  "assigned_at": null,
+  "done_at": "2026-08-20T15:20:41.463Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "Archived after completion because this is a provider-baseline maintenance task, not the current release frontier or latest release-completion evidence."
+}

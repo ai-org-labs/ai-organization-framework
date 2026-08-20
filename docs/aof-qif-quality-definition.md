@@ -1,4 +1,4 @@
-# AOF Quality Definition Using QIF v0.3.1 Provider Profile
+# AOF Quality Definition Using QIF v0.5.4 Provider Profile
 
 Date: `2026-06-22`
 
@@ -6,7 +6,7 @@ This document defines the AOF quality baseline using the active Quality Intent F
 
 Source framework:
 
-- `https://github.com/ai-org-labs/quality-intent-framework/tree/v0.3.1`
+- `https://github.com/ai-org-labs/quality-intent-framework/tree/v0.5.4`
 
 Active provider profile:
 
@@ -19,7 +19,7 @@ Machine-readable package:
 
 Compatibility note:
 
-QIF v0.3.1 adds pre-implementation review guidance, negative acceptance guidance, evidence independence guidance, done-before Guardian questions, rubric-based visual verification, Living QIF Ledger guidance, and extended Discovery Layer taxonomy. It does not yet publish replacement runtime schemas, example packages, or verifier rules. AOF therefore uses the v0.3.1 provider profile for guidance alignment while keeping the active machine-readable package v0.2.1-compatible until QIF publishes executable v0.3+ artifacts.
+QIF v0.5.4 adds the executable Guided Elicitation Runtime: a schema-backed and verifier-backed package type for helping users who do not know QIF terminology express candidate quality knowledge. AOF uses the v0.5.4 provider profile for guidance and future integration alignment while keeping `.aof/quality/QIFPKG-AOF-V5-001.json` as the local AOF machine-readable baseline until AOF explicitly maps guided elicitation packages into runtime commands.
 
 ## Purpose
 
@@ -35,11 +35,13 @@ The purpose is to establish a QIF-governed quality baseline where AOF quality cl
 - Acceptance Gate
 - Governance escalation
 
-QIF v0.3.1 strengthens the baseline by reinforcing an upstream question:
+QIF v0.5.4 strengthens the baseline by reinforcing an upstream question:
 
 > Did AOF discover the right Quality Intent before judging evidence?
 
-AOF must therefore treat Quality Intent discovery as part of the quality workflow. It should not rush from work output to verdict if the intended harm, stakeholder concern, loss boundary, or acceptance gate is still unclear.
+AOF must therefore treat Quality Intent discovery and guided elicitation as part of the quality workflow. It should not rush from work output to verdict if the intended harm, stakeholder concern, loss boundary, acceptance gate, raw user answer, or teach-back confirmation is still unclear.
+
+QIF v0.5.4 verifier success does not prove semantic truth, user consent, expert correctness, or that the best possible question was asked. AOF must treat guided elicitation output as structured candidate quality knowledge until it is validated by the appropriate human, expert, reproduction, operational, or governance evidence.
 
 QIF is intentionally external to AOF. AOF must not vendor QIF as a fixed internal copy. AOF quality claims must instead reference the active QIF provider profile so QIF can evolve independently and AOF can upgrade through explicit compatibility review.
 

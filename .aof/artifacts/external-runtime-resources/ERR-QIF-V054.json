@@ -1,0 +1,25 @@
+{
+  "artifact_type": "external-runtime-resource-record",
+  "resource_id": "ERR-QIF-V054",
+  "recorded_at": "2026-08-21T00:20:00.000Z",
+  "resource_kind": "reference",
+  "display_name": "QIF v0.5.4 release reference",
+  "canonical_ref": ".aof/external-refs/QIF-v0.5.4.json",
+  "source_system": "GitHub release tag",
+  "owner_ref": "verification-team",
+  "source_of_truth": "QIF v0.5.4 release tag and local external-ref artifact are the source boundary",
+  "permission_boundary": "read-only reference; no external writes authorized",
+  "freshness_boundary": "freshness_required:current",
+  "availability_boundary": "available as local external-ref artifact observed from GitHub release metadata",
+  "approval_boundary": "release-linked quality provider dependency; external updates require Council approval before use for release-quality claims",
+  "side_effect_boundary": "read-only; no provider execution, billing, secrets, deploy, or production write",
+  "allowed_operations": [
+    "read"
+  ],
+  "readiness_status": "ready",
+  "not_proven": "This resource record does not prove QIF semantic suitability, guided elicitation semantic truth, user consent, expert correctness, or AOF runtime replacement readiness.",
+  "source_task_id": "TASK-140",
+  "source_parent_session_id": "SESS-QIF-V054-UPGRADE",
+  "source_decision_record_id": null,
+  "notes": "QIF v0.5.4 adds executable guided-elicitation package support; AOF treats it as an external provider baseline until runtime mapping is explicitly implemented."
+}

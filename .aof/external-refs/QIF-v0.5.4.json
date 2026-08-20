@@ -1,0 +1,10 @@
+{
+  "artifact_type": "external-reference",
+  "ref_id": "QIF-v0.5.4",
+  "source_system": "github",
+  "url": "https://github.com/ai-org-labs/quality-intent-framework/releases/tag/v0.5.4",
+  "relationship": "quality provider dependency",
+  "source_of_truth": "GitHub release tag",
+  "observed_for": "AOF TASK-140 QIF provider baseline update",
+  "not_proven": "This local pointer records the external QIF provider version selected by AOF; it does not prove QIF semantic suitability for every AOF work product."
+}

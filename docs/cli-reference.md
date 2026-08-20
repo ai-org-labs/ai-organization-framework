@@ -274,8 +274,8 @@ external actor / tool / provider / reference を governed runtime resource と�
 node ./src/cli.js external-runtime-resource-record \
   --project . \
   --resource-kind reference \
-  --display-name "QIF v0.3.0 release reference" \
-  --canonical-ref .aof/external-refs/QIF-v0.3.0.json \
+  --display-name "QIF v0.5.4 release reference" \
+  --canonical-ref .aof/external-refs/QIF-v0.5.4.json \
   --source-system "GitHub release tag" \
   --owner-ref verification-team \
   --source-of-truth "release tag and local external-ref artifact" \
@@ -287,8 +287,8 @@ node ./src/cli.js external-runtime-resource-record \
   --allowed-operation read \
   --readiness-status ready \
   --not-proven "does not prove semantic suitability" \
-  --source-task-id TASK-100 \
-  --source-parent-session-id SESS-V80-EXTERNAL-RESOURCE-RUNTIME
+  --source-task-id TASK-140 \
+  --source-parent-session-id SESS-QIF-V054-UPGRADE
 ```
 
 主な記録項目:

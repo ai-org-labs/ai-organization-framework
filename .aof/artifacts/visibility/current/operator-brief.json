@@ -1,6 +1,6 @@
 {
   "view_type": "operator_brief",
-  "generated_at": "2026-08-20T01:51:11.331Z",
+  "generated_at": "2026-08-20T15:24:58.590Z",
   "headline": "The next frontier is defined, but no aligned implementation task is open yet: v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
   "current_state": {
     "release_version": "11.8.0",

@@ -730,6 +730,15 @@ async function loadOrganizationStateProjection(projectRoot, aofRoot) {
 
 async function loadAgentSessionObservabilityProjection(projectRoot, aofRoot) {
   const sessionFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "agent-sessions"));
+  const archivedTaskIds = new Set();
+  for (const statusDir of ["archived", "retired"]) {
+    for (const taskFile of await listJsonFiles(path.join(aofRoot, "tasks", statusDir))) {
+      const task = await readJson(taskFile, `task ${path.basename(taskFile)}`);
+      if (task?.task_id) {
+        archivedTaskIds.add(task.task_id);
+      }
+    }
+  }
   const sessions = [];
   for (const sessionFile of sessionFiles) {
     sessions.push({
@@ -739,7 +748,16 @@ async function loadAgentSessionObservabilityProjection(projectRoot, aofRoot) {
   }
   sessions.sort((left, right) => String(right.payload.recorded_at ?? "").localeCompare(String(left.payload.recorded_at ?? "")));
 
-  const latest = sessions[0] ?? null;
+  const activeSessions = sessions.filter((session) => {
+    const sourceTaskId = session.payload.source_task_id ?? null;
+    const linkedTaskRefs = [
+      ...(session.payload.links?.task_refs ?? []),
+      ...(session.payload.task_refs ?? [])
+    ];
+    return !archivedTaskIds.has(sourceTaskId)
+      && !linkedTaskRefs.some((ref) => /\/tasks\/(?:archived|retired)\//.test(String(ref)));
+  });
+  const latest = activeSessions[0] ?? sessions[0] ?? null;
   const audit = await maybeReadJsonByRef(
     projectRoot,
     ".aof/artifacts/session-observability/session-observability-audit.json",

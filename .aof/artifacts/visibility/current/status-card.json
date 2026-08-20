@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-08-20T01:51:11.327Z",
+  "as_of": "2026-08-20T15:24:58.585Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
