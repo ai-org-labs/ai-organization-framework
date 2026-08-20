@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "agent-session-contract-audit",
-  "generated_at": "2026-08-19T01:46:41.139Z",
+  "generated_at": "2026-08-20T01:44:47.943Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "scoped_task_count": 4,
-    "session_count": 4,
-    "runtime_ready_session_count": 4,
-    "tool_call_count": 7,
-    "governed_tool_call_count": 7,
+    "scoped_task_count": 5,
+    "session_count": 5,
+    "runtime_ready_session_count": 5,
+    "tool_call_count": 8,
+    "governed_tool_call_count": 8,
     "failing_check_count": 0
   },
   "sessions": [
@@ -43,13 +43,21 @@
       "event_count": 8,
       "tool_call_count": 1,
       "release_verdict": "runtime_ready"
+    },
+    {
+      "session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json",
+      "source_task_id": "TASK-139",
+      "event_count": 7,
+      "tool_call_count": 1,
+      "release_verdict": "runtime_ready"
     }
   ],
   "checks": [
     {
       "name": "scoped agent session presence",
       "status": "pass",
-      "detail": "4 session(s) at or after TASK-135"
+      "detail": "5 session(s) at or after TASK-135"
     },
     {
       "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE schema",
@@ -730,6 +738,171 @@
       "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
       "status": "pass",
       "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS test evidence linkage",
+      "status": "pass",
+      "detail": "3 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 2 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS governed tool call EVT-V118-002",
+      "status": "pass",
+      "detail": "tool=visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-139.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-definition.md"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-checklist.md"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-139-V118.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-139-V118.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-checklist.md"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-139.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-definition.md"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/release-state/release-state-audit.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-checklist.md"
     }
   ],
   "errors": []

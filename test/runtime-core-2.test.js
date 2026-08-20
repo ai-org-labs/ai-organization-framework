@@ -54,6 +54,7 @@ import { externalValidationReplayAuditCommand } from "../src/commands/external-v
 import { githubReadonlyObservationAuditCommand } from "../src/commands/github-readonly-observation-audit.js";
 import { providerObservationReplayAuditCommand } from "../src/commands/provider-observation-replay-audit.js";
 import { providerReadDecisionReplayAuditCommand } from "../src/commands/provider-read-decision-replay-audit.js";
+import { providerReadFreshnessRefreshAuditCommand } from "../src/commands/provider-read-freshness-refresh-audit.js";
 import { providerReadIntegrationAuditCommand } from "../src/commands/provider-read-integration-audit.js";
 import { providerExecutionApprovalAuditCommand } from "../src/commands/provider-execution-approval-audit.js";
 import { providerExecutionApprovalRecordCommand } from "../src/commands/provider-execution-approval-record.js";
@@ -3804,6 +3805,55 @@ test("providerReadDecisionReplayAuditCommand fails when feedback route and decis
   const audit = await providerReadDecisionReplayAuditCommand({ project: projectRoot });
   assert.equal(audit.ok, false);
   assert.ok(audit.summary.errors.some((entry) => entry.includes("feedback route maps to decision state")));
+});
+
+async function writeProviderReadFreshnessRefreshFixture(projectRoot, overrides = {}) {
+  await writeProviderReadDecisionReplayFixture(projectRoot);
+  await fs.mkdir(path.join(projectRoot, ".aof", "artifacts", "provider-read-freshness-refreshes"), { recursive: true });
+  await writeJsonFixture(path.join(projectRoot, ".aof", "artifacts", "provider-read-freshness-refreshes", "PRFR-TEST.json"), {
+    artifact_type: "provider-read-freshness-refresh-record",
+    refresh_id: "PRFR-TEST",
+    recorded_at: "2026-08-20T00:00:00.000Z",
+    provider_read_decision_replay_ref: ".aof/artifacts/provider-read-decision-replays/PRDR-TEST.json",
+    provider_read_integration_ref: ".aof/artifacts/provider-read-integrations/PRI-TEST.json",
+    observation_ref: ".aof/artifacts/provider-observation-replays/POR-TEST.json",
+    original_observed_at: "2026-08-19T00:00:00.000Z",
+    refreshed_at: "2026-08-20T00:00:00.000Z",
+    max_age_hours: 48,
+    freshness_status: "current",
+    refresh_decision: "use_as_current",
+    operator_summary: "The provider-read observation is inside the declared freshness window.",
+    next_action: "Use as current fixture evidence.",
+    evidence_refs: [".aof/artifacts/provider-read-decision-replays/PRDR-TEST.json"],
+    not_proven: "This fixture does not prove provider truth or live availability.",
+    source_task_id: "TASK-001",
+    source_parent_session_id: "SESS-PROVIDER-READ-FRESHNESS",
+    notes: null,
+    ...overrides
+  });
+}
+
+test("providerReadFreshnessRefreshAuditCommand accepts complete current freshness evidence", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeProviderReadFreshnessRefreshFixture(projectRoot);
+
+  const audit = await providerReadFreshnessRefreshAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, true, JSON.stringify(audit.summary.errors, null, 2));
+  assert.equal(audit.summary.summary.refresh_count, 1);
+  assert.equal(audit.summary.summary.current_count, 1);
+  assert.equal(audit.summary.summary.failing_check_count, 0);
+});
+
+test("providerReadFreshnessRefreshAuditCommand fails stale evidence reused as current", async (t) => {
+  const projectRoot = await createInitializedProject(t);
+  await writeProviderReadFreshnessRefreshFixture(projectRoot, {
+    freshness_status: "stale",
+    refresh_decision: "use_as_current"
+  });
+
+  const audit = await providerReadFreshnessRefreshAuditCommand({ project: projectRoot });
+  assert.equal(audit.ok, false);
+  assert.ok(audit.summary.errors.some((entry) => entry.includes("freshness decision matches status")));
 });
 
 test("providerAdapterPilot commands write dry-run pilot evidence and audit pass", async (t) => {

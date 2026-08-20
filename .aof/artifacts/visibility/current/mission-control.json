@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-08-19T01:49:26.923Z",
+  "generated_at": "2026-08-20T01:51:11.327Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
-    "release_version": "11.7.0",
-    "release_definition_ref": "docs/v11.7-release-definition.md",
-    "operating_goal": "Prepare v11.8 so external provider-read freshness is refreshed and made explicit before provider-read decisions are reused as current evidence.",
-    "next_value_slice": "v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
+    "release_version": "11.8.0",
+    "release_definition_ref": "docs/v11.8-release-definition.md",
+    "operating_goal": "Prepare v11.9 so tool governance replay is visible in Mission Control from session/tool-call artifacts, including denied, approved, and risky tool decisions.",
+    "next_value_slice": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,8 +22,8 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Run a runtime-backed direction review before opening the next implementation task: v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
-    "rationale": "The next value slice is frontier selection, so the runtime should choose direction before creating execution work.",
+    "recommended_action": "Open an implementation task for the current frontier: v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
+    "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "skillful_actor_projection": {
@@ -245,12 +245,18 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 68,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-138.json",
+    "impact_record_count": 69,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-139.json",
     "latest_impact_status": "archmap_deferred_with_reason",
-    "latest_work_item_id": "TASK-138",
-    "pending_impact_count": 10,
+    "latest_work_item_id": "TASK-139",
+    "pending_impact_count": 11,
     "pending_impacts": [
+      {
+        "work_item_id": "TASK-139",
+        "status": "archmap_deferred_with_reason",
+        "council_review_status": "deferred_with_reason",
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-139.json"
+      },
       {
         "work_item_id": "TASK-138",
         "status": "archmap_deferred_with_reason",
@@ -314,7 +320,7 @@
     ],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-138.json"
+      ".aof/artifacts/archmap/impact/TASK-139.json"
     ],
     "external_refs": []
   },
@@ -490,55 +496,55 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 45,
-    "latest_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json",
+    "stream_count": 46,
+    "latest_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json",
     "latest_actor_ref": "aof-orchestrator",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-08-19T01:45:00.000Z",
-    "latest_event_count": 8,
+    "latest_recorded_at": "2026-08-20T01:45:00.000Z",
+    "latest_event_count": 7,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-138.json"
+      ".aof/tasks/done/TASK-139.json"
     ],
     "linked_requirement_refs": [
-      "docs/v11.7-release-definition.md"
+      "docs/v11.8-release-definition.md"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-core-2.test.js",
       "test/runtime-situation.test.js",
-      "docs/v11.7-release-checklist.md"
+      "docs/v11.8-release-checklist.md"
     ],
     "linked_artifact_refs": [
-      ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
-      ".aof/artifacts/product-value-evidence/PVE-TASK-138-V117.json",
-      ".aof/artifacts/capability-release-deltas/CRD-TASK-138-V117.json"
+      ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+      ".aof/artifacts/product-value-evidence/PVE-TASK-139-V118.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-139-V118.json"
     ],
     "risk_candidates": [
-      "Mission Control could overstate decision proof as provider truth unless not-proven boundary remains visible."
+      "Freshness governance could be overread as provider truth."
     ],
     "decision_candidates": [
-      "Treat v11.8 freshness refresh as the next frontier before reusing old provider-read observations."
+      "v11.9 should expose tool governance replay in Mission Control."
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Heartbeat instructed AOF runtime-backed roadmap review and nearest release completion.",
-        "occurred_at": "2026-08-19T01:45:00.000Z",
+        "summary": "Heartbeat instructed AOF runtime-backed roadmap/trend review and nearest release completion.",
+        "occurred_at": "2026-08-20T01:45:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          ".aof/tasks/done/TASK-138.json"
+          ".aof/tasks/done/TASK-139.json"
         ]
       },
       {
         "event_type": "tool_call",
-        "summary": "Ran situation-assess and visibility-export to select v11.7 as current frontier.",
-        "occurred_at": "2026-08-19T01:45:00.000Z",
+        "summary": "Ran situation-assess and visibility-export to select v11.8 provider-read freshness as current frontier.",
+        "occurred_at": "2026-08-20T01:45:00.000Z",
         "tool_name": "visibility-export",
         "safety_level": "safe_local_write",
         "approval_policy": "approved_run_contract",
@@ -547,77 +553,65 @@
         ]
       },
       {
-        "event_type": "artifact_write",
-        "summary": "Wrote provider read decision replay, product value evidence, capability delta, release docs, and runtime audit integration.",
-        "occurred_at": "2026-08-19T01:45:00.000Z",
-        "tool_name": null,
-        "safety_level": "project_write",
-        "approval_policy": "approved_run_contract",
-        "artifact_refs": [
-          ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
-          "docs/v11.7-release-definition.md"
-        ]
-      },
-      {
-        "event_type": "verification_result",
-        "summary": "Release verification ran provider-read decision replay audit, release-state audit, visibility export, npm test, and smoke.",
-        "occurred_at": "2026-08-19T01:45:00.000Z",
-        "tool_name": "release-state-audit",
-        "safety_level": "safe_local_write",
-        "approval_policy": "approved_run_contract",
-        "artifact_refs": [
-          ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json",
-          ".aof/artifacts/release-state/release-state-audit.json"
-        ]
-      },
-      {
-        "event_type": "stop_condition",
-        "summary": "Stop when v11.7 release gates pass and tag/release are published.",
-        "occurred_at": "2026-08-19T01:45:00.000Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": [
-          "docs/v11.7-release-checklist.md"
-        ]
-      },
-      {
         "event_type": "response",
-        "summary": "Selected v11.7 as a bounded release: provider-read decision replay in Mission Control, not provider truth or external write authority.",
-        "occurred_at": "2026-08-19T01:45:00.000Z",
+        "summary": "Selected v11.8 as freshness governance over provider-read evidence, aligned with current AI trend toward continuous agent/session governance.",
+        "occurred_at": "2026-08-20T01:45:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "docs/v11.7-release-definition.md"
+          "docs/v11.8-release-definition.md"
         ]
       },
       {
         "event_type": "risk_candidate",
-        "summary": "Mission Control could overstate accepted decision replay as proof of provider semantic truth unless not-proven boundaries remain visible.",
-        "occurred_at": "2026-08-19T01:45:00.000Z",
+        "summary": "Freshness can be mistaken for provider truth unless not-proven boundaries remain explicit.",
+        "occurred_at": "2026-08-20T01:45:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+          ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
         ]
       },
       {
         "event_type": "decision_candidate",
-        "summary": "v11.8 should add freshness refresh before old provider-read observations are reused as current evidence.",
-        "occurred_at": "2026-08-19T01:45:00.000Z",
+        "summary": "v11.9 should project tool governance replay into Mission Control.",
+        "occurred_at": "2026-08-20T01:45:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
           ".aof/goals/next-value-slice.json"
         ]
+      },
+      {
+        "event_type": "verification_result",
+        "summary": "Release verification ran provider-read freshness audit, release-state audit, visibility export, npm test, and smoke.",
+        "occurred_at": "2026-08-20T01:45:00.000Z",
+        "tool_name": "release-state-audit",
+        "safety_level": "safe_local_write",
+        "approval_policy": "approved_run_contract",
+        "artifact_refs": [
+          ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json",
+          ".aof/artifacts/release-state/release-state-audit.json"
+        ]
+      },
+      {
+        "event_type": "stop_condition",
+        "summary": "Stop when v11.8 release gates pass and tag/release are published.",
+        "occurred_at": "2026-08-20T01:45:00.000Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          "docs/v11.8-release-checklist.md"
+        ]
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "Ran situation-assess and visibility-export to select v11.7 as current frontier.",
+        "summary": "Ran situation-assess and visibility-export to select v11.8 provider-read freshness as current frontier.",
         "tool_name": "visibility-export",
         "safety_level": "safe_local_write",
         "approval_policy": "approved_run_contract"
@@ -631,11 +625,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 50,
+    "context_record_count": 51,
     "external_reference_record_count": 2,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-139.json",
+        "work_item_id": "TASK-139",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-138.json",
         "work_item_id": "TASK-138",
@@ -691,14 +693,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves v11.1 release context is declared and linked; it does not prove actual third-party comprehension, semantic truth, or adoption."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-131.json",
-        "work_item_id": "TASK-131",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves v11.0 release context is declared and linked; it does not prove GitHub write safety, semantic truth, or adoption."
       }
     ],
     "latest_external_reference_records": [
@@ -723,8 +717,8 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-138.json",
-    "latest_work_item_id": "TASK-138",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-139.json",
+    "latest_work_item_id": "TASK-139",
     "latest_recorded_at": "2026-08-15T01:50:00.000Z",
     "coverage_status": "ready",
     "total_requirements": 2,
@@ -737,40 +731,40 @@
     "forecast": {
       "estimated_remaining_work_items": 0,
       "estimated_token_cost_range": "bounded session contract release verification",
-      "burndown_ref": "docs/v11.7-release-checklist.md",
+      "burndown_ref": "docs/v11.8-release-checklist.md",
       "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
     },
     "forecast_boundary": "forecast is release planning evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V117-001",
+        "requirement_id": "REQ-V118-001",
         "title": "AOF must replay an external session contract against session evidence",
         "status": "covered",
-        "source_ref": "docs/v11.7-release-definition.md",
+        "source_ref": "docs/v11.8-release-definition.md",
         "owner_ref": "builder",
         "evidence_refs": [
-          ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json",
-          ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+          ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json",
+          ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V117-002",
-        "title": "v11.7 must fail if conflicting validation can be accepted silently",
+        "requirement_id": "REQ-V118-002",
+        "title": "v11.8 must fail if conflicting validation can be accepted silently",
         "status": "covered",
-        "source_ref": "docs/v11.7-release-checklist.md",
+        "source_ref": "docs/v11.8-release-checklist.md",
         "owner_ref": "guardian",
         "evidence_refs": [
-          "src/commands/provider-read-decision-replay-audit.js",
+          "src/commands/provider-read-freshness-refresh-audit.js",
           "test/runtime-core-2.test.js",
-          ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+          ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
         ],
         "blocker_refs": []
       }
     ],
     "not_proven": "Requirement coverage proves structural linkage only; it does not prove provider semantic truth, independent validation, write safety, production safety, or market value.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-138.json"
+      ".aof/artifacts/requirement-coverage/TASK-139.json"
     ]
   },
   "adoption_proof_projection": {
@@ -1331,7 +1325,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v11.7-release-definition.md",
+    "release_ref": "docs/v11.8-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1355,7 +1349,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v11.7-release-definition.md",
+    "release_ref": "docs/v11.8-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1374,7 +1368,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v11.7-release-definition.md",
+      "docs/v11.8-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1490,6 +1484,35 @@
     ],
     "not_proven": "Provider read decision replay projection proves decision/evidence linkage is visible in Mission Control; it does not prove provider truth, semantic truth, live provider availability, or external adoption."
   },
+  "provider_read_freshness_refresh_projection": {
+    "present": true,
+    "audit_ref": ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json",
+    "audit_ok": true,
+    "refresh_count": 1,
+    "current_count": 1,
+    "stale_count": 0,
+    "expired_count": 0,
+    "blocked_reuse_count": 0,
+    "require_refresh_count": 0,
+    "latest_freshness_status": "current",
+    "latest_refresh_decision": "use_as_current",
+    "latest_summary": "The provider-read evidence remains within the declared freshness boundary for v11.8 self-hosting release evidence; future reuse must pass this gate again.",
+    "latest_next_action": "Proceed to v11.9 tool governance replay in Mission Control after keeping freshness status visible.",
+    "latest_refresh_ref": ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+    "refreshes": [
+      {
+        "refresh_id": "PRFR-TASK-139-V118",
+        "freshness_status": "current",
+        "refresh_decision": "use_as_current",
+        "max_age_hours": 168,
+        "refreshed_at": "2026-08-20T01:45:00.000Z",
+        "operator_summary": "The provider-read evidence remains within the declared freshness boundary for v11.8 self-hosting release evidence; future reuse must pass this gate again.",
+        "next_action": "Proceed to v11.9 tool governance replay in Mission Control after keeping freshness status visible.",
+        "artifact_ref": ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+      }
+    ],
+    "not_proven": "Provider read freshness refresh projection proves freshness governance is visible; it does not prove provider truth, live availability, or production safety."
+  },
   "evidence_completeness_projection": {
     "completeness_status": "ready",
     "source_of_truth_boundary": "Mission Control is a read-only projection of canonical AOF artifacts; it must not invent coverage, forecast, adoption proof, session, context, or Archmap evidence.",
@@ -1497,7 +1520,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-138.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-139.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1507,27 +1530,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-138.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-139.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v11.7-release-definition.md"
+        "artifact_ref": "docs/v11.8-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-138.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-139.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-138.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-139.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json"
   }
 }

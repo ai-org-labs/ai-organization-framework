@@ -1,0 +1,33 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-139-V118",
+  "work_item_ref": ".aof/tasks/done/TASK-139.json",
+  "work_item_id": "TASK-139",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "agent-session-contract",
+    "agent-session-tool-governance",
+    "governance-routing",
+    "release-state-audit"
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "deferred_with_reason",
+  "evidence_refs": [
+    "src/commands/provider-read-decision-replay-audit.js",
+    "schemas/aof-provider-read-decision-replay-audit.schema.json",
+    ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-DECISION-REPLAY.json",
+    ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-139-V118.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-139-V118.json",
+    ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json"
+  ],
+  "recorded_at": "2026-08-15T01:49:30.000Z",
+  "updated_at": "2026-08-15T01:49:30.000Z",
+  "source_task_id": "TASK-139",
+  "source_parent_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "session_id": "SESS-V118-PROVIDER-READ-DECISION-REPLAY",
+  "session_ref": ".aof/tasks/done/TASK-139.json",
+  "not_proven": "Archmap impact is a projection surface and does not prove rendered UX quality or semantic truth."
+}

@@ -1,0 +1,234 @@
+{
+  "ok": true,
+  "artifact_type": "provider-read-freshness-refresh-audit",
+  "generated_at": "2026-08-20T01:44:47.877Z",
+  "project_root": "/Users/mn/development/ai-organization-framework-public",
+  "summary": {
+    "refresh_count": 1,
+    "current_count": 1,
+    "stale_count": 0,
+    "expired_count": 0,
+    "unknown_count": 0,
+    "blocked_reuse_count": 0,
+    "require_refresh_count": 0,
+    "failing_check_count": 0
+  },
+  "refreshes": [
+    {
+      "refresh_id": "PRFR-TASK-139-V118",
+      "freshness_status": "current",
+      "refresh_decision": "use_as_current",
+      "max_age_hours": 168,
+      "refreshed_at": "2026-08-20T01:45:00.000Z",
+      "operator_summary": "The provider-read evidence remains within the declared freshness boundary for v11.8 self-hosting release evidence; future reuse must pass this gate again.",
+      "next_action": "Proceed to v11.9 tool governance replay in Mission Control after keeping freshness status visible.",
+      "artifact_ref": ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+    }
+  ],
+  "checks": [
+    {
+      "name": "provider read freshness refresh presence",
+      "status": "pass",
+      "detail": "1 freshness record(s) found",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 provider read decision replay ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 provider read integration ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 observation ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-definition.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 evidence ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8.0-release-notes.md",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 evidence ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 max age is positive",
+      "status": "pass",
+      "detail": "max_age_hours=168",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 timestamps are ordered",
+      "status": "pass",
+      "detail": "original=2026-08-17T15:00:00.000Z, refreshed=2026-08-20T01:45:00.000Z",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 freshness decision matches status",
+      "status": "pass",
+      "detail": "status=current, decision=use_as_current",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 operator summary and next action are present",
+      "status": "pass",
+      "detail": "The provider-read evidence remains within the declared freshness boundary for v11.8 self-hosting release evidence; future reuse must pass this gate again.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 not-proven boundary present",
+      "status": "pass",
+      "detail": "This freshness record does not prove provider semantic truth, live provider availability at future execution time, GitHub write safety, credential safety, production safety, market value, or broad adoption.",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    },
+    {
+      "name": "PRFR-TASK-139-V118 provenance present",
+      "status": "pass",
+      "detail": "source_task_id=TASK-139, source_parent_session_id=SESS-V118-PROVIDER-READ-FRESHNESS",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+        ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+      ]
+    }
+  ],
+  "errors": []
+}

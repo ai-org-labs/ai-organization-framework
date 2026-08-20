@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-08-19T01:49:26.923Z",
+      "at": "2026-08-20T01:51:11.327Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-08-19T01:49:26.909Z",
+      "at": "2026-08-20T01:51:11.313Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -21,6 +21,28 @@
       "next": "Use the visibility packet to inspect operator-facing runtime health.",
       "refs": [
         ".aof/context/active/metrics-snapshot.json"
+      ]
+    },
+    {
+      "at": "2026-08-20T01:45:00.000Z",
+      "actor": "AOF Runtime",
+      "event_type": "next_value_slice_updated",
+      "summary": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
+      "rationale": "Project memory was updated to reflect the current operating focus.",
+      "next": "Project the current slice into operator visibility outputs.",
+      "refs": [
+        ".aof/goals/next-value-slice.json"
+      ]
+    },
+    {
+      "at": "2026-08-20T01:43:37.371Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "v11.8 proof: provider read freshness refresh gate",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-139.json"
       ]
     },
     {
@@ -35,17 +57,6 @@
       ]
     },
     {
-      "at": "2026-08-19T01:45:00.000Z",
-      "actor": "AOF Runtime",
-      "event_type": "next_value_slice_updated",
-      "summary": "v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
-      "rationale": "Project memory was updated to reflect the current operating focus.",
-      "next": "Project the current slice into operator visibility outputs.",
-      "refs": [
-        ".aof/goals/next-value-slice.json"
-      ]
-    },
-    {
       "at": "2026-08-18T01:40:42.830Z",
       "actor": "AOF Runtime",
       "event_type": "task_completed",
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-137.json"
-      ]
-    },
-    {
-      "at": "2026-08-17T15:04:06.291Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "v11.5 proof: human-readable provider observation replay",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-136.json"
       ]
     }
   ]

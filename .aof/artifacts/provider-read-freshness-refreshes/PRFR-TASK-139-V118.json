@@ -1,0 +1,25 @@
+{
+  "artifact_type": "provider-read-freshness-refresh-record",
+  "refresh_id": "PRFR-TASK-139-V118",
+  "recorded_at": "2026-08-20T01:45:00.000Z",
+  "provider_read_decision_replay_ref": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+  "provider_read_integration_ref": ".aof/artifacts/provider-read-integrations/TASK-133-github-provider-read-integration.json",
+  "observation_ref": ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json",
+  "original_observed_at": "2026-08-17T15:00:00.000Z",
+  "refreshed_at": "2026-08-20T01:45:00.000Z",
+  "max_age_hours": 168,
+  "freshness_status": "current",
+  "refresh_decision": "use_as_current",
+  "operator_summary": "The provider-read evidence remains within the declared freshness boundary for v11.8 self-hosting release evidence; future reuse must pass this gate again.",
+  "next_action": "Proceed to v11.9 tool governance replay in Mission Control after keeping freshness status visible.",
+  "evidence_refs": [
+    "docs/v11.8-release-definition.md",
+    "docs/v11.8.0-release-notes.md",
+    ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+    ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+  ],
+  "not_proven": "This freshness record does not prove provider semantic truth, live provider availability at future execution time, GitHub write safety, credential safety, production safety, market value, or broad adoption.",
+  "source_task_id": "TASK-139",
+  "source_parent_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "notes": "Self-hosting freshness evidence for v11.8 only."
+}

@@ -1,0 +1,137 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTREAM-V118-PROVIDER-READ-FRESHNESS",
+  "recorded_at": "2026-08-20T01:45:00.000Z",
+  "session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "parent_session_id": null,
+  "actor_ref": "aof-orchestrator",
+  "role_ref": "orchestrator",
+  "provider": "codex",
+  "model": "gpt-5",
+  "events": [
+    {
+      "event_id": "EVT-V118-001",
+      "event_type": "prompt",
+      "occurred_at": "2026-08-20T01:45:00.000Z",
+      "summary": "Heartbeat instructed AOF runtime-backed roadmap/trend review and nearest release completion.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-139.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V118-002",
+      "event_type": "tool_call",
+      "occurred_at": "2026-08-20T01:45:00.000Z",
+      "summary": "Ran situation-assess and visibility-export to select v11.8 provider-read freshness as current frontier.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "tool_name": "visibility-export",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved_run_contract"
+    },
+    {
+      "event_id": "EVT-V118-003",
+      "event_type": "response",
+      "occurred_at": "2026-08-20T01:45:00.000Z",
+      "summary": "Selected v11.8 as freshness governance over provider-read evidence, aligned with current AI trend toward continuous agent/session governance.",
+      "artifact_refs": [
+        "docs/v11.8-release-definition.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V118-004",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-08-20T01:45:00.000Z",
+      "summary": "Freshness can be mistaken for provider truth unless not-proven boundaries remain explicit.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V118-005",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-08-20T01:45:00.000Z",
+      "summary": "v11.9 should project tool governance replay into Mission Control.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V118-006",
+      "event_type": "verification_result",
+      "occurred_at": "2026-08-20T01:45:00.000Z",
+      "summary": "Release verification ran provider-read freshness audit, release-state audit, visibility export, npm test, and smoke.",
+      "artifact_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json",
+        ".aof/artifacts/release-state/release-state-audit.json"
+      ],
+      "tool_name": "release-state-audit",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved_run_contract"
+    },
+    {
+      "event_id": "EVT-V118-007",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-08-20T01:45:00.000Z",
+      "summary": "Stop when v11.8 release gates pass and tag/release are published.",
+      "artifact_refs": [
+        "docs/v11.8-release-checklist.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-139.json"
+    ],
+    "requirement_refs": [
+      "docs/v11.8-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-core-2.test.js",
+      "test/runtime-situation.test.js",
+      "docs/v11.8-release-checklist.md"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+      ".aof/artifacts/product-value-evidence/PVE-TASK-139-V118.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-139-V118.json"
+    ]
+  },
+  "risk_candidates": [
+    "Freshness governance could be overread as provider truth."
+  ],
+  "decision_candidates": [
+    "v11.9 should expose tool governance replay in Mission Control."
+  ],
+  "release_ready_evidence": {
+    "claim": "v11.8 provider read freshness refresh gate is structurally and runtime ready after audits pass.",
+    "evidence_refs": [
+      "docs/v11.8-release-checklist.md",
+      ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-139",
+  "source_parent_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "source_decision_record_id": null,
+  "notes": null
+}

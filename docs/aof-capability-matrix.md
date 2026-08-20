@@ -251,3 +251,15 @@ NEW: `PCAP-PROVIDER-READ-DECISION-REPLAY` shows provider-read decision state in 
 | Provider Read Decision Replay | no Mission Control decision projection | accepted / blocked / reopened / deferred / needs-review state visible | Operators can inspect decision state without reconstructing raw artifacts. |
 | External Operator Feedback | feedback record exists | feedback route drives decision state | Feedback becomes an operational decision input. |
 | Provider Observation Replay | readable replay exists | replay linked to downstream decision | Provider evidence becomes visible as part of a governed decision chain. |
+
+## v11.8 Capability Delta
+
+NEW: `PCAP-PROVIDER-READ-FRESHNESS-REFRESH` prevents stale provider-read evidence from being reused as current evidence without an explicit refresh decision.
+
+30-second delta: v11.7 showed provider-read decision state. v11.8 adds a freshness gate so the operator can see whether that decision still rests on current evidence or must be refreshed, blocked, or deferred.
+
+| Capability | v11.7.0 | v11.8.0 | User-visible change |
+|---|---|---|---|
+| Provider Read Decision Replay | decision state is visible | decision state is checked against freshness before reuse | Operator sees whether accepted evidence is still safe to use. |
+| Provider Read Integration Proof | read evidence exists | read evidence has current / stale / expired / unknown status | Old provider observations cannot silently power new decisions. |
+| Release-State Governance | provider-read decision replay audit gate | provider-read freshness refresh audit gate added | Green release now checks evidence freshness before follow-on provider decisions. |

@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-139-V118",
+  "recorded_at": "2026-08-20T01:45:00.000Z",
+  "release_version": "11.8.0",
+  "release_ref": "docs/v11.8-release-definition.md",
+  "work_item_id": "TASK-139",
+  "work_item_ref": ".aof/tasks/done/TASK-139.json",
+  "one_minute_value_explanation": "v11.8 lets operators see whether provider-read evidence is current, stale, expired, or unknown before reusing it for decisions.",
+  "thirty_second_version_delta": "v11.7 showed provider-read decision state; v11.8 adds freshness governance so old evidence cannot be silently reused as current.",
+  "new_capability_ids": [
+    "PCAP-PROVIDER-READ-FRESHNESS-REFRESH"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-READ-DECISION-REPLAY"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-139-V118.json"
+  ],
+  "product_review_trigger": "If an operator cannot tell whether provider-read evidence is current enough to reuse, reopen this capability as a product issue.",
+  "not_proven": "Capability delta does not prove provider truth, market value, or broad adoption.",
+  "source_task_id": "TASK-139",
+  "source_parent_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "source_decision_record_id": null,
+  "notes": null
+}

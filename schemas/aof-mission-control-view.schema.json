@@ -29,6 +29,7 @@
     "external_runtime_safety_projection",
     "operator_validation_projection",
     "provider_read_decision_replay_projection",
+    "provider_read_freshness_refresh_projection",
     "evidence_completeness_projection"
   ],
   "properties": {
@@ -1633,6 +1634,63 @@
               "feedback_route": { "type": "string" },
               "operator_summary": { "type": "string" },
               "mission_control_summary": { "type": "string" },
+              "next_action": { "type": "string" },
+              "artifact_ref": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_read_freshness_refresh_projection": {
+      "type": "object",
+      "required": [
+        "present",
+        "audit_ref",
+        "audit_ok",
+        "refresh_count",
+        "current_count",
+        "stale_count",
+        "expired_count",
+        "blocked_reuse_count",
+        "require_refresh_count",
+        "latest_freshness_status",
+        "latest_refresh_decision",
+        "latest_summary",
+        "latest_next_action",
+        "latest_refresh_ref",
+        "refreshes",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "audit_ref": { "type": "string" },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "refresh_count": { "type": "integer" },
+        "current_count": { "type": "integer" },
+        "stale_count": { "type": "integer" },
+        "expired_count": { "type": "integer" },
+        "blocked_reuse_count": { "type": "integer" },
+        "require_refresh_count": { "type": "integer" },
+        "latest_freshness_status": { "type": ["string", "null"] },
+        "latest_refresh_decision": { "type": ["string", "null"] },
+        "latest_summary": { "type": ["string", "null"] },
+        "latest_next_action": { "type": ["string", "null"] },
+        "latest_refresh_ref": { "type": ["string", "null"] },
+        "refreshes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["refresh_id", "freshness_status", "refresh_decision", "max_age_hours", "refreshed_at", "operator_summary", "next_action", "artifact_ref"],
+            "properties": {
+              "refresh_id": { "type": "string" },
+              "freshness_status": { "type": "string" },
+              "refresh_decision": { "type": "string" },
+              "max_age_hours": { "type": "integer" },
+              "refreshed_at": { "type": "string" },
+              "operator_summary": { "type": "string" },
               "next_action": { "type": "string" },
               "artifact_ref": { "type": "string" }
             },

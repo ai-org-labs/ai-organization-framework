@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-19T01:49:26.928Z",
+  "generated_at": "2026-08-20T01:51:11.331Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-138 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-138.json"
+    "summary": "TASK-139 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-139.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-138 completed: v11.7 proof: provider read decision replay in Mission Control",
-      "artifact_ref": ".aof/tasks/done/TASK-138.json"
+      "summary": "TASK-139 completed: v11.8 proof: provider read freshness refresh gate",
+      "artifact_ref": ".aof/tasks/done/TASK-139.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
+      "summary": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-138 completed: v11.7 proof: provider read decision replay in Mission Control v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
+    "what_changed": "TASK-139 completed: v11.8 proof: provider read freshness refresh gate v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Run a runtime-backed direction review before opening the next implementation task: v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions."
+    "next_checkpoint": "Open an implementation task for the current frontier: v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams."
   }
 }

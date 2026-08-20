@@ -466,6 +466,20 @@
         ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
         ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-READ-FRESHNESS-REFRESH",
+      "name": "Provider Read Freshness Refresh Gate",
+      "description": "AOF can classify provider-read evidence freshness before reuse and route stale or expired evidence into refresh or block decisions.",
+      "user_value": "Operators can avoid making new decisions from stale provider-read evidence.",
+      "first_version": "v11.8.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md",
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+        ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
+      ]
     }
   ]
 }

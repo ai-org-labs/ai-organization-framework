@@ -1653,6 +1653,51 @@ async function loadProviderReadDecisionReplayProjection(projectRoot) {
   };
 }
 
+async function loadProviderReadFreshnessRefreshProjection(projectRoot) {
+  const auditRef = ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json";
+  const audit = await maybeReadJsonByRef(projectRoot, auditRef, "provider read freshness refresh audit");
+  if (!audit) {
+    return {
+      present: false,
+      audit_ref: auditRef,
+      audit_ok: null,
+      refresh_count: 0,
+      current_count: 0,
+      stale_count: 0,
+      expired_count: 0,
+      blocked_reuse_count: 0,
+      require_refresh_count: 0,
+      latest_freshness_status: null,
+      latest_refresh_decision: null,
+      latest_summary: null,
+      latest_next_action: null,
+      latest_refresh_ref: null,
+      refreshes: [],
+      not_proven: "No provider read freshness refresh audit artifact is present."
+    };
+  }
+  const refreshes = audit.refreshes ?? [];
+  const latest = refreshes[refreshes.length - 1] ?? null;
+  return {
+    present: true,
+    audit_ref: auditRef,
+    audit_ok: Boolean(audit.ok),
+    refresh_count: audit.summary?.refresh_count ?? 0,
+    current_count: audit.summary?.current_count ?? 0,
+    stale_count: audit.summary?.stale_count ?? 0,
+    expired_count: audit.summary?.expired_count ?? 0,
+    blocked_reuse_count: audit.summary?.blocked_reuse_count ?? 0,
+    require_refresh_count: audit.summary?.require_refresh_count ?? 0,
+    latest_freshness_status: latest?.freshness_status ?? null,
+    latest_refresh_decision: latest?.refresh_decision ?? null,
+    latest_summary: latest?.operator_summary ?? null,
+    latest_next_action: latest?.next_action ?? null,
+    latest_refresh_ref: latest?.artifact_ref ?? null,
+    refreshes,
+    not_proven: "Provider read freshness refresh projection proves freshness governance is visible; it does not prove provider truth, live availability, or production safety."
+  };
+}
+
 async function loadProductValueEvidenceProjection(projectRoot) {
   const auditRef = ".aof/artifacts/product-value-evidence/product-value-evidence-audit.json";
   const audit = await maybeReadJsonByRef(projectRoot, auditRef, "product value evidence audit");
@@ -1768,6 +1813,7 @@ function buildMissionControl({
   externalRuntimeSafetyProjection = null,
   operatorValidationProjection = null,
   providerReadDecisionReplayProjection = null,
+  providerReadFreshnessRefreshProjection = null,
   evidenceCompletenessProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
@@ -2200,6 +2246,24 @@ function buildMissionControl({
       replays: [],
       not_proven: "No provider read decision replay audit artifact is present."
     },
+    provider_read_freshness_refresh_projection: providerReadFreshnessRefreshProjection ?? {
+      present: false,
+      audit_ref: ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json",
+      audit_ok: null,
+      refresh_count: 0,
+      current_count: 0,
+      stale_count: 0,
+      expired_count: 0,
+      blocked_reuse_count: 0,
+      require_refresh_count: 0,
+      latest_freshness_status: null,
+      latest_refresh_decision: null,
+      latest_summary: null,
+      latest_next_action: null,
+      latest_refresh_ref: null,
+      refreshes: [],
+      not_proven: "No provider read freshness refresh audit artifact is present."
+    },
     evidence_completeness_projection: evidenceCompletenessProjection ?? {
       completeness_status: "incomplete",
       source_of_truth_boundary: "Mission Control is a read-only projection of canonical AOF artifacts.",
@@ -2217,7 +2281,7 @@ export async function visibilityExportCommand(options) {
   const aofRoot = resolveAofRoot(projectRoot);
   const artifactDir = path.resolve(options.artifactDir || path.join(aofRoot, "artifacts", "visibility", "current"));
 
-  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, providerIncidentRecoveryProjection, providerCostQuotaBoundaryProjection, providerProductionBoundaryProjection, operatorAcceptanceDrillProjection, productValueEvidenceProjection, operatorValidationProjection, providerReadDecisionReplayProjection] = await Promise.all([
+  const [organizationStatus, roadmapStatus, metricsResult, analyticsResult, learningLoopResult, doneTasks, latestChain, situation, skillfulActorProjection, workGovernanceProjection, archmapProjection, organizationStateProjection, agentSessionObservabilityProjection, contextReferenceIntegrityProjection, requirementCoverageProjection, adoptionProofProjection, externalizationReadinessProjection, externalResourceProjection, providerAdapterProjection, providerAdapterPilotProjection, providerExecutionApprovalProjection, providerExecutionReproductionProjection, providerRollbackProofProjection, providerOutcomeEvidenceProjection, providerLearningLoopProjection, providerIncidentRecoveryProjection, providerCostQuotaBoundaryProjection, providerProductionBoundaryProjection, operatorAcceptanceDrillProjection, productValueEvidenceProjection, operatorValidationProjection, providerReadDecisionReplayProjection, providerReadFreshnessRefreshProjection] = await Promise.all([
     organizationStatusCommand({ project: projectRoot }),
     roadmapStatusCommand({ project: projectRoot }),
     metricsSnapshotCommand({ project: projectRoot }),
@@ -2249,7 +2313,8 @@ export async function visibilityExportCommand(options) {
     loadOperatorAcceptanceDrillProjection(projectRoot),
     loadProductValueEvidenceProjection(projectRoot),
     loadOperatorValidationProjection(projectRoot),
-    loadProviderReadDecisionReplayProjection(projectRoot)
+    loadProviderReadDecisionReplayProjection(projectRoot),
+    loadProviderReadFreshnessRefreshProjection(projectRoot)
   ]);
 
   const currentTask = pickCurrentVisibilityTask(situation, roadmapStatus);
@@ -2329,6 +2394,7 @@ export async function visibilityExportCommand(options) {
     externalRuntimeSafetyProjection,
     operatorValidationProjection,
     providerReadDecisionReplayProjection,
+    providerReadFreshnessRefreshProjection,
     evidenceCompletenessProjection
   });
   const operatorBrief = buildOperatorBriefView({

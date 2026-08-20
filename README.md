@@ -8,7 +8,7 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 ## Status
 
 この repo は、AOF の spec と local runtime prototype をまとめた repo である。  
-現在の stable release は `v11.7.0` である。
+現在の stable release は `v11.8.0` である。
 この release で、self-hosting runtime は次の状態に到達した。
 
 - External Provider Integration Pilot Selection を release-state governance surface として扱えること
@@ -40,6 +40,8 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - v11.6 は external operator feedback intake proof であり、broad adoption、market value、semantic truth、provider correctness、production automation safety、credential safety、GitHub write safety、productivity improvement の証明ではないと明示できること
 - Provider Read Decision Replay in Mission Control により、provider-read chain の accepted / blocked / reopened / deferred / needs-review 状態、feedback route、next action、not-proven boundary を Mission Control で確認できること
 - v11.7 は provider read decision replay proof であり、provider semantic truth、live provider availability、GitHub write safety、credential safety、production automation safety、market value、broad adoption、productivity improvement の証明ではないと明示できること
+- Provider Read Freshness Refresh Gate により、provider-read evidence を再利用する前に current / stale / expired / unknown と use_as_current / require_refresh / block_reuse / defer の整合を監査できること
+- v11.8 は provider-read freshness refresh proof であり、provider semantic truth、live provider availability、GitHub write safety、credential safety、production automation safety、market value、broad adoption、productivity improvement の証明ではないと明示できること
 - Provider Execution Cost and Quota Boundary を release-state governance gate として扱えること
 - `provider-cost-quota-boundary-record` によって controlled execution candidate / approval / incident recovery を provider scope、budget owner、budget period、cost ceiling、token/call/retry caps、rate limit、quota、billing、overage policy、stop conditions に束ねられること
 - `provider-cost-quota-boundary-audit` によって cost/quota refs、positive budget limits、quota/rate-limit boundary、billing boundary、runtime provenance、hidden execution permission の欠落を検査できること
@@ -217,9 +219,9 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - public runtime readiness: [docs/v6.0-public-runtime-readiness.md](docs/v6.0-public-runtime-readiness.md)
 - Work Governance integration plan: [docs/v6.1-work-governance-integration-plan.md](docs/v6.1-work-governance-integration-plan.md)
 - Work Governance examples: [docs/v6.1-work-governance-examples.md](docs/v6.1-work-governance-examples.md)
-- current release definition: [docs/v11.7-release-definition.md](docs/v11.7-release-definition.md)
-- current release checklist: [docs/v11.7-release-checklist.md](docs/v11.7-release-checklist.md)
-- current release notes: [docs/v11.7.0-release-notes.md](docs/v11.7.0-release-notes.md)
+- current release definition: [docs/v11.8-release-definition.md](docs/v11.8-release-definition.md)
+- current release checklist: [docs/v11.8-release-checklist.md](docs/v11.8-release-checklist.md)
+- current release notes: [docs/v11.8.0-release-notes.md](docs/v11.8.0-release-notes.md)
 - actor skill packet contract: [docs/v5-actor-skill-packet-contract.md](docs/v5-actor-skill-packet-contract.md)
 - current roadmap: [docs/vnext-roadmap.md](docs/vnext-roadmap.md)
 - v6.7 → v8.0 completion roadmap: [docs/v6.7-v8.0-completion-roadmap.md](docs/v6.7-v8.0-completion-roadmap.md)

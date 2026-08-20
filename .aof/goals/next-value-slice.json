@@ -1,9 +1,9 @@
 {
   "goal_type": "next-value-slice",
-  "content": "v11.8 should add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before opening follow-on provider decisions.",
-  "updated_at": "2026-08-19T01:45:00.000Z",
+  "content": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
+  "updated_at": "2026-08-20T01:45:00.000Z",
   "agreed_with_human": true,
-  "source_session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+  "source_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
   "source_decision_record_id": null,
   "declared_complete_at": null
 }

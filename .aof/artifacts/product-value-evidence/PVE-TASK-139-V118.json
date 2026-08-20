@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-139-V118",
+  "recorded_at": "2026-08-20T01:45:00.000Z",
+  "release_ref": "docs/v11.8-release-definition.md",
+  "work_item_id": "TASK-139",
+  "work_item_ref": ".aof/tasks/done/TASK-139.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "Operators can see whether provider-read evidence is current, stale, expired, or unknown before it is reused.",
+  "before_state": "An accepted provider-read decision replay could be treated as current without a visible freshness gate.",
+  "after_state": "Mission Control exposes freshness status and reuse decision from audited freshness records.",
+  "scenario": "Before using provider-read evidence for a follow-on decision, the operator checks Mission Control to see whether the evidence can be used or must be refreshed.",
+  "five_minute_demo": "Run visibility-export and inspect provider_read_freshness_refresh_projection.latest_freshness_status and latest_refresh_decision.",
+  "time_saved_or_work_reduced": "Removes manual timestamp reconstruction before reusing provider-read evidence.",
+  "cognitive_load_removed": "Operators no longer need to infer whether accepted provider evidence is also fresh enough to reuse.",
+  "capability_matrix": [
+    {
+      "capability": "Provider Read Freshness Refresh",
+      "before": "Freshness was implicit or manually inferred.",
+      "after": "Freshness status and reuse decision are explicit.",
+      "user_value": "Stale provider-read evidence cannot silently drive new work."
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    "docs/v11.8-release-definition.md",
+    ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "Self-hosting product value evidence does not prove broad adoption or market value.",
+  "source_task_id": "TASK-139",
+  "source_parent_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "source_decision_record_id": null,
+  "notes": null
+}

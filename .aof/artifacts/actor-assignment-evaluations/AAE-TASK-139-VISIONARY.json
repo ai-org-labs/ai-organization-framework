@@ -1,0 +1,46 @@
+{
+  "evaluation_type": "actor-assignment-evaluation",
+  "evaluation_format_version": 1,
+  "recorded_at": "2026-08-14T01:43:20.000Z",
+  "evaluation_id": "AAE-TASK-139-VISIONARY",
+  "actor_skill_packet_ref": ".aof/artifacts/actor-skill-packets/ASP-TASK-139-VISIONARY.json",
+  "actor_skill_packet_id": "ASP-TASK-139-VISIONARY",
+  "source_task_id": "TASK-139",
+  "source_parent_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "source_decision_record_id": null,
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "governance-team",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-need-validation",
+    "skill-schema-review"
+  ],
+  "capability_fit_summary": {
+    "strong_count": 0,
+    "sufficient_count": 2,
+    "weak_count": 0,
+    "missing_count": 0,
+    "blocked_count": 0,
+    "evidence_ref_count": 3
+  },
+  "assignment_decision": {
+    "assignment_state": "selected",
+    "confidence_label": "medium",
+    "rationale": "Visionary has sufficient release direction and boundary evidence for this freshness-gate slice.",
+    "recommended_action": "Proceed to execution gate."
+  },
+  "missing_evidence": [],
+  "review_required": true,
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I can judge whether the freshness gate is the right product move.",
+    "current_action": "Selected for direction review",
+    "confidence_label": "medium",
+    "visible_state": "selected",
+    "visible_blockers": [],
+    "next_action": "Proceed to execution gate."
+  }
+}

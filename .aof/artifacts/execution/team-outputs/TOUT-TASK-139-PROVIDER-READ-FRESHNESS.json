@@ -1,0 +1,43 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-14T01:42:45.000Z",
+  "team_output_id": "TOUT-TASK-139-PROVIDER-READ-FRESHNESS",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v11.8 Human-readable Provider Read Freshness Refresh Gate to Architecture Council for release judgment.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-139-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-139-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-139-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v11.8-release-definition.md",
+    "docs/v11.8-release-checklist.md",
+    "docs/v11.8.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json",
+    ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-139-V118.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-139-V118.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-139-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-139-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-139-GUARDIAN.json"
+  ],
+  "decision_required": true,
+  "summary": "TASK-139 Visionary, Builder, and Guardian outputs are joined for Council review; the release frames provider read freshness refresh as Mission Control decision visibility, not provider truth or external write permission.",
+  "source_task_id": "TASK-139",
+  "source_parent_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "source_decision_record_id": null
+}

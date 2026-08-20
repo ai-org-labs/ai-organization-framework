@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-139",
+  "title": "v11.8 proof: provider read freshness refresh gate",
+  "description": "Add a provider-read freshness refresh gate so Mission Control can distinguish current provider evidence from stale replay evidence before follow-on provider decisions reuse old observations.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "assigned_session_ids": [
+    "SESS-V118-PROVIDER-READ-FRESHNESS"
+  ],
+  "related_decision_record_id": null,
+  "operating_goal_ref": ".aof/goals/operating-goal.json",
+  "created_at": "2026-08-20T01:32:31.928Z",
+  "updated_at": "2026-08-20T01:43:37.371Z",
+  "assigned_at": null,
+  "done_at": "2026-08-20T01:43:37.371Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v11.8 implemented provider-read freshness refresh audit, Mission Control projection, release docs, product evidence, capability delta, and release-state integration."
+}

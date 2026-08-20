@@ -1,0 +1,77 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-14T01:43:05.000Z",
+  "packet_id": "ASP-TASK-139-VISIONARY",
+  "source_task_id": "TASK-139",
+  "source_parent_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+  "source_decision_record_id": null,
+  "objective": "Build the session contract audit, schemas, release docs, and runtime artifacts.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "governance-team",
+    "assignment_reason": "Visionary owns release direction, user-visible capability framing, and freshness-gate value boundary.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-need-validation",
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-need-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v11.8-release-definition.md",
+        "docs/v11.8.0-release-notes.md"
+      ],
+      "rationale": "The release frames provider-read freshness as a bounded evidence-reuse decision before follow-on provider work."
+    },
+    {
+      "capability_ref": "cap-contract-alignment",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+      ],
+      "rationale": "The freshness record preserves not-proven boundaries and next-action routing."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-direction-review",
+    "artifact_schema_ref": "docs/v11.8-release-definition.md",
+    "required_sections": [
+      "schema",
+      "audit",
+      "test"
+    ],
+    "acceptance_criteria": [
+      "audit passes",
+      "negative write-authority test exists"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "implementation is fail-closed",
+      "evaluator_ref": "guardian",
+      "evidence_required": "test/runtime-core-2.test.js",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I am checking whether the freshness gate is the right next value slice.",
+    "current_action": "Review release direction and value boundary",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit direction judgment to council."
+  },
+  "status": "completed"
+}
