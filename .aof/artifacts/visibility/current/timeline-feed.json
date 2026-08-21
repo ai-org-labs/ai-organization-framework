@@ -2,7 +2,7 @@
   "view_type": "timeline_feed",
   "entries": [
     {
-      "at": "2026-08-20T15:24:58.585Z",
+      "at": "2026-08-21T02:04:14.321Z",
       "actor": "Operations Council",
       "event_type": "organization_analytics",
       "summary": "No immediate organization bottleneck was detected from the current local artifact set.",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "at": "2026-08-20T15:24:58.562Z",
+      "at": "2026-08-21T02:04:14.309Z",
       "actor": "Verification Team",
       "event_type": "metrics_snapshot",
       "summary": "Allocation review load is 0.",
@@ -24,10 +24,21 @@
       ]
     },
     {
+      "at": "2026-08-21T01:45:00.000Z",
+      "actor": "AOF Runtime",
+      "event_type": "task_completed",
+      "summary": "v11.9 proof: tool governance replay in Mission Control",
+      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
+      "next": "Continue with the next open bridge-release task.",
+      "refs": [
+        ".aof/tasks/done/TASK-141.json"
+      ]
+    },
+    {
       "at": "2026-08-20T01:45:00.000Z",
       "actor": "AOF Runtime",
       "event_type": "next_value_slice_updated",
-      "summary": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
+      "summary": "v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
       "rationale": "Project memory was updated to reflect the current operating focus.",
       "next": "Project the current slice into operator visibility outputs.",
       "refs": [
@@ -54,17 +65,6 @@
       "next": "Continue with the next open bridge-release task.",
       "refs": [
         ".aof/tasks/done/TASK-138.json"
-      ]
-    },
-    {
-      "at": "2026-08-18T01:40:42.830Z",
-      "actor": "AOF Runtime",
-      "event_type": "task_completed",
-      "summary": "v11.6 proof: external operator reproduction feedback intake",
-      "rationale": "Completed tasks show the latest closed release work in the runtime task archive.",
-      "next": "Continue with the next open bridge-release task.",
-      "refs": [
-        ".aof/tasks/done/TASK-137.json"
       ]
     }
   ]

@@ -30,6 +30,7 @@
     "operator_validation_projection",
     "provider_read_decision_replay_projection",
     "provider_read_freshness_refresh_projection",
+    "tool_governance_replay",
     "evidence_completeness_projection"
   ],
   "properties": {
@@ -505,6 +506,76 @@
             "additionalProperties": false
           }
         }
+      },
+      "additionalProperties": false
+    },
+    "tool_governance_replay": {
+      "type": "object",
+      "required": [
+        "present",
+        "source_session_id",
+        "source_session_ref",
+        "audit_ref",
+        "audit_ok",
+        "tool_call_count",
+        "governed_tool_call_count",
+        "allowed_count",
+        "denied_count",
+        "review_required_count",
+        "unknown_count",
+        "risky_count",
+        "external_write_count",
+        "dangerous_count",
+        "governance_status",
+        "operator_summary",
+        "replay_items",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "source_session_id": { "type": ["string", "null"] },
+        "source_session_ref": { "type": ["string", "null"] },
+        "audit_ref": { "type": ["string", "null"] },
+        "audit_ok": { "type": ["boolean", "null"] },
+        "tool_call_count": { "type": "integer" },
+        "governed_tool_call_count": { "type": "integer" },
+        "allowed_count": { "type": "integer" },
+        "denied_count": { "type": "integer" },
+        "review_required_count": { "type": "integer" },
+        "unknown_count": { "type": "integer" },
+        "risky_count": { "type": "integer" },
+        "external_write_count": { "type": "integer" },
+        "dangerous_count": { "type": "integer" },
+        "governance_status": { "enum": ["pass", "attention", "blocked", "missing"] },
+        "operator_summary": { "type": "string" },
+        "replay_items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "tool_name",
+              "summary",
+              "occurred_at",
+              "safety_level",
+              "approval_policy",
+              "governance_decision",
+              "risk_class",
+              "artifact_refs"
+            ],
+            "properties": {
+              "tool_name": { "type": ["string", "null"] },
+              "summary": { "type": "string" },
+              "occurred_at": { "type": "string" },
+              "safety_level": { "type": ["string", "null"] },
+              "approval_policy": { "type": ["string", "null"] },
+              "governance_decision": { "enum": ["allowed", "denied", "review_required", "unknown"] },
+              "risk_class": { "enum": ["safe", "risky", "external_write", "dangerous", "unknown"] },
+              "artifact_refs": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          }
+        },
+        "not_proven": { "type": "string" }
       },
       "additionalProperties": false
     },

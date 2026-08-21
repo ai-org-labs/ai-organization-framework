@@ -1,0 +1,64 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "work_item_id": "TASK-141",
+  "work_item_type": "release",
+  "objective": "Ship v11.9 Tool Governance Replay in Mission Control.",
+  "reason_for_work": "AOF can record agent-session tool calls, but operators need to understand governance decisions without reconstructing raw session JSON.",
+  "expected_output": [
+    "Mission Control tool_governance_replay projection",
+    "Mission Control schema update",
+    "viewer display update",
+    "v11.9 release docs",
+    "product value evidence",
+    "capability delta evidence",
+    "release-state audit evidence"
+  ],
+  "consumer": [
+    "AOF operators",
+    "release council",
+    "external reviewers"
+  ],
+  "downstream_dependency": [
+    "agent-session observability",
+    "Mission Control",
+    "release-state-audit"
+  ],
+  "success_criteria": [
+    "visibility-export produces tool_governance_replay",
+    "Mission Control schema validates replay counts and replay items",
+    "tests assert source session and governance classifications",
+    "product value and capability delta evidence exist"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "visibility-export passes",
+      "agent-session-contract-audit passes",
+      "capability-first-release-audit passes",
+      "release-state-audit passes"
+    ],
+    "no_go": [
+      "tool governance replay is not derived from agent-session tool_call events",
+      "not-proven boundaries are missing",
+      "v11.9 implies production safety or unrecorded tool-call absence"
+    ]
+  },
+  "required_visualization": [
+    "evidence-coverage-map",
+    "readiness-checklist"
+  ],
+  "required_skills": [
+    "skill-need-validation",
+    "skill-schema-review",
+    "skill-benchmark-validation"
+  ],
+  "required_actor_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "council_review_need": "required",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null
+}

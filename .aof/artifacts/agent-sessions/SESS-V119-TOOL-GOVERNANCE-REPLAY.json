@@ -1,0 +1,150 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTREAM-V119-TOOL-GOVERNANCE-REPLAY",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "parent_session_id": null,
+  "actor_ref": "aof-orchestrator",
+  "role_ref": "orchestrator",
+  "provider": "codex",
+  "model": "gpt-5",
+  "events": [
+    {
+      "event_id": "EVT-V119-001",
+      "event_type": "prompt",
+      "occurred_at": "2026-08-21T01:32:23.353Z",
+      "summary": "Heartbeat instructed AOF runtime-backed roadmap and trend review, then nearest release completion.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-141.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V119-002",
+      "event_type": "tool_call",
+      "occurred_at": "2026-08-21T01:39:15.350Z",
+      "summary": "Ran visibility-export to project tool governance replay into Mission Control.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "tool_name": "visibility-export",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved_run_contract"
+    },
+    {
+      "event_id": "EVT-V119-003",
+      "event_type": "tool_call",
+      "occurred_at": "2026-08-21T01:45:00.000Z",
+      "summary": "Ran tests and release audits to verify the v11.9 projection boundary.",
+      "artifact_refs": [
+        "test/runtime-situation.test.js",
+        ".aof/artifacts/release-state/release-state-audit.json"
+      ],
+      "tool_name": "release-state-audit",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved_run_contract"
+    },
+    {
+      "event_id": "EVT-V119-004",
+      "event_type": "response",
+      "occurred_at": "2026-08-21T01:45:00.000Z",
+      "summary": "Selected v11.9 as the bounded Mission Control replay slice aligned with agent session streaming, tracing, and governed tool-use trends.",
+      "artifact_refs": [
+        "docs/v11.9-release-definition.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V119-005",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-08-21T01:45:00.000Z",
+      "summary": "Tool governance replay can be overread as proof that no unrecorded tool calls occurred.",
+      "artifact_refs": [
+        "docs/v11.9.0-release-notes.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V119-006",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-08-21T01:45:00.000Z",
+      "summary": "v12.0 should move from read-only Mission Control replay toward a provider-backed operator decision console.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V119-007",
+      "event_type": "verification_result",
+      "occurred_at": "2026-08-21T01:45:00.000Z",
+      "summary": "Release verification includes visibility export, agent-session contract audit, release-state audit, organization verify, npm test, and smoke.",
+      "artifact_refs": [
+        "docs/v11.9-release-checklist.md",
+        ".aof/artifacts/session-observability/session-observability-audit.json",
+        ".aof/artifacts/release-state/release-state-audit.json"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    },
+    {
+      "event_id": "EVT-V119-008",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-08-21T01:45:00.000Z",
+      "summary": "Stop when v11.9 release gates pass and tag/release are published.",
+      "artifact_refs": [
+        "docs/v11.9-release-checklist.md"
+      ],
+      "tool_name": null,
+      "safety_level": null,
+      "approval_policy": null
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-141.json"
+    ],
+    "requirement_refs": [
+      "docs/v11.9-release-definition.md"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-situation.test.js",
+      "docs/v11.9-release-checklist.md"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/product-value-evidence/PVE-TASK-141-V119.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-141-V119.json",
+      ".aof/artifacts/requirement-coverage/TASK-141.json"
+    ]
+  },
+  "risk_candidates": [
+    "Tool governance replay could be mistaken for proof that no unrecorded tool calls occurred."
+  ],
+  "decision_candidates": [
+    "v12.0 should move toward a provider-backed operator decision console."
+  ],
+  "release_ready_evidence": {
+    "claim": "v11.9 tool governance replay is structurally and runtime ready after Mission Control export and release audits pass.",
+    "evidence_refs": [
+      "docs/v11.9-release-checklist.md",
+      ".aof/artifacts/visibility/current/mission-control.json"
+    ],
+    "verdict": "runtime_ready"
+  },
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -3118,6 +3118,8 @@ export function buildVisibilityPageHtml(title) {
         const externalSafetyChecks = Array.isArray(externalSafety.checks) ? externalSafety.checks : [];
         const organizationState = mission.organization_state ?? {};
         const sessionObservability = mission.agent_session_observability ?? {};
+        const toolGovernanceReplay = mission.tool_governance_replay ?? {};
+        const toolGovernanceItems = Array.isArray(toolGovernanceReplay.replay_items) ? toolGovernanceReplay.replay_items : [];
         const lastExecution = runtimeExecution.last_execution ?? {};
         const blockers = Array.isArray(mission.blockers)
           ? mission.blockers
@@ -3241,6 +3243,13 @@ export function buildVisibilityPageHtml(title) {
                 item
               )).join("") : '<div class="mini-row"><strong>Work Governance chainなし</strong><span>work-governance artifactは表示できません。</span></div>') +
               '</div></div><div><h2>エージェントセッション証跡</h2><div class="lower-body">' +
+              '<div class="mini-row ' + (toolGovernanceReplay.governance_status === "pass" ? "good" : (toolGovernanceReplay.governance_status === "missing" ? "" : "warn")) + '"><strong>ツール判断リプレイ: ' + escapeHtml(jaStateLabel(firstText(toolGovernanceReplay.governance_status, "missing"))) + '</strong><span>許可 ' + escapeHtml(String(toolGovernanceReplay.allowed_count ?? 0)) + ' / 拒否 ' + escapeHtml(String(toolGovernanceReplay.denied_count ?? 0)) + ' / 要レビュー ' + escapeHtml(String(toolGovernanceReplay.review_required_count ?? 0)) + ' / リスク ' + escapeHtml(String(toolGovernanceReplay.risky_count ?? 0)) + ' / 外部書き込み ' + escapeHtml(String(toolGovernanceReplay.external_write_count ?? 0)) + '</span></div>' +
+              (toolGovernanceItems.length > 0 ? toolGovernanceItems.map((item, index) => detailRow(
+                String(index + 1) + ". " + firstText(item.tool_name, "tool") + " / " + jaStateLabel(item.governance_decision),
+                firstText(item.summary, "-") + " / safety: " + firstText(item.safety_level, "-") + " / approval: " + firstText(item.approval_policy, "-") + " / risk: " + firstText(item.risk_class, "-"),
+                Array.isArray(item.artifact_refs) ? item.artifact_refs[0] : toolGovernanceReplay.source_session_ref,
+                item
+              )).join("") : '<div class="mini-row"><strong>ツール呼び出しなし</strong><span>' + escapeHtml(firstText(toolGovernanceReplay.not_proven, "agent session tool-call streamなし")) + '</span></div>') +
               '<div class="mini-row"><strong>' + escapeHtml(firstText(sessionObservability.latest_session_id, "No session stream")) + '</strong><span>Actor: ' + escapeHtml(firstText(sessionObservability.latest_actor_ref, "-")) + ' / Role: ' + escapeHtml(firstText(sessionObservability.latest_role_ref, "-")) + ' / Verdict: ' + escapeHtml(firstText(sessionObservability.latest_release_verdict, "-")) + ' / Audit: ' + escapeHtml(sessionObservability.audit_ok === true ? "pass" : (sessionObservability.audit_ok === false ? "fail" : "unknown")) + '</span></div>' +
               (sessionEvents.length > 0 ? sessionEvents.map((event, index) => detailRow(
                 String(index + 1) + ". " + firstText(event.event_type, "event"),

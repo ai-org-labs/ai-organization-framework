@@ -1,680 +1,1279 @@
 {
   "ok": true,
-  "artifact_type": "session-observability-audit",
-  "generated_at": "2026-07-11T17:19:02.804Z",
+  "artifact_type": "agent-session-contract-audit",
+  "generated_at": "2026-08-21T02:03:54.192Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "stream_count": 5,
-    "runtime_ready_stream_count": 5,
+    "scoped_task_count": 7,
+    "session_count": 7,
+    "runtime_ready_session_count": 7,
+    "tool_call_count": 11,
+    "governed_tool_call_count": 11,
     "failing_check_count": 0
   },
-  "streams": [
+  "sessions": [
     {
-      "session_id": "SESS-V70-MISSION-CONTROL-AUTOSTART",
-      "stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-AUTOSTART.json",
-      "source_task_id": "TASK-087",
+      "session_id": "SESS-QIF-V054-UPGRADE",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-QIF-V054-UPGRADE.json",
+      "source_task_id": "TASK-140",
       "event_count": 8,
+      "tool_call_count": 1,
       "release_verdict": "runtime_ready"
     },
     {
-      "session_id": "SESS-V70-MISSION-CONTROL-PROJECTION",
-      "stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json",
-      "source_task_id": "TASK-086",
+      "session_id": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json",
+      "source_task_id": "TASK-135",
       "event_count": 8,
+      "tool_call_count": 2,
       "release_verdict": "runtime_ready"
     },
     {
-      "session_id": "SESS-V70-RELEASE-CLOSURE",
-      "stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json",
-      "source_task_id": "TASK-088",
-      "event_count": 9,
-      "release_verdict": "runtime_ready"
-    },
-    {
-      "session_id": "SESS-V70-SESSION-OBSERVABILITY",
-      "stream_ref": ".aof/artifacts/agent-sessions/SESS-V70-SESSION-OBSERVABILITY.json",
-      "source_task_id": "TASK-085",
+      "session_id": "SESS-V115-PROVIDER-OBSERVATION-REPLAY",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V115-PROVIDER-OBSERVATION-REPLAY.json",
+      "source_task_id": "TASK-136",
       "event_count": 8,
+      "tool_call_count": 2,
       "release_verdict": "runtime_ready"
     },
     {
-      "session_id": "SESS-V71-CONTEXT-REFERENCE-DESIGN",
-      "stream_ref": ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-DESIGN.json",
-      "source_task_id": "TASK-089",
-      "event_count": 9,
-      "release_verdict": "structurally_ready"
+      "session_id": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json",
+      "source_task_id": "TASK-137",
+      "event_count": 8,
+      "tool_call_count": 2,
+      "release_verdict": "runtime_ready"
+    },
+    {
+      "session_id": "SESS-V117-PROVIDER-READ-DECISION-REPLAY",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json",
+      "source_task_id": "TASK-138",
+      "event_count": 8,
+      "tool_call_count": 1,
+      "release_verdict": "runtime_ready"
+    },
+    {
+      "session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json",
+      "source_task_id": "TASK-139",
+      "event_count": 7,
+      "tool_call_count": 1,
+      "release_verdict": "runtime_ready"
+    },
+    {
+      "session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+      "source_task_id": "TASK-141",
+      "event_count": 8,
+      "tool_call_count": 2,
+      "release_verdict": "runtime_ready"
     }
   ],
   "checks": [
     {
-      "name": "agent session stream presence",
+      "name": "scoped agent session presence",
       "status": "pass",
-      "detail": "5 stream(s)"
+      "detail": "7 session(s) at or after TASK-135"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART schema",
+      "name": "SESS-QIF-V054-UPGRADE schema",
       "status": "pass",
-      "detail": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-AUTOSTART.json"
+      "detail": ".aof/artifacts/agent-sessions/SESS-QIF-V054-UPGRADE.json"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART task linkage",
+      "name": "SESS-QIF-V054-UPGRADE event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE task linkage",
       "status": "pass",
       "detail": "1 task ref(s)"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART requirement linkage",
+      "name": "SESS-QIF-V054-UPGRADE requirement linkage",
       "status": "pass",
       "detail": "1 requirement ref(s)"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART test evidence linkage",
+      "name": "SESS-QIF-V054-UPGRADE test evidence linkage",
       "status": "pass",
-      "detail": "2 test evidence ref(s)"
+      "detail": "3 test evidence ref(s)"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART risk candidates",
+      "name": "SESS-QIF-V054-UPGRADE release-ready evidence",
       "status": "pass",
-      "detail": "1 risk candidate(s)"
+      "detail": "runtime_ready, 2 evidence ref(s)"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART decision candidates",
+      "name": "SESS-QIF-V054-UPGRADE risk candidates",
+      "status": "pass",
+      "detail": "2 risk candidate(s)"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE decision candidates",
       "status": "pass",
       "detail": "1 decision candidate(s)"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART release-ready evidence",
+      "name": "SESS-QIF-V054-UPGRADE governed tool call ASEV2-MT1O24WF-6ISH5W",
       "status": "pass",
-      "detail": "runtime_ready, 3 evidence ref(s)"
+      "detail": "tool=gh release view, safety=safe_read, approval=approved_run_contract"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type prompt",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
-      "detail": "present"
+      "detail": ".aof/tasks/archived/TASK-140.json"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type response",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
-      "detail": "present"
+      "detail": "docs/aof-qif-provider-integration.md"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type tool_call",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type artifact_write",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type verification_result",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type risk_candidate",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type decision_candidate",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART event type stop_condition",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART tool call safety metadata",
-      "status": "pass",
-      "detail": "tool=situation-assess/task-open/work-readiness-record/command-registry-refresh, safety=safe_local_write, approval=preapproved"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
-      "status": "pass",
-      "detail": ".aof/tasks/done/TASK-087.json"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
-      "status": "pass",
-      "detail": "docs/quickstart.md"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
       "detail": "test/runtime-core-2.test.js"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
-      "detail": "test/runtime-situation.test.js"
+      "detail": ".aof/artifacts/external-resources/external-resource-audit.json"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
-      "detail": "src/commands/visibility-session.js"
+      "detail": ".aof/artifacts/context-integrity/context-reference-integrity-audit.json"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
-      "detail": "src/runtime/command-catalog.js"
+      "detail": ".aof/quality/qif-provider-profile.json"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
-      "detail": ".aof/command-registry.json"
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/archived/TASK-140.json"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
+      "status": "pass",
+      "detail": ".aof/external-refs/QIF-v0.5.4.json"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/qif-provider-profile.json"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-provider-integration.md"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-quality-definition.md"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
+      "status": "pass",
+      "detail": "README.md"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
+      "status": "pass",
+      "detail": "docs/AI_AUTHORING_GUIDE.md"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
       "detail": "docs/cli-reference.md"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
-      "detail": "test/runtime-core-2.test.js"
+      "detail": ".aof/artifacts/external-runtime-resources/ERR-QIF-V054.json"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-AUTOSTART linked ref resolves",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
-      "detail": "test/runtime-situation.test.js"
+      "detail": ".aof/artifacts/external-reference-integrity/QIF-v0.5.4.json"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION schema",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
       "status": "pass",
-      "detail": ".aof/artifacts/agent-sessions/SESS-V70-MISSION-CONTROL-PROJECTION.json"
+      "detail": ".aof/quality/qif-provider-profile.json"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION task linkage",
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
+      "status": "pass",
+      "detail": "docs/aof-qif-provider-integration.md"
+    },
+    {
+      "name": "SESS-QIF-V054-UPGRADE ref resolves",
+      "status": "pass",
+      "detail": ".aof/quality/qif-provider-profile.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE task linkage",
       "status": "pass",
       "detail": "1 task ref(s)"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION requirement linkage",
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE requirement linkage",
       "status": "pass",
       "detail": "1 requirement ref(s)"
     },
     {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION test evidence linkage",
-      "status": "pass",
-      "detail": "2 test evidence ref(s)"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION risk candidates",
-      "status": "pass",
-      "detail": "1 risk candidate(s)"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION decision candidates",
-      "status": "pass",
-      "detail": "1 decision candidate(s)"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION release-ready evidence",
-      "status": "pass",
-      "detail": "runtime_ready, 2 evidence ref(s)"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type prompt",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type response",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type tool_call",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type artifact_write",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type verification_result",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type risk_candidate",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type decision_candidate",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION event type stop_condition",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION tool call safety metadata",
-      "status": "pass",
-      "detail": "tool=visibility-export and node --test test/runtime-situation.test.js test/runtime-core-2.test.js, safety=safe_read, approval=preapproved"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
-      "status": "pass",
-      "detail": ".aof/tasks/done/TASK-086.json"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
-      "status": "pass",
-      "detail": "docs/v7.0-agent-session-observability-direction.md"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
-      "status": "pass",
-      "detail": "test/runtime-situation.test.js"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
-      "status": "pass",
-      "detail": "test/runtime-core-2.test.js"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
-      "status": "pass",
-      "detail": "schemas/aof-mission-control-view.schema.json"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
-      "status": "pass",
-      "detail": "src/commands/visibility-export.js"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
-      "status": "pass",
-      "detail": "src/commands/visibility-serve.js"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
-      "status": "pass",
-      "detail": "test/runtime-situation.test.js"
-    },
-    {
-      "name": "SESS-V70-MISSION-CONTROL-PROJECTION linked ref resolves",
-      "status": "pass",
-      "detail": ".aof/artifacts/visibility/current/mission-control.json"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE schema",
-      "status": "pass",
-      "detail": ".aof/artifacts/agent-sessions/SESS-V70-RELEASE-CLOSURE.json"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE task linkage",
-      "status": "pass",
-      "detail": "1 task ref(s)"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE requirement linkage",
-      "status": "pass",
-      "detail": "1 requirement ref(s)"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE test evidence linkage",
-      "status": "pass",
-      "detail": "2 test evidence ref(s)"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE risk candidates",
-      "status": "pass",
-      "detail": "1 risk candidate(s)"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE decision candidates",
-      "status": "pass",
-      "detail": "1 decision candidate(s)"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE release-ready evidence",
-      "status": "pass",
-      "detail": "runtime_ready, 3 evidence ref(s)"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE event type prompt",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE event type response",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE event type tool_call",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE event type artifact_write",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE event type verification_result",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE event type risk_candidate",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE event type decision_candidate",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE event type stop_condition",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE tool call safety metadata",
-      "status": "pass",
-      "detail": "tool=git status / sed / rg / node, safety=safe_read, approval=preapproved"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
-      "status": "pass",
-      "detail": ".aof/tasks/done/TASK-088.json"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
-      "status": "pass",
-      "detail": "docs/v7.0-release-definition.md"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
-      "status": "pass",
-      "detail": "test/runtime-core-2.test.js"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
-      "status": "pass",
-      "detail": "test/runtime-situation.test.js"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
-      "status": "pass",
-      "detail": "docs/v7.0-release-checklist.md"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
-      "status": "pass",
-      "detail": ".aof/artifacts/work-readiness/TASK-088.json"
-    },
-    {
-      "name": "SESS-V70-RELEASE-CLOSURE linked ref resolves",
-      "status": "pass",
-      "detail": ".aof/artifacts/execution/council-reviews/CRP-TASK-088-V70-RELEASE-CLOSURE.json"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY schema",
-      "status": "pass",
-      "detail": ".aof/artifacts/agent-sessions/SESS-V70-SESSION-OBSERVABILITY.json"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY task linkage",
-      "status": "pass",
-      "detail": "1 task ref(s)"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY requirement linkage",
-      "status": "pass",
-      "detail": "1 requirement ref(s)"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY test evidence linkage",
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE test evidence linkage",
       "status": "pass",
       "detail": "1 test evidence ref(s)"
     },
     {
-      "name": "SESS-V70-SESSION-OBSERVABILITY risk candidates",
-      "status": "pass",
-      "detail": "1 risk candidate(s)"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY decision candidates",
-      "status": "pass",
-      "detail": "1 decision candidate(s)"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY release-ready evidence",
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE release-ready evidence",
       "status": "pass",
       "detail": "runtime_ready, 2 evidence ref(s)"
     },
     {
-      "name": "SESS-V70-SESSION-OBSERVABILITY event type prompt",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY event type response",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY event type tool_call",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY event type artifact_write",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY event type verification_result",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY event type risk_candidate",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY event type decision_candidate",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY event type stop_condition",
-      "status": "pass",
-      "detail": "present"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY tool call safety metadata",
-      "status": "pass",
-      "detail": "tool=situation-assess and node --test test/runtime-core-2.test.js, safety=safe_read, approval=preapproved"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
-      "status": "pass",
-      "detail": ".aof/tasks/done/TASK-085.json"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
-      "status": "pass",
-      "detail": "docs/v7.0-agent-session-observability-direction.md"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
-      "status": "pass",
-      "detail": "test/runtime-core-2.test.js"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
-      "status": "pass",
-      "detail": "schemas/aof-agent-session-record.schema.json"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
-      "status": "pass",
-      "detail": "schemas/aof-session-observability-audit.schema.json"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
-      "status": "pass",
-      "detail": "src/commands/agent-session-record.js"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
-      "status": "pass",
-      "detail": "src/commands/session-observability-audit.js"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
-      "status": "pass",
-      "detail": "test/runtime-core-2.test.js"
-    },
-    {
-      "name": "SESS-V70-SESSION-OBSERVABILITY linked ref resolves",
-      "status": "pass",
-      "detail": "schemas/aof-agent-session-record.schema.json"
-    },
-    {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN schema",
-      "status": "pass",
-      "detail": ".aof/artifacts/agent-sessions/SESS-V71-CONTEXT-REFERENCE-DESIGN.json"
-    },
-    {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN task linkage",
-      "status": "pass",
-      "detail": "1 task ref(s)"
-    },
-    {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN requirement linkage",
-      "status": "pass",
-      "detail": "2 requirement ref(s)"
-    },
-    {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN test evidence linkage",
-      "status": "pass",
-      "detail": "4 test evidence ref(s)"
-    },
-    {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN risk candidates",
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE risk candidates",
       "status": "pass",
       "detail": "1 risk candidate(s)"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN decision candidates",
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE decision candidates",
       "status": "pass",
       "detail": "1 decision candidate(s)"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN release-ready evidence",
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE governed tool call ASEV3-MSV4WQS6-1BAQ6P",
       "status": "pass",
-      "detail": "structurally_ready, 2 evidence ref(s)"
+      "detail": "tool=node ./src/cli.js visibility-export, safety=safe_local_write, approval=approved_run_contract"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type prompt",
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE governed tool call ASEV4-MSV4WQS6-XH6K94",
+      "status": "pass",
+      "detail": "tool=apply_patch, safety=project_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "src/commands/agent-session-contract-audit.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-contract-audit.schema.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/runtime-execution.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "src/commands/agent-session-contract-audit.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-contract-audit.schema.json"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V114-AGENT-SESSION-TOOL-GOVERNANCE ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-checklist.md"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V115-PROVIDER-OBSERVATION-REPLAY.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY event type prompt",
       "status": "pass",
       "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type response",
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY event type response",
       "status": "pass",
       "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type tool_call",
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY event type tool_call",
       "status": "pass",
       "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type artifact_write",
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY event type verification_result",
       "status": "pass",
       "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type verification_result",
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY event type risk_candidate",
       "status": "pass",
       "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type risk_candidate",
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY event type decision_candidate",
       "status": "pass",
       "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type decision_candidate",
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY event type stop_condition",
       "status": "pass",
       "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN event type stop_condition",
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY test evidence linkage",
+      "status": "pass",
+      "detail": "2 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 3 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY governed tool call ASEV3-MSV4WQS6-1BAQ6P",
+      "status": "pass",
+      "detail": "tool=node ./src/cli.js visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY governed tool call ASEV4-MSV4WQS6-XH6K94",
+      "status": "pass",
+      "detail": "tool=apply_patch, safety=project_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-136.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.5-release-definition.md"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/provider-observation-replay-audit.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/provider-observation-replay-audit.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/POR-TASK-136-V115.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-observation-replays/provider-observation-replay-audit.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/runtime-execution.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "src/commands/agent-session-contract-audit.js"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-contract-audit.schema.json"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V115-PROVIDER-OBSERVATION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-checklist.md"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V116-EXTERNAL-OPERATOR-FEEDBACK.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type prompt",
       "status": "pass",
       "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN tool call safety metadata",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type response",
       "status": "pass",
-      "detail": "tool=situation-assess, safety=safe_read, approval=preapproved"
+      "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN tool call safety metadata",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type tool_call",
       "status": "pass",
-      "detail": "tool=local-artifact-read, safety=safe_read, approval=preapproved"
+      "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type verification_result",
       "status": "pass",
-      "detail": ".aof/tasks/done/TASK-089.json"
+      "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type risk_candidate",
       "status": "pass",
-      "detail": "docs/v7.x-roadmap.md"
+      "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type decision_candidate",
       "status": "pass",
-      "detail": "docs/vnext-release-plan.md"
+      "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK event type stop_condition",
       "status": "pass",
-      "detail": ".aof/artifacts/work-readiness/TASK-089.json"
+      "detail": "present"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK task linkage",
       "status": "pass",
-      "detail": "docs/v7.1-context-reference-integrity-design.md"
+      "detail": "1 task ref(s)"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK requirement linkage",
       "status": "pass",
-      "detail": ".aof/artifacts/work-readiness/work-readiness-audit.json"
+      "detail": "1 requirement ref(s)"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK test evidence linkage",
       "status": "pass",
-      "detail": ".aof/artifacts/archmap/archmap-impact-audit.json"
+      "detail": "2 test evidence ref(s)"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK release-ready evidence",
       "status": "pass",
-      "detail": "docs/v7.1-context-reference-integrity-design.md"
+      "detail": "runtime_ready, 3 evidence ref(s)"
     },
     {
-      "name": "SESS-V71-CONTEXT-REFERENCE-DESIGN linked ref resolves",
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK risk candidates",
       "status": "pass",
-      "detail": ".aof/artifacts/work-readiness/TASK-089.json"
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK governed tool call ASEV3-MSV4WQS6-1BAQ6P",
+      "status": "pass",
+      "detail": "tool=node ./src/cli.js visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK governed tool call ASEV4-MSV4WQS6-XH6K94",
+      "status": "pass",
+      "detail": "tool=apply_patch, safety=project_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-137.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.6-release-definition.md"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/external-operator-feedback-audit.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/external-operator-feedback-audit.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/EOF-TASK-137-V116.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/external-operator-feedback/external-operator-feedback-audit.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-135.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-definition.md"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/runtime-execution.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "src/commands/agent-session-contract-audit.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-agent-session-contract-audit.schema.json"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V116-EXTERNAL-OPERATOR-FEEDBACK ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.4-release-checklist.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V117-PROVIDER-READ-DECISION-REPLAY.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY test evidence linkage",
+      "status": "pass",
+      "detail": "3 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 2 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY governed tool call EVT-V117-002",
+      "status": "pass",
+      "detail": "tool=visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-138.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-definition.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-checklist.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-checklist.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-138.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-definition.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/release-state/release-state-audit.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-checklist.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.7-release-definition.md"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json"
+    },
+    {
+      "name": "SESS-V117-PROVIDER-READ-DECISION-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V118-PROVIDER-READ-FRESHNESS.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS test evidence linkage",
+      "status": "pass",
+      "detail": "3 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 2 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS governed tool call EVT-V118-002",
+      "status": "pass",
+      "detail": "tool=visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-139.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-definition.md"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-core-2.test.js"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-checklist.md"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-139-V118.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-139-V118.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-checklist.md"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-139.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-definition.md"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/release-state/release-state-audit.json"
+    },
+    {
+      "name": "SESS-V118-PROVIDER-READ-FRESHNESS ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.8-release-checklist.md"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY requirement linkage",
+      "status": "pass",
+      "detail": "1 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY test evidence linkage",
+      "status": "pass",
+      "detail": "2 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 2 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY governed tool call EVT-V119-002",
+      "status": "pass",
+      "detail": "tool=visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY governed tool call EVT-V119-003",
+      "status": "pass",
+      "detail": "tool=release-state-audit, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-141.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.9-release-definition.md"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.9-release-checklist.md"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-141-V119.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-141-V119.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/requirement-coverage/TASK-141.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.9-release-checklist.md"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-141.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/release-state/release-state-audit.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.9-release-definition.md"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.9.0-release-notes.md"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.9-release-checklist.md"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/session-observability/session-observability-audit.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/release-state/release-state-audit.json"
+    },
+    {
+      "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
+      "status": "pass",
+      "detail": "docs/v11.9-release-checklist.md"
     }
   ],
   "errors": []

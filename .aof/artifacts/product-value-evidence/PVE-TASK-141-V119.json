@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-141-V119",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "release_ref": "docs/v11.9-release-definition.md",
+  "work_item_id": "TASK-141",
+  "work_item_ref": ".aof/tasks/done/TASK-141.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "Operators can see recorded agent-session tool calls as governance decisions and risk classes without opening raw session streams.",
+  "before_state": "Mission Control listed tool calls but did not summarize whether they were allowed, denied, review-required, risky, external-write, or dangerous.",
+  "after_state": "Mission Control exposes tool_governance_replay with decision counts, risk counts, replay items, evidence refs, and not-proven boundaries.",
+  "scenario": "Before signing off a runtime-backed answer, the operator checks Mission Control to see whether the underlying tool calls were governed and whether any call needs review.",
+  "five_minute_demo": "Run visibility-export and inspect tool_governance_replay in .aof/artifacts/visibility/current/mission-control.json.",
+  "time_saved_or_work_reduced": "Removes first-pass manual inspection of raw agent-session JSON for tool governance status.",
+  "cognitive_load_removed": "Operators no longer need to infer approval and safety state from individual session events.",
+  "capability_matrix": [
+    {
+      "capability": "Tool Governance Replay",
+      "before": "Tool calls were visible only as session events.",
+      "after": "Tool calls are classified by governance decision and risk class.",
+      "user_value": "A runtime-backed answer can be reviewed for tool governance from Mission Control first."
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    "docs/v11.9-release-definition.md",
+    ".aof/artifacts/visibility/current/mission-control.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "Self-hosting product value evidence does not prove broad adoption, semantic truth, provider behavior, or unrecorded tool-call absence.",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -480,6 +480,33 @@
         ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
         ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-TOOL-GOVERNANCE-REPLAY",
+      "name": "Tool Governance Replay in Mission Control",
+      "description": "AOF can project recorded agent-session tool calls into operator-visible governance decisions and risk classes.",
+      "user_value": "Operators can see whether recorded AI tool calls were allowed, denied, review-required, risky, external-write, or dangerous without opening raw session streams.",
+      "first_version": "v11.9.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v11.9-release-definition.md",
+        "docs/v11.9.0-release-notes.md",
+        ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "capability_id": "PCAP-AGENT-SESSION-OBSERVABILITY",
+      "name": "Agent Session Observability",
+      "description": "AOF can treat agent-session events, tool calls, risks, decisions, verification, and stop conditions as release evidence.",
+      "user_value": "Operators can inspect AI work as a linked session stream instead of reconstructing it from chat text.",
+      "first_version": "v7.0.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v7.0-release-definition.md",
+        "docs/v11.4-release-definition.md",
+        ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json"
+      ]
     }
   ]
 }

@@ -1,0 +1,31 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-141-V119",
+  "work_item_ref": ".aof/tasks/done/TASK-141.json",
+  "work_item_id": "TASK-141",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "mission-control",
+    "agent-session-observability",
+    "tool-governance-replay",
+    "release-state-audit"
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json",
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-141-V119.json",
+    ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json"
+  ],
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "updated_at": "2026-08-21T01:45:00.000Z",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+  "not_proven": "Archmap impact is a projection surface and does not prove rendered UX quality, semantic truth, or unrecorded tool-call absence."
+}

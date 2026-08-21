@@ -1,0 +1,67 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-TASK-141-V119",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "work_item_id": "TASK-141",
+  "work_item_ref": ".aof/tasks/done/TASK-141.json",
+  "pilot_status": "ready",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-141.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-141.json",
+  "lanes": [
+    {
+      "lane_id": "visibility-projection",
+      "goal": "derive tool governance replay from agent-session tool_call events",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json"
+      ],
+      "expected_output": "Mission Control tool_governance_replay projection",
+      "output_refs": [
+        "src/commands/visibility-export.js",
+        "schemas/aof-mission-control-view.schema.json"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "test/runtime-situation.test.js"
+      ],
+      "stop_condition": "stop if replay is not derived from canonical session events",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "governance-boundary",
+      "goal": "verify replay does not overclaim safety or completeness",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "docs/v11.9-release-definition.md"
+      ],
+      "expected_output": "not-proven boundary and Council review",
+      "output_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-141-GUARDIAN.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-141-V119.json"
+      ],
+      "verification_refs": [
+        "docs/v11.9.0-release-notes.md"
+      ],
+      "stop_condition": "stop if v11.9 implies production safety or unrecorded tool-call absence",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "ready",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "visibility-projection",
+      "governance-boundary"
+    ],
+    "conflict_summary": "No unresolved lane conflict; projection and boundary lanes preserve recorded-session source of truth.",
+    "blocker_summary": "Blocked if release-state-audit fails or if v11.9 wording implies production safety.",
+    "merge_rationale": "Visibility projection and governance boundary jointly support v11.9 as tool governance replay evidence.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-141-V119.json",
+  "not_proven": "Parallel lane evidence proves local release-readiness join only; it does not prove semantic truth, provider behavior, production safety, or unrecorded tool-call absence.",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

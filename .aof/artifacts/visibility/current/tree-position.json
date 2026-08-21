@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-20T15:24:58.590Z",
+  "generated_at": "2026-08-21T02:04:14.332Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "11.8.0",
-    "active_release_track": "v11.8",
-    "release_definition_ref": "docs/v11.8-release-definition.md"
+    "active_release_version": "11.9.0",
+    "active_release_track": "v11.9",
+    "release_definition_ref": "docs/v11.9-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams."
+    "branch_summary": "v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v11.8",
+      "label": "v11.9",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v11.8 and the next concrete branch.",
-    "why_this_branch": "Prepare v11.9 so tool governance replay is visible in Mission Control from session/tool-call artifacts, including denied, approved, and risky tool decisions.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams."
+    "where_are_we": "The runtime is between v11.9 and the next concrete branch.",
+    "why_this_branch": "Prepare v12.0 so operators can review provider-backed decisions from a governed decision console without granting autonomous write authority.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution."
   }
 }

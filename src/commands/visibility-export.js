@@ -813,6 +813,93 @@ async function loadAgentSessionObservabilityProjection(projectRoot, aofRoot) {
   };
 }
 
+function classifyToolGovernanceDecision(event) {
+  const approval = String(event.approval_policy ?? "").toLowerCase();
+  const safety = String(event.safety_level ?? "").toLowerCase();
+
+  if (/deny|denied|reject|rejected|blocked|not_allowed/.test(approval)) {
+    return "denied";
+  }
+  if (/approved|preapproved|approved_run_contract|not_required/.test(approval)) {
+    return "allowed";
+  }
+  if (["external_write", "dangerous"].includes(safety)) {
+    return "review_required";
+  }
+  return "unknown";
+}
+
+function classifyToolGovernanceRisk(event, decision) {
+  const safety = String(event.safety_level ?? "").toLowerCase();
+  if (safety === "dangerous") {
+    return "dangerous";
+  }
+  if (safety === "external_write") {
+    return "external_write";
+  }
+  if (decision === "denied" || decision === "review_required" || decision === "unknown") {
+    return "risky";
+  }
+  if (safety.startsWith("safe_") || safety === "read" || safety === "safe") {
+    return "safe";
+  }
+  return safety ? "risky" : "unknown";
+}
+
+function buildToolGovernanceReplayProjection(agentSessionObservabilityProjection) {
+  const events = Array.isArray(agentSessionObservabilityProjection?.latest_events)
+    ? agentSessionObservabilityProjection.latest_events
+    : [];
+  const toolEvents = events.filter((event) => event.event_type === "tool_call");
+  const replayItems = toolEvents.map((event) => {
+    const governanceDecision = classifyToolGovernanceDecision(event);
+    const riskClass = classifyToolGovernanceRisk(event, governanceDecision);
+    return {
+      tool_name: event.tool_name ?? null,
+      summary: event.summary,
+      occurred_at: event.occurred_at,
+      safety_level: event.safety_level ?? null,
+      approval_policy: event.approval_policy ?? null,
+      governance_decision: governanceDecision,
+      risk_class: riskClass,
+      artifact_refs: event.artifact_refs ?? []
+    };
+  });
+  const countBy = (field, value) => replayItems.filter((item) => item[field] === value).length;
+  const deniedCount = countBy("governance_decision", "denied");
+  const reviewRequiredCount = countBy("governance_decision", "review_required");
+  const unknownCount = countBy("governance_decision", "unknown");
+  const riskyCount = replayItems.filter((item) => ["risky", "external_write", "dangerous"].includes(item.risk_class)).length;
+  const governanceStatus = !agentSessionObservabilityProjection?.present
+    ? "missing"
+    : deniedCount > 0 || reviewRequiredCount > 0
+      ? "blocked"
+      : riskyCount > 0 || unknownCount > 0
+        ? "attention"
+        : "pass";
+
+  return {
+    present: replayItems.length > 0,
+    source_session_id: agentSessionObservabilityProjection?.latest_session_id ?? null,
+    source_session_ref: agentSessionObservabilityProjection?.latest_session_ref ?? null,
+    audit_ref: agentSessionObservabilityProjection?.audit_ref ?? null,
+    audit_ok: agentSessionObservabilityProjection?.audit_ok ?? null,
+    tool_call_count: replayItems.length,
+    governed_tool_call_count: replayItems.filter((item) => item.approval_policy || item.safety_level).length,
+    allowed_count: countBy("governance_decision", "allowed"),
+    denied_count: deniedCount,
+    review_required_count: reviewRequiredCount,
+    unknown_count: unknownCount,
+    risky_count: riskyCount,
+    external_write_count: countBy("risk_class", "external_write"),
+    dangerous_count: countBy("risk_class", "dangerous"),
+    governance_status: governanceStatus,
+    operator_summary: `${replayItems.length} tool call(s) replayed; ${countBy("governance_decision", "allowed")} allowed; ${deniedCount} denied; ${reviewRequiredCount} review-required; ${riskyCount} risky/external/dangerous.`,
+    replay_items: replayItems,
+    not_proven: "Tool governance replay proves recorded session tool-call governance only; it does not prove semantic truth, model correctness, credential safety, provider behavior, or production execution safety."
+  };
+}
+
 async function loadContextReferenceIntegrityProjection(projectRoot, aofRoot) {
   const contextFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "context-integrity"));
   const externalFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "external-reference-integrity"));
@@ -1832,6 +1919,7 @@ function buildMissionControl({
   operatorValidationProjection = null,
   providerReadDecisionReplayProjection = null,
   providerReadFreshnessRefreshProjection = null,
+  toolGovernanceReplayProjection = null,
   evidenceCompletenessProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
@@ -1978,6 +2066,26 @@ function buildMissionControl({
       decision_candidates: [],
       latest_events: [],
       latest_tool_calls: []
+    },
+    tool_governance_replay: toolGovernanceReplayProjection ?? {
+      present: false,
+      source_session_id: null,
+      source_session_ref: null,
+      audit_ref: null,
+      audit_ok: null,
+      tool_call_count: 0,
+      governed_tool_call_count: 0,
+      allowed_count: 0,
+      denied_count: 0,
+      review_required_count: 0,
+      unknown_count: 0,
+      risky_count: 0,
+      external_write_count: 0,
+      dangerous_count: 0,
+      governance_status: "missing",
+      operator_summary: "No agent-session tool calls are available for governance replay.",
+      replay_items: [],
+      not_proven: "Tool governance replay is missing because no current agent-session tool-call stream was projected."
     },
     context_reference_integrity: contextReferenceIntegrityProjection ?? {
       present: false,
@@ -2372,6 +2480,7 @@ export async function visibilityExportCommand(options) {
     providerExecutionApprovalProjection,
     roadmapStatus
   });
+  const toolGovernanceReplayProjection = buildToolGovernanceReplayProjection(agentSessionObservabilityProjection);
   const evidenceCompletenessProjection = buildEvidenceCompletenessProjection({
     requirementCoverageProjection,
     adoptionProofProjection,
@@ -2413,6 +2522,7 @@ export async function visibilityExportCommand(options) {
     operatorValidationProjection,
     providerReadDecisionReplayProjection,
     providerReadFreshnessRefreshProjection,
+    toolGovernanceReplayProjection,
     evidenceCompletenessProjection
   });
   const operatorBrief = buildOperatorBriefView({

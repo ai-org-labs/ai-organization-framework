@@ -1,0 +1,63 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-141-V119",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "work_item_id": "TASK-141",
+  "work_item_ref": ".aof/tasks/done/TASK-141.json",
+  "coverage_status": "ready",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V119-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v11.9-release-definition.md",
+      "title": "Mission Control must expose tool governance replay",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered when Mission Control includes tool_governance_replay with governance status, counts, replay items, and not-proven boundary",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-141.json"
+      ],
+      "evidence_refs": [
+        "src/commands/visibility-export.js",
+        "schemas/aof-mission-control-view.schema.json",
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V119-002",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v11.9-release-checklist.md",
+      "title": "Tool replay must be derived from canonical agent-session tool_call events",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered when tests assert replay source session, counts, decisions, and risk class from the current session artifact",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-141.json"
+      ],
+      "evidence_refs": [
+        ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+        "test/runtime-situation.test.js",
+        ".aof/artifacts/session-observability/session-observability-audit.json"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded Mission Control projection release verification",
+    "burndown_ref": "docs/v11.9-release-checklist.md",
+    "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves structural linkage only; it does not prove semantic truth, provider behavior, production safety, or unrecorded tool-call absence.",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

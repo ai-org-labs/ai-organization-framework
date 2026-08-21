@@ -1,0 +1,119 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-141-V119",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "work_item_id": "TASK-141",
+  "work_item_ref": ".aof/tasks/done/TASK-141.json",
+  "export_status": "ready",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-runtime-command-and-agent-session-artifacts",
+    "source_of_truth_boundary": "AOF artifacts, agent-session tool_call events, release docs, and runtime audits are canonical; chat text is not release evidence"
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-TASK-141-1",
+      "event_type": "prompt",
+      "summary": "Heartbeat required AOF to continue the roadmap using latest runtime and trend context.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-141.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-141-2",
+      "event_type": "tool_call",
+      "summary": "AOF runtime selected v11.9 as tool governance replay after v11.8.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json",
+        "docs/vnext-roadmap.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-141-3",
+      "event_type": "artifact_write",
+      "summary": "Mission Control schema, visibility export, viewer display, release docs, and evidence artifacts were added.",
+      "artifact_refs": [
+        "src/commands/visibility-export.js",
+        "src/commands/visibility-serve.js",
+        "schemas/aof-mission-control-view.schema.json",
+        "docs/v11.9-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-141-4",
+      "event_type": "verification",
+      "summary": "visibility-export projected tool_governance_replay from the current agent-session tool_call stream.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-141-5",
+      "event_type": "response",
+      "summary": "Role outputs and Council review framed v11.9 as bounded recorded tool governance replay, not proof of production safety.",
+      "artifact_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-141-VISIONARY.json",
+        ".aof/artifacts/execution/role-results/RRES-TASK-141-BUILDER.json",
+        ".aof/artifacts/execution/role-results/RRES-TASK-141-GUARDIAN.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-141-V119.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-141-6",
+      "event_type": "blocker",
+      "summary": "Tool governance replay must not be misread as semantic truth, credential safety, production execution safety, or absence of unrecorded tool calls.",
+      "artifact_refs": [
+        "docs/v11.9-release-definition.md",
+        "docs/v11.9.0-release-notes.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-141-7",
+      "event_type": "stop_condition",
+      "summary": "Stop release if v11.9 claims production safety or unrecorded tool-call absence.",
+      "artifact_refs": [
+        "docs/v11.9-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-141.json"
+    ],
+    "requirement_refs": [
+      "docs/v11.9-release-definition.md",
+      ".aof/artifacts/requirement-coverage/TASK-141.json"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/visibility/current/mission-control.json",
+      ".aof/artifacts/release-state/release-state-audit.json",
+      "test/runtime-situation.test.js",
+      "docs/v11.9-release-checklist.md"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/work-items/goals/TASK-141.json",
+      ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-141-V119.json",
+      ".aof/artifacts/product-value-evidence/PVE-TASK-141-V119.json"
+    ],
+    "risk_candidates": [
+      "tool governance replay may be mistaken for complete tool-call capture"
+    ],
+    "decision_candidates": [
+      "advance to v12.0 only after v11.9 proves recorded tool governance replay"
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v11.9-release-checklist.md",
+      ".aof/artifacts/release-state/release-state-audit.json"
+    ]
+  },
+  "redaction_boundary": "summaries only; no secrets, credentials, private provider payload bodies, or private transcript content exported",
+  "release_ready_boundary": "release-ready requires runtime audits, tests, smoke, and CI/tag validation, not this export alone",
+  "not_proven": "Session export proves traceability for v11.9 release work only; it does not prove semantic truth, production safety, productivity gain, adoption, or unrecorded tool-call absence.",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

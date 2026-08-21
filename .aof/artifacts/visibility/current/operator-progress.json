@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-20T15:24:58.590Z",
+  "generated_at": "2026-08-21T02:04:14.332Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-139 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-139.json"
+    "summary": "TASK-141 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-141.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-139 completed: v11.8 proof: provider read freshness refresh gate",
-      "artifact_ref": ".aof/tasks/done/TASK-139.json"
+      "summary": "TASK-141 completed: v11.9 proof: tool governance replay in Mission Control",
+      "artifact_ref": ".aof/tasks/done/TASK-141.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
+      "summary": "v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-139 completed: v11.8 proof: provider read freshness refresh gate v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
+    "what_changed": "TASK-141 completed: v11.9 proof: tool governance replay in Mission Control v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams."
+    "next_checkpoint": "Open an implementation task for the current frontier: v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution."
   }
 }

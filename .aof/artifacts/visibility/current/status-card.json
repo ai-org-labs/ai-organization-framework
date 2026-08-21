@@ -1,12 +1,12 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-08-20T15:24:58.585Z",
+  "as_of": "2026-08-21T02:04:14.321Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
-  "current_goal": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
+  "current_goal": "v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
   "owner": "AOF Runtime",
   "open_signals": [],
-  "next_checkpoint": "v11.9 should project tool governance replay into Mission Control so operators can see which tool calls were allowed, denied, risky, or governance-relevant without opening raw agent session streams.",
+  "next_checkpoint": "v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
   "latest_artifact_ref": ".aof/context/active/metrics-snapshot.json",
   "runtime_evidence_state": "present"
 }

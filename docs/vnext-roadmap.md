@@ -11,21 +11,23 @@
 - v11.6.0: External Operator Reproduction Feedback Intake.
 - v11.7.0: Provider Read Decision Replay in Mission Control.
 - v11.8.0: External Provider Read Freshness Refresh Gate.
+- v11.9.0: Tool Governance Replay in Mission Control.
 
-## Current Frontier After v11.8.0
+## Current Frontier After v11.9.0
 
-- v11.9: Tool Governance Replay in Mission Control.
+- v12.0: Provider-backed Operator Decision Console.
 
 ## Future Roadmap
 
-- v11.9: Tool Governance Replay in Mission Control.
 - v12.0: Provider-backed Operator Decision Console.
 - v12.1: Non-self-hosting External Operator Adoption Drill.
 - v12.2: Provider-backed Work Order Preflight.
 - v12.3: Provider Decision Outcome Scorecard.
+- v12.4: Agent Tool Policy Simulation and Replay Drill.
 
 ## Recently Shipped
 
+- v11.9: Tool Governance Replay in Mission Control.
 - v11.8: External Provider Read Freshness Refresh Gate.
 - v11.7: Provider Read Decision Replay in Mission Control.
 - v11.6: External Operator Reproduction Feedback Intake.

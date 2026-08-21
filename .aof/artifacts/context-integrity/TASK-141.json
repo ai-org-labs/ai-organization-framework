@@ -1,0 +1,34 @@
+{
+  "artifact_type": "context-integrity-record",
+  "record_id": "CIR-TASK-141-V119",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "work_item_id": "TASK-141",
+  "work_item_ref": ".aof/tasks/done/TASK-141.json",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+  "context_pack_refs": [
+    ".aof/tasks/done/TASK-141.json"
+  ],
+  "declared_context_refs": [
+    "docs/vnext-roadmap.md",
+    "docs/vnext-release-plan.md",
+    "docs/v11.9-release-definition.md",
+    ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json"
+  ],
+  "required_context_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json",
+    "test/runtime-situation.test.js",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-141-V119.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-141-V119.json",
+    ".aof/artifacts/requirement-coverage/TASK-141.json"
+  ],
+  "missing_context_refs": [],
+  "hidden_context_signals": [],
+  "integrity_status": "ready",
+  "not_proven": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality.",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null
+}

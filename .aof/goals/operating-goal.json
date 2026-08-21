@@ -1,6 +1,6 @@
 {
   "goal_type": "operating-goal",
-  "content": "Prepare v11.9 so tool governance replay is visible in Mission Control from session/tool-call artifacts, including denied, approved, and risky tool decisions.",
+  "content": "Prepare v12.0 so operators can review provider-backed decisions from a governed decision console without granting autonomous write authority.",
   "updated_at": "2026-08-20T01:45:00.000Z",
   "agreed_with_human": true,
   "source_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",

@@ -1,0 +1,28 @@
+{
+  "artifact_type": "multi-actor-pilot",
+  "pilot_id": "MAP-TASK-141-V119",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "work_item_id": "TASK-141",
+  "work_item_ref": ".aof/tasks/done/TASK-141.json",
+  "parent_orchestrator_ref": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+  "core_council_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "actor_roster_ref": ".aof/organization.json",
+  "actor_output_handoff_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-141-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-141-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-141-GUARDIAN.json"
+  ],
+  "council_judgment_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-141-V119.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-141.json",
+  "maker_checker_council_boundary": "Builder made the projection, Guardian checked not-proven and source-of-truth boundaries, Council approved only bounded recorded-session replay evidence.",
+  "pilot_status": "ready",
+  "not_proven": "Multi-actor pilot evidence does not prove semantic truth, provider behavior, production safety, or broad adoption.",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,36 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-141-V119",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "work_item_id": "TASK-141",
+  "work_item_ref": ".aof/tasks/done/TASK-141.json",
+  "readiness_status": "ready",
+  "goal": "Release v11.9 Tool Governance Replay in Mission Control.",
+  "risk": "AOF may show tool governance replay as proof that all tool calls were safe, semantically correct, or fully captured.",
+  "loss_boundary": "No v11.9 wording may claim semantic truth, model correctness, credential safety, provider behavior, production execution safety, or unrecorded tool-call absence.",
+  "acceptance_gates": [
+    "Mission Control exports tool_governance_replay",
+    "tool_governance_replay derives from agent-session tool_call events",
+    "tests assert replay counts and classifications",
+    "product value and capability delta evidence exist"
+  ],
+  "evidence_plan": [
+    "Mission Control schema, visibility export implementation, viewer display, agent session evidence, tests, release docs, product value evidence, capability delta, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if replay is not derived from canonical agent-session events",
+    "Stop if replay omits not-proven boundaries",
+    "Stop if v11.9 implies production execution safety or unrecorded tool-call absence"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null
+}

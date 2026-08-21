@@ -1,0 +1,27 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-141-V119",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "release_version": "11.9.0",
+  "release_ref": "docs/v11.9-release-definition.md",
+  "work_item_id": "TASK-141",
+  "work_item_ref": ".aof/tasks/done/TASK-141.json",
+  "one_minute_value_explanation": "v11.9 lets operators see whether recorded AI tool calls were allowed, denied, review-required, risky, external-write, or dangerous from Mission Control.",
+  "thirty_second_version_delta": "v11.8 showed whether provider-read evidence was fresh; v11.9 shows how the AI's recorded tool calls were governed.",
+  "new_capability_ids": [
+    "PCAP-TOOL-GOVERNANCE-REPLAY"
+  ],
+  "updated_capability_ids": [
+    "PCAP-AGENT-SESSION-OBSERVABILITY"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-141-V119.json"
+  ],
+  "product_review_trigger": "If an operator cannot tell whether a runtime-backed answer used allowed, denied, risky, or review-required tool calls, reopen this capability as a product issue.",
+  "not_proven": "Capability delta does not prove semantic truth, production execution safety, or broad adoption.",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null,
+  "notes": null
+}
