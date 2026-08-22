@@ -1,6 +1,6 @@
 {
   "view_type": "status_card",
-  "as_of": "2026-08-22T01:51:22.902Z",
+  "as_of": "2026-08-22T01:55:15.811Z",
   "usage_level": "runtime-backed",
   "current_phase": "organization_operating",
   "current_goal": "v12.1 should prove that an external operator can use the v12.0 decision console to understand, reproduce, and judge a provider-backed Go/No-Go path without reading raw runtime JSON.",
