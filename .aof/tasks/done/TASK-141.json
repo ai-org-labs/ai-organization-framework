@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-141",
+  "title": "v11.9 proof: tool governance replay in Mission Control",
+  "description": "Project agent-session tool-call governance into Mission Control so operators can see allowed, denied, risky, and governance-relevant tool decisions without opening raw session streams.",
+  "status": "done",
+  "origin": "orchestrator",
+  "orchestrator_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "assigned_session_ids": [
+    "SESS-V119-TOOL-GOVERNANCE-REPLAY"
+  ],
+  "related_decision_record_id": null,
+  "operating_goal_ref": ".aof/goals/operating-goal.json",
+  "created_at": "2026-08-21T01:34:20.008Z",
+  "updated_at": "2026-08-21T01:45:00.000Z",
+  "assigned_at": null,
+  "done_at": "2026-08-21T01:45:00.000Z",
+  "retired_at": null,
+  "last_triaged_at": null,
+  "stale_candidate_at": null,
+  "retire_candidate_at": null,
+  "triage_notes": "v11.9 implemented tool governance replay in Mission Control, schema projection, viewer display, release docs, product evidence, capability delta, context integrity, and session evidence."
+}

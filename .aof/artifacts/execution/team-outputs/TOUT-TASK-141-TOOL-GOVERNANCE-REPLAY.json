@@ -1,0 +1,44 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "team_output_id": "TOUT-TASK-141-TOOL-GOVERNANCE-REPLAY",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v11.9 Tool Governance Replay in Mission Control to Architecture Council for release judgment.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-141-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-141-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-141-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v11.9-release-definition.md",
+    "docs/v11.9-release-checklist.md",
+    "docs/v11.9.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json",
+    "test/runtime-situation.test.js",
+    ".aof/artifacts/execution/role-results/RRES-TASK-141-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-141-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-141-GUARDIAN.json"
+  ],
+  "decision_required": true,
+  "summary": "TASK-141 Visionary, Builder, and Guardian outputs are joined for Council review; the release frames tool governance replay as recorded-session visibility, not proof of production execution safety.",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null
+}

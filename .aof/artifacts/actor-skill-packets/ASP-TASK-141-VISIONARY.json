@@ -1,0 +1,67 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "packet_id": "ASP-TASK-141-VISIONARY",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null,
+  "objective": "Validate the product direction for exposing tool governance replay to operators.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Visionary owns the product-direction judgment for whether this capability advances operator recognition.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-need-validation"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-need-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v11.9-release-definition.md",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-141-V119.json"
+      ],
+      "rationale": "Visionary can judge whether the capability answers a real operator need."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "direction-review",
+    "artifact_schema_ref": "docs/v11.9-release-definition.md",
+    "required_sections": [
+      "Capability Delta",
+      "Boundaries"
+    ],
+    "acceptance_criteria": [
+      "operator value is explicit",
+      "not-proven boundary is explicit"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "capability is user-visible",
+      "evaluator_ref": "architecture-council",
+      "evidence_required": "product-value-evidence",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I am checking that tool governance replay is a real operator capability.",
+    "current_action": "Validate release direction",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit role result."
+  },
+  "status": "completed"
+}

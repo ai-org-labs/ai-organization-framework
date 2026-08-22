@@ -1,0 +1,27 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "role": "builder",
+  "stage": "execution",
+  "session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "status": "completed",
+  "recommendation": "Implement v11.9 by deriving tool_governance_replay from existing agent-session tool_call events and projecting it into Mission Control.",
+  "rationale": "A derived projection avoids new source-of-truth drift: agent-session events remain canonical, while Mission Control becomes the human recognition surface.",
+  "signals": [
+    "visibility-export now classifies governance_decision and risk_class for recorded tool calls.",
+    "Mission Control schema validates replay counts, replay items, and not-proven boundaries."
+  ],
+  "artifact_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json",
+    "test/runtime-situation.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-141",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

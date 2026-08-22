@@ -1,0 +1,26 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "role": "guardian",
+  "stage": "execution",
+  "session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "status": "completed",
+  "recommendation": "Approve only if v11.9 remains a recorded-session replay and does not claim unrecorded tool-call absence, semantic truth, credential safety, or production execution safety.",
+  "rationale": "The projection can make governance more legible, but it must not imply that every possible tool action was captured or safe.",
+  "signals": [
+    "The projection includes not_proven boundaries.",
+    "Tests assert counts and classifications from the current session artifact."
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/visibility/current/mission-control.json",
+    "docs/v11.9.0-release-notes.md",
+    "test/runtime-situation.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-141",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.83
+}

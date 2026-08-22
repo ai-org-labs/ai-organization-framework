@@ -1,0 +1,70 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-21T01:45:00.000Z",
+  "packet_id": "ASP-TASK-141-BUILDER",
+  "source_task_id": "TASK-141",
+  "source_parent_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
+  "source_decision_record_id": null,
+  "objective": "Build the Mission Control tool governance replay projection, schema, viewer display, tests, and release artifacts.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "builder",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Builder owns runtime command, schema, viewer, docs, and artifact implementation.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-schema-review",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "src/commands/visibility-export.js",
+        "schemas/aof-mission-control-view.schema.json"
+      ],
+      "rationale": "Implementation is bounded to schema and Mission Control projection surfaces."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "runtime-implementation",
+    "artifact_schema_ref": "schemas/aof-mission-control-view.schema.json",
+    "required_sections": [
+      "projection",
+      "schema",
+      "viewer",
+      "test"
+    ],
+    "acceptance_criteria": [
+      "visibility-export passes",
+      "Mission Control schema validates",
+      "runtime-situation test asserts replay counts"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "projection is derived from canonical session events",
+      "evaluator_ref": "guardian",
+      "evidence_required": "test/runtime-situation.test.js",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Builder",
+    "speech_bubble": "I am turning recorded tool calls into a governed Mission Control replay.",
+    "current_action": "Implement projection and tests",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit role result."
+  },
+  "status": "completed"
+}
