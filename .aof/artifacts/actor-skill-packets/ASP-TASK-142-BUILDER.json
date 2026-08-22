@@ -1,0 +1,70 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "packet_id": "ASP-TASK-142-BUILDER",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null,
+  "objective": "Implement the v12.0 Mission Control projection and schema contract for a provider-backed operator decision console.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "builder",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Builder owns the implementation and schema alignment needed to expose the console from canonical runtime artifacts.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-schema-review"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-schema-review",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "schemas/aof-mission-control-view.schema.json",
+        "src/commands/visibility-export.js",
+        "src/commands/visibility-serve.js"
+      ],
+      "rationale": "Builder can align the Mission Control payload schema, export projection, and viewer surface."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "runtime-implementation",
+    "artifact_schema_ref": "schemas/aof-mission-control-view.schema.json",
+    "required_sections": [
+      "provider_backed_operator_decision_console",
+      "go_no_go_options",
+      "evidence_refs"
+    ],
+    "acceptance_criteria": [
+      "Mission Control payload validates",
+      "viewer exposes the console",
+      "no autonomous external write authority is introduced"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "schema and runtime projection agree",
+      "evaluator_ref": "architecture-council",
+      "evidence_required": "runtime-test",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Builder",
+    "speech_bubble": "I am wiring provider-backed decision state into Mission Control from runtime artifacts.",
+    "current_action": "Implement console projection",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit role result."
+  },
+  "status": "completed"
+}

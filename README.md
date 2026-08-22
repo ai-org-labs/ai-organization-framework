@@ -8,7 +8,7 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 ## Status
 
 この repo は、AOF の spec と local runtime prototype をまとめた repo である。  
-現在の stable release は `v11.9.0` である。
+現在の stable release は `v12.0.0` である。
 この release で、self-hosting runtime は次の状態に到達した。
 
 - External Provider Integration Pilot Selection を release-state governance surface として扱えること
@@ -44,6 +44,8 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - v11.8 は provider-read freshness refresh proof であり、provider semantic truth、live provider availability、GitHub write safety、credential safety、production automation safety、market value、broad adoption、productivity improvement の証明ではないと明示できること
 - Tool Governance Replay in Mission Control により、agent-session tool_call を allowed / denied / review-required / unknown / risky / external-write / dangerous としてMission Controlで確認できること
 - v11.9 は recorded tool governance replay proof であり、semantic truth、model correctness、credential safety、provider behavior、production execution safety、unrecorded tool-call absence の証明ではないと明示できること
+- Provider-backed Operator Decision Console により、provider-read decision、freshness、tool governance、external runtime safety、approval boundary、rollback boundary、no-autonomous-write boundary を1つのread-only Mission Control surfaceで確認できること
+- v12.0 は provider-backed decision console proof であり、provider truth、semantic truth、credential safety、billing safety、market value、production execution safety、自律外部write権限の証明ではないと明示できること
 - Provider Execution Cost and Quota Boundary を release-state governance gate として扱えること
 - `provider-cost-quota-boundary-record` によって controlled execution candidate / approval / incident recovery を provider scope、budget owner、budget period、cost ceiling、token/call/retry caps、rate limit、quota、billing、overage policy、stop conditions に束ねられること
 - `provider-cost-quota-boundary-audit` によって cost/quota refs、positive budget limits、quota/rate-limit boundary、billing boundary、runtime provenance、hidden execution permission の欠落を検査できること
@@ -221,9 +223,9 @@ AI Organization Framework は、人間と AI の混成チームが、曖昧な�
 - public runtime readiness: [docs/v6.0-public-runtime-readiness.md](docs/v6.0-public-runtime-readiness.md)
 - Work Governance integration plan: [docs/v6.1-work-governance-integration-plan.md](docs/v6.1-work-governance-integration-plan.md)
 - Work Governance examples: [docs/v6.1-work-governance-examples.md](docs/v6.1-work-governance-examples.md)
-- current release definition: [docs/v11.9-release-definition.md](docs/v11.9-release-definition.md)
-- current release checklist: [docs/v11.9-release-checklist.md](docs/v11.9-release-checklist.md)
-- current release notes: [docs/v11.9.0-release-notes.md](docs/v11.9.0-release-notes.md)
+- current release definition: [docs/v12.0-release-definition.md](docs/v12.0-release-definition.md)
+- current release checklist: [docs/v12.0-release-checklist.md](docs/v12.0-release-checklist.md)
+- current release notes: [docs/v12.0.0-release-notes.md](docs/v12.0.0-release-notes.md)
 - actor skill packet contract: [docs/v5-actor-skill-packet-contract.md](docs/v5-actor-skill-packet-contract.md)
 - current roadmap: [docs/vnext-roadmap.md](docs/vnext-roadmap.md)
 - v6.7 → v8.0 completion roadmap: [docs/v6.7-v8.0-completion-roadmap.md](docs/v6.7-v8.0-completion-roadmap.md)

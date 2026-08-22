@@ -2,21 +2,21 @@
 
 ## Current Release
 
-- v11.9.0 ships Tool Governance Replay in Mission Control.
+- v12.0.0 ships Provider-backed Operator Decision Console.
 
 ## Release Closure
 
-- Validate Mission Control exposes `tool_governance_replay`.
-- Validate replay records are derived from canonical agent-session `tool_call` events.
-- Validate replay counts allowed, denied, review-required, unknown, risky, external-write, and dangerous decisions.
-- Validate not-proven boundaries remain visible.
+- Validate Mission Control exposes `provider_backed_operator_decision_console`.
+- Validate the console joins provider decision replay, freshness, external runtime safety, and tool governance replay.
+- Validate proposed action, operator question, recommended Go/No-Go, evidence refs, approval boundary, rollback boundary, and no-autonomous-write boundary.
+- Validate not-proven boundaries remain visible and no external write authority is implied.
 - Validate product value and capability delta evidence.
 - Confirm local tests, smoke, clean checkout audit, GitHub main CI, tag CI, and GitHub Release.
 
 ## Next Releases
 
-- v12.0: Provider-backed Operator Decision Console.
 - v12.1: Non-self-hosting External Operator Adoption Drill.
 - v12.2: Provider-backed Work Order Preflight.
 - v12.3: Provider Decision Outcome Scorecard.
 - v12.4: Agent Tool Policy Simulation and Replay Drill.
+- v12.5: Provider-backed Decision Console External Reproduction Pack.

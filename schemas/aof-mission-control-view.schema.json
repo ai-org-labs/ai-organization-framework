@@ -31,6 +31,7 @@
     "provider_read_decision_replay_projection",
     "provider_read_freshness_refresh_projection",
     "tool_governance_replay",
+    "provider_backed_operator_decision_console",
     "evidence_completeness_projection"
   ],
   "properties": {
@@ -575,6 +576,48 @@
             "additionalProperties": false
           }
         },
+        "not_proven": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "provider_backed_operator_decision_console": {
+      "type": "object",
+      "required": [
+        "present",
+        "console_status",
+        "proposed_action",
+        "operator_question",
+        "decision_state",
+        "feedback_route",
+        "freshness_status",
+        "tool_governance_status",
+        "external_runtime_safety_status",
+        "approval_boundary",
+        "rollback_boundary",
+        "no_autonomous_write_boundary",
+        "evidence_refs",
+        "go_no_go_options",
+        "recommended_go_no_go",
+        "operator_summary",
+        "not_proven"
+      ],
+      "properties": {
+        "present": { "type": "boolean" },
+        "console_status": { "enum": ["ready_for_operator_go_no_go", "review_required", "blocked", "missing"] },
+        "proposed_action": { "type": "string" },
+        "operator_question": { "type": "string" },
+        "decision_state": { "type": ["string", "null"] },
+        "feedback_route": { "type": ["string", "null"] },
+        "freshness_status": { "type": ["string", "null"] },
+        "tool_governance_status": { "type": "string" },
+        "external_runtime_safety_status": { "type": "string" },
+        "approval_boundary": { "type": "string" },
+        "rollback_boundary": { "type": "string" },
+        "no_autonomous_write_boundary": { "type": "string" },
+        "evidence_refs": { "type": "array", "items": { "type": "string" } },
+        "go_no_go_options": { "type": "array", "items": { "type": "string" } },
+        "recommended_go_no_go": { "type": "string" },
+        "operator_summary": { "type": "string" },
         "not_proven": { "type": "string" }
       },
       "additionalProperties": false

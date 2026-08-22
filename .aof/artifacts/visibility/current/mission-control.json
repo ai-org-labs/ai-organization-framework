@@ -1,12 +1,12 @@
 {
   "view_type": "mission_control",
-  "generated_at": "2026-08-21T02:04:14.321Z",
+  "generated_at": "2026-08-22T01:51:22.902Z",
   "mission_overview": {
     "mission": "Operate AOF as a self-hosting human and AI organization framework that turns needs into governed work, evidence, decisions, outcomes, learning, and release-ready capabilities.",
-    "release_version": "11.9.0",
-    "release_definition_ref": "docs/v11.9-release-definition.md",
-    "operating_goal": "Prepare v12.0 so operators can review provider-backed decisions from a governed decision console without granting autonomous write authority.",
-    "next_value_slice": "v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
+    "release_version": "12.0.0",
+    "release_definition_ref": "docs/v12.0-release-definition.md",
+    "operating_goal": "Prepare v12.1 so non-self-hosting external operators can reproduce the provider-backed operator decision console without AOF developer context.",
+    "next_value_slice": "v12.1 should prove that an external operator can use the v12.0 decision console to understand, reproduce, and judge a provider-backed Go/No-Go path without reading raw runtime JSON.",
     "current_runtime_stage": "frontier-definition-needed",
     "chain_anchor_ref": null
   },
@@ -22,7 +22,7 @@
   },
   "blockers": [],
   "next_action": {
-    "recommended_action": "Open an implementation task for the current frontier: v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
+    "recommended_action": "Open an implementation task for the current frontier: v12.1 should prove that an external operator can use the v12.0 decision console to understand, reproduce, and judge a provider-backed Go/No-Go path without reading raw runtime JSON.",
     "rationale": "No current open implementation task is aligned to the current operating goal.",
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
@@ -245,10 +245,10 @@
   "archmap": {
     "present": true,
     "current_source_ref": "docs/archmaps/aof-runtime-current.archmap",
-    "impact_record_count": 70,
-    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-141.json",
+    "impact_record_count": 71,
+    "latest_impact_ref": ".aof/artifacts/archmap/impact/TASK-142.json",
     "latest_impact_status": "archmap_deferred_with_reason",
-    "latest_work_item_id": "TASK-141",
+    "latest_work_item_id": "TASK-142",
     "pending_impact_count": 11,
     "pending_impacts": [
       {
@@ -320,7 +320,7 @@
     ],
     "source_of_truth": [
       "docs/archmaps/aof-runtime-current.archmap",
-      ".aof/artifacts/archmap/impact/TASK-141.json"
+      ".aof/artifacts/archmap/impact/TASK-142.json"
     ],
     "external_refs": []
   },
@@ -496,54 +496,67 @@
     "present": true,
     "artifact_root_ref": ".aof/artifacts/agent-sessions",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
-    "stream_count": 48,
-    "latest_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
-    "latest_actor_ref": "aof-orchestrator",
+    "stream_count": 49,
+    "latest_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json",
+    "latest_actor_ref": "codex",
     "latest_role_ref": "orchestrator",
-    "latest_recorded_at": "2026-08-21T01:45:00.000Z",
+    "latest_recorded_at": "2026-08-22T01:45:00.000Z",
     "latest_event_count": 8,
     "latest_release_verdict": "runtime_ready",
     "audit_ok": true,
     "audit_failing_check_count": 0,
     "latest_audit_stream_ref": null,
     "linked_task_refs": [
-      ".aof/tasks/done/TASK-141.json"
+      ".aof/tasks/done/TASK-142.json"
     ],
     "linked_requirement_refs": [
-      "docs/v11.9-release-definition.md"
+      "docs/v12.0-release-definition.md",
+      ".aof/artifacts/requirement-coverage/TASK-142.json"
     ],
     "linked_test_evidence_refs": [
       "test/runtime-situation.test.js",
-      "docs/v11.9-release-checklist.md"
+      "docs/v12.0-release-checklist.md"
     ],
     "linked_artifact_refs": [
-      ".aof/artifacts/product-value-evidence/PVE-TASK-141-V119.json",
-      ".aof/artifacts/capability-release-deltas/CRD-TASK-141-V119.json",
-      ".aof/artifacts/requirement-coverage/TASK-141.json"
+      ".aof/artifacts/visibility/current/mission-control.json",
+      ".aof/artifacts/product-value-evidence/PVE-TASK-142-V120.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-142-V120.json"
     ],
     "risk_candidates": [
-      "Tool governance replay could be mistaken for proof that no unrecorded tool calls occurred."
+      "decision console may be mistaken for provider execution permission"
     ],
     "decision_candidates": [
-      "v12.0 should move toward a provider-backed operator decision console."
+      "v12.1 should test external operator reproduction of the decision console"
     ],
     "latest_events": [
       {
         "event_type": "prompt",
-        "summary": "Heartbeat instructed AOF runtime-backed roadmap and trend review, then nearest release completion.",
-        "occurred_at": "2026-08-21T01:32:23.353Z",
+        "summary": "Heartbeat requested AOF to continue with latest runtime, trend review, roadmap, implementation, release, and tag.",
+        "occurred_at": "2026-08-22T01:31:36.501Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          ".aof/tasks/done/TASK-141.json"
+          ".aof/tasks/done/TASK-142.json"
         ]
       },
       {
         "event_type": "tool_call",
-        "summary": "Ran visibility-export to project tool governance replay into Mission Control.",
-        "occurred_at": "2026-08-21T01:39:15.350Z",
+        "summary": "AOF runtime identified v12.0 provider-backed operator decision console as the current frontier.",
+        "occurred_at": "2026-08-22T01:32:06.872Z",
+        "tool_name": "situation-assess",
+        "safety_level": "safe_read",
+        "approval_policy": "approved_run_contract",
+        "artifact_refs": [
+          ".aof/goals/next-value-slice.json",
+          "docs/vnext-roadmap.md"
+        ]
+      },
+      {
+        "event_type": "tool_call",
+        "summary": "Projected provider_backed_operator_decision_console into Mission Control.",
+        "occurred_at": "2026-08-22T01:40:08.990Z",
         "tool_name": "visibility-export",
         "safety_level": "safe_local_write",
         "approval_policy": "approved_run_contract",
@@ -552,43 +565,47 @@
         ]
       },
       {
-        "event_type": "tool_call",
-        "summary": "Ran tests and release audits to verify the v11.9 projection boundary.",
-        "occurred_at": "2026-08-21T01:45:00.000Z",
-        "tool_name": "release-state-audit",
-        "safety_level": "safe_local_write",
-        "approval_policy": "approved_run_contract",
-        "artifact_refs": [
-          "test/runtime-situation.test.js",
-          ".aof/artifacts/release-state/release-state-audit.json"
-        ]
-      },
-      {
         "event_type": "response",
-        "summary": "Selected v11.9 as the bounded Mission Control replay slice aligned with agent session streaming, tracing, and governed tool-use trends.",
-        "occurred_at": "2026-08-21T01:45:00.000Z",
+        "summary": "Implemented v12.0 as read-only provider-backed operator decision console with explicit approval, rollback, and no-autonomous-write boundaries.",
+        "occurred_at": "2026-08-22T01:45:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "docs/v11.9-release-definition.md"
+          "src/commands/visibility-export.js",
+          "src/commands/visibility-serve.js",
+          "schemas/aof-mission-control-view.schema.json"
+        ]
+      },
+      {
+        "event_type": "verification_result",
+        "summary": "Release verification includes visibility-export, agent-session-contract-audit, release-state-audit, organization-verify, npm test, and smoke.",
+        "occurred_at": "2026-08-22T01:45:00.000Z",
+        "tool_name": null,
+        "safety_level": null,
+        "approval_policy": null,
+        "artifact_refs": [
+          "docs/v12.0-release-checklist.md",
+          ".aof/artifacts/release-state/release-state-audit.json",
+          "test/runtime-situation.test.js"
         ]
       },
       {
         "event_type": "risk_candidate",
-        "summary": "Tool governance replay can be overread as proof that no unrecorded tool calls occurred.",
-        "occurred_at": "2026-08-21T01:45:00.000Z",
+        "summary": "Decision console may be misread as provider write authorization unless no-autonomous-write boundary remains visible.",
+        "occurred_at": "2026-08-22T01:45:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "docs/v11.9.0-release-notes.md"
+          "docs/v12.0-release-definition.md",
+          "docs/v12.0.0-release-notes.md"
         ]
       },
       {
         "event_type": "decision_candidate",
-        "summary": "v12.0 should move from read-only Mission Control replay toward a provider-backed operator decision console.",
-        "occurred_at": "2026-08-21T01:45:00.000Z",
+        "summary": "Advance to v12.1 only after v12.0 proves the decision console can be used by an external operator without developer context.",
+        "occurred_at": "2026-08-22T01:45:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
@@ -597,40 +614,27 @@
         ]
       },
       {
-        "event_type": "verification_result",
-        "summary": "Release verification includes visibility export, agent-session contract audit, release-state audit, organization verify, npm test, and smoke.",
-        "occurred_at": "2026-08-21T01:45:00.000Z",
-        "tool_name": null,
-        "safety_level": null,
-        "approval_policy": null,
-        "artifact_refs": [
-          "docs/v11.9-release-checklist.md",
-          ".aof/artifacts/session-observability/session-observability-audit.json",
-          ".aof/artifacts/release-state/release-state-audit.json"
-        ]
-      },
-      {
         "event_type": "stop_condition",
-        "summary": "Stop when v11.9 release gates pass and tag/release are published.",
-        "occurred_at": "2026-08-21T01:45:00.000Z",
+        "summary": "Stop if v12.0 claims provider truth, semantic truth, production safety, or autonomous external write authority.",
+        "occurred_at": "2026-08-22T01:45:00.000Z",
         "tool_name": null,
         "safety_level": null,
         "approval_policy": null,
         "artifact_refs": [
-          "docs/v11.9-release-checklist.md"
+          "docs/v12.0-release-checklist.md"
         ]
       }
     ],
     "latest_tool_calls": [
       {
-        "summary": "Ran visibility-export to project tool governance replay into Mission Control.",
-        "tool_name": "visibility-export",
-        "safety_level": "safe_local_write",
+        "summary": "AOF runtime identified v12.0 provider-backed operator decision console as the current frontier.",
+        "tool_name": "situation-assess",
+        "safety_level": "safe_read",
         "approval_policy": "approved_run_contract"
       },
       {
-        "summary": "Ran tests and release audits to verify the v11.9 projection boundary.",
-        "tool_name": "release-state-audit",
+        "summary": "Projected provider_backed_operator_decision_console into Mission Control.",
+        "tool_name": "visibility-export",
         "safety_level": "safe_local_write",
         "approval_policy": "approved_run_contract"
       }
@@ -638,8 +642,8 @@
   },
   "tool_governance_replay": {
     "present": true,
-    "source_session_id": "SESS-V119-TOOL-GOVERNANCE-REPLAY",
-    "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
+    "source_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+    "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json",
     "audit_ref": ".aof/artifacts/session-observability/session-observability-audit.json",
     "audit_ok": true,
     "tool_call_count": 2,
@@ -655,9 +659,22 @@
     "operator_summary": "2 tool call(s) replayed; 2 allowed; 0 denied; 0 review-required; 0 risky/external/dangerous.",
     "replay_items": [
       {
+        "tool_name": "situation-assess",
+        "summary": "AOF runtime identified v12.0 provider-backed operator decision console as the current frontier.",
+        "occurred_at": "2026-08-22T01:32:06.872Z",
+        "safety_level": "safe_read",
+        "approval_policy": "approved_run_contract",
+        "governance_decision": "allowed",
+        "risk_class": "safe",
+        "artifact_refs": [
+          ".aof/goals/next-value-slice.json",
+          "docs/vnext-roadmap.md"
+        ]
+      },
+      {
         "tool_name": "visibility-export",
-        "summary": "Ran visibility-export to project tool governance replay into Mission Control.",
-        "occurred_at": "2026-08-21T01:39:15.350Z",
+        "summary": "Projected provider_backed_operator_decision_console into Mission Control.",
+        "occurred_at": "2026-08-22T01:40:08.990Z",
         "safety_level": "safe_local_write",
         "approval_policy": "approved_run_contract",
         "governance_decision": "allowed",
@@ -665,22 +682,43 @@
         "artifact_refs": [
           ".aof/artifacts/visibility/current/mission-control.json"
         ]
-      },
-      {
-        "tool_name": "release-state-audit",
-        "summary": "Ran tests and release audits to verify the v11.9 projection boundary.",
-        "occurred_at": "2026-08-21T01:45:00.000Z",
-        "safety_level": "safe_local_write",
-        "approval_policy": "approved_run_contract",
-        "governance_decision": "allowed",
-        "risk_class": "safe",
-        "artifact_refs": [
-          "test/runtime-situation.test.js",
-          ".aof/artifacts/release-state/release-state-audit.json"
-        ]
       }
     ],
     "not_proven": "Tool governance replay proves recorded session tool-call governance only; it does not prove semantic truth, model correctness, credential safety, provider behavior, or production execution safety."
+  },
+  "provider_backed_operator_decision_console": {
+    "present": true,
+    "console_status": "blocked",
+    "proposed_action": "Proceed to v11.8 provider-read freshness refresh gate before using older provider observations as current decision evidence.",
+    "operator_question": "Should the operator accept, defer, reopen, or block the provider-backed decision path?",
+    "decision_state": "accepted",
+    "feedback_route": "accept_as_product_evidence",
+    "freshness_status": "current",
+    "tool_governance_status": "pass",
+    "external_runtime_safety_status": "blocked",
+    "approval_boundary": "The console is read-only. It can recommend operator Go/No-Go review, but it does not grant external write or production execution authority.",
+    "rollback_boundary": "Rollback remains a required precondition before any controlled provider write can advance; this console only links current rollback-related evidence when present.",
+    "no_autonomous_write_boundary": "AOF must not execute provider writes from this projection. External writes require a separate human approval artifact and provider execution contract.",
+    "evidence_refs": [
+      ".aof/artifacts/provider-read-decision-replays/provider-read-decision-replay-audit.json",
+      ".aof/artifacts/provider-read-decision-replays/PRDR-TASK-138-V117.json",
+      ".aof/artifacts/provider-read-freshness-refreshes/provider-read-freshness-refresh-audit.json",
+      ".aof/artifacts/provider-read-freshness-refreshes/PRFR-TASK-139-V118.json",
+      ".aof/artifacts/session-observability/session-observability-audit.json",
+      ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json",
+      ".aof/artifacts/externalization/externalization-readiness-audit.json",
+      ".aof/artifacts/provider-adapters/provider-adapter-audit.json",
+      "docs/v12.0-release-definition.md"
+    ],
+    "go_no_go_options": [
+      "accept_as_current_read_evidence",
+      "defer_until_freshness_or_validation_updates",
+      "reopen_decision_with_new_evidence",
+      "block_provider_execution"
+    ],
+    "recommended_go_no_go": "block_provider_execution",
+    "operator_summary": "Decision=accepted, freshness=current, tool governance=pass, external safety=blocked.",
+    "not_proven": "Provider-backed operator decision console proves that decision, freshness, safety, and tool-governance evidence are visible in one read-only operator surface; it does not prove provider truth, semantic truth, credential safety, billing safety, market value, or authorize autonomous external writes."
   },
   "context_reference_integrity": {
     "present": true,
@@ -689,11 +727,19 @@
     "audit_ref": ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
     "audit_ok": true,
     "audit_failing_check_count": 0,
-    "context_record_count": 53,
+    "context_record_count": 54,
     "external_reference_record_count": 3,
     "blocked_context_count": 0,
     "stale_external_reference_count": 0,
     "latest_context_records": [
+      {
+        "ref": ".aof/artifacts/context-integrity/TASK-142.json",
+        "work_item_id": "TASK-142",
+        "integrity_status": "ready",
+        "missing_context_count": 0,
+        "hidden_signal_count": 0,
+        "not_proven": "Context integrity proves declared refs were present for this work item only; it does not prove provider truth, semantic truth, or production safety."
+      },
       {
         "ref": ".aof/artifacts/context-integrity/TASK-141.json",
         "work_item_id": "TASK-141",
@@ -749,14 +795,6 @@
         "missing_context_count": 0,
         "hidden_signal_count": 0,
         "not_proven": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or session contract quality."
-      },
-      {
-        "ref": ".aof/artifacts/context-integrity/TASK-134.json",
-        "work_item_id": "TASK-134",
-        "integrity_status": "ready",
-        "missing_context_count": 0,
-        "hidden_signal_count": 0,
-        "not_proven": "Context integrity proves declared refs were present for this work item only; it does not prove semantic truth or external validation quality."
       }
     ],
     "latest_external_reference_records": [
@@ -789,9 +827,9 @@
   "requirement_coverage_projection": {
     "present": true,
     "artifact_root_ref": ".aof/artifacts/requirement-coverage",
-    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-141.json",
-    "latest_work_item_id": "TASK-141",
-    "latest_recorded_at": "2026-08-21T01:45:00.000Z",
+    "latest_record_ref": ".aof/artifacts/requirement-coverage/TASK-142.json",
+    "latest_work_item_id": "TASK-142",
+    "latest_recorded_at": "2026-08-22T01:45:00.000Z",
     "coverage_status": "ready",
     "total_requirements": 2,
     "covered_count": 2,
@@ -803,41 +841,42 @@
     "forecast": {
       "estimated_remaining_work_items": 0,
       "estimated_token_cost_range": "bounded Mission Control projection release verification",
-      "burndown_ref": "docs/v11.9-release-checklist.md",
+      "burndown_ref": "docs/v12.0-release-checklist.md",
       "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
     },
     "forecast_boundary": "forecast is release planning evidence, not delivery certainty",
     "requirements": [
       {
-        "requirement_id": "REQ-V119-001",
-        "title": "Mission Control must expose tool governance replay",
+        "requirement_id": "REQ-V120-001",
+        "title": "Mission Control must expose provider-backed operator decision console",
         "status": "covered",
-        "source_ref": "docs/v11.9-release-definition.md",
+        "source_ref": "docs/v12.0-release-definition.md",
         "owner_ref": "builder",
         "evidence_refs": [
           "src/commands/visibility-export.js",
+          "src/commands/visibility-serve.js",
           "schemas/aof-mission-control-view.schema.json",
           ".aof/artifacts/visibility/current/mission-control.json"
         ],
         "blocker_refs": []
       },
       {
-        "requirement_id": "REQ-V119-002",
-        "title": "Tool replay must be derived from canonical agent-session tool_call events",
+        "requirement_id": "REQ-V120-002",
+        "title": "Decision console must remain read-only and must not authorize provider writes",
         "status": "covered",
-        "source_ref": "docs/v11.9-release-checklist.md",
+        "source_ref": "docs/v12.0-release-checklist.md",
         "owner_ref": "guardian",
         "evidence_refs": [
-          ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json",
-          "test/runtime-situation.test.js",
-          ".aof/artifacts/session-observability/session-observability-audit.json"
+          "docs/v12.0-release-definition.md",
+          "docs/v12.0.0-release-notes.md",
+          "test/runtime-situation.test.js"
         ],
         "blocker_refs": []
       }
     ],
-    "not_proven": "Requirement coverage proves structural linkage only; it does not prove semantic truth, provider behavior, production safety, or unrecorded tool-call absence.",
+    "not_proven": "Requirement coverage proves structural linkage only; it does not prove provider truth, semantic truth, production safety, market value, or external adoption.",
     "source_of_truth": [
-      ".aof/artifacts/requirement-coverage/TASK-141.json"
+      ".aof/artifacts/requirement-coverage/TASK-142.json"
     ]
   },
   "adoption_proof_projection": {
@@ -1427,7 +1466,7 @@
     "present": true,
     "readiness_status": "ready",
     "readiness_summary": "1 write-mode pilot(s) have bounded preflight authorization evidence; production execution remains not proven.",
-    "release_ref": "docs/v11.9-release-definition.md",
+    "release_ref": "docs/v12.0-release-definition.md",
     "pilot_refs": [
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-105-V85-DRYRUN.json",
       ".aof/artifacts/provider-adapter-pilots/PAP-TASK-107-GITHUB-ISSUE-PREFLIGHT.json"
@@ -1451,7 +1490,7 @@
     "governance_boundary_status": "governance_boundary_ready",
     "production_execution_safety_status": "not_proven",
     "safety_summary": "1 contained blocked state(s) remain visible in governance history; governance boundary evidence is ready, but production external execution safety is not proven.",
-    "release_ref": "docs/v11.9-release-definition.md",
+    "release_ref": "docs/v12.0-release-definition.md",
     "work_item_ref": ".aof/tasks/done/TASK-100.json",
     "provider_refs": [
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
@@ -1473,7 +1512,7 @@
       ".aof/artifacts/provider-adapter-pilots/provider-adapter-pilot-audit.json",
       ".aof/artifacts/provider-execution-approvals/provider-execution-approval-audit.json",
       ".aof/artifacts/context-reference/context-reference-integrity-audit.json",
-      "docs/v11.9-release-definition.md",
+      "docs/v12.0-release-definition.md",
       ".aof/artifacts/provider-adapters/PAD-TASK-107-GITHUB-ISSUE-WRITE.json",
       ".aof/artifacts/provider-adapters/PAD-V81-SELF-HOSTING-READ.json",
       ".aof/artifacts/external-runtime-resources/ERR-QIF-V030.json",
@@ -1628,7 +1667,7 @@
       {
         "source_id": "requirement-coverage",
         "present": true,
-        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-141.json"
+        "artifact_ref": ".aof/artifacts/requirement-coverage/TASK-142.json"
       },
       {
         "source_id": "adoption-proof",
@@ -1638,27 +1677,27 @@
       {
         "source_id": "agent-session",
         "present": true,
-        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json"
+        "artifact_ref": ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json"
       },
       {
         "source_id": "context-integrity",
         "present": true,
-        "artifact_ref": ".aof/artifacts/context-integrity/TASK-141.json"
+        "artifact_ref": ".aof/artifacts/context-integrity/TASK-142.json"
       },
       {
         "source_id": "release-definition",
         "present": true,
-        "artifact_ref": "docs/v11.9-release-definition.md"
+        "artifact_ref": "docs/v12.0-release-definition.md"
       },
       {
         "source_id": "archmap-impact",
         "present": true,
-        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-141.json"
+        "artifact_ref": ".aof/artifacts/archmap/impact/TASK-142.json"
       }
     ],
     "missing_sources": [],
-    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-141.json",
+    "latest_requirement_coverage_ref": ".aof/artifacts/requirement-coverage/TASK-142.json",
     "latest_adoption_proof_ref": ".aof/artifacts/work-governance/benchmarks/adoption-proof-benchmark.json",
-    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json"
+    "latest_session_ref": ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json"
   }
 }

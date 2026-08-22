@@ -900,6 +900,83 @@ function buildToolGovernanceReplayProjection(agentSessionObservabilityProjection
   };
 }
 
+function buildProviderBackedOperatorDecisionConsoleProjection({
+  providerReadDecisionReplayProjection,
+  providerReadFreshnessRefreshProjection,
+  toolGovernanceReplayProjection,
+  externalRuntimeSafetyProjection,
+  providerAdapterPilotReadinessProjection,
+  roadmapStatus
+}) {
+  const evidenceRefs = [
+    providerReadDecisionReplayProjection?.audit_ref,
+    providerReadDecisionReplayProjection?.latest_replay_ref,
+    providerReadFreshnessRefreshProjection?.audit_ref,
+    providerReadFreshnessRefreshProjection?.latest_refresh_ref,
+    toolGovernanceReplayProjection?.audit_ref,
+    toolGovernanceReplayProjection?.source_session_ref,
+    externalRuntimeSafetyProjection?.evidence_refs?.[0],
+    providerAdapterPilotReadinessProjection?.evidence_refs?.[0],
+    roadmapStatus?.roadmap_refs?.current_release_definition
+  ].filter(Boolean);
+  const latestDecision = providerReadDecisionReplayProjection?.latest_decision_state ?? null;
+  const latestFreshness = providerReadFreshnessRefreshProjection?.latest_freshness_status ?? null;
+  const toolGovernanceStatus = toolGovernanceReplayProjection?.governance_status ?? "missing";
+  const externalSafetyStatus = externalRuntimeSafetyProjection?.safety_status ?? "not_proven";
+  const hasDecision = Boolean(providerReadDecisionReplayProjection?.present);
+  const hasFreshness = Boolean(providerReadFreshnessRefreshProjection?.present);
+  const hasToolGovernance = Boolean(toolGovernanceReplayProjection?.present);
+  const blocked = providerReadDecisionReplayProjection?.blocked_count > 0
+    || providerReadDecisionReplayProjection?.needs_review_count > 0
+    || providerReadFreshnessRefreshProjection?.stale_count > 0
+    || providerReadFreshnessRefreshProjection?.expired_count > 0
+    || providerReadFreshnessRefreshProjection?.blocked_reuse_count > 0
+    || toolGovernanceStatus === "blocked"
+    || externalSafetyStatus === "blocked";
+  const reviewRequired = !hasDecision
+    || !hasFreshness
+    || !hasToolGovernance
+    || latestDecision !== "accepted"
+    || latestFreshness !== "current"
+    || toolGovernanceStatus !== "pass";
+  const consoleStatus = blocked
+    ? "blocked"
+    : reviewRequired
+      ? "review_required"
+      : "ready_for_operator_go_no_go";
+
+  return {
+    present: hasDecision || hasFreshness || hasToolGovernance,
+    console_status: consoleStatus,
+    proposed_action: providerReadDecisionReplayProjection?.latest_next_action
+      ?? providerReadFreshnessRefreshProjection?.latest_next_action
+      ?? "Review provider-backed decision evidence before opening any external write path.",
+    operator_question: "Should the operator accept, defer, reopen, or block the provider-backed decision path?",
+    decision_state: latestDecision,
+    feedback_route: providerReadDecisionReplayProjection?.latest_feedback_route ?? null,
+    freshness_status: latestFreshness,
+    tool_governance_status: toolGovernanceStatus,
+    external_runtime_safety_status: externalSafetyStatus,
+    approval_boundary: "The console is read-only. It can recommend operator Go/No-Go review, but it does not grant external write or production execution authority.",
+    rollback_boundary: "Rollback remains a required precondition before any controlled provider write can advance; this console only links current rollback-related evidence when present.",
+    no_autonomous_write_boundary: "AOF must not execute provider writes from this projection. External writes require a separate human approval artifact and provider execution contract.",
+    evidence_refs: Array.from(new Set(evidenceRefs)),
+    go_no_go_options: [
+      "accept_as_current_read_evidence",
+      "defer_until_freshness_or_validation_updates",
+      "reopen_decision_with_new_evidence",
+      "block_provider_execution"
+    ],
+    recommended_go_no_go: consoleStatus === "ready_for_operator_go_no_go"
+      ? "operator_go_no_go_required"
+      : consoleStatus === "blocked"
+        ? "block_provider_execution"
+        : "defer_until_evidence_complete",
+    operator_summary: `Decision=${latestDecision ?? "missing"}, freshness=${latestFreshness ?? "missing"}, tool governance=${toolGovernanceStatus}, external safety=${externalSafetyStatus}.`,
+    not_proven: "Provider-backed operator decision console proves that decision, freshness, safety, and tool-governance evidence are visible in one read-only operator surface; it does not prove provider truth, semantic truth, credential safety, billing safety, market value, or authorize autonomous external writes."
+  };
+}
+
 async function loadContextReferenceIntegrityProjection(projectRoot, aofRoot) {
   const contextFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "context-integrity"));
   const externalFiles = await listJsonFiles(path.join(aofRoot, "artifacts", "external-reference-integrity"));
@@ -1920,6 +1997,7 @@ function buildMissionControl({
   providerReadDecisionReplayProjection = null,
   providerReadFreshnessRefreshProjection = null,
   toolGovernanceReplayProjection = null,
+  providerBackedOperatorDecisionConsoleProjection = null,
   evidenceCompletenessProjection = null
 }) {
   const graph = buildArtifactGraph(chain);
@@ -2086,6 +2164,25 @@ function buildMissionControl({
       operator_summary: "No agent-session tool calls are available for governance replay.",
       replay_items: [],
       not_proven: "Tool governance replay is missing because no current agent-session tool-call stream was projected."
+    },
+    provider_backed_operator_decision_console: providerBackedOperatorDecisionConsoleProjection ?? {
+      present: false,
+      console_status: "missing",
+      proposed_action: "No provider-backed decision console evidence is projected.",
+      operator_question: "Should the operator accept, defer, reopen, or block the provider-backed decision path?",
+      decision_state: null,
+      feedback_route: null,
+      freshness_status: null,
+      tool_governance_status: "missing",
+      external_runtime_safety_status: "not_proven",
+      approval_boundary: "No approval boundary is projected.",
+      rollback_boundary: "No rollback boundary is projected.",
+      no_autonomous_write_boundary: "No autonomous provider write authority is projected.",
+      evidence_refs: [],
+      go_no_go_options: [],
+      recommended_go_no_go: "defer_until_evidence_complete",
+      operator_summary: "Provider-backed operator decision console evidence is missing.",
+      not_proven: "No provider-backed operator decision console projection is present."
     },
     context_reference_integrity: contextReferenceIntegrityProjection ?? {
       present: false,
@@ -2481,6 +2578,14 @@ export async function visibilityExportCommand(options) {
     roadmapStatus
   });
   const toolGovernanceReplayProjection = buildToolGovernanceReplayProjection(agentSessionObservabilityProjection);
+  const providerBackedOperatorDecisionConsoleProjection = buildProviderBackedOperatorDecisionConsoleProjection({
+    providerReadDecisionReplayProjection,
+    providerReadFreshnessRefreshProjection,
+    toolGovernanceReplayProjection,
+    externalRuntimeSafetyProjection,
+    providerAdapterPilotReadinessProjection,
+    roadmapStatus
+  });
   const evidenceCompletenessProjection = buildEvidenceCompletenessProjection({
     requirementCoverageProjection,
     adoptionProofProjection,
@@ -2523,6 +2628,7 @@ export async function visibilityExportCommand(options) {
     providerReadDecisionReplayProjection,
     providerReadFreshnessRefreshProjection,
     toolGovernanceReplayProjection,
+    providerBackedOperatorDecisionConsoleProjection,
     evidenceCompletenessProjection
   });
   const operatorBrief = buildOperatorBriefView({

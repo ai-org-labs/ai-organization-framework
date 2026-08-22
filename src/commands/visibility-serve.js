@@ -3120,6 +3120,8 @@ export function buildVisibilityPageHtml(title) {
         const sessionObservability = mission.agent_session_observability ?? {};
         const toolGovernanceReplay = mission.tool_governance_replay ?? {};
         const toolGovernanceItems = Array.isArray(toolGovernanceReplay.replay_items) ? toolGovernanceReplay.replay_items : [];
+        const decisionConsole = mission.provider_backed_operator_decision_console ?? {};
+        const decisionConsoleEvidenceRefs = Array.isArray(decisionConsole.evidence_refs) ? decisionConsole.evidence_refs : [];
         const lastExecution = runtimeExecution.last_execution ?? {};
         const blockers = Array.isArray(mission.blockers)
           ? mission.blockers
@@ -3172,6 +3174,7 @@ export function buildVisibilityPageHtml(title) {
               '<div class="summary-card"><div class="mission-label">現在の分岐</div><div class="value">' + escapeHtml(firstText(tree.branch?.frontier_track, "未選定")) + '</div><div class="detail">' + escapeHtml(firstText(tree.branch?.branch_summary, mission.mission_overview?.next_value_slice)) + '</div></div>' +
               '<div class="summary-card ' + operatorAcceptanceClass(operatorAcceptance) + '"><div class="mission-label">利用者受容</div><div class="value">' + escapeHtml(jaStateLabel(operatorAcceptance)) + '</div><div class="detail">' + escapeHtml(firstText(primaryOperatorValidation?.feedback_summary, operatorValidation.not_proven, "operator validation recordなし")) + '</div></div>' +
               '<div class="summary-card ' + externalSafetyClass(externalSafety.safety_status) + '"><div class="mission-label">外部実行安全境界</div><div class="value">' + escapeHtml(jaStateLabel(firstText(externalSafety.safety_status, "not_proven"))) + '</div><div class="detail">' + escapeHtml(firstText(externalSafety.safety_summary, externalSafety.not_proven, "外部安全projectionなし")) + '</div></div>' +
+              '<div class="summary-card ' + (decisionConsole.console_status === "ready_for_operator_go_no_go" ? "good" : (decisionConsole.console_status === "blocked" ? "warn" : "attention")) + '"><div class="mission-label">判断コンソール</div><div class="value">' + escapeHtml(jaStateLabel(firstText(decisionConsole.console_status, "missing"))) + '</div><div class="detail">' + escapeHtml(firstText(decisionConsole.operator_summary, decisionConsole.not_proven, "provider-backed decision consoleなし")) + '</div></div>' +
             '</div></aside>' +
           '</section>' +
           '<section class="mission-lower focus-tabs">' +
@@ -3205,7 +3208,25 @@ export function buildVisibilityPageHtml(title) {
             '<div id="tab-product" class="overview-tab-content tab-panel" data-tab-panel="lower" hidden>' + renderProductCompletion(completion) + '</div>' +
             '<div id="tab-tests" class="overview-tab-content tab-panel" data-tab-panel="lower" hidden>' + testStatusHtml + '</div>' +
             '<div id="tab-proof" class="overview-tab-content tab-panel" data-tab-panel="lower" hidden>' +
-              '<div class="overview-grid-wide"><div><h2>外部実行安全性</h2><div class="lower-body">' +
+              '<div class="overview-grid-wide"><div><h2>Provider判断コンソール</h2><div class="lower-body">' +
+              '<div class="mini-row ' + (decisionConsole.console_status === "ready_for_operator_go_no_go" ? "good" : (decisionConsole.console_status === "blocked" ? "warn" : "attention")) + '"><strong>' + escapeHtml(jaStateLabel(firstText(decisionConsole.console_status, "missing"))) + '</strong><span>' + escapeHtml(firstText(decisionConsole.proposed_action, "判断対象なし")) + '</span></div>' +
+              '<div class="mini-row detail-trigger"' + detailPayloadAttributes({
+                title: "Provider-backed operator decision console",
+                subtitle: firstText(decisionConsole.recommended_go_no_go, "go/no-go missing"),
+                body: firstText(decisionConsole.operator_question, decisionConsole.operator_summary, decisionConsole.not_proven),
+                ref: decisionConsoleEvidenceRefs[0] ?? null,
+                metadata: decisionConsole
+              }) + '><strong>人間が判断する問い</strong><span>' + escapeHtml(firstText(decisionConsole.operator_question, "-")) + '</span><div class="detail-hint">境界と根拠を開く</div></div>' +
+              '<div class="mini-row"><strong>承認境界</strong><span>' + escapeHtml(firstText(decisionConsole.approval_boundary, "-")) + '</span></div>' +
+              '<div class="mini-row"><strong>Rollback / 停止境界</strong><span>' + escapeHtml(firstText(decisionConsole.rollback_boundary, "-")) + '</span></div>' +
+              '<div class="mini-row warn"><strong>自動write不可</strong><span>' + escapeHtml(firstText(decisionConsole.no_autonomous_write_boundary, "-")) + '</span></div>' +
+              (decisionConsoleEvidenceRefs.length > 0 ? decisionConsoleEvidenceRefs.slice(0, 6).map((ref, index) => detailRow(
+                String(index + 1) + ". 判断根拠",
+                ref,
+                ref,
+                { evidence_ref: ref, console_status: decisionConsole.console_status }
+              )).join("") : '<div class="mini-row"><strong>判断根拠なし</strong><span>Provider-backed decision consoleに証跡refがありません。</span></div>') +
+              '</div></div><div><h2>外部実行安全性</h2><div class="lower-body">' +
               '<div class="mini-row ' + externalSafetyClass(externalSafety.safety_status) + '"><strong>Status: ' + escapeHtml(firstText(externalSafety.safety_status, "not_proven")) + '</strong><span>' + escapeHtml(firstText(externalSafety.safety_summary, externalSafety.not_proven, "No external runtime safety evidence is projected.")) + '</span></div>' +
               '<div class="mini-row detail-trigger"' + detailPayloadAttributes({
                 title: "External runtime safety boundary",

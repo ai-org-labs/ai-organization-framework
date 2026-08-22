@@ -1,0 +1,67 @@
+{
+  "artifact_type": "parallel-lane-pilot",
+  "pilot_id": "PLP-TASK-142-V120",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "work_item_id": "TASK-142",
+  "work_item_ref": ".aof/tasks/done/TASK-142.json",
+  "pilot_status": "ready",
+  "parent_multi_actor_pilot_ref": ".aof/artifacts/multi-actor-pilots/TASK-142.json",
+  "work_execution_packet_ref": ".aof/artifacts/work-execution-packets/TASK-142.json",
+  "lanes": [
+    {
+      "lane_id": "decision-console-projection",
+      "goal": "derive provider-backed operator decision console from existing Mission Control evidence surfaces",
+      "owner_actor_ref": "builder",
+      "input_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ],
+      "expected_output": "Mission Control provider_backed_operator_decision_console projection",
+      "output_refs": [
+        "src/commands/visibility-export.js",
+        "schemas/aof-mission-control-view.schema.json"
+      ],
+      "verification_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json",
+        "test/runtime-situation.test.js"
+      ],
+      "stop_condition": "stop if console is not derived from canonical runtime projections",
+      "lane_status": "completed"
+    },
+    {
+      "lane_id": "no-write-boundary",
+      "goal": "verify decision console does not authorize provider writes",
+      "owner_actor_ref": "guardian",
+      "input_refs": [
+        "docs/v12.0-release-definition.md"
+      ],
+      "expected_output": "approval, rollback, no-autonomous-write, and not-proven boundaries",
+      "output_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-142-GUARDIAN.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-142-V120.json"
+      ],
+      "verification_refs": [
+        "docs/v12.0.0-release-notes.md"
+      ],
+      "stop_condition": "stop if v12.0 implies provider write authority, provider truth, or production safety",
+      "lane_status": "completed"
+    }
+  ],
+  "join_packet": {
+    "join_status": "ready",
+    "join_decision": "merge",
+    "joined_lane_ids": [
+      "decision-console-projection",
+      "no-write-boundary"
+    ],
+    "conflict_summary": "No unresolved lane conflict; projection and boundary lanes preserve read-only operator judgment.",
+    "blocker_summary": "Blocked if release-state-audit fails or if v12.0 wording implies provider execution authority.",
+    "merge_rationale": "Decision console projection and no-write boundary jointly support v12.0 as operator Go/No-Go evidence.",
+    "council_authority": "architecture-council"
+  },
+  "council_decision_ref": ".aof/artifacts/execution/council-reviews/CREV-TASK-142-V120.json",
+  "not_proven": "Parallel lane evidence proves local release-readiness join only; it does not prove provider truth, semantic truth, production safety, or broad adoption.",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null,
+  "notes": null
+}

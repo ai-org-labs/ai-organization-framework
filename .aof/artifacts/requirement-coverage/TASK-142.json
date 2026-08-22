@@ -1,0 +1,64 @@
+{
+  "artifact_type": "requirement-coverage-record",
+  "record_id": "RCR-TASK-142-V120",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "work_item_id": "TASK-142",
+  "work_item_ref": ".aof/tasks/done/TASK-142.json",
+  "coverage_status": "ready",
+  "requirements": [
+    {
+      "requirement_id": "REQ-V120-001",
+      "requirement_type": "functional",
+      "source_ref": "docs/v12.0-release-definition.md",
+      "title": "Mission Control must expose provider-backed operator decision console",
+      "owner_ref": "builder",
+      "acceptance_boundary": "covered when Mission Control includes provider_backed_operator_decision_console with proposed action, operator question, Go/No-Go, boundaries, evidence refs, and not-proven boundary",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-142.json"
+      ],
+      "evidence_refs": [
+        "src/commands/visibility-export.js",
+        "src/commands/visibility-serve.js",
+        "schemas/aof-mission-control-view.schema.json",
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "requirement_id": "REQ-V120-002",
+      "requirement_type": "release_gate",
+      "source_ref": "docs/v12.0-release-checklist.md",
+      "title": "Decision console must remain read-only and must not authorize provider writes",
+      "owner_ref": "guardian",
+      "acceptance_boundary": "covered when release docs, schema, tests, and Mission Control show approval, rollback, and no-autonomous-write boundaries",
+      "status": "covered",
+      "linked_work_item_refs": [
+        ".aof/tasks/done/TASK-142.json"
+      ],
+      "evidence_refs": [
+        "docs/v12.0-release-definition.md",
+        "docs/v12.0.0-release-notes.md",
+        "test/runtime-situation.test.js"
+      ]
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 2,
+    "covered_count": 2,
+    "partial_count": 0,
+    "blocked_count": 0,
+    "at_risk_count": 0,
+    "unstarted_count": 0
+  },
+  "forecast": {
+    "estimated_remaining_work_items": 0,
+    "estimated_token_cost_range": "bounded Mission Control projection release verification",
+    "burndown_ref": "docs/v12.0-release-checklist.md",
+    "forecast_boundary": "forecast is release planning evidence, not delivery certainty"
+  },
+  "not_proven": "Requirement coverage proves structural linkage only; it does not prove provider truth, semantic truth, production safety, market value, or external adoption.",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null,
+  "notes": null
+}

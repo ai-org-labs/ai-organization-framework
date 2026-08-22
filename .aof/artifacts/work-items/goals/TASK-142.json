@@ -1,0 +1,65 @@
+{
+  "artifact_type": "work-item-goal",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "work_item_id": "TASK-142",
+  "work_item_type": "release",
+  "objective": "Ship v12.0 Provider-backed Operator Decision Console.",
+  "reason_for_work": "AOF had provider decision, freshness, runtime safety, and tool governance evidence, but operators still needed to join separate surfaces before making a provider-backed Go/No-Go judgment.",
+  "expected_output": [
+    "Mission Control provider_backed_operator_decision_console projection",
+    "Mission Control schema update",
+    "viewer display update",
+    "v12.0 release docs",
+    "product value evidence",
+    "capability delta evidence",
+    "release-state audit evidence"
+  ],
+  "consumer": [
+    "AOF operators",
+    "release council",
+    "external reviewers"
+  ],
+  "downstream_dependency": [
+    "provider read decision replay",
+    "provider read freshness refresh",
+    "tool governance replay",
+    "Mission Control"
+  ],
+  "success_criteria": [
+    "visibility-export produces provider_backed_operator_decision_console",
+    "Mission Control schema validates console fields",
+    "tests assert console status, boundaries, and evidence refs",
+    "product value and capability delta evidence exist"
+  ],
+  "go_no_go_criteria": {
+    "go": [
+      "visibility-export passes",
+      "agent-session-contract-audit passes",
+      "capability-first-release-audit passes",
+      "release-state-audit passes"
+    ],
+    "no_go": [
+      "decision console authorizes provider writes",
+      "not-proven boundaries are missing",
+      "v12.0 implies provider truth, production safety, or market value"
+    ]
+  },
+  "required_visualization": [
+    "evidence-coverage-map",
+    "readiness-checklist"
+  ],
+  "required_skills": [
+    "skill-need-validation",
+    "skill-schema-review",
+    "skill-benchmark-validation"
+  ],
+  "required_actor_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "council_review_need": "required",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null
+}

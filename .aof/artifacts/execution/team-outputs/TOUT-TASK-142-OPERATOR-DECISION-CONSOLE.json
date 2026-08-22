@@ -1,0 +1,41 @@
+{
+  "packet_type": "team-output",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "team_output_id": "TOUT-TASK-142-OPERATOR-DECISION-CONSOLE",
+  "team_id": "runtime-team",
+  "stage": "review",
+  "expected_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "received_roles": [
+    "visionary",
+    "builder",
+    "guardian"
+  ],
+  "missing_roles": [],
+  "aggregate_state": "ready-for-council-review",
+  "blocking_signals": [],
+  "recommended_next_step": "Submit v12.0 Provider-backed Operator Decision Console to Architecture Council for release judgment.",
+  "joined_role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-142-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-142-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-142-GUARDIAN.json"
+  ],
+  "artifact_refs": [
+    "docs/v12.0-release-definition.md",
+    "docs/v12.0-release-checklist.md",
+    "docs/v12.0.0-release-notes.md",
+    ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json",
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json",
+    "test/runtime-situation.test.js"
+  ],
+  "decision_required": true,
+  "summary": "TASK-142 Visionary, Builder, and Guardian outputs are joined for Council review; the release frames the decision console as read-only operator judgment support, not provider write authority.",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null
+}

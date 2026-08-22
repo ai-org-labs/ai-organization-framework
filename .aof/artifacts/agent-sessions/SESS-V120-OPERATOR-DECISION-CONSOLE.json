@@ -1,0 +1,134 @@
+{
+  "artifact_type": "agent-session-record",
+  "stream_format_version": 1,
+  "stream_id": "ASTREAM-V120-OPERATOR-DECISION-CONSOLE",
+  "session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "actor_ref": "codex",
+  "role_ref": "orchestrator",
+  "provider": "local",
+  "model": "codex",
+  "events": [
+    {
+      "event_id": "EVT-V120-001",
+      "event_type": "prompt",
+      "occurred_at": "2026-08-22T01:31:36.501Z",
+      "summary": "Heartbeat requested AOF to continue with latest runtime, trend review, roadmap, implementation, release, and tag.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-142.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V120-002",
+      "event_type": "tool_call",
+      "occurred_at": "2026-08-22T01:32:06.872Z",
+      "tool_name": "situation-assess",
+      "summary": "AOF runtime identified v12.0 provider-backed operator decision console as the current frontier.",
+      "safety_level": "safe_read",
+      "approval_policy": "approved_run_contract",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json",
+        "docs/vnext-roadmap.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V120-003",
+      "event_type": "tool_call",
+      "occurred_at": "2026-08-22T01:40:08.990Z",
+      "tool_name": "visibility-export",
+      "summary": "Projected provider_backed_operator_decision_console into Mission Control.",
+      "safety_level": "safe_local_write",
+      "approval_policy": "approved_run_contract",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V120-004",
+      "event_type": "response",
+      "occurred_at": "2026-08-22T01:45:00.000Z",
+      "summary": "Implemented v12.0 as read-only provider-backed operator decision console with explicit approval, rollback, and no-autonomous-write boundaries.",
+      "artifact_refs": [
+        "src/commands/visibility-export.js",
+        "src/commands/visibility-serve.js",
+        "schemas/aof-mission-control-view.schema.json"
+      ]
+    },
+    {
+      "event_id": "EVT-V120-005",
+      "event_type": "verification_result",
+      "occurred_at": "2026-08-22T01:45:00.000Z",
+      "summary": "Release verification includes visibility-export, agent-session-contract-audit, release-state-audit, organization-verify, npm test, and smoke.",
+      "artifact_refs": [
+        "docs/v12.0-release-checklist.md",
+        ".aof/artifacts/release-state/release-state-audit.json",
+        "test/runtime-situation.test.js"
+      ]
+    },
+    {
+      "event_id": "EVT-V120-006",
+      "event_type": "risk_candidate",
+      "occurred_at": "2026-08-22T01:45:00.000Z",
+      "summary": "Decision console may be misread as provider write authorization unless no-autonomous-write boundary remains visible.",
+      "artifact_refs": [
+        "docs/v12.0-release-definition.md",
+        "docs/v12.0.0-release-notes.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V120-007",
+      "event_type": "decision_candidate",
+      "occurred_at": "2026-08-22T01:45:00.000Z",
+      "summary": "Advance to v12.1 only after v12.0 proves the decision console can be used by an external operator without developer context.",
+      "artifact_refs": [
+        "docs/vnext-roadmap.md"
+      ]
+    },
+    {
+      "event_id": "EVT-V120-008",
+      "event_type": "stop_condition",
+      "occurred_at": "2026-08-22T01:45:00.000Z",
+      "summary": "Stop if v12.0 claims provider truth, semantic truth, production safety, or autonomous external write authority.",
+      "artifact_refs": [
+        "docs/v12.0-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-142.json"
+    ],
+    "requirement_refs": [
+      "docs/v12.0-release-definition.md",
+      ".aof/artifacts/requirement-coverage/TASK-142.json"
+    ],
+    "test_evidence_refs": [
+      "test/runtime-situation.test.js",
+      "docs/v12.0-release-checklist.md"
+    ],
+    "commit_refs": [],
+    "pr_refs": [],
+    "artifact_refs": [
+      ".aof/artifacts/visibility/current/mission-control.json",
+      ".aof/artifacts/product-value-evidence/PVE-TASK-142-V120.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-142-V120.json"
+    ]
+  },
+  "risk_candidates": [
+    "decision console may be mistaken for provider execution permission"
+  ],
+  "decision_candidates": [
+    "v12.1 should test external operator reproduction of the decision console"
+  ],
+  "release_ready_evidence": {
+    "claim": "v12.0 provider-backed operator decision console is structurally and runtime ready after Mission Control export and release audits pass.",
+    "verdict": "runtime_ready",
+    "evidence_refs": [
+      "docs/v12.0-release-checklist.md",
+      ".aof/artifacts/release-state/release-state-audit.json"
+    ]
+  },
+  "notes": "Redaction boundary: summaries only; no secrets, credentials, private provider payload bodies, or private transcript content exported. Not proven: provider truth, semantic truth, production safety, market value, or autonomous external write authority."
+}

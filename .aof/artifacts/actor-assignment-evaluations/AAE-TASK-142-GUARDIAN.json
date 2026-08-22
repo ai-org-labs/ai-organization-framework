@@ -1,0 +1,45 @@
+{
+  "evaluation_type": "actor-assignment-evaluation",
+  "evaluation_format_version": 1,
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "evaluation_id": "AAE-TASK-142-GUARDIAN",
+  "actor_skill_packet_ref": ".aof/artifacts/actor-skill-packets/ASP-TASK-142-GUARDIAN.json",
+  "actor_skill_packet_id": "ASP-TASK-142-GUARDIAN",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null,
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "guardian",
+    "team_ref": "runtime-team",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation"
+  ],
+  "capability_fit_summary": {
+    "strong_count": 0,
+    "sufficient_count": 1,
+    "weak_count": 0,
+    "missing_count": 0,
+    "blocked_count": 0,
+    "evidence_ref_count": 3
+  },
+  "assignment_decision": {
+    "assignment_state": "selected",
+    "confidence_label": "medium",
+    "rationale": "Guardian has sufficient verification evidence to check release gates and not-proven boundaries.",
+    "recommended_action": "Proceed to execution gate."
+  },
+  "missing_evidence": [],
+  "review_required": true,
+  "hri_projection": {
+    "character_label": "Guardian",
+    "speech_bubble": "I can verify v12.0 without letting provider-backed become provider-write.",
+    "current_action": "Selected for release verification",
+    "confidence_label": "medium",
+    "visible_state": "selected",
+    "visible_blockers": [],
+    "next_action": "Proceed to execution gate."
+  }
+}

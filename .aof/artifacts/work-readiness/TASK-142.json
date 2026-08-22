@@ -1,0 +1,36 @@
+{
+  "artifact_type": "work-readiness-record",
+  "record_id": "WRG-TASK-142-V120",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "work_item_id": "TASK-142",
+  "work_item_ref": ".aof/tasks/done/TASK-142.json",
+  "readiness_status": "ready",
+  "goal": "Release v12.0 Provider-backed Operator Decision Console.",
+  "risk": "AOF may show a decision console as permission to execute provider writes.",
+  "loss_boundary": "No v12.0 wording may claim provider truth, semantic truth, credential safety, billing safety, market value, production execution safety, or autonomous external write authority.",
+  "acceptance_gates": [
+    "Mission Control exports provider_backed_operator_decision_console",
+    "console joins provider decision, freshness, runtime safety, and tool governance",
+    "console shows approval, rollback, and no-autonomous-write boundaries",
+    "product value and capability delta evidence exist"
+  ],
+  "evidence_plan": [
+    "Mission Control schema, visibility export implementation, viewer display, tests, release docs, product value evidence, capability delta, release-state audit"
+  ],
+  "maker_role": "builder",
+  "checker_role": "guardian",
+  "council_ref": "architecture-council",
+  "stop_conditions": [
+    "Stop if console authorizes provider writes",
+    "Stop if console omits approval or rollback boundaries",
+    "Stop if v12.0 implies provider truth or production safety"
+  ],
+  "qif_refs": [
+    "docs/aof-qif-quality-definition.md"
+  ],
+  "archmap_impact_expected": "yes",
+  "notes": null,
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null
+}

@@ -507,6 +507,20 @@
         "docs/v11.4-release-definition.md",
         ".aof/artifacts/agent-sessions/SESS-V119-TOOL-GOVERNANCE-REPLAY.json"
       ]
+    },
+    {
+      "capability_id": "PCAP-PROVIDER-BACKED-OPERATOR-DECISION-CONSOLE",
+      "name": "Provider-backed Operator Decision Console",
+      "description": "AOF can join provider decision replay, freshness, tool governance, and runtime safety evidence into one read-only operator Go/No-Go surface.",
+      "user_value": "Operators can decide whether to accept, defer, reopen, or block a provider-backed decision without reconstructing separate artifacts or granting write authority.",
+      "first_version": "v12.0.0",
+      "status": "available",
+      "evidence_refs": [
+        "docs/v12.0-release-definition.md",
+        "docs/v12.0.0-release-notes.md",
+        ".aof/artifacts/visibility/current/mission-control.json",
+        ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json"
+      ]
     }
   ]
 }

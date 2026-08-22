@@ -1,0 +1,35 @@
+{
+  "artifact_type": "product-value-evidence-record",
+  "value_evidence_id": "PVE-TASK-142-V120",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "release_ref": "docs/v12.0-release-definition.md",
+  "work_item_id": "TASK-142",
+  "work_item_ref": ".aof/tasks/done/TASK-142.json",
+  "mission_control_ref": ".aof/artifacts/visibility/current/mission-control.json",
+  "capability_statement": "Operators can review provider-backed decision evidence from one read-only Mission Control console before any external write path is considered.",
+  "before_state": "Provider decision replay, freshness, tool governance, and runtime safety were separate Mission Control surfaces.",
+  "after_state": "Mission Control exposes provider_backed_operator_decision_console with proposed action, operator question, Go/No-Go recommendation, evidence refs, approval boundary, rollback boundary, and no-autonomous-write boundary.",
+  "scenario": "Before approving a provider-backed path, the operator opens Mission Control and reviews one console to decide accept, defer, reopen, or block.",
+  "five_minute_demo": "Run visibility-export and inspect provider_backed_operator_decision_console in .aof/artifacts/visibility/current/mission-control.json.",
+  "time_saved_or_work_reduced": "Removes first-pass manual joining of separate provider decision, freshness, safety, and tool governance artifacts.",
+  "cognitive_load_removed": "Operators no longer need to reconstruct the provider-backed Go/No-Go path from several JSON sections.",
+  "capability_matrix": [
+    {
+      "capability": "Provider-backed Operator Decision Console",
+      "before": "Separate replay, freshness, safety, and tool governance surfaces.",
+      "after": "One read-only Go/No-Go console.",
+      "user_value": "A provider-backed decision can be reviewed without opening raw runtime JSON or granting write authority."
+    }
+  ],
+  "understanding_outcome": "understood",
+  "value_evidence_refs": [
+    "docs/v12.0-release-definition.md",
+    ".aof/artifacts/visibility/current/mission-control.json"
+  ],
+  "governance_action": "none",
+  "not_proven": "Self-hosting product value evidence does not prove broad adoption, provider truth, semantic truth, credential safety, billing safety, market value, or production execution safety.",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null,
+  "notes": null
+}

@@ -1,0 +1,68 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "packet_id": "ASP-TASK-142-VISIONARY",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null,
+  "objective": "Validate that the v12.0 provider-backed operator decision console answers a real operator need without overstating provider execution authority.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "visionary",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Visionary owns the product-direction judgment for whether this console converts provider-backed evidence into a human Go/No-Go capability.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-need-validation"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-need-validation",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v12.0-release-definition.md",
+        ".aof/artifacts/product-value-evidence/PVE-TASK-142-V120.json"
+      ],
+      "rationale": "Visionary can judge whether the decision console solves the operator problem of understanding provider-backed Go/No-Go state before external write authority exists."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "direction-review",
+    "artifact_schema_ref": "docs/v12.0-release-definition.md",
+    "required_sections": [
+      "Capability Delta",
+      "Boundaries"
+    ],
+    "acceptance_criteria": [
+      "operator value is explicit",
+      "provider-backed does not imply provider-write authorization",
+      "not-proven boundary is explicit"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "capability is user-visible and bounded",
+      "evaluator_ref": "architecture-council",
+      "evidence_required": "product-value-evidence",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Visionary",
+    "speech_bubble": "I am checking that v12.0 gives the operator a real decision surface, not another internal audit artifact.",
+    "current_action": "Validate release direction",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit role result."
+  },
+  "status": "completed"
+}

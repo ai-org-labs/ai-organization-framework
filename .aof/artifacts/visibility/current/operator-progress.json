@@ -1,6 +1,6 @@
 {
   "view_type": "operator_progress",
-  "generated_at": "2026-08-21T02:04:14.332Z",
+  "generated_at": "2026-08-22T01:51:22.907Z",
   "current_checkpoint": {
     "stage": "frontier-definition-needed",
     "frontier_task_id": null,
@@ -8,24 +8,24 @@
     "artifact_ref": ".aof/goals/next-value-slice.json"
   },
   "previous_checkpoint": {
-    "summary": "TASK-141 was the latest completed checkpoint.",
-    "artifact_ref": ".aof/tasks/done/TASK-141.json"
+    "summary": "TASK-142 was the latest completed checkpoint.",
+    "artifact_ref": ".aof/tasks/done/TASK-142.json"
   },
   "changes_since_last_checkpoint": [
     {
       "kind": "completed-task",
-      "summary": "TASK-141 completed: v11.9 proof: tool governance replay in Mission Control",
-      "artifact_ref": ".aof/tasks/done/TASK-141.json"
+      "summary": "TASK-142 completed: v12.0 proof: provider-backed operator decision console",
+      "artifact_ref": ".aof/tasks/done/TASK-142.json"
     },
     {
       "kind": "goal-refresh",
-      "summary": "v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
+      "summary": "v12.1 should prove that an external operator can use the v12.0 decision console to understand, reproduce, and judge a provider-backed Go/No-Go path without reading raw runtime JSON.",
       "artifact_ref": ".aof/goals/next-value-slice.json"
     }
   ],
   "progress_answer": {
-    "what_changed": "TASK-141 completed: v11.9 proof: tool governance replay in Mission Control v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
+    "what_changed": "TASK-142 completed: v12.0 proof: provider-backed operator decision console v12.1 should prove that an external operator can use the v12.0 decision console to understand, reproduce, and judge a provider-backed Go/No-Go path without reading raw runtime JSON.",
     "why_it_matters": "The runtime still needs a concrete current frontier to make progress legible.",
-    "next_checkpoint": "Open an implementation task for the current frontier: v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution."
+    "next_checkpoint": "Open an implementation task for the current frontier: v12.1 should prove that an external operator can use the v12.0 decision console to understand, reproduce, and judge a provider-backed Go/No-Go path without reading raw runtime JSON."
   }
 }

@@ -1,0 +1,27 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "role": "builder",
+  "stage": "execution",
+  "session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "status": "completed",
+  "recommendation": "Implement v12.0 by deriving provider_backed_operator_decision_console from existing Mission Control provider decision, freshness, safety, and tool governance projections.",
+  "rationale": "A derived projection avoids new source-of-truth drift while creating the operator-facing decision surface needed for Go/No-Go review.",
+  "signals": [
+    "visibility-export now joins existing projection outputs into one decision console.",
+    "Mission Control schema validates console status, boundaries, evidence refs, and not-proven text."
+  ],
+  "artifact_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json",
+    "test/runtime-situation.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-142",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.85
+}

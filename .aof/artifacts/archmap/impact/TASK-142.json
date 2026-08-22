@@ -1,0 +1,32 @@
+{
+  "artifact_type": "archmap-impact-record",
+  "record_id": "AIMPACT-TASK-142-V120",
+  "work_item_ref": ".aof/tasks/done/TASK-142.json",
+  "work_item_id": "TASK-142",
+  "status": "archmap_deferred_with_reason",
+  "archmap_source_ref": "docs/archmaps/aof-runtime-current.archmap",
+  "changed_elements": [
+    "mission-control",
+    "provider-backed-operator-decision-console",
+    "provider-read-decision-replay",
+    "tool-governance-replay",
+    "release-state-audit"
+  ],
+  "owner_actor": "builder",
+  "reviewer_role": "guardian",
+  "council_review_status": "approved",
+  "evidence_refs": [
+    "src/commands/visibility-export.js",
+    "src/commands/visibility-serve.js",
+    "schemas/aof-mission-control-view.schema.json",
+    ".aof/artifacts/execution/council-reviews/CREV-TASK-142-V120.json",
+    ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json"
+  ],
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "updated_at": "2026-08-22T01:45:00.000Z",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "session_ref": ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json",
+  "not_proven": "Archmap impact is a projection surface and does not prove rendered UX quality, provider truth, semantic truth, or production execution safety."
+}

@@ -1,29 +1,29 @@
 {
   "view_type": "tree_position",
-  "generated_at": "2026-08-21T02:04:14.332Z",
+  "generated_at": "2026-08-22T01:51:22.907Z",
   "trunk": {
     "label": "AOF release evolution",
-    "active_release_version": "11.9.0",
-    "active_release_track": "v11.9",
-    "release_definition_ref": "docs/v11.9-release-definition.md"
+    "active_release_version": "12.0.0",
+    "active_release_track": "v12.0",
+    "release_definition_ref": "docs/v12.0-release-definition.md"
   },
   "branch": {
     "frontier_track": null,
     "frontier_task_id": null,
     "frontier_task_title": null,
     "artifact_ref": null,
-    "branch_summary": "v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution."
+    "branch_summary": "v12.1 should prove that an external operator can use the v12.0 decision console to understand, reproduce, and judge a provider-backed Go/No-Go path without reading raw runtime JSON."
   },
   "roadmap_path": [
     {
       "kind": "shipped-release",
-      "label": "v11.9",
+      "label": "v12.0",
       "state": "done"
     }
   ],
   "tree_answer": {
-    "where_are_we": "The runtime is between v11.9 and the next concrete branch.",
-    "why_this_branch": "Prepare v12.0 so operators can review provider-backed decisions from a governed decision console without granting autonomous write authority.",
-    "what_branch_comes_next": "Open an implementation task for the current frontier: v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution."
+    "where_are_we": "The runtime is between v12.0 and the next concrete branch.",
+    "why_this_branch": "Prepare v12.1 so non-self-hosting external operators can reproduce the provider-backed operator decision console without AOF developer context.",
+    "what_branch_comes_next": "Open an implementation task for the current frontier: v12.1 should prove that an external operator can use the v12.0 decision console to understand, reproduce, and judge a provider-backed Go/No-Go path without reading raw runtime JSON."
   }
 }

@@ -1,6 +1,6 @@
 {
   "goal_type": "next-value-slice",
-  "content": "v12.0 should turn provider-backed decision evidence into an operator decision console that shows proposed action, approval boundary, rollback path, and no-autonomous-write limits before execution.",
+  "content": "v12.1 should prove that an external operator can use the v12.0 decision console to understand, reproduce, and judge a provider-backed Go/No-Go path without reading raw runtime JSON.",
   "updated_at": "2026-08-20T01:45:00.000Z",
   "agreed_with_human": true,
   "source_session_id": "SESS-V118-PROVIDER-READ-FRESHNESS",

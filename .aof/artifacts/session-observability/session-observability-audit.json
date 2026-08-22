@@ -1,14 +1,14 @@
 {
   "ok": true,
   "artifact_type": "agent-session-contract-audit",
-  "generated_at": "2026-08-21T02:03:54.192Z",
+  "generated_at": "2026-08-22T01:49:41.511Z",
   "project_root": "/Users/mn/development/ai-organization-framework-public",
   "summary": {
-    "scoped_task_count": 7,
-    "session_count": 7,
-    "runtime_ready_session_count": 7,
-    "tool_call_count": 11,
-    "governed_tool_call_count": 11,
+    "scoped_task_count": 8,
+    "session_count": 8,
+    "runtime_ready_session_count": 8,
+    "tool_call_count": 13,
+    "governed_tool_call_count": 13,
     "failing_check_count": 0
   },
   "sessions": [
@@ -67,13 +67,21 @@
       "event_count": 8,
       "tool_call_count": 2,
       "release_verdict": "runtime_ready"
+    },
+    {
+      "session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+      "session_ref": ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json",
+      "source_task_id": "TASK-142",
+      "event_count": 8,
+      "tool_call_count": 2,
+      "release_verdict": "runtime_ready"
     }
   ],
   "checks": [
     {
       "name": "scoped agent session presence",
       "status": "pass",
-      "detail": "7 session(s) at or after TASK-135"
+      "detail": "8 session(s) at or after TASK-135"
     },
     {
       "name": "SESS-QIF-V054-UPGRADE schema",
@@ -1274,6 +1282,206 @@
       "name": "SESS-V119-TOOL-GOVERNANCE-REPLAY ref resolves",
       "status": "pass",
       "detail": "docs/v11.9-release-checklist.md"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE schema",
+      "status": "pass",
+      "detail": ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE event type prompt",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE event type response",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE event type tool_call",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE event type verification_result",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE event type risk_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE event type decision_candidate",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE event type stop_condition",
+      "status": "pass",
+      "detail": "present"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE task linkage",
+      "status": "pass",
+      "detail": "1 task ref(s)"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE requirement linkage",
+      "status": "pass",
+      "detail": "2 requirement ref(s)"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE test evidence linkage",
+      "status": "pass",
+      "detail": "2 test evidence ref(s)"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE release-ready evidence",
+      "status": "pass",
+      "detail": "runtime_ready, 2 evidence ref(s)"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE risk candidates",
+      "status": "pass",
+      "detail": "1 risk candidate(s)"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE decision candidates",
+      "status": "pass",
+      "detail": "1 decision candidate(s)"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE governed tool call EVT-V120-002",
+      "status": "pass",
+      "detail": "tool=situation-assess, safety=safe_read, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE governed tool call EVT-V120-003",
+      "status": "pass",
+      "detail": "tool=visibility-export, safety=safe_local_write, approval=approved_run_contract"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-142.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "docs/v12.0-release-definition.md"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/requirement-coverage/TASK-142.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "docs/v12.0-release-checklist.md"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/product-value-evidence/PVE-TASK-142-V120.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/capability-release-deltas/CRD-TASK-142-V120.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "docs/v12.0-release-checklist.md"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/release-state/release-state-audit.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/tasks/done/TASK-142.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/goals/next-value-slice.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/visibility/current/mission-control.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-export.js"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "src/commands/visibility-serve.js"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "schemas/aof-mission-control-view.schema.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "docs/v12.0-release-checklist.md"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": ".aof/artifacts/release-state/release-state-audit.json"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "test/runtime-situation.test.js"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "docs/v12.0-release-definition.md"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "docs/v12.0.0-release-notes.md"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "docs/vnext-roadmap.md"
+    },
+    {
+      "name": "SESS-V120-OPERATOR-DECISION-CONSOLE ref resolves",
+      "status": "pass",
+      "detail": "docs/v12.0-release-checklist.md"
     }
   ],
   "errors": []

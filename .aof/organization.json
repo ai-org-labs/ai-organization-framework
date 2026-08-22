@@ -204,7 +204,7 @@
       "name": "Governance To Release Contract",
       "owner_team_ref": "governance-team",
       "contract_type": "release-definition",
-      "artifact_ref": "docs/v11.9-release-definition.md"
+      "artifact_ref": "docs/v12.0-release-definition.md"
     },
     {
       "contract_id": "contract-verification-to-runtime",
@@ -317,5 +317,5 @@
       "archive"
     ]
   },
-  "updated_at": "2026-08-21T01:54:06.089Z"
+  "updated_at": "2026-08-22T01:44:17.036Z"
 }

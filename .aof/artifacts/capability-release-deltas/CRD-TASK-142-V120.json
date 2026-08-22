@@ -1,0 +1,29 @@
+{
+  "artifact_type": "capability-release-delta",
+  "delta_id": "CRD-TASK-142-V120",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "release_version": "12.0.0",
+  "release_ref": "docs/v12.0-release-definition.md",
+  "work_item_id": "TASK-142",
+  "work_item_ref": ".aof/tasks/done/TASK-142.json",
+  "one_minute_value_explanation": "v12.0 lets operators review provider-backed decisions from one read-only Mission Control console that shows proposed action, evidence, approval boundary, rollback boundary, and no-autonomous-write limits.",
+  "thirty_second_version_delta": "v11.9 showed how AI tool calls were governed; v12.0 combines provider decision, freshness, safety, and tool governance into one operator Go/No-Go console.",
+  "new_capability_ids": [
+    "PCAP-PROVIDER-BACKED-OPERATOR-DECISION-CONSOLE"
+  ],
+  "updated_capability_ids": [
+    "PCAP-PROVIDER-READ-DECISION-REPLAY",
+    "PCAP-PROVIDER-READ-FRESHNESS-REFRESH",
+    "PCAP-TOOL-GOVERNANCE-REPLAY"
+  ],
+  "removed_capability_ids": [],
+  "value_evidence_refs": [
+    ".aof/artifacts/product-value-evidence/PVE-TASK-142-V120.json"
+  ],
+  "product_review_trigger": "If an operator still cannot tell whether to accept, defer, reopen, or block a provider-backed path from Mission Control, reopen this as a product issue.",
+  "not_proven": "Capability delta does not prove provider truth, semantic truth, production execution safety, market value, or broad adoption.",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null,
+  "notes": null
+}

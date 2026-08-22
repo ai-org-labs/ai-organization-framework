@@ -1,0 +1,119 @@
+{
+  "artifact_type": "session-export-record",
+  "export_id": "SEX-TASK-142-V120",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "work_item_id": "TASK-142",
+  "work_item_ref": ".aof/tasks/done/TASK-142.json",
+  "export_status": "ready",
+  "source_session_ref": ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json",
+  "provider_source": {
+    "provider": "local",
+    "model": "codex",
+    "source_format": "aof-runtime-command-and-agent-session-artifacts",
+    "source_of_truth_boundary": "AOF artifacts, Mission Control projections, release docs, and runtime audits are canonical; chat text is not release evidence"
+  },
+  "event_summaries": [
+    {
+      "event_id": "EVT-TASK-142-1",
+      "event_type": "prompt",
+      "summary": "Heartbeat required AOF to continue the roadmap using latest runtime and trend context.",
+      "artifact_refs": [
+        ".aof/tasks/done/TASK-142.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-142-2",
+      "event_type": "tool_call",
+      "summary": "AOF runtime selected v12.0 as provider-backed operator decision console after v11.9.",
+      "artifact_refs": [
+        ".aof/goals/next-value-slice.json",
+        "docs/vnext-roadmap.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-142-3",
+      "event_type": "artifact_write",
+      "summary": "Mission Control schema, visibility export, viewer display, release docs, and evidence artifacts were added.",
+      "artifact_refs": [
+        "src/commands/visibility-export.js",
+        "src/commands/visibility-serve.js",
+        "schemas/aof-mission-control-view.schema.json",
+        "docs/v12.0-release-definition.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-142-4",
+      "event_type": "verification",
+      "summary": "visibility-export projected provider_backed_operator_decision_console from provider decision, freshness, runtime safety, and tool governance evidence.",
+      "artifact_refs": [
+        ".aof/artifacts/visibility/current/mission-control.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-142-5",
+      "event_type": "response",
+      "summary": "Role outputs and Council review framed v12.0 as read-only operator Go/No-Go support, not provider write permission.",
+      "artifact_refs": [
+        ".aof/artifacts/execution/role-results/RRES-TASK-142-VISIONARY.json",
+        ".aof/artifacts/execution/role-results/RRES-TASK-142-BUILDER.json",
+        ".aof/artifacts/execution/role-results/RRES-TASK-142-GUARDIAN.json",
+        ".aof/artifacts/execution/council-reviews/CREV-TASK-142-V120.json"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-142-6",
+      "event_type": "blocker",
+      "summary": "Decision console must not be misread as provider truth, semantic truth, credential safety, production execution safety, or autonomous external write authority.",
+      "artifact_refs": [
+        "docs/v12.0-release-definition.md",
+        "docs/v12.0.0-release-notes.md"
+      ]
+    },
+    {
+      "event_id": "EVT-TASK-142-7",
+      "event_type": "stop_condition",
+      "summary": "Stop release if v12.0 claims provider write authority, production safety, or semantic truth.",
+      "artifact_refs": [
+        "docs/v12.0-release-checklist.md"
+      ]
+    }
+  ],
+  "links": {
+    "task_refs": [
+      ".aof/tasks/done/TASK-142.json"
+    ],
+    "requirement_refs": [
+      "docs/v12.0-release-definition.md",
+      ".aof/artifacts/requirement-coverage/TASK-142.json"
+    ],
+    "test_evidence_refs": [
+      ".aof/artifacts/visibility/current/mission-control.json",
+      ".aof/artifacts/release-state/release-state-audit.json",
+      "test/runtime-situation.test.js",
+      "docs/v12.0-release-checklist.md"
+    ],
+    "artifact_refs": [
+      ".aof/artifacts/work-items/goals/TASK-142.json",
+      ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json",
+      ".aof/artifacts/capability-release-deltas/CRD-TASK-142-V120.json",
+      ".aof/artifacts/product-value-evidence/PVE-TASK-142-V120.json"
+    ],
+    "risk_candidates": [
+      "decision console may be mistaken for provider execution permission"
+    ],
+    "decision_candidates": [
+      "advance to v12.1 only after v12.0 proves read-only operator decision console"
+    ],
+    "release_ready_evidence_refs": [
+      "docs/v12.0-release-checklist.md",
+      ".aof/artifacts/release-state/release-state-audit.json"
+    ]
+  },
+  "redaction_boundary": "summaries only; no secrets, credentials, private provider payload bodies, or private transcript content exported",
+  "release_ready_boundary": "release-ready requires runtime audits, tests, smoke, and CI/tag validation, not this export alone",
+  "not_proven": "Session export proves traceability for v12.0 release work only; it does not prove provider truth, semantic truth, production safety, market value, or autonomous external write authority.",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null,
+  "notes": null
+}

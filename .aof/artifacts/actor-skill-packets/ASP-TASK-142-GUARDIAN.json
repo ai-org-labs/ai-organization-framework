@@ -1,0 +1,70 @@
+{
+  "packet_type": "actor-skill-packet",
+  "packet_format_version": 1,
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "packet_id": "ASP-TASK-142-GUARDIAN",
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null,
+  "objective": "Verify that v12.0 remains read-only, audit-backed, and release-ready without claiming provider truth or autonomous write authority.",
+  "assignment": {
+    "actor_ref": "codex",
+    "role_ref": "guardian",
+    "team_ref": "runtime-team",
+    "assignment_reason": "Guardian owns benchmark and release-gate validation for safety boundaries and not-proven claims.",
+    "execution_mode": "single-actor"
+  },
+  "required_skill_refs": [
+    "skill-benchmark-validation"
+  ],
+  "capability_fit": [
+    {
+      "capability_ref": "cap-runtime-verification",
+      "fit_state": "sufficient",
+      "evidence_refs": [
+        "docs/v12.0-release-checklist.md",
+        ".aof/artifacts/release-state/release-state-audit.json",
+        "test/runtime-situation.test.js"
+      ],
+      "rationale": "Guardian can verify runtime projection, release audits, and test coverage before release."
+    }
+  ],
+  "resource_refs": [
+    "resource-repo-main"
+  ],
+  "policy_refs": [
+    "policy-runtime-backed-answer-discipline"
+  ],
+  "expected_output_contract": {
+    "artifact_type": "release-verification",
+    "artifact_schema_ref": "docs/v12.0-release-checklist.md",
+    "required_sections": [
+      "Verification",
+      "Not Proven"
+    ],
+    "acceptance_criteria": [
+      "release-state-audit passes",
+      "agent-session-contract-audit passes",
+      "Mission Control schema validates",
+      "provider truth and production safety are not overclaimed"
+    ]
+  },
+  "review_criteria": [
+    {
+      "criterion": "release gates pass without overclaiming",
+      "evaluator_ref": "architecture-council",
+      "evidence_required": "release-state-audit",
+      "blocking": true
+    }
+  ],
+  "blocker_semantics": [],
+  "hri_projection": {
+    "character_label": "Guardian",
+    "speech_bubble": "I am verifying the console is release-ready without granting provider write authority.",
+    "current_action": "Validate release gates",
+    "confidence_label": "medium",
+    "visible_blockers": [],
+    "next_action": "Submit role result."
+  },
+  "status": "completed"
+}

@@ -1,0 +1,26 @@
+{
+  "result_type": "role-result",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "role": "guardian",
+  "stage": "execution",
+  "session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "status": "completed",
+  "recommendation": "Approve only if v12.0 remains a read-only operator decision console and does not authorize provider writes or claim provider truth.",
+  "rationale": "The console can improve operator judgment, but the strongest risk is that a readable Go/No-Go surface is misread as execution permission.",
+  "signals": [
+    "The projection includes approval, rollback, and no-autonomous-write boundaries.",
+    "Release notes explicitly state not-proven limits."
+  ],
+  "artifact_refs": [
+    ".aof/artifacts/visibility/current/mission-control.json",
+    "docs/v12.0.0-release-notes.md",
+    "test/runtime-situation.test.js"
+  ],
+  "decision_required": true,
+  "source_task_id": "TASK-142",
+  "source_decision_record_id": null,
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "blocking_reason": null,
+  "missing_inputs": null,
+  "confidence": 0.84
+}

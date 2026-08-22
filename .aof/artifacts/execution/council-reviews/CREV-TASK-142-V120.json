@@ -1,0 +1,46 @@
+{
+  "packet_type": "council-review-packet",
+  "recorded_at": "2026-08-22T01:45:00.000Z",
+  "review_packet_id": "CREV-TASK-142-V120",
+  "council_id": "architecture-council",
+  "stage": "review",
+  "review_status": "approved",
+  "decision_summary": "Approve v12.0 Provider-backed Operator Decision Console as a bounded read-only operator judgment surface.",
+  "rationale": "Visionary, Builder, and Guardian agree that v12.0 advances AOF by joining existing provider-backed evidence into one operator Go/No-Go surface while preserving no-autonomous-write boundaries.",
+  "recommendation": "Proceed to release verification and tag v12.0.0 if release-state-audit, organization-verify, npm test, and smoke are green.",
+  "target_audience": "AOF release operator",
+  "expected_user_reaction": "Understand whether provider-backed evidence is ready for operator Go/No-Go review without opening raw runtime JSON or granting write authority.",
+  "blocking_reasons": [],
+  "artifact_change_recommendations": [],
+  "organization_change_recommendations": [],
+  "diagnosis_category": "provider-backed-decision-console-release-framing",
+  "diagnosis_confidence": 0.87,
+  "diagnosis_evidence_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-142-GUARDIAN.json"
+  ],
+  "human_override_signal": null,
+  "team_output_refs": [
+    ".aof/artifacts/execution/team-outputs/TOUT-TASK-142-OPERATOR-DECISION-CONSOLE.json"
+  ],
+  "role_result_refs": [
+    ".aof/artifacts/execution/role-results/RRES-TASK-142-VISIONARY.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-142-BUILDER.json",
+    ".aof/artifacts/execution/role-results/RRES-TASK-142-GUARDIAN.json"
+  ],
+  "evidence_refs": [
+    "docs/v12.0-release-definition.md",
+    "docs/v12.0-release-checklist.md",
+    "docs/v12.0.0-release-notes.md",
+    "schemas/aof-mission-control-view.schema.json",
+    "test/runtime-situation.test.js",
+    ".aof/artifacts/agent-sessions/SESS-V120-OPERATOR-DECISION-CONSOLE.json",
+    ".aof/artifacts/visibility/current/mission-control.json",
+    ".aof/artifacts/capability-release-deltas/CRD-TASK-142-V120.json",
+    ".aof/artifacts/product-value-evidence/PVE-TASK-142-V120.json"
+  ],
+  "follow_up_task_ids": [],
+  "escalation_required": false,
+  "source_task_id": "TASK-142",
+  "source_parent_session_id": "SESS-V120-OPERATOR-DECISION-CONSOLE",
+  "source_decision_record_id": null
+}
